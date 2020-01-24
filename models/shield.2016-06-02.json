@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -91,7 +96,7 @@
           "cloudFormationName": "Shield",
           "cloudTrailEventSource": "v20160616.bardockcustomerapiservice.amazonaws.com"
         },
-        "smithy.api#documentation": "\n      \n         <fullname>AWS Shield Advanced</fullname>\n         <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, \n         data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>.</p>\n      ",
+        "smithy.api#documentation": "<fullname>AWS Shield Advanced</fullname>\n         <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, \n         data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF and AWS Shield Developer Guide</a>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -114,7 +119,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -126,7 +131,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>In order to grant the necessary access to the DDoS Response Team, the user submitting  <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>\n      ",
+        "smithy.api#documentation": "<p>In order to grant the necessary access to the DDoS Response Team, the user submitting  <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>",
         "smithy.api#error": "client"
       }
     },
@@ -165,7 +170,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p>\n\t        <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p>\n\t        <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTLogBucketRequest": {
@@ -174,7 +179,7 @@
         "LogBucket": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucket",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that contains your AWS WAF logs.</p>",
             "smithy.api#required": true
           }
         }
@@ -213,7 +218,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Authorizes the DDoS Response team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p>\n         <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>\n         <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p>\n\n         <p>The DRT will have access only to your AWS WAF and Shield resources. By submitting this request, you authorize the DRT to inspect your AWS WAF and Shield configuration and create and update AWS WAF rules and web ACLs on your behalf. The DRT takes these actions only if explicitly authorized by you.</p>\n         <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>\n         <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Authorizes the DDoS Response team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p>\n         <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>\n         <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p>\n\n         <p>The DRT will have access only to your AWS WAF and Shield resources. By submitting this request, you authorize the DRT to inspect your AWS WAF and Shield configuration and create and update AWS WAF rules and web ACLs on your behalf. The DRT takes these actions only if explicitly authorized by you.</p>\n         <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>\n         <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#AssociateDRTRoleRequest": {
@@ -222,7 +227,7 @@
         "RoleArn": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#RoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.</p>\n\t        <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.</p>\n\t        <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>.</p>",
             "smithy.api#required": true
           }
         }
@@ -238,54 +243,54 @@
         "AttackCounters": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>List of counters that describe the attack for the specified time period.</p>\n      "
+            "smithy.api#documentation": "<p>List of counters that describe the attack for the specified time period.</p>"
           }
         },
         "AttackId": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) of the attack.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the attack.</p>"
           }
         },
         "AttackProperties": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackProperties",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The array of <a>AttackProperty</a> objects.</p>\n      "
+            "smithy.api#documentation": "<p>The array of <a>AttackProperty</a> objects.</p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time the attack ended, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The time the attack ended, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "Mitigations": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#MitigationList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>List of mitigation actions taken for the attack.</p>\n      "
+            "smithy.api#documentation": "<p>List of mitigation actions taken for the attack.</p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time the attack started, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The time the attack started, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "SubResources": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If applicable, additional detail about the resource being attacked, for example, IP\n         address or URL.</p>\n      "
+            "smithy.api#documentation": "<p>If applicable, additional detail about the resource being attacked, for example, IP\n         address or URL.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The details of a DDoS attack.</p>\n      "
+        "smithy.api#documentation": "<p>The details of a DDoS attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#AttackId": {
@@ -323,36 +328,36 @@
         "AttackLayer": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackLayer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The type of distributed denial of service (DDoS) event that was observed.\n            <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>\n         indicates layer 7 events.</p>\n      "
+            "smithy.api#documentation": "<p>The type of distributed denial of service (DDoS) event that was observed.\n            <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>\n         indicates layer 7 events.</p>"
           }
         },
         "AttackPropertyIdentifier": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackPropertyIdentifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Defines the DDoS attack property information that is provided. The\n            <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>\n         values are valid only for WordPress reflective pingback DDoS attacks.</p>\n      "
+            "smithy.api#documentation": "<p>Defines the DDoS attack property information that is provided. The\n            <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>\n         values are valid only for WordPress reflective pingback DDoS attacks.</p>"
           }
         },
         "TopContributors": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#TopContributors",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>\n      "
+            "smithy.api#documentation": "<p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>"
           }
         },
         "Total": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>\n      "
+            "smithy.api#documentation": "<p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>"
           }
         },
         "Unit": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Unit",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unit of the <code>Value</code> of the contributions.</p>\n      "
+            "smithy.api#documentation": "<p>The unit of the <code>Value</code> of the contributions.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Details of the described attack.</p>\n      "
+        "smithy.api#documentation": "<p>Details of the described attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#AttackPropertyIdentifier": {
@@ -398,36 +403,36 @@
         "AttackId": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) of the attack.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the attack.</p>"
           }
         },
         "AttackVectors": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackVectorDescriptionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of attacks for a specified time period.</p>\n      "
+            "smithy.api#documentation": "<p>The list of attacks for a specified time period.</p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Summarizes all DDoS attacks for a specified time period.</p>\n      "
+        "smithy.api#documentation": "<p>Summarizes all DDoS attacks for a specified time period.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp": {
@@ -439,13 +444,13 @@
         "VectorType": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The attack type. Valid values:</p>\n\t        <ul>\n            <li>\n               <p>UDP_TRAFFIC</p>\n            </li>\n            <li>\n               <p>UDP_FRAGMENT</p>\n            </li>\n            <li>\n               <p>GENERIC_UDP_REFLECTION</p>\n            </li>\n            <li>\n               <p>DNS_REFLECTION</p>\n            </li>\n            <li>\n               <p>NTP_REFLECTION</p>\n            </li>\n            <li>\n               <p>CHARGEN_REFLECTION</p>\n            </li>\n            <li>\n               <p>SSDP_REFLECTION</p>\n            </li>\n            <li>\n               <p>PORT_MAPPER</p>\n            </li>\n            <li>\n               <p>RIP_REFLECTION</p>\n            </li>\n            <li>\n               <p>SNMP_REFLECTION</p>\n            </li>\n            <li>\n               <p>MSSQL_REFLECTION</p>\n            </li>\n            <li>\n               <p>NET_BIOS_REFLECTION</p>\n            </li>\n            <li>\n               <p>SYN_FLOOD</p>\n            </li>\n            <li>\n               <p>ACK_FLOOD</p>\n            </li>\n            <li>\n               <p>REQUEST_FLOOD</p> \n            </li>\n            <li>\n               <p>HTTP_REFLECTION</p>\n            </li>\n            <li>\n               <p>UDS_REFLECTION</p>\n            </li>\n            <li>\n               <p>MEMCACHED_REFLECTION</p>\n            </li>\n         </ul>\n      ",
+            "smithy.api#documentation": "<p>The attack type. Valid values:</p>\n\t        <ul>\n            <li>\n               <p>UDP_TRAFFIC</p>\n            </li>\n            <li>\n               <p>UDP_FRAGMENT</p>\n            </li>\n            <li>\n               <p>GENERIC_UDP_REFLECTION</p>\n            </li>\n            <li>\n               <p>DNS_REFLECTION</p>\n            </li>\n            <li>\n               <p>NTP_REFLECTION</p>\n            </li>\n            <li>\n               <p>CHARGEN_REFLECTION</p>\n            </li>\n            <li>\n               <p>SSDP_REFLECTION</p>\n            </li>\n            <li>\n               <p>PORT_MAPPER</p>\n            </li>\n            <li>\n               <p>RIP_REFLECTION</p>\n            </li>\n            <li>\n               <p>SNMP_REFLECTION</p>\n            </li>\n            <li>\n               <p>MSSQL_REFLECTION</p>\n            </li>\n            <li>\n               <p>NET_BIOS_REFLECTION</p>\n            </li>\n            <li>\n               <p>SYN_FLOOD</p>\n            </li>\n            <li>\n               <p>ACK_FLOOD</p>\n            </li>\n            <li>\n               <p>REQUEST_FLOOD</p> \n            </li>\n            <li>\n               <p>HTTP_REFLECTION</p>\n            </li>\n            <li>\n               <p>UDS_REFLECTION</p>\n            </li>\n            <li>\n               <p>MEMCACHED_REFLECTION</p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the attack.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#AttackVectorDescriptionList": {
@@ -473,18 +478,18 @@
         "Name": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>"
           }
         },
         "Value": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A contributor to the attack and their contribution.</p>\n      "
+        "smithy.api#documentation": "<p>A contributor to the attack and their contribution.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtection": {
@@ -519,7 +524,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon\n         CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p>\n         <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">AWS WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with AWS Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon\n         CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p>\n         <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">AWS WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with AWS Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add AWS Shield Advanced Protection to more AWS Resources</a>.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#CreateProtectionRequest": {
@@ -528,14 +533,14 @@
         "Name": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Friendly name for the <code>Protection</code> you are creating.</p>\n      ",
+            "smithy.api#documentation": "<p>Friendly name for the <code>Protection</code> you are creating.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>\n         <p>The ARN should be in one of the following formats:</p>\n         <ul>\n            <li>\n               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an AWS Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>\n                  </code>\n               </p>\n            </li>\n         </ul>\n     \n      \n      ",
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource to be protected.</p>\n         <p>The ARN should be in one of the following formats:</p>\n         <ul>\n            <li>\n               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an AWS Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>\n                  </code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         }
@@ -547,7 +552,7 @@
         "ProtectionId": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) for the <a>Protection</a> object that is\n         created.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object that is\n         created.</p>"
           }
         }
       }
@@ -569,7 +574,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Activates AWS Shield Advanced for an account.</p>\n         <p>As part of this request you can specify <code>EmergencySettings</code> that automaticaly grant the DDoS response team (DRT) needed permissions to assist you during a suspected DDoS attack. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html\">Authorize the DDoS Response Team to Create Rules and Web ACLs on Your Behalf</a>.</p>\n         <p>To use the services of the DRT, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support\n            plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise\n               Support plan</a>.</p>\n      \n         <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>\n      "
+        "smithy.api#documentation": "<p>Activates AWS Shield Advanced for an account.</p>\n         <p>As part of this request you can specify <code>EmergencySettings</code> that automaticaly grant the DDoS response team (DRT) needed permissions to assist you during a suspected DDoS attack. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html\">Authorize the DDoS Response Team to Create Rules and Web ACLs on Your Behalf</a>.</p>\n         <p>To use the services of the DRT, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support\n            plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise\n               Support plan</a>.</p>\n      \n         <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#CreateSubscriptionRequest": {
@@ -600,7 +605,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes an AWS Shield Advanced <a>Protection</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Deletes an AWS Shield Advanced <a>Protection</a>.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteProtectionRequest": {
@@ -609,7 +614,7 @@
         "ProtectionId": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) for the <a>Protection</a> object to be\n         deleted.</p>\n      ",
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object to be\n         deleted.</p>",
             "smithy.api#required": true
           }
         }
@@ -640,7 +645,7 @@
       ],
       "traits": {
         "smithy.api#deprecated": { },
-        "smithy.api#documentation": "\n         <p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>\n      "
+        "smithy.api#documentation": "<p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DeleteSubscriptionRequest": {
@@ -674,7 +679,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the details of a DDoS attack. </p>\n      "
+        "smithy.api#documentation": "<p>Describes the details of a DDoS attack. </p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeAttackRequest": {
@@ -683,7 +688,7 @@
         "AttackId": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) for the attack that to be described.</p>\n      ",
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the attack that to be described.</p>",
             "smithy.api#required": true
           }
         }
@@ -695,7 +700,7 @@
         "Attack": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackDetail",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The attack that is described.</p>\n      "
+            "smithy.api#documentation": "<p>The attack that is described.</p>"
           }
         }
       }
@@ -717,7 +722,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response team (DRT) to access your AWS account while assisting with attack mitigation.</p>\n      "
+        "smithy.api#documentation": "<p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response team (DRT) to access your AWS account while assisting with attack mitigation.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeDRTAccessRequest": {
@@ -730,13 +735,13 @@
         "LogBucketList": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucketList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of Amazon S3 buckets accessed by the DRT.</p>\n      "
+            "smithy.api#documentation": "<p>The list of Amazon S3 buckets accessed by the DRT.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#RoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>"
           }
         }
       }
@@ -758,7 +763,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the email addresses that the DRT can use to contact you during a suspected attack.</p>\n      "
+        "smithy.api#documentation": "<p>Lists the email addresses that the DRT can use to contact you during a suspected attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeEmergencyContactSettingsRequest": {
@@ -771,7 +776,7 @@
         "EmergencyContactList": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContactList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>\n      "
+            "smithy.api#documentation": "<p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>"
           }
         }
       }
@@ -796,7 +801,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the details of a <a>Protection</a> object.</p>\n      "
+        "smithy.api#documentation": "<p>Lists the details of a <a>Protection</a> object.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeProtectionRequest": {
@@ -805,13 +810,13 @@
         "ProtectionId": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
           }
         }
       }
@@ -822,7 +827,7 @@
         "Protection": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Protection",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <a>Protection</a> object that is described.</p>\n      "
+            "smithy.api#documentation": "<p>The <a>Protection</a> object that is described.</p>"
           }
         }
       }
@@ -844,7 +849,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Provides details about the AWS Shield Advanced subscription for an account.</p>\n      "
+        "smithy.api#documentation": "<p>Provides details about the AWS Shield Advanced subscription for an account.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DescribeSubscriptionRequest": {
@@ -857,7 +862,7 @@
         "Subscription": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Subscription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS Shield Advanced subscription details for an account.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS Shield Advanced subscription details for an account.</p>"
           }
         }
       }
@@ -891,7 +896,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p>\n\t        <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>\n      "
+        "smithy.api#documentation": "<p>Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p>\n\t        <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTLogBucketRequest": {
@@ -900,7 +905,7 @@
         "LogBucket": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#LogBucket",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that contains your AWS WAF logs.</p>",
             "smithy.api#required": true
           }
         }
@@ -933,7 +938,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes the DDoS Response team's (DRT) access to your AWS account.</p>\n\t        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>\n      "
+        "smithy.api#documentation": "<p>Removes the DDoS Response team's (DRT) access to your AWS account.</p>\n\t        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#DisassociateDRTRoleRequest": {
@@ -971,13 +976,13 @@
         "EmailAddress": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#EmailAddress",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An email address that the DRT can use to contact you during a suspected attack.</p>\n      ",
+            "smithy.api#documentation": "<p>An email address that the DRT can use to contact you during a suspected attack.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Contact information that the DRT can use to contact you during a suspected attack.</p>\n      "
+        "smithy.api#documentation": "<p>Contact information that the DRT can use to contact you during a suspected attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContactList": {
@@ -1006,7 +1011,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>\n      "
+        "smithy.api#documentation": "<p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#GetSubscriptionStateRequest": {
@@ -1019,7 +1024,7 @@
         "SubscriptionState": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SubscriptionState",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the subscription.</p>\n      ",
+            "smithy.api#documentation": "<p>The status of the subscription.</p>",
             "smithy.api#required": true
           }
         }
@@ -1036,7 +1041,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates that a problem occurred with the service infrastructure. You\n         can retry the request.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates that a problem occurred with the service infrastructure. You\n         can retry the request.</p>",
         "smithy.api#error": "server"
       }
     },
@@ -1048,7 +1053,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates that the operation would not cause any change to occur.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates that the operation would not cause any change to occur.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1060,7 +1065,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1072,7 +1077,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates that the parameters passed to the API are invalid. </p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates that the parameters passed to the API are invalid. </p>",
         "smithy.api#error": "client"
       }
     },
@@ -1084,7 +1089,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1094,18 +1099,18 @@
         "Max": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The type of protection.</p>\n      "
+            "smithy.api#documentation": "<p>The type of protection.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Specifies how many protections of a given type you can create.</p>\n      "
+        "smithy.api#documentation": "<p>Specifies how many protections of a given type you can create.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#LimitNumber": {
@@ -1134,7 +1139,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates that the operation would exceed a limit.</p>\n         <p>\n            <code>Type</code> is the type of limit that would be exceeded.</p>\n         <p>\n            <code>Limit</code> is the threshold that would be exceeded.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates that the operation would exceed a limit.</p>\n         <p>\n            <code>Type</code> is the type of limit that would be exceeded.</p>\n         <p>\n            <code>Limit</code> is the threshold that would be exceeded.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1158,7 +1163,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time\n         period.</p>\n      "
+        "smithy.api#documentation": "<p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time\n         period.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#ListAttacksRequest": {
@@ -1167,31 +1172,31 @@
         "EndTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#TimeRange",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>\n      "
+            "smithy.api#documentation": "<p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>\n      "
+            "smithy.api#documentation": "<p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>"
           }
         },
         "ResourceArns": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArnFilterList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left\n         blank, all applicable resources for this account will be included.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left\n         blank, all applicable resources for this account will be included.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#TimeRange",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>\n      "
+            "smithy.api#documentation": "<p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
           }
         }
       }
@@ -1202,13 +1207,13 @@
         "AttackSummaries": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The attack information for the specified time range.</p>\n      "
+            "smithy.api#documentation": "<p>The attack information for the specified time range.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token returned by a previous call to indicate that there is more data available.\n         If not null, more results are available. Pass this value for the <code>NextMarker</code>\n         parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of\n         items.</p>\n         <p>AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The token returned by a previous call to indicate that there is more data available.\n         If not null, more results are available. Pass this value for the <code>NextMarker</code>\n         parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of\n         items.</p>\n         <p>AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         }
       }
@@ -1233,7 +1238,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists all <a>Protection</a> objects for the account.</p>\n      "
+        "smithy.api#documentation": "<p>Lists all <a>Protection</a> objects for the account.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#ListProtectionsRequest": {
@@ -1242,13 +1247,13 @@
         "MaxResults": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of <a>Protection</a> objects to be returned. If this is\n         left blank the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of <a>Protection</a> objects to be returned. If this is\n         left blank the first 20 results will be returned.</p>\n         <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>\n      "
+            "smithy.api#documentation": "<p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>"
           }
         }
       }
@@ -1259,13 +1264,13 @@
         "NextToken": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>\n         <p>AWS WAF might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>\n      "
+            "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>\n         <p>AWS WAF might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>"
           }
         },
         "Protections": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Protections",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The array of enabled <a>Protection</a> objects.</p>\n      "
+            "smithy.api#documentation": "<p>The array of enabled <a>Protection</a> objects.</p>"
           }
         }
       }
@@ -1278,7 +1283,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>\n      ",
+        "smithy.api#documentation": "<p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1323,12 +1328,12 @@
         "MitigationName": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the mitigation taken for this attack.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the mitigation taken for this attack.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The mitigation applied to a DDoS attack.</p>\n      "
+        "smithy.api#documentation": "<p>The mitigation applied to a DDoS attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#MitigationList": {
@@ -1345,7 +1350,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The ARN of the role that you specifed does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>The ARN of the role that you specifed does not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1357,7 +1362,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception that indicates that the protection state has been modified by another\n         client. You can retry the request.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception that indicates that the protection state has been modified by another\n         client. You can retry the request.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1367,24 +1372,24 @@
         "Id": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) of the protection.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the protection.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that represents a resource that is under DDoS protection.</p>\n      "
+        "smithy.api#documentation": "<p>An object that represents a resource that is under DDoS protection.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#ProtectionId": {
@@ -1421,7 +1426,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception indicating the specified resource already exists.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception indicating the specified resource already exists.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1449,7 +1454,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exception indicating the specified resource does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception indicating the specified resource does not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1472,30 +1477,30 @@
         "AttackVectors": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedAttackVectorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of attack types and associated counters.</p>\n      "
+            "smithy.api#documentation": "<p>The list of attack types and associated counters.</p>"
           }
         },
         "Counters": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The counters that describe the details of the attack.</p>\n      "
+            "smithy.api#documentation": "<p>The counters that describe the details of the attack.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier (ID) of the <code>SubResource</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier (ID) of the <code>SubResource</code>.</p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <code>SubResource</code> type.</p>\n      "
+            "smithy.api#documentation": "<p>The <code>SubResource</code> type.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The attack information for the specified SubResource.</p>\n      "
+        "smithy.api#documentation": "<p>The attack information for the specified SubResource.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#SubResourceSummaryList": {
@@ -1523,36 +1528,36 @@
         "AutoRenew": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AutoRenew",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>\n         <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p> \n      "
+            "smithy.api#documentation": "<p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>\n         <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time your subscription will end.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time your subscription will end.</p>"
           }
         },
         "Limits": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Limits",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies how many protections of a given type you can create.</p>\n      "
+            "smithy.api#documentation": "<p>Specifies how many protections of a given type you can create.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "TimeCommitmentInSeconds": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#DurationInSeconds",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>\n      "
+            "smithy.api#documentation": "<p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the AWS Shield Advanced subscription for an account.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the AWS Shield Advanced subscription for an account.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#SubscriptionState": {
@@ -1574,19 +1579,19 @@
         "VectorCounters": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of counters that describe the details of the attack.</p>\n      "
+            "smithy.api#documentation": "<p>The list of counters that describe the details of the attack.</p>"
           }
         },
         "VectorType": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The attack type, for example, SNMP reflection or SYN flood.</p>\n      ",
+            "smithy.api#documentation": "<p>The attack type, for example, SNMP reflection or SYN flood.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A summary of information about the attack.</p>\n      "
+        "smithy.api#documentation": "<p>A summary of information about the attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedAttackVectorList": {
@@ -1601,42 +1606,42 @@
         "Average": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Double",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The average value of the counter for a specified time period.</p>\n      "
+            "smithy.api#documentation": "<p>The average value of the counter for a specified time period.</p>"
           }
         },
         "Max": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Double",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum value of the counter for a specified time period.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum value of the counter for a specified time period.</p>"
           }
         },
         "N": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The number of counters for a specified time period.</p>\n      "
+            "smithy.api#documentation": "<p>The number of counters for a specified time period.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The counter name.</p>\n      "
+            "smithy.api#documentation": "<p>The counter name.</p>"
           }
         },
         "Sum": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#Double",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The total of counter values for a specified time period.</p>\n      "
+            "smithy.api#documentation": "<p>The total of counter values for a specified time period.</p>"
           }
         },
         "Unit": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unit of the counters.</p>\n      "
+            "smithy.api#documentation": "<p>The unit of the counters.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The counter that describes a DDoS attack.</p>\n      "
+        "smithy.api#documentation": "<p>The counter that describes a DDoS attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#SummarizedCounterList": {
@@ -1651,18 +1656,18 @@
         "FromInclusive": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The start time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The start time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         },
         "ToExclusive": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The time range.</p>\n      "
+        "smithy.api#documentation": "<p>The time range.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#Timestamp": {
@@ -1726,7 +1731,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the details of the list of email addresses that the DRT can use to contact you during a suspected attack.</p>\n      "
+        "smithy.api#documentation": "<p>Updates the details of the list of email addresses that the DRT can use to contact you during a suspected attack.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateEmergencyContactSettingsRequest": {
@@ -1735,7 +1740,7 @@
         "EmergencyContactList": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#EmergencyContactList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>\n      "
+            "smithy.api#documentation": "<p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>"
           }
         }
       }
@@ -1770,7 +1775,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>\n      "
+        "smithy.api#documentation": "<p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>"
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#UpdateSubscriptionRequest": {
@@ -1779,7 +1784,7 @@
         "AutoRenew": {
           "target": "com.amazonaws.bardockcustomerapiservice.v20160616#AutoRenew",
           "traits": {
-            "smithy.api#documentation": "\n         <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>\n      "
+            "smithy.api#documentation": "<p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>"
           }
         }
       }

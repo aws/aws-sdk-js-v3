@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -722,6 +727,20 @@
         "smithy.api#documentation": "Audio Normalization Settings"
       }
     },
+    "com.amazonaws.medialive#AudioOnlyHlsSegmentType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Audio Only Hls Segment Type",
+        "smithy.api#enum": {
+          "AAC": {
+            "name": "AAC"
+          },
+          "FMP4": {
+            "name": "FMP4"
+          }
+        }
+      }
+    },
     "com.amazonaws.medialive#AudioOnlyHlsSettings": {
       "type": "structure",
       "members": {
@@ -744,6 +763,13 @@
           "traits": {
             "smithy.api#documentation": "Four types of audio-only tracks are supported:\n\nAudio-Only Variant Stream\nThe client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest.\n\nAlternate Audio, Auto Select, Default\nAlternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES\n\nAlternate Audio, Auto Select, Not Default\nAlternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES\n\nAlternate Audio, not Auto Select\nAlternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO",
             "smithy.api#jsonName": "audioTrackType"
+          }
+        },
+        "SegmentType": {
+          "target": "com.amazonaws.medialive#AudioOnlyHlsSegmentType",
+          "traits": {
+            "smithy.api#documentation": "Specifies the segment type.",
+            "smithy.api#jsonName": "segmentType"
           }
         }
       },
@@ -1692,7 +1718,7 @@
         "Destinations": {
           "target": "com.amazonaws.medialive#__listOfOutputDestination",
           "traits": {
-            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
+            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.",
             "smithy.api#jsonName": "destinations"
           }
         },
@@ -1872,7 +1898,7 @@
         "Destinations": {
           "target": "com.amazonaws.medialive#__listOfOutputDestination",
           "traits": {
-            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
+            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.",
             "smithy.api#jsonName": "destinations"
           }
         },
@@ -2068,7 +2094,7 @@
         "RequestId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Unique request ID to be specified. This is needed to prevent retries from\ncreating multiple resources.\n",
+            "smithy.api#documentation": "Unique request ID to be specified. This is needed to prevent retries from\ncreating multiple resources.",
             "smithy.api#idempotencyToken": true,
             "smithy.api#jsonName": "requestId"
           }
@@ -2171,7 +2197,7 @@
         "MediaConnectFlows": {
           "target": "com.amazonaws.medialive#__listOfMediaConnectFlowRequest",
           "traits": {
-            "smithy.api#documentation": "A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one\nFlow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a\nseparate Availability Zone as this ensures your EML input is redundant to AZ issues.\n",
+            "smithy.api#documentation": "A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one\nFlow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a\nseparate Availability Zone as this ensures your EML input is redundant to AZ issues.",
             "smithy.api#jsonName": "mediaConnectFlows"
           }
         },
@@ -2185,7 +2211,7 @@
         "RequestId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries.\n",
+            "smithy.api#documentation": "Unique identifier of the request to ensure the request is handled\nexactly once in case of retries.",
             "smithy.api#idempotencyToken": true,
             "smithy.api#jsonName": "requestId"
           }
@@ -2200,7 +2226,7 @@
         "Sources": {
           "target": "com.amazonaws.medialive#__listOfInputSourceRequest",
           "traits": {
-            "smithy.api#documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n",
+            "smithy.api#documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.",
             "smithy.api#jsonName": "sources"
           }
         },
@@ -2431,7 +2457,7 @@
         "RequestId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Unique request ID. This prevents retries from creating multiple\nresources.\n",
+            "smithy.api#documentation": "Unique request ID. This prevents retries from creating multiple\nresources.",
             "smithy.api#idempotencyToken": true,
             "smithy.api#jsonName": "requestId",
             "smithy.api#required": true
@@ -2487,7 +2513,7 @@
         "RequestId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Unique request ID. This prevents retries from creating multiple\nresources.\n",
+            "smithy.api#documentation": "Unique request ID. This prevents retries from creating multiple\nresources.",
             "smithy.api#idempotencyToken": true,
             "smithy.api#jsonName": "requestId",
             "smithy.api#required": true
@@ -2648,7 +2674,7 @@
         "Destinations": {
           "target": "com.amazonaws.medialive#__listOfOutputDestination",
           "traits": {
-            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
+            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.",
             "smithy.api#jsonName": "destinations"
           }
         },
@@ -3490,7 +3516,7 @@
         "Destinations": {
           "target": "com.amazonaws.medialive#__listOfOutputDestination",
           "traits": {
-            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
+            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.",
             "smithy.api#jsonName": "destinations"
           }
         },
@@ -3670,14 +3696,14 @@
         "InputClass": {
           "target": "com.amazonaws.medialive#InputClass",
           "traits": {
-            "smithy.api#documentation": "STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.\nSINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.\n",
+            "smithy.api#documentation": "STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.\nSINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.",
             "smithy.api#jsonName": "inputClass"
           }
         },
         "InputSourceType": {
           "target": "com.amazonaws.medialive#InputSourceType",
           "traits": {
-            "smithy.api#documentation": "Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes\nduring input switch actions. Presently, this functionality only works with MP4_FILE inputs.\n",
+            "smithy.api#documentation": "Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes\nduring input switch actions. Presently, this functionality only works with MP4_FILE inputs.",
             "smithy.api#jsonName": "inputSourceType"
           }
         },
@@ -5511,6 +5537,21 @@
         "smithy.api#documentation": "Start time for the action."
       }
     },
+    "com.amazonaws.medialive#Fmp4HlsSettings": {
+      "type": "structure",
+      "members": {
+        "AudioRenditionSets": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#documentation": "List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.",
+            "smithy.api#jsonName": "audioRenditionSets"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Fmp4 Hls Settings"
+      }
+    },
     "com.amazonaws.medialive#FollowModeScheduleActionStartSettings": {
       "type": "structure",
       "members": {
@@ -5581,6 +5622,20 @@
         "smithy.api#documentation": "Frame Capture Group Settings"
       }
     },
+    "com.amazonaws.medialive#FrameCaptureIntervalUnit": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Frame Capture Interval Unit",
+        "smithy.api#enum": {
+          "MILLISECONDS": {
+            "name": "MILLISECONDS"
+          },
+          "SECONDS": {
+            "name": "SECONDS"
+          }
+        }
+      }
+    },
     "com.amazonaws.medialive#FrameCaptureOutputSettings": {
       "type": "structure",
       "members": {
@@ -5605,6 +5660,13 @@
             "smithy.api#documentation": "The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.",
             "smithy.api#jsonName": "captureInterval",
             "smithy.api#required": true
+          }
+        },
+        "CaptureIntervalUnits": {
+          "target": "com.amazonaws.medialive#FrameCaptureIntervalUnit",
+          "traits": {
+            "smithy.api#documentation": "Unit for the frame capture interval.",
+            "smithy.api#jsonName": "captureIntervalUnits"
           }
         }
       },
@@ -6236,7 +6298,7 @@
         "RateControlMode": {
           "target": "com.amazonaws.medialive#H264RateControlMode",
           "traits": {
-            "smithy.api#documentation": "Rate control mode.\n\nQVBR: Quality will match the specified quality level except when it is constrained by the\nmaximum bitrate.  Recommended if you or your viewers pay for bandwidth.\n\nVBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR\nif you want to maintain a specific average bitrate over the duration of the channel.\n\nCBR: Quality varies, depending on the video complexity. Recommended only if you distribute\nyour assets to devices that cannot handle variable bitrates.",
+            "smithy.api#documentation": "Rate control mode.\n\nQVBR: Quality will match the specified quality level except when it is constrained by the\nmaximum bitrate.  Recommended if you or your viewers pay for bandwidth.\n\nVBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR\nif you want to maintain a specific average bitrate over the duration of the channel.\n\nCBR: Quality varies, depending on the video complexity. Recommended only if you distribute\nyour assets to devices that cannot handle variable bitrates.\n\nMultiplex: This rate control mode is only supported (and is required) when the video is being\ndelivered to a MediaLive Multiplex in which case the rate control configuration is controlled\nby the properties within the Multiplex Program.",
             "smithy.api#jsonName": "rateControlMode"
           }
         },
@@ -7117,11 +7179,25 @@
             "smithy.api#jsonName": "baseUrlContent"
           }
         },
+        "BaseUrlContent1": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#documentation": "Optional. One value per output group.\n\nThis field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.",
+            "smithy.api#jsonName": "baseUrlContent1"
+          }
+        },
         "BaseUrlManifest": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
             "smithy.api#documentation": "A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.",
             "smithy.api#jsonName": "baseUrlManifest"
+          }
+        },
+        "BaseUrlManifest1": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#documentation": "Optional. One value per output group.\n\nComplete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.",
+            "smithy.api#jsonName": "baseUrlManifest1"
           }
         },
         "CaptionLanguageMappings": {
@@ -7186,6 +7262,13 @@
           "traits": {
             "smithy.api#documentation": "Parameters that control interactions with the CDN.",
             "smithy.api#jsonName": "hlsCdnSettings"
+          }
+        },
+        "HlsId3SegmentTagging": {
+          "target": "com.amazonaws.medialive#HlsId3SegmentTaggingState",
+          "traits": {
+            "smithy.api#documentation": "State of HLS ID3 Segment Tagging",
+            "smithy.api#jsonName": "hlsId3SegmentTagging"
           }
         },
         "IFrameOnlyPlaylists": {
@@ -7368,6 +7451,50 @@
         "smithy.api#documentation": "Hls Group Settings"
       }
     },
+    "com.amazonaws.medialive#HlsH265PackagingType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "Hls H265 Packaging Type",
+        "smithy.api#enum": {
+          "HEV1": {
+            "name": "HEV1"
+          },
+          "HVC1": {
+            "name": "HVC1"
+          }
+        }
+      }
+    },
+    "com.amazonaws.medialive#HlsId3SegmentTaggingScheduleActionSettings": {
+      "type": "structure",
+      "members": {
+        "Tag": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#documentation": "ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html",
+            "smithy.api#jsonName": "tag",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Settings for the action to insert a user-defined ID3 tag in each HLS segment"
+      }
+    },
+    "com.amazonaws.medialive#HlsId3SegmentTaggingState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "State of HLS ID3 Segment Tagging",
+        "smithy.api#enum": {
+          "DISABLED": {
+            "name": "DISABLED"
+          },
+          "ENABLED": {
+            "name": "ENABLED"
+          }
+        }
+      }
+    },
     "com.amazonaws.medialive#HlsInputSettings": {
       "type": "structure",
       "members": {
@@ -7545,6 +7672,13 @@
     "com.amazonaws.medialive#HlsOutputSettings": {
       "type": "structure",
       "members": {
+        "H265PackagingType": {
+          "target": "com.amazonaws.medialive#HlsH265PackagingType",
+          "traits": {
+            "smithy.api#documentation": "Only applicable when this output is referencing an H.265 video description.\nSpecifies whether MP4 segments should be packaged as HEV1 or HVC1.",
+            "smithy.api#jsonName": "h265PackagingType"
+          }
+        },
         "HlsSettings": {
           "target": "com.amazonaws.medialive#HlsSettings",
           "traits": {
@@ -7621,6 +7755,12 @@
           "target": "com.amazonaws.medialive#AudioOnlyHlsSettings",
           "traits": {
             "smithy.api#jsonName": "audioOnlyHlsSettings"
+          }
+        },
+        "Fmp4HlsSettings": {
+          "target": "com.amazonaws.medialive#Fmp4HlsSettings",
+          "traits": {
+            "smithy.api#jsonName": "fmp4HlsSettings"
           }
         },
         "StandardHlsSettings": {
@@ -7807,14 +7947,14 @@
         "InputClass": {
           "target": "com.amazonaws.medialive#InputClass",
           "traits": {
-            "smithy.api#documentation": "STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.\nSINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.\n",
+            "smithy.api#documentation": "STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.\nSINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.",
             "smithy.api#jsonName": "inputClass"
           }
         },
         "InputSourceType": {
           "target": "com.amazonaws.medialive#InputSourceType",
           "traits": {
-            "smithy.api#documentation": "Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes\nduring input switch actions. Presently, this functionality only works with MP4_FILE inputs.\n",
+            "smithy.api#documentation": "Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes\nduring input switch actions. Presently, this functionality only works with MP4_FILE inputs.",
             "smithy.api#jsonName": "inputSourceType"
           }
         },
@@ -8025,7 +8165,7 @@
         "Ip": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "The system-generated static IP address of endpoint.\nIt remains fixed for the lifetime of the input.\n",
+            "smithy.api#documentation": "The system-generated static IP address of endpoint.\nIt remains fixed for the lifetime of the input.",
             "smithy.api#jsonName": "ip"
           }
         },
@@ -8039,7 +8179,7 @@
         "Url": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "This represents the endpoint that the customer stream will be\npushed to.\n",
+            "smithy.api#documentation": "This represents the endpoint that the customer stream will be\npushed to.",
             "smithy.api#jsonName": "url"
           }
         },
@@ -8060,7 +8200,7 @@
         "StreamName": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "A unique name for the location the RTMP stream is being pushed\nto.\n",
+            "smithy.api#documentation": "A unique name for the location the RTMP stream is being pushed\nto.",
             "smithy.api#jsonName": "streamName"
           }
         }
@@ -8075,14 +8215,14 @@
         "AvailabilityZone": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "The availability zone of the Input destination.\n",
+            "smithy.api#documentation": "The availability zone of the Input destination.",
             "smithy.api#jsonName": "availabilityZone"
           }
         },
         "NetworkInterfaceId": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "The network interface ID of the Input destination in the VPC.\n",
+            "smithy.api#documentation": "The network interface ID of the Input destination in the VPC.",
             "smithy.api#jsonName": "networkInterfaceId"
           }
         }
@@ -8274,7 +8414,7 @@
     "com.amazonaws.medialive#InputResolution": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "Input resolution based on lines of vertical resolution in the input; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines\n",
+        "smithy.api#documentation": "Input resolution based on lines of vertical resolution in the input; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines",
         "smithy.api#enum": {
           "SD": {
             "name": "SD"
@@ -8442,7 +8582,7 @@
         "Url": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "This represents the customer's source URL where stream is\npulled from.\n",
+            "smithy.api#documentation": "This represents the customer's source URL where stream is\npulled from.",
             "smithy.api#jsonName": "url"
           }
         },
@@ -8485,7 +8625,7 @@
         "Url": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "This represents the customer's source URL where stream is\npulled from.\n",
+            "smithy.api#documentation": "This represents the customer's source URL where stream is\npulled from.",
             "smithy.api#jsonName": "url"
           }
         },
@@ -8504,7 +8644,7 @@
     "com.amazonaws.medialive#InputSourceType": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "There are two types of input sources, static and dynamic. If an input source is dynamic you can\nchange the source url of the input dynamically using an input switch action. However, the only input type\nto support a dynamic url at this time is MP4_FILE. By default all input sources are static.\n",
+        "smithy.api#documentation": "There are two types of input sources, static and dynamic. If an input source is dynamic you can\nchange the source url of the input dynamically using an input switch action. However, the only input type\nto support a dynamic url at this time is MP4_FILE. By default all input sources are static.",
         "smithy.api#enum": {
           "STATIC": {
             "name": "STATIC"
@@ -8646,21 +8786,21 @@
         "SecurityGroupIds": {
           "target": "com.amazonaws.medialive#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.\nRequires subnetIds. If none are specified then the VPC default security group will be used.\n",
+            "smithy.api#documentation": "A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.\nRequires subnetIds. If none are specified then the VPC default security group will be used.",
             "smithy.api#jsonName": "securityGroupIds"
           }
         },
         "SubnetIds": {
           "target": "com.amazonaws.medialive#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "A list of 2 VPC subnet IDs from the same VPC.\nSubnet IDs must be mapped to two unique availability zones (AZ).\n",
+            "smithy.api#documentation": "A list of 2 VPC subnet IDs from the same VPC.\nSubnet IDs must be mapped to two unique availability zones (AZ).",
             "smithy.api#jsonName": "subnetIds",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "Settings for a private VPC Input.\nWhen this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.\nThis property requires setting the roleArn property on Input creation.\nNot compatible with the inputSecurityGroups property.\n"
+        "smithy.api#documentation": "Settings for a private VPC Input.\nWhen this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.\nThis property requires setting the roleArn property on Input creation.\nNot compatible with the inputSecurityGroups property."
       }
     },
     "com.amazonaws.medialive#InputWhitelistRule": {
@@ -9185,14 +9325,14 @@
         "ChannelClass": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'\n",
+            "smithy.api#documentation": "Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'",
             "smithy.api#httpQuery": "channelClass"
           }
         },
         "ChannelConfiguration": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)\n",
+            "smithy.api#documentation": "Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)",
             "smithy.api#httpQuery": "channelConfiguration"
           }
         },
@@ -9219,7 +9359,7 @@
         "MaximumBitrate": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'\n",
+            "smithy.api#documentation": "Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'",
             "smithy.api#httpQuery": "maximumBitrate"
           }
         },
@@ -9253,14 +9393,14 @@
         "SpecialFeature": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'\n",
+            "smithy.api#documentation": "Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'",
             "smithy.api#httpQuery": "specialFeature"
           }
         },
         "VideoQuality": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'\n",
+            "smithy.api#documentation": "Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'",
             "smithy.api#httpQuery": "videoQuality"
           }
         }
@@ -9334,7 +9474,7 @@
         "ChannelClass": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'\n",
+            "smithy.api#documentation": "Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'",
             "smithy.api#httpQuery": "channelClass"
           }
         },
@@ -9354,7 +9494,7 @@
         "MaximumBitrate": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'\n",
+            "smithy.api#documentation": "Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'",
             "smithy.api#httpQuery": "maximumBitrate"
           }
         },
@@ -9388,14 +9528,14 @@
         "SpecialFeature": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'\n",
+            "smithy.api#documentation": "Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'",
             "smithy.api#httpQuery": "specialFeature"
           }
         },
         "VideoQuality": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'\n",
+            "smithy.api#documentation": "Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'",
             "smithy.api#httpQuery": "videoQuality"
           }
         }
@@ -11291,28 +11431,6 @@
         "smithy.api#documentation": "Placeholder documentation for MultiplexSummary"
       }
     },
-    "com.amazonaws.medialive#MultiplexValidationError": {
-      "type": "structure",
-      "members": {
-        "ElementPath": {
-          "target": "com.amazonaws.medialive#__string",
-          "traits": {
-            "smithy.api#documentation": "Path to the source of the error.",
-            "smithy.api#jsonName": "elementPath"
-          }
-        },
-        "ErrorMessage": {
-          "target": "com.amazonaws.medialive#__string",
-          "traits": {
-            "smithy.api#documentation": "The error message.",
-            "smithy.api#jsonName": "errorMessage"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "Placeholder documentation for MultiplexValidationError"
-      }
-    },
     "com.amazonaws.medialive#MultiplexVideoSettings": {
       "type": "structure",
       "members": {
@@ -12224,7 +12342,7 @@
     "com.amazonaws.medialive#ReservationResolution": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "Resolution based on lines of vertical resolution; SD is less than 720 lines, HD is 720 to 1080 lines, FHD is 1080 lines, UHD is greater than 1080 lines\n",
+        "smithy.api#documentation": "Resolution based on lines of vertical resolution; SD is less than 720 lines, HD is 720 to 1080 lines, FHD is 1080 lines, UHD is greater than 1080 lines",
         "smithy.api#enum": {
           "SD": {
             "name": "SD"
@@ -12550,6 +12668,13 @@
     "com.amazonaws.medialive#ScheduleActionSettings": {
       "type": "structure",
       "members": {
+        "HlsId3SegmentTaggingSettings": {
+          "target": "com.amazonaws.medialive#HlsId3SegmentTaggingScheduleActionSettings",
+          "traits": {
+            "smithy.api#documentation": "Action to insert HLS ID3 segment tagging",
+            "smithy.api#jsonName": "hlsId3SegmentTaggingSettings"
+          }
+        },
         "HlsTimedMetadataSettings": {
           "target": "com.amazonaws.medialive#HlsTimedMetadataScheduleActionSettings",
           "traits": {
@@ -12918,7 +13043,7 @@
         "SegmentationEventId": {
           "target": "com.amazonaws.medialive#__longMin0Max4294967295",
           "traits": {
-            "smithy.api#documentation": "Corresponds to SCTE-35 segmentation_event_id. ",
+            "smithy.api#documentation": "Corresponds to SCTE-35 segmentation_event_id.",
             "smithy.api#jsonName": "segmentationEventId",
             "smithy.api#required": true
           }
@@ -13332,7 +13457,7 @@
         "Destinations": {
           "target": "com.amazonaws.medialive#__listOfOutputDestination",
           "traits": {
-            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
+            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.",
             "smithy.api#jsonName": "destinations"
           }
         },
@@ -13777,7 +13902,7 @@
         "Destinations": {
           "target": "com.amazonaws.medialive#__listOfOutputDestination",
           "traits": {
-            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
+            "smithy.api#documentation": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.",
             "smithy.api#jsonName": "destinations"
           }
         },
@@ -14248,12 +14373,11 @@
         "Message": {
           "target": "com.amazonaws.medialive#__string",
           "traits": {
-            "smithy.api#documentation": "The error message.",
             "smithy.api#jsonName": "message"
           }
         },
         "ValidationErrors": {
-          "target": "com.amazonaws.medialive#__listOfMultiplexValidationError",
+          "target": "com.amazonaws.medialive#__listOfValidationError",
           "traits": {
             "smithy.api#documentation": "A collection of validation error responses.",
             "smithy.api#jsonName": "validationErrors"
@@ -14543,7 +14667,7 @@
         "MediaConnectFlows": {
           "target": "com.amazonaws.medialive#__listOfMediaConnectFlowRequest",
           "traits": {
-            "smithy.api#documentation": "A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one\nFlow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a\nseparate Availability Zone as this ensures your EML input is redundant to AZ issues.\n",
+            "smithy.api#documentation": "A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one\nFlow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a\nseparate Availability Zone as this ensures your EML input is redundant to AZ issues.",
             "smithy.api#jsonName": "mediaConnectFlows"
           }
         },
@@ -14564,7 +14688,7 @@
         "Sources": {
           "target": "com.amazonaws.medialive#__listOfInputSourceRequest",
           "traits": {
-            "smithy.api#documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n",
+            "smithy.api#documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.",
             "smithy.api#jsonName": "sources"
           }
         }
@@ -14926,6 +15050,26 @@
       },
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for UpdateReservationResponse"
+      }
+    },
+    "com.amazonaws.medialive#ValidationError": {
+      "type": "structure",
+      "members": {
+        "ElementPath": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#jsonName": "elementPath"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#jsonName": "errorMessage"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Placeholder documentation for ValidationError"
       }
     },
     "com.amazonaws.medialive#VideoCodecSettings": {
@@ -15890,15 +16034,6 @@
         "smithy.api#documentation": "Placeholder documentation for __listOfMultiplexSummary"
       }
     },
-    "com.amazonaws.medialive#__listOfMultiplexValidationError": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.medialive#MultiplexValidationError"
-      },
-      "traits": {
-        "smithy.api#documentation": "Placeholder documentation for __listOfMultiplexValidationError"
-      }
-    },
     "com.amazonaws.medialive#__listOfOffering": {
       "type": "list",
       "member": {
@@ -15987,6 +16122,15 @@
       },
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for __listOfScte35Descriptor"
+      }
+    },
+    "com.amazonaws.medialive#__listOfValidationError": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.medialive#ValidationError"
+      },
+      "traits": {
+        "smithy.api#documentation": "Placeholder documentation for __listOfValidationError"
       }
     },
     "com.amazonaws.medialive#__listOfVideoDescription": {

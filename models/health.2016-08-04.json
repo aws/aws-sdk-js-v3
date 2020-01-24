@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -30,7 +35,13 @@
       "version": "2016-08-04",
       "operations": [
         {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedAccountsForOrganization"
+        },
+        {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntities"
+        },
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganization"
         },
         {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEntityAggregates"
@@ -42,10 +53,25 @@
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetails"
         },
         {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganization"
+        },
+        {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventTypes"
         },
         {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEvents"
+        },
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventsForOrganization"
+        },
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeHealthServiceStatusForOrganization"
+        },
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DisableHealthServiceAccessForOrganization"
+        },
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EnableHealthServiceAccessForOrganization"
         }
       ],
       "traits": {
@@ -55,7 +81,7 @@
           "cloudFormationName": "Health",
           "cloudTrailEventSource": "v20160804.silvermineunifiedapi.amazonaws.com"
         },
-        "smithy.api#documentation": "\n\n         <fullname>AWS Health</fullname>\n      \n         <p>The AWS Health API provides programmatic access to the AWS Health information that is presented in the <a href=\"https://phd.aws.amazon.com/phd/home#/\">AWS Personal Health Dashboard</a>. You can get information about events that affect your AWS resources:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>DescribeEvents</a>: Summary information about events.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeEventDetails</a>: Detailed information about one or more events.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeAffectedEntities</a>: Information about AWS resources that are affected by one or more events.</p>\n            </li>\n         </ul>\n         <p>In addition, these operations provide information about event types and summary counts of events or affected entities:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>DescribeEventTypes</a>: Information about the kinds of events that AWS Health tracks.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeEventAggregates</a>: A count of the number of events that meet specified criteria.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeEntityAggregates</a>: A count of the number of affected entities that meet specified criteria.</p>\n            </li>\n         </ul>\n\n         <p>The Health API requires a Business or Enterprise support plan from <a href=\"http://aws.amazon.com/premiumsupport/\">AWS Support</a>. Calling the Health API from an account that does not have a Business or Enterprise support plan causes a <code>SubscriptionRequiredException</code>. </p>\n\n         <p>For authentication of requests, AWS Health uses the <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing Process</a>.</p>\n\n         <p>See the <a href=\"https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html\">AWS Health User Guide</a> for information about how to use the API.</p>\n\n         <p>\n            <b>Service Endpoint</b>\n         </p>\n         <p>The HTTP endpoint for the AWS Health API is:</p>\n         <ul>\n            <li>\n               <p>https://health.us-east-1.amazonaws.com </p>\n            </li>\n         </ul>\n\n      ",
+        "smithy.api#documentation": "<fullname>AWS Health</fullname>\n      \n         <p>The AWS Health API provides programmatic access to the AWS Health information\n         that is presented in the <a href=\"https://phd.aws.amazon.com/phd/home#/\">AWS Personal Health Dashboard</a>. You can get information about events that affect your AWS\n         resources:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>DescribeEvents</a>: Summary information about events.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeEventDetails</a>: Detailed information about one or more\n               events.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeAffectedEntities</a>: Information about AWS resources\n               that are affected by one or more events.</p>\n            </li>\n         </ul>\n         <p>In addition, these operations provide information about event types and summary\n         counts of events or affected entities:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>DescribeEventTypes</a>: Information about the kinds of events\n               that AWS Health tracks.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeEventAggregates</a>: A count of the number of events that\n               meet specified criteria.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeEntityAggregates</a>: A count of the number of affected\n               entities that meet specified criteria.</p>\n            </li>\n         </ul>\n\n      \n         <p>AWS Health integrates with AWS Organizations to provide a centralized view of AWS Health\n         events across all accounts in your organization.</p>\n         <ul>\n            <li>\n               <p>\n                  <a>DescribeEventsForOrganization</a>: Summary information about\n               events across the organization.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeAffectedAccountsForOrganization</a>: List of accounts in\n               your organization impacted by an event.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeEventDetailsForOrganization</a>: Detailed information\n               about events in your organization.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeAffectedEntitiesForOrganization</a>: Information about\n               AWS resources in your organization that are affected by events.</p>\n            </li>\n         </ul>\n         <p>You can use the following operations to enable or disable AWS Health from working\n         with AWS Organizations.</p>\n         <ul>\n            <li>\n               <p>\n                  <a>EnableHealthServiceAccessForOrganization</a>: Enables AWS Health\n               to work with AWS Organizations.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DisableHealthServiceAccessForOrganization</a>: Disables\n               AWS Health from working with AWS Organizations.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeHealthServiceStatusForOrganization</a>: Status\n               information about enabling or disabling AWS Health from working with\n               AWS Organizations.</p>\n            </li>\n         </ul>\n      \n\n         <p>The Health API requires a Business or Enterprise support plan from <a href=\"http://aws.amazon.com/premiumsupport/\">AWS Support</a>. Calling the Health API\n         from an account that does not have a Business or Enterprise support plan causes a\n            <code>SubscriptionRequiredException</code>.</p>\n         <p>For authentication of requests, AWS Health uses the <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 Signing\n            Process</a>.</p>\n         <p>See the <a href=\"https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html\">AWS Health User Guide</a> for information about how to use the API.</p>\n         <p>\n            <b>Service Endpoint</b>\n         </p>\n         <p>The HTTP endpoint for the AWS Health API is:</p>\n         <ul>\n            <li>\n               <p>https://health.us-east-1.amazonaws.com </p>\n            </li>\n         </ul>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -73,51 +99,66 @@
         "awsAccountId": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The 12-digit AWS account number that contains the affected entity.</p>\n      "
+            "smithy.api#documentation": "<p>The 12-digit AWS account number that contains the affected entity.</p>"
           }
         },
         "entityArn": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i>\n            </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i>\n            </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code>\n         </p>"
           }
         },
         "entityUrl": {
-          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityUrl"
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL of the affected entity.</p>"
+          }
         },
         "entityValue": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityValue",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the affected entity.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the affected entity.</p>"
           }
         },
         "eventArn": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The most recent time that the entity was updated.</p>\n      "
+            "smithy.api#documentation": "<p>The most recent time that the entity was updated.</p>"
           }
         },
         "statusCode": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityStatusCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The most recent status of the entity affected by the event.\n        The possible values are <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The most recent status of the entity affected by the event. The possible values are\n            <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#tagSet",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A map of entity tags attached to the affected entity.</p>\n      "
+            "smithy.api#documentation": "<p>A map of entity tags attached to the affected entity.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about an entity that is affected by a Health event.</p>\n      "
+        "smithy.api#documentation": "<p>Information about an entity that is affected by a Health event.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.error#ConcurrentModificationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#string"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            <a>EnableHealthServiceAccessForOrganization</a> is already in progress. Wait\n         for the action to complete before trying again. To get the current status, use the <a>DescribeHealthServiceStatusForOrganization</a> operation.</p>",
+        "smithy.api#error": "client"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.types#DateTimeRange": {
@@ -126,18 +167,77 @@
         "from": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The starting date and time of a time range.</p>\n      "
+            "smithy.api#documentation": "<p>The starting date and time of a time range.</p>"
           }
         },
         "to": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ending date and time of a time range.</p>\n      "
+            "smithy.api#documentation": "<p>The ending date and time of a time range.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.</p>\n      "
+        "smithy.api#documentation": "<p>A range of dates and times that is used by the <a>EventFilter</a> and\n            <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code>\n         is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or\n            <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>\n         inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where\n         the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set\n         and <code>to</code> is set: match items where the timestamp value is equal to or before\n            <code>to</code>.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedAccountsForOrganization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedAccountsForOrganizationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedAccountsForOrganizationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of accounts in the organization from AWS Organizations that are affected by the\n         provided event.</p>\n         <p>Before you can call this operation, you must first enable AWS Health to work with\n         AWS Organizations. To do this, call the <a>EnableHealthServiceAccessForOrganization</a>\n         operation from your organization's master account.</p>",
+        "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedAccountsForOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "eventArn": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>",
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedAccountsForOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "affectedAccounts": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#affectedAccountsList",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON set of elements of the affected accounts.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntities": {
@@ -157,8 +257,88 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of entities that have been affected by the specified events, based on the specified filter criteria. Entities can refer to individual customer resources, groups of customer resources, or any other construct, depending on the AWS service. Events that have impact beyond that of the affected entities, or where the extent of impact is unknown, include at least one entity indicating this.</p>\n        <p>At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns a list of entities that have been affected by the specified events, based on\n         the specified filter criteria. Entities can refer to individual customer resources, groups\n         of customer resources, or any other construct, depending on the AWS service. Events that\n         have impact beyond that of the affected entities, or where the extent of impact is unknown,\n         include at least one entity indicating this.</p>\n         <p>At least one event ARN is required. Results are sorted by the\n            <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>",
         "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganizationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganizationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken"
+        },
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of entities that have been affected by one or more events for one or more\n         accounts in your organization in AWS Organizations, based on the filter criteria. Entities can refer\n         to individual customer resources, groups of customer resources, or any other construct,\n         depending on the AWS service.</p>\n         <p>At least one event ARN and account ID are required. Results are sorted by the\n            <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>\n         <p>Before you can call this operation, you must first enable AWS Health to work with\n         AWS Organizations. To do this, call the <a>EnableHealthServiceAccessForOrganization</a>\n         operation from your organization's master account. </p>",
+        "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganizationFailedSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationAffectedEntitiesErrorItem"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "locale": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#locale",
+          "traits": {
+            "smithy.api#documentation": "<p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
+          }
+        },
+        "organizationEntityFilters": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#OrganizationEntityFiltersList",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON set of elements including the <code>awsAccountId</code> and the\n            <code>eventArn</code>.</p>",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "entities": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EntityList",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON set of elements including the <code>awsAccountId</code> and its\n            <code>entityArn</code>, <code>entityValue</code> and its <code>entityArn</code>,\n            <code>lastUpdatedTime</code>, <code>statusCode</code>, and <code>tags</code>.</p>"
+          }
+        },
+        "failedSet": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesForOrganizationFailedSet",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON set of elements of the failed response, including the <code>awsAccountId</code>,\n            <code>errorMessage</code>, <code>errorName</code>, and <code>eventArn</code>.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeAffectedEntitiesRequest": {
@@ -167,26 +347,26 @@
         "filter": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EntityFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Values to narrow the results returned. At least one event ARN is required. </p>\n      ",
+            "smithy.api#documentation": "<p>Values to narrow the results returned. At least one event ARN is required.</p>",
             "smithy.api#required": true
           }
         },
         "locale": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#locale",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>\n      "
+            "smithy.api#documentation": "<p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
       }
@@ -197,13 +377,13 @@
         "entities": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EntityList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The entities that match the filter criteria.</p>\n      "
+            "smithy.api#documentation": "<p>The entities that match the filter criteria.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
       }
@@ -217,7 +397,7 @@
         "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEntityAggregatesResponse"
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the number of entities that are affected by each of the specified events. If no events are specified, the counts of all affected entities are returned.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns the number of entities that are affected by each of the specified events. If\n         no events are specified, the counts of all affected entities are returned.</p>",
         "smithy.api#idempotent": true
       }
     },
@@ -227,7 +407,7 @@
         "eventArns": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EventArnsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>"
           }
         }
       }
@@ -238,7 +418,7 @@
         "entityAggregates": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EntityAggregateList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The number of entities that are affected by each of the specified events.</p>\n      "
+            "smithy.api#documentation": "<p>The number of entities that are affected by each of the specified events.</p>"
           }
         }
       }
@@ -257,7 +437,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns the number of events of each event type (issue, scheduled change, and account\n         notification). If no filter is specified, the counts of all events in each category are\n         returned.</p>",
         "smithy.api#idempotent": true
       }
     },
@@ -267,26 +447,26 @@
         "aggregateField": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventAggregateField",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The only currently supported value is <code>eventTypeCategory</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The only currently supported value is <code>eventTypeCategory</code>.</p>",
             "smithy.api#required": true
           }
         },
         "filter": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Values to narrow the results returned.</p>\n      "
+            "smithy.api#documentation": "<p>Values to narrow the results returned.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
       }
@@ -297,13 +477,13 @@
         "eventAggregates": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EventAggregateList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The number of events in each category that meet the optional filter criteria.</p>\n      "
+            "smithy.api#documentation": "<p>The number of events in each category that meet the optional filter\n         criteria.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
       }
@@ -322,7 +502,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns detailed information about one or more specified events. Information includes standard event data (region, service, etc., as returned by <a>DescribeEvents</a>), a detailed event description, and possible additional metadata that depends upon the nature of the event. Affected entities are not included; to retrieve those, use the <a>DescribeAffectedEntities</a> operation.</p>\n         <p>If a specified event cannot be retrieved, an error message is returned for that event.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns detailed information about one or more specified events. Information includes\n         standard event data (region, service, and so on, as returned by <a>DescribeEvents</a>), a detailed event description, and possible additional\n         metadata that depends upon the nature of the event. Affected entities are not included; to\n         retrieve those, use the <a>DescribeAffectedEntities</a> operation.</p>\n         <p>If a specified event cannot be retrieved, an error message is returned for that\n         event.</p>",
         "smithy.api#idempotent": true
       }
     },
@@ -332,20 +512,85 @@
         "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventDetailsErrorItem"
       }
     },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns detailed information about one or more specified events for one or more accounts\n         in your organization. Information includes standard event data (Region, service, and so on,\n         as returned by <a>DescribeEventsForOrganization</a>, a detailed event\n         description, and possible additional metadata that depends upon the nature of the event.\n         Affected entities are not included; to retrieve those, use the <a>DescribeAffectedEntitiesForOrganization</a> operation.</p>\n         <p>Before you can call this operation, you must first enable AWS Health to work with\n         AWS Organizations. To do this, call the <a>EnableHealthServiceAccessForOrganization</a>\n         operation from your organization's master account.</p>",
+        "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationFailedSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEventDetailsErrorItem"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "locale": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#locale",
+          "traits": {
+            "smithy.api#documentation": "<p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>"
+          }
+        },
+        "organizationEventDetailFilters": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#OrganizationEventDetailFiltersList",
+          "traits": {
+            "smithy.api#documentation": "<p>A set of JSON elements that includes the <code>awsAccountId</code> and the\n            <code>eventArn</code>.</p>",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "failedSet": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationFailedSet",
+          "traits": {
+            "smithy.api#documentation": "<p>Error messages for any events that could not be retrieved.</p>"
+          }
+        },
+        "successfulSet": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationSuccessfulSet",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the events that could be retrieved.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsForOrganizationSuccessfulSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEventDetails"
+      }
+    },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsRequest": {
       "type": "structure",
       "members": {
         "eventArns": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArnList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "locale": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#locale",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>\n      "
+            "smithy.api#documentation": "<p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>"
           }
         }
       }
@@ -356,13 +601,13 @@
         "failedSet": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsFailedSet",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Error messages for any events that could not be retrieved.</p>\n      "
+            "smithy.api#documentation": "<p>Error messages for any events that could not be retrieved.</p>"
           }
         },
         "successfulSet": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventDetailsSuccessfulSet",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the events that could be retrieved.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the events that could be retrieved.</p>"
           }
         }
       }
@@ -390,7 +635,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns the event types that meet the specified filter criteria. If no filter\n         criteria are specified, all event types are returned, in no particular order.</p>",
         "smithy.api#idempotent": true
       }
     },
@@ -400,25 +645,25 @@
         "filter": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventTypeFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Values to narrow the results returned.</p>\n      "
+            "smithy.api#documentation": "<p>Values to narrow the results returned.</p>"
           }
         },
         "locale": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#locale",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>\n      "
+            "smithy.api#documentation": "<p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
       }
@@ -429,13 +674,13 @@
         "eventTypes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EventTypeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event types that match the filter criteria. Event types have a category\n            (<code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>),\n         a service (for example, <code>EC2</code>, <code>RDS</code>, <code>DATAPIPELINE</code>,\n            <code>BILLING</code>), and a code (in the format\n               <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>\n            </code>; for\n         example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>\n      "
+            "smithy.api#documentation": "<p>A list of event types that match the filter criteria. Event types have a category\n            (<code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>),\n         a service (for example, <code>EC2</code>, <code>RDS</code>, <code>DATAPIPELINE</code>,\n            <code>BILLING</code>), and a code (in the format\n               <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>\n            </code>; for\n         example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
       }
@@ -457,8 +702,75 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about events that meet the specified filter criteria. Events are returned in a summary form and do not include the detailed description, any  additional metadata that depends on the event type, or any affected resources. To retrieve that information, use the <a>DescribeEventDetails</a> and <a>DescribeAffectedEntities</a> operations.</p>\n        <p>If no filter criteria are specified, all events are returned. Results are sorted by <code>lastModifiedTime</code>, starting with the most recent.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns information about events that meet the specified filter criteria. Events are\n         returned in a summary form and do not include the detailed description, any additional\n         metadata that depends on the event type, or any affected resources. To retrieve that\n         information, use the <a>DescribeEventDetails</a> and <a>DescribeAffectedEntities</a> operations.</p>\n         <p>If no filter criteria are specified, all events are returned. Results are sorted by\n            <code>lastModifiedTime</code>, starting with the most recent.</p>",
         "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventsForOrganization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventsForOrganizationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventsForOrganizationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken"
+        },
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about events across your organization in AWS Organizations, meeting the\n         specified filter criteria. Events are returned in a summary form and do not include the\n         accounts impacted, detailed description, any additional metadata that depends on the event\n         type, or any affected resources. To retrieve that information, use the <a>DescribeAffectedAccountsForOrganization</a>, <a>DescribeEventDetailsForOrganization</a>, and <a>DescribeAffectedEntitiesForOrganization</a> operations.</p>\n         <p>If no filter criteria are specified, all events across your organization are returned.\n         Results are sorted by <code>lastModifiedTime</code>, starting with the most recent.</p>\n         <p>Before you can call this operation, you must first enable Health to work with AWS\n         Organizations. To do this, call the <a>EnableHealthServiceAccessForOrganization</a> operation from your organization's\n         master account.</p>",
+        "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventsForOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "filter": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEventFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>Values to narrow the results returned.</p>"
+          }
+        },
+        "locale": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#locale",
+          "traits": {
+            "smithy.api#documentation": "<p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventsForOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "events": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#OrganizationEventList",
+          "traits": {
+            "smithy.api#documentation": "<p>The events that match the specified filter criteria.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
+          }
+        }
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeEventsRequest": {
@@ -467,25 +779,25 @@
         "filter": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Values to narrow the results returned.</p>\n      "
+            "smithy.api#documentation": "<p>Values to narrow the results returned.</p>"
           }
         },
         "locale": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#locale",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>\n      "
+            "smithy.api#documentation": "<p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
       }
@@ -496,15 +808,60 @@
         "events": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#EventList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The events that match the specified filter criteria.</p>\n      "
+            "smithy.api#documentation": "<p>The events that match the specified filter criteria.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>\n      "
+            "smithy.api#documentation": "<p>If the results of a search are large, only a portion of the\nresults are returned, and a <code>nextToken</code> pagination token is returned in the response. To\nretrieve the next batch of results, reissue the search request and include the returned token.\nWhen all results have been returned, the response does not contain a pagination token value.</p>"
           }
         }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeHealthServiceStatusForOrganization": {
+      "type": "operation",
+      "output": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeHealthServiceStatusForOrganizationResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This operation provides status information on enabling or disabling AWS Health to work\n         with your organization. To call this operation, you must sign in as an IAM user, assume\n         an IAM role, or sign in as the root user (not recommended) in the organization's master\n         account.</p>",
+        "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DescribeHealthServiceStatusForOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "healthServiceAccessStatusForOrganization": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.operation#healthServiceAccessStatusForOrganization",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the status of enabling or disabling AWS Health Organizational View in\n         your organization.</p>\n         <p>Valid values are <code>ENABLED | DISABLED | PENDING</code>. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#DisableHealthServiceAccessForOrganization": {
+      "type": "operation",
+      "errors": [
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#ConcurrentModificationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Calling this operation disables Health from working with AWS Organizations. This does not remove\n         the Service Linked Role (SLR) from the the master account in your organization. Use the\n         IAM console, API, or AWS CLI to remove the SLR if desired. To call this operation, you\n         must sign in as an IAM user, assume an IAM role, or sign in as the root user (not\n         recommended) in the organization's master account.</p>",
+        "smithy.api#idempotent": true
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#EnableHealthServiceAccessForOrganization": {
+      "type": "operation",
+      "errors": [
+        {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.error#ConcurrentModificationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Calling this operation enables AWS Health to work with AWS Organizations. This applies a Service\n         Linked Role (SLR) to the master account in the organization. To learn more about the steps\n         in this process, visit enabling service access for AWS Health in AWS Organizations. To call this\n         operation, you must sign in as an IAM user, assume an IAM role, or sign in as the root\n         user (not recommended) in the organization's master account.</p>",
+        "smithy.api#idempotent": true
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.types#EntityAggregate": {
@@ -513,18 +870,18 @@
         "count": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#count",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The number entities that match the criteria for the specified events.</p>\n      "
+            "smithy.api#documentation": "<p>The number entities that match the criteria for the specified events.</p>"
           }
         },
         "eventArn": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The number of entities that are affected by one or more events. Returned by the <a>DescribeEntityAggregates</a> operation.</p>\n      "
+        "smithy.api#documentation": "<p>The number of entities that are affected by one or more events. Returned by the <a>DescribeEntityAggregates</a> operation.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#EntityAggregateList": {
@@ -539,43 +896,43 @@
         "entityArns": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityArnList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of entity ARNs (unique identifiers).</p>\n      "
+            "smithy.api#documentation": "<p>A list of entity ARNs (unique identifiers).</p>"
           }
         },
         "entityValues": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityValueList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of IDs for affected entities.</p>\n      "
+            "smithy.api#documentation": "<p>A list of IDs for affected entities.</p>"
           }
         },
         "eventArns": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArnList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "lastUpdatedTimes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#dateTimeRangeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of the most recent dates and times that the entity was updated.</p>\n      "
+            "smithy.api#documentation": "<p>A list of the most recent dates and times that the entity was updated.</p>"
           }
         },
         "statusCodes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityStatusCodeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or <code>UNKNOWN</code>).</p>\n      "
+            "smithy.api#documentation": "<p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or\n            <code>UNKNOWN</code>).</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#tagFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A map of entity tags attached to the affected entity.</p>\n      "
+            "smithy.api#documentation": "<p>A map of entity tags attached to the affected entity.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.</p>\n      "
+        "smithy.api#documentation": "<p>The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#EntityList": {
@@ -590,66 +947,88 @@
         "arn": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>"
           }
         },
         "availabilityZone": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#availabilityZone",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS Availability Zone of the event. For example, us-east-1a.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS Availability Zone of the event. For example, us-east-1a.</p>"
           }
         },
         "endTime": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time that the event ended.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time that the event ended.</p>"
           }
         },
         "eventTypeCategory": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCategory",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The category of the event. Possible values are <code>issue</code>, <code>scheduledChange</code>, and <code>accountNotification</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The category of the event. Possible values are <code>issue</code>,\n            <code>scheduledChange</code>, and <code>accountNotification</code>.</p>"
           }
         },
         "eventTypeCode": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>\n            </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>\n            </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The most recent date and time that the event was updated.</p>\n      "
+            "smithy.api#documentation": "<p>The most recent date and time that the event was updated.</p>"
           }
         },
         "region": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#region",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS region name of the event.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS region name of the event.</p>"
           }
         },
         "service": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#service",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>"
           }
         },
         "startTime": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time that the event began.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time that the event began.</p>"
           }
         },
         "statusCode": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventStatusCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The most recent status of the event. Possible values are <code>open</code>, <code>closed</code>, and <code>upcoming</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The most recent status of the event. Possible values are <code>open</code>,\n            <code>closed</code>, and <code>upcoming</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Summary information about an event, returned by the <a>DescribeEvents</a> operation. The <a>DescribeEventDetails</a> operation also returns this information, as well as the <a>EventDescription</a> and additional event metadata.</p>\n      "
+        "smithy.api#documentation": "<p>Summary information about an AWS Health event.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.types#EventAccountFilter": {
+      "type": "structure",
+      "members": {
+        "awsAccountId": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The 12-digit AWS account numbers that contains the affected entities.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "eventArn": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The values used to filter results from the <a>DescribeEventDetailsForOrganization</a> and <a>DescribeAffectedEntitiesForOrganization</a> operations.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.types#EventAggregate": {
@@ -658,18 +1037,18 @@
         "aggregateValue": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#aggregateValue",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The issue type for the associated count.</p>\n      "
+            "smithy.api#documentation": "<p>The issue type for the associated count.</p>"
           }
         },
         "count": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#count",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The number of events of the associated issue type.</p>\n      "
+            "smithy.api#documentation": "<p>The number of events of the associated issue type.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The number of events of each issue type. Returned by the <a>DescribeEventAggregates</a> operation.</p>\n      "
+        "smithy.api#documentation": "<p>The number of events of each issue type. Returned by the <a>DescribeEventAggregates</a> operation.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#EventAggregateList": {
@@ -696,12 +1075,12 @@
         "latestDescription": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The most recent description of the event.</p>\n      "
+            "smithy.api#documentation": "<p>The most recent description of the event.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The detailed description of the event. Included in the information returned by the <a>DescribeEventDetails</a> operation.</p>\n      "
+        "smithy.api#documentation": "<p>The detailed description of the event. Included in the information returned by the\n            <a>DescribeEventDetails</a> operation.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.types#EventDetails": {
@@ -710,24 +1089,24 @@
         "event": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#Event",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Summary information about the event.</p>\n      "
+            "smithy.api#documentation": "<p>Summary information about the event.</p>"
           }
         },
         "eventDescription": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The most recent description of the event.</p>\n      "
+            "smithy.api#documentation": "<p>The most recent description of the event.</p>"
           }
         },
         "eventMetadata": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventMetadata",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Additional metadata about the event.</p>\n      "
+            "smithy.api#documentation": "<p>Additional metadata about the event.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Detailed information about an event. A combination of an <a>Event</a> object, an <a>EventDescription</a> object, and additional metadata about the event. Returned by the <a>DescribeEventDetails</a> operation.</p>\n      "
+        "smithy.api#documentation": "<p>Detailed information about an event. A combination of an <a>Event</a>\n         object, an <a>EventDescription</a> object, and additional metadata about the\n         event. Returned by the <a>DescribeEventDetails</a> operation.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.types#EventDetailsErrorItem": {
@@ -736,24 +1115,24 @@
         "errorMessage": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message that describes the error.</p>\n      "
+            "smithy.api#documentation": "<p>A message that describes the error.</p>"
           }
         },
         "errorName": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the error.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the error.</p>"
           }
         },
         "eventArn": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Error information returned when a <a>DescribeEventDetails</a> operation cannot find a specified event.</p>\n      "
+        "smithy.api#documentation": "<p>Error information returned when a <a>DescribeEventDetails</a> operation\n         cannot find a specified event.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.types#EventFilter": {
@@ -762,84 +1141,84 @@
         "availabilityZones": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#availabilityZones",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of AWS availability zones.</p>\n      "
+            "smithy.api#documentation": "<p>A list of AWS availability zones.</p>"
           }
         },
         "endTimes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#dateTimeRangeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of dates and times that the event ended.</p>\n      "
+            "smithy.api#documentation": "<p>A list of dates and times that the event ended.</p>"
           }
         },
         "entityArns": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityArnList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of entity ARNs (unique identifiers).</p>\n      "
+            "smithy.api#documentation": "<p>A list of entity ARNs (unique identifiers).</p>"
           }
         },
         "entityValues": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityValueList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or EBS volumes (<code>vol-426ab23e</code>).</p>\n      "
+            "smithy.api#documentation": "<p>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or\n         EBS volumes (<code>vol-426ab23e</code>).</p>"
           }
         },
         "eventArns": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArnList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code>\n         </p>"
           }
         },
         "eventStatusCodes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventStatusCodeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event status codes.</p>\n      "
+            "smithy.api#documentation": "<p>A list of event status codes.</p>"
           }
         },
         "eventTypeCategories": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCategoryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>).</p>\n      "
+            "smithy.api#documentation": "<p>A list of event type category codes (<code>issue</code>,\n         <code>scheduledChange</code>, or <code>accountNotification</code>).</p>"
           }
         },
         "eventTypeCodes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\"</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\".</code>\n         </p>"
           }
         },
         "lastUpdatedTimes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#dateTimeRangeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of dates and times that the event was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>A list of dates and times that the event was last updated.</p>"
           }
         },
         "regions": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#regionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of AWS regions.</p>\n      "
+            "smithy.api#documentation": "<p>A list of AWS regions.</p>"
           }
         },
         "services": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#serviceList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>"
           }
         },
         "startTimes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#dateTimeRangeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of dates and times that the event began.</p>\n      "
+            "smithy.api#documentation": "<p>A list of dates and times that the event began.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#tagFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A map of entity tags attached to the affected entity.</p>\n      "
+            "smithy.api#documentation": "<p>A map of entity tags attached to the affected entity.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The values to use to filter results from the <a>DescribeEvents</a> and <a>DescribeEventAggregates</a> operations.</p>\n      "
+        "smithy.api#documentation": "<p>The values to use to filter results from the <a>DescribeEvents</a> and\n            <a>DescribeEventAggregates</a> operations.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#EventList": {
@@ -854,24 +1233,24 @@
         "category": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCategory",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>).</p>\n      "
+            "smithy.api#documentation": "<p>A list of event type category codes (<code>issue</code>,\n         <code>scheduledChange</code>, or <code>accountNotification</code>).</p>"
           }
         },
         "code": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>\n            </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>\n            </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>"
           }
         },
         "service": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#service",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, <code>issue</code>), the service (for example, <code>EC2</code>), and the event type code (for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>\n      "
+        "smithy.api#documentation": "<p>Metadata about a type of event that is reported by AWS Health. Data consists of\n         the category (for example, <code>issue</code>), the service (for example,\n         <code>EC2</code>), and the event type code (for example,\n            <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.types#EventTypeCategoryList": {
@@ -904,24 +1283,24 @@
         "eventTypeCategories": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventTypeCategoryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>, or <code>accountNotification</code>).</p>\n      "
+            "smithy.api#documentation": "<p>A list of event type category codes (<code>issue</code>,\n         <code>scheduledChange</code>, or <code>accountNotification</code>).</p>"
           }
         },
         "eventTypeCodes": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventTypeCodeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of event type codes.</p>\n      "
+            "smithy.api#documentation": "<p>A list of event type codes.</p>"
           }
         },
         "services": {
           "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#serviceList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The values to use to filter results from the <a>DescribeEventTypes</a> operation.</p>\n      "
+        "smithy.api#documentation": "<p>The values to use to filter results from the <a>DescribeEventTypes</a>\n         operation.</p>"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.operation#EventTypeList": {
@@ -938,8 +1317,255 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified pagination token (<code>nextToken</code>) is not valid.</p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationAffectedEntitiesErrorItem": {
+      "type": "structure",
+      "members": {
+        "awsAccountId": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The 12-digit AWS account numbers that contains the affected entities.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the event type. The format is\n            <code>AWS_SERVICE_DESCRIPTION</code>. For example,\n            <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>"
+          }
+        },
+        "errorName": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the error.</p>"
+          }
+        },
+        "eventArn": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Error information returned when a <a>DescribeAffectedEntitiesForOrganization</a> operation cannot find or process a\n         specific entity.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#OrganizationEntityFiltersList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventAccountFilter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEvent": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>"
+          }
+        },
+        "endTime": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the event ended.</p>"
+          }
+        },
+        "eventTypeCategory": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCategory",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the event type.</p>"
+          }
+        },
+        "eventTypeCode": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the event type. The format is\n            <code>AWS_SERVICE_DESCRIPTION</code>. For example,\n            <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>"
+          }
+        },
+        "lastUpdatedTime": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The most recent date and time that the event was updated.</p>"
+          }
+        },
+        "region": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#region",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Region name of the event.</p>"
+          }
+        },
+        "service": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#service",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS service that is affected by the event. For example, EC2, RDS.</p>"
+          }
+        },
+        "startTime": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the event began.</p>"
+          }
+        },
+        "statusCode": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventStatusCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The most recent status of the event. Possible values are <code>open</code>,\n            <code>closed</code>, and <code>upcoming</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about an event, returned by the <a>DescribeEventsForOrganization</a> operation.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#OrganizationEventDetailFiltersList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventAccountFilter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEventDetails": {
+      "type": "structure",
+      "members": {
+        "awsAccountId": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The 12-digit AWS account numbers that contains the affected entities.</p>"
+          }
+        },
+        "event": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#Event"
+        },
+        "eventDescription": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#EventDescription"
+        },
+        "eventMetadata": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional metadata about the event.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Detailed information about an event. A combination of an <a>Event</a> object,\n         an <a>EventDescription</a> object, and additional metadata about the event.\n         Returned by the <a>DescribeEventDetailsForOrganization</a> operation.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEventDetailsErrorItem": {
+      "type": "structure",
+      "members": {
+        "awsAccountId": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId",
+          "traits": {
+            "smithy.api#documentation": "<p>Error information returned when a <a>DescribeEventDetailsForOrganization</a>\n         operation cannot find a specified event.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#string",
+          "traits": {
+            "smithy.api#documentation": "<p>A message that describes the error.</p>"
+          }
+        },
+        "errorName": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the error.</p>"
+          }
+        },
+        "eventArn": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>\n            </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Error information returned when a <a>DescribeEventDetailsForOrganization</a>\n         operation cannot find a specified event.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEventFilter": {
+      "type": "structure",
+      "members": {
+        "awsAccountIds": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#awsAccountIdsList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of 12-digit AWS account numbers that contains the affected entities.</p>"
+          }
+        },
+        "endTime": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#DateTimeRange"
+        },
+        "entityArns": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>REPLACEME</p>"
+          }
+        },
+        "entityValues": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#entityValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).</p>"
+          }
+        },
+        "eventStatusCodes": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventStatusCodeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of event status codes.</p>"
+          }
+        },
+        "eventTypeCategories": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCategoryList",
+          "traits": {
+            "smithy.api#documentation": "<p>REPLACEME</p>"
+          }
+        },
+        "eventTypeCodes": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of unique identifiers for event types. For example, <code>\"AWS_EC2_SYSTEM_MAINTENANCE_EVENT\",\"AWS_RDS_MAINTENANCE_SCHEDULED\".</code>\n         </p>"
+          }
+        },
+        "lastUpdatedTime": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#DateTimeRange"
+        },
+        "regions": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#regionList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of AWS Regions.</p>"
+          }
+        },
+        "services": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#serviceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>"
+          }
+        },
+        "startTime": {
+          "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#DateTimeRange"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The values to filter results from the <a>DescribeEventsForOrganization</a>\n         operation.</p>"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#OrganizationEventList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.types#OrganizationEvent"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale": {
@@ -950,14 +1576,24 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The specified locale is not supported.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified locale is not supported.</p>",
         "smithy.api#error": "client"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "[0-9]{12}"
+        "smithy.api#length": {
+          "min": 0,
+          "max": 12
+        },
+        "smithy.api#pattern": "^\\S+$"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#affectedAccountsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#aggregateValue": {
@@ -966,6 +1602,10 @@
     "com.amazonaws.silvermineunifiedapi.v20160804.common#availabilityZone": {
       "type": "string",
       "traits": {
+        "smithy.api#length": {
+          "min": 6,
+          "max": 18
+        },
         "smithy.api#pattern": "[a-z]{2}\\-[0-9a-z\\-]{4,16}"
       }
     },
@@ -973,6 +1613,18 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#availabilityZone"
+      }
+    },
+    "com.amazonaws.silvermineunifiedapi.v20160804.common#awsAccountIdsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.silvermineunifiedapi.v20160804.common#accountId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#count": {
@@ -996,7 +1648,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 1600
-        }
+        },
+        "smithy.api#pattern": ".{0,1600}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#entityArnList": {
@@ -1040,10 +1693,7 @@
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#entityUrl": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "https?://.+\\.(amazon\\.com|amazonaws\\.com|amazonaws\\.cn|c2s\\.ic\\.gov|sc2s\\.sgov\\.gov|amazonaws-us-gov.com)/.*"
-      }
+      "type": "string"
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#entityValue": {
       "type": "string",
@@ -1051,7 +1701,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 256
-        }
+        },
+        "smithy.api#pattern": ".{0,256}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#entityValueList": {
@@ -1144,7 +1795,8 @@
         "smithy.api#length": {
           "min": 3,
           "max": 100
-        }
+        },
+        "smithy.api#pattern": "[^:/]{3,100}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeCategory": {
@@ -1188,7 +1840,8 @@
         "smithy.api#length": {
           "min": 3,
           "max": 100
-        }
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9\\_\\-]{3,100}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#eventTypeList": {
@@ -1203,13 +1856,17 @@
         }
       }
     },
+    "com.amazonaws.silvermineunifiedapi.v20160804.operation#healthServiceAccessStatusForOrganization": {
+      "type": "string"
+    },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#locale": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 2,
           "max": 256
-        }
+        },
+        "smithy.api#pattern": ".{2,256}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#maxResults": {
@@ -1237,12 +1894,20 @@
     "com.amazonaws.silvermineunifiedapi.v20160804.common#nextToken": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "[a-zA-Z0-9=/+_.-]{4,512}"
+        "smithy.api#length": {
+          "min": 4,
+          "max": 10000
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9=/+_.-]{4,10000}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#region": {
       "type": "string",
       "traits": {
+        "smithy.api#length": {
+          "min": 2,
+          "max": 25
+        },
         "smithy.api#pattern": "[^:/]{2,25}"
       }
     },
@@ -1264,7 +1929,8 @@
         "smithy.api#length": {
           "min": 2,
           "max": 30
-        }
+        },
+        "smithy.api#pattern": "[^:/]{2,30}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#serviceList": {
@@ -1300,7 +1966,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 127
-        }
+        },
+        "smithy.api#pattern": ".{0,127}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#tagSet": {
@@ -1324,7 +1991,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 255
-        }
+        },
+        "smithy.api#pattern": ".{0,255}"
       }
     },
     "com.amazonaws.silvermineunifiedapi.v20160804.common#timestamp": {

@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -36,7 +41,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>You do not have sufficient access to perform this action.</p>\n      ",
+        "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -68,7 +73,7 @@
           "cloudFormationName": "ConnectParticipant",
           "cloudTrailEventSource": "v20180907.amazonconnectparticipantservice.amazon.com"
         },
-        "smithy.api#documentation": "\n        <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage\n            a customer contact center and provide reliable customer engagement at any scale.</p>\n        <p>Amazon Connect enables customer contacts through voice or chat.</p>\n\n        <p>The APIs described here are used by chat participants, such as agents and\n            customers.</p>\n      ",
+        "smithy.api#documentation": "<p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage\n            a customer contact center and provide reliable customer engagement at any scale.</p>\n        <p>Amazon Connect enables customer contacts through voice or chat.</p>\n\n        <p>The APIs described here are used by chat participants, such as agents and\n            customers.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -147,18 +152,18 @@
         "ConnectionToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The connection token.</p>\n      "
+            "smithy.api#documentation": "<p>The connection token.</p>"
           }
         },
         "Expiry": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ISO8601Datetime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The expiration of the token.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>\n      "
+            "smithy.api#documentation": "<p>The expiration of the token.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Connection credentials. </p>\n      "
+        "smithy.api#documentation": "<p>Connection credentials. </p>"
       }
     },
     "com.amazonaws.amazonconnect.commonexternaltypes#ConnectionType": {
@@ -217,7 +222,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates the participant's connection. Note that ParticipantToken is used for invoking\n            this API instead of ConnectionToken.</p>\n        <p>The participant token is valid for the lifetime of the participant – until the they\n            are part of a contact.</p>\n        <p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must\n            manually connect to the returned websocket URL and subscribe to the desired topic.  </p>\n        <p>For\n            chat, you need to publish the following on the established websocket connection:</p>\n       \n       \n        <p>\n            <code>{\"topic\":\"aws/subscribe\",\"content\":{\"topics\":[\"aws/chat\"]}}</code>\n         </p>\n        \n        <p>Upon websocket URL expiry, as\n            specified in the response ConnectionExpiry parameter, clients need to call this API\n            again to obtain a new websocket URL and perform the same steps as before.</p>\n      ",
+        "smithy.api#documentation": "<p>Creates the participant's connection. Note that ParticipantToken is used for invoking\n            this API instead of ConnectionToken.</p>\n        <p>The participant token is valid for the lifetime of the participant – until the they\n            are part of a contact.</p>\n        <p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must\n            manually connect to the returned websocket URL and subscribe to the desired topic.  </p>\n        <p>For\n            chat, you need to publish the following on the established websocket connection:</p>\n       \n       \n        <p>\n            <code>{\"topic\":\"aws/subscribe\",\"content\":{\"topics\":[\"aws/chat\"]}}</code>\n         </p>\n        \n        <p>Upon websocket URL expiry, as\n            specified in the response ConnectionExpiry parameter, clients need to call this API\n            again to obtain a new websocket URL and perform the same steps as before.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/participant/connection",
@@ -231,7 +236,7 @@
         "ParticipantToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Participant Token as obtained from <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html\">StartChatContact</a> API response.</p>\n      ",
+            "smithy.api#documentation": "<p>Participant Token as obtained from <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html\">StartChatContact</a> API response.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
             "smithy.api#required": true
           }
@@ -239,7 +244,7 @@
         "Type": {
           "target": "com.amazon.amazonconnectparticipantservice.v20180907#ConnectionTypeList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Type of connection information required.</p>\n      ",
+            "smithy.api#documentation": "<p>Type of connection information required.</p>",
             "smithy.api#required": true
           }
         }
@@ -251,13 +256,13 @@
         "ConnectionCredentials": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ConnectionCredentials",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Creates the participant's connection credentials. The authentication token associated\n            with the participant's connection.</p>\n      "
+            "smithy.api#documentation": "<p>Creates the participant's connection credentials. The authentication token associated\n            with the participant's connection.</p>"
           }
         },
         "Websocket": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#Websocket",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Creates the participant's websocket connection.</p>\n      "
+            "smithy.api#documentation": "<p>Creates the participant's websocket connection.</p>"
           }
         }
       }
@@ -285,7 +290,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API\n            instead of ParticipantToken.</p>\n      ",
+        "smithy.api#documentation": "<p>Disconnects a participant. Note that ConnectionToken is used for invoking this API\n            instead of ParticipantToken.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/participant/disconnect",
@@ -299,14 +304,14 @@
         "ClientToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ClientToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
             "smithy.api#idempotencyToken": true
           }
         },
         "ConnectionToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The authentication token associated with the participant's connection.</p>\n      ",
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
             "smithy.api#required": true
           }
@@ -349,7 +354,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking\n            this API instead of ParticipantToken.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking\n            this API instead of ParticipantToken.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/participant/transcript",
@@ -368,7 +373,7 @@
         "ConnectionToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The authentication token associated with the participant's connection.</p>\n      ",
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
             "smithy.api#required": true
           }
@@ -376,38 +381,38 @@
         "ContactId": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ContactId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The contactId from the current contact chain for which transcript is needed.</p>\n      "
+            "smithy.api#documentation": "<p>The contactId from the current contact chain for which transcript is needed.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n        <p>The maximum number of results to return in the page. Default: 10. \n           </p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the page. Default: 10. \n           </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
           }
         },
         "ScanDirection": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ScanDirection",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>\n      "
+            "smithy.api#documentation": "<p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>"
           }
         },
         "SortOrder": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#SortKey",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The sort order for the records. Default: DESCENDING.</p>\n      "
+            "smithy.api#documentation": "<p>The sort order for the records. Default: DESCENDING.</p>"
           }
         },
         "StartPosition": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#StartPosition",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A filtering option for where to start.</p>\n      "
+            "smithy.api#documentation": "<p>A filtering option for where to start.</p>"
           }
         }
       }
@@ -418,19 +423,19 @@
         "InitialContactId": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ContactId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The initial contact ID for the contact. </p>\n      "
+            "smithy.api#documentation": "<p>The initial contact ID for the contact. </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token. Use the value returned previously in the next subsequent request\n            to retrieve the next set of results.</p>"
           }
         },
         "Transcript": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Transcript",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The list of messages in the session.</p>\n      "
+            "smithy.api#documentation": "<p>The list of messages in the session.</p>"
           }
         }
       }
@@ -458,7 +463,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>\n      ",
+        "smithy.api#documentation": "<p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -469,54 +474,54 @@
         "AbsoluteTime": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the message or event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the message or event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Content": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatContent",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The content of the message or event.</p>\n      "
+            "smithy.api#documentation": "<p>The content of the message or event.</p>"
           }
         },
         "ContentType": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContentType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of content of the item.</p>\n      "
+            "smithy.api#documentation": "<p>The type of content of the item.</p>"
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The chat display name of the sender.</p>\n      "
+            "smithy.api#documentation": "<p>The chat display name of the sender.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the item.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the item.</p>"
           }
         },
         "ParticipantId": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the sender in the session.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the sender in the session.</p>"
           }
         },
         "ParticipantRole": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantRole",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The role of the sender. For example, is it a customer, agent, or system.</p>\n      "
+            "smithy.api#documentation": "<p>The role of the sender. For example, is it a customer, agent, or system.</p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Type of the item: message or event. </p>\n      "
+            "smithy.api#documentation": "<p>Type of the item: message or event. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>An item - message or event - that has been sent. </p>\n      "
+        "smithy.api#documentation": "<p>An item - message or event - that has been sent. </p>"
       }
     },
     "com.amazonaws.amazonconnect.commonchatexternaltypes#MaxResults": {
@@ -637,7 +642,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of\n            ParticipantToken.</p>\n      ",
+        "smithy.api#documentation": "<p>Sends an event. Note that ConnectionToken is used for invoking this API instead of\n            ParticipantToken.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/participant/event",
@@ -651,14 +656,14 @@
         "ClientToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ClientToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
             "smithy.api#idempotencyToken": true
           }
         },
         "ConnectionToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The authentication token associated with the participant's connection.</p>\n      ",
+            "smithy.api#documentation": "<p>The authentication token associated with the participant's connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
             "smithy.api#required": true
           }
@@ -666,13 +671,13 @@
         "Content": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContent",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The content of the event to be sent (for example, message text). This is not yet\n            supported.</p>\n      "
+            "smithy.api#documentation": "<p>The content of the event to be sent (for example, message text). This is not yet\n            supported.</p>"
           }
         },
         "ContentType": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContentType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The content type of the request. Supported types are:</p>\n\n        <ul>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.typing</p>\n            </li>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>\n            </li>\n         </ul>\n\n      ",
+            "smithy.api#documentation": "<p>The content type of the request. Supported types are:</p>\n\n        <ul>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.typing</p>\n            </li>\n            <li>\n                <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         }
@@ -684,13 +689,13 @@
         "AbsoluteTime": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the event was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the response.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the response.</p>"
           }
         }
       }
@@ -718,7 +723,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of\n            ParticipantToken.</p>\n      ",
+        "smithy.api#documentation": "<p>Sends a message. Note that ConnectionToken is used for invoking this API instead of\n            ParticipantToken.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/participant/message",
@@ -732,14 +737,14 @@
         "ClientToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ClientToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request.</p>",
             "smithy.api#idempotencyToken": true
           }
         },
         "ConnectionToken": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ParticipantToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The authentication token associated with the connection.</p>\n      ",
+            "smithy.api#documentation": "<p>The authentication token associated with the connection.</p>",
             "smithy.api#httpHeader": "X-Amz-Bearer",
             "smithy.api#required": true
           }
@@ -747,14 +752,14 @@
         "Content": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContent",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The content of the message.</p>\n      ",
+            "smithy.api#documentation": "<p>The content of the message.</p>",
             "smithy.api#required": true
           }
         },
         "ContentType": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ChatContentType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of the content. Supported types are text/plain.</p>\n      ",
+            "smithy.api#documentation": "<p>The type of the content. Supported types are text/plain.</p>",
             "smithy.api#required": true
           }
         }
@@ -766,13 +771,13 @@
         "AbsoluteTime": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the message was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the message was sent.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the message.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the message.</p>"
           }
         }
       }
@@ -796,24 +801,24 @@
         "AbsoluteTime": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#Instant",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time in ISO format where to start.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>\n      "
+            "smithy.api#documentation": "<p>The time in ISO format where to start.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#ChatItemId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the message or event where to start. </p>\n      "
+            "smithy.api#documentation": "<p>The ID of the message or event where to start. </p>"
           }
         },
         "MostRecent": {
           "target": "com.amazonaws.amazonconnect.commonchatexternaltypes#MostRecent",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The start position of the most recent message where you want to start. </p>\n      "
+            "smithy.api#documentation": "<p>The start position of the most recent message where you want to start. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A filtering option for where to start. For example, if you sent 100 messages, start\n            with message 50. </p>\n      "
+        "smithy.api#documentation": "<p>A filtering option for where to start. For example, if you sent 100 messages, start\n            with message 50. </p>"
       }
     },
     "com.amazon.amazonconnectparticipantservice.v20180907#ThrottlingException": {
@@ -827,7 +832,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The request was denied due to request throttling.</p>\n      ",
+        "smithy.api#documentation": "<p>The request was denied due to request throttling.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -849,7 +854,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>\n      ",
+        "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by Amazon Connect.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -860,18 +865,18 @@
         "ConnectionExpiry": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#ISO8601Datetime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The URL expiration timestamp in ISO date format.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>\n      "
+            "smithy.api#documentation": "<p>The URL expiration timestamp in ISO date format.</p>\n        <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,\n            2019-11-08T02:41:28.172Z.</p>"
           }
         },
         "Url": {
           "target": "com.amazonaws.amazonconnect.commonexternaltypes#PreSignedConnectionUrl",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The URL of the websocket.</p>\n      "
+            "smithy.api#documentation": "<p>The URL of the websocket.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The websocket for the participant's connection.</p>\n      "
+        "smithy.api#documentation": "<p>The websocket for the participant's connection.</p>"
       }
     }
   }

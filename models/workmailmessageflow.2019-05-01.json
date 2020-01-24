@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -39,7 +44,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieves the raw content of an in-transit email message, in MIME format. </p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves the raw content of an in-transit email message, in MIME format. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/messages/{messageId}",
@@ -53,7 +58,7 @@
         "messageId": {
           "target": "com.amazonaws.workmailmessageflow.service#messageIdType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier of the email message to retrieve.</p>\n      ",
+            "smithy.api#documentation": "<p>The identifier of the email message to retrieve.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -66,7 +71,7 @@
         "messageContent": {
           "target": "com.amazonaws.workmailmessageflow.service#messageContentBlob",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The raw content of the email message, in MIME format.</p>\n      ",
+            "smithy.api#documentation": "<p>The raw content of the email message, in MIME format.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#required": true,
             "smithy.api#streaming": { }
@@ -89,7 +94,7 @@
           "cloudFormationName": "WorkMailMessageFlow",
           "cloudTrailEventSource": "service.workmailmessageflow.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <p>The WorkMail Message Flow API provides access to email messages as they are\n      being\n      sent and received by\n      a\n      WorkMail organization.</p>\n      ",
+        "smithy.api#documentation": "<p>The WorkMail Message Flow API provides access to email messages as they are\n      being\n      sent and received by\n      a\n      WorkMail organization.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -109,7 +114,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The requested email message is not found.</p>\n      ",
+        "smithy.api#documentation": "<p>The requested email message is not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }

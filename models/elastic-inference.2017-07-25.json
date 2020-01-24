@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -33,7 +38,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        Raised when a malformed input has been provided to the API.\n    ",
+        "smithy.api#documentation": "Raised when a malformed input has been provided to the API.",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -59,7 +64,7 @@
           "cloudFormationName": "ElasticInference",
           "cloudTrailEventSource": "ec2matterhorncfsoothsayerapigatewaylambda.amazon.com"
         },
-        "smithy.api#documentation": "\n        Elastic Inference public APIs.\n    ",
+        "smithy.api#documentation": "Elastic Inference public APIs.",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -79,7 +84,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        Raised when an unexpected error occurred during request processing.\n    ",
+        "smithy.api#documentation": "Raised when an unexpected error occurred during request processing.",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -104,7 +109,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        Returns all tags of an Elastic Inference Accelerator.\n    ",
+        "smithy.api#documentation": "Returns all tags of an Elastic Inference Accelerator.",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/tags/{resourceArn}",
@@ -118,7 +123,7 @@
         "resourceArn": {
           "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
           "traits": {
-            "smithy.api#documentation": "\n        The ARN of the Elastic Inference Accelerator to list the tags for.\n    ",
+            "smithy.api#documentation": "The ARN of the Elastic Inference Accelerator to list the tags for.",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -131,7 +136,7 @@
         "tags": {
           "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n        The tags of the Elastic Inference Accelerator.\n    "
+            "smithy.api#documentation": "The tags of the Elastic Inference Accelerator."
           }
         }
       }
@@ -153,7 +158,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        Raised when the requested resource cannot be found.\n    ",
+        "smithy.api#documentation": "Raised when the requested resource cannot be found.",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -217,7 +222,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        Adds the specified tag(s) to an Elastic Inference Accelerator.\n    ",
+        "smithy.api#documentation": "Adds the specified tag(s) to an Elastic Inference Accelerator.",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/tags/{resourceArn}",
@@ -231,7 +236,7 @@
         "resourceArn": {
           "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
           "traits": {
-            "smithy.api#documentation": "\n        The ARN of the Elastic Inference Accelerator to tag.\n    ",
+            "smithy.api#documentation": "The ARN of the Elastic Inference Accelerator to tag.",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -239,7 +244,7 @@
         "tags": {
           "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n        The tags to add to the Elastic Inference Accelerator.\n    ",
+            "smithy.api#documentation": "The tags to add to the Elastic Inference Accelerator.",
             "smithy.api#required": true
           }
         }
@@ -278,7 +283,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        Removes the specified tag(s) from an Elastic Inference Accelerator.\n    ",
+        "smithy.api#documentation": "Removes the specified tag(s) from an Elastic Inference Accelerator.",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/tags/{resourceArn}",
@@ -292,7 +297,7 @@
         "resourceArn": {
           "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
           "traits": {
-            "smithy.api#documentation": "\n        The ARN of the Elastic Inference Accelerator to untag.\n    ",
+            "smithy.api#documentation": "The ARN of the Elastic Inference Accelerator to untag.",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -300,7 +305,7 @@
         "tagKeys": {
           "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKeyList",
           "traits": {
-            "smithy.api#documentation": "\n        The list of tags to remove from the Elastic Inference Accelerator.\n    ",
+            "smithy.api#documentation": "The list of tags to remove from the Elastic Inference Accelerator.",
             "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": true
           }

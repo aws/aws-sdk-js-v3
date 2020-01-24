@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -60,7 +65,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Specifies a domain to be associated to Amazon WorkLink.</p>\n      ",
+        "smithy.api#documentation": "<p>Specifies a domain to be associated to Amazon WorkLink.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/associateDomain",
@@ -74,27 +79,27 @@
         "AcmCertificateArn": {
           "target": "com.amazonaws.awsargoncontrolplane#AcmCertificateArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>",
             "smithy.api#required": true
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The fully qualified domain name (FQDN).</p>\n      ",
+            "smithy.api#documentation": "<p>The fully qualified domain name (FQDN).</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The Amazon Resource Name (ARN) of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -133,7 +138,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>\n      ",
+        "smithy.api#documentation": "<p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/associateWebsiteAuthorizationProvider",
@@ -147,20 +152,20 @@
         "AuthorizationProviderType": {
           "target": "com.amazonaws.awsargoncontrolplane#AuthorizationProviderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The authorization provider type.</p>\n      ",
+            "smithy.api#documentation": "<p>The authorization provider type.</p>",
             "smithy.api#required": true
           }
         },
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>\n      "
+            "smithy.api#documentation": "<p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>"
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -172,7 +177,7 @@
         "AuthorizationProviderId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for the authorization provider.</p>\n      "
+            "smithy.api#documentation": "<p>A unique identifier for the authorization provider.</p>"
           }
         }
       }
@@ -206,7 +211,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS\n            certificates used by associated websites within the company network.</p>\n      ",
+        "smithy.api#documentation": "<p>Imports the root certificate of a certificate authority (CA) used to obtain TLS\n            certificates used by associated websites within the company network.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/associateWebsiteCertificateAuthority",
@@ -220,20 +225,20 @@
         "Certificate": {
           "target": "com.amazonaws.awsargoncontrolplane#Certificate",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The root certificate of the CA.</p>\n      ",
+            "smithy.api#documentation": "<p>The root certificate of the CA.</p>",
             "smithy.api#required": true
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The certificate name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The certificate name to display.</p>"
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -245,7 +250,7 @@
         "WebsiteCaId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for the CA.</p>\n      "
+            "smithy.api#documentation": "<p>A unique identifier for the CA.</p>"
           }
         }
       }
@@ -327,7 +332,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates a fleet. A fleet consists of resources and the configuration that delivers\n            associated websites to authorized users who download and set up the Amazon WorkLink app.</p>\n      ",
+        "smithy.api#documentation": "<p>Creates a fleet. A fleet consists of resources and the configuration that delivers\n            associated websites to authorized users who download and set up the Amazon WorkLink app.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/createFleet",
@@ -341,20 +346,20 @@
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The fleet name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The fleet name to display.</p>"
           }
         },
         "FleetName": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique name for the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique name for the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "OptimizeForEndUserLocation": {
           "target": "com.amazonaws.awsargoncontrolplane#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>\n      "
+            "smithy.api#documentation": "<p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>"
           }
         }
       }
@@ -365,7 +370,7 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>"
           }
         }
       }
@@ -399,7 +404,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>\n      ",
+        "smithy.api#documentation": "<p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/deleteFleet",
@@ -413,7 +418,7 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -449,7 +454,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the configuration for delivering audit streams to the customer account.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the configuration for delivering audit streams to the customer account.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeAuditStreamConfiguration",
@@ -463,7 +468,7 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -475,7 +480,7 @@
         "AuditStreamArn": {
           "target": "com.amazonaws.awsargoncontrolplane#AuditStreamArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the Amazon Kinesis data stream that will receive the audit events.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis data stream that will receive the audit events.</p>"
           }
         }
       }
@@ -506,7 +511,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the networking configuration to access the internal websites associated with\n            the specified fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the networking configuration to access the internal websites associated with\n            the specified fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeCompanyNetworkConfiguration",
@@ -520,7 +525,7 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -532,19 +537,19 @@
         "SecurityGroupIds": {
           "target": "com.amazonaws.awsargoncontrolplane#SecurityGroupIds",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The security groups associated with access to the provided subnets.</p>\n      "
+            "smithy.api#documentation": "<p>The security groups associated with access to the provided subnets.</p>"
           }
         },
         "SubnetIds": {
           "target": "com.amazonaws.awsargoncontrolplane#SubnetIds",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The subnets used for X-ENI connections from Amazon WorkLink\n            rendering\n            containers.</p>\n      "
+            "smithy.api#documentation": "<p>The subnets used for X-ENI connections from Amazon WorkLink\n            rendering\n            containers.</p>"
           }
         },
         "VpcId": {
           "target": "com.amazonaws.awsargoncontrolplane#VpcId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The VPC with connectivity to associated websites.</p>\n      "
+            "smithy.api#documentation": "<p>The VPC with connectivity to associated websites.</p>"
           }
         }
       }
@@ -575,7 +580,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Provides information about a user's device.</p>\n      ",
+        "smithy.api#documentation": "<p>Provides information about a user's device.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeDevice",
@@ -609,7 +614,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the device policy configuration for the specified fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the device policy configuration for the specified fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeDevicePolicyConfiguration",
@@ -623,7 +628,7 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -635,7 +640,7 @@
         "DeviceCaCertificate": {
           "target": "com.amazonaws.awsargoncontrolplane#Certificate",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>\n      "
+            "smithy.api#documentation": "<p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>"
           }
         }
       }
@@ -646,14 +651,14 @@
         "DeviceId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for a registered user's device.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique identifier for a registered user's device.</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -665,55 +670,55 @@
         "FirstAccessedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The date that the device first signed in to Amazon WorkLink.</p>\n      "
+            "smithy.api#documentation": "<p>The date that the device first signed in to Amazon WorkLink.</p>"
           }
         },
         "LastAccessedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The date that the device last accessed Amazon WorkLink.</p>\n      "
+            "smithy.api#documentation": "<p>The date that the device last accessed Amazon WorkLink.</p>"
           }
         },
         "Manufacturer": {
           "target": "com.amazonaws.awsargoncontrolplane#DeviceManufacturer",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The manufacturer of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The manufacturer of the device.</p>"
           }
         },
         "Model": {
           "target": "com.amazonaws.awsargoncontrolplane#DeviceModel",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The model of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The model of the device.</p>"
           }
         },
         "OperatingSystem": {
           "target": "com.amazonaws.awsargoncontrolplane#DeviceOperatingSystemName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The operating system of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The operating system of the device.</p>"
           }
         },
         "OperatingSystemVersion": {
           "target": "com.amazonaws.awsargoncontrolplane#DeviceOperatingSystemVersion",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The operating system version of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The operating system version of the device.</p>"
           }
         },
         "PatchLevel": {
           "target": "com.amazonaws.awsargoncontrolplane#DevicePatchLevel",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The operating system patch level of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The operating system patch level of the device.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.awsargoncontrolplane#DeviceStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The current state of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The current state of the device.</p>"
           }
         },
         "Username": {
           "target": "com.amazonaws.awsargoncontrolplane#Username",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user name associated with the device.</p>\n      "
+            "smithy.api#documentation": "<p>The user name associated with the device.</p>"
           }
         }
       }
@@ -744,7 +749,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Provides information about the domain.</p>\n      ",
+        "smithy.api#documentation": "<p>Provides information about the domain.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeDomain",
@@ -758,14 +763,14 @@
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -777,31 +782,31 @@
         "AcmCertificateArn": {
           "target": "com.amazonaws.awsargoncontrolplane#AcmCertificateArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>"
           }
         },
         "CreatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time that the domain was added.</p>\n      "
+            "smithy.api#documentation": "<p>The time that the domain was added.</p>"
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the domain.</p>"
           }
         },
         "DomainStatus": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The current state for the domain.</p>\n      "
+            "smithy.api#documentation": "<p>The current state for the domain.</p>"
           }
         }
       }
@@ -832,7 +837,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Provides basic information for the specified fleet, excluding identity provider,\n            networking, and device configuration details.</p>\n      ",
+        "smithy.api#documentation": "<p>Provides basic information for the specified fleet, excluding identity provider,\n            networking, and device configuration details.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeFleetMetadata",
@@ -846,7 +851,7 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -858,43 +863,43 @@
         "CompanyCode": {
           "target": "com.amazonaws.awsargoncontrolplane#CompanyCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The identifier used by users to sign in to the Amazon WorkLink app.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier used by users to sign in to the Amazon WorkLink app.</p>"
           }
         },
         "CreatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time that the fleet was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time that the fleet was created.</p>"
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
         "FleetName": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the fleet.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the fleet.</p>"
           }
         },
         "FleetStatus": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The current state of the fleet.</p>\n      "
+            "smithy.api#documentation": "<p>The current state of the fleet.</p>"
           }
         },
         "LastUpdatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time that the fleet was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>The time that the fleet was last updated.</p>"
           }
         },
         "OptimizeForEndUserLocation": {
           "target": "com.amazonaws.awsargoncontrolplane#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>\n      "
+            "smithy.api#documentation": "<p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>"
           }
         }
       }
@@ -925,7 +930,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the identity provider configuration of the specified fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the identity provider configuration of the specified fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeIdentityProviderConfiguration",
@@ -939,7 +944,7 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -951,19 +956,19 @@
         "IdentityProviderSamlMetadata": {
           "target": "com.amazonaws.awsargoncontrolplane#SamlMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The SAML metadata document provided by the user’s identity provider.</p>\n      "
+            "smithy.api#documentation": "<p>The SAML metadata document provided by the user’s identity provider.</p>"
           }
         },
         "IdentityProviderType": {
           "target": "com.amazonaws.awsargoncontrolplane#IdentityProviderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of identity provider.</p>\n      "
+            "smithy.api#documentation": "<p>The type of identity provider.</p>"
           }
         },
         "ServiceProviderSamlMetadata": {
           "target": "com.amazonaws.awsargoncontrolplane#SamlMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The SAML metadata document uploaded to the user’s identity provider.</p>\n      "
+            "smithy.api#documentation": "<p>The SAML metadata document uploaded to the user’s identity provider.</p>"
           }
         }
       }
@@ -994,7 +999,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Provides information about the certificate authority.</p>\n      ",
+        "smithy.api#documentation": "<p>Provides information about the certificate authority.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describeWebsiteCertificateAuthority",
@@ -1008,14 +1013,14 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "WebsiteCaId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for the certificate authority.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique identifier for the certificate authority.</p>",
             "smithy.api#required": true
           }
         }
@@ -1027,19 +1032,19 @@
         "Certificate": {
           "target": "com.amazonaws.awsargoncontrolplane#Certificate",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The root certificate of the certificate authority.</p>\n      "
+            "smithy.api#documentation": "<p>The root certificate of the certificate authority.</p>"
           }
         },
         "CreatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time that the certificate authority was added.</p>\n      "
+            "smithy.api#documentation": "<p>The time that the certificate authority was added.</p>"
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The certificate name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The certificate name to display.</p>"
           }
         }
       }
@@ -1108,18 +1113,18 @@
         "DeviceId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the device.</p>"
           }
         },
         "DeviceStatus": {
           "target": "com.amazonaws.awsargoncontrolplane#DeviceStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the device.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the device.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The summary of devices.</p>\n      "
+        "smithy.api#documentation": "<p>The summary of devices.</p>"
       }
     },
     "com.amazonaws.awsargoncontrolplane#DeviceSummaryList": {
@@ -1154,7 +1159,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>\n      ",
+        "smithy.api#documentation": "<p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/disassociateDomain",
@@ -1168,14 +1173,14 @@
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -1214,7 +1219,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Disassociates a website authorization provider from a specified fleet. After the\n            disassociation, users can't load any associated websites that require this authorization\n            provider.</p>\n      ",
+        "smithy.api#documentation": "<p>Disassociates a website authorization provider from a specified fleet. After the\n            disassociation, users can't load any associated websites that require this authorization\n            provider.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/disassociateWebsiteAuthorizationProvider",
@@ -1228,14 +1233,14 @@
         "AuthorizationProviderId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for the authorization provider.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique identifier for the authorization provider.</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -1271,7 +1276,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Removes a certificate authority (CA).</p>\n      ",
+        "smithy.api#documentation": "<p>Removes a certificate authority (CA).</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/disassociateWebsiteCertificateAuthority",
@@ -1285,14 +1290,14 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "WebsiteCaId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for the CA.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique identifier for the CA.</p>",
             "smithy.api#required": true
           }
         }
@@ -1358,33 +1363,33 @@
         "CreatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time that the domain was created.</p>\n      ",
+            "smithy.api#documentation": "<p>The time that the domain was created.</p>",
             "smithy.api#required": true
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
             "smithy.api#required": true
           }
         },
         "DomainStatus": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the domain.</p>\n      ",
+            "smithy.api#documentation": "<p>The status of the domain.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The summary of the domain.</p>\n      "
+        "smithy.api#documentation": "<p>The summary of the domain.</p>"
       }
     },
     "com.amazonaws.awsargoncontrolplane#DomainSummaryList": {
@@ -1446,48 +1451,48 @@
         "CompanyCode": {
           "target": "com.amazonaws.awsargoncontrolplane#CompanyCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The identifier used by users to sign into the Amazon WorkLink app.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier used by users to sign into the Amazon WorkLink app.</p>"
           }
         },
         "CreatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the fleet was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the fleet was created.</p>"
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>"
           }
         },
         "FleetName": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the fleet.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the fleet.</p>"
           }
         },
         "FleetStatus": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the fleet.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the fleet.</p>"
           }
         },
         "LastUpdatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the fleet was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the fleet was last updated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The summary of the fleet.</p>\n      "
+        "smithy.api#documentation": "<p>The summary of the fleet.</p>"
       }
     },
     "com.amazonaws.awsargoncontrolplane#FleetSummaryList": {
@@ -1523,7 +1528,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The service is temporarily unavailable.</p>\n      ",
+        "smithy.api#documentation": "<p>The service is temporarily unavailable.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -1536,7 +1541,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The request is not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The request is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1567,7 +1572,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves a list of devices registered with the specified fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves a list of devices registered with the specified fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/listDevices",
@@ -1586,20 +1591,20 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
           }
         }
       }
@@ -1610,13 +1615,13 @@
         "Devices": {
           "target": "com.amazonaws.awsargoncontrolplane#DeviceSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Information about the devices.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the devices.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>"
           }
         }
       }
@@ -1644,7 +1649,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves a list of domains associated to a specified fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves a list of domains associated to a specified fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/listDomains",
@@ -1663,20 +1668,20 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
           }
         }
       }
@@ -1687,13 +1692,13 @@
         "Domains": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Information about the domains.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the domains.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>"
           }
         }
       }
@@ -1721,7 +1726,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves a list of fleets for the current account and Region.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves a list of fleets for the current account and Region.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/listFleets",
@@ -1740,13 +1745,13 @@
         "MaxResults": {
           "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
           }
         }
       }
@@ -1757,13 +1762,13 @@
         "FleetSummaryList": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The summary list of the fleets.</p>\n      "
+            "smithy.api#documentation": "<p>The summary list of the fleets.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>"
           }
         }
       }
@@ -1794,7 +1799,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves a list of website authorization providers associated with a specified fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/listWebsiteAuthorizationProviders",
@@ -1813,20 +1818,20 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>"
           }
         }
       }
@@ -1837,13 +1842,13 @@
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>"
           }
         },
         "WebsiteAuthorizationProviders": {
           "target": "com.amazonaws.awsargoncontrolplane#WebsiteAuthorizationProvidersSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The website authorization providers.</p>\n      "
+            "smithy.api#documentation": "<p>The website authorization providers.</p>"
           }
         }
       }
@@ -1871,7 +1876,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves a list of certificate authorities added for the current account and\n            Region.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves a list of certificate authorities added for the current account and\n            Region.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/listWebsiteCertificateAuthorities",
@@ -1890,20 +1895,20 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to be included in the next page.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>"
           }
         }
       }
@@ -1914,13 +1919,13 @@
         "NextToken": {
           "target": "com.amazonaws.awsargoncontrolplane#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+            "smithy.api#documentation": "<p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>"
           }
         },
         "WebsiteCertificateAuthorities": {
           "target": "com.amazonaws.awsargoncontrolplane#WebsiteCaSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Information about the\n            certificates.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the\n            certificates.</p>"
           }
         }
       }
@@ -1952,7 +1957,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The resource already exists.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource already exists.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1965,7 +1970,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The requested resource was not found.</p>\n      ",
+        "smithy.api#documentation": "<p>The requested resource was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1996,7 +2001,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>\n      ",
+        "smithy.api#documentation": "<p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/restoreDomainAccess",
@@ -2010,14 +2015,14 @@
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -2053,7 +2058,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>\n      ",
+        "smithy.api#documentation": "<p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/revokeDomainAccess",
@@ -2067,14 +2072,14 @@
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -2137,7 +2142,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Signs the user out from all of their devices. The user can sign in again if they have\n            valid credentials.</p>\n      ",
+        "smithy.api#documentation": "<p>Signs the user out from all of their devices. The user can sign in again if they have\n            valid credentials.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/signOutUser",
@@ -2151,14 +2156,14 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "Username": {
           "target": "com.amazonaws.awsargoncontrolplane#Username",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the user.</p>",
             "smithy.api#required": true
           }
         }
@@ -2188,7 +2193,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The number of requests exceeds the limit.</p>\n      ",
+        "smithy.api#documentation": "<p>The number of requests exceeds the limit.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -2201,7 +2206,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>You are not authorized to perform this action.</p>\n      ",
+        "smithy.api#documentation": "<p>You are not authorized to perform this action.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -2232,7 +2237,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates the audit stream configuration for the fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates the audit stream configuration for the fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/updateAuditStreamConfiguration",
@@ -2246,13 +2251,13 @@
         "AuditStreamArn": {
           "target": "com.amazonaws.awsargoncontrolplane#AuditStreamArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the Amazon Kinesis data stream that receives the audit events.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis data stream that receives the audit events.</p>"
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -2288,7 +2293,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates the company network configuration for the fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates the company network configuration for the fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/updateCompanyNetworkConfiguration",
@@ -2302,28 +2307,28 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "SecurityGroupIds": {
           "target": "com.amazonaws.awsargoncontrolplane#SecurityGroupIds",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The security groups associated with access to the provided subnets.</p>\n      ",
+            "smithy.api#documentation": "<p>The security groups associated with access to the provided subnets.</p>",
             "smithy.api#required": true
           }
         },
         "SubnetIds": {
           "target": "com.amazonaws.awsargoncontrolplane#SubnetIds",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The subnets used for X-ENI connections from Amazon WorkLink\n            rendering\n            containers.</p>\n      ",
+            "smithy.api#documentation": "<p>The subnets used for X-ENI connections from Amazon WorkLink\n            rendering\n            containers.</p>",
             "smithy.api#required": true
           }
         },
         "VpcId": {
           "target": "com.amazonaws.awsargoncontrolplane#VpcId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The VPC with connectivity to associated websites.</p>\n      ",
+            "smithy.api#documentation": "<p>The VPC with connectivity to associated websites.</p>",
             "smithy.api#required": true
           }
         }
@@ -2359,7 +2364,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates the device policy configuration for the fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates the device policy configuration for the fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/updateDevicePolicyConfiguration",
@@ -2373,13 +2378,13 @@
         "DeviceCaCertificate": {
           "target": "com.amazonaws.awsargoncontrolplane#CertificateChain",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>\n      "
+            "smithy.api#documentation": "<p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>"
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -2415,7 +2420,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates domain metadata, such as DisplayName.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates domain metadata, such as DisplayName.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/updateDomainMetadata",
@@ -2429,20 +2434,20 @@
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
             "smithy.api#required": true
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         }
@@ -2478,7 +2483,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates fleet metadata, such as DisplayName.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates fleet metadata, such as DisplayName.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/UpdateFleetMetadata",
@@ -2492,20 +2497,20 @@
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The fleet name to display. The existing DisplayName is unset if null is passed.</p>\n      "
+            "smithy.api#documentation": "<p>The fleet name to display. The existing DisplayName is unset if null is passed.</p>"
           }
         },
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "OptimizeForEndUserLocation": {
           "target": "com.amazonaws.awsargoncontrolplane#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>\n      "
+            "smithy.api#documentation": "<p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>"
           }
         }
       }
@@ -2540,7 +2545,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates the identity provider configuration for the fleet.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates the identity provider configuration for the fleet.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/updateIdentityProviderConfiguration",
@@ -2554,20 +2559,20 @@
         "FleetArn": {
           "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the fleet.</p>",
             "smithy.api#required": true
           }
         },
         "IdentityProviderSamlMetadata": {
           "target": "com.amazonaws.awsargoncontrolplane#SamlMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The SAML metadata document provided by the customer’s identity provider. The existing\n            IdentityProviderSamlMetadata is unset if null is passed.</p>\n      "
+            "smithy.api#documentation": "<p>The SAML metadata document provided by the customer’s identity provider. The existing\n            IdentityProviderSamlMetadata is unset if null is passed.</p>"
           }
         },
         "IdentityProviderType": {
           "target": "com.amazonaws.awsargoncontrolplane#IdentityProviderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of identity provider.</p>\n      ",
+            "smithy.api#documentation": "<p>The type of identity provider.</p>",
             "smithy.api#required": true
           }
         }
@@ -2598,31 +2603,31 @@
         "AuthorizationProviderId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for the authorization provider.</p>\n      "
+            "smithy.api#documentation": "<p>A unique identifier for the authorization provider.</p>"
           }
         },
         "AuthorizationProviderType": {
           "target": "com.amazonaws.awsargoncontrolplane#AuthorizationProviderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The authorization provider type.</p>\n      ",
+            "smithy.api#documentation": "<p>The authorization provider type.</p>",
             "smithy.api#required": true
           }
         },
         "CreatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time of creation.</p>\n      "
+            "smithy.api#documentation": "<p>The time of creation.</p>"
           }
         },
         "DomainName": {
           "target": "com.amazonaws.awsargoncontrolplane#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>\n      "
+            "smithy.api#documentation": "<p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The summary of the website authorization provider.</p>\n      "
+        "smithy.api#documentation": "<p>The summary of the website authorization provider.</p>"
       }
     },
     "com.amazonaws.awsargoncontrolplane#WebsiteAuthorizationProvidersSummaryList": {
@@ -2637,24 +2642,24 @@
         "CreatedTime": {
           "target": "com.amazonaws.awsargoncontrolplane#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the CA was added.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the CA was added.</p>"
           }
         },
         "DisplayName": {
           "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+            "smithy.api#documentation": "<p>The name to display.</p>"
           }
         },
         "WebsiteCaId": {
           "target": "com.amazonaws.awsargoncontrolplane#Id",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A unique identifier for the CA.</p>\n      "
+            "smithy.api#documentation": "<p>A unique identifier for the CA.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The summary of the certificate authority (CA).</p>\n      "
+        "smithy.api#documentation": "<p>The summary of the certificate authority (CA).</p>"
       }
     },
     "com.amazonaws.awsargoncontrolplane#WebsiteCaSummaryList": {
@@ -2765,7 +2770,7 @@
           "cloudFormationName": "WorkLink",
           "cloudTrailEventSource": "awsargoncontrolplane.amazonaws.com"
         },
-        "smithy.api#documentation": "\n        <p>Amazon WorkLink is a cloud-based service that provides secure access\n            to internal websites and web apps from iOS phones. In a single step, your users, such as\n            employees, can access internal websites as efficiently as they access any other public website.\n            They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink\n            authenticates the user's access and securely renders authorized internal web content in a secure\n            rendering service in the AWS cloud. Amazon WorkLink doesn't download or store any internal web content on\n            mobile devices.</p>\n      ",
+        "smithy.api#documentation": "<p>Amazon WorkLink is a cloud-based service that provides secure access\n            to internal websites and web apps from iOS phones. In a single step, your users, such as\n            employees, can access internal websites as efficiently as they access any other public website.\n            They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink\n            authenticates the user's access and securely renders authorized internal web content in a secure\n            rendering service in the AWS cloud. Amazon WorkLink doesn't download or store any internal web content on\n            mobile devices.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",

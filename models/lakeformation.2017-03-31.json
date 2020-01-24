@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -76,7 +81,7 @@
           "cloudFormationName": "LakeFormation",
           "cloudTrailEventSource": "lakeformation.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <fullname>AWS Lake Formation</fullname>\n         <p>Defines the public endpoint for the AWS Lake Formation service.</p>\n      ",
+        "smithy.api#documentation": "<fullname>AWS Lake Formation</fullname>\n         <p>Defines the public endpoint for the AWS Lake Formation service.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -94,12 +99,12 @@
         "Message": {
           "target": "com.amazonaws.michigan.common.exceptions#MessageString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message describing the problem.</p>\n      "
+            "smithy.api#documentation": "<p>A message describing the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A resource to be created or added already exists.</p>\n      ",
+        "smithy.api#documentation": "<p>A resource to be created or added already exists.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -120,7 +125,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Batch operation to grant permissions to the principal.</p>\n      "
+        "smithy.api#documentation": "<p>Batch operation to grant permissions to the principal.</p>"
       }
     },
     "com.amazonaws.michigan#BatchGrantPermissionsRequest": {
@@ -129,13 +134,13 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "Entries": {
           "target": "com.amazonaws.michigan#BatchPermissionsRequestEntryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>\n      ",
+            "smithy.api#documentation": "<p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>",
             "smithy.api#required": true
           }
         }
@@ -147,7 +152,7 @@
         "Failures": {
           "target": "com.amazonaws.michigan#BatchPermissionsFailureList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of failures to grant permissions to the resources.</p>\n      "
+            "smithy.api#documentation": "<p>A list of failures to grant permissions to the resources.</p>"
           }
         }
       }
@@ -158,18 +163,18 @@
         "Error": {
           "target": "com.amazonaws.michigan.common.exceptions#ErrorDetail",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An error message that applies to the failure of the entry.</p>\n      "
+            "smithy.api#documentation": "<p>An error message that applies to the failure of the entry.</p>"
           }
         },
         "RequestEntry": {
           "target": "com.amazonaws.michigan#BatchPermissionsRequestEntry",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An identifier for an entry of the batch request.</p>\n      "
+            "smithy.api#documentation": "<p>An identifier for an entry of the batch request.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A list of failures when performing a batch grant or batch revoke operation.</p>\n      "
+        "smithy.api#documentation": "<p>A list of failures when performing a batch grant or batch revoke operation.</p>"
       }
     },
     "com.amazonaws.michigan#BatchPermissionsFailureList": {
@@ -184,37 +189,37 @@
         "Id": {
           "target": "com.amazonaws.michigan#Identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A unique identifier for the batch permissions request entry.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique identifier for the batch permissions request entry.</p>",
             "smithy.api#required": true
           }
         },
         "Permissions": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The permissions to be granted.</p>\n      "
+            "smithy.api#documentation": "<p>The permissions to be granted.</p>"
           }
         },
         "PermissionsWithGrantOption": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates if the option to pass permissions is granted.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates if the option to pass permissions is granted.</p>"
           }
         },
         "Principal": {
           "target": "com.amazonaws.michigan#DataLakePrincipal",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The principal to be granted a permission.</p>\n      "
+            "smithy.api#documentation": "<p>The principal to be granted a permission.</p>"
           }
         },
         "Resource": {
           "target": "com.amazonaws.michigan#Resource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource to which the principal is to be granted a permission.</p>\n      "
+            "smithy.api#documentation": "<p>The resource to which the principal is to be granted a permission.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A permission to a resource granted by batch operation to the principal.</p>\n      "
+        "smithy.api#documentation": "<p>A permission to a resource granted by batch operation to the principal.</p>"
       }
     },
     "com.amazonaws.michigan#BatchPermissionsRequestEntryList": {
@@ -240,7 +245,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Batch operation to revoke permissions from the principal.</p>\n      "
+        "smithy.api#documentation": "<p>Batch operation to revoke permissions from the principal.</p>"
       }
     },
     "com.amazonaws.michigan#BatchRevokePermissionsRequest": {
@@ -249,13 +254,13 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "Entries": {
           "target": "com.amazonaws.michigan#BatchPermissionsRequestEntryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal.</p>\n      ",
+            "smithy.api#documentation": "<p>A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal.</p>",
             "smithy.api#required": true
           }
         }
@@ -267,7 +272,7 @@
         "Failures": {
           "target": "com.amazonaws.michigan#BatchPermissionsFailureList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of failures to revoke permissions to the resources.</p>\n      "
+            "smithy.api#documentation": "<p>A list of failures to revoke permissions to the resources.</p>"
           }
         }
       }
@@ -286,7 +291,7 @@
       "type": "structure",
       "members": { },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A structure for the catalog object.</p>\n      "
+        "smithy.api#documentation": "<p>A structure for the catalog object.</p>"
       }
     },
     "com.amazonaws.michigan#ColumnNames": {
@@ -301,12 +306,12 @@
         "ExcludedColumnNames": {
           "target": "com.amazonaws.michigan#ColumnNames",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Excludes column names. Any column with this name will be excluded.</p>\n      "
+            "smithy.api#documentation": "<p>Excludes column names. Any column with this name will be excluded.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A wildcard object, consisting of an optional list of excluded column names or indexes.</p>\n      "
+        "smithy.api#documentation": "<p>A wildcard object, consisting of an optional list of excluded column names or indexes.</p>"
       }
     },
     "com.amazonaws.michigan.datatypes#ComparisonOperator": {
@@ -355,12 +360,12 @@
         "Message": {
           "target": "com.amazonaws.michigan.common.exceptions#MessageString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message describing the problem.</p>\n      "
+            "smithy.api#documentation": "<p>A message describing the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Two processes are trying to modify a resource simultaneously.</p>\n      ",
+        "smithy.api#documentation": "<p>Two processes are trying to modify a resource simultaneously.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -370,12 +375,12 @@
         "DataLakePrincipalIdentifier": {
           "target": "com.amazonaws.michigan#DataLakePrincipalString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An identifier for the AWS Lake Formation principal.</p>\n      "
+            "smithy.api#documentation": "<p>An identifier for the AWS Lake Formation principal.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The AWS Lake Formation principal.</p>\n      "
+        "smithy.api#documentation": "<p>The AWS Lake Formation principal.</p>"
       }
     },
     "com.amazonaws.michigan#DataLakePrincipalList": {
@@ -424,24 +429,24 @@
         "CreateDatabaseDefaultPermissions": {
           "target": "com.amazonaws.michigan#PrincipalPermissionsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of up to three principal permissions entries for default create database permissions.</p>\n      "
+            "smithy.api#documentation": "<p>A list of up to three principal permissions entries for default create database permissions.</p>"
           }
         },
         "CreateTableDefaultPermissions": {
           "target": "com.amazonaws.michigan#PrincipalPermissionsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of up to three principal permissions entries for default create table permissions.</p>\n      "
+            "smithy.api#documentation": "<p>A list of up to three principal permissions entries for default create table permissions.</p>"
           }
         },
         "DataLakeAdmins": {
           "target": "com.amazonaws.michigan#DataLakePrincipalList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of AWS Lake Formation principals.</p>\n      "
+            "smithy.api#documentation": "<p>A list of AWS Lake Formation principals.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The AWS Lake Formation principal.</p>\n      "
+        "smithy.api#documentation": "<p>The AWS Lake Formation principal.</p>"
       }
     },
     "com.amazonaws.michigan#DataLocationResource": {
@@ -450,13 +455,13 @@
         "ResourceArn": {
           "target": "com.amazonaws.michigan#ResourceArnString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) that uniquely identifies the data location resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that uniquely identifies the data location resource.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A structure for a data location object where permissions are granted or revoked. </p>\n      "
+        "smithy.api#documentation": "<p>A structure for a data location object where permissions are granted or revoked. </p>"
       }
     },
     "com.amazonaws.michigan#DatabaseResource": {
@@ -465,13 +470,13 @@
         "Name": {
           "target": "com.amazonaws.michigan.common.datatypes#NameString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the database resource. Unique to the Data Catalog.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the database resource. Unique to the Data Catalog.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A structure for the database object.</p>\n      "
+        "smithy.api#documentation": "<p>A structure for the database object.</p>"
       }
     },
     "com.amazonaws.michigan#DeregisterResource": {
@@ -497,7 +502,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deregisters the resource as managed by the Data Catalog.</p>\n\t\n         <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>\n      "
+        "smithy.api#documentation": "<p>Deregisters the resource as managed by the Data Catalog.</p>\n\t\n         <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>"
       }
     },
     "com.amazonaws.michigan#DeregisterResourceRequest": {
@@ -506,7 +511,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.michigan.datatypes#ResourceArnString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>",
             "smithy.api#required": true
           }
         }
@@ -539,7 +544,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieves the current data access role for the given resource registered in AWS Lake Formation.</p>\n      "
+        "smithy.api#documentation": "<p>Retrieves the current data access role for the given resource registered in AWS Lake Formation.</p>"
       }
     },
     "com.amazonaws.michigan#DescribeResourceRequest": {
@@ -548,7 +553,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.michigan.datatypes#ResourceArnString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource ARN.</p>\n      ",
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
             "smithy.api#required": true
           }
         }
@@ -560,7 +565,7 @@
         "ResourceInfo": {
           "target": "com.amazonaws.michigan.datatypes#ResourceInfo",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A structure containing information about an AWS Lake Formation resource.</p>\n      "
+            "smithy.api#documentation": "<p>A structure containing information about an AWS Lake Formation resource.</p>"
           }
         }
       }
@@ -581,12 +586,12 @@
         "Message": {
           "target": "com.amazonaws.michigan.common.exceptions#MessageString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message describing the problem.</p>\n      "
+            "smithy.api#documentation": "<p>A message describing the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A specified entity does not exist</p>\n      ",
+        "smithy.api#documentation": "<p>A specified entity does not exist</p>",
         "smithy.api#error": "client"
       }
     },
@@ -596,18 +601,18 @@
         "ErrorCode": {
           "target": "com.amazonaws.michigan.common.datatypes#NameString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The code associated with this error.</p>\n      "
+            "smithy.api#documentation": "<p>The code associated with this error.</p>"
           }
         },
         "ErrorMessage": {
           "target": "com.amazonaws.michigan.common.datatypes#DescriptionString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message describing the error.</p>\n      "
+            "smithy.api#documentation": "<p>A message describing the error.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Contains details about an error.</p>\n      "
+        "smithy.api#documentation": "<p>Contains details about an error.</p>"
       }
     },
     "com.amazonaws.michigan.datatypes#FieldNameString": {
@@ -632,24 +637,24 @@
         "ComparisonOperator": {
           "target": "com.amazonaws.michigan.datatypes#ComparisonOperator",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The comparison operator used in the filter condition.</p>\n      "
+            "smithy.api#documentation": "<p>The comparison operator used in the filter condition.</p>"
           }
         },
         "Field": {
           "target": "com.amazonaws.michigan.datatypes#FieldNameString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The field to filter in the filter condition.</p>\n      "
+            "smithy.api#documentation": "<p>The field to filter in the filter condition.</p>"
           }
         },
         "StringValueList": {
           "target": "com.amazonaws.michigan.datatypes#StringValueList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string with values used in evaluating the filter condition.</p>\n      "
+            "smithy.api#documentation": "<p>A string with values used in evaluating the filter condition.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>This structure describes the filtering of columns in a table based on a filter condition.</p>\n      "
+        "smithy.api#documentation": "<p>This structure describes the filtering of columns in a table based on a filter condition.</p>"
       }
     },
     "com.amazonaws.michigan.datatypes#FilterConditionList": {
@@ -684,7 +689,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>The AWS Lake Formation principal.</p>\n      "
+        "smithy.api#documentation": "<p>The AWS Lake Formation principal.</p>"
       }
     },
     "com.amazonaws.michigan#GetDataLakeSettingsRequest": {
@@ -693,7 +698,7 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         }
       }
@@ -704,7 +709,7 @@
         "DataLakeSettings": {
           "target": "com.amazonaws.michigan#DataLakeSettings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of AWS Lake Formation principals. </p>\n      "
+            "smithy.api#documentation": "<p>A list of AWS Lake Formation principals. </p>"
           }
         }
       }
@@ -732,7 +737,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the permissions for a specified table or database resource located at a path in Amazon S3.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns the permissions for a specified table or database resource located at a path in Amazon S3.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -746,25 +751,25 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.michigan.common.datatypes#PageSize",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.michigan#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A continuation token, if this is not the first call to retrieve this list.</p>\n      "
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve this list.</p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.michigan#ResourceArnString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource for which you want to get permissions.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource for which you want to get permissions.</p>",
             "smithy.api#required": true
           }
         }
@@ -776,13 +781,13 @@
         "NextToken": {
           "target": "com.amazonaws.michigan#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A continuation token, if this is not the first call to retrieve this list.</p>\n      "
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve this list.</p>"
           }
         },
         "Permissions": {
           "target": "com.amazonaws.michigan#PrincipalResourcePermissionsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>\n      "
+            "smithy.api#documentation": "<p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>"
           }
         }
       }
@@ -807,7 +812,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>\n\t        <p>For information about permissions, see <a href=\"https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>\n\t        <p>For information about permissions, see <a href=\"https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>"
       }
     },
     "com.amazonaws.michigan#GrantPermissionsRequest": {
@@ -816,33 +821,33 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "Permissions": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The permissions granted to the principal on the resource. AWS Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. AWS Lake Formation requires that each principal be authorized to perform a specific task on AWS Lake Formation resources. </p>\n      ",
+            "smithy.api#documentation": "<p>The permissions granted to the principal on the resource. AWS Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. AWS Lake Formation requires that each principal be authorized to perform a specific task on AWS Lake Formation resources. </p>",
             "smithy.api#required": true
           }
         },
         "PermissionsWithGrantOption": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>"
           }
         },
         "Principal": {
           "target": "com.amazonaws.michigan#DataLakePrincipal",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p>\n\t        <p>Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted. </p>\n      ",
+            "smithy.api#documentation": "<p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p>\n\t        <p>Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted. </p>",
             "smithy.api#required": true
           }
         },
         "Resource": {
           "target": "com.amazonaws.michigan#Resource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource to which permissions are to be granted. Resources in AWS Lake Formation are the Data Catalog, databases, and tables.</p>\n      ",
+            "smithy.api#documentation": "<p>The resource to which permissions are to be granted. Resources in AWS Lake Formation are the Data Catalog, databases, and tables.</p>",
             "smithy.api#required": true
           }
         }
@@ -873,12 +878,12 @@
         "Message": {
           "target": "com.amazonaws.michigan.common.exceptions#MessageString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message describing the problem.</p>\n      "
+            "smithy.api#documentation": "<p>A message describing the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An internal service error occurred.</p>\n      ",
+        "smithy.api#documentation": "<p>An internal service error occurred.</p>",
         "smithy.api#error": "server"
       }
     },
@@ -888,12 +893,12 @@
         "Message": {
           "target": "com.amazonaws.michigan.common.exceptions#MessageString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message describing the problem.</p>\n      "
+            "smithy.api#documentation": "<p>A message describing the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The input provided was not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The input provided was not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -920,7 +925,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>\n\t        <p>This operation returns only those permissions that have been explicitly granted.</p>\n\t        <p>For information about permissions, see <a href=\"https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>\n\t        <p>This operation returns only those permissions that have been explicitly granted.</p>\n\t        <p>For information about permissions, see <a href=\"https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -934,37 +939,37 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.michigan.common.datatypes#PageSize",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.michigan#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A continuation token, if this is not the first call to retrieve this list.</p>\n      "
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve this list.</p>"
           }
         },
         "Principal": {
           "target": "com.amazonaws.michigan#DataLakePrincipal",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies a principal to filter the permissions returned.</p>\n      "
+            "smithy.api#documentation": "<p>Specifies a principal to filter the permissions returned.</p>"
           }
         },
         "Resource": {
           "target": "com.amazonaws.michigan#Resource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A resource where you will get a list of the principal permissions.</p>\n         <p>This operation does not support getting privileges on a table with columns. Instead, call this operation on the table, and the operation returns the table and the table w columns.</p>\n      "
+            "smithy.api#documentation": "<p>A resource where you will get a list of the principal permissions.</p>\n         <p>This operation does not support getting privileges on a table with columns. Instead, call this operation on the table, and the operation returns the table and the table w columns.</p>"
           }
         },
         "ResourceType": {
           "target": "com.amazonaws.michigan#DataLakeResourceType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies a resource type to filter the permissions returned.</p>\n      "
+            "smithy.api#documentation": "<p>Specifies a resource type to filter the permissions returned.</p>"
           }
         }
       }
@@ -975,13 +980,13 @@
         "NextToken": {
           "target": "com.amazonaws.michigan#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A continuation token, if this is not the first call to retrieve this list.</p>\n      "
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve this list.</p>"
           }
         },
         "PrincipalResourcePermissions": {
           "target": "com.amazonaws.michigan#PrincipalResourcePermissionsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>\n      "
+            "smithy.api#documentation": "<p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>"
           }
         }
       }
@@ -1006,7 +1011,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the resources registered to be managed by the Data Catalog.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the resources registered to be managed by the Data Catalog.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1020,19 +1025,19 @@
         "FilterConditionList": {
           "target": "com.amazonaws.michigan.datatypes#FilterConditionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>\n      "
+            "smithy.api#documentation": "<p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.michigan.datatypes#PageSize",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of resource results.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of resource results.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.michigan.datatypes#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A continuation token, if this is not the first call to retrieve these resources.</p>\n      "
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve these resources.</p>"
           }
         }
       }
@@ -1043,13 +1048,13 @@
         "NextToken": {
           "target": "com.amazonaws.michigan.datatypes#Token",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A continuation token, if this is not the first call to retrieve these resources.</p>\n      "
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve these resources.</p>"
           }
         },
         "ResourceInfoList": {
           "target": "com.amazonaws.michigan.datatypes#ResourceInfoList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A summary of the data lake resources.</p>\n      "
+            "smithy.api#documentation": "<p>A summary of the data lake resources.</p>"
           }
         }
       }
@@ -1079,12 +1084,12 @@
         "Message": {
           "target": "com.amazonaws.michigan.common.exceptions#MessageString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message describing the problem.</p>\n      "
+            "smithy.api#documentation": "<p>A message describing the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The operation timed out.</p>\n      ",
+        "smithy.api#documentation": "<p>The operation timed out.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1154,18 +1159,18 @@
         "Permissions": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The permissions that are granted to the principal.</p>\n      "
+            "smithy.api#documentation": "<p>The permissions that are granted to the principal.</p>"
           }
         },
         "Principal": {
           "target": "com.amazonaws.michigan#DataLakePrincipal",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The principal who is granted permissions.</p>\n      "
+            "smithy.api#documentation": "<p>The principal who is granted permissions.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Permissions granted to a principal.</p>\n      "
+        "smithy.api#documentation": "<p>Permissions granted to a principal.</p>"
       }
     },
     "com.amazonaws.michigan#PrincipalPermissionsList": {
@@ -1180,30 +1185,30 @@
         "Permissions": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The permissions to be granted or revoked on the resource.</p>\n      "
+            "smithy.api#documentation": "<p>The permissions to be granted or revoked on the resource.</p>"
           }
         },
         "PermissionsWithGrantOption": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>\n      "
+            "smithy.api#documentation": "<p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>"
           }
         },
         "Principal": {
           "target": "com.amazonaws.michigan#DataLakePrincipal",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Data Lake principal to be granted or revoked permissions.</p>\n      "
+            "smithy.api#documentation": "<p>The Data Lake principal to be granted or revoked permissions.</p>"
           }
         },
         "Resource": {
           "target": "com.amazonaws.michigan#Resource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource where permissions are to be granted or revoked.</p>\n      "
+            "smithy.api#documentation": "<p>The resource where permissions are to be granted or revoked.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The permissions granted or revoked on a resource.</p>\n      "
+        "smithy.api#documentation": "<p>The permissions granted or revoked on a resource.</p>"
       }
     },
     "com.amazonaws.michigan#PrincipalResourcePermissionsList": {
@@ -1229,7 +1234,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>The AWS Lake Formation principal.</p>\n      "
+        "smithy.api#documentation": "<p>The AWS Lake Formation principal.</p>"
       }
     },
     "com.amazonaws.michigan#PutDataLakeSettingsRequest": {
@@ -1238,13 +1243,13 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "DataLakeSettings": {
           "target": "com.amazonaws.michigan#DataLakeSettings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of AWS Lake Formation principals.</p>\n      ",
+            "smithy.api#documentation": "<p>A list of AWS Lake Formation principals.</p>",
             "smithy.api#required": true
           }
         }
@@ -1277,7 +1282,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Registers the resource as managed by the Data Catalog.</p>\n\t\n\t        <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>\n      "
+        "smithy.api#documentation": "<p>Registers the resource as managed by the Data Catalog.</p>\n\t\n\t        <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>"
       }
     },
     "com.amazonaws.michigan#RegisterResourceRequest": {
@@ -1286,20 +1291,20 @@
         "ResourceArn": {
           "target": "com.amazonaws.michigan.datatypes#ResourceArnString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource that you want to register.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource that you want to register.</p>",
             "smithy.api#required": true
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.michigan.datatypes#IAMRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the role.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the role.</p>"
           }
         },
         "UseServiceLinkedRole": {
           "target": "com.amazonaws.michigan.datatypes#NullableBoolean",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog. </p>\n      "
+            "smithy.api#documentation": "<p>Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog. </p>"
           }
         }
       }
@@ -1314,36 +1319,36 @@
         "Catalog": {
           "target": "com.amazonaws.michigan#CatalogResource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "DataLocation": {
           "target": "com.amazonaws.michigan#DataLocationResource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The location of an Amazon S3 path where permissions are granted or revoked. </p>\n      "
+            "smithy.api#documentation": "<p>The location of an Amazon S3 path where permissions are granted or revoked. </p>"
           }
         },
         "Database": {
           "target": "com.amazonaws.michigan#DatabaseResource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. </p>\n      "
+            "smithy.api#documentation": "<p>The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. </p>"
           }
         },
         "Table": {
           "target": "com.amazonaws.michigan#TableResource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>\n      "
+            "smithy.api#documentation": "<p>The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>"
           }
         },
         "TableWithColumns": {
           "target": "com.amazonaws.michigan#TableWithColumnsResource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.</p>\n      "
+            "smithy.api#documentation": "<p>The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A structure for the resource.</p>\n      "
+        "smithy.api#documentation": "<p>A structure for the resource.</p>"
       }
     },
     "com.amazonaws.michigan#ResourceArnString": {
@@ -1358,24 +1363,24 @@
         "LastModified": {
           "target": "com.amazonaws.michigan.datatypes#LastModifiedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time the resource was last modified.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time the resource was last modified.</p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.michigan.datatypes#ResourceArnString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.michigan.datatypes#IAMRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The IAM role that registered a resource.</p>\n      "
+            "smithy.api#documentation": "<p>The IAM role that registered a resource.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A structure containing information about an AWS Lake Formation resource.</p>\n      "
+        "smithy.api#documentation": "<p>A structure containing information about an AWS Lake Formation resource.</p>"
       }
     },
     "com.amazonaws.michigan.datatypes#ResourceInfoList": {
@@ -1404,7 +1409,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>\n      "
+        "smithy.api#documentation": "<p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>"
       }
     },
     "com.amazonaws.michigan#RevokePermissionsRequest": {
@@ -1413,33 +1418,33 @@
         "CatalogId": {
           "target": "com.amazonaws.michigan#CatalogIdString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>\n      "
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>"
           }
         },
         "Permissions": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href=\"https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html\">Security\n      and Access Control to Metadata and Data</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>The permissions revoked to the principal on the resource. For information about permissions, see <a href=\"https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html\">Security\n      and Access Control to Metadata and Data</a>.</p>",
             "smithy.api#required": true
           }
         },
         "PermissionsWithGrantOption": {
           "target": "com.amazonaws.michigan#PermissionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>"
           }
         },
         "Principal": {
           "target": "com.amazonaws.michigan#DataLakePrincipal",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The principal to be revoked permissions on the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The principal to be revoked permissions on the resource.</p>",
             "smithy.api#required": true
           }
         },
         "Resource": {
           "target": "com.amazonaws.michigan#Resource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource to which permissions are to be revoked.</p>\n      ",
+            "smithy.api#documentation": "<p>The resource to which permissions are to be revoked.</p>",
             "smithy.api#required": true
           }
         }
@@ -1464,20 +1469,20 @@
         "DatabaseName": {
           "target": "com.amazonaws.michigan.common.datatypes#NameString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>\n      ",
+            "smithy.api#documentation": "<p>The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>",
             "smithy.api#required": true
           }
         },
         "Name": {
           "target": "com.amazonaws.michigan.common.datatypes#NameString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the table.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the table.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>\n      "
+        "smithy.api#documentation": "<p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>"
       }
     },
     "com.amazonaws.michigan#TableWithColumnsResource": {
@@ -1486,30 +1491,30 @@
         "ColumnNames": {
           "target": "com.amazonaws.michigan#ColumnNames",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of column names for the table. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>\n      "
+            "smithy.api#documentation": "<p>The list of column names for the table. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>"
           }
         },
         "ColumnWildcard": {
           "target": "com.amazonaws.michigan#ColumnWildcard",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>\n      "
+            "smithy.api#documentation": "<p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>"
           }
         },
         "DatabaseName": {
           "target": "com.amazonaws.michigan.common.datatypes#NameString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>\n      "
+            "smithy.api#documentation": "<p>The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.michigan.common.datatypes#NameString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>\n      "
+            "smithy.api#documentation": "<p>The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A structure for a table with columns object. This object is only used when granting a SELECT permission.</p>\n\t        <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>\n      "
+        "smithy.api#documentation": "<p>A structure for a table with columns object. This object is only used when granting a SELECT permission.</p>\n\t        <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>"
       }
     },
     "com.amazonaws.michigan.datatypes#Token": {
@@ -1541,7 +1546,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>\n      "
+        "smithy.api#documentation": "<p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>"
       }
     },
     "com.amazonaws.michigan#UpdateResourceRequest": {
@@ -1550,14 +1555,14 @@
         "ResourceArn": {
           "target": "com.amazonaws.michigan.datatypes#ResourceArnString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource ARN.</p>\n      ",
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
             "smithy.api#required": true
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.michigan.datatypes#IAMRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new role to use for the given resource registered in AWS Lake Formation.</p>\n      ",
+            "smithy.api#documentation": "<p>The new role to use for the given resource registered in AWS Lake Formation.</p>",
             "smithy.api#required": true
           }
         }

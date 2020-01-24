@@ -2849,7 +2849,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Configuration information that specifies how a Lambda function runs. "
+        "smithy.api#documentation": "Configuration information that specifies how a Lambda function runs."
       }
     },
     "com.amazonaws.greengrass#FunctionDefinitionVersion": {
@@ -2883,7 +2883,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "Configuration information that specifies how a Lambda function runs. "
+        "smithy.api#documentation": "Configuration information that specifies how a Lambda function runs."
       }
     },
     "com.amazonaws.greengrass#FunctionIsolationMode": {

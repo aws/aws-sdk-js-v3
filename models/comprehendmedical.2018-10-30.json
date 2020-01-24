@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -34,54 +39,54 @@
         "BeginOffset": {
           "target": "com.amazonaws.deepinsight.medical#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The 0-based character offset in the input text that shows where the attribute begins. The\n   offset returns the UTF-8 code point in the string. </p>\n      "
+            "smithy.api#documentation": "<p> The 0-based character offset in the input text that shows where the attribute begins. The\n   offset returns the UTF-8 code point in the string. </p>"
           }
         },
         "EndOffset": {
           "target": "com.amazonaws.deepinsight.medical#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The 0-based character offset in the input text that shows where the attribute ends. The\n   offset returns the UTF-8 code point in the string. </p>\n      "
+            "smithy.api#documentation": "<p> The 0-based character offset in the input text that shows where the attribute ends. The\n   offset returns the UTF-8 code point in the string.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.deepinsight.medical#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The numeric identifier for this attribute. This is a monotonically increasing id unique\n   within this response rather than a global unique identifier. </p>\n      "
+            "smithy.api#documentation": "<p> The numeric identifier for this attribute. This is a monotonically increasing id unique\n   within this response rather than a global unique identifier. </p>"
           }
         },
         "RelationshipScore": {
           "target": "com.amazonaws.deepinsight.medical#Float",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this\n   entity. </p>\n      "
+            "smithy.api#documentation": "<p> The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this\n   entity. </p>"
           }
         },
         "Score": {
           "target": "com.amazonaws.deepinsight.medical#Float",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized as\n   an attribute. </p>\n      "
+            "smithy.api#documentation": "<p> The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized as\n   an attribute. </p>"
           }
         },
         "Text": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The segment of input text extracted as this attribute.</p>\n      "
+            "smithy.api#documentation": "<p> The segment of input text extracted as this attribute.</p>"
           }
         },
         "Traits": {
           "target": "com.amazonaws.deepinsight.medical#TraitList",
           "traits": {
-            "smithy.api#documentation": "\n         <p> Contextual information for this attribute. </p>\n      "
+            "smithy.api#documentation": "<p> Contextual information for this attribute. </p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.deepinsight.medical#EntitySubType",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The type of attribute. </p>\n      "
+            "smithy.api#documentation": "<p> The type of attribute. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> An extracted segment of the text that is an attribute of an entity, or otherwise related to\n   an entity, such as the dosage of a medication taken. It contains information about the attribute\n   such as id, begin and end offset within the input text, and the segment of the input text.\n  </p>\n      "
+        "smithy.api#documentation": "<p> An extracted segment of the text that is an attribute of an entity, or otherwise related to\n   an entity, such as the dosage of a medication taken. It contains information about the attribute\n   such as id, begin and end offset within the input text, and the segment of the input text.\n  </p>"
       }
     },
     "com.amazonaws.deepinsight.medical#AttributeList": {
@@ -134,30 +139,30 @@
         "JobName": {
           "target": "com.amazonaws.deepinsight.medical#JobName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Filters on the name of the job.</p>\n      "
+            "smithy.api#documentation": "<p>Filters on the name of the job.</p>"
           }
         },
         "JobStatus": {
           "target": "com.amazonaws.deepinsight.medical#JobStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Filters the list of jobs based on job status. Returns only jobs with the specified\n   status.</p>\n      "
+            "smithy.api#documentation": "<p>Filters the list of jobs based on job status. Returns only jobs with the specified\n   status.</p>"
           }
         },
         "SubmitTimeAfter": {
           "target": "com.amazonaws.deepinsight.medical#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Filters the list of jobs based on the time that the job was submitted for processing.\n   Returns only jobs submitted after the specified time. Jobs are returned in descending order,\n   newest to oldest.</p>\n      "
+            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n   Returns only jobs submitted after the specified time. Jobs are returned in descending order,\n   newest to oldest.</p>"
           }
         },
         "SubmitTimeBefore": {
           "target": "com.amazonaws.deepinsight.medical#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Filters the list of jobs based on the time that the job was submitted for processing.\n   Returns only jobs submitted before the specified time. Jobs are returned in ascending order,\n   oldest to newest.</p>\n      "
+            "smithy.api#documentation": "<p>Filters the list of jobs based on the time that the job was submitted for processing.\n   Returns only jobs submitted before the specified time. Jobs are returned in ascending order,\n   oldest to newest.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Provides information for filtering a list of detection jobs.</p>\n      "
+        "smithy.api#documentation": "<p>Provides information for filtering a list of detection jobs.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobProperties": {
@@ -166,90 +171,90 @@
         "DataAccessRoleArn": {
           "target": "com.amazonaws.deepinsight.medical#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read access to your input data.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read access to your input data.</p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.deepinsight.medical#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time that the detection job completed.</p>\n      "
+            "smithy.api#documentation": "<p>The time that the detection job completed.</p>"
           }
         },
         "ExpirationTime": {
           "target": "com.amazonaws.deepinsight.medical#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time that job metadata is deleted from the server. Output files in your S3\n   bucket will not be deleted. After the metadata is deleted, the job will no longer appear in the\n   results of the <code>ListEntitiesDetectionV2Job</code> or the <code>ListPHIDetectionJobs</code>\n   operation.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time that job metadata is deleted from the server. Output files in your S3\n   bucket will not be deleted. After the metadata is deleted, the job will no longer appear in the\n   results of the <code>ListEntitiesDetectionV2Job</code> or the <code>ListPHIDetectionJobs</code>\n   operation.</p>"
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.deepinsight.medical#InputDataConfig",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The input data configuration that you supplied when you created the detection job.</p>\n      "
+            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the detection job.</p>"
           }
         },
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier assigned to the detection job.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier assigned to the detection job.</p>"
           }
         },
         "JobName": {
           "target": "com.amazonaws.deepinsight.medical#JobName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name that you assigned to the detection job.</p>\n      "
+            "smithy.api#documentation": "<p>The name that you assigned to the detection job.</p>"
           }
         },
         "JobStatus": {
           "target": "com.amazonaws.deepinsight.medical#JobStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The current status of the detection job. If the status is <code>FAILED</code>, the\n    <code>Message</code> field shows the reason for the failure.</p>\n      "
+            "smithy.api#documentation": "<p>The current status of the detection job. If the status is <code>FAILED</code>, the\n    <code>Message</code> field shows the reason for the failure.</p>"
           }
         },
         "KMSKey": {
           "target": "com.amazonaws.deepinsight.medical#KMSKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS Key Management Service key, if any, used to encrypt the output files. </p>\n      "
+            "smithy.api#documentation": "<p>The AWS Key Management Service key, if any, used to encrypt the output files. </p>"
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.deepinsight.medical#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The language code of the input documents.</p>\n      "
+            "smithy.api#documentation": "<p>The language code of the input documents.</p>"
           }
         },
         "ManifestFilePath": {
           "target": "com.amazonaws.deepinsight.medical#ManifestFilePath",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The path to the file that describes the results of a batch job.</p>\n      "
+            "smithy.api#documentation": "<p>The path to the file that describes the results of a batch job.</p>"
           }
         },
         "Message": {
           "target": "com.amazonaws.deepinsight.medical#AnyLengthString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the status of a job.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the status of a job.</p>"
           }
         },
         "ModelVersion": {
           "target": "com.amazonaws.deepinsight.medical#ModelVersion",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>"
           }
         },
         "OutputDataConfig": {
           "target": "com.amazonaws.deepinsight.medical#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The output data configuration that you supplied when you created the detection job.</p>\n      "
+            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the detection job.</p>"
           }
         },
         "SubmitTime": {
           "target": "com.amazonaws.deepinsight.medical#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time that the detection job was submitted for processing.</p>\n      "
+            "smithy.api#documentation": "<p>The time that the detection job was submitted for processing.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Provides information about a detection job.</p>\n      "
+        "smithy.api#documentation": "<p>Provides information about a detection job.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobPropertiesList": {
@@ -278,6 +283,12 @@
           "target": "com.amazonaws.deepinsight.medical#DetectPHI"
         },
         {
+          "target": "com.amazonaws.deepinsight.medical#InferICD10CM"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#InferRxNorm"
+        },
+        {
           "target": "com.amazonaws.deepinsight.medical#ListEntitiesDetectionV2Jobs"
         },
         {
@@ -303,7 +314,7 @@
           "cloudFormationName": "ComprehendMedical",
           "cloudTrailEventSource": "medical.deepinsight.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions\n   to gain insight in your documents. </p>\n      ",
+        "smithy.api#documentation": "<p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions\n   to gain insight in your documents. </p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -338,7 +349,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the properties associated with a medical entities detection job. Use this operation to\n   get the status of a detection job.</p>\n      "
+        "smithy.api#documentation": "<p>Gets the properties associated with a medical entities detection job. Use this operation to\n   get the status of a detection job.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#DescribeEntitiesDetectionV2JobRequest": {
@@ -347,7 +358,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier that Amazon Comprehend Medical generated for the job. The\n    <code>StartEntitiesDetectionV2Job</code> operation returns this identifier in its\n   response.</p>\n      ",
+            "smithy.api#documentation": "<p>The identifier that Amazon Comprehend Medical generated for the job. The\n    <code>StartEntitiesDetectionV2Job</code> operation returns this identifier in its\n   response.</p>",
             "smithy.api#required": true
           }
         }
@@ -359,7 +370,7 @@
         "ComprehendMedicalAsyncJobProperties": {
           "target": "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobProperties",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains the properties associated with a detection job.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains the properties associated with a detection job.</p>"
           }
         }
       }
@@ -387,7 +398,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the properties associated with a protected health information (PHI) detection job. Use\n   this operation to get the status of a detection job.</p>\n      "
+        "smithy.api#documentation": "<p>Gets the properties associated with a protected health information (PHI) detection job. Use\n   this operation to get the status of a detection job.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#DescribePHIDetectionJobRequest": {
@@ -396,7 +407,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier that Amazon Comprehend Medical generated for the job. The <code>StartPHIDetectionJob</code>\n   operation returns this identifier in its response.</p>\n      ",
+            "smithy.api#documentation": "<p>The identifier that Amazon Comprehend Medical generated for the job. The <code>StartPHIDetectionJob</code>\n   operation returns this identifier in its response.</p>",
             "smithy.api#required": true
           }
         }
@@ -408,7 +419,7 @@
         "ComprehendMedicalAsyncJobProperties": {
           "target": "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobProperties",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains the properties associated with a detection job.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains the properties associated with a detection job.</p>"
           }
         }
       }
@@ -445,7 +456,7 @@
         "smithy.api#deprecated": {
           "message": "This operation is deprecated, use DetectEntitiesV2 instead."
         },
-        "smithy.api#documentation": "\n         <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>\n         <p> Inspects the clinical text for a variety of medical entities and returns specific\n   information about them such as entity category, location, and confidence score on that\n   information .</p>\n      "
+        "smithy.api#documentation": "<p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>\n         <p> Inspects the clinical text for a variety of medical entities and returns specific\n   information about them such as entity category, location, and confidence score on that\n   information .</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#DetectEntitiesRequest": {
@@ -454,7 +465,7 @@
         "Text": {
           "target": "com.amazonaws.deepinsight.medical#BoundedLengthString",
           "traits": {
-            "smithy.api#documentation": "\n         <p> A UTF-8 text string containing the clinical content being examined for entities. Each\n   string must contain fewer than 20,000 bytes of characters.</p>\n      ",
+            "smithy.api#documentation": "<p> A UTF-8 text string containing the clinical content being examined for entities. Each\n   string must contain fewer than 20,000 bytes of characters.</p>",
             "smithy.api#required": true
           }
         }
@@ -466,27 +477,27 @@
         "Entities": {
           "target": "com.amazonaws.deepinsight.medical#EntityList",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The collection of medical entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and\n   analysis. Attributes and traits of the entity are also returned.</p>\n      ",
+            "smithy.api#documentation": "<p> The collection of medical entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and\n   analysis. Attributes and traits of the entity are also returned.</p>",
             "smithy.api#required": true
           }
         },
         "ModelVersion": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>\n      ",
+            "smithy.api#documentation": "<p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>",
             "smithy.api#required": true
           }
         },
         "PaginationToken": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p> If the result of the previous request to <code>DetectEntities</code> was truncated, include\n   the <code>PaginationToken</code> to fetch the next page of entities.</p>\n      "
+            "smithy.api#documentation": "<p> If the result of the previous request to <code>DetectEntities</code> was truncated, include\n   the <code>PaginationToken</code> to fetch the next page of entities.</p>"
           }
         },
         "UnmappedAttributes": {
           "target": "com.amazonaws.deepinsight.medical#UnmappedAttributeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p> Attributes extracted from the input text that we were unable to relate to an entity.</p>\n      "
+            "smithy.api#documentation": "<p> Attributes extracted from the input text that we were unable to relate to an entity.</p>"
           }
         }
       }
@@ -520,7 +531,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Inspects the clinical text for a variety of medical entities and returns specific\n   information about them such as entity category, location, and confidence score on that\n   information.</p>\n         <p>The <code>DetectEntitiesV2</code> operation replaces the <a>DetectEntities</a>\n   operation. This new action uses a different model for determining the entities in your medical\n   text and changes the way that some entities are returned in the output. You should use the\n    <code>DetectEntitiesV2</code> operation in all new applications.</p>\n         <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and\n    <code>Direction</code> entities as attributes instead of types. It does not return the\n    <code>Quality</code> or <code>Quantity</code> entities.</p>\n      "
+        "smithy.api#documentation": "<p>Inspects the clinical text for a variety of medical entities and returns specific\n   information about them such as entity category, location, and confidence score on that\n   information.</p>\n         <p>The <code>DetectEntitiesV2</code> operation replaces the <a>DetectEntities</a>\n   operation. This new action uses a different model for determining the entities in your medical\n   text and changes the way that some entities are returned in the output. You should use the\n    <code>DetectEntitiesV2</code> operation in all new applications.</p>\n         <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and\n    <code>Direction</code> entities as attributes instead of types. </p>"
       }
     },
     "com.amazonaws.deepinsight.medical#DetectEntitiesV2Request": {
@@ -529,7 +540,7 @@
         "Text": {
           "target": "com.amazonaws.deepinsight.medical#BoundedLengthString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A UTF-8 string containing the clinical content being examined for entities. Each string must\n   contain fewer than 20,000 bytes of characters.</p>\n      ",
+            "smithy.api#documentation": "<p>A UTF-8 string containing the clinical content being examined for entities. Each string must\n   contain fewer than 20,000 bytes of characters.</p>",
             "smithy.api#required": true
           }
         }
@@ -541,27 +552,27 @@
         "Entities": {
           "target": "com.amazonaws.deepinsight.medical#EntityList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The collection of medical entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence in the detection and analysis.\n   Attributes and traits of the entity are also returned.</p>\n      ",
+            "smithy.api#documentation": "<p>The collection of medical entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence in the detection and analysis.\n   Attributes and traits of the entity are also returned.</p>",
             "smithy.api#required": true
           }
         },
         "ModelVersion": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>\n      ",
+            "smithy.api#documentation": "<p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>",
             "smithy.api#required": true
           }
         },
         "PaginationToken": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If the result to the <code>DetectEntitiesV2</code> operation was truncated, include the\n    <code>PaginationToken</code> to fetch the next page of entities.</p>\n      "
+            "smithy.api#documentation": "<p>If the result to the <code>DetectEntitiesV2</code> operation was truncated, include the\n    <code>PaginationToken</code> to fetch the next page of entities.</p>"
           }
         },
         "UnmappedAttributes": {
           "target": "com.amazonaws.deepinsight.medical#UnmappedAttributeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Attributes extracted from the input text that couldn't be related to an entity.</p>\n      "
+            "smithy.api#documentation": "<p>Attributes extracted from the input text that couldn't be related to an entity.</p>"
           }
         }
       }
@@ -595,7 +606,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p> Inspects the clinical text for protected health information (PHI) entities and entity\n   category, location, and confidence score on that information.</p>\n      "
+        "smithy.api#documentation": "<p> Inspects the clinical text for protected health information (PHI) entities and entity\n   category, location, and confidence score on that information.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#DetectPHIRequest": {
@@ -604,7 +615,7 @@
         "Text": {
           "target": "com.amazonaws.deepinsight.medical#BoundedLengthString",
           "traits": {
-            "smithy.api#documentation": "\n         <p> A UTF-8 text string containing the clinical content being examined for PHI entities. Each\n   string must contain fewer than 20,000 bytes of characters. </p>\n      ",
+            "smithy.api#documentation": "<p> A UTF-8 text string containing the clinical content being examined for PHI entities. Each\n   string must contain fewer than 20,000 bytes of characters.</p>",
             "smithy.api#required": true
           }
         }
@@ -616,21 +627,21 @@
         "Entities": {
           "target": "com.amazonaws.deepinsight.medical#EntityList",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The collection of PHI entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in its detection.\n  </p>\n      ",
+            "smithy.api#documentation": "<p> The collection of PHI entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in its detection.\n  </p>",
             "smithy.api#required": true
           }
         },
         "ModelVersion": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>\n      ",
+            "smithy.api#documentation": "<p>The version of the model used to analyze the documents. The version number looks like X.X.X.\n   You can use this information to track the model used for a particular batch of documents.</p>",
             "smithy.api#required": true
           }
         },
         "PaginationToken": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p> If the result of the previous request to <code>DetectPHI</code> was truncated, include the\n    <code>PaginationToken</code> to fetch the next page of PHI entities. </p>\n      "
+            "smithy.api#documentation": "<p> If the result of the previous request to <code>DetectPHI</code> was truncated, include the\n    <code>PaginationToken</code> to fetch the next page of PHI entities. </p>"
           }
         }
       }
@@ -641,60 +652,60 @@
         "Attributes": {
           "target": "com.amazonaws.deepinsight.medical#AttributeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The extracted attributes that relate to this entity.</p>\n      "
+            "smithy.api#documentation": "<p> The extracted attributes that relate to this entity.</p>"
           }
         },
         "BeginOffset": {
           "target": "com.amazonaws.deepinsight.medical#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The 0-based character offset in the input text that shows where the entity begins. The\n   offset returns the UTF-8 code point in the string. </p>\n      "
+            "smithy.api#documentation": "<p> The 0-based character offset in the input text that shows where the entity begins. The\n   offset returns the UTF-8 code point in the string. </p>"
           }
         },
         "Category": {
           "target": "com.amazonaws.deepinsight.medical#EntityType",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The category of the entity.</p>\n      "
+            "smithy.api#documentation": "<p> The category of the entity.</p>"
           }
         },
         "EndOffset": {
           "target": "com.amazonaws.deepinsight.medical#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The 0-based character offset in the input text that shows where the entity ends. The offset\n   returns the UTF-8 code point in the string. </p>\n      "
+            "smithy.api#documentation": "<p> The 0-based character offset in the input text that shows where the entity ends. The offset\n   returns the UTF-8 code point in the string. </p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.deepinsight.medical#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The numeric identifier for the entity. This is a monotonically increasing id unique within\n   this response rather than a global unique identifier. </p>\n      "
+            "smithy.api#documentation": "<p> The numeric identifier for the entity. This is a monotonically increasing id unique within\n   this response rather than a global unique identifier. </p>"
           }
         },
         "Score": {
           "target": "com.amazonaws.deepinsight.medical#Float",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection.</p>\n      "
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection.</p>"
           }
         },
         "Text": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The segment of input text extracted as this entity.</p>\n      "
+            "smithy.api#documentation": "<p> The segment of input text extracted as this entity.</p>"
           }
         },
         "Traits": {
           "target": "com.amazonaws.deepinsight.medical#TraitList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Contextual information for the entity</p>\n      "
+            "smithy.api#documentation": "<p>Contextual information for the entity.</p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.deepinsight.medical#EntitySubType",
           "traits": {
-            "smithy.api#documentation": "\n         <p> Describes the specific type of entity with category of entities. </p>\n      "
+            "smithy.api#documentation": "<p> Describes the specific type of entity with category of entities.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> Provides information about an extracted medical entity.</p>\n      "
+        "smithy.api#documentation": "<p> Provides information about an extracted medical entity.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#EntityList": {
@@ -822,6 +833,261 @@
         "smithy.api#box": true
       }
     },
+    "com.amazonaws.deepinsight.medical#ICD10CMAttribute": {
+      "type": "structure",
+      "members": {
+        "BeginOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the attribute begins. The\n   offset returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "EndOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the attribute ends. The\n   offset returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The numeric identifier for this attribute. This is a monotonically increasing id unique\n   within this response rather than a global unique identifier.</p>"
+          }
+        },
+        "RelationshipScore": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related\n   to this entity.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly\n   recognized as an attribute.</p>"
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The segment of input text which contains the detected attribute.</p>"
+          }
+        },
+        "Traits": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMTraitList",
+          "traits": {
+            "smithy.api#documentation": "<p>The contextual information for the attribute. The traits recognized by InferICD10CM are\n    <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and <code>NEGATION</code>.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMAttributeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of attribute. InferICD10CM detects entities of the type <code>DX_NAME</code>.\n  </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The detected attributes that relate to an entity. This includes an extracted segment of the\n   text that is an attribute of an entity, or otherwise related to an entity. InferICD10CM detects\n   the following attributes: <code>Direction</code>, <code>System, Organ or Site</code>, and\n    <code>Acuity</code>.</p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMAttributeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#ICD10CMAttribute"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMAttributeType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ACUITY": {
+            "name": "ACUITY"
+          },
+          "DIRECTION": {
+            "name": "DIRECTION"
+          },
+          "SYSTEM_ORGAN_SITE": {
+            "name": "SYSTEM_ORGAN_SITE"
+          },
+          "QUALITY": {
+            "name": "QUALITY"
+          },
+          "QUANTITY": {
+            "name": "QUANTITY"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMConcept": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ICD-10-CM code that identifies the concept found in the knowledge base from the Centers for Disease Control.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The long description of the ICD-10-CM code in the ontology.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to an\n   ICD-10-CM concept.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The ICD-10-CM concepts that the entity could refer to, along with a score indicating the\n   likelihood of the match.</p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMConceptList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#ICD10CMConcept"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMEntity": {
+      "type": "structure",
+      "members": {
+        "Attributes": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The detected attributes that relate to the entity. An extracted segment of the text that\n   is an attribute of an entity, or otherwise related to an entity, such as the nature of a medical\n   condition.</p>"
+          }
+        },
+        "BeginOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the entity begins. The\n   offset returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "Category": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMEntityCategory",
+          "traits": {
+            "smithy.api#documentation": "<p> The category of the entity. InferICD10CM detects entities in the\n    <code>MEDICAL_CONDITION</code> category.\n  </p>"
+          }
+        },
+        "EndOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the entity ends. The offset\n   returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "ICD10CMConcepts": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMConceptList",
+          "traits": {
+            "smithy.api#documentation": "<p>The ICD-10-CM concepts that the entity could refer to, along with a score indicating the\n   likelihood of the match.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The numeric identifier for the entity. This is a monotonically increasing id unique within\n   this response rather than a global unique identifier.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection.</p>"
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.deepinsight.medical#OntologyLinkingBoundedLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>The segment of input text that is matched to the detected entity.</p>"
+          }
+        },
+        "Traits": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMTraitList",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides Contextual information for the entity. The traits recognized by InferICD10CM are\n   <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and <code>NEGATION.</code>\n         </p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMEntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the specific type of entity with category of entities. InferICD10CM detects\n   entities of the type <code>DX_NAME</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The collection of medical entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the\n   detection and analysis. Attributes and traits of the entity are also returned. </p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMEntityCategory": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "MEDICAL_CONDITION": {
+            "name": "MEDICAL_CONDITION"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMEntityList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#ICD10CMEntity"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMEntityType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "DX_NAME": {
+            "name": "DX_NAME"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMTrait": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMTraitName",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides a name or contextual description about the trait.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized as\n   a trait.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contextual information for the entity. The traits recognized by InferICD10CM are\n    <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and\n   <code>NEGATION</code>.</p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMTraitList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#ICD10CMTrait"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#ICD10CMTraitName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "NEGATION": {
+            "name": "NEGATION"
+          },
+          "DIAGNOSIS": {
+            "name": "DIAGNOSIS"
+          },
+          "SIGN": {
+            "name": "SIGN"
+          },
+          "SYMPTOM": {
+            "name": "SYMPTOM"
+          }
+        }
+      }
+    },
     "com.amazonaws.deepinsight.medical#IamRoleArn": {
       "type": "string",
       "traits": {
@@ -832,25 +1098,161 @@
         "smithy.api#pattern": "arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+"
       }
     },
+    "com.amazonaws.deepinsight.medical#InferICD10CM": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepinsight.medical#InferICD10CMRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepinsight.medical#InferICD10CMResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepinsight.medical#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#InvalidEncodingException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>InferICD10CM detects medical conditions as entities listed in a patient record and links those\n   entities to normalized concept identifiers in the ICD-10-CM knowledge base from the Centers for Disease Control.</p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#InferICD10CMRequest": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.deepinsight.medical#OntologyLinkingBoundedLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>The input text used for analysis. The input for InferICD10CM is a string from 1 to 10000\n   characters.</p>",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#InferICD10CMResponse": {
+      "type": "structure",
+      "members": {
+        "Entities": {
+          "target": "com.amazonaws.deepinsight.medical#ICD10CMEntityList",
+          "traits": {
+            "smithy.api#documentation": "<p>The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is\n   successful, the service sends back an HTTP 200 response, as well as the entities detected.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "ModelVersion": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the model used to analyze the documents, in the format\n    <i>n</i>.<i>n</i>.<i>n</i> You can use this\n   information to track the model used for a particular batch of documents.</p>"
+          }
+        },
+        "PaginationToken": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If the result of the previous request to <code>InferICD10CM</code> was truncated, include\n   the <code>PaginationToken</code> to fetch the next page of medical condition entities. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#InferRxNorm": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepinsight.medical#InferRxNormRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepinsight.medical#InferRxNormResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepinsight.medical#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#InvalidEncodingException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepinsight.medical#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>InferRxNorm detects medications as entities listed in a patient record and links to the normalized\n   concept identifiers in the RxNorm database from the National Library of Medicine.</p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#InferRxNormRequest": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.deepinsight.medical#OntologyLinkingBoundedLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>The input text used for analysis. The input for InferRxNorm is a string from 1 to 10000\n   characters.</p>",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#InferRxNormResponse": {
+      "type": "structure",
+      "members": {
+        "Entities": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormEntityList",
+          "traits": {
+            "smithy.api#documentation": "<p>The medication entities detected in the text linked to RxNorm concepts. If the action is\n   successful, the service sends back an HTTP 200 response, as well as the entities detected.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "ModelVersion": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the model used to analyze the documents, in the format\n    <i>n</i>.<i>n</i>.<i>n</i> You can use this\n   information to track the model used for a particular batch of documents.</p>"
+          }
+        },
+        "PaginationToken": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If the result of the previous request to <code>InferRxNorm</code> was truncated, include the\n    <code>PaginationToken</code> to fetch the next page of medication entities.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.deepinsight.medical#InputDataConfig": {
       "type": "structure",
       "members": {
         "S3Bucket": {
           "target": "com.amazonaws.deepinsight.medical#S3Bucket",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The URI of the S3 bucket that contains the input data. The bucket must be in the same region\n   as the API endpoint that you are calling.</p>\n         <p>Each file in the document collection must be less than 40 KB. You can store a maximum of 30\n   GB in the bucket.</p>\n      ",
+            "smithy.api#documentation": "<p>The URI of the S3 bucket that contains the input data. The bucket must be in the same region\n   as the API endpoint that you are calling.</p>\n         <p>Each file in the document collection must be less than 40 KB. You can store a maximum of 30\n   GB in the bucket.</p>",
             "smithy.api#required": true
           }
         },
         "S3Key": {
           "target": "com.amazonaws.deepinsight.medical#S3Key",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The path to the input data files in the S3 bucket.</p>\n      "
+            "smithy.api#documentation": "<p>The path to the input data files in the S3 bucket.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The input properties for an entities detection job</p>\n      "
+        "smithy.api#documentation": "<p>The input properties for an entities detection job</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#Integer": {
@@ -867,7 +1269,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> An internal server error occurred. Retry your request. </p>\n      ",
+        "smithy.api#documentation": "<p> An internal server error occurred. Retry your request. </p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -880,7 +1282,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your\n   request.</p>\n      ",
+        "smithy.api#documentation": "<p> The input text was not in valid UTF-8 character encoding. Check your text then retry your\n   request.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -893,7 +1295,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> The request that you made is invalid. Check your request to determine why it's invalid and\n   then retry the request.</p>\n      ",
+        "smithy.api#documentation": "<p> The request that you made is invalid. Check your request to determine why it's invalid and\n   then retry the request.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -989,7 +1391,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a list of medical entity detection jobs that you have submitted.</p>\n      "
+        "smithy.api#documentation": "<p>Gets a list of medical entity detection jobs that you have submitted.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#ListEntitiesDetectionV2JobsRequest": {
@@ -998,19 +1400,19 @@
         "Filter": {
           "target": "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the\n   date and time that they were submitted. You can only set one filter at a time.</p>\n      "
+            "smithy.api#documentation": "<p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the\n   date and time that they were submitted. You can only set one filter at a time.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.deepinsight.medical#MaxResultsInteger",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in each page. The default is 100.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Identifies the next page of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         }
       }
@@ -1021,13 +1423,13 @@
         "ComprehendMedicalAsyncJobPropertiesList": {
           "target": "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobPropertiesList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list containing the properties of each job returned.</p>\n      "
+            "smithy.api#documentation": "<p>A list containing the properties of each job returned.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Identifies the next page of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         }
       }
@@ -1055,7 +1457,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a list of protected health information (PHI) detection jobs that you have\n   submitted.</p>\n      "
+        "smithy.api#documentation": "<p>Gets a list of protected health information (PHI) detection jobs that you have\n   submitted.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#ListPHIDetectionJobsRequest": {
@@ -1064,19 +1466,19 @@
         "Filter": {
           "target": "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the\n   date and time that they were submitted. You can only set one filter at a time.</p>\n      "
+            "smithy.api#documentation": "<p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the\n   date and time that they were submitted. You can only set one filter at a time.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.deepinsight.medical#MaxResultsInteger",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in each page. The default is 100.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in each page. The default is 100.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Identifies the next page of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         }
       }
@@ -1087,13 +1489,13 @@
         "ComprehendMedicalAsyncJobPropertiesList": {
           "target": "com.amazonaws.deepinsight.medical#ComprehendMedicalAsyncJobPropertiesList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list containing the properties of each job returned.</p>\n      "
+            "smithy.api#documentation": "<p>A list containing the properties of each job returned.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.deepinsight.medical#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Identifies the next page of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>Identifies the next page of results to return.</p>"
           }
         }
       }
@@ -1120,25 +1522,34 @@
     "com.amazonaws.deepinsight.medical#ModelVersion": {
       "type": "string"
     },
+    "com.amazonaws.deepinsight.medical#OntologyLinkingBoundedLengthString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10000
+        }
+      }
+    },
     "com.amazonaws.deepinsight.medical#OutputDataConfig": {
       "type": "structure",
       "members": {
         "S3Bucket": {
           "target": "com.amazonaws.deepinsight.medical#S3Bucket",
           "traits": {
-            "smithy.api#documentation": "\n         <p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you\n   specify the Amazon S3 location where you want to write the output data. The URI must be in the\n   same region as the API endpoint that you are calling. The location is used as the prefix for the\n   actual location of the output.</p>\n      ",
+            "smithy.api#documentation": "<p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you\n   specify the Amazon S3 location where you want to write the output data. The URI must be in the\n   same region as the API endpoint that you are calling. The location is used as the prefix for the\n   actual location of the output.</p>",
             "smithy.api#required": true
           }
         },
         "S3Key": {
           "target": "com.amazonaws.deepinsight.medical#S3Key",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The path to the output data files in the S3 bucket. Amazon Comprehend Medical creates an output directory using\n   the job ID so that the output from one job does not overwrite the output of another.</p>\n      "
+            "smithy.api#documentation": "<p>The path to the output data files in the S3 bucket. Amazon Comprehend Medical creates an output directory using\n   the job ID so that the output from one job does not overwrite the output of another.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The output properties for a detection job.</p>\n      "
+        "smithy.api#documentation": "<p>The output properties for a detection job.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#ResourceNotFoundException": {
@@ -1149,9 +1560,264 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the\n   ARN and try your request again.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the\n   ARN and try your request again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormAttribute": {
+      "type": "structure",
+      "members": {
+        "BeginOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the attribute begins. The\n   offset returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "EndOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the attribute ends. The\n   offset returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The numeric identifier for this attribute. This is a monotonically increasing id unique\n   within this response rather than a global unique identifier.</p>"
+          }
+        },
+        "RelationshipScore": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has that the attribute is accurately linked\n   to an entity.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Comprehend Medical has that the segment of text is correctly\n   recognized as an attribute.</p>"
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The segment of input text which corresponds to the detected attribute.</p>"
+          }
+        },
+        "Traits": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormTraitList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contextual information for the attribute. InferRxNorm recognizes the trait\n     <code>NEGATION</code> for attributes, i.e. that the patient is not taking a specific dose or form of a medication.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormAttributeType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of attribute. The types of attributes recognized by InferRxNorm are\n    <code>BRAND_NAME</code> and <code>GENERIC_NAME</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The extracted attributes that relate to this entity. The attributes recognized by\n   InferRxNorm are <code>DOSAGE</code>, <code>DURATION</code>, <code>FORM</code>,\n    <code>FREQUENCY</code>, <code>RATE</code>, <code>ROUTE_OR_MODE</code>.</p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormAttributeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#RxNormAttribute"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormAttributeType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "DOSAGE": {
+            "name": "DOSAGE"
+          },
+          "DURATION": {
+            "name": "DURATION"
+          },
+          "FORM": {
+            "name": "FORM"
+          },
+          "FREQUENCY": {
+            "name": "FREQUENCY"
+          },
+          "RATE": {
+            "name": "RATE"
+          },
+          "ROUTE_OR_MODE": {
+            "name": "ROUTE_OR_MODE"
+          },
+          "STRENGTH": {
+            "name": "STRENGTH"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormConcept": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>RxNorm concept ID, also known as the RxCUI.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.deepinsight.medical#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the RxNorm concept.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to\n   the reported RxNorm concept.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The RxNorm concept that the entity could refer to, along with a score indicating the\n   likelihood of the match.</p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormConceptList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#RxNormConcept"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormEntity": {
+      "type": "structure",
+      "members": {
+        "Attributes": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The extracted attributes that relate to the entity. The attributes recognized by\n   InferRxNorm are <code>DOSAGE</code>, <code>DURATION</code>, <code>FORM</code>,\n    <code>FREQUENCY</code>, <code>RATE</code>, <code>ROUTE_OR_MODE</code>, and\n   <code>STRENGTH</code>.</p>"
+          }
+        },
+        "BeginOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the entity begins. The\n   offset returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "Category": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormEntityCategory",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the entity. The recognized categories are <code>GENERIC</code> or\n    <code>BRAND_NAME</code>.</p>"
+          }
+        },
+        "EndOffset": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The 0-based character offset in the input text that shows where the entity ends. The offset\n   returns the UTF-8 code point in the string.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.deepinsight.medical#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The numeric identifier for the entity. This is a monotonically increasing id unique within\n   this response rather than a global unique identifier.</p>"
+          }
+        },
+        "RxNormConcepts": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormConceptList",
+          "traits": {
+            "smithy.api#documentation": "<p> The RxNorm concepts that the entity could refer to, along with a score indicating the\n   likelihood of the match.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected entity.</p>"
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.deepinsight.medical#OntologyLinkingBoundedLengthString",
+          "traits": {
+            "smithy.api#documentation": "<p>The segment of input text extracted from which the entity was detected.</p>"
+          }
+        },
+        "Traits": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormTraitList",
+          "traits": {
+            "smithy.api#documentation": "<p> Contextual information for the entity.</p>"
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormEntityType",
+          "traits": {
+            "smithy.api#documentation": "<p> Describes the specific type of entity. For InferRxNorm, the\n   recognized entity type is <code>MEDICATION</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The collection of medical entities extracted from the input text and their associated\n   information. For each entity, the response provides the entity text, the entity category, where\n   the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the\n   detection and analysis. Attributes and traits of the entity are also returned. </p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormEntityCategory": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "MEDICATION": {
+            "name": "MEDICATION"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormEntityList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#RxNormEntity"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormEntityType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "BRAND_NAME": {
+            "name": "BRAND_NAME"
+          },
+          "GENERIC_NAME": {
+            "name": "GENERIC_NAME"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormTrait": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.deepinsight.medical#RxNormTraitName",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides a name or contextual description about the trait.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.deepinsight.medical#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected trait.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The contextual information for the entity. InferRxNorm recognizes the trait\n    <code>NEGATION</code>, which is any indication that the patient is not taking a medication.\n  </p>"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormTraitList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepinsight.medical#RxNormTrait"
+      }
+    },
+    "com.amazonaws.deepinsight.medical#RxNormTraitName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "NEGATION": {
+            "name": "NEGATION"
+          }
+        }
       }
     },
     "com.amazonaws.deepinsight.medical#S3Bucket": {
@@ -1182,7 +1848,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.\n  </p>\n      ",
+        "smithy.api#documentation": "<p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.\n  </p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 503
       }
@@ -1210,7 +1876,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the\n    <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>\n      "
+        "smithy.api#documentation": "<p>Starts an asynchronous medical entity detection job for a collection of documents. Use the\n    <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#StartEntitiesDetectionV2JobRequest": {
@@ -1219,47 +1885,47 @@
         "ClientRequestToken": {
           "target": "com.amazonaws.deepinsight.medical#ClientRequestTokenString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical\n   generates one.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical\n   generates one.</p>",
             "smithy.api#idempotencyToken": true
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.deepinsight.medical#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n   grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n   grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>",
             "smithy.api#required": true
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.deepinsight.medical#InputDataConfig",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies the format and location of the input data for the job.</p>\n      ",
+            "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
             "smithy.api#required": true
           }
         },
         "JobName": {
           "target": "com.amazonaws.deepinsight.medical#JobName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier of the job.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier of the job.</p>"
           }
         },
         "KMSKey": {
           "target": "com.amazonaws.deepinsight.medical#KMSKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key,\n   the files are written in plain text.</p>\n      "
+            "smithy.api#documentation": "<p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key,\n   the files are written in plain text.</p>"
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.deepinsight.medical#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The language of the input documents. All documents must be in the same language.</p>\n      ",
+            "smithy.api#documentation": "<p>The language of the input documents. All documents must be in the same language.</p>",
             "smithy.api#required": true
           }
         },
         "OutputDataConfig": {
           "target": "com.amazonaws.deepinsight.medical#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies where to send the output files.</p>\n      ",
+            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
             "smithy.api#required": true
           }
         }
@@ -1271,7 +1937,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier generated for the job. To get the status of a job, use this identifier with\n   the <code>DescribeEntitiesDetectionV2Job</code> operation.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of a job, use this identifier with\n   the <code>DescribeEntitiesDetectionV2Job</code> operation.</p>"
           }
         }
       }
@@ -1299,7 +1965,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Starts an asynchronous job to detect protected health information (PHI). Use the\n    <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>\n      "
+        "smithy.api#documentation": "<p>Starts an asynchronous job to detect protected health information (PHI). Use the\n    <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#StartPHIDetectionJobRequest": {
@@ -1308,47 +1974,47 @@
         "ClientRequestToken": {
           "target": "com.amazonaws.deepinsight.medical#ClientRequestTokenString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical\n   generates one.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical\n   generates one.</p>",
             "smithy.api#idempotencyToken": true
           }
         },
         "DataAccessRoleArn": {
           "target": "com.amazonaws.deepinsight.medical#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n   grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that\n   grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>",
             "smithy.api#required": true
           }
         },
         "InputDataConfig": {
           "target": "com.amazonaws.deepinsight.medical#InputDataConfig",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies the format and location of the input data for the job.</p>\n      ",
+            "smithy.api#documentation": "<p>Specifies the format and location of the input data for the job.</p>",
             "smithy.api#required": true
           }
         },
         "JobName": {
           "target": "com.amazonaws.deepinsight.medical#JobName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier of the job.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier of the job.</p>"
           }
         },
         "KMSKey": {
           "target": "com.amazonaws.deepinsight.medical#KMSKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key,\n   the files are written in plain text.</p>\n      "
+            "smithy.api#documentation": "<p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key,\n   the files are written in plain text.</p>"
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.deepinsight.medical#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The language of the input documents. All documents must be in the same language.</p>\n      ",
+            "smithy.api#documentation": "<p>The language of the input documents. All documents must be in the same language.</p>",
             "smithy.api#required": true
           }
         },
         "OutputDataConfig": {
           "target": "com.amazonaws.deepinsight.medical#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies where to send the output files.</p>\n      ",
+            "smithy.api#documentation": "<p>Specifies where to send the output files.</p>",
             "smithy.api#required": true
           }
         }
@@ -1360,7 +2026,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier generated for the job. To get the status of a job, use this identifier with\n   the <code>DescribePHIDetectionJob</code> operation.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier generated for the job. To get the status of a job, use this identifier with\n   the <code>DescribePHIDetectionJob</code> operation.</p>"
           }
         }
       }
@@ -1385,7 +2051,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Stops a medical entities detection job in progress.</p>\n      "
+        "smithy.api#documentation": "<p>Stops a medical entities detection job in progress.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#StopEntitiesDetectionV2JobRequest": {
@@ -1394,7 +2060,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier of the medical entities job to stop.</p>\n      ",
+            "smithy.api#documentation": "<p>The identifier of the medical entities job to stop.</p>",
             "smithy.api#required": true
           }
         }
@@ -1406,7 +2072,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier of the medical entities detection job that was stopped.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier of the medical entities detection job that was stopped.</p>"
           }
         }
       }
@@ -1431,7 +2097,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Stops a protected health information (PHI) detection job in progress.</p>\n      "
+        "smithy.api#documentation": "<p>Stops a protected health information (PHI) detection job in progress.</p>"
       }
     },
     "com.amazonaws.deepinsight.medical#StopPHIDetectionJobRequest": {
@@ -1440,7 +2106,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier of the PHI detection job to stop.</p>\n      ",
+            "smithy.api#documentation": "<p>The identifier of the PHI detection job to stop.</p>",
             "smithy.api#required": true
           }
         }
@@ -1452,7 +2118,7 @@
         "JobId": {
           "target": "com.amazonaws.deepinsight.medical#JobId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The identifier of the PHI detection job that was stopped.</p>\n      "
+            "smithy.api#documentation": "<p>The identifier of the PHI detection job that was stopped.</p>"
           }
         }
       }
@@ -1473,7 +2139,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or\n   use a smaller document and then retry your request. </p>\n      ",
+        "smithy.api#documentation": "<p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or\n   use a smaller document and then retry your request. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1489,7 +2155,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> You have made too many requests within a short period of time. Wait for a short time and\n   then try your request again. Contact customer support for more information about a service limit\n   increase. </p>\n      ",
+        "smithy.api#documentation": "<p> You have made too many requests within a short period of time. Wait for a short time and\n   then try your request again. Contact customer support for more information about a service limit\n   increase. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -1500,18 +2166,18 @@
         "Name": {
           "target": "com.amazonaws.deepinsight.medical#AttributeName",
           "traits": {
-            "smithy.api#documentation": "\n         <p> Provides a name or contextual description about the trait. </p>\n      "
+            "smithy.api#documentation": "<p> Provides a name or contextual description about the trait. </p>"
           }
         },
         "Score": {
           "target": "com.amazonaws.deepinsight.medical#Float",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The level of confidence that Amazon Comprehend Medical has in the accuracy of this trait.</p>\n      "
+            "smithy.api#documentation": "<p> The level of confidence that Amazon Comprehend Medical has in the accuracy of this trait.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> Provides contextual information about the extracted entity. </p>\n      "
+        "smithy.api#documentation": "<p> Provides contextual information about the extracted entity. </p>"
       }
     },
     "com.amazonaws.deepinsight.medical#TraitList": {
@@ -1526,18 +2192,18 @@
         "Attribute": {
           "target": "com.amazonaws.deepinsight.medical#Attribute",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The specific attribute that has been extracted but not mapped to an entity. </p>\n      "
+            "smithy.api#documentation": "<p> The specific attribute that has been extracted but not mapped to an entity. </p>"
           }
         },
         "Type": {
           "target": "com.amazonaws.deepinsight.medical#EntityType",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The type of the attribute, could be one of the following values: \"MEDICATION\",\n   \"MEDICAL_CONDITION\", \"ANATOMY\", \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\".\n  </p>\n      "
+            "smithy.api#documentation": "<p> The type of the attribute, could be one of the following values: \"MEDICATION\",\n   \"MEDICAL_CONDITION\", \"ANATOMY\", \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\".\n  </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> An attribute that we extracted, but were unable to relate to an entity. </p>\n      "
+        "smithy.api#documentation": "<p> An attribute that we extracted, but were unable to relate to an entity. </p>"
       }
     },
     "com.amazonaws.deepinsight.medical#UnmappedAttributeList": {
@@ -1554,7 +2220,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The filter that you specified for the operation is invalid. Check the filter values that you\n   entered and try your request again.</p>\n      ",
+        "smithy.api#documentation": "<p>The filter that you specified for the operation is invalid. Check the filter values that you\n   entered and try your request again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }

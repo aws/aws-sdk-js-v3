@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -160,7 +165,7 @@
           "cloudFormationName": "WorkDocs",
           "cloudTrailEventSource": "gorillaboy.aws.amazon.com"
         },
-        "smithy.api#documentation": "\n        <p>The WorkDocs API is designed for the following use cases:</p>\n        <ul>\n            <li>\n                <p>File Migration: File migration applications are supported for users who\n                    want to migrate their files from an on-premises or off-premises file system or\n                    service. Users can insert files into a user directory structure, as well as\n                    allow for basic metadata changes, such as modifications to the permissions of\n                    files.</p>\n            </li>\n            <li>\n                <p>Security: Support security applications are supported for users who have\n                    additional security needs, such as antivirus or data loss prevention. The API\n                    actions, along with AWS CloudTrail, allow these applications to detect when\n                    changes occur in Amazon WorkDocs. Then, the application can take the necessary\n                    actions and replace the target file. If the target file violates the policy, the\n                    application can also choose to email the user.</p>\n            </li>\n            <li>\n                <p>eDiscovery/Analytics: General administrative applications are supported,\n                    such as eDiscovery and analytics. These applications can choose to mimic or\n                    record the actions in an Amazon WorkDocs site, along with AWS CloudTrail, to\n                    replicate data for eDiscovery, backup, or analytical applications.</p>\n            </li>\n         </ul>\n        <p>All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.\n            They not only require the use of the AWS SDK, but also allow for the exclusive use of\n            IAM users and roles to help facilitate access, trust, and permission policies. By\n            creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM\n            user gains full administrative visibility into the entire Amazon WorkDocs site (or as\n            set in the IAM policy). This includes, but is not limited to, the ability to modify file\n            permissions and upload any file to any user. This allows developers to perform the three\n            use cases above, as well as give users the ability to grant access on a selective basis\n            using the IAM model.</p>\n      ",
+        "smithy.api#documentation": "<p>The WorkDocs API is designed for the following use cases:</p>\n        <ul>\n            <li>\n                <p>File Migration: File migration applications are supported for users who\n                    want to migrate their files from an on-premises or off-premises file system or\n                    service. Users can insert files into a user directory structure, as well as\n                    allow for basic metadata changes, such as modifications to the permissions of\n                    files.</p>\n            </li>\n            <li>\n                <p>Security: Support security applications are supported for users who have\n                    additional security needs, such as antivirus or data loss prevention. The API\n                    actions, along with AWS CloudTrail, allow these applications to detect when\n                    changes occur in Amazon WorkDocs. Then, the application can take the necessary\n                    actions and replace the target file. If the target file violates the policy, the\n                    application can also choose to email the user.</p>\n            </li>\n            <li>\n                <p>eDiscovery/Analytics: General administrative applications are supported,\n                    such as eDiscovery and analytics. These applications can choose to mimic or\n                    record the actions in an Amazon WorkDocs site, along with AWS CloudTrail, to\n                    replicate data for eDiscovery, backup, or analytical applications.</p>\n            </li>\n         </ul>\n        <p>All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.\n            They not only require the use of the AWS SDK, but also allow for the exclusive use of\n            IAM users and roles to help facilitate access, trust, and permission policies. By\n            creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM\n            user gains full administrative visibility into the entire Amazon WorkDocs site (or as\n            set in the IAM policy). This includes, but is not limited to, the ability to modify file\n            permissions and upload any file to any user. This allows developers to perform the three\n            use cases above, as well as give users the ability to grant access on a selective basis\n            using the IAM model.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -201,7 +206,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Aborts the upload of the specified document version that was previously initiated\n            by <a>InitiateDocumentVersionUpload</a>. The client should make this call\n            only when it no longer intends to upload the document version, or fails to do\n            so.</p>\n      ",
+        "smithy.api#documentation": "<p>Aborts the upload of the specified document version that was previously initiated\n            by <a>InitiateDocumentVersionUpload</a>. The client should make this call\n            only when it no longer intends to upload the document version, or fails to do\n            so.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/documents/{DocumentId}/versions/{VersionId}",
@@ -215,14 +220,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -230,7 +235,7 @@
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the version.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the version.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -263,7 +268,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Activates the specified user. Only active users can access Amazon\n            WorkDocs.</p>\n      ",
+        "smithy.api#documentation": "<p>Activates the specified user. Only active users can access Amazon\n            WorkDocs.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/api/v1/users/{UserId}/activation",
@@ -277,14 +282,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "UserId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the user.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -297,7 +302,7 @@
         "User": {
           "target": "com.amazon.aws.gorillaboy#User",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user information.</p>\n      "
+            "smithy.api#documentation": "<p>The user information.</p>"
           }
         }
       }
@@ -308,60 +313,60 @@
         "CommentMetadata": {
           "target": "com.amazon.aws.gorillaboy#CommentMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Metadata of the commenting activity. This is an optional field and is filled for\n            commenting activities.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata of the commenting activity. This is an optional field and is filled for\n            commenting activities.</p>"
           }
         },
         "Initiator": {
           "target": "com.amazon.aws.gorillaboy#UserMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user who performed the action.</p>\n      "
+            "smithy.api#documentation": "<p>The user who performed the action.</p>"
           }
         },
         "IsIndirectActivity": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Indicates whether an activity is indirect or direct. An indirect activity results\n            from a direct activity performed on a parent resource. For example, sharing a parent\n            folder (the direct activity) shares all of the subfolders and documents within the\n            parent folder (the indirect activity).</p>\n      "
+            "smithy.api#documentation": "<p>Indicates whether an activity is indirect or direct. An indirect activity results\n            from a direct activity performed on a parent resource. For example, sharing a parent\n            folder (the direct activity) shares all of the subfolders and documents within the\n            parent folder (the indirect activity).</p>"
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the organization.</p>"
           }
         },
         "OriginalParent": {
           "target": "com.amazon.aws.gorillaboy#ResourceMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The original parent of the resource. This is an optional field and is filled for\n            move activities.</p>\n      "
+            "smithy.api#documentation": "<p>The original parent of the resource. This is an optional field and is filled for\n            move activities.</p>"
           }
         },
         "Participants": {
           "target": "com.amazon.aws.gorillaboy#Participants",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The list of users or groups impacted by this action. This is an optional field and\n            is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED,\n            DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>\n      "
+            "smithy.api#documentation": "<p>The list of users or groups impacted by this action. This is an optional field and\n            is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED,\n            DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>"
           }
         },
         "ResourceMetadata": {
           "target": "com.amazon.aws.gorillaboy#ResourceMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The metadata of the resource involved in the user action.</p>\n      "
+            "smithy.api#documentation": "<p>The metadata of the resource involved in the user action.</p>"
           }
         },
         "TimeStamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp when the action was performed.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the action was performed.</p>"
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#ActivityType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The activity type.</p>\n      "
+            "smithy.api#documentation": "<p>The activity type.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the activity information.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the activity information.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#ActivityNamesFilterType": {
@@ -503,7 +508,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates a set of permissions for the specified folder or document. The resource\n            permissions are overwritten if the principals already have different\n            permissions.</p>\n      ",
+        "smithy.api#documentation": "<p>Creates a set of permissions for the specified folder or document. The resource\n            permissions are overwritten if the principals already have different\n            permissions.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/api/v1/resources/{ResourceId}/permissions",
@@ -517,27 +522,27 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "NotificationOptions": {
           "target": "com.amazon.aws.gorillaboy#NotificationOptions",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The notification options.</p>\n      "
+            "smithy.api#documentation": "<p>The notification options.</p>"
           }
         },
         "Principals": {
           "target": "com.amazon.aws.gorillaboy#SharePrincipalList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The users, groups, or organization being granted permission.</p>\n      ",
+            "smithy.api#documentation": "<p>The users, groups, or organization being granted permission.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -550,7 +555,7 @@
         "ShareResults": {
           "target": "com.amazon.aws.gorillaboy#ShareResultsList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The share results.</p>\n      "
+            "smithy.api#documentation": "<p>The share results.</p>"
           }
         }
       }
@@ -587,61 +592,61 @@
         "CommentId": {
           "target": "com.amazon.aws.gorillaboy#CommentIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the comment.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the comment.</p>",
             "smithy.api#required": true
           }
         },
         "Contributor": {
           "target": "com.amazon.aws.gorillaboy#User",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The details of the user who made the comment.</p>\n      "
+            "smithy.api#documentation": "<p>The details of the user who made the comment.</p>"
           }
         },
         "CreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time that the comment was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time that the comment was created.</p>"
           }
         },
         "ParentId": {
           "target": "com.amazon.aws.gorillaboy#CommentIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent comment.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the parent comment.</p>"
           }
         },
         "RecipientId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>If the comment is a reply to another user's comment, this field contains the user\n            ID of the user being replied to.</p>\n      "
+            "smithy.api#documentation": "<p>If the comment is a reply to another user's comment, this field contains the user\n            ID of the user being replied to.</p>"
           }
         },
         "Status": {
           "target": "com.amazon.aws.gorillaboy#CommentStatusType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the comment.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the comment.</p>"
           }
         },
         "Text": {
           "target": "com.amazon.aws.gorillaboy#CommentTextType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The text of the comment.</p>\n      "
+            "smithy.api#documentation": "<p>The text of the comment.</p>"
           }
         },
         "ThreadId": {
           "target": "com.amazon.aws.gorillaboy#CommentIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the root comment in the thread.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the root comment in the thread.</p>"
           }
         },
         "Visibility": {
           "target": "com.amazon.aws.gorillaboy#CommentVisibilityType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>\n      "
+            "smithy.api#documentation": "<p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes a comment.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a comment.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#CommentIdType": {
@@ -666,36 +671,36 @@
         "CommentId": {
           "target": "com.amazon.aws.gorillaboy#CommentIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the comment.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the comment.</p>"
           }
         },
         "CommentStatus": {
           "target": "com.amazon.aws.gorillaboy#CommentStatusType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the comment.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the comment.</p>"
           }
         },
         "Contributor": {
           "target": "com.amazon.aws.gorillaboy#User",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user who made the comment.</p>\n      "
+            "smithy.api#documentation": "<p>The user who made the comment.</p>"
           }
         },
         "CreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp that the comment was created.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp that the comment was created.</p>"
           }
         },
         "RecipientId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user being replied to.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the user being replied to.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the metadata of a comment.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the metadata of a comment.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#CommentStatusType": {
@@ -745,7 +750,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The resource hierarchy is changing.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource hierarchy is changing.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -758,7 +763,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Another operation is in progress on the resource that conflicts with the current operation.</p>\n      ",
+        "smithy.api#documentation": "<p>Another operation is in progress on the resource that conflicts with the current operation.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -798,7 +803,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Adds a new comment to the specified document version.</p>\n      ",
+        "smithy.api#documentation": "<p>Adds a new comment to the specified document version.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment",
@@ -812,14 +817,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -827,32 +832,32 @@
         "NotifyCollaborators": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Set this parameter to TRUE to send an email out to the document collaborators after\n            the comment is created.</p>\n      "
+            "smithy.api#documentation": "<p>Set this parameter to TRUE to send an email out to the document collaborators after\n            the comment is created.</p>"
           }
         },
         "ParentId": {
           "target": "com.amazon.aws.gorillaboy#CommentIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent comment.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the parent comment.</p>"
           }
         },
         "Text": {
           "target": "com.amazon.aws.gorillaboy#CommentTextType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The text of the comment.</p>\n      ",
+            "smithy.api#documentation": "<p>The text of the comment.</p>",
             "smithy.api#required": true
           }
         },
         "ThreadId": {
           "target": "com.amazon.aws.gorillaboy#CommentIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the root comment in the thread.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the root comment in the thread.</p>"
           }
         },
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document version.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document version.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -860,7 +865,7 @@
         "Visibility": {
           "target": "com.amazon.aws.gorillaboy#CommentVisibilityType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>\n      "
+            "smithy.api#documentation": "<p>The visibility of the comment. Options are either PRIVATE, where the comment is\n            visible only to the comment author and document owner and co-owners, or PUBLIC, where\n            the comment is visible to document owners, co-owners, and contributors.</p>"
           }
         }
       }
@@ -871,7 +876,7 @@
         "Comment": {
           "target": "com.amazon.aws.gorillaboy#Comment",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The comment that has been created.</p>\n      "
+            "smithy.api#documentation": "<p>The comment that has been created.</p>"
           }
         }
       }
@@ -908,7 +913,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Adds one or more custom properties to the specified resource (a folder, document,\n            or version).</p>\n      ",
+        "smithy.api#documentation": "<p>Adds one or more custom properties to the specified resource (a folder, document,\n            or version).</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/api/v1/resources/{ResourceId}/customMetadata",
@@ -922,21 +927,21 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "CustomMetadata": {
           "target": "com.amazon.aws.gorillaboy#CustomMetadataMap",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Custom metadata in the form of name-value pairs.</p>\n      ",
+            "smithy.api#documentation": "<p>Custom metadata in the form of name-value pairs.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -944,7 +949,7 @@
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the version, if the custom metadata is being added to a document\n            version.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the version, if the custom metadata is being added to a document\n            version.</p>",
             "smithy.api#httpQuery": "versionid"
           }
         }
@@ -992,7 +997,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates a folder with the specified name and parent folder.</p>\n      ",
+        "smithy.api#documentation": "<p>Creates a folder with the specified name and parent folder.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/api/v1/folders",
@@ -1006,20 +1011,20 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the new folder.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the new folder.</p>"
           }
         },
         "ParentFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>",
             "smithy.api#required": true
           }
         }
@@ -1031,7 +1036,7 @@
         "Metadata": {
           "target": "com.amazon.aws.gorillaboy#FolderMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The metadata of the folder.</p>\n      "
+            "smithy.api#documentation": "<p>The metadata of the folder.</p>"
           }
         }
       }
@@ -1065,7 +1070,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Adds the specified list of labels to the given resource (a document or\n            folder)</p>\n      ",
+        "smithy.api#documentation": "<p>Adds the specified list of labels to the given resource (a document or\n            folder)</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/api/v1/resources/{ResourceId}/labels",
@@ -1079,21 +1084,21 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "Labels": {
           "target": "com.amazon.aws.gorillaboy#SharedLabels",
           "traits": {
-            "smithy.api#documentation": "\n        <p>List of labels to add to the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>List of labels to add to the resource.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1124,7 +1129,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a\n            confirmation message, and must confirm the subscription.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html\">Subscribe to\n                Notifications</a> in the <i>Amazon WorkDocs Developer\n            Guide</i>.</p>\n      ",
+        "smithy.api#documentation": "<p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a\n            confirmation message, and must confirm the subscription.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html\">Subscribe to\n                Notifications</a> in the <i>Amazon WorkDocs Developer\n            Guide</i>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/api/v1/organizations/{OrganizationId}/subscriptions",
@@ -1138,14 +1143,14 @@
         "Endpoint": {
           "target": "com.amazon.aws.gorillaboy#SubscriptionEndPointType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint\n            is a URL that begins with <code>https</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint\n            is a URL that begins with <code>https</code>.</p>",
             "smithy.api#required": true
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the organization.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1153,14 +1158,14 @@
         "Protocol": {
           "target": "com.amazon.aws.gorillaboy#SubscriptionProtocolType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The protocol to use. The supported value is https, which delivers JSON-encoded\n            messages using HTTPS POST.</p>\n      ",
+            "smithy.api#documentation": "<p>The protocol to use. The supported value is https, which delivers JSON-encoded\n            messages using HTTPS POST.</p>",
             "smithy.api#required": true
           }
         },
         "SubscriptionType": {
           "target": "com.amazon.aws.gorillaboy#SubscriptionType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The notification type.</p>\n      ",
+            "smithy.api#documentation": "<p>The notification type.</p>",
             "smithy.api#required": true
           }
         }
@@ -1172,7 +1177,7 @@
         "Subscription": {
           "target": "com.amazon.aws.gorillaboy#Subscription",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The subscription.</p>\n      "
+            "smithy.api#documentation": "<p>The subscription.</p>"
           }
         }
       }
@@ -1203,7 +1208,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly\n            created user is \"ACTIVE\". New users can access Amazon WorkDocs.</p>\n      ",
+        "smithy.api#documentation": "<p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly\n            created user is \"ACTIVE\". New users can access Amazon WorkDocs.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/api/v1/users",
@@ -1217,59 +1222,59 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "EmailAddress": {
           "target": "com.amazon.aws.gorillaboy#EmailAddressType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The email address of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The email address of the user.</p>"
           }
         },
         "GivenName": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The given name of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The given name of the user.</p>",
             "smithy.api#required": true
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the organization.</p>"
           }
         },
         "Password": {
           "target": "com.amazon.aws.gorillaboy#PasswordType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The password of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The password of the user.</p>",
             "smithy.api#required": true
           }
         },
         "StorageRule": {
           "target": "com.amazon.aws.gorillaboy#StorageRuleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The amount of storage for the user.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of storage for the user.</p>"
           }
         },
         "Surname": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The surname of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The surname of the user.</p>",
             "smithy.api#required": true
           }
         },
         "TimeZoneId": {
           "target": "com.amazon.aws.gorillaboy#TimeZoneIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time zone ID of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
           }
         },
         "Username": {
           "target": "com.amazon.aws.gorillaboy#UsernameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The login name of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The login name of the user.</p>",
             "smithy.api#required": true
           }
         }
@@ -1281,7 +1286,7 @@
         "User": {
           "target": "com.amazon.aws.gorillaboy#User",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user information.</p>\n      "
+            "smithy.api#documentation": "<p>The user information.</p>"
           }
         }
       }
@@ -1316,7 +1321,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The limit has been reached on the number of custom properties for the specified\n            resource.</p>\n      ",
+        "smithy.api#documentation": "<p>The limit has been reached on the number of custom properties for the specified\n            resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -1369,7 +1374,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deactivates the specified user, which revokes the user's access to Amazon\n            WorkDocs.</p>\n      ",
+        "smithy.api#documentation": "<p>Deactivates the specified user, which revokes the user's access to Amazon\n            WorkDocs.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/users/{UserId}/activation",
@@ -1383,14 +1388,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "UserId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the user.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1408,7 +1413,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The last user in the organization is being deactivated.</p>\n      ",
+        "smithy.api#documentation": "<p>The last user in the organization is being deactivated.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -1442,7 +1447,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes the specified comment from the document version.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes the specified comment from the document version.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}",
@@ -1456,14 +1461,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "CommentId": {
           "target": "com.amazon.aws.gorillaboy#CommentIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the comment.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the comment.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1471,7 +1476,7 @@
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1479,7 +1484,7 @@
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document version.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document version.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1515,7 +1520,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes custom metadata from the specified resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes custom metadata from the specified resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/resources/{ResourceId}/customMetadata",
@@ -1529,28 +1534,28 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DeleteAll": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Flag to indicate removal of all custom metadata properties from the specified\n            resource.</p>\n      ",
+            "smithy.api#documentation": "<p>Flag to indicate removal of all custom metadata properties from the specified\n            resource.</p>",
             "smithy.api#httpQuery": "deleteAll"
           }
         },
         "Keys": {
           "target": "com.amazon.aws.gorillaboy#CustomMetadataKeyList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>List of properties to remove.</p>\n      ",
+            "smithy.api#documentation": "<p>List of properties to remove.</p>",
             "smithy.api#httpQuery": "keys"
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource, either a document or folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource, either a document or folder.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1558,7 +1563,7 @@
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the version, if the custom metadata is being deleted from a document\n            version.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the version, if the custom metadata is being deleted from a document\n            version.</p>",
             "smithy.api#httpQuery": "versionId"
           }
         }
@@ -1600,7 +1605,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Permanently deletes the specified document and its associated metadata.</p>\n      ",
+        "smithy.api#documentation": "<p>Permanently deletes the specified document and its associated metadata.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/documents/{DocumentId}",
@@ -1614,14 +1619,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1660,7 +1665,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Permanently deletes the specified folder and its contents.</p>\n      ",
+        "smithy.api#documentation": "<p>Permanently deletes the specified folder and its contents.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/folders/{FolderId}",
@@ -1697,7 +1702,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes the contents of the specified folder.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes the contents of the specified folder.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/folders/{FolderId}/contents",
@@ -1711,14 +1716,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "FolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1731,14 +1736,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "FolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1771,7 +1776,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes the specified list of labels from a resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes the specified list of labels from a resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/resources/{ResourceId}/labels",
@@ -1785,28 +1790,28 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DeleteAll": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Flag to request removal of all labels from the specified resource.</p>\n      ",
+            "smithy.api#documentation": "<p>Flag to request removal of all labels from the specified resource.</p>",
             "smithy.api#httpQuery": "deleteAll"
           }
         },
         "Labels": {
           "target": "com.amazon.aws.gorillaboy#SharedLabels",
           "traits": {
-            "smithy.api#documentation": "\n        <p>List of labels to delete from the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>List of labels to delete from the resource.</p>",
             "smithy.api#httpQuery": "labels"
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1837,7 +1842,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes the specified subscription from the specified organization.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes the specified subscription from the specified organization.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}",
@@ -1851,7 +1856,7 @@
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the organization.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1859,7 +1864,7 @@
         "SubscriptionId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the subscription.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the subscription.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1889,7 +1894,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/users/{UserId}",
@@ -1903,14 +1908,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "UserId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the user.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1943,7 +1948,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the user activities in a specified time period.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the user activities in a specified time period.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/activities",
@@ -1957,70 +1962,70 @@
         "ActivityTypes": {
           "target": "com.amazon.aws.gorillaboy#ActivityNamesFilterType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Specifies which activity types to include in the response. If this field is left\n            empty, all activity types are returned.</p>\n      ",
+            "smithy.api#documentation": "<p>Specifies which activity types to include in the response. If this field is left\n            empty, all activity types are returned.</p>",
             "smithy.api#httpQuery": "activityTypes"
           }
         },
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "EndTime": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp that determines the end time of the activities. The response includes\n            the activities performed before the specified timestamp.</p>\n      ",
+            "smithy.api#documentation": "<p>The timestamp that determines the end time of the activities. The response includes\n            the activities performed before the specified timestamp.</p>",
             "smithy.api#httpQuery": "endTime"
           }
         },
         "IncludeIndirectActivities": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Includes indirect activities. An indirect activity results from a direct activity\n            performed on a parent resource. For example, sharing a parent folder (the direct\n            activity) shares all of the subfolders and documents within the parent folder (the\n            indirect activity).</p>\n      ",
+            "smithy.api#documentation": "<p>Includes indirect activities. An indirect activity results from a direct activity\n            performed on a parent resource. For example, sharing a parent folder (the direct\n            activity) shares all of the subfolders and documents within the parent folder (the\n            indirect activity).</p>",
             "smithy.api#httpQuery": "includeIndirectActivities"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#MarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results.</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization. This is a mandatory parameter when using administrative\n            API (SigV4) requests.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the organization. This is a mandatory parameter when using administrative\n            API (SigV4) requests.</p>",
             "smithy.api#httpQuery": "organizationId"
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The document or folder ID for which to describe activity types.</p>\n      ",
+            "smithy.api#documentation": "<p>The document or folder ID for which to describe activity types.</p>",
             "smithy.api#httpQuery": "resourceId"
           }
         },
         "StartTime": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp that determines the starting time of the activities. The response\n            includes the activities performed after the specified timestamp.</p>\n      ",
+            "smithy.api#documentation": "<p>The timestamp that determines the starting time of the activities. The response\n            includes the activities performed after the specified timestamp.</p>",
             "smithy.api#httpQuery": "startTime"
           }
         },
         "UserId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user who performed the action. The response includes activities\n            pertaining to this user. This is an optional parameter and is only applicable for\n            administrative API (SigV4) requests.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the user who performed the action. The response includes activities\n            pertaining to this user. This is an optional parameter and is only applicable for\n            administrative API (SigV4) requests.</p>",
             "smithy.api#httpQuery": "userId"
           }
         }
@@ -2032,13 +2037,13 @@
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#MarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results.</p>\n      "
+            "smithy.api#documentation": "<p>The marker for the next set of results.</p>"
           }
         },
         "UserActivities": {
           "target": "com.amazon.aws.gorillaboy#UserActivities",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The list of activities for the specified user and time period.</p>\n      "
+            "smithy.api#documentation": "<p>The list of activities for the specified user and time period.</p>"
           }
         }
       }
@@ -2072,7 +2077,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>List all the comments for the specified document version.</p>\n      ",
+        "smithy.api#documentation": "<p>List all the comments for the specified document version.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments",
@@ -2086,14 +2091,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2101,21 +2106,21 @@
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#MarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. This marker was received from a previous\n            call.</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous\n            call.</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document version.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document version.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2128,13 +2133,13 @@
         "Comments": {
           "target": "com.amazon.aws.gorillaboy#CommentList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The list of comments for the specified document version.</p>\n      "
+            "smithy.api#documentation": "<p>The list of comments for the specified document version.</p>"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#MarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. This marker was received from a previous\n            call.</p>\n      "
+            "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous\n            call.</p>"
           }
         }
       }
@@ -2171,7 +2176,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves the document versions for the specified document.</p>\n        <p>By default, only active versions are returned.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves the document versions for the specified document.</p>\n        <p>By default, only active versions are returned.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/documents/{DocumentId}/versions",
@@ -2191,14 +2196,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2206,28 +2211,28 @@
         "Fields": {
           "target": "com.amazon.aws.gorillaboy#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Specify \"SOURCE\" to include initialized versions and a URL for the source\n            document.</p>\n      ",
+            "smithy.api#documentation": "<p>Specify \"SOURCE\" to include initialized versions and a URL for the source\n            document.</p>",
             "smithy.api#httpQuery": "fields"
           }
         },
         "Include": {
           "target": "com.amazon.aws.gorillaboy#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete\n            versions.</p>\n      ",
+            "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete\n            versions.</p>",
             "smithy.api#httpQuery": "include"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of versions to return with this call.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of versions to return with this call.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
             "smithy.api#httpQuery": "marker"
           }
         }
@@ -2239,13 +2244,13 @@
         "DocumentVersions": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The document versions.</p>\n      "
+            "smithy.api#documentation": "<p>The document versions.</p>"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>\n      "
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         }
       }
@@ -2279,7 +2284,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the contents of the specified folder, including its documents and\n            subfolders.</p>\n        <p>By default, Amazon WorkDocs returns the first 100 active document and folder\n            metadata items. If there are more results, the response includes a marker that you can\n            use to request the next set of results. You can also request initialized\n            documents.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the contents of the specified folder, including its documents and\n            subfolders.</p>\n        <p>By default, Amazon WorkDocs returns the first 100 active document and folder\n            metadata items. If there are more results, the response includes a marker that you can\n            use to request the next set of results. You can also request initialized\n            documents.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/folders/{FolderId}/contents",
@@ -2298,14 +2303,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "FolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2313,42 +2318,42 @@
         "Include": {
           "target": "com.amazon.aws.gorillaboy#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The contents to include. Specify \"INITIALIZED\" to include initialized\n            documents.</p>\n      ",
+            "smithy.api#documentation": "<p>The contents to include. Specify \"INITIALIZED\" to include initialized\n            documents.</p>",
             "smithy.api#httpQuery": "include"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return with this call.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return with this call.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. This marker was received from a previous\n            call.</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous\n            call.</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "Order": {
           "target": "com.amazon.aws.gorillaboy#OrderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The order for the contents of the folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The order for the contents of the folder.</p>",
             "smithy.api#httpQuery": "order"
           }
         },
         "Sort": {
           "target": "com.amazon.aws.gorillaboy#ResourceSortType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The sorting criteria.</p>\n      ",
+            "smithy.api#documentation": "<p>The sorting criteria.</p>",
             "smithy.api#httpQuery": "sort"
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#FolderContentType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of items.</p>\n      ",
+            "smithy.api#documentation": "<p>The type of items.</p>",
             "smithy.api#httpQuery": "type"
           }
         }
@@ -2360,19 +2365,19 @@
         "Documents": {
           "target": "com.amazon.aws.gorillaboy#DocumentMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The documents in the specified folder.</p>\n      "
+            "smithy.api#documentation": "<p>The documents in the specified folder.</p>"
           }
         },
         "Folders": {
           "target": "com.amazon.aws.gorillaboy#FolderMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The subfolders in the specified folder.</p>\n      "
+            "smithy.api#documentation": "<p>The subfolders in the specified folder.</p>"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>\n      "
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         }
       }
@@ -2400,7 +2405,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the groups specified by the query. Groups are defined by the underlying\n            Active Directory.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the groups specified by the query. Groups are defined by the underlying\n            Active Directory.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/groups",
@@ -2414,35 +2419,35 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using administrative\n            API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using administrative\n            API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#PositiveIntegerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return with this call.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return with this call.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#MarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the organization.</p>",
             "smithy.api#httpQuery": "organizationId"
           }
         },
         "SearchQuery": {
           "target": "com.amazon.aws.gorillaboy#SearchQueryType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A query to describe groups by group name.</p>\n      ",
+            "smithy.api#documentation": "<p>A query to describe groups by group name.</p>",
             "smithy.api#httpQuery": "searchQuery",
             "smithy.api#required": true
           }
@@ -2455,13 +2460,13 @@
         "Groups": {
           "target": "com.amazon.aws.gorillaboy#GroupMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The list of groups.</p>\n      "
+            "smithy.api#documentation": "<p>The list of groups.</p>"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#MarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no additional\n            results, the string is empty.</p>\n      "
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no additional\n            results, the string is empty.</p>"
           }
         }
       }
@@ -2486,7 +2491,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Lists the specified notification subscriptions.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the specified notification subscriptions.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/organizations/{OrganizationId}/subscriptions",
@@ -2500,21 +2505,21 @@
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return with this call.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return with this call.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the organization.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2527,13 +2532,13 @@
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>\n      "
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         },
         "Subscriptions": {
           "target": "com.amazon.aws.gorillaboy#SubscriptionList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The subscriptions.</p>\n      "
+            "smithy.api#documentation": "<p>The subscriptions.</p>"
           }
         }
       }
@@ -2561,7 +2566,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the permissions of a specified resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the permissions of a specified resource.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/resources/{ResourceId}/permissions",
@@ -2575,35 +2580,35 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return with this call.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return with this call.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous\n            call)</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call)</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "PrincipalId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the principal to filter permissions by.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the principal to filter permissions by.</p>",
             "smithy.api#httpQuery": "principalId"
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2616,13 +2621,13 @@
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>\n      "
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         },
         "Principals": {
           "target": "com.amazon.aws.gorillaboy#PrincipalList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The principals.</p>\n      "
+            "smithy.api#documentation": "<p>The principals.</p>"
           }
         }
       }
@@ -2653,7 +2658,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the current user's special folders; the <code>RootFolder</code> and the\n                <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and\n            folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid\n            action for SigV4 (administrative API) clients.</p>\n        <p>This action requires an authentication token. To get an authentication token,\n            register an application with Amazon WorkDocs. For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html\">Authentication and Access\n                Control for User Applications</a> in the\n            <i>Amazon\n            WorkDocs Developer Guide</i>.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the current user's special folders; the <code>RootFolder</code> and the\n                <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and\n            folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid\n            action for SigV4 (administrative API) clients.</p>\n        <p>This action requires an authentication token. To get an authentication token,\n            register an application with Amazon WorkDocs. For more information, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html\">Authentication and Access\n                Control for User Applications</a> in the\n            <i>Amazon\n            WorkDocs Developer Guide</i>.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/me/root",
@@ -2667,7 +2672,7 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication",
             "smithy.api#required": true
           }
@@ -2675,14 +2680,14 @@
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
             "smithy.api#httpQuery": "marker"
           }
         }
@@ -2694,13 +2699,13 @@
         "Folders": {
           "target": "com.amazon.aws.gorillaboy#FolderMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user's special folders.</p>\n      "
+            "smithy.api#documentation": "<p>The user's special folders.</p>"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results.</p>\n      "
+            "smithy.api#documentation": "<p>The marker for the next set of results.</p>"
           }
         }
       }
@@ -2737,7 +2742,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the specified users. You can describe all users or filter the results\n            (for example, by status or organization).</p>\n        <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there\n            are more results, the response includes a marker that you can use to request the next\n            set of results.</p>\n      ",
+        "smithy.api#documentation": "<p>Describes the specified users. You can describe all users or filter the results\n            (for example, by status or organization).</p>\n        <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there\n            are more results, the response includes a marker that you can use to request the next\n            set of results.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/users",
@@ -2757,70 +2762,70 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "Fields": {
           "target": "com.amazon.aws.gorillaboy#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A comma-separated list of values. Specify \"STORAGE_METADATA\" to include the user\n            storage quota and utilization information.</p>\n      ",
+            "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"STORAGE_METADATA\" to include the user\n            storage quota and utilization information.</p>",
             "smithy.api#httpQuery": "fields"
           }
         },
         "Include": {
           "target": "com.amazon.aws.gorillaboy#UserFilterType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The state of the users. Specify \"ALL\" to include inactive users.</p>\n      ",
+            "smithy.api#documentation": "<p>The state of the users. Specify \"ALL\" to include inactive users.</p>",
             "smithy.api#httpQuery": "include"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of items to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. (You received this marker from a previous\n            call.)</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "Order": {
           "target": "com.amazon.aws.gorillaboy#OrderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The order for the results.</p>\n      ",
+            "smithy.api#documentation": "<p>The order for the results.</p>",
             "smithy.api#httpQuery": "order"
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the organization.</p>",
             "smithy.api#httpQuery": "organizationId"
           }
         },
         "Query": {
           "target": "com.amazon.aws.gorillaboy#SearchQueryType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A query to filter users by user name.</p>\n      ",
+            "smithy.api#documentation": "<p>A query to filter users by user name.</p>",
             "smithy.api#httpQuery": "query"
           }
         },
         "Sort": {
           "target": "com.amazon.aws.gorillaboy#UserSortType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The sorting criteria.</p>\n      ",
+            "smithy.api#documentation": "<p>The sorting criteria.</p>",
             "smithy.api#httpQuery": "sort"
           }
         },
         "UserIds": {
           "target": "com.amazon.aws.gorillaboy#UserIdsType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The IDs of the users.</p>\n      ",
+            "smithy.api#documentation": "<p>The IDs of the users.</p>",
             "smithy.api#httpQuery": "userIds"
           }
         }
@@ -2832,20 +2837,20 @@
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>\n      "
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no\n            additional results, the string is empty.</p>"
           }
         },
         "TotalNumberOfUsers": {
           "target": "com.amazon.aws.gorillaboy#SizeType",
           "traits": {
             "smithy.api#deprecated": { },
-            "smithy.api#documentation": "\n        <p>The total number of users included in the results.</p>\n      "
+            "smithy.api#documentation": "<p>The total number of users included in the results.</p>"
           }
         },
         "Users": {
           "target": "com.amazon.aws.gorillaboy#OrganizationUserList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The users.</p>\n      "
+            "smithy.api#documentation": "<p>The users.</p>"
           }
         }
       }
@@ -2867,7 +2872,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>This exception is thrown when the document is locked for comments and user tries to\n            create or delete a comment on that document.</p>\n      ",
+        "smithy.api#documentation": "<p>This exception is thrown when the document is locked for comments and user tries to\n            create or delete a comment on that document.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -2878,54 +2883,54 @@
         "CreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the document was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the document was created.</p>"
           }
         },
         "CreatorId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the creator.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the creator.</p>"
           }
         },
         "Id": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the document.</p>"
           }
         },
         "Labels": {
           "target": "com.amazon.aws.gorillaboy#SharedLabels",
           "traits": {
-            "smithy.api#documentation": "\n        <p>List of labels on the document.</p>\n      "
+            "smithy.api#documentation": "<p>List of labels on the document.</p>"
           }
         },
         "LatestVersionMetadata": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The latest version of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The latest version of the document.</p>"
           }
         },
         "ModifiedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the document was updated.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the document was updated.</p>"
           }
         },
         "ParentFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent folder.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
         "ResourceState": {
           "target": "com.amazon.aws.gorillaboy#ResourceStateType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The resource state.</p>\n      "
+            "smithy.api#documentation": "<p>The resource state.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the document.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the document.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#DocumentMetadataList": {
@@ -3010,84 +3015,84 @@
         "ContentCreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp when the content of the document was originally created.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the content of the document was originally created.</p>"
           }
         },
         "ContentModifiedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp when the content of the document was modified.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the content of the document was modified.</p>"
           }
         },
         "ContentType": {
           "target": "com.amazon.aws.gorillaboy#DocumentContentType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The content type of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The content type of the document.</p>"
           }
         },
         "CreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp when the document was first uploaded.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the document was first uploaded.</p>"
           }
         },
         "CreatorId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the creator.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the creator.</p>"
           }
         },
         "Id": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the version.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the version.</p>"
           }
         },
         "ModifiedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp when the document was last uploaded.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the document was last uploaded.</p>"
           }
         },
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the version.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the version.</p>"
           }
         },
         "Signature": {
           "target": "com.amazon.aws.gorillaboy#HashType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The signature of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The signature of the document.</p>"
           }
         },
         "Size": {
           "target": "com.amazon.aws.gorillaboy#SizeType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the document, in bytes.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the document, in bytes.</p>"
           }
         },
         "Source": {
           "target": "com.amazon.aws.gorillaboy#DocumentSourceUrlMap",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The source of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The source of the document.</p>"
           }
         },
         "Status": {
           "target": "com.amazon.aws.gorillaboy#DocumentStatusType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the document.</p>"
           }
         },
         "Thumbnail": {
           "target": "com.amazon.aws.gorillaboy#DocumentThumbnailUrlMap",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The thumbnail of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The thumbnail of the document.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes a version of a document.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a version of a document.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#DocumentVersionMetadataList": {
@@ -3114,7 +3119,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>This exception is thrown when a valid checkout ID is not presented on document\n            version upload calls for a document that has been checked out from Web client.</p>\n      ",
+        "smithy.api#documentation": "<p>This exception is thrown when a valid checkout ID is not presented on document\n            version upload calls for a document that has been checked out from Web client.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -3137,7 +3142,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The resource already exists.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource already exists.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -3159,7 +3164,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The resource does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource does not exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -3178,7 +3183,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The AWS Directory Service cannot reach an on-premises instance. Or a dependency\n            under the control of the organization is failing, such as a connected Active\n            Directory.</p>\n      ",
+        "smithy.api#documentation": "<p>The AWS Directory Service cannot reach an on-premises instance. Or a dependency\n            under the control of the organization is failing, such as a connected Active\n            Directory.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 424
       }
@@ -3215,72 +3220,72 @@
         "CreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the folder was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the folder was created.</p>"
           }
         },
         "CreatorId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the creator.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the creator.</p>"
           }
         },
         "Id": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the folder.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the folder.</p>"
           }
         },
         "Labels": {
           "target": "com.amazon.aws.gorillaboy#SharedLabels",
           "traits": {
-            "smithy.api#documentation": "\n        <p>List of labels on the folder.</p>\n      "
+            "smithy.api#documentation": "<p>List of labels on the folder.</p>"
           }
         },
         "LatestVersionSize": {
           "target": "com.amazon.aws.gorillaboy#SizeType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the latest version of the folder metadata.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the latest version of the folder metadata.</p>"
           }
         },
         "ModifiedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the folder was updated.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the folder was updated.</p>"
           }
         },
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the folder.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the folder.</p>"
           }
         },
         "ParentFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent folder.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
         "ResourceState": {
           "target": "com.amazon.aws.gorillaboy#ResourceStateType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The resource state of the folder.</p>\n      "
+            "smithy.api#documentation": "<p>The resource state of the folder.</p>"
           }
         },
         "Signature": {
           "target": "com.amazon.aws.gorillaboy#HashType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The unique identifier created from the subfolders and documents of the\n            folder.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier created from the subfolders and documents of the\n            folder.</p>"
           }
         },
         "Size": {
           "target": "com.amazon.aws.gorillaboy#SizeType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the folder metadata.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the folder metadata.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes a folder.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a folder.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#FolderMetadataList": {
@@ -3315,7 +3320,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves details of the current user for whom the authentication token was\n            generated. This is not a valid action for SigV4 (administrative API) clients.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves details of the current user for whom the authentication token was\n            generated. This is not a valid action for SigV4 (administrative API) clients.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/me",
@@ -3329,7 +3334,7 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication",
             "smithy.api#required": true
           }
@@ -3342,7 +3347,7 @@
         "User": {
           "target": "com.amazon.aws.gorillaboy#User",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Metadata of the user.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata of the user.</p>"
           }
         }
       }
@@ -3379,7 +3384,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves details of a document.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves details of a document.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/documents/{DocumentId}",
@@ -3413,7 +3418,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves the path information (the hierarchy from the root folder) for the\n            requested document.</p>\n        <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the\n            requested document and only includes the IDs of the parent folders in the path. You can\n            limit the maximum number of levels. You can also request the names of the parent\n            folders.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves the path information (the hierarchy from the root folder) for the\n            requested document.</p>\n        <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the\n            requested document and only includes the IDs of the parent folders in the path. You can\n            limit the maximum number of levels. You can also request the names of the parent\n            folders.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/documents/{DocumentId}/path",
@@ -3427,14 +3432,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -3442,21 +3447,21 @@
         "Fields": {
           "target": "com.amazon.aws.gorillaboy#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A comma-separated list of values. Specify <code>NAME</code> to include the names of\n            the parent folders.</p>\n      ",
+            "smithy.api#documentation": "<p>A comma-separated list of values. Specify <code>NAME</code> to include the names of\n            the parent folders.</p>",
             "smithy.api#httpQuery": "fields"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of levels in the hierarchy to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of levels in the hierarchy to return.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>This value is not supported.</p>\n      ",
+            "smithy.api#documentation": "<p>This value is not supported.</p>",
             "smithy.api#httpQuery": "marker"
           }
         }
@@ -3468,7 +3473,7 @@
         "Path": {
           "target": "com.amazon.aws.gorillaboy#ResourcePath",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The path information.</p>\n      "
+            "smithy.api#documentation": "<p>The path information.</p>"
           }
         }
       }
@@ -3479,14 +3484,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -3494,7 +3499,7 @@
         "IncludeCustomMetadata": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>\n      ",
+            "smithy.api#documentation": "<p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>",
             "smithy.api#httpQuery": "includeCustomMetadata"
           }
         }
@@ -3506,13 +3511,13 @@
         "CustomMetadata": {
           "target": "com.amazon.aws.gorillaboy#CustomMetadataMap",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The custom metadata on the document.</p>\n      "
+            "smithy.api#documentation": "<p>The custom metadata on the document.</p>"
           }
         },
         "Metadata": {
           "target": "com.amazon.aws.gorillaboy#DocumentMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The metadata details of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The metadata details of the document.</p>"
           }
         }
       }
@@ -3549,7 +3554,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves version metadata for the specified document.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves version metadata for the specified document.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/documents/{DocumentId}/versions/{VersionId}",
@@ -3563,14 +3568,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -3578,21 +3583,21 @@
         "Fields": {
           "target": "com.amazon.aws.gorillaboy#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A comma-separated list of values. Specify \"SOURCE\" to include a URL for the source\n            document.</p>\n      ",
+            "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"SOURCE\" to include a URL for the source\n            document.</p>",
             "smithy.api#httpQuery": "fields"
           }
         },
         "IncludeCustomMetadata": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Set this to TRUE to include custom metadata in the response.</p>\n      ",
+            "smithy.api#documentation": "<p>Set this to TRUE to include custom metadata in the response.</p>",
             "smithy.api#httpQuery": "includeCustomMetadata"
           }
         },
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The version ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The version ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -3605,13 +3610,13 @@
         "CustomMetadata": {
           "target": "com.amazon.aws.gorillaboy#CustomMetadataMap",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The custom metadata on the document version.</p>\n      "
+            "smithy.api#documentation": "<p>The custom metadata on the document version.</p>"
           }
         },
         "Metadata": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The version metadata.</p>\n      "
+            "smithy.api#documentation": "<p>The version metadata.</p>"
           }
         }
       }
@@ -3648,7 +3653,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves the metadata of the specified folder.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves the metadata of the specified folder.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/folders/{FolderId}",
@@ -3682,7 +3687,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves the path information (the hierarchy from the root folder) for the\n            specified folder.</p>\n        <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the\n            requested folder and only includes the IDs of the parent folders in the path. You can\n            limit the maximum number of levels. You can also request the parent folder\n            names.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves the path information (the hierarchy from the root folder) for the\n            specified folder.</p>\n        <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the\n            requested folder and only includes the IDs of the parent folders in the path. You can\n            limit the maximum number of levels. You can also request the parent folder\n            names.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/folders/{FolderId}/path",
@@ -3696,21 +3701,21 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "Fields": {
           "target": "com.amazon.aws.gorillaboy#FieldNamesType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A comma-separated list of values. Specify \"NAME\" to include the names of the parent\n            folders.</p>\n      ",
+            "smithy.api#documentation": "<p>A comma-separated list of values. Specify \"NAME\" to include the names of the parent\n            folders.</p>",
             "smithy.api#httpQuery": "fields"
           }
         },
         "FolderId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -3718,14 +3723,14 @@
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of levels in the hierarchy to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of levels in the hierarchy to return.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>This value is not supported.</p>\n      ",
+            "smithy.api#documentation": "<p>This value is not supported.</p>",
             "smithy.api#httpQuery": "marker"
           }
         }
@@ -3737,7 +3742,7 @@
         "Path": {
           "target": "com.amazon.aws.gorillaboy#ResourcePath",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The path information.</p>\n      "
+            "smithy.api#documentation": "<p>The path information.</p>"
           }
         }
       }
@@ -3748,14 +3753,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "FolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -3763,7 +3768,7 @@
         "IncludeCustomMetadata": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Set to TRUE to include custom metadata in the response.</p>\n      ",
+            "smithy.api#documentation": "<p>Set to TRUE to include custom metadata in the response.</p>",
             "smithy.api#httpQuery": "includeCustomMetadata"
           }
         }
@@ -3775,13 +3780,13 @@
         "CustomMetadata": {
           "target": "com.amazon.aws.gorillaboy#CustomMetadataMap",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The custom metadata on the folder.</p>\n      "
+            "smithy.api#documentation": "<p>The custom metadata on the folder.</p>"
           }
         },
         "Metadata": {
           "target": "com.amazon.aws.gorillaboy#FolderMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The metadata of the folder.</p>\n      "
+            "smithy.api#documentation": "<p>The metadata of the folder.</p>"
           }
         }
       }
@@ -3812,7 +3817,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Retrieves a collection of resources, including folders and documents. The only\n            <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves a collection of resources, including folders and documents. The only\n            <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/api/v1/resources",
@@ -3826,35 +3831,35 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API operation using AWS\n            credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API operation using AWS\n            credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "CollectionType": {
           "target": "com.amazon.aws.gorillaboy#ResourceCollectionType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The collection type.</p>\n      ",
+            "smithy.api#documentation": "<p>The collection type.</p>",
             "smithy.api#httpQuery": "collectionType"
           }
         },
         "Limit": {
           "target": "com.amazon.aws.gorillaboy#LimitType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of resources to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of resources to return.</p>",
             "smithy.api#httpQuery": "limit"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker for the next set of results. This marker was received from a previous call.</p>\n      ",
+            "smithy.api#documentation": "<p>The marker for the next set of results. This marker was received from a previous call.</p>",
             "smithy.api#httpQuery": "marker"
           }
         },
         "UserId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user ID for the resource collection. This is a required field for accessing the\n            API operation using IAM credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>The user ID for the resource collection. This is a required field for accessing the\n            API operation using IAM credentials.</p>",
             "smithy.api#httpQuery": "userId"
           }
         }
@@ -3866,19 +3871,19 @@
         "Documents": {
           "target": "com.amazon.aws.gorillaboy#DocumentMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The documents in the specified collection.</p>\n      "
+            "smithy.api#documentation": "<p>The documents in the specified collection.</p>"
           }
         },
         "Folders": {
           "target": "com.amazon.aws.gorillaboy#FolderMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The folders in the specified folder.</p>\n      "
+            "smithy.api#documentation": "<p>The folders in the specified folder.</p>"
           }
         },
         "Marker": {
           "target": "com.amazon.aws.gorillaboy#PageMarkerType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>\n      "
+            "smithy.api#documentation": "<p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>"
           }
         }
       }
@@ -3889,18 +3894,18 @@
         "Id": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user group.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the user group.</p>"
           }
         },
         "Name": {
           "target": "com.amazon.aws.gorillaboy#GroupNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the group.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the group.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the metadata of a user group.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the metadata of a user group.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#GroupMetadataList": {
@@ -3959,7 +3964,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The user is undergoing transfer of ownership.</p>\n      ",
+        "smithy.api#documentation": "<p>The user is undergoing transfer of ownership.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -4008,7 +4013,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates a new document object and version object.</p>\n        <p>The client specifies the parent folder ID and name of the document to upload. The\n            ID is optionally specified when creating a new version of an existing document. This is\n            the first step to upload a document. Next, upload the document to the URL returned from\n            the call, and then call <a>UpdateDocumentVersion</a>.</p>\n        <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>\n      ",
+        "smithy.api#documentation": "<p>Creates a new document object and version object.</p>\n        <p>The client specifies the parent folder ID and name of the document to upload. The\n            ID is optionally specified when creating a new version of an existing document. This is\n            the first step to upload a document. Next, upload the document to the URL returned from\n            the call, and then call <a>UpdateDocumentVersion</a>.</p>\n        <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/api/v1/documents",
@@ -4022,50 +4027,50 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "ContentCreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp when the content of the document was originally created.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the content of the document was originally created.</p>"
           }
         },
         "ContentModifiedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The timestamp when the content of the document was modified.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the content of the document was modified.</p>"
           }
         },
         "ContentType": {
           "target": "com.amazon.aws.gorillaboy#DocumentContentType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The content type of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The content type of the document.</p>"
           }
         },
         "DocumentSizeInBytes": {
           "target": "com.amazon.aws.gorillaboy#SizeType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the document, in bytes.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the document, in bytes.</p>"
           }
         },
         "Id": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the document.</p>"
           }
         },
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the document.</p>"
           }
         },
         "ParentFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>",
             "smithy.api#required": true
           }
         }
@@ -4077,13 +4082,13 @@
         "Metadata": {
           "target": "com.amazon.aws.gorillaboy#DocumentMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The document metadata.</p>\n      "
+            "smithy.api#documentation": "<p>The document metadata.</p>"
           }
         },
         "UploadMetadata": {
           "target": "com.amazon.aws.gorillaboy#UploadMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The upload metadata.</p>\n      "
+            "smithy.api#documentation": "<p>The upload metadata.</p>"
           }
         }
       }
@@ -4096,7 +4101,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The pagination marker or limit fields are not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The pagination marker or limit fields are not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -4109,7 +4114,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The requested operation is not allowed on the specified comment object.</p>\n      ",
+        "smithy.api#documentation": "<p>The requested operation is not allowed on the specified comment object.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -4122,7 +4127,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The operation is invalid.</p>\n      ",
+        "smithy.api#documentation": "<p>The operation is invalid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 405
       }
@@ -4135,7 +4140,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The password is invalid.</p>\n      ",
+        "smithy.api#documentation": "<p>The password is invalid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 401
       }
@@ -4148,7 +4153,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The maximum of 100,000 folders under the parent folder has been exceeded.</p>\n      ",
+        "smithy.api#documentation": "<p>The maximum of 100,000 folders under the parent folder has been exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -4229,18 +4234,18 @@
         "EmailMessage": {
           "target": "com.amazon.aws.gorillaboy#MessageType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Text value to be included in the email body.</p>\n      "
+            "smithy.api#documentation": "<p>Text value to be included in the email body.</p>"
           }
         },
         "SendEmail": {
           "target": "com.amazon.aws.gorillaboy#BooleanType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Boolean value to indicate an email notification should be sent to the\n            receipients.</p>\n      "
+            "smithy.api#documentation": "<p>Boolean value to indicate an email notification should be sent to the\n            receipients.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Set of options which defines notification preferences of given action.</p>\n      "
+        "smithy.api#documentation": "<p>Set of options which defines notification preferences of given action.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#OrderType": {
@@ -4277,18 +4282,18 @@
         "Groups": {
           "target": "com.amazon.aws.gorillaboy#GroupMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The list of user groups.</p>\n      "
+            "smithy.api#documentation": "<p>The list of user groups.</p>"
           }
         },
         "Users": {
           "target": "com.amazon.aws.gorillaboy#UserMetadataList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The list of users.</p>\n      "
+            "smithy.api#documentation": "<p>The list of users.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the users or user groups.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the users or user groups.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#PasswordType": {
@@ -4308,18 +4313,18 @@
         "Role": {
           "target": "com.amazon.aws.gorillaboy#RoleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The role of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The role of the user.</p>"
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#RolePermissionType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of permissions.</p>\n      "
+            "smithy.api#documentation": "<p>The type of permissions.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the permissions.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the permissions.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#PermissionInfoList": {
@@ -4352,24 +4357,24 @@
         "Id": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the resource.</p>"
           }
         },
         "Roles": {
           "target": "com.amazon.aws.gorillaboy#PermissionInfoList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The permission information for the resource.</p>\n      "
+            "smithy.api#documentation": "<p>The permission information for the resource.</p>"
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of resource.</p>\n      "
+            "smithy.api#documentation": "<p>The type of resource.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes a resource.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a resource.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#PrincipalList": {
@@ -4408,7 +4413,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The specified document version is not in the INITIALIZED state.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified document version is not in the INITIALIZED state.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -4433,7 +4438,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Removes all the permissions from the specified resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Removes all the permissions from the specified resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/resources/{ResourceId}/permissions",
@@ -4447,14 +4452,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -4481,7 +4486,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Removes the permission for the specified principal from the specified\n            resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Removes the permission for the specified principal from the specified\n            resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}",
@@ -4495,14 +4500,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "PrincipalId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The principal ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The principal ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -4510,14 +4515,14 @@
         "PrincipalType": {
           "target": "com.amazon.aws.gorillaboy#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The principal type of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The principal type of the resource.</p>",
             "smithy.api#httpQuery": "type"
           }
         },
         "ResourceId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the resource.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -4532,7 +4537,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>\n      ",
+        "smithy.api#documentation": "<p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 413
       }
@@ -4545,7 +4550,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The resource is already checked out.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource is already checked out.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -4576,48 +4581,48 @@
         "Id": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the resource.</p>"
           }
         },
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the resource.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource.</p>"
           }
         },
         "OriginalName": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The original name of the resource before a rename operation.</p>\n      "
+            "smithy.api#documentation": "<p>The original name of the resource before a rename operation.</p>"
           }
         },
         "Owner": {
           "target": "com.amazon.aws.gorillaboy#UserMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The owner of the resource.</p>\n      "
+            "smithy.api#documentation": "<p>The owner of the resource.</p>"
           }
         },
         "ParentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The parent ID of the resource before a rename operation.</p>\n      "
+            "smithy.api#documentation": "<p>The parent ID of the resource before a rename operation.</p>"
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#ResourceType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of resource.</p>\n      "
+            "smithy.api#documentation": "<p>The type of resource.</p>"
           }
         },
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The version ID of the resource. This is an optional field and is filled for action\n            on document version.</p>\n      "
+            "smithy.api#documentation": "<p>The version ID of the resource. This is an optional field and is filled for action\n            on document version.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the metadata of a resource.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the metadata of a resource.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#ResourceNameType": {
@@ -4636,12 +4641,12 @@
         "Components": {
           "target": "com.amazon.aws.gorillaboy#ResourcePathComponentList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The components of the resource path.</p>\n      "
+            "smithy.api#documentation": "<p>The components of the resource path.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the path information of a resource.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the path information of a resource.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#ResourcePathComponent": {
@@ -4650,18 +4655,18 @@
         "Id": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource path.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the resource path.</p>"
           }
         },
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the resource path.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource path.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the resource path.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the resource path.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#ResourcePathComponentList": {
@@ -4766,7 +4771,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>One or more of the dependencies is unavailable.</p>\n      ",
+        "smithy.api#documentation": "<p>One or more of the dependencies is unavailable.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 503
       }
@@ -4777,27 +4782,27 @@
         "Id": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the recipient.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the recipient.</p>",
             "smithy.api#required": true
           }
         },
         "Role": {
           "target": "com.amazon.aws.gorillaboy#RoleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The role of the recipient.</p>\n      ",
+            "smithy.api#documentation": "<p>The role of the recipient.</p>",
             "smithy.api#required": true
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of the recipient.</p>\n      ",
+            "smithy.api#documentation": "<p>The type of the recipient.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the recipient type and ID, if available.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the recipient type and ID, if available.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#SharePrincipalList": {
@@ -4812,42 +4817,42 @@
         "InviteePrincipalId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the invited user.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the invited user.</p>"
           }
         },
         "PrincipalId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the principal.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the principal.</p>"
           }
         },
         "Role": {
           "target": "com.amazon.aws.gorillaboy#RoleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The role.</p>\n      "
+            "smithy.api#documentation": "<p>The role.</p>"
           }
         },
         "ShareId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the resource that was shared.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the resource that was shared.</p>"
           }
         },
         "Status": {
           "target": "com.amazon.aws.gorillaboy#ShareStatusType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status.</p>\n      "
+            "smithy.api#documentation": "<p>The status.</p>"
           }
         },
         "StatusMessage": {
           "target": "com.amazon.aws.gorillaboy#MessageType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status message.</p>\n      "
+            "smithy.api#documentation": "<p>The status message.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the share results of a resource.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the share results of a resource.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#ShareResultsList": {
@@ -4914,7 +4919,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The storage limit has been exceeded.</p>\n      ",
+        "smithy.api#documentation": "<p>The storage limit has been exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -4927,7 +4932,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The storage limit will be exceeded.</p>\n      ",
+        "smithy.api#documentation": "<p>The storage limit will be exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 413
       }
@@ -4938,18 +4943,18 @@
         "StorageAllocatedInBytes": {
           "target": "com.amazon.aws.gorillaboy#PositiveSizeType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The amount of storage allocated, in bytes.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of storage allocated, in bytes.</p>"
           }
         },
         "StorageType": {
           "target": "com.amazon.aws.gorillaboy#StorageType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of storage.</p>\n      "
+            "smithy.api#documentation": "<p>The type of storage.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the storage for a user.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the storage for a user.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#StorageType": {
@@ -4971,24 +4976,24 @@
         "EndPoint": {
           "target": "com.amazon.aws.gorillaboy#SubscriptionEndPointType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The endpoint of the subscription.</p>\n      "
+            "smithy.api#documentation": "<p>The endpoint of the subscription.</p>"
           }
         },
         "Protocol": {
           "target": "com.amazon.aws.gorillaboy#SubscriptionProtocolType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The protocol of the subscription.</p>\n      "
+            "smithy.api#documentation": "<p>The protocol of the subscription.</p>"
           }
         },
         "SubscriptionId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the subscription.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the subscription.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes a subscription.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a subscription.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#SubscriptionEndPointType": {
@@ -5052,7 +5057,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The limit has been reached on the number of labels for the specified\n            resource.</p>\n      ",
+        "smithy.api#documentation": "<p>The limit has been reached on the number of labels for the specified\n            resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -5065,7 +5070,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>You've reached the limit on the number of subscriptions for the WorkDocs\n            instance.</p>\n      ",
+        "smithy.api#documentation": "<p>You've reached the limit on the number of subscriptions for the WorkDocs\n            instance.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -5081,7 +5086,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The operation is not permitted.</p>\n      ",
+        "smithy.api#documentation": "<p>The operation is not permitted.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -5094,7 +5099,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The caller does not have access to perform the action on the resource.</p>\n      ",
+        "smithy.api#documentation": "<p>The caller does not have access to perform the action on the resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -5137,7 +5142,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates the specified attributes of a document. The user must have access to both\n            the document and its parent folder, if applicable.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates the specified attributes of a document. The user must have access to both\n            the document and its parent folder, if applicable.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/api/v1/documents/{DocumentId}",
@@ -5151,14 +5156,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -5166,19 +5171,19 @@
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the document.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the document.</p>"
           }
         },
         "ParentFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent folder.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
         "ResourceState": {
           "target": "com.amazon.aws.gorillaboy#ResourceStateType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The resource state of the document. Only ACTIVE and RECYCLED are\n            supported.</p>\n      "
+            "smithy.api#documentation": "<p>The resource state of the document. Only ACTIVE and RECYCLED are\n            supported.</p>"
           }
         }
       }
@@ -5215,7 +5220,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Changes the status of the document version to ACTIVE. </p>\n        <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step\n            in a document upload, after the client uploads the document to an S3-presigned URL\n            returned by <a>InitiateDocumentVersionUpload</a>. </p>\n      ",
+        "smithy.api#documentation": "<p>Changes the status of the document version to ACTIVE. </p>\n        <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step\n            in a document upload, after the client uploads the document to an S3-presigned URL\n            returned by <a>InitiateDocumentVersionUpload</a>. </p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/api/v1/documents/{DocumentId}/versions/{VersionId}",
@@ -5229,14 +5234,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "DocumentId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -5244,7 +5249,7 @@
         "VersionId": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The version ID of the document.</p>\n      ",
+            "smithy.api#documentation": "<p>The version ID of the document.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -5252,7 +5257,7 @@
         "VersionStatus": {
           "target": "com.amazon.aws.gorillaboy#DocumentVersionStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the version.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the version.</p>"
           }
         }
       }
@@ -5295,7 +5300,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates the specified attributes of the specified folder. The user must have access\n            to both the folder and its parent folder, if applicable.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates the specified attributes of the specified folder. The user must have access\n            to both the folder and its parent folder, if applicable.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/api/v1/folders/{FolderId}",
@@ -5309,14 +5314,14 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "FolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the folder.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the folder.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -5324,19 +5329,19 @@
         "Name": {
           "target": "com.amazon.aws.gorillaboy#ResourceNameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the folder.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the folder.</p>"
           }
         },
         "ParentFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the parent folder.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the parent folder.</p>"
           }
         },
         "ResourceState": {
           "target": "com.amazon.aws.gorillaboy#ResourceStateType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from\n            the API.</p>\n      "
+            "smithy.api#documentation": "<p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from\n            the API.</p>"
           }
         }
       }
@@ -5376,7 +5381,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates the specified attributes of the specified user, and grants or revokes\n            administrative privileges to the Amazon WorkDocs site.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates the specified attributes of the specified user, and grants or revokes\n            administrative privileges to the Amazon WorkDocs site.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/api/v1/users/{UserId}",
@@ -5390,56 +5395,56 @@
         "AuthenticationToken": {
           "target": "com.amazon.aws.gorillaboy#AuthenticationHeaderType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>\n      ",
+            "smithy.api#documentation": "<p>Amazon WorkDocs authentication token. Do not set this field when using\n            administrative API actions, as in accessing the API using AWS credentials.</p>",
             "smithy.api#httpHeader": "Authentication"
           }
         },
         "GivenName": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The given name of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The given name of the user.</p>"
           }
         },
         "GrantPoweruserPrivileges": {
           "target": "com.amazon.aws.gorillaboy#BooleanEnumType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Boolean value to determine whether the user is granted Poweruser privileges.</p>\n      "
+            "smithy.api#documentation": "<p>Boolean value to determine whether the user is granted Poweruser privileges.</p>"
           }
         },
         "Locale": {
           "target": "com.amazon.aws.gorillaboy#LocaleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The locale of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The locale of the user.</p>"
           }
         },
         "StorageRule": {
           "target": "com.amazon.aws.gorillaboy#StorageRuleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The amount of storage for the user.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of storage for the user.</p>"
           }
         },
         "Surname": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The surname of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The surname of the user.</p>"
           }
         },
         "TimeZoneId": {
           "target": "com.amazon.aws.gorillaboy#TimeZoneIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time zone ID of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#UserType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The type of the user.</p>"
           }
         },
         "UserId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the user.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -5452,7 +5457,7 @@
         "User": {
           "target": "com.amazon.aws.gorillaboy#User",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The user information.</p>\n      "
+            "smithy.api#documentation": "<p>The user information.</p>"
           }
         }
       }
@@ -5463,18 +5468,18 @@
         "SignedHeaders": {
           "target": "com.amazon.aws.gorillaboy#SignedHeaderMap",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The signed headers.</p>\n      "
+            "smithy.api#documentation": "<p>The signed headers.</p>"
           }
         },
         "UploadUrl": {
           "target": "com.amazon.aws.gorillaboy#UrlType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The URL of the upload.</p>\n      "
+            "smithy.api#documentation": "<p>The URL of the upload.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the upload.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the upload.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#UrlType": {
@@ -5493,96 +5498,96 @@
         "CreatedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the user was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the user was created.</p>"
           }
         },
         "EmailAddress": {
           "target": "com.amazon.aws.gorillaboy#EmailAddressType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The email address of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The email address of the user.</p>"
           }
         },
         "GivenName": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The given name of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The given name of the user.</p>"
           }
         },
         "Id": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the user.</p>"
           }
         },
         "Locale": {
           "target": "com.amazon.aws.gorillaboy#LocaleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The locale of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The locale of the user.</p>"
           }
         },
         "ModifiedTimestamp": {
           "target": "com.amazon.aws.gorillaboy#TimestampType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the user was modified.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the user was modified.</p>"
           }
         },
         "OrganizationId": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the organization.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the organization.</p>"
           }
         },
         "RecycleBinFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the recycle bin folder.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the recycle bin folder.</p>"
           }
         },
         "RootFolderId": {
           "target": "com.amazon.aws.gorillaboy#ResourceIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the root folder.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the root folder.</p>"
           }
         },
         "Status": {
           "target": "com.amazon.aws.gorillaboy#UserStatusType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the user.</p>"
           }
         },
         "Storage": {
           "target": "com.amazon.aws.gorillaboy#UserStorageMetadata",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The storage for the user.</p>\n      "
+            "smithy.api#documentation": "<p>The storage for the user.</p>"
           }
         },
         "Surname": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The surname of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The surname of the user.</p>"
           }
         },
         "TimeZoneId": {
           "target": "com.amazon.aws.gorillaboy#TimeZoneIdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time zone ID of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The time zone ID of the user.</p>"
           }
         },
         "Type": {
           "target": "com.amazon.aws.gorillaboy#UserType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The type of user.</p>\n      "
+            "smithy.api#documentation": "<p>The type of user.</p>"
           }
         },
         "Username": {
           "target": "com.amazon.aws.gorillaboy#UsernameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The login name of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The login name of the user.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes a user.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a user.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#UserActivities": {
@@ -5629,36 +5634,36 @@
         "EmailAddress": {
           "target": "com.amazon.aws.gorillaboy#EmailAddressType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The email address of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The email address of the user.</p>"
           }
         },
         "GivenName": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The given name of the user before a rename operation.</p>\n      "
+            "smithy.api#documentation": "<p>The given name of the user before a rename operation.</p>"
           }
         },
         "Id": {
           "target": "com.amazon.aws.gorillaboy#IdType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the user.</p>"
           }
         },
         "Surname": {
           "target": "com.amazon.aws.gorillaboy#UserAttributeValueType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The surname of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The surname of the user.</p>"
           }
         },
         "Username": {
           "target": "com.amazon.aws.gorillaboy#UsernameType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the user.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the user.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the metadata of the user.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the metadata of the user.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#UserMetadataList": {
@@ -5711,18 +5716,18 @@
         "StorageRule": {
           "target": "com.amazon.aws.gorillaboy#StorageRuleType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The storage for a user.</p>\n      "
+            "smithy.api#documentation": "<p>The storage for a user.</p>"
           }
         },
         "StorageUtilizedInBytes": {
           "target": "com.amazon.aws.gorillaboy#SizeType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The amount of storage used, in bytes.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of storage used, in bytes.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the storage for a user.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the storage for a user.</p>"
       }
     },
     "com.amazon.aws.gorillaboy#UserType": {

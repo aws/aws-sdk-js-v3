@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -133,7 +138,7 @@
         "SegmentDurationSeconds": {
           "target": "com.amazonaws.mediapackage_vod#__integer",
           "traits": {
-            "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.\n",
+            "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.",
             "smithy.api#jsonName": "segmentDurationSeconds"
           }
         }
@@ -571,7 +576,7 @@
         "SegmentDurationSeconds": {
           "target": "com.amazonaws.mediapackage_vod#__integer",
           "traits": {
-            "smithy.api#documentation": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.\n",
+            "smithy.api#documentation": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.",
             "smithy.api#jsonName": "segmentDurationSeconds"
           }
         }
@@ -1086,7 +1091,7 @@
         "ConstantInitializationVector": {
           "target": "com.amazonaws.mediapackage_vod#__string",
           "traits": {
-            "smithy.api#documentation": "A constant initialization vector for encryption (optional).\nWhen not specified the initialization vector will be periodically rotated.\n",
+            "smithy.api#documentation": "A constant initialization vector for encryption (optional).\nWhen not specified the initialization vector will be periodically rotated.",
             "smithy.api#jsonName": "constantInitializationVector"
           }
         },
@@ -1115,7 +1120,7 @@
         "AdMarkers": {
           "target": "com.amazonaws.mediapackage_vod#AdMarkers",
           "traits": {
-            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n",
+            "smithy.api#documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.",
             "smithy.api#jsonName": "adMarkers"
           }
         },
@@ -1136,7 +1141,7 @@
         "ProgramDateTimeIntervalSeconds": {
           "target": "com.amazonaws.mediapackage_vod#__integer",
           "traits": {
-            "smithy.api#documentation": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.\n",
+            "smithy.api#documentation": "The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag\ninserted into manifests. Additionally, when an interval is specified\nID3Timed Metadata messages will be generated every 5 seconds using the\ningest time of the content.\nIf the interval is not specified, or set to 0, then\nno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no\nID3Timed Metadata messages will be generated. Note that irrespective\nof this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,\nit will be passed through to HLS output.",
             "smithy.api#jsonName": "programDateTimeIntervalSeconds"
           }
         },
@@ -1178,7 +1183,7 @@
         "SegmentDurationSeconds": {
           "target": "com.amazonaws.mediapackage_vod#__integer",
           "traits": {
-            "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.\n",
+            "smithy.api#documentation": "Duration (in seconds) of each fragment. Actual fragments will be\nrounded to the nearest multiple of the source fragment duration.",
             "smithy.api#jsonName": "segmentDurationSeconds"
           }
         },
@@ -1716,7 +1721,7 @@
         "RoleArn": {
           "target": "com.amazonaws.mediapackage_vod#__string",
           "traits": {
-            "smithy.api#documentation": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.\n",
+            "smithy.api#documentation": "An Amazon Resource Name (ARN) of an IAM role that AWS Elemental\nMediaPackage will assume when accessing the key provider service.",
             "smithy.api#jsonName": "roleArn",
             "smithy.api#required": true
           }

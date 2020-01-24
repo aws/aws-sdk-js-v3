@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -33,7 +38,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\n        <p>Your request didn't pass one or more validation tests. For example, if the\n            transcription you're trying to delete doesn't exist or if it is in a non-terminal state\n            (for example, it's \"in progress\"). See the exception <code>Message</code> field for more\n            information.</p>\n      ",
+        "smithy.api#documentation": "<p>Your request didn't pass one or more validation tests. For example, if the\n            transcription you're trying to delete doesn't exist or if it is in a non-terminal state\n            (for example, it's \"in progress\"). See the exception <code>Message</code> field for more\n            information.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -52,7 +57,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>When you are using the <code>CreateVocabulary</code> operation, the\n                <code>JobName</code> field is a duplicate of a previously entered job name. Resend\n            your request with a different name.</p>\n        <p>When you are using the <code>UpdateVocabulary</code> operation, there are two jobs\n            running at the same time. Resend the second request later.</p>\n      ",
+        "smithy.api#documentation": "<p>When you are using the <code>CreateVocabulary</code> operation, the\n                <code>JobName</code> field is a duplicate of a previously entered job name. Resend\n            your request with a different name.</p>\n        <p>When you are using the <code>UpdateVocabulary</code> operation, there are two jobs\n            running at the same time. Resend the second request later.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -80,11 +85,97 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles\n            transcription of an audio file. </p>\n      ",
+        "smithy.api#documentation": "<p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles\n            transcription of an audio file. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/vocabularies/{VocabularyName}",
           "code": 200
+        }
+      }
+    },
+    "com.amazonaws.transcribe#CreateVocabularyFilter": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.transcribe#CreateVocabularyFilterRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.transcribe#CreateVocabularyFilterResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.transcribe#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a new vocabulary filter that you can use to filter words, such as profane\n            words, from the output of a transcription job.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/vocabularyFilters/{VocabularyFilterName}",
+          "code": 201
+        }
+      }
+    },
+    "com.amazonaws.transcribe#CreateVocabularyFilterRequest": {
+      "type": "structure",
+      "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribe#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the words in the vocabulary filter. All words in the filter must\n            be in the same language. The vocabulary filter can only be used with transcription jobs\n            in the specified language.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "VocabularyFilterFileUri": {
+          "target": "com.amazonaws.transcribe#Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 location of a text file used as input to create the vocabulary filter.\n            Only use characters from the character set defined for custom vocabularies. For a list of\n            character sets, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets\">Character Sets for Custom\n                Vocabularies</a>.</p>\n        <p>The specified file must be less than 50 KB of UTF-8 characters.</p>\n        <p>If you provide the location of a list of words in the\n                <code>VocabularyFilterFileUri</code> parameter, you can't use the <code>Words</code>\n            parameter.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The vocabulary filter name. The name must be unique within the account that contains\n            it.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "Words": {
+          "target": "com.amazonaws.transcribe#Words",
+          "traits": {
+            "smithy.api#documentation": "<p>The words to use in the vocabulary filter. Only use characters from the character set\n            defined for custom vocabularies. For a list of character sets, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets\">Character Sets for Custom Vocabularies</a>.</p>\n        <p>If you provide a list of words in the <code>Words</code> parameter, you can't use the\n                <code>VocabularyFilterFileUri</code> parameter.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribe#CreateVocabularyFilterResponse": {
+      "type": "structure",
+      "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribe#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the words in the collection.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.transcribe#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the vocabulary filter was modified.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter.</p>"
+          }
         }
       }
     },
@@ -94,26 +185,26 @@
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code of the vocabulary entries.</p>\n      ",
+            "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>",
             "smithy.api#required": true
           }
         },
         "Phrases": {
           "target": "com.amazonaws.transcribe#Phrases",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An array of strings that contains the vocabulary entries. </p>\n      "
+            "smithy.api#documentation": "<p>An array of strings that contains the vocabulary entries. </p>"
           }
         },
         "VocabularyFileUri": {
           "target": "com.amazonaws.transcribe#Uri",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The S3 location of the text file that contains the definition of the custom\n            vocabulary. The URI must be in the same region as the API endpoint that you are calling.\n            The general form is </p>\n        <p>\n            <code>\n                https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>\n            </code>\n        </p>\n        <p>For example:</p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code>\n         </p>\n        <p>For more information about S3 object names, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\n        <p>For more information about custom vocabularies, see <a href=\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\">Custom Vocabularies</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The S3 location of the text file that contains the definition of the custom\n            vocabulary. The URI must be in the same region as the API endpoint that you are calling.\n            The general form is </p>\n        <p>\n            <code>\n                https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>\n            </code>\n        </p>\n        <p>For example:</p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code>\n         </p>\n        <p>For more information about S3 object names, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\n        <p>For more information about custom vocabularies, see <a href=\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\">Custom Vocabularies</a>.</p>"
           }
         },
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary. The name must be unique within an AWS account. The name is\n            case-sensitive.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the vocabulary. The name must be unique within an AWS account. The name is\n            case-sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -126,33 +217,39 @@
         "FailureReason": {
           "target": "com.amazonaws.transcribe#FailureReason",
           "traits": {
-            "smithy.api#documentation": "\n        <p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains\n            information about why the job failed.</p>\n      "
+            "smithy.api#documentation": "<p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains\n            information about why the job failed.</p>"
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code of the vocabulary entries.</p>\n      "
+            "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>"
           }
         },
         "LastModifiedTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The date and time that the vocabulary was created.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time that the vocabulary was created.</p>"
           }
         },
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the vocabulary.</p>"
           }
         },
         "VocabularyState": {
           "target": "com.amazonaws.transcribe#VocabularyState",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The processing state of the vocabulary. When the <code>VocabularyState</code> field\n            contains <code>READY</code> the vocabulary is ready to be used in a\n                <code>StartTranscriptionJob</code> request.</p>\n      "
+            "smithy.api#documentation": "<p>The processing state of the vocabulary. When the <code>VocabularyState</code> field\n            contains <code>READY</code> the vocabulary is ready to be used in a\n                <code>StartTranscriptionJob</code> request.</p>"
           }
         }
+      }
+    },
+    "com.amazonaws.transcribe#DataAccessRoleArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws:iam::[0-9]{0,63}:role/[A-Za-z0-9:_/+=,@.-]{0,1023}$"
       }
     },
     "com.amazonaws.transcribe#DateTime": {
@@ -175,7 +272,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\n        <p>Deletes a previously submitted transcription job along with any other generated\n            results such as the transcription, models, and so on.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes a previously submitted transcription job along with any other generated\n            results such as the transcription, models, and so on.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/transcriptionjobs/{TranscriptionJobName}",
@@ -189,7 +286,7 @@
         "TranscriptionJobName": {
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the transcription job to be deleted.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the transcription job to be deleted.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -216,11 +313,52 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Deletes a vocabulary from Amazon Transcribe. </p>\n      ",
+        "smithy.api#documentation": "<p>Deletes a vocabulary from Amazon Transcribe. </p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/vocabularies/{VocabularyName}",
           "code": 204
+        }
+      }
+    },
+    "com.amazonaws.transcribe#DeleteVocabularyFilter": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.transcribe#DeleteVocabularyFilterRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.transcribe#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes a vocabulary filter.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/vocabularyFilters/{VocabularyFilterName}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.transcribe#DeleteVocabularyFilterRequest": {
+      "type": "structure",
+      "members": {
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter to remove.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
         }
       }
     },
@@ -230,7 +368,7 @@
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary to delete. </p>\n      ",
+            "smithy.api#documentation": "<p>The name of the vocabulary to delete. </p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -263,7 +401,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Returns information about a transcription job. To see the status of the job, check the\n                <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,\n            the job is finished and you can find the results at the location specified in the\n                <code>TranscriptionFileUri</code> field.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns information about a transcription job. To see the status of the job, check the\n                <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,\n            the job is finished and you can find the results at the location specified in the\n                <code>TranscriptionFileUri</code> field.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/transcriptionjobs/{TranscriptionJobName}",
@@ -277,7 +415,7 @@
         "TranscriptionJobName": {
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the job.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the job.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -290,7 +428,7 @@
         "TranscriptionJob": {
           "target": "com.amazonaws.transcribe#TranscriptionJob",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An object that contains the results of the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains the results of the transcription job.</p>"
           }
         }
       }
@@ -318,11 +456,84 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Gets information about a vocabulary. </p>\n      ",
+        "smithy.api#documentation": "<p>Gets information about a vocabulary. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/vocabularies/{VocabularyName}",
           "code": 200
+        }
+      }
+    },
+    "com.amazonaws.transcribe#GetVocabularyFilter": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.transcribe#GetVocabularyFilterRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.transcribe#GetVocabularyFilterResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.transcribe#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about a vocabulary filter.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/vocabularyFilters/{VocabularyFilterName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.transcribe#GetVocabularyFilterRequest": {
+      "type": "structure",
+      "members": {
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter for which to return information.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribe#GetVocabularyFilterResponse": {
+      "type": "structure",
+      "members": {
+        "DownloadUri": {
+          "target": "com.amazonaws.transcribe#Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The URI of the list of words in the vocabulary filter. You can use this URI to get the\n            list of words.</p>"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribe#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the words in the vocabulary filter.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.transcribe#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the contents of the vocabulary filter were updated.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter.</p>"
+          }
         }
       }
     },
@@ -332,7 +543,7 @@
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary to return information about. The name is\n            case-sensitive.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the vocabulary to return information about. The name is\n            case-sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -345,37 +556,37 @@
         "DownloadUri": {
           "target": "com.amazonaws.transcribe#Uri",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The S3 location where the vocabulary is stored. Use this URI to get the contents of\n            the vocabulary. The URI is available for a limited time.</p>\n      "
+            "smithy.api#documentation": "<p>The S3 location where the vocabulary is stored. Use this URI to get the contents of\n            the vocabulary. The URI is available for a limited time.</p>"
           }
         },
         "FailureReason": {
           "target": "com.amazonaws.transcribe#FailureReason",
           "traits": {
-            "smithy.api#documentation": "\n        <p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains\n            information about why the job failed.</p>\n      "
+            "smithy.api#documentation": "<p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains\n            information about why the job failed.</p>"
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code of the vocabulary entries.</p>\n      "
+            "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>"
           }
         },
         "LastModifiedTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The date and time that the vocabulary was last modified.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time that the vocabulary was last modified.</p>"
           }
         },
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary to return.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the vocabulary to return.</p>"
           }
         },
         "VocabularyState": {
           "target": "com.amazonaws.transcribe#VocabularyState",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The processing state of the vocabulary.</p>\n      "
+            "smithy.api#documentation": "<p>The processing state of the vocabulary.</p>"
           }
         }
       }
@@ -388,9 +599,29 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>There was an internal error. Check the error message and try your request\n            again.</p>\n      ",
+        "smithy.api#documentation": "<p>There was an internal error. Check the error message and try your request\n            again.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.transcribe#JobExecutionSettings": {
+      "type": "structure",
+      "members": {
+        "AllowDeferredExecution": {
+          "target": "com.amazonaws.transcribe#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit\n            is exceeded. When the <code>AllowDeferredExecution</code> field is true, jobs are queued\n            and will be executed when the number of executing jobs falls below the concurrent\n            execution limit. If the field is false, Amazon Transcribe returns a\n                <code>LimitExceededException</code> exception.</p>\n        <p>If you specify the <code>AllowDeferredExecution</code> field, you must specify the\n                <code>DataAccessRoleArn</code> field.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.transcribe#DataAccessRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that\n            contains the input files. Amazon Transcribe will assume this role to read queued media files. If you\n            have specified an output S3 bucket for the transcription results, this role should have\n            access to the output bucket as well.</p>\n        <p>If you specify the <code>AllowDeferredExecution</code> field, you must specify the\n                <code>DataAccessRoleArn</code> field.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides information about when a transcription job should be executed.</p>"
       }
     },
     "com.amazonaws.transcribe#KMSKeyId": {
@@ -511,7 +742,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Either you have sent too many requests or your input file is too long. Wait before you\n            resend your request, or use a smaller file and resend the request.</p>\n      ",
+        "smithy.api#documentation": "<p>Either you have sent too many requests or your input file is too long. Wait before you\n            resend your request, or use a smaller file and resend the request.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -536,7 +767,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Lists transcription jobs with the specified status.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists transcription jobs with the specified status.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/transcriptionjobs",
@@ -555,28 +786,28 @@
         "JobNameContains": {
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>When specified, the jobs returned in the list are limited to jobs whose name contains\n            the specified string.</p>\n      ",
+            "smithy.api#documentation": "<p>When specified, the jobs returned in the list are limited to jobs whose name contains\n            the specified string.</p>",
             "smithy.api#httpQuery": "JobNameContains"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.transcribe#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of jobs to return in the response. If there are fewer results in\n            the list, this response contains only the actual results.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of jobs to return in the response. If there are fewer results in\n            the list, this response contains only the actual results.</p>",
             "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.transcribe#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>If the result of the previous request to <code>ListTranscriptionJobs</code> was\n            truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>\n      ",
+            "smithy.api#documentation": "<p>If the result of the previous request to <code>ListTranscriptionJobs</code> was\n            truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>",
             "smithy.api#httpQuery": "NextToken"
           }
         },
         "Status": {
           "target": "com.amazonaws.transcribe#TranscriptionJobStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>When specified, returns only transcription jobs with the specified status. Jobs are\n            ordered by creation date, with the newest jobs returned first. If you don’t specify a\n            status, Amazon Transcribe returns all transcription jobs ordered by creation date. </p>\n      ",
+            "smithy.api#documentation": "<p>When specified, returns only transcription jobs with the specified status. Jobs are\n            ordered by creation date, with the newest jobs returned first. If you don’t specify a\n            status, Amazon Transcribe returns all transcription jobs ordered by creation date. </p>",
             "smithy.api#httpQuery": "Status"
           }
         }
@@ -588,19 +819,19 @@
         "NextToken": {
           "target": "com.amazonaws.transcribe#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time. The\n            maximum size of the page is set by the <code>MaxResults</code> parameter. If there are\n            more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code> token.\n            Include the token in the next request to the <code>ListTranscriptionJobs</code>\n            operation to return in the next page of jobs.</p>\n      "
+            "smithy.api#documentation": "<p>The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time. The\n            maximum size of the page is set by the <code>MaxResults</code> parameter. If there are\n            more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code> token.\n            Include the token in the next request to the <code>ListTranscriptionJobs</code>\n            operation to return in the next page of jobs.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.transcribe#TranscriptionJobStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The requested status of the jobs returned.</p>\n      "
+            "smithy.api#documentation": "<p>The requested status of the jobs returned.</p>"
           }
         },
         "TranscriptionJobSummaries": {
           "target": "com.amazonaws.transcribe#TranscriptionJobSummaries",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A list of objects containing summary information for a transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>A list of objects containing summary information for a transcription job.</p>"
           }
         }
       }
@@ -625,7 +856,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Returns a list of vocabularies that match the specified criteria. If no criteria are\n            specified, returns the entire list of vocabularies.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns a list of vocabularies that match the specified criteria. If no criteria are\n            specified, returns the entire list of vocabularies.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/vocabularies",
@@ -644,28 +875,28 @@
         "MaxResults": {
           "target": "com.amazonaws.transcribe#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of vocabularies to return in the response. If there are fewer\n            results in the list, this response contains only the actual results.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of vocabularies to return in the response. If there are fewer\n            results in the list, this response contains only the actual results.</p>",
             "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NameContains": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>When specified, the vocabularies returned in the list are limited to vocabularies\n            whose name contains the specified string. The search is case-insensitive,\n                <code>ListVocabularies</code> will return both \"vocabularyname\" and \"VocabularyName\"\n            in the response list.</p>\n      ",
+            "smithy.api#documentation": "<p>When specified, the vocabularies returned in the list are limited to vocabularies\n            whose name contains the specified string. The search is case-insensitive,\n                <code>ListVocabularies</code> will return both \"vocabularyname\" and \"VocabularyName\"\n            in the response list.</p>",
             "smithy.api#httpQuery": "NameContains"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.transcribe#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>If the result of the previous request to <code>ListVocabularies</code> was truncated,\n            include the <code>NextToken</code> to fetch the next set of jobs.</p>\n      ",
+            "smithy.api#documentation": "<p>If the result of the previous request to <code>ListVocabularies</code> was truncated,\n            include the <code>NextToken</code> to fetch the next set of jobs.</p>",
             "smithy.api#httpQuery": "NextToken"
           }
         },
         "StateEquals": {
           "target": "com.amazonaws.transcribe#VocabularyState",
           "traits": {
-            "smithy.api#documentation": "\n        <p>When specified, only returns vocabularies with the <code>VocabularyState</code> field\n            equal to the specified state.</p>\n      ",
+            "smithy.api#documentation": "<p>When specified, only returns vocabularies with the <code>VocabularyState</code> field\n            equal to the specified state.</p>",
             "smithy.api#httpQuery": "StateEquals"
           }
         }
@@ -677,19 +908,95 @@
         "NextToken": {
           "target": "com.amazonaws.transcribe#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The <code>ListVocabularies</code> operation returns a page of vocabularies at a time.\n            The maximum size of the page is set by the <code>MaxResults</code> parameter. If there\n            are more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code>\n            token. Include the token in the next request to the <code>ListVocabularies</code>\n            operation to return in the next page of jobs.</p>\n      "
+            "smithy.api#documentation": "<p>The <code>ListVocabularies</code> operation returns a page of vocabularies at a time.\n            The maximum size of the page is set by the <code>MaxResults</code> parameter. If there\n            are more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code>\n            token. Include the token in the next request to the <code>ListVocabularies</code>\n            operation to return in the next page of jobs.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.transcribe#TranscriptionJobStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The requested vocabulary state.</p>\n      "
+            "smithy.api#documentation": "<p>The requested vocabulary state.</p>"
           }
         },
         "Vocabularies": {
           "target": "com.amazonaws.transcribe#Vocabularies",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A list of objects that describe the vocabularies that match the search criteria in the\n            request.</p>\n      "
+            "smithy.api#documentation": "<p>A list of objects that describe the vocabularies that match the search criteria in the\n            request.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribe#ListVocabularyFilters": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.transcribe#ListVocabularyFiltersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.transcribe#ListVocabularyFiltersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.transcribe#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about vocabulary filters.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/vocabularyFilters",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.transcribe#ListVocabularyFiltersRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.transcribe#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of filters to return in the response. If there are fewer results in\n            the list, this response contains only the actual results.</p>",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NameContains": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the response so that it only contains vocabulary filters whose name contains\n            the specified string.</p>",
+            "smithy.api#httpQuery": "NameContains"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.transcribe#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the result of the previous request to <code>ListVocabularyFilters</code> was\n            truncated, include the <code>NextToken</code> to fetch the next set of\n            collections.</p>",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribe#ListVocabularyFiltersResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.transcribe#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>ListVocabularyFilters</code> operation returns a page of collections at a\n            time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If\n            there are more jobs in the list than the page size, Amazon Transcribe returns the\n                <code>NextPage</code> token. Include the token in the next request to the\n                <code>ListVocabularyFilters</code> operation to return in the next page of\n            jobs.</p>"
+          }
+        },
+        "VocabularyFilters": {
+          "target": "com.amazonaws.transcribe#VocabularyFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of vocabulary filters. It will contain at most <code>MaxResults</code> number\n            of filters. If there are more filters, call the <code>ListVocabularyFilters</code>\n            operation again with the <code>NextToken</code> parameter in the request set to the\n            value of the <code>NextToken</code> field in the response.</p>"
           }
         }
       }
@@ -730,12 +1037,12 @@
         "MediaFileUri": {
           "target": "com.amazonaws.transcribe#Uri",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The S3 location of the input media file. The URI must be in the same region as the API\n            endpoint that you are calling. The general form is:</p>\n        <p>\n            <code>\n                https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>\n            </code>\n        </p>\n        <p>For example:</p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/example.mp4</code>\n         </p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code>\n         </p>\n        <p>For more information about S3 object names, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\n      "
+            "smithy.api#documentation": "<p>The S3 location of the input media file. The URI must be in the same region as the API\n            endpoint that you are calling. The general form is:</p>\n        <p>\n            <code>\n                https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>\n            </code>\n        </p>\n        <p>For example:</p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/example.mp4</code>\n         </p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code>\n         </p>\n        <p>For more information about S3 object names, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes the input media file in a transcription request.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the input media file in a transcription request.</p>"
       }
     },
     "com.amazonaws.transcribe#MediaFormat": {
@@ -785,7 +1092,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>We can't find the requested resource. Check the name and try your request\n            again.</p>\n      ",
+        "smithy.api#documentation": "<p>We can't find the requested resource. Check the name and try your request\n            again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -835,42 +1142,54 @@
         "ChannelIdentification": {
           "target": "com.amazonaws.transcribe#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Instructs Amazon Transcribe to process each audio channel separately and then merge the\n            transcription output of each channel into a single transcription. </p>\n        <p>Amazon Transcribe also produces a transcription of each item detected on an audio channel,\n            including the start time and end time of the item and alternative transcriptions of the\n            item including the confidence that Amazon Transcribe has in the transcription.</p>\n        <p>You can't set both <code>ShowSpeakerLabels</code> and\n                <code>ChannelIdentification</code> in the same request. If you set both, your\n            request returns a <code>BadRequestException</code>.</p>\n      "
+            "smithy.api#documentation": "<p>Instructs Amazon Transcribe to process each audio channel separately and then merge the\n            transcription output of each channel into a single transcription. </p>\n        <p>Amazon Transcribe also produces a transcription of each item detected on an audio channel,\n            including the start time and end time of the item and alternative transcriptions of the\n            item including the confidence that Amazon Transcribe has in the transcription.</p>\n        <p>You can't set both <code>ShowSpeakerLabels</code> and\n                <code>ChannelIdentification</code> in the same request. If you set both, your\n            request returns a <code>BadRequestException</code>.</p>"
           }
         },
         "MaxAlternatives": {
           "target": "com.amazonaws.transcribe#MaxAlternatives",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The number of alternative transcriptions that the service should return. If you\n        specify the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code>\n        field to true.</p>\n      "
+            "smithy.api#documentation": "<p>The number of alternative transcriptions that the service should return. If you\n        specify the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code>\n        field to true.</p>"
           }
         },
         "MaxSpeakerLabels": {
           "target": "com.amazonaws.transcribe#MaxSpeakers",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of speakers to identify in the input audio. If there are more\n            speakers in the audio than this number, multiple speakers will be identified as a single\n            speaker. If you specify the <code>MaxSpeakerLabels</code> field, you must set the\n                <code>ShowSpeakerLabels</code> field to true.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of speakers to identify in the input audio. If there are more\n            speakers in the audio than this number, multiple speakers will be identified as a single\n            speaker. If you specify the <code>MaxSpeakerLabels</code> field, you must set the\n                <code>ShowSpeakerLabels</code> field to true.</p>"
           }
         },
         "ShowAlternatives": {
           "target": "com.amazonaws.transcribe#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Determines whether the transcription contains alternative transcriptions. If you set\n            the <code>ShowAlternatives</code> field to true, you must also set the maximum number of\n            alternatives to return in the <code>MaxAlternatives</code> field.</p>\n      "
+            "smithy.api#documentation": "<p>Determines whether the transcription contains alternative transcriptions. If you set\n            the <code>ShowAlternatives</code> field to true, you must also set the maximum number of\n            alternatives to return in the <code>MaxAlternatives</code> field.</p>"
           }
         },
         "ShowSpeakerLabels": {
           "target": "com.amazonaws.transcribe#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Determines whether the transcription job uses speaker recognition to identify\n            different speakers in the input audio. Speaker recognition labels individual speakers in\n            the audio file. If you set the <code>ShowSpeakerLabels</code> field to true, you must\n            also set the maximum number of speaker labels <code>MaxSpeakerLabels</code>\n            field.</p>\n        <p>You can't set both <code>ShowSpeakerLabels</code> and\n                <code>ChannelIdentification</code> in the same request. If you set both, your\n            request returns a <code>BadRequestException</code>.</p>\n      "
+            "smithy.api#documentation": "<p>Determines whether the transcription job uses speaker recognition to identify\n            different speakers in the input audio. Speaker recognition labels individual speakers in\n            the audio file. If you set the <code>ShowSpeakerLabels</code> field to true, you must\n            also set the maximum number of speaker labels <code>MaxSpeakerLabels</code>\n            field.</p>\n        <p>You can't set both <code>ShowSpeakerLabels</code> and\n                <code>ChannelIdentification</code> in the same request. If you set both, your\n            request returns a <code>BadRequestException</code>.</p>"
+          }
+        },
+        "VocabularyFilterMethod": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <code>mask</code> to remove filtered text from the transcript and replace it\n            with three asterisks (\"***\") as placeholder text. Set to <code>remove</code> to remove\n            filtered text from the transcript without using placeholder text.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter to use when transcribing the audio. The filter that\n            you specify must have the same language code as the transcription job.</p>"
           }
         },
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of a vocabulary to use when processing the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>The name of a vocabulary to use when processing the transcription job.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Provides optional settings for the <code>StartTranscriptionJob</code>\n            operation.</p>\n      "
+        "smithy.api#documentation": "<p>Provides optional settings for the <code>StartTranscriptionJob</code>\n            operation.</p>"
       }
     },
     "com.amazonaws.transcribe#StartTranscriptionJob": {
@@ -896,7 +1215,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Starts an asynchronous job to transcribe speech to text. </p>\n      ",
+        "smithy.api#documentation": "<p>Starts an asynchronous job to transcribe speech to text. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/transcriptionjobs/{TranscriptionJobName}",
@@ -907,54 +1226,60 @@
     "com.amazonaws.transcribe#StartTranscriptionJobRequest": {
       "type": "structure",
       "members": {
+        "JobExecutionSettings": {
+          "target": "com.amazonaws.transcribe#JobExecutionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides information about how a transcription job is executed. Use this field to\n            indicate that the job can be queued for deferred execution if the concurrency limit is\n            reached and there are no slots available to immediately run the job.</p>"
+          }
+        },
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code for the language used in the input media file.</p>\n      ",
+            "smithy.api#documentation": "<p>The language code for the language used in the input media file.</p>",
             "smithy.api#required": true
           }
         },
         "Media": {
           "target": "com.amazonaws.transcribe#Media",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An object that describes the input media for a transcription job.</p>\n      ",
+            "smithy.api#documentation": "<p>An object that describes the input media for a transcription job.</p>",
             "smithy.api#required": true
           }
         },
         "MediaFormat": {
           "target": "com.amazonaws.transcribe#MediaFormat",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The format of the input media file.</p>\n      "
+            "smithy.api#documentation": "<p>The format of the input media file.</p>"
           }
         },
         "MediaSampleRateHertz": {
           "target": "com.amazonaws.transcribe#MediaSampleRateHertz",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The sample rate, in Hertz, of the audio track in the input media file. </p>\n        <p>If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you\n            specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases,\n            you should leave the <code>MediaSampleRateHertz</code> field blank and let Amazon Transcribe\n            determine the sample rate.</p>\n      "
+            "smithy.api#documentation": "<p>The sample rate, in Hertz, of the audio track in the input media file. </p>\n        <p>If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you\n            specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases,\n            you should leave the <code>MediaSampleRateHertz</code> field blank and let Amazon Transcribe\n            determine the sample rate.</p>"
           }
         },
         "OutputBucketName": {
           "target": "com.amazonaws.transcribe#OutputBucketName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The location where the transcription is stored.</p>\n        <p>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcription in the\n            specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation,\n            the operation returns this location in the <code>TranscriptFileUri</code> field. The S3\n            bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more\n            information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user\">Permissions Required for IAM User Roles</a>.</p>\n        <p>You can specify an AWS Key Management Service (KMS) key to encrypt the output of\n            your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you\n            don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption\n            of transcripts that are placed in your S3 bucket.</p>\n        <p>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL,\n            a shareable URL that provides secure access to your transcription, and returns it in the\n                <code>TranscriptFileUri</code> field. Use this URL to download the\n            transcription.</p>\n      "
+            "smithy.api#documentation": "<p>The location where the transcription is stored.</p>\n        <p>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcription in the\n            specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation,\n            the operation returns this location in the <code>TranscriptFileUri</code> field. The S3\n            bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more\n            information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user\">Permissions Required for IAM User Roles</a>.</p>\n        <p>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your\n            transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't\n            specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of\n            transcripts that are placed in your S3 bucket.</p>\n        <p>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL,\n            a shareable URL that provides secure access to your transcription, and returns it in the\n                <code>TranscriptFileUri</code> field. Use this URL to download the\n            transcription.</p>"
           }
         },
         "OutputEncryptionKMSKeyId": {
           "target": "com.amazonaws.transcribe#KMSKeyId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to\n            encrypt the output of the transcription job. The user calling the\n                <code>StartTranscriptionJob</code> operation must have permission to use the\n            specified KMS key.</p>\n        <p>You can use either of the following to identify a KMS key in the current\n            account:</p>\n        <ul>\n            <li>\n                <p>KMS Key ID: \"1234abcd-12ab-34cd-56ef-1234567890ab\"</p>\n            </li>\n            <li>\n                <p>KMS Key Alias: \"alias/ExampleAlias\"</p>\n            </li>\n         </ul>\n        <p>You can use either of the following to identify a KMS key in the current account or\n            another account:</p>\n        <ul>\n            <li>\n                <p>Amazon Resource Name (ARN) of a KMS Key: \"arn:aws:kms:region:account\n                    ID:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</p>\n            </li>\n            <li>\n                <p>ARN of a KMS Key Alias: \"arn:aws:kms:region:account\n                    ID:alias/ExampleAlias\"</p>\n            </li>\n         </ul>\n        <p>If you don't specify an encryption key, the output of the transcription job is\n            encrypted with the default Amazon S3 key (SSE-S3).\n        </p>\n        <p>If you specify a KMS key to encrypt your output, you must also specify an\n        output location in the <code>OutputBucketName</code> parameter.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to\n            encrypt the output of the transcription job. The user calling the\n                <code>StartTranscriptionJob</code> operation must have permission to use the\n            specified KMS key.</p>\n        <p>You can use either of the following to identify a KMS key in the current\n            account:</p>\n        <ul>\n            <li>\n                <p>KMS Key ID: \"1234abcd-12ab-34cd-56ef-1234567890ab\"</p>\n            </li>\n            <li>\n                <p>KMS Key Alias: \"alias/ExampleAlias\"</p>\n            </li>\n         </ul>\n        <p>You can use either of the following to identify a KMS key in the current account or\n            another account:</p>\n        <ul>\n            <li>\n                <p>Amazon Resource Name (ARN) of a KMS Key: \"arn:aws:kms:region:account\n                    ID:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</p>\n            </li>\n            <li>\n                <p>ARN of a KMS Key Alias: \"arn:aws:kms:region:account\n                    ID:alias/ExampleAlias\"</p>\n            </li>\n         </ul>\n        <p>If you don't specify an encryption key, the output of the transcription job is\n            encrypted with the default Amazon S3 key (SSE-S3). </p>\n        <p>If you specify a KMS key to encrypt your output, you must also specify an output\n            location in the <code>OutputBucketName</code> parameter.</p>"
           }
         },
         "Settings": {
           "target": "com.amazonaws.transcribe#Settings",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A <code>Settings</code> object that provides optional settings for a transcription\n            job.</p>\n      "
+            "smithy.api#documentation": "<p>A <code>Settings</code> object that provides optional settings for a transcription\n            job.</p>"
           }
         },
         "TranscriptionJobName": {
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the job. Note that you can't use the strings \".\" or \"..\" by themselves as\n            the job name. The name must also be unique within an AWS account.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the job. Note that you can't use the strings \".\" or \"..\" by themselves as\n            the job name. The name must also be unique within an AWS account.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -967,7 +1292,7 @@
         "TranscriptionJob": {
           "target": "com.amazonaws.transcribe#TranscriptionJob",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An object containing details of the asynchronous transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>An object containing details of the asynchronous transcription job.</p>"
           }
         }
       }
@@ -983,10 +1308,16 @@
           "target": "com.amazonaws.transcribe#CreateVocabulary"
         },
         {
+          "target": "com.amazonaws.transcribe#CreateVocabularyFilter"
+        },
+        {
           "target": "com.amazonaws.transcribe#DeleteTranscriptionJob"
         },
         {
           "target": "com.amazonaws.transcribe#DeleteVocabulary"
+        },
+        {
+          "target": "com.amazonaws.transcribe#DeleteVocabularyFilter"
         },
         {
           "target": "com.amazonaws.transcribe#GetTranscriptionJob"
@@ -995,16 +1326,25 @@
           "target": "com.amazonaws.transcribe#GetVocabulary"
         },
         {
+          "target": "com.amazonaws.transcribe#GetVocabularyFilter"
+        },
+        {
           "target": "com.amazonaws.transcribe#ListTranscriptionJobs"
         },
         {
           "target": "com.amazonaws.transcribe#ListVocabularies"
         },
         {
+          "target": "com.amazonaws.transcribe#ListVocabularyFilters"
+        },
+        {
           "target": "com.amazonaws.transcribe#StartTranscriptionJob"
         },
         {
           "target": "com.amazonaws.transcribe#UpdateVocabulary"
+        },
+        {
+          "target": "com.amazonaws.transcribe#UpdateVocabularyFilter"
         }
       ],
       "traits": {
@@ -1014,7 +1354,7 @@
           "cloudFormationName": "Transcribe",
           "cloudTrailEventSource": "transcribe.amazonaws.com"
         },
-        "smithy.api#documentation": "\n        <p>Operations and objects for transcribing speech to text.</p>\n      ",
+        "smithy.api#documentation": "<p>Operations and objects for transcribing speech to text.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -1032,12 +1372,12 @@
         "TranscriptFileUri": {
           "target": "com.amazonaws.transcribe#Uri",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The location where the transcription is stored.</p>\n        <p>Use this URI to access the transcription. If you specified an S3 bucket in the\n                <code>OutputBucketName</code> field when you created the job, this is the URI of\n            that bucket. If you chose to store the transcription in Amazon Transcribe, this is a shareable URL\n            that provides secure access to that location.</p>\n      "
+            "smithy.api#documentation": "<p>The location where the transcription is stored.</p>\n        <p>Use this URI to access the transcription. If you specified an S3 bucket in the\n                <code>OutputBucketName</code> field when you created the job, this is the URI of\n            that bucket. If you chose to store the transcription in Amazon Transcribe, this is a shareable URL\n            that provides secure access to that location.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Identifies the location of a transcription.</p>\n      "
+        "smithy.api#documentation": "<p>Identifies the location of a transcription.</p>"
       }
     },
     "com.amazonaws.transcribe#TranscriptionJob": {
@@ -1046,72 +1386,84 @@
         "CompletionTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A timestamp that shows when the job was completed.</p>\n      "
+            "smithy.api#documentation": "<p>A timestamp that shows when the job was completed.</p>"
           }
         },
         "CreationTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A timestamp that shows when the job was created.</p>\n      "
+            "smithy.api#documentation": "<p>A timestamp that shows when the job was created.</p>"
           }
         },
         "FailureReason": {
           "target": "com.amazonaws.transcribe#FailureReason",
           "traits": {
-            "smithy.api#documentation": "\n        <p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field\n            contains information about why the job failed.</p>\n        <p>The <code>FailureReason</code> field can contain one of the following values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>Unsupported media format</code> - The media format specified in the\n                        <code>MediaFormat</code> field of the request isn't valid. See the\n                    description of the <code>MediaFormat</code> field for a list of valid\n                    values.</p>\n            </li>\n            <li>\n                <p>\n                  <code>The media format provided does not match the detected media\n                        format</code> - The media format of the audio file doesn't match the format\n                    specified in the <code>MediaFormat</code> field in the request. Check the media\n                    format of your media file and make sure that the two values match.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Invalid sample rate for audio file</code> - The sample rate specified in\n                    the <code>MediaSampleRateHertz</code> of the request isn't valid. The sample\n                    rate must be between 8000 and 48000 Hertz.</p>\n            </li>\n            <li>\n                <p>\n                  <code>The sample rate provided does not match the detected sample rate</code>\n                    - The sample rate in the audio file doesn't match the sample rate specified in\n                    the <code>MediaSampleRateHertz</code> field in the request. Check the sample\n                    rate of your media file and make sure that the two values match.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Invalid file size: file size too large</code> - The size of your audio\n                    file is larger than Amazon Transcribe can process. For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits\">Limits</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Invalid number of channels: number of channels too large</code> - Your\n                    audio contains more channels than Amazon Transcribe is configured to process. To request\n                    additional channels, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe\">Amazon Transcribe Limits</a> in the <i>Amazon Web Services\n                        General Reference</i>.</p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "<p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field\n            contains information about why the job failed.</p>\n        <p>The <code>FailureReason</code> field can contain one of the following values:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>Unsupported media format</code> - The media format specified in the\n                        <code>MediaFormat</code> field of the request isn't valid. See the\n                    description of the <code>MediaFormat</code> field for a list of valid\n                    values.</p>\n            </li>\n            <li>\n                <p>\n                  <code>The media format provided does not match the detected media\n                        format</code> - The media format of the audio file doesn't match the format\n                    specified in the <code>MediaFormat</code> field in the request. Check the media\n                    format of your media file and make sure that the two values match.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Invalid sample rate for audio file</code> - The sample rate specified in\n                    the <code>MediaSampleRateHertz</code> of the request isn't valid. The sample\n                    rate must be between 8000 and 48000 Hertz.</p>\n            </li>\n            <li>\n                <p>\n                  <code>The sample rate provided does not match the detected sample rate</code>\n                    - The sample rate in the audio file doesn't match the sample rate specified in\n                    the <code>MediaSampleRateHertz</code> field in the request. Check the sample\n                    rate of your media file and make sure that the two values match.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Invalid file size: file size too large</code> - The size of your audio\n                    file is larger than Amazon Transcribe can process. For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits\">Limits</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Invalid number of channels: number of channels too large</code> - Your\n                    audio contains more channels than Amazon Transcribe is configured to process. To request\n                    additional channels, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe\">Amazon Transcribe Limits</a> in the <i>Amazon Web Services\n                        General Reference</i>.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "JobExecutionSettings": {
+          "target": "com.amazonaws.transcribe#JobExecutionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides information about how a transcription job is executed.</p>"
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code for the input speech.</p>\n      "
+            "smithy.api#documentation": "<p>The language code for the input speech.</p>"
           }
         },
         "Media": {
           "target": "com.amazonaws.transcribe#Media",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An object that describes the input media for the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>An object that describes the input media for the transcription job.</p>"
           }
         },
         "MediaFormat": {
           "target": "com.amazonaws.transcribe#MediaFormat",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The format of the input media file.</p>\n      "
+            "smithy.api#documentation": "<p>The format of the input media file.</p>"
           }
         },
         "MediaSampleRateHertz": {
           "target": "com.amazonaws.transcribe#MediaSampleRateHertz",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The sample rate, in Hertz, of the audio track in the input media file. </p>\n      "
+            "smithy.api#documentation": "<p>The sample rate, in Hertz, of the audio track in the input media file. </p>"
           }
         },
         "Settings": {
           "target": "com.amazonaws.transcribe#Settings",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Optional settings for the transcription job. Use these settings to turn on speaker\n            recognition, to set the maximum number of speakers that should be identified and to\n            specify a custom vocabulary to use when processing the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>Optional settings for the transcription job. Use these settings to turn on speaker\n            recognition, to set the maximum number of speakers that should be identified and to\n            specify a custom vocabulary to use when processing the transcription job.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.transcribe#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that shows with the job was started processing.</p>"
           }
         },
         "Transcript": {
           "target": "com.amazonaws.transcribe#Transcript",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An object that describes the output of the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>An object that describes the output of the transcription job.</p>"
           }
         },
         "TranscriptionJobName": {
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the transcription job.</p>"
           }
         },
         "TranscriptionJobStatus": {
           "target": "com.amazonaws.transcribe#TranscriptionJobStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the transcription job.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Describes an asynchronous transcription job that was created with the\n                <code>StartTranscriptionJob</code> operation. </p>\n      "
+        "smithy.api#documentation": "<p>Describes an asynchronous transcription job that was created with the\n                <code>StartTranscriptionJob</code> operation. </p>"
       }
     },
     "com.amazonaws.transcribe#TranscriptionJobName": {
@@ -1128,6 +1480,9 @@
       "type": "string",
       "traits": {
         "smithy.api#enum": {
+          "QUEUED": {
+            "name": "QUEUED"
+          },
           "IN_PROGRESS": {
             "name": "IN_PROGRESS"
           },
@@ -1152,48 +1507,54 @@
         "CompletionTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A timestamp that shows when the job was completed.</p>\n      "
+            "smithy.api#documentation": "<p>A timestamp that shows when the job was completed.</p>"
           }
         },
         "CreationTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>A timestamp that shows when the job was created.</p>\n      "
+            "smithy.api#documentation": "<p>A timestamp that shows when the job was created.</p>"
           }
         },
         "FailureReason": {
           "target": "com.amazonaws.transcribe#FailureReason",
           "traits": {
-            "smithy.api#documentation": "\n        <p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description\n            of the error.</p>\n      "
+            "smithy.api#documentation": "<p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description\n            of the error.</p>"
           }
         },
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code for the input speech.</p>\n      "
+            "smithy.api#documentation": "<p>The language code for the input speech.</p>"
           }
         },
         "OutputLocationType": {
           "target": "com.amazonaws.transcribe#OutputLocationType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Indicates the location of the output of the transcription job.</p>\n        <p>If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket\n            specified in the <code>outputBucketName</code> field when the transcription job was\n            started with the <code>StartTranscriptionJob</code> operation.</p>\n        <p>If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can\n            be retrieved using the URI in the <code>GetTranscriptionJob</code> response's\n                <code>TranscriptFileUri</code> field.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates the location of the output of the transcription job.</p>\n        <p>If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket\n            specified in the <code>outputBucketName</code> field when the transcription job was\n            started with the <code>StartTranscriptionJob</code> operation.</p>\n        <p>If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can\n            be retrieved using the URI in the <code>GetTranscriptionJob</code> response's\n                <code>TranscriptFileUri</code> field.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.transcribe#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that shows when the job started processing.</p>"
           }
         },
         "TranscriptionJobName": {
           "target": "com.amazonaws.transcribe#TranscriptionJobName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the transcription job.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the transcription job.</p>"
           }
         },
         "TranscriptionJobStatus": {
           "target": "com.amazonaws.transcribe#TranscriptionJobStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The status of the transcription job. When the status is <code>COMPLETED</code>, use\n            the <code>GetTranscriptionJob</code> operation to get the results of the\n            transcription.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the transcription job. When the status is <code>COMPLETED</code>, use\n            the <code>GetTranscriptionJob</code> operation to get the results of the\n            transcription.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Provides a summary of information about a transcription job.</p>\n      "
+        "smithy.api#documentation": "<p>Provides a summary of information about a transcription job.</p>"
       }
     },
     "com.amazonaws.transcribe#UpdateVocabulary": {
@@ -1222,11 +1583,90 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>\n            operation overwrites all of the existing information with the values that you provide in\n            the request. </p>\n      ",
+        "smithy.api#documentation": "<p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>\n            operation overwrites all of the existing information with the values that you provide in\n            the request. </p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/vocabularies/{VocabularyName}",
           "code": 200
+        }
+      }
+    },
+    "com.amazonaws.transcribe#UpdateVocabularyFilter": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.transcribe#UpdateVocabularyFilterRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.transcribe#UpdateVocabularyFilterResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.transcribe#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.transcribe#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates a vocabulary filter with a new list of filtered words.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/vocabularyFilters/{VocabularyFilterName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.transcribe#UpdateVocabularyFilterRequest": {
+      "type": "structure",
+      "members": {
+        "VocabularyFilterFileUri": {
+          "target": "com.amazonaws.transcribe#Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 location of a text file used as input to create the vocabulary filter.\n            Only use characters from the character set defined for custom vocabularies. For a list of\n            character sets, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets\">Character Sets for Custom\n                Vocabularies</a>.</p>\n        <p>The specified file must be less than 50 KB of UTF-8 characters.</p>\n        <p>If you provide the location of a list of words in the\n                <code>VocabularyFilterFileUri</code> parameter, you can't use the <code>Words</code>\n            parameter.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter to update.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "Words": {
+          "target": "com.amazonaws.transcribe#Words",
+          "traits": {
+            "smithy.api#documentation": "<p>The words to use in the vocabulary filter. Only use characters from the character set\n            defined for custom vocabularies. For a list of character sets, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets\">Character Sets for Custom Vocabularies</a>.</p>\n        <p>If you provide a list of words in the <code>Words</code> parameter, you can't use the\n                <code>VocabularyFilterFileUri</code> parameter.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribe#UpdateVocabularyFilterResponse": {
+      "type": "structure",
+      "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribe#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the words in the vocabulary filter.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.transcribe#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the vocabulary filter was updated.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the updated vocabulary filter.</p>"
+          }
         }
       }
     },
@@ -1236,26 +1676,26 @@
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code of the vocabulary entries.</p>\n      ",
+            "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>",
             "smithy.api#required": true
           }
         },
         "Phrases": {
           "target": "com.amazonaws.transcribe#Phrases",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An array of strings containing the vocabulary entries.</p>\n      "
+            "smithy.api#documentation": "<p>An array of strings containing the vocabulary entries.</p>"
           }
         },
         "VocabularyFileUri": {
           "target": "com.amazonaws.transcribe#Uri",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The S3 location of the text file that contains the definition of the custom\n            vocabulary. The URI must be in the same region as the API endpoint that you are calling.\n            The general form is </p>\n        <p>\n            <code>\n                https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>\n            </code>\n        </p>\n        <p>For example:</p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code>\n         </p>\n        <p>For more information about S3 object names, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\n        <p>For more information about custom vocabularies, see <a href=\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\">Custom Vocabularies</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The S3 location of the text file that contains the definition of the custom\n            vocabulary. The URI must be in the same region as the API endpoint that you are calling.\n            The general form is </p>\n        <p>\n            <code>\n                https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>\n            </code>\n        </p>\n        <p>For example:</p>\n        <p>\n            <code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code>\n         </p>\n        <p>For more information about S3 object names, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\n        <p>For more information about custom vocabularies, see <a href=\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\">Custom Vocabularies</a>.</p>"
           }
         },
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary to update. The name is case-sensitive.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the vocabulary to update. The name is case-sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1268,25 +1708,25 @@
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code of the vocabulary entries.</p>\n      "
+            "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>"
           }
         },
         "LastModifiedTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The date and time that the vocabulary was updated.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time that the vocabulary was updated.</p>"
           }
         },
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary that was updated.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the vocabulary that was updated.</p>"
           }
         },
         "VocabularyState": {
           "target": "com.amazonaws.transcribe#VocabularyState",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The processing state of the vocabulary. When the <code>VocabularyState</code> field\n            contains <code>READY</code> the vocabulary is ready to be used in a\n                <code>StartTranscriptionJob</code> request.</p>\n      "
+            "smithy.api#documentation": "<p>The processing state of the vocabulary. When the <code>VocabularyState</code> field\n            contains <code>READY</code> the vocabulary is ready to be used in a\n                <code>StartTranscriptionJob</code> request.</p>"
           }
         }
       }
@@ -1307,36 +1747,91 @@
         "target": "com.amazonaws.transcribe#VocabularyInfo"
       }
     },
+    "com.amazonaws.transcribe#VocabularyFilterInfo": {
+      "type": "structure",
+      "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribe#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the words in the vocabulary filter.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.transcribe#DateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time that the vocabulary was last updated.</p>"
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribe#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter. The name must be unique in the account that holds\n            the filter.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides information about a vocabulary filter.</p>"
+      }
+    },
+    "com.amazonaws.transcribe#VocabularyFilterMethod": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "remove": {
+            "name": "REMOVE"
+          },
+          "mask": {
+            "name": "MASK"
+          }
+        }
+      }
+    },
+    "com.amazonaws.transcribe#VocabularyFilterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        },
+        "smithy.api#pattern": "^[0-9a-zA-Z._-]+"
+      }
+    },
+    "com.amazonaws.transcribe#VocabularyFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transcribe#VocabularyFilterInfo"
+      }
+    },
     "com.amazonaws.transcribe#VocabularyInfo": {
       "type": "structure",
       "members": {
         "LanguageCode": {
           "target": "com.amazonaws.transcribe#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The language code of the vocabulary entries.</p>\n      "
+            "smithy.api#documentation": "<p>The language code of the vocabulary entries.</p>"
           }
         },
         "LastModifiedTime": {
           "target": "com.amazonaws.transcribe#DateTime",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The date and time that the vocabulary was last modified.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time that the vocabulary was last modified.</p>"
           }
         },
         "VocabularyName": {
           "target": "com.amazonaws.transcribe#VocabularyName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the vocabulary.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the vocabulary.</p>"
           }
         },
         "VocabularyState": {
           "target": "com.amazonaws.transcribe#VocabularyState",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The processing state of the vocabulary. If the state is <code>READY</code> you can use\n            the vocabulary in a <code>StartTranscriptionJob</code> request.</p>\n      "
+            "smithy.api#documentation": "<p>The processing state of the vocabulary. If the state is <code>READY</code> you can use\n            the vocabulary in a <code>StartTranscriptionJob</code> request.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Provides information about a custom vocabulary. </p>\n      "
+        "smithy.api#documentation": "<p>Provides information about a custom vocabulary. </p>"
       }
     },
     "com.amazonaws.transcribe#VocabularyName": {
@@ -1362,6 +1857,26 @@
           "FAILED": {
             "name": "FAILED"
           }
+        }
+      }
+    },
+    "com.amazonaws.transcribe#Word": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.transcribe#Words": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transcribe#Word"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
         }
       }
     }

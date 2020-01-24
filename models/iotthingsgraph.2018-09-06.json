@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -51,7 +56,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Associates a device with a concrete thing that is in the user's registry.</p>\n         <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>\n      "
+        "smithy.api#documentation": "<p>Associates a device with a concrete thing that is in the user's registry.</p>\n         <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#AssociateEntityToThingRequest": {
@@ -60,20 +65,20 @@
         "entityId": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the device to be associated with the thing.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the device to be associated with the thing.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "namespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>"
           }
         },
         "thingName": {
           "target": "com.amazonaws.iot.thingsgraph.types#ThingName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the thing to which the entity is to be associated.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the thing to which the entity is to be associated.</p>",
             "smithy.api#required": true
           }
         }
@@ -109,7 +114,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only \n         entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the \n      latest version of the user's namespace unless another namespace version is specified in the request.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only \n         entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the \n      latest version of the user's namespace unless another namespace version is specified in the request.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#CreateFlowTemplateRequest": {
@@ -118,13 +123,13 @@
         "compatibleNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The namespace version in which the workflow is to be created.</p>\n         <p>If no value is specified, the latest version is used by default.</p>\n      "
+            "smithy.api#documentation": "<p>The namespace version in which the workflow is to be created.</p>\n         <p>If no value is specified, the latest version is used by default.</p>"
           }
         },
         "definition": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The workflow <code>DefinitionDocument</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The workflow <code>DefinitionDocument</code>.</p>",
             "smithy.api#required": true
           }
         }
@@ -136,7 +141,7 @@
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The summary object that describes the created workflow.</p>\n      "
+            "smithy.api#documentation": "<p>The summary object that describes the created workflow.</p>"
           }
         }
       }
@@ -167,7 +172,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a system instance. </p>\n         <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is \n            specified by the <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified by the <code>s3BucketName</code> parameter. You need to \n            call <code>DeploySystemInstance</code> after running this action.</p>\n         <p>For Greengrass deployments, since this action modifies and adds resources to a Greengrass group and an S3 bucket on the caller's behalf, the calling identity must have write permissions \n         to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.</p>\n         <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role \n      that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>\n         <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a system instance. </p>\n         <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is \n            specified by the <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified by the <code>s3BucketName</code> parameter. You need to \n            call <code>DeploySystemInstance</code> after running this action.</p>\n         <p>For Greengrass deployments, since this action modifies and adds resources to a Greengrass group and an S3 bucket on the caller's behalf, the calling identity must have write permissions \n         to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.</p>\n         <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role \n      that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>\n         <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#CreateSystemInstanceRequest": {
@@ -182,13 +187,13 @@
         "flowActionsRoleArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#RoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the IAM role that AWS IoT Things Graph will assume when it executes the flow. This role must have \n      read and write access to AWS Lambda and AWS IoT and any other AWS services that the flow uses when it executes.  This \n      value is required if the value of the <code>target</code> parameter is <code>CLOUD</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the IAM role that AWS IoT Things Graph will assume when it executes the flow. This role must have \n      read and write access to AWS Lambda and AWS IoT and any other AWS services that the flow uses when it executes.  This \n      value is required if the value of the <code>target</code> parameter is <code>CLOUD</code>.</p>"
           }
         },
         "greengrassGroupName": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#GroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the Greengrass group where the system instance will be deployed. This value is required if \n      the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the Greengrass group where the system instance will be deployed. This value is required if \n      the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>"
           }
         },
         "metricsConfiguration": {
@@ -197,19 +202,19 @@
         "s3BucketName": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#S3BucketName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if \n         the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if \n         the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.iot.thingsgraph.tags#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>"
           }
         },
         "target": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#DeploymentTarget",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>",
             "smithy.api#required": true
           }
         }
@@ -221,7 +226,7 @@
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The summary object that describes the new system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The summary object that describes the new system instance.</p>"
           }
         }
       }
@@ -249,7 +254,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a system. The system is validated against the entities in the \n         latest version of the user's namespace unless another namespace version is specified in the request.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a system. The system is validated against the entities in the \n         latest version of the user's namespace unless another namespace version is specified in the request.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#CreateSystemTemplateRequest": {
@@ -258,13 +263,13 @@
         "compatibleNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The namespace version in which the system is to be created.</p>\n         <p>If no value is specified, the latest version is used by default.</p>\n      "
+            "smithy.api#documentation": "<p>The namespace version in which the system is to be created.</p>\n         <p>If no value is specified, the latest version is used by default.</p>"
           }
         },
         "definition": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <code>DefinitionDocument</code> used to create the system.</p>\n      ",
+            "smithy.api#documentation": "<p>The <code>DefinitionDocument</code> used to create the system.</p>",
             "smithy.api#required": true
           }
         }
@@ -276,7 +281,7 @@
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The summary object that describes the created system.</p>\n      "
+            "smithy.api#documentation": "<p>The summary object that describes the created system.</p>"
           }
         }
       }
@@ -287,20 +292,20 @@
         "language": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionLanguage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>\n      ",
+            "smithy.api#documentation": "<p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>",
             "smithy.api#required": true
           }
         },
         "text": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionText",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The GraphQL text that defines the entity.</p>\n      ",
+            "smithy.api#documentation": "<p>The GraphQL text that defines the entity.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A document that defines an entity. </p>\n      "
+        "smithy.api#documentation": "<p>A document that defines an entity. </p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types#DefinitionLanguage": {
@@ -345,7 +350,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy. \n         Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>\n      "
+        "smithy.api#documentation": "<p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy. \n         Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DeleteFlowTemplateRequest": {
@@ -354,7 +359,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the workflow to be deleted.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the workflow to be deleted.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         }
@@ -381,7 +386,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.</p>\n      "
+        "smithy.api#documentation": "<p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DeleteNamespaceRequest": {
@@ -394,13 +399,13 @@
         "namespaceArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the namespace to be deleted.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the namespace to be deleted.</p>"
           }
         },
         "namespaceName": {
           "target": "com.amazonaws.iot.thingsgraph.types#NamespaceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the namespace to be deleted.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the namespace to be deleted.</p>"
           }
         }
       }
@@ -428,7 +433,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a system instance. \n         Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>\n         <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>\n      "
+        "smithy.api#documentation": "<p>Deletes a system instance. \n         Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>\n         <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DeleteSystemInstanceRequest": {
@@ -437,7 +442,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system instance to be deleted.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the system instance to be deleted.</p>"
           }
         }
       }
@@ -469,7 +474,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a system. New deployments can't contain the system after its deletion. \n      Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>\n      "
+        "smithy.api#documentation": "<p>Deletes a system. New deployments can't contain the system after its deletion. \n      Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DeleteSystemTemplateRequest": {
@@ -478,7 +483,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system to be deleted.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the system to be deleted.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         }
@@ -494,18 +499,18 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the workflow or system.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the workflow or system.</p>"
           }
         },
         "revisionNumber": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The revision number of the workflow or system.</p>\n      "
+            "smithy.api#documentation": "<p>The revision number of the workflow or system.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#DependencyRevisions": {
@@ -540,7 +545,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>\n            <b>Greengrass and Cloud Deployments</b>\n         </p>\n         <p>Deploys the system instance to the target specified in <code>CreateSystemInstance</code>. </p>\n         <p>\n            <b>Greengrass Deployments</b>\n         </p>\n         <p>If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service \n         resource file and then deploy it.</p>\n         <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions \n         to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p>\n         <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html\">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>\n      "
+        "smithy.api#documentation": "<p>\n            <b>Greengrass and Cloud Deployments</b>\n         </p>\n         <p>Deploys the system instance to the target specified in <code>CreateSystemInstance</code>. </p>\n         <p>\n            <b>Greengrass Deployments</b>\n         </p>\n         <p>If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service \n         resource file and then deploy it.</p>\n         <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions \n         to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p>\n         <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html\">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DeploySystemInstanceRequest": {
@@ -549,7 +554,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code>\n         </p>"
           }
         }
       }
@@ -560,13 +565,13 @@
         "greengrassDeploymentId": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#GreengrassDeploymentId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the Greengrass deployment used to deploy the system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the Greengrass deployment used to deploy the system instance.</p>"
           }
         },
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains summary information about a system instance that was deployed. </p>\n      ",
+            "smithy.api#documentation": "<p>An object that contains summary information about a system instance that was deployed. </p>",
             "smithy.api#required": true
           }
         }
@@ -611,7 +616,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>\n      "
+        "smithy.api#documentation": "<p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DeprecateFlowTemplateRequest": {
@@ -620,7 +625,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the workflow to be deleted.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the workflow to be deleted.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         }
@@ -653,7 +658,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deprecates the specified system.</p>\n      "
+        "smithy.api#documentation": "<p>Deprecates the specified system.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DeprecateSystemTemplateRequest": {
@@ -662,7 +667,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system to delete.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the system to delete.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         }
@@ -695,7 +700,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>\n      "
+        "smithy.api#documentation": "<p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DescribeNamespaceRequest": {
@@ -704,7 +709,7 @@
         "namespaceName": {
           "target": "com.amazonaws.iot.thingsgraph.types#NamespaceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the user's namespace. Set this to <code>aws</code> to get the public namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the user's namespace. Set this to <code>aws</code> to get the public namespace.</p>"
           }
         }
       }
@@ -715,31 +720,31 @@
         "namespaceArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the namespace.</p>"
           }
         },
         "namespaceName": {
           "target": "com.amazonaws.iot.thingsgraph.types#NamespaceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the namespace.</p>"
           }
         },
         "namespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace to describe.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace to describe.</p>"
           }
         },
         "trackingNamespaceName": {
           "target": "com.amazonaws.iot.thingsgraph.types#NamespaceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the public namespace that the latest namespace version is tracking.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the public namespace that the latest namespace version is tracking.</p>"
           }
         },
         "trackingNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the public namespace that the latest version is tracking.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the public namespace that the latest version is tracking.</p>"
           }
         }
       }
@@ -767,7 +772,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only \n         one entity of a particular type can be associated with a thing.</p>\n      "
+        "smithy.api#documentation": "<p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only \n         one entity of a particular type can be associated with a thing.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#DissociateEntityFromThingRequest": {
@@ -776,14 +781,14 @@
         "entityType": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The entity type from which to disassociate the thing.</p>\n      ",
+            "smithy.api#documentation": "<p>The entity type from which to disassociate the thing.</p>",
             "smithy.api#required": true
           }
         },
         "thingName": {
           "target": "com.amazonaws.iot.thingsgraph.types#ThingName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the thing to disassociate.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the thing to disassociate.</p>",
             "smithy.api#required": true
           }
         }
@@ -802,36 +807,36 @@
         "arn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The entity ARN.</p>\n      "
+            "smithy.api#documentation": "<p>The entity ARN.</p>"
           }
         },
         "createdAt": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time at which the entity was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time at which the entity was created.</p>"
           }
         },
         "definition": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The definition document of the entity.</p>\n      "
+            "smithy.api#documentation": "<p>The definition document of the entity.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The entity ID.</p>\n      "
+            "smithy.api#documentation": "<p>The entity ID.</p>"
           }
         },
         "type": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The entity type.</p>\n      "
+            "smithy.api#documentation": "<p>The entity type.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the properties of an entity.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the properties of an entity.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.entities#EntityDescriptions": {
@@ -846,18 +851,18 @@
         "name": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityFilterName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example, \n         you can filter on the ID of a property that is used in a state.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example, \n         you can filter on the ID of a property that is used in a state.</p>"
           }
         },
         "value": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityFilterValues",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>\n      "
+            "smithy.api#documentation": "<p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes \n      a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by \n      the value of <code>REFERENCED_ENTITY_ID</code>.</p>\n      "
+        "smithy.api#documentation": "<p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes \n      a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by \n      the value of <code>REFERENCED_ENTITY_ID</code>.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.entities#EntityFilterName": {
@@ -1013,30 +1018,30 @@
         "eventType": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionEventType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The type of flow event .</p>\n      "
+            "smithy.api#documentation": "<p>The type of flow event .</p>"
           }
         },
         "messageId": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionMessageId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique identifier of the message.</p>\n      "
+            "smithy.api#documentation": "<p>The unique identifier of the message.</p>"
           }
         },
         "payload": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionMessagePayload",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string containing information about the flow event.</p>\n      "
+            "smithy.api#documentation": "<p>A string containing information about the flow event.</p>"
           }
         },
         "timestamp": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time when the message was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time when the message was last updated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains information about a flow event.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains information about a flow event.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionMessageId": {
@@ -1082,42 +1087,42 @@
         "createdAt": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time when the flow execution summary was created.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time when the flow execution summary was created.</p>"
           }
         },
         "flowExecutionId": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the flow execution.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the flow execution.</p>"
           }
         },
         "flowTemplateId": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the flow.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the flow.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The current status of the flow execution.</p>\n      "
+            "smithy.api#documentation": "<p>The current status of the flow execution.</p>"
           }
         },
         "systemInstanceId": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system instance that contains the flow.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the system instance that contains the flow.</p>"
           }
         },
         "updatedAt": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time when the flow execution summary was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time when the flow execution summary was last updated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains summary information about a flow execution.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains summary information about a flow execution.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateDescription": {
@@ -1126,24 +1131,24 @@
         "definition": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A workflow's definition document.</p>\n      "
+            "smithy.api#documentation": "<p>A workflow's definition document.</p>"
           }
         },
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains summary information about a workflow.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains summary information about a workflow.</p>"
           }
         },
         "validatedNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains a workflow's definition and summary information.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains a workflow's definition and summary information.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateFilter": {
@@ -1152,20 +1157,20 @@
         "name": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateFilterName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the search filter field.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the search filter field.</p>",
             "smithy.api#required": true
           }
         },
         "value": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateFilterValues",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>\n      ",
+            "smithy.api#documentation": "<p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that filters a workflow search.</p>\n      "
+        "smithy.api#documentation": "<p>An object that filters a workflow search.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateFilterName": {
@@ -1208,30 +1213,30 @@
         "arn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the workflow.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the workflow.</p>"
           }
         },
         "createdAt": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date when the workflow was created.</p>\n      "
+            "smithy.api#documentation": "<p>The date when the workflow was created.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the workflow.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the workflow.</p>"
           }
         },
         "revisionNumber": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The revision number of the workflow.</p>\n      "
+            "smithy.api#documentation": "<p>The revision number of the workflow.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains summary information about a workflow.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains summary information about a workflow.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#GetEntities": {
@@ -1257,7 +1262,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the \n      following TDM entities.</p>\n         <ul>\n            <li>\n               <p>Properties</p>\n            </li>\n            <li>\n               <p>States</p>\n            </li>\n            <li>\n               <p>Events</p>\n            </li>\n            <li>\n               <p>Actions</p>\n            </li>\n            <li>\n               <p>Capabilities</p>\n            </li>\n            <li>\n               <p>Mappings</p>\n            </li>\n            <li>\n               <p>Devices</p>\n            </li>\n            <li>\n               <p>Device Models</p>\n            </li>\n            <li>\n               <p>Services</p>\n            </li>\n         </ul>\n         <p>This action doesn't return definitions for systems, flows, and deployments.</p>\n      "
+        "smithy.api#documentation": "<p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the \n      following TDM entities.</p>\n         <ul>\n            <li>\n               <p>Properties</p>\n            </li>\n            <li>\n               <p>States</p>\n            </li>\n            <li>\n               <p>Events</p>\n            </li>\n            <li>\n               <p>Actions</p>\n            </li>\n            <li>\n               <p>Capabilities</p>\n            </li>\n            <li>\n               <p>Mappings</p>\n            </li>\n            <li>\n               <p>Devices</p>\n            </li>\n            <li>\n               <p>Device Models</p>\n            </li>\n            <li>\n               <p>Services</p>\n            </li>\n         </ul>\n         <p>This action doesn't return definitions for systems, flows, and deployments.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#GetEntitiesRequest": {
@@ -1266,14 +1271,14 @@
         "ids": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urns",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of entity IDs.</p>\n         <p>The IDs should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>An array of entity IDs.</p>\n         <p>The IDs should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "namespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>"
           }
         }
       }
@@ -1284,7 +1289,7 @@
         "descriptions": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityDescriptions",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of descriptions for the specified entities.</p>\n      "
+            "smithy.api#documentation": "<p>An array of descriptions for the specified entities.</p>"
           }
         }
       }
@@ -1312,7 +1317,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>\n      "
+        "smithy.api#documentation": "<p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#GetFlowTemplateRequest": {
@@ -1321,14 +1326,14 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the workflow.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the workflow.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "revisionNumber": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The number of the workflow revision to retrieve.</p>\n      "
+            "smithy.api#documentation": "<p>The number of the workflow revision to retrieve.</p>"
           }
         }
       }
@@ -1339,7 +1344,7 @@
         "description": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The object that describes the specified workflow.</p>\n      "
+            "smithy.api#documentation": "<p>The object that describes the specified workflow.</p>"
           }
         }
       }
@@ -1367,7 +1372,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated, \n      this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted.</p>\n      ",
+        "smithy.api#documentation": "<p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated, \n      this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1382,20 +1387,20 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the workflow.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the workflow.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -1406,13 +1411,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>"
           }
         },
         "summaries": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects that provide summary data about each revision.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects that provide summary data about each revision.</p>"
           }
         }
       }
@@ -1437,7 +1442,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the status of a namespace deletion task.</p>\n      "
+        "smithy.api#documentation": "<p>Gets the status of a namespace deletion task.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#GetNamespaceDeletionStatusRequest": {
@@ -1450,31 +1455,31 @@
         "errorCode": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#NamespaceDeletionStatusErrorCodes",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An error code returned by the namespace deletion task.</p>\n      "
+            "smithy.api#documentation": "<p>An error code returned by the namespace deletion task.</p>"
           }
         },
         "errorMessage": {
           "target": "com.amazonaws.iot.thingsgraph.types#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An error code returned by the namespace deletion task.</p>\n      "
+            "smithy.api#documentation": "<p>An error code returned by the namespace deletion task.</p>"
           }
         },
         "namespaceArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the namespace that is being deleted.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the namespace that is being deleted.</p>"
           }
         },
         "namespaceName": {
           "target": "com.amazonaws.iot.thingsgraph.types#NamespaceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the namespace that is being deleted.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the namespace that is being deleted.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#NamespaceDeletionStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the deletion request.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the deletion request.</p>"
           }
         }
       }
@@ -1502,7 +1507,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a system instance.</p>\n      "
+        "smithy.api#documentation": "<p>Gets a system instance.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#GetSystemInstanceRequest": {
@@ -1511,7 +1516,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         }
@@ -1523,7 +1528,7 @@
         "description": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that describes the system instance.</p>\n      "
+            "smithy.api#documentation": "<p>An object that describes the system instance.</p>"
           }
         }
       }
@@ -1551,7 +1556,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a system.</p>\n      "
+        "smithy.api#documentation": "<p>Gets a system.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#GetSystemTemplateRequest": {
@@ -1560,14 +1565,14 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system to get. This ID must be in the user's namespace.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the system to get. This ID must be in the user's namespace.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "revisionNumber": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The number that specifies the revision of the system to get.</p>\n      "
+            "smithy.api#documentation": "<p>The number that specifies the revision of the system to get.</p>"
           }
         }
       }
@@ -1578,7 +1583,7 @@
         "description": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains summary data about the system.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains summary data about the system.</p>"
           }
         }
       }
@@ -1606,7 +1611,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return \n      the revisions that occurred before its deprecation. This action won't work with systems that have been deleted.</p>\n      ",
+        "smithy.api#documentation": "<p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return \n      the revisions that occurred before its deprecation. This action won't work with systems that have been deleted.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1621,20 +1626,20 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system template.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the system template.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -1645,13 +1650,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>"
           }
         },
         "summaries": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects that contain summary data about the system template revisions.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects that contain summary data about the system template revisions.</p>"
           }
         }
       }
@@ -1679,7 +1684,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the status of the specified upload.</p>\n      "
+        "smithy.api#documentation": "<p>Gets the status of the specified upload.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#GetUploadStatusRequest": {
@@ -1688,7 +1693,7 @@
         "uploadId": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#UploadId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action.</p>",
             "smithy.api#required": true
           }
         }
@@ -1700,45 +1705,45 @@
         "createdDate": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date at which the upload was created.</p>\n      ",
+            "smithy.api#documentation": "<p>The date at which the upload was created.</p>",
             "smithy.api#required": true
           }
         },
         "failureReason": {
           "target": "com.amazonaws.iot.thingsgraph.types#StringList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The reason for an upload failure.</p>\n      "
+            "smithy.api#documentation": "<p>The reason for an upload failure.</p>"
           }
         },
         "namespaceArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the upload.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the upload.</p>"
           }
         },
         "namespaceName": {
           "target": "com.amazonaws.iot.thingsgraph.types#NamespaceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the upload's namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the upload's namespace.</p>"
           }
         },
         "namespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>"
           }
         },
         "uploadId": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#UploadId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the upload.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the upload.</p>",
             "smithy.api#required": true
           }
         },
         "uploadStatus": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#UploadStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>\n      ",
+            "smithy.api#documentation": "<p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>",
             "smithy.api#required": true
           }
         }
@@ -1764,7 +1769,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -1777,7 +1782,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1899,7 +1904,7 @@
           "cloudFormationName": "IoTThingsGraph",
           "cloudTrailEventSource": "thingsgraph.iot.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <fullname>AWS IoT Things Graph</fullname>\n         <p>AWS IoT Things Graph provides an integrated set of tools that enable developers to connect devices and services that use different standards, \n       such as units of measure and communication protocols. AWS IoT Things Graph makes it possible to build IoT applications with little to no code by connecting devices and services \n       and defining how they interact at an abstract level.</p>\n         <p>For more information about how AWS IoT Things Graph works, see the <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html\">User Guide</a>.</p>\n    \n      ",
+        "smithy.api#documentation": "<fullname>AWS IoT Things Graph</fullname>\n         <p>AWS IoT Things Graph provides an integrated set of tools that enable developers to connect devices and services that use different standards, \n       such as units of measure and communication protocols. AWS IoT Things Graph makes it possible to build IoT applications with little to no code by connecting devices and services \n       and defining how they interact at an abstract level.</p>\n         <p>For more information about how AWS IoT Things Graph works, see the <a href=\"https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html\">User Guide</a>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -1919,7 +1924,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 410
       }
@@ -1947,7 +1952,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of objects that contain information about events in a flow execution.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns a list of objects that contain information about events in a flow execution.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1962,20 +1967,20 @@
         "flowExecutionId": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the flow execution.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the flow execution.</p>",
             "smithy.api#required": true
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -1986,13 +1991,13 @@
         "messages": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionMessages",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of objects that contain information about events in the specified flow execution.</p>\n      "
+            "smithy.api#documentation": "<p>A list of objects that contain information about events in the specified flow execution.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>"
           }
         }
       }
@@ -2020,7 +2025,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists all tags on an AWS IoT Things Graph resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists all tags on an AWS IoT Things Graph resource.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -2035,19 +2040,19 @@
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of tags to return.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of tags to return.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token that specifies the next page of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>The token that specifies the next page of results to return.</p>"
           }
         },
         "resourceArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource whose tags are to be returned.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource whose tags are to be returned.</p>",
             "smithy.api#required": true
           }
         }
@@ -2059,13 +2064,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token that specifies the next page of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>The token that specifies the next page of results to return.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.iot.thingsgraph.tags#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>List of tags returned by the <code>ListTagsForResource</code> operation.</p>\n      "
+            "smithy.api#documentation": "<p>List of tags returned by the <code>ListTagsForResource</code> operation.</p>"
           }
         }
       }
@@ -2086,18 +2091,18 @@
         "cloudMetricEnabled": {
           "target": "com.amazonaws.iot.thingsgraph.types#Enabled",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A Boolean that specifies whether cloud metrics are collected.</p>\n      "
+            "smithy.api#documentation": "<p>A Boolean that specifies whether cloud metrics are collected.</p>"
           }
         },
         "metricRuleRoleArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#RoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the role that is used to collect cloud metrics.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the role that is used to collect cloud metrics.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>\n      "
+        "smithy.api#documentation": "<p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.entities#NamespaceDeletionStatus": {
@@ -2146,7 +2151,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -2168,7 +2173,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 412
       }
@@ -2181,7 +2186,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -2218,7 +2223,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>\n      ",
+        "smithy.api#documentation": "<p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -2233,32 +2238,32 @@
         "entityTypes": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityTypes",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The entity types for which to search.</p>\n      ",
+            "smithy.api#documentation": "<p>The entity types for which to search.</p>",
             "smithy.api#required": true
           }
         },
         "filters": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityFilters",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Optional filter to apply to the search. Valid filters are <code>NAME</code> \n            <code>NAMESPACE</code>, <code>SEMANTIC_TYPE_PATH</code> and <code>REFERENCED_ENTITY_ID</code>. \n         <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example, \n      you can filter on the ID of a property that is used in a state.</p>\n         <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>\n      "
+            "smithy.api#documentation": "<p>Optional filter to apply to the search. Valid filters are <code>NAME</code> \n            <code>NAMESPACE</code>, <code>SEMANTIC_TYPE_PATH</code> and <code>REFERENCED_ENTITY_ID</code>. \n         <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example, \n      you can filter on the ID of a property that is used in a state.</p>\n         <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "namespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -2269,13 +2274,13 @@
         "descriptions": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#EntityDescriptions",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of descriptions for each entity returned in the search result.</p>\n      "
+            "smithy.api#documentation": "<p>An array of descriptions for each entity returned in the search result.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>"
           }
         }
       }
@@ -2303,7 +2308,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Searches for AWS IoT Things Graph workflow execution instances.</p>\n      ",
+        "smithy.api#documentation": "<p>Searches for AWS IoT Things Graph workflow execution instances.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -2318,37 +2323,37 @@
         "endTime": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time of the latest flow execution to return.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time of the latest flow execution to return.</p>"
           }
         },
         "flowExecutionId": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of a flow execution.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of a flow execution.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         },
         "startTime": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time of the earliest flow execution to return.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time of the earliest flow execution to return.</p>"
           }
         },
         "systemInstanceId": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system instance that contains the flow.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the system instance that contains the flow.</p>",
             "smithy.api#required": true
           }
         }
@@ -2360,13 +2365,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>"
           }
         },
         "summaries": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowExecutionSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects that contain summary information about each workflow execution in the result set.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects that contain summary information about each workflow execution in the result set.</p>"
           }
         }
       }
@@ -2391,7 +2396,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Searches for summary information about workflows.</p>\n      ",
+        "smithy.api#documentation": "<p>Searches for summary information about workflows.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -2406,19 +2411,19 @@
         "filters": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateFilters",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -2429,13 +2434,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>"
           }
         },
         "summaries": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects that contain summary information about each workflow in the result set.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects that contain summary information about each workflow in the result set.</p>"
           }
         }
       }
@@ -2460,7 +2465,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Searches for system instances in the user's account.</p>\n      ",
+        "smithy.api#documentation": "<p>Searches for system instances in the user's account.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -2475,19 +2480,19 @@
         "filters": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceFilters",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and \n         <code>GREENGRASS_GROUP_NAME</code>.</p>\n         <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>\n      "
+            "smithy.api#documentation": "<p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and \n         <code>GREENGRASS_GROUP_NAME</code>.</p>\n         <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -2498,13 +2503,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>"
           }
         },
         "summaries": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects that contain summary data abour the system instances in the result set.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects that contain summary data abour the system instances in the result set.</p>"
           }
         }
       }
@@ -2529,7 +2534,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>\n      ",
+        "smithy.api#documentation": "<p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -2544,19 +2549,19 @@
         "filters": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateFilters",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>\n      "
+            "smithy.api#documentation": "<p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -2567,13 +2572,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>"
           }
         },
         "summaries": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects that contain summary information about each system deployment in the result set.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects that contain summary information about each system deployment in the result set.</p>"
           }
         }
       }
@@ -2601,7 +2606,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>\n         <p>For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2.\n         <code>SearchThings(camera2)</code> will return only thing2, but <code>SearchThings(camera)</code> will return both thing1 and thing2.</p>\n         <p>This action searches for exact matches and doesn't perform partial text matching.</p>\n      ",
+        "smithy.api#documentation": "<p>Searches for things associated with the specified entity. You can search by both device and device model.</p>\n         <p>For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2.\n         <code>SearchThings(camera2)</code> will return only thing2, but <code>SearchThings(camera)</code> will return both thing1 and thing2.</p>\n         <p>This action searches for exact matches and doesn't perform partial text matching.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -2616,26 +2621,26 @@
         "entityId": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the entity to which the things are associated.</p>\n         <p>The IDs should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the entity to which the things are associated.</p>\n         <p>The IDs should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "maxResults": {
           "target": "com.amazonaws.iot.thingsgraph.types#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>"
           }
         },
         "namespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string that specifies the next page of results. Use this when you're paginating results.</p>\n      "
+            "smithy.api#documentation": "<p>The string that specifies the next page of results. Use this when you're paginating results.</p>"
           }
         }
       }
@@ -2646,13 +2651,13 @@
         "nextToken": {
           "target": "com.amazonaws.iot.thingsgraph.types#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>"
           }
         },
         "things": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#Things",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of things in the result set.</p>\n      "
+            "smithy.api#documentation": "<p>An array of things in the result set.</p>"
           }
         }
       }
@@ -2709,7 +2714,7 @@
         "flowActionsRoleArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#RoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a \n      cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other \n      AWS services that the flow uses.</p>\n      "
+            "smithy.api#documentation": "<p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a \n      cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other \n      AWS services that the flow uses.</p>"
           }
         },
         "metricsConfiguration": {
@@ -2718,30 +2723,30 @@
         "s3BucketName": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#S3BucketName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Simple Storage Service bucket where information about a system instance is stored.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Simple Storage Service bucket where information about a system instance is stored.</p>"
           }
         },
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains summary information about a system instance.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains summary information about a system instance.</p>"
           }
         },
         "validatedDependencyRevisions": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#DependencyRevisions",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>\n      "
+            "smithy.api#documentation": "<p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>"
           }
         },
         "validatedNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace against which the system instance was validated.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace against which the system instance was validated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains a system instance definition and summary information.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains a system instance definition and summary information.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceFilter": {
@@ -2750,18 +2755,18 @@
         "name": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceFilterName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the search filter field.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the search filter field.</p>"
           }
         },
         "value": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceFilterValues",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>\n      "
+            "smithy.api#documentation": "<p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that filters a system instance search. \n         Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a \n         STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>\n      "
+        "smithy.api#documentation": "<p>An object that filters a system instance search. \n         Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a \n         STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceFilterName": {
@@ -2807,60 +2812,60 @@
         "arn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the system instance.</p>"
           }
         },
         "createdAt": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date when the system instance was created.</p>\n      "
+            "smithy.api#documentation": "<p>The date when the system instance was created.</p>"
           }
         },
         "greengrassGroupId": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#GreengrassGroupId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the Greengrass group where the system instance is deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the Greengrass group where the system instance is deployed.</p>"
           }
         },
         "greengrassGroupName": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#GroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the Greengrass group where the system instance is deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the Greengrass group where the system instance is deployed.</p>"
           }
         },
         "greengrassGroupVersionId": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#GreengrassGroupVersionId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the Greengrass group where the system instance is deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the Greengrass group where the system instance is deployed.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the system instance.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceDeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the system instance.</p>"
           }
         },
         "target": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#DeploymentTarget",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The target of the system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The target of the system instance.</p>"
           }
         },
         "updatedAt": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         \n         The date and time when the system instance was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>\n         \n         The date and time when the system instance was last updated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains summary information about a system instance.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains summary information about a system instance.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateDescription": {
@@ -2869,24 +2874,24 @@
         "definition": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The definition document of a system.</p>\n      "
+            "smithy.api#documentation": "<p>The definition document of a system.</p>"
           }
         },
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains summary information about a system.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains summary information about a system.</p>"
           }
         },
         "validatedNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The namespace version against which the system was validated. Use this value in your system instance.</p>\n      "
+            "smithy.api#documentation": "<p>The namespace version against which the system was validated. Use this value in your system instance.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains a system's definition document and summary information.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains a system's definition document and summary information.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateFilter": {
@@ -2895,20 +2900,20 @@
         "name": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateFilterName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the system search filter field.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the system search filter field.</p>",
             "smithy.api#required": true
           }
         },
         "value": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateFilterValues",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>\n      ",
+            "smithy.api#documentation": "<p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that filters a system search.</p>\n      "
+        "smithy.api#documentation": "<p>An object that filters a system search.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateFilterName": {
@@ -2951,30 +2956,30 @@
         "arn": {
           "target": "com.amazonaws.iot.thingsgraph.types#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the system.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the system.</p>"
           }
         },
         "createdAt": {
           "target": "com.amazonaws.iot.thingsgraph.types#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date when the system was created.</p>\n      "
+            "smithy.api#documentation": "<p>The date when the system was created.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the system.</p>"
           }
         },
         "revisionNumber": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The revision number of the system.</p>\n      "
+            "smithy.api#documentation": "<p>The revision number of the system.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that contains information about a system.</p>\n      "
+        "smithy.api#documentation": "<p>An object that contains information about a system.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.tags#Tag": {
@@ -2983,20 +2988,20 @@
         "key": {
           "target": "com.amazonaws.iot.thingsgraph.tags#TagKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>\n      ",
+            "smithy.api#documentation": "<p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>",
             "smithy.api#required": true
           }
         },
         "value": {
           "target": "com.amazonaws.iot.thingsgraph.tags#TagValue",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>\n      ",
+            "smithy.api#documentation": "<p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>\n      "
+        "smithy.api#documentation": "<p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.tags#TagKey": {
@@ -3056,7 +3061,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a tag for the specified resource.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a tag for the specified resource.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#TagResourceRequest": {
@@ -3065,14 +3070,14 @@
         "resourceArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>",
             "smithy.api#required": true
           }
         },
         "tags": {
           "target": "com.amazonaws.iot.thingsgraph.tags#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of tags to add to the resource.></p>\n      ",
+            "smithy.api#documentation": "<p>A list of tags to add to the resource.></p>",
             "smithy.api#required": true
           }
         }
@@ -3097,18 +3102,18 @@
         "thingArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#ThingArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the thing.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the thing.</p>"
           }
         },
         "thingName": {
           "target": "com.amazonaws.iot.thingsgraph.types#ThingName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the thing.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the thing.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An AWS IoT thing.</p>\n      "
+        "smithy.api#documentation": "<p>An AWS IoT thing.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph.types#ThingArn": {
@@ -3138,7 +3143,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -3172,7 +3177,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes a system instance from its target (Cloud or Greengrass).</p>\n      "
+        "smithy.api#documentation": "<p>Removes a system instance from its target (Cloud or Greengrass).</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#UndeploySystemInstanceRequest": {
@@ -3181,7 +3186,7 @@
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system instance to remove from its target.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the system instance to remove from its target.</p>"
           }
         }
       }
@@ -3192,7 +3197,7 @@
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemInstanceSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object that contains summary information about the system instance that was removed from its target.</p>\n      "
+            "smithy.api#documentation": "<p>An object that contains summary information about the system instance that was removed from its target.</p>"
           }
         }
       }
@@ -3220,7 +3225,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes a tag from the specified resource.</p>\n      "
+        "smithy.api#documentation": "<p>Removes a tag from the specified resource.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#UntagResourceRequest": {
@@ -3229,14 +3234,14 @@
         "resourceArn": {
           "target": "com.amazonaws.iot.thingsgraph.types#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>",
             "smithy.api#required": true
           }
         },
         "tagKeys": {
           "target": "com.amazonaws.iot.thingsgraph.tags#TagKeyList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p>\n         <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json\">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>\n      ",
+            "smithy.api#documentation": "<p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p>\n         <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json\">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>",
             "smithy.api#required": true
           }
         }
@@ -3269,7 +3274,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this \n         behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. </p>\n      "
+        "smithy.api#documentation": "<p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this \n         behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. </p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#UpdateFlowTemplateRequest": {
@@ -3278,20 +3283,20 @@
         "compatibleNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace.</p>\n         <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow \n      to update.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace.</p>\n         <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow \n      to update.</p>"
           }
         },
         "definition": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>\n      ",
+            "smithy.api#documentation": "<p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>",
             "smithy.api#required": true
           }
         },
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the workflow to be updated.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the workflow to be updated.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         }
@@ -3303,7 +3308,7 @@
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#FlowTemplateSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object containing summary information about the updated workflow.</p>\n      "
+            "smithy.api#documentation": "<p>An object containing summary information about the updated workflow.</p>"
           }
         }
       }
@@ -3331,7 +3336,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>\n      "
+        "smithy.api#documentation": "<p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#UpdateSystemTemplateRequest": {
@@ -3340,20 +3345,20 @@
         "compatibleNamespaceVersion": {
           "target": "com.amazonaws.iot.thingsgraph.types#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>\n         <p>If no value is specified, the latest version is used by default.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>\n         <p>If no value is specified, the latest version is used by default.</p>"
           }
         },
         "definition": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>\n      ",
+            "smithy.api#documentation": "<p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>",
             "smithy.api#required": true
           }
         },
         "id": {
           "target": "com.amazonaws.iot.thingsgraph.types#Urn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the system to be updated.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the system to be updated.</p>\n         <p>The ID should be in the following format.</p>\n         <p>\n            <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>\n         </p>",
             "smithy.api#required": true
           }
         }
@@ -3365,7 +3370,7 @@
         "summary": {
           "target": "com.amazonaws.iot.thingsgraph.types.flow#SystemTemplateSummary",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object containing summary information about the updated system.</p>\n      "
+            "smithy.api#documentation": "<p>An object containing summary information about the updated system.</p>"
           }
         }
       }
@@ -3390,7 +3395,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if \n      <code>syncWithPublicNamespace</code> and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code> parameter  is set to \n         <code>true</code>, the user's namespace will synchronize with the latest version of the public namespace. If <code>deprecateExistingEntities</code> is set to true, \n      all entities in the latest version will be deleted before the new <code>DefinitionDocument</code> is uploaded.</p>\n         <p>When a user uploads entity definitions for the first time, the service creates a new namespace for the user. The new namespace tracks the public namespace. Currently users \n      can have only one namespace. The namespace version increments whenever a user uploads entity definitions that are backwards-incompatible and whenever a user sets the \n         <code>syncWithPublicNamespace</code> parameter or the <code>deprecateExistingEntities</code> parameter to <code>true</code>.</p>\n         <p>The IDs for all of the entities should be in URN format. Each entity must be in the user's namespace. Users can't create entities in the public namespace, but entity definitions can refer to entities in the public namespace.</p>\n         <p>Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>, <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>, <code>Property</code>, \n         <code>Mapping</code>, <code>Enum</code>.\n         </p>\n      "
+        "smithy.api#documentation": "<p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if \n      <code>syncWithPublicNamespace</code> and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code> parameter  is set to \n         <code>true</code>, the user's namespace will synchronize with the latest version of the public namespace. If <code>deprecateExistingEntities</code> is set to true, \n      all entities in the latest version will be deleted before the new <code>DefinitionDocument</code> is uploaded.</p>\n         <p>When a user uploads entity definitions for the first time, the service creates a new namespace for the user. The new namespace tracks the public namespace. Currently users \n      can have only one namespace. The namespace version increments whenever a user uploads entity definitions that are backwards-incompatible and whenever a user sets the \n         <code>syncWithPublicNamespace</code> parameter or the <code>deprecateExistingEntities</code> parameter to <code>true</code>.</p>\n         <p>The IDs for all of the entities should be in URN format. Each entity must be in the user's namespace. Users can't create entities in the public namespace, but entity definitions can refer to entities in the public namespace.</p>\n         <p>Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>, <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>, <code>Property</code>, \n         <code>Mapping</code>, <code>Enum</code>.\n         </p>"
       }
     },
     "com.amazonaws.iot.thingsgraph#UploadEntityDefinitionsRequest": {
@@ -3399,19 +3404,19 @@
         "deprecateExistingEntities": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#DeprecateExistingEntities",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>. \n         If set to <code>true</code>, the upload will create a new namespace version.</p>\n      "
+            "smithy.api#documentation": "<p>A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>. \n         If set to <code>true</code>, the upload will create a new namespace version.</p>"
           }
         },
         "document": {
           "target": "com.amazonaws.iot.thingsgraph.types#DefinitionDocument",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>\n      "
+            "smithy.api#documentation": "<p>The <code>DefinitionDocument</code> that defines the updated entities.</p>"
           }
         },
         "syncWithPublicNamespace": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#SyncWithPublicNamespace",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>\n      "
+            "smithy.api#documentation": "<p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>"
           }
         }
       }
@@ -3422,7 +3427,7 @@
         "uploadId": {
           "target": "com.amazonaws.iot.thingsgraph.types.entities#UploadId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>",
             "smithy.api#required": true
           }
         }

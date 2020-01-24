@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -348,7 +353,7 @@
         "Platform": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The type of messaging or notification platform for the channel. For the APNs channel, this value is APNS.</p>",
+            "smithy.api#documentation": "<p>The type of messaging or notification platform for the channel. For the APNs channel, this value is APNS.</p>",
             "smithy.api#required": true
           }
         },
@@ -1007,7 +1012,7 @@
         "MultiCondition": {
           "target": "com.amazonaws.pinpoint#MultiConditionalSplitActivity",
           "traits": {
-            "smithy.api#documentation": "<p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths in a journey, based on conditions that you specify.</p>"
+            "smithy.api#documentation": "<p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>"
           }
         },
         "RandomSplit": {
@@ -1763,7 +1768,7 @@
         "FilterType": {
           "target": "com.amazonaws.pinpoint#FilterType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<link  linkend=\"apps-application-id-events\">Events resource</link>) occurs.</p>",
+            "smithy.api#documentation": "<p>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<link  linkend=\"apps-application-id-events\">Events</link> resource) occurs.</p>",
             "smithy.api#required": true
           }
         }
@@ -1790,7 +1795,7 @@
         "WebUrl": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function over HTTPS.</p>"
+            "smithy.api#documentation": "<p>The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function over HTTPS.</p>"
           }
         }
       },
@@ -1856,7 +1861,7 @@
         "CreationDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date, ISO 8601 format, when the campaign was created.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the campaign was created.</p>",
             "smithy.api#required": true
           }
         },
@@ -2225,13 +2230,13 @@
         "FalseActivity": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the activity to perform if the condition isn't met.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the activity to perform if the conditions aren't met.</p>"
           }
         },
         "TrueActivity": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the activity to perform if the condition is met.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the activity to perform if the conditions are met.</p>"
           }
         }
       },
@@ -2268,7 +2273,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": " <p>Creates an application.</p>",
+        "smithy.api#documentation": "<p>Creates an application.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v1/apps",
@@ -2417,7 +2422,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a message template that you can use in messages that are sent through the email channel.</p>",
+        "smithy.api#documentation": "<p>Creates a message template for messages that are sent through the email channel.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v1/templates/{TemplateName}/email",
@@ -2431,7 +2436,6 @@
         "EmailTemplateRequest": {
           "target": "com.amazonaws.pinpoint#EmailTemplateRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Creates a new message template that you can use in messages that are sent through the email channel.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#required": true
           }
@@ -2691,7 +2695,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a message template that you can use in messages that are sent through a push notification channel.</p>",
+        "smithy.api#documentation": "<p>Creates a message template for messages that are sent through a push notification channel.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v1/templates/{TemplateName}/push",
@@ -2705,7 +2709,6 @@
         "PushNotificationTemplateRequest": {
           "target": "com.amazonaws.pinpoint#PushNotificationTemplateRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Creates a message template that you can use in messages that are sent through a push notification channel.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#required": true
           }
@@ -2827,7 +2830,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a message template that you can use in messages that are sent through the SMS channel.</p>",
+        "smithy.api#documentation": "<p>Creates a message template for messages that are sent through the SMS channel.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v1/templates/{TemplateName}/sms",
@@ -2841,7 +2844,6 @@
         "SMSTemplateRequest": {
           "target": "com.amazonaws.pinpoint#SMSTemplateRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Creates a message template that you can use in messages that are sent through the SMS channel.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#required": true
           }
@@ -2920,7 +2922,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a message template that you can use in messages that are sent through the voice channel.</p>",
+        "smithy.api#documentation": "<p>Creates a message template for messages that are sent through the voice channel.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v1/templates/{TemplateName}/voice",
@@ -3663,7 +3665,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a message template that was designed for use in messages that were sent through the email channel.</p>",
+        "smithy.api#documentation": "<p>Deletes a message template for messages that were sent through the email channel.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/v1/templates/{TemplateName}/email",
@@ -3680,6 +3682,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -3989,7 +3998,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a message template that was designed for use in messages that were sent through a push notification channel.</p>",
+        "smithy.api#documentation": "<p>Deletes a message template for messages that were sent through a push notification channel.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/v1/templates/{TemplateName}/push",
@@ -4006,6 +4015,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -4183,7 +4199,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a message template that was designed for use in messages that were sent through the SMS channel.</p>",
+        "smithy.api#documentation": "<p>Deletes a message template for messages that were sent through the SMS channel.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/v1/templates/{TemplateName}/sms",
@@ -4200,6 +4216,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -4377,7 +4400,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a message template that was designed for use in messages that were sent through the voice channel.</p>",
+        "smithy.api#documentation": "<p>Deletes a message template for messages that were sent through the voice channel.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/v1/templates/{TemplateName}/voice",
@@ -4394,6 +4417,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -4550,21 +4580,21 @@
         "FromAddress": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The verified email address that you want to send email from when you send email through the channel.</p>",
+            "smithy.api#documentation": "<p>The verified email address that you want to send email from when you send email through the channel.</p>",
             "smithy.api#required": true
           }
         },
         "Identity": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.</p>",
             "smithy.api#required": true
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.</p>"
+            "smithy.api#documentation": "<p>The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.</p>"
           }
         }
       },
@@ -4620,7 +4650,7 @@
         "Identity": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you use when you send email through the channel.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you use when you send email through the channel.</p>"
           }
         },
         "IsArchived": {
@@ -4657,7 +4687,7 @@
         "RoleArn": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.</p>"
+            "smithy.api#documentation": "<p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.</p>"
           }
         },
         "Version": {
@@ -4741,6 +4771,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the email template to use for the message.</p>"
           }
+        },
+        "TemplateVersion": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the email template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i> version of the template. The <i>active</i> version is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>"
+          }
         }
       },
       "traits": {
@@ -4804,7 +4840,7 @@
         "CreationDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was created.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was created.</p>",
             "smithy.api#required": true
           }
         },
@@ -4823,7 +4859,7 @@
         "LastModifiedDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was last modified.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was last modified.</p>",
             "smithy.api#required": true
           }
         },
@@ -4857,6 +4893,12 @@
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
             "smithy.api#documentation": "<p>The message body, in plain text format, that's used in email messages that are based on the message template.</p>"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>"
           }
         },
         "tags": {
@@ -4984,13 +5026,13 @@
         "Make": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The manufacturer of the endpoint device, such as Apple or Samsung.</p>"
+            "smithy.api#documentation": "<p>The manufacturer of the endpoint device, such as apple or samsung.</p>"
           }
         },
         "Model": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The model name or number of the endpoint device, such as iPhone.</p>"
+            "smithy.api#documentation": "<p>The model name or number of the endpoint device, such as iPhone or SM-G900F.</p>"
           }
         },
         "ModelVersion": {
@@ -5002,7 +5044,7 @@
         "Platform": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The platform of the endpoint device, such as iOS or Android.</p>"
+            "smithy.api#documentation": "<p>The platform of the endpoint device, such as ios.</p>"
           }
         },
         "PlatformVersion": {
@@ -6539,7 +6581,7 @@
         "EndTime": {
           "target": "com.amazonaws.pinpoint#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-19T00:00:00Z for July 19, 2019 and 2019-07-19T20:00:00Z for 8:00 PM July 19, 2019.</p>",
+            "smithy.api#documentation": "<p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</p>",
             "smithy.api#httpQuery": "end-time"
           }
         },
@@ -6568,7 +6610,7 @@
         "StartTime": {
           "target": "com.amazonaws.pinpoint#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-15T00:00:00Z for July 15, 2019 and 2019-07-15T16:00:00Z for 4:00 PM July 15, 2019.</p>",
+            "smithy.api#documentation": "<p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>",
             "smithy.api#httpQuery": "start-time"
           }
         }
@@ -6677,7 +6719,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves information about all of your applications.</p>",
+        "smithy.api#documentation": "<p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v1/apps",
@@ -6958,7 +7000,7 @@
         "EndTime": {
           "target": "com.amazonaws.pinpoint#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-19T00:00:00Z for July 19, 2019 and 2019-07-19T20:00:00Z for 8:00 PM July 19, 2019.</p>",
+            "smithy.api#documentation": "<p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</p>",
             "smithy.api#httpQuery": "end-time"
           }
         },
@@ -6987,7 +7029,7 @@
         "StartTime": {
           "target": "com.amazonaws.pinpoint#__timestampIso8601",
           "traits": {
-            "smithy.api#documentation": "<p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-15T00:00:00Z for July 15, 2019 and 2019-07-15T16:00:00Z for 4:00 PM July 15, 2019.</p>",
+            "smithy.api#documentation": "<p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>",
             "smithy.api#httpQuery": "start-time"
           }
         }
@@ -7429,7 +7471,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the content and settings for a message template that you can use in messages that are sent through the email channel.</p>",
+        "smithy.api#documentation": "<p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v1/templates/{TemplateName}/email",
@@ -7446,6 +7488,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -8329,7 +8378,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the content and settings for a message template that you can use in messages that are sent through a push notification channel.</p>",
+        "smithy.api#documentation": "<p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v1/templates/{TemplateName}/push",
@@ -8346,6 +8395,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -8707,7 +8763,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves information about the configuration, dimension, and other settings for all versions of a specific segment that's associated with an application.</p>",
+        "smithy.api#documentation": "<p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v1/apps/{ApplicationId}/segments/{SegmentId}/versions",
@@ -8929,7 +8985,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the content and settings for a message template that you can use in messages that are sent through the SMS channel.</p>",
+        "smithy.api#documentation": "<p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v1/templates/{TemplateName}/sms",
@@ -8946,6 +9002,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -9123,7 +9186,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the content and settings for a message template that you can use in messages that are sent through the voice channel.</p>",
+        "smithy.api#documentation": "<p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v1/templates/{TemplateName}/voice",
@@ -9140,6 +9203,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -9168,7 +9238,7 @@
         "Percentage": {
           "target": "com.amazonaws.pinpoint#__integer",
           "traits": {
-            "smithy.api#documentation": "<p>The percentage of participants who shouldn't continue the journey.</p>",
+            "smithy.api#documentation": "<p>The percentage of participants who shouldn't continue the journey.</p> <p>To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.</p>",
             "smithy.api#required": true
           }
         }
@@ -9688,7 +9758,7 @@
         "Activities": {
           "target": "com.amazonaws.pinpoint#MapOfActivity",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration and other settings for the activities that comprise the journey.</p>"
+            "smithy.api#documentation": "<p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity.</p>"
           }
         },
         "ApplicationId": {
@@ -9769,7 +9839,7 @@
         "State": {
           "target": "com.amazonaws.pinpoint#State",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the journey. Possible values are:</p> <ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li> <li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li> <li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li> <li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li> <li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may resume the journey.</p></li></ul>"
+            "smithy.api#documentation": "<p>The current status of the journey. Possible values are:</p> <ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li> <li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li> <li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li> <li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li> <li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul>"
           }
         },
         "tags": {
@@ -10029,6 +10099,12 @@
         "target": "com.amazonaws.pinpoint#TemplateResponse"
       }
     },
+    "com.amazonaws.pinpoint#ListOfTemplateVersionResponse": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pinpoint#TemplateVersionResponse"
+      }
+    },
     "com.amazonaws.pinpoint#ListOfTreatmentResource": {
       "type": "list",
       "member": {
@@ -10082,6 +10158,91 @@
       "members": {
         "TagsModel": {
           "target": "com.amazonaws.pinpoint#TagsModel",
+          "traits": {
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint#ListTemplateVersions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint#ListTemplateVersionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint#ListTemplateVersionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves information about all the versions of a specific message template.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/templates/{TemplateName}/{TemplateType}/versions",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint#ListTemplateVersionsRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The  string that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>",
+            "smithy.api#httpQuery": "next-token"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>",
+            "smithy.api#httpQuery": "page-size"
+          }
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "TemplateType": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#pattern": "^(?!(email|sms|voice|push)).*$",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint#ListTemplateVersionsResponse": {
+      "type": "structure",
+      "members": {
+        "TemplateVersionsResponse": {
+          "target": "com.amazonaws.pinpoint#TemplateVersionsResponse",
           "traits": {
             "smithy.api#httpPayload": true,
             "smithy.api#required": true
@@ -10150,7 +10311,7 @@
         "TemplateType": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The type of message template to include in the results. Valid values are: EMAIL, SMS, PUSH, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>",
+            "smithy.api#documentation": "<p>The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>",
             "smithy.api#httpQuery": "template-type"
           }
         }
@@ -10691,7 +10852,7 @@
         "DefaultActivity": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The activity to perform by default for any path in the activity.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the activity to perform for participants who don't meet any of the conditions specified for other paths in the activity.</p>"
           }
         },
         "EvaluationWaitTime": {
@@ -10702,7 +10863,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths in a journey, based on conditions that you specify.</p>"
+        "smithy.api#documentation": "<p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>"
       }
     },
     "com.amazonaws.pinpoint#NotFoundException": {
@@ -11143,6 +11304,9 @@
           "target": "com.amazonaws.pinpoint#ListTagsForResource"
         },
         {
+          "target": "com.amazonaws.pinpoint#ListTemplateVersions"
+        },
+        {
           "target": "com.amazonaws.pinpoint#ListTemplates"
         },
         {
@@ -11225,6 +11389,9 @@
         },
         {
           "target": "com.amazonaws.pinpoint#UpdateSmsTemplate"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#UpdateTemplateActiveVersion"
         },
         {
           "target": "com.amazonaws.pinpoint#UpdateVoiceChannel"
@@ -11413,7 +11580,7 @@
         "CreationDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was created.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was created.</p>",
             "smithy.api#required": true
           }
         },
@@ -11438,7 +11605,7 @@
         "LastModifiedDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was last modified.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was last modified.</p>",
             "smithy.api#required": true
           }
         },
@@ -11460,6 +11627,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of channel that the message template is designed for. For a push notification template, this value is PUSH.</p>",
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>"
           }
         },
         "tags": {
@@ -11658,7 +11831,7 @@
         "Percentage": {
           "target": "com.amazonaws.pinpoint#__integer",
           "traits": {
-            "smithy.api#documentation": "<p>The percentage of participants to send down the activity path.</p>"
+            "smithy.api#documentation": "<p>The percentage of participants to send down the activity path.</p> <p>To determine which participants are sent down each path, Amazon Pinpoint applies a probability-based algorithm to the percentages that you specify for the paths. Therefore, the actual percentage of participants who are sent down a path may not be equal to the percentage that you specify.</p>"
           }
         }
       },
@@ -11766,7 +11939,7 @@
         "AttributeType": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": " <p>The type of attribute or attributes to remove. Valid values are:</p> <ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li></ul>",
+            "smithy.api#documentation": "<p>The type of attribute or attributes to remove. Valid values are:</p> <ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li></ul>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -12057,7 +12230,7 @@
         "CreationDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was created.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was created.</p>",
             "smithy.api#required": true
           }
         },
@@ -12070,7 +12243,7 @@
         "LastModifiedDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was last modified.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was last modified.</p>",
             "smithy.api#required": true
           }
         },
@@ -12092,6 +12265,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of channel that the message template is designed for. For an SMS template, this value is SMS.</p>",
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>"
           }
         },
         "tags": {
@@ -12985,10 +13164,30 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the message template to use for the message. If specified, this value must match the name of an existing message template.</p>"
           }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i> version of the template. The <i>active</i> version is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Specifies the name of the message template to use for the message.</p>"
+        "smithy.api#documentation": "<p>Specifies the name and version of the message template to use for the message.</p>"
+      }
+    },
+    "com.amazonaws.pinpoint#TemplateActiveVersionRequest": {
+      "type": "structure",
+      "members": {
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to use as the active version of the template. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies which version of a message template to use as the active version of the template.</p>"
       }
     },
     "com.amazonaws.pinpoint#TemplateConfiguration": {
@@ -13035,7 +13234,7 @@
         "CreationDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was created.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was created.</p>",
             "smithy.api#required": true
           }
         },
@@ -13048,7 +13247,7 @@
         "LastModifiedDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was last modified.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was last modified.</p>",
             "smithy.api#required": true
           }
         },
@@ -13068,8 +13267,14 @@
         "TemplateType": {
           "target": "com.amazonaws.pinpoint#TemplateType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of channel that the message template is designed for.</p>",
+            "smithy.api#documentation": "<p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.</p>",
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier, as an integer, for the active version of the message template.</p>"
           }
         },
         "tags": {
@@ -13101,6 +13306,93 @@
             "name": "PUSH"
           }
         }
+      }
+    },
+    "com.amazonaws.pinpoint#TemplateVersionResponse": {
+      "type": "structure",
+      "members": {
+        "CreationDate": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the version of the message template was created.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "DefaultSubstitutions": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>A JSON object that specifies the default values that are used for message variables in the version of the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>"
+          }
+        },
+        "LastModifiedDate": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the version of the message template was last modified.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "TemplateDescription": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom description of the version of the message template.</p>"
+          }
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the message template.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "TemplateType": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template. This value is an integer that Amazon Pinpoint automatically increments and assigns to each new version of a template.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides information about a specific version of a message template.</p>"
+      }
+    },
+    "com.amazonaws.pinpoint#TemplateVersionsResponse": {
+      "type": "structure",
+      "members": {
+        "Item": {
+          "target": "com.amazonaws.pinpoint#ListOfTemplateVersionResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of responses, one for each version of the message template.</p>",
+            "smithy.api#required": true
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The message that's returned from the API for the request to retrieve information about all the versions of the message template.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>"
+          }
+        },
+        "RequestID": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the request to retrieve information about all the versions of the message template.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides information about all the versions of a specific message template.</p>"
       }
     },
     "com.amazonaws.pinpoint#TemplatesResponse": {
@@ -13927,7 +14219,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing message template that you can use in messages that are sent through the email channel.</p>",
+        "smithy.api#documentation": "<p>Updates an existing message template for messages that are sent through the email channel.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v1/templates/{TemplateName}/email",
@@ -13938,6 +14230,13 @@
     "com.amazonaws.pinpoint#UpdateEmailTemplateRequest": {
       "type": "structure",
       "members": {
+        "CreateNewVersion": {
+          "target": "com.amazonaws.pinpoint#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>",
+            "smithy.api#httpQuery": "create-new-version"
+          }
+        },
         "EmailTemplateRequest": {
           "target": "com.amazonaws.pinpoint#EmailTemplateRequest",
           "traits": {
@@ -13951,6 +14250,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -14073,7 +14379,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": " <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for a batch of endpoints.</p>",
+        "smithy.api#documentation": "<p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for a batch of endpoints.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v1/apps/{ApplicationId}/endpoints",
@@ -14288,7 +14594,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Cancels an active journey.</p>",
+        "smithy.api#documentation": "<p>Cancels (stops) an active journey.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v1/apps/{ApplicationId}/journeys/{JourneyId}/state",
@@ -14365,7 +14671,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing message template that you can use in messages that are sent through a push notification channel.</p>",
+        "smithy.api#documentation": "<p>Updates an existing message template for messages that are sent through a push notification channel.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v1/templates/{TemplateName}/push",
@@ -14376,10 +14682,16 @@
     "com.amazonaws.pinpoint#UpdatePushTemplateRequest": {
       "type": "structure",
       "members": {
+        "CreateNewVersion": {
+          "target": "com.amazonaws.pinpoint#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>",
+            "smithy.api#httpQuery": "create-new-version"
+          }
+        },
         "PushNotificationTemplateRequest": {
           "target": "com.amazonaws.pinpoint#PushNotificationTemplateRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Updates an existing message template that you can use in messages that are sent through a push notification channel.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#required": true
           }
@@ -14390,6 +14702,13 @@
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         }
       }
@@ -14581,7 +14900,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing message template that you can use in messages that are sent through the SMS channel.</p>",
+        "smithy.api#documentation": "<p>Updates an existing message template for messages that are sent through the SMS channel.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v1/templates/{TemplateName}/sms",
@@ -14592,6 +14911,13 @@
     "com.amazonaws.pinpoint#UpdateSmsTemplateRequest": {
       "type": "structure",
       "members": {
+        "CreateNewVersion": {
+          "target": "com.amazonaws.pinpoint#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>",
+            "smithy.api#httpQuery": "create-new-version"
+          }
+        },
         "SMSTemplateRequest": {
           "target": "com.amazonaws.pinpoint#SMSTemplateRequest",
           "traits": {
@@ -14606,10 +14932,95 @@
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
+          }
         }
       }
     },
     "com.amazonaws.pinpoint#UpdateSmsTemplateResponse": {
+      "type": "structure",
+      "members": {
+        "MessageBody": {
+          "target": "com.amazonaws.pinpoint#MessageBody",
+          "traits": {
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint#UpdateTemplateActiveVersion": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint#UpdateTemplateActiveVersionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint#UpdateTemplateActiveVersionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Changes the status of a specific version of a message template to <i>active</i>.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/v1/templates/{TemplateName}/{TemplateType}/active-version",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint#UpdateTemplateActiveVersionRequest": {
+      "type": "structure",
+      "members": {
+        "TemplateActiveVersionRequest": {
+          "target": "com.amazonaws.pinpoint#TemplateActiveVersionRequest",
+          "traits": {
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        },
+        "TemplateName": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "TemplateType": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#pattern": "^(?!(email|sms|voice|push)).*$",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint#UpdateTemplateActiveVersionResponse": {
       "type": "structure",
       "members": {
         "MessageBody": {
@@ -14719,7 +15130,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing message template that you can use in messages that are sent through the voice channel.</p>",
+        "smithy.api#documentation": "<p>Updates an existing message template for messages that are sent through the voice channel.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v1/templates/{TemplateName}/voice",
@@ -14730,12 +15141,26 @@
     "com.amazonaws.pinpoint#UpdateVoiceTemplateRequest": {
       "type": "structure",
       "members": {
+        "CreateNewVersion": {
+          "target": "com.amazonaws.pinpoint#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>",
+            "smithy.api#httpQuery": "create-new-version"
+          }
+        },
         "TemplateName": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
             "smithy.api#documentation": "<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>",
+            "smithy.api#httpQuery": "version"
           }
         },
         "VoiceTemplateRequest": {
@@ -14943,7 +15368,7 @@
         "CreationDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was created.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was created.</p>",
             "smithy.api#required": true
           }
         },
@@ -14962,7 +15387,7 @@
         "LastModifiedDate": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The date when the message template was last modified.</p>",
+            "smithy.api#documentation": "<p>The date, in ISO 8601 format, when the message template was last modified.</p>",
             "smithy.api#required": true
           }
         },
@@ -14984,6 +15409,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of channel that the message template is designed for. For a voice template, this value is VOICE.</p>",
             "smithy.api#required": true
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.pinpoint#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>"
           }
         },
         "VoiceId": {
@@ -15203,7 +15634,7 @@
         "Activities": {
           "target": "com.amazonaws.pinpoint#MapOfActivity",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration and other settings for the activities that comprise the journey.</p>"
+            "smithy.api#documentation": "<p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 128 characters. The characters must be alphanumeric characters.</p>"
           }
         },
         "CreationDate": {
@@ -15258,7 +15689,7 @@
         "StartActivity": {
           "target": "com.amazonaws.pinpoint#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the first activity in the journey.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the first activity in the journey. An activity identifier can contain a maximum of 128 characters. The characters must be alphanumeric characters.</p>"
           }
         },
         "StartCondition": {

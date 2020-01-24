@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -139,6 +144,20 @@
             "smithy.api#jsonName": "hostInstanceType"
           }
         },
+        "StorageType": {
+          "target": "com.amazonaws.mq#BrokerStorageType",
+          "traits": {
+            "smithy.api#documentation": "The broker's storage type.",
+            "smithy.api#jsonName": "storageType"
+          }
+        },
+        "SupportedDeploymentModes": {
+          "target": "com.amazonaws.mq#__listOfDeploymentMode",
+          "traits": {
+            "smithy.api#documentation": "The list of supported deployment modes.",
+            "smithy.api#jsonName": "supportedDeploymentModes"
+          }
+        },
         "SupportedEngineVersions": {
           "target": "com.amazonaws.mq#__listOf__string",
           "traits": {
@@ -170,6 +189,20 @@
           },
           "REBOOT_IN_PROGRESS": {
             "name": "REBOOT_IN_PROGRESS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mq#BrokerStorageType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "The storage type of the broker.",
+        "smithy.api#enum": {
+          "EBS": {
+            "name": "EBS"
+          },
+          "EFS": {
+            "name": "EFS"
           }
         }
       }
@@ -548,8 +581,15 @@
         "SecurityGroups": {
           "target": "com.amazonaws.mq#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.",
+            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.",
             "smithy.api#jsonName": "securityGroups"
+          }
+        },
+        "StorageType": {
+          "target": "com.amazonaws.mq#BrokerStorageType",
+          "traits": {
+            "smithy.api#documentation": "The broker's storage type.",
+            "smithy.api#jsonName": "storageType"
           }
         },
         "SubnetIds": {
@@ -1210,6 +1250,13 @@
             "smithy.api#documentation": "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.",
             "smithy.api#httpQuery": "nextToken"
           }
+        },
+        "StorageType": {
+          "target": "com.amazonaws.mq#__string",
+          "traits": {
+            "smithy.api#documentation": "Filter response by storage type.",
+            "smithy.api#httpQuery": "storageType"
+          }
         }
       }
     },
@@ -1391,8 +1438,15 @@
         "SecurityGroups": {
           "target": "com.amazonaws.mq#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.",
+            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.",
             "smithy.api#jsonName": "securityGroups"
+          }
+        },
+        "StorageType": {
+          "target": "com.amazonaws.mq#BrokerStorageType",
+          "traits": {
+            "smithy.api#documentation": "The broker's storage type.",
+            "smithy.api#jsonName": "storageType"
           }
         },
         "SubnetIds": {
@@ -2502,7 +2556,7 @@
         "SecurityGroups": {
           "target": "com.amazonaws.mq#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.",
+            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.",
             "smithy.api#jsonName": "securityGroups"
           }
         }
@@ -2559,7 +2613,7 @@
         "SecurityGroups": {
           "target": "com.amazonaws.mq#__listOf__string",
           "traits": {
-            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.",
+            "smithy.api#documentation": "The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.",
             "smithy.api#jsonName": "securityGroups"
           }
         }
@@ -2936,6 +2990,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.mq#ConfigurationRevision"
+      }
+    },
+    "com.amazonaws.mq#__listOfDeploymentMode": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mq#DeploymentMode"
       }
     },
     "com.amazonaws.mq#__listOfEngineVersion": {

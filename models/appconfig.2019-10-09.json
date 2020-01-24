@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -124,7 +129,7 @@
           "cloudFormationName": "AppConfig",
           "cloudTrailEventSource": "blue.services.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <fullname>AWS AppConfig</fullname>\n         <p>Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy\n         application configurations. AppConfig supports controlled deployments to applications of any size\n         and includes built-in validation checks and monitoring. You can use AppConfig with applications\n         hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT\n         devices.</p>\n\n         <p>To prevent errors when deploying application configurations, especially for production\n         systems where a simple typo could cause an unexpected outage, AppConfig includes validators. A\n         validator provides a syntactic or semantic check to ensure that the configuration you want\n         to deploy works as intended. To validate your application configuration data, you provide a\n         schema or a Lambda function that runs against the configuration. The configuration\n         deployment or update can only proceed when the configuration data is valid.</p>\n\n         <p>During a configuration deployment, AppConfig monitors the application to ensure that the\n         deployment is successful. If the system encounters an error, AppConfig rolls back the change to\n         minimize impact for your application users. You can configure a deployment strategy for\n         each application or environment that includes deployment criteria, including velocity, bake\n         time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an alarm,\n         AppConfig automatically rolls back to the previous version. </p>\n\n         <p>AppConfig supports multiple use cases. Here are some examples.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Application tuning</b>: Use AppConfig to carefully\n               introduce changes to your application that can only be tested with production\n               traffic.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Feature toggle</b>: Use AppConfig to turn on new features\n               that require a timely deployment, such as a product launch or announcement. </p>\n            </li>\n            <li>\n               <p>\n                  <b>User membership</b>: Use AppConfig to allow premium\n               subscribers to access paid content. </p>\n            </li>\n            <li>\n               <p>\n                  <b>Operational issues</b>: Use AppConfig to reduce stress on\n               your application when a dependency or other external factor impacts the\n               system.</p>\n            </li>\n         </ul>\n         <p>This reference is intended to be used with the <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html\">AWS AppConfig User Guide</a>.</p>\n      ",
+        "smithy.api#documentation": "<fullname>AWS AppConfig</fullname>\n         <p>Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy\n         application configurations. AppConfig supports controlled deployments to applications of any size\n         and includes built-in validation checks and monitoring. You can use AppConfig with applications\n         hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT\n         devices.</p>\n\n         <p>To prevent errors when deploying application configurations, especially for production\n         systems where a simple typo could cause an unexpected outage, AppConfig includes validators. A\n         validator provides a syntactic or semantic check to ensure that the configuration you want\n         to deploy works as intended. To validate your application configuration data, you provide a\n         schema or a Lambda function that runs against the configuration. The configuration\n         deployment or update can only proceed when the configuration data is valid.</p>\n\n         <p>During a configuration deployment, AppConfig monitors the application to ensure that the\n         deployment is successful. If the system encounters an error, AppConfig rolls back the change to\n         minimize impact for your application users. You can configure a deployment strategy for\n         each application or environment that includes deployment criteria, including velocity, bake\n         time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an alarm,\n         AppConfig automatically rolls back to the previous version. </p>\n\n         <p>AppConfig supports multiple use cases. Here are some examples.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Application tuning</b>: Use AppConfig to carefully\n               introduce changes to your application that can only be tested with production\n               traffic.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Feature toggle</b>: Use AppConfig to turn on new features\n               that require a timely deployment, such as a product launch or announcement. </p>\n            </li>\n            <li>\n               <p>\n                  <b>User membership</b>: Use AppConfig to allow premium\n               subscribers to access paid content. </p>\n            </li>\n            <li>\n               <p>\n                  <b>Operational issues</b>: Use AppConfig to reduce stress on\n               your application when a dependency or other external factor impacts the\n               system.</p>\n            </li>\n         </ul>\n         <p>This reference is intended to be used with the <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html\">AWS AppConfig User Guide</a>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -142,19 +147,19 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the application.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the application.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      "
+            "smithy.api#documentation": "<p>The application ID.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application name.</p>\n      "
+            "smithy.api#documentation": "<p>The application name.</p>"
           }
         }
       }
@@ -171,13 +176,13 @@
         "Items": {
           "target": "com.amazonaws.services.blue#ApplicationList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The elements from this collection.</p>\n      "
+            "smithy.api#documentation": "<p>The elements from this collection.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>\n      "
+            "smithy.api#documentation": "<p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>"
           }
         }
       }
@@ -200,7 +205,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The input fails to satisfy the constraints specified by an AWS service.</p>\n      ",
+        "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by an AWS service.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -214,21 +219,21 @@
         "ConfigurationVersion": {
           "target": "com.amazonaws.services.blue#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration version.</p>\n      ",
+            "smithy.api#documentation": "<p>The configuration version.</p>",
             "smithy.api#httpHeader": "Configuration-Version"
           }
         },
         "Content": {
           "target": "com.amazonaws.services.blue#Blob",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The content of the configuration or the configuration data.</p>\n      ",
+            "smithy.api#documentation": "<p>The content of the configuration or the configuration data.</p>",
             "smithy.api#httpPayload": true
           }
         },
         "ContentType": {
           "target": "com.amazonaws.services.blue#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A standard MIME type describing the format of the configuration content. For more\n         information, see <a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17\">Content-Type</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>A standard MIME type describing the format of the configuration content. For more\n         information, see <a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17\">Content-Type</a>.</p>",
             "smithy.api#httpHeader": "Content-Type"
           }
         }
@@ -240,43 +245,43 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      "
+            "smithy.api#documentation": "<p>The application ID.</p>"
           }
         },
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration profile description.</p>\n      "
+            "smithy.api#documentation": "<p>The configuration profile description.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration profile ID.</p>\n      "
+            "smithy.api#documentation": "<p>The configuration profile ID.</p>"
           }
         },
         "LocationUri": {
           "target": "com.amazonaws.services.blue#Uri",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The URI location of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The URI location of the configuration.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the configuration profile.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the configuration profile.</p>"
           }
         },
         "RetrievalRoleArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of an IAM role with permission to access the configuration at the specified\n         LocationUri.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of an IAM role with permission to access the configuration at the specified\n         LocationUri.</p>"
           }
         },
         "Validators": {
           "target": "com.amazonaws.services.blue#ValidatorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of methods for validating the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>A list of methods for validating the configuration.</p>"
           }
         }
       }
@@ -287,36 +292,36 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      "
+            "smithy.api#documentation": "<p>The application ID.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the configuration profile.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the configuration profile.</p>"
           }
         },
         "LocationUri": {
           "target": "com.amazonaws.services.blue#Uri",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The URI location of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The URI location of the configuration.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the configuration profile.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the configuration profile.</p>"
           }
         },
         "ValidatorTypes": {
           "target": "com.amazonaws.services.blue#ValidatorTypeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The types of validators in the configuration profile.</p>\n      "
+            "smithy.api#documentation": "<p>The types of validators in the configuration profile.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A summary of a configuration profile.</p>\n      "
+        "smithy.api#documentation": "<p>A summary of a configuration profile.</p>"
       }
     },
     "com.amazonaws.services.blue#ConfigurationProfileSummaryList": {
@@ -331,13 +336,13 @@
         "Items": {
           "target": "com.amazonaws.services.blue#ConfigurationProfileSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The elements from this collection.</p>\n      "
+            "smithy.api#documentation": "<p>The elements from this collection.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>\n      "
+            "smithy.api#documentation": "<p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>"
           }
         }
       }
@@ -350,7 +355,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The request could not be processed because of conflict in the current state of the\n         resource.</p>\n      ",
+        "smithy.api#documentation": "<p>The request could not be processed because of conflict in the current state of the\n         resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -372,7 +377,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>An application in AppConfig is a logical unit of code that provides capabilities for your\n         customers. For example, an application can be a microservice that runs on Amazon EC2 instances,\n         a mobile application installed by your users, a serverless application using Amazon API\n         Gateway and AWS Lambda, or any system you run on behalf of others.</p>\n      ",
+        "smithy.api#documentation": "<p>An application in AppConfig is a logical unit of code that provides capabilities for your\n         customers. For example, an application can be a microservice that runs on Amazon EC2 instances,\n         a mobile application installed by your users, a serverless application using Amazon API\n         Gateway and AWS Lambda, or any system you run on behalf of others.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/applications",
@@ -386,20 +391,20 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the application.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the application.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name for the application.</p>\n      ",
+            "smithy.api#documentation": "<p>A name for the application.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.services.blue#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata to assign to the application. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata to assign to the application. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>"
           }
         }
       }
@@ -424,7 +429,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information that enables AppConfig to access the configuration source. Valid configuration\n         sources include Systems Manager (SSM) documents and SSM Parameter Store parameters. A configuration\n         profile includes the following information.</p>\n         <ul>\n            <li>\n               <p>The Uri location of the configuration data.</p>\n            </li>\n            <li>\n               <p>The AWS Identity and Access Management (IAM) role that provides access to the configuration data.</p>\n            </li>\n            <li>\n               <p>A validator for the configuration data. Available validators include either a JSON\n               Schema or an AWS Lambda function.</p>\n            </li>\n         </ul>\n      ",
+        "smithy.api#documentation": "<p>Information that enables AppConfig to access the configuration source. Valid configuration\n         sources include Systems Manager (SSM) documents and SSM Parameter Store parameters. A configuration\n         profile includes the following information.</p>\n         <ul>\n            <li>\n               <p>The Uri location of the configuration data.</p>\n            </li>\n            <li>\n               <p>The AWS Identity and Access Management (IAM) role that provides access to the configuration data.</p>\n            </li>\n            <li>\n               <p>A validator for the configuration data. Available validators include either a JSON\n               Schema or an AWS Lambda function.</p>\n            </li>\n         </ul>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/applications/{ApplicationId}/configurationprofiles",
@@ -438,7 +443,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -446,40 +451,40 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the configuration profile.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the configuration profile.</p>"
           }
         },
         "LocationUri": {
           "target": "com.amazonaws.services.blue#Uri",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A URI to locate the configuration. You can specify either a Systems Manager (SSM) document or an SSM Parameter Store parameter. For an SSM document, specify either the document name in the format <code>ssm-document://<Document name></code> or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format <code>ssm-parameter://<Parameter name></code> or the ARN.</p>\n      ",
+            "smithy.api#documentation": "<p>A URI to locate the configuration. You can specify either a Systems Manager (SSM) document or an SSM Parameter Store parameter. For an SSM document, specify either the document name in the format <code>ssm-document://<Document name></code> or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format <code>ssm-parameter://<Parameter name></code> or the ARN.</p>",
             "smithy.api#required": true
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name for the configuration profile.</p>\n      ",
+            "smithy.api#documentation": "<p>A name for the configuration profile.</p>",
             "smithy.api#required": true
           }
         },
         "RetrievalRoleArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of an IAM role with permission to access the configuration at the specified\n         LocationUri.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of an IAM role with permission to access the configuration at the specified\n         LocationUri.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.services.blue#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata to assign to the configuration profile. Tags help organize and categorize your\n         AppConfig resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata to assign to the configuration profile. Tags help organize and categorize your\n         AppConfig resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>"
           }
         },
         "Validators": {
           "target": "com.amazonaws.services.blue#ValidatorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of methods for validating the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>A list of methods for validating the configuration.</p>"
           }
         }
       }
@@ -501,7 +506,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>A deployment strategy defines important criteria for rolling out your configuration to\n         the designated targets. A deployment strategy includes: the overall duration required, a\n         percentage of targets to receive the deployment during each interval, an algorithm that\n         defines how percentage grows, and bake time.</p>\n      ",
+        "smithy.api#documentation": "<p>A deployment strategy defines important criteria for rolling out your configuration to\n         the designated targets. A deployment strategy includes: the overall duration required, a\n         percentage of targets to receive the deployment during each interval, an algorithm that\n         defines how percentage grows, and bake time.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/deploymentstrategies",
@@ -516,54 +521,54 @@
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>Total amount of time for a deployment to last.</p>\n      ",
+            "smithy.api#documentation": "<p>Total amount of time for a deployment to last.</p>",
             "smithy.api#required": true
           }
         },
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the deployment strategy.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the deployment strategy.</p>"
           }
         },
         "FinalBakeTimeInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The amount of time AppConfig monitors for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of time AppConfig monitors for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>"
           }
         },
         "GrowthFactor": {
           "target": "com.amazonaws.services.blue#GrowthFactor",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>\n      ",
+            "smithy.api#documentation": "<p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>",
             "smithy.api#required": true
           }
         },
         "GrowthType": {
           "target": "com.amazonaws.services.blue#GrowthType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The algorithm used to define how percentage grows over time.</p>\n      "
+            "smithy.api#documentation": "<p>The algorithm used to define how percentage grows over time.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name for the deployment strategy.</p>\n      ",
+            "smithy.api#documentation": "<p>A name for the deployment strategy.</p>",
             "smithy.api#required": true
           }
         },
         "ReplicateTo": {
           "target": "com.amazonaws.services.blue#ReplicateTo",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>\n      ",
+            "smithy.api#documentation": "<p>Save the deployment strategy to a Systems Manager (SSM) document.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.services.blue#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your\n         AppConfig resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata to assign to the deployment strategy. Tags help organize and categorize your\n         AppConfig resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>"
           }
         }
       }
@@ -588,7 +593,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>For each application, you define one or more environments. An environment is a logical\n         deployment group of AppConfig targets, such as applications in a <code>Beta</code> or\n            <code>Production</code> environment. You can also define environments for application\n         subcomponents such as the <code>Web</code>, <code>Mobile</code> and <code>Back-end</code>\n         components for your application. You can configure Amazon CloudWatch alarms for each environment.\n         The system monitors alarms during a configuration deployment. If an alarm is triggered, the\n         system rolls back the configuration.</p>\n      ",
+        "smithy.api#documentation": "<p>For each application, you define one or more environments. An environment is a logical\n         deployment group of AppConfig targets, such as applications in a <code>Beta</code> or\n            <code>Production</code> environment. You can also define environments for application\n         subcomponents such as the <code>Web</code>, <code>Mobile</code> and <code>Back-end</code>\n         components for your application. You can configure Amazon CloudWatch alarms for each environment.\n         The system monitors alarms during a configuration deployment. If an alarm is triggered, the\n         system rolls back the configuration.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/applications/{ApplicationId}/environments",
@@ -602,7 +607,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -610,26 +615,26 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the environment.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the environment.</p>"
           }
         },
         "Monitors": {
           "target": "com.amazonaws.services.blue#MonitorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>\n      "
+            "smithy.api#documentation": "<p>Amazon CloudWatch alarms to monitor during the deployment process.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name for the environment.</p>\n      ",
+            "smithy.api#documentation": "<p>A name for the environment.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.services.blue#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>"
           }
         }
       }
@@ -651,7 +656,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Delete an application. Deleting an application does not delete a configuration from a\n         host.</p>\n      ",
+        "smithy.api#documentation": "<p>Delete an application. Deleting an application does not delete a configuration from a\n         host.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/applications/{ApplicationId}",
@@ -665,7 +670,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the application to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the application to delete.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -692,7 +697,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Delete a configuration profile. Deleting a configuration profile does not delete a\n         configuration from a host.</p>\n      ",
+        "smithy.api#documentation": "<p>Delete a configuration profile. Deleting a configuration profile does not delete a\n         configuration from a host.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}",
@@ -706,7 +711,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID that includes the configuration profile you want to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID that includes the configuration profile you want to delete.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -714,7 +719,7 @@
         "ConfigurationProfileId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the configuration profile you want to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the configuration profile you want to delete.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -738,7 +743,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Delete a deployment strategy. Deleting a deployment strategy does not delete a\n         configuration from a host.</p>\n      ",
+        "smithy.api#documentation": "<p>Delete a deployment strategy. Deleting a deployment strategy does not delete a\n         configuration from a host.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/deployementstrategies/{DeploymentStrategyId}",
@@ -752,7 +757,7 @@
         "DeploymentStrategyId": {
           "target": "com.amazonaws.services.blue#DeploymentStrategyId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the deployment strategy you want to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the deployment strategy you want to delete.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -779,7 +784,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Delete an environment. Deleting an environment does not delete a configuration from a\n         host.</p>\n      ",
+        "smithy.api#documentation": "<p>Delete an environment. Deleting an environment does not delete a configuration from a\n         host.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}",
@@ -793,7 +798,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID that includes the environment you want to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID that includes the environment you want to delete.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -801,7 +806,7 @@
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the environment you want to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the environment you want to delete.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -814,103 +819,103 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the application that was deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the application that was deployed.</p>"
           }
         },
         "CompletedAt": {
           "target": "com.amazonaws.services.blue#Iso8601DateTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time the deployment completed. </p>\n      "
+            "smithy.api#documentation": "<p>The time the deployment completed. </p>"
           }
         },
         "ConfigurationLocationUri": {
           "target": "com.amazonaws.services.blue#Uri",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the source location of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the source location of the configuration.</p>"
           }
         },
         "ConfigurationName": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the configuration.</p>"
           }
         },
         "ConfigurationProfileId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the configuration profile that was deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the configuration profile that was deployed.</p>"
           }
         },
         "ConfigurationVersion": {
           "target": "com.amazonaws.services.blue#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration version that was deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The configuration version that was deployed.</p>"
           }
         },
         "DeploymentDurationInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Total amount of time the deployment lasted.</p>\n      "
+            "smithy.api#documentation": "<p>Total amount of time the deployment lasted.</p>"
           }
         },
         "DeploymentNumber": {
           "target": "com.amazonaws.services.blue#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The sequence number of the deployment.</p>\n      "
+            "smithy.api#documentation": "<p>The sequence number of the deployment.</p>"
           }
         },
         "DeploymentStrategyId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the deployment strategy that was deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the deployment strategy that was deployed.</p>"
           }
         },
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the deployment.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the deployment.</p>"
           }
         },
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the environment that was deployed.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the environment that was deployed.</p>"
           }
         },
         "FinalBakeTimeInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The amount of time AppConfig monitored for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of time AppConfig monitored for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>"
           }
         },
         "GrowthFactor": {
           "target": "com.amazonaws.services.blue#Percentage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>\n      "
+            "smithy.api#documentation": "<p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>"
           }
         },
         "GrowthType": {
           "target": "com.amazonaws.services.blue#GrowthType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The algorithm used to define how percentage grew over time.</p>\n      "
+            "smithy.api#documentation": "<p>The algorithm used to define how percentage grew over time.</p>"
           }
         },
         "PercentageComplete": {
           "target": "com.amazonaws.services.blue#Percentage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The percentage of targets for which the deployment is available.</p>\n      "
+            "smithy.api#documentation": "<p>The percentage of targets for which the deployment is available.</p>"
           }
         },
         "StartedAt": {
           "target": "com.amazonaws.services.blue#Iso8601DateTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time the deployment started.</p>\n      "
+            "smithy.api#documentation": "<p>The time the deployment started.</p>"
           }
         },
         "State": {
           "target": "com.amazonaws.services.blue#DeploymentState",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The state of the deployment.</p>\n      "
+            "smithy.api#documentation": "<p>The state of the deployment.</p>"
           }
         }
       }
@@ -952,13 +957,13 @@
         "Items": {
           "target": "com.amazonaws.services.blue#DeploymentStrategyList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The elements from this collection.</p>\n      "
+            "smithy.api#documentation": "<p>The elements from this collection.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>\n      "
+            "smithy.api#documentation": "<p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>"
           }
         }
       }
@@ -969,49 +974,49 @@
         "DeploymentDurationInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Total amount of time the deployment lasted.</p>\n      "
+            "smithy.api#documentation": "<p>Total amount of time the deployment lasted.</p>"
           }
         },
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the deployment strategy.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the deployment strategy.</p>"
           }
         },
         "FinalBakeTimeInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The amount of time AppConfig monitored for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of time AppConfig monitored for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>"
           }
         },
         "GrowthFactor": {
           "target": "com.amazonaws.services.blue#Percentage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The percentage of targets that received a deployed configuration during each\n         interval.</p>\n      "
+            "smithy.api#documentation": "<p>The percentage of targets that received a deployed configuration during each\n         interval.</p>"
           }
         },
         "GrowthType": {
           "target": "com.amazonaws.services.blue#GrowthType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The algorithm used to define how percentage grew over time.</p>\n      "
+            "smithy.api#documentation": "<p>The algorithm used to define how percentage grew over time.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The deployment strategy ID.</p>\n      "
+            "smithy.api#documentation": "<p>The deployment strategy ID.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the deployment strategy.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the deployment strategy.</p>"
           }
         },
         "ReplicateTo": {
           "target": "com.amazonaws.services.blue#ReplicateTo",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>\n      "
+            "smithy.api#documentation": "<p>Save the deployment strategy to a Systems Manager (SSM) document.</p>"
           }
         }
       }
@@ -1034,72 +1039,72 @@
         "CompletedAt": {
           "target": "com.amazonaws.services.blue#Iso8601DateTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Time the deployment completed.</p>\n      "
+            "smithy.api#documentation": "<p>Time the deployment completed.</p>"
           }
         },
         "ConfigurationName": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the configuration.</p>"
           }
         },
         "ConfigurationVersion": {
           "target": "com.amazonaws.services.blue#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The version of the configuration.</p>"
           }
         },
         "DeploymentDurationInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Total amount of time the deployment lasted.</p>\n      "
+            "smithy.api#documentation": "<p>Total amount of time the deployment lasted.</p>"
           }
         },
         "DeploymentNumber": {
           "target": "com.amazonaws.services.blue#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The sequence number of the deployment.</p>\n      "
+            "smithy.api#documentation": "<p>The sequence number of the deployment.</p>"
           }
         },
         "FinalBakeTimeInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The amount of time AppConfig monitors for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of time AppConfig monitors for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>"
           }
         },
         "GrowthFactor": {
           "target": "com.amazonaws.services.blue#Percentage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>\n      "
+            "smithy.api#documentation": "<p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>"
           }
         },
         "GrowthType": {
           "target": "com.amazonaws.services.blue#GrowthType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The algorithm used to define how percentage grows over time.</p>\n      "
+            "smithy.api#documentation": "<p>The algorithm used to define how percentage grows over time.</p>"
           }
         },
         "PercentageComplete": {
           "target": "com.amazonaws.services.blue#Percentage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The percentage of targets for which the deployment is available.</p>\n      "
+            "smithy.api#documentation": "<p>The percentage of targets for which the deployment is available.</p>"
           }
         },
         "StartedAt": {
           "target": "com.amazonaws.services.blue#Iso8601DateTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Time the deployment started.</p>\n      "
+            "smithy.api#documentation": "<p>Time the deployment started.</p>"
           }
         },
         "State": {
           "target": "com.amazonaws.services.blue#DeploymentState",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The state of the deployment.</p>\n      "
+            "smithy.api#documentation": "<p>The state of the deployment.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the deployment.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the deployment.</p>"
       }
     },
     "com.amazonaws.services.blue#Deployments": {
@@ -1108,13 +1113,13 @@
         "Items": {
           "target": "com.amazonaws.services.blue#DeploymentList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The elements from this collection.</p>\n      "
+            "smithy.api#documentation": "<p>The elements from this collection.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>\n      "
+            "smithy.api#documentation": "<p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>"
           }
         }
       }
@@ -1134,37 +1139,37 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      "
+            "smithy.api#documentation": "<p>The application ID.</p>"
           }
         },
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the environment.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the environment.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The environment ID.</p>\n      "
+            "smithy.api#documentation": "<p>The environment ID.</p>"
           }
         },
         "Monitors": {
           "target": "com.amazonaws.services.blue#MonitorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Amazon CloudWatch alarms monitored during the deployment.</p>\n      "
+            "smithy.api#documentation": "<p>Amazon CloudWatch alarms monitored during the deployment.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the environment.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the environment.</p>"
           }
         },
         "State": {
           "target": "com.amazonaws.services.blue#EnvironmentState",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The state of the environment. An environment can be in one of the following states:\n            <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or\n            <code>ROLLED_BACK</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The state of the environment. An environment can be in one of the following states:\n            <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or\n            <code>ROLLED_BACK</code>\n         </p>"
           }
         }
       }
@@ -1200,13 +1205,13 @@
         "Items": {
           "target": "com.amazonaws.services.blue#EnvironmentList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The elements from this collection.</p>\n      "
+            "smithy.api#documentation": "<p>The elements from this collection.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>\n      "
+            "smithy.api#documentation": "<p>The token for the next set of items to return. Use this token to get the next set of\n         results.</p>"
           }
         }
       }
@@ -1231,7 +1236,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve information about an application.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieve information about an application.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{ApplicationId}",
@@ -1245,7 +1250,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the application you want to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the application you want to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1272,7 +1277,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve information about a configuration.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieve information about a configuration.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{Application}/environments/{Environment}/configurations/{Configuration}",
@@ -1300,7 +1305,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve information about a configuration profile.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieve information about a configuration profile.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}",
@@ -1314,7 +1319,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the application that includes the configuration profile you want to\n         get.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the application that includes the configuration profile you want to\n         get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1322,7 +1327,7 @@
         "ConfigurationProfileId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the configuration profile you want to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the configuration profile you want to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1335,7 +1340,7 @@
         "Application": {
           "target": "com.amazonaws.services.blue#StringWithLengthBetween1And64",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The application to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1343,14 +1348,14 @@
         "ClientConfigurationVersion": {
           "target": "com.amazonaws.services.blue#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration version returned in the most recent GetConfiguration response.</p>\n      ",
+            "smithy.api#documentation": "<p>The configuration version returned in the most recent GetConfiguration response.</p>",
             "smithy.api#httpQuery": "client_configuration_version"
           }
         },
         "ClientId": {
           "target": "com.amazonaws.services.blue#StringWithLengthBetween1And64",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to deploy\n         the configuration in intervals, as defined in the deployment strategy.</p>\n      ",
+            "smithy.api#documentation": "<p>A unique ID to identify the client for the configuration. This ID enables AppConfig to deploy\n         the configuration in intervals, as defined in the deployment strategy.</p>",
             "smithy.api#httpQuery": "client_id",
             "smithy.api#required": true
           }
@@ -1358,7 +1363,7 @@
         "Configuration": {
           "target": "com.amazonaws.services.blue#StringWithLengthBetween1And64",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The configuration to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1366,7 +1371,7 @@
         "Environment": {
           "target": "com.amazonaws.services.blue#StringWithLengthBetween1And64",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The environment to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The environment to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1393,7 +1398,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve information about a configuration deployment.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieve information about a configuration deployment.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}",
@@ -1407,7 +1412,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the application that includes the deployment you want to get. </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the application that includes the deployment you want to get. </p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1416,7 +1421,7 @@
           "target": "com.amazonaws.services.blue#Integer",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The sequence number of the deployment.</p>\n      ",
+            "smithy.api#documentation": "<p>The sequence number of the deployment.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1424,7 +1429,7 @@
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the environment that includes the deployment you want to get. </p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the environment that includes the deployment you want to get. </p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1451,7 +1456,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve information about a deployment strategy. A deployment strategy defines\n         important criteria for rolling out your configuration to the designated targets. A\n         deployment strategy includes: the overall duration required, a percentage of targets to\n         receive the deployment during each interval, an algorithm that defines how percentage\n         grows, and bake time.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieve information about a deployment strategy. A deployment strategy defines\n         important criteria for rolling out your configuration to the designated targets. A\n         deployment strategy includes: the overall duration required, a percentage of targets to\n         receive the deployment during each interval, an algorithm that defines how percentage\n         grows, and bake time.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/deploymentstrategies/{DeploymentStrategyId}",
@@ -1465,7 +1470,7 @@
         "DeploymentStrategyId": {
           "target": "com.amazonaws.services.blue#DeploymentStrategyId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the deployment strategy to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the deployment strategy to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1492,7 +1497,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve information about an environment. An environment is a logical deployment group\n         of AppConfig applications, such as applications in a <code>Production</code> environment or in\n         an <code>EU_Region</code> environment. Each configuration deployment targets an\n         environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is\n         triggered during a deployment, AppConfig roles back the configuration.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieve information about an environment. An environment is a logical deployment group\n         of AppConfig applications, such as applications in a <code>Production</code> environment or in\n         an <code>EU_Region</code> environment. Each configuration deployment targets an\n         environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is\n         triggered during a deployment, AppConfig roles back the configuration.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}",
@@ -1506,7 +1511,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the application that includes the environment you want to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the application that includes the environment you want to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1514,7 +1519,7 @@
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the environment you wnat to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the environment you wnat to get.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1557,7 +1562,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>There was an internal failure in the AppConfig service.</p>\n      ",
+        "smithy.api#documentation": "<p>There was an internal failure in the AppConfig service.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -1585,7 +1590,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>List all applications in your AWS account.</p>\n      ",
+        "smithy.api#documentation": "<p>List all applications in your AWS account.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications",
@@ -1605,14 +1610,14 @@
           "target": "com.amazonaws.services.blue#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token to start the list. Use this token to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A token to start the list. Use this token to get the next set of results.</p>",
             "smithy.api#httpQuery": "next_token"
           }
         }
@@ -1638,7 +1643,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the configuration profiles for an application.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the configuration profiles for an application.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{ApplicationId}/configurationprofiles",
@@ -1657,7 +1662,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1666,14 +1671,14 @@
           "target": "com.amazonaws.services.blue#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token to start the list. Use this token to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A token to start the list. Use this token to get the next set of results.</p>",
             "smithy.api#httpQuery": "next_token"
           }
         }
@@ -1696,7 +1701,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>List deployment strategies.</p>\n      ",
+        "smithy.api#documentation": "<p>List deployment strategies.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/deploymentstrategies",
@@ -1716,14 +1721,14 @@
           "target": "com.amazonaws.services.blue#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token to start the list. Use this token to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A token to start the list. Use this token to get the next set of results.</p>",
             "smithy.api#httpQuery": "next_token"
           }
         }
@@ -1749,7 +1754,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the deployments for an environment.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the deployments for an environment.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments",
@@ -1768,7 +1773,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1776,7 +1781,7 @@
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The environment ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The environment ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1785,14 +1790,14 @@
           "target": "com.amazonaws.services.blue#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token to start the list. Use this token to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A token to start the list. Use this token to get the next set of results.</p>",
             "smithy.api#httpQuery": "next_token"
           }
         }
@@ -1818,7 +1823,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>List the environments for an application.</p>\n      ",
+        "smithy.api#documentation": "<p>List the environments for an application.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{ApplicationId}/environments",
@@ -1837,7 +1842,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1846,14 +1851,14 @@
           "target": "com.amazonaws.services.blue#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.services.blue#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token to start the list. Use this token to get the next set of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A token to start the list. Use this token to get the next set of results.</p>",
             "smithy.api#httpQuery": "next_token"
           }
         }
@@ -1879,7 +1884,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieves the list of key-value tags assigned to the resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Retrieves the list of key-value tags assigned to the resource.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/tags/{ResourceArn}",
@@ -1893,7 +1898,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource ARN.</p>\n      ",
+            "smithy.api#documentation": "<p>The resource ARN.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1924,18 +1929,18 @@
         "AlarmArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>ARN of the Amazon CloudWatch alarm.</p>\n      "
+            "smithy.api#documentation": "<p>ARN of the Amazon CloudWatch alarm.</p>"
           }
         },
         "AlarmRoleArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>ARN of an IAM role for AppConfig to monitor <code>AlarmArn</code>.</p>\n      "
+            "smithy.api#documentation": "<p>ARN of an IAM role for AppConfig to monitor <code>AlarmArn</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>\n      "
+        "smithy.api#documentation": "<p>Amazon CloudWatch alarms to monitor during the deployment process.</p>"
       }
     },
     "com.amazonaws.services.blue#MonitorList": {
@@ -2001,7 +2006,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The requested resource could not be found.</p>\n      ",
+        "smithy.api#documentation": "<p>The requested resource could not be found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -2012,7 +2017,7 @@
         "Tags": {
           "target": "com.amazonaws.services.blue#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata to assign to AppConfig resources. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>"
           }
         }
       }
@@ -2040,7 +2045,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Starts a deployment.</p>\n      ",
+        "smithy.api#documentation": "<p>Starts a deployment.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments",
@@ -2054,7 +2059,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2062,34 +2067,34 @@
         "ConfigurationProfileId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration profile ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The configuration profile ID.</p>",
             "smithy.api#required": true
           }
         },
         "ConfigurationVersion": {
           "target": "com.amazonaws.services.blue#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration version to deploy.</p>\n      ",
+            "smithy.api#documentation": "<p>The configuration version to deploy.</p>",
             "smithy.api#required": true
           }
         },
         "DeploymentStrategyId": {
           "target": "com.amazonaws.services.blue#DeploymentStrategyId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The deployment strategy ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The deployment strategy ID.</p>",
             "smithy.api#required": true
           }
         },
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the deployment.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the deployment.</p>"
           }
         },
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The environment ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The environment ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2097,7 +2102,7 @@
         "Tags": {
           "target": "com.amazonaws.services.blue#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>\n      "
+            "smithy.api#documentation": "<p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you\n         define.</p>"
           }
         }
       }
@@ -2122,7 +2127,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Stops a deployment. This API action works only on deployments that have a status of\n            <code>DEPLOYING</code>. This action moves the deployment to a status of\n            <code>ROLLED_BACK</code>.</p>\n      ",
+        "smithy.api#documentation": "<p>Stops a deployment. This API action works only on deployments that have a status of\n            <code>DEPLOYING</code>. This action moves the deployment to a status of\n            <code>ROLLED_BACK</code>.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}",
@@ -2136,7 +2141,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2145,7 +2150,7 @@
           "target": "com.amazonaws.services.blue#Integer",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The sequence number of the deployment.</p>\n      ",
+            "smithy.api#documentation": "<p>The sequence number of the deployment.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2153,7 +2158,7 @@
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The environment ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The environment ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2234,7 +2239,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Metadata to assign to an AppConfig resource. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you define. You\n         can specify a maximum of 50 tags for a resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Metadata to assign to an AppConfig resource. Tags help organize and categorize your AppConfig\n         resources. Each tag consists of a key and an optional value, both of which you define. You\n         can specify a maximum of 50 tags for a resource.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/tags/{ResourceArn}",
@@ -2248,7 +2253,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the resource for which to retrieve tags.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the resource for which to retrieve tags.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2256,7 +2261,7 @@
         "Tags": {
           "target": "com.amazonaws.services.blue#TagMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The key-value string map. The valid character set is [a-zA-Z+-=._:/]. The tag key can be\n         up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to\n         256 characters.</p>\n      ",
+            "smithy.api#documentation": "<p>The key-value string map. The valid character set is [a-zA-Z+-=._:/]. The tag key can be\n         up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to\n         256 characters.</p>",
             "smithy.api#required": true
           }
         }
@@ -2288,7 +2293,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a tag key and value from an AppConfig resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes a tag key and value from an AppConfig resource.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/tags/{ResourceArn}",
@@ -2302,7 +2307,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the resource for which to remove tags.</p>\n      ",
+            "smithy.api#documentation": "<p>The ARN of the resource for which to remove tags.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2310,7 +2315,7 @@
         "TagKeys": {
           "target": "com.amazonaws.services.blue#TagKeyList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tag keys to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The tag keys to delete.</p>",
             "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": true
           }
@@ -2337,7 +2342,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates an application.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates an application.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/applications/{ApplicationId}",
@@ -2351,7 +2356,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2359,13 +2364,13 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the application.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the application.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the application.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the application.</p>"
           }
         }
       }
@@ -2390,7 +2395,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a configuration profile.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates a configuration profile.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}",
@@ -2404,7 +2409,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2412,7 +2417,7 @@
         "ConfigurationProfileId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the configuration profile.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the configuration profile.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2420,25 +2425,25 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the configuration profile.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the configuration profile.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the configuration profile.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the configuration profile.</p>"
           }
         },
         "RetrievalRoleArn": {
           "target": "com.amazonaws.services.blue#Arn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of an IAM role with permission to access the configuration at the specified\n         LocationUri.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of an IAM role with permission to access the configuration at the specified\n         LocationUri.</p>"
           }
         },
         "Validators": {
           "target": "com.amazonaws.services.blue#ValidatorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of methods for validating the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>A list of methods for validating the configuration.</p>"
           }
         }
       }
@@ -2463,7 +2468,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a deployment strategy.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates a deployment strategy.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/deploymentstrategies/{DeploymentStrategyId}",
@@ -2478,13 +2483,13 @@
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>Total amount of time for a deployment to last.</p>\n      "
+            "smithy.api#documentation": "<p>Total amount of time for a deployment to last.</p>"
           }
         },
         "DeploymentStrategyId": {
           "target": "com.amazonaws.services.blue#DeploymentStrategyId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The deployment strategy ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The deployment strategy ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2492,27 +2497,27 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the deployment strategy.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the deployment strategy.</p>"
           }
         },
         "FinalBakeTimeInMinutes": {
           "target": "com.amazonaws.services.blue#MinutesBetween0And24Hours",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The amount of time AppConfig monitors for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>\n      "
+            "smithy.api#documentation": "<p>The amount of time AppConfig monitors for alarms before considering the deployment to be\n         complete and no longer eligible for automatic roll back.</p>"
           }
         },
         "GrowthFactor": {
           "target": "com.amazonaws.services.blue#GrowthFactor",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>\n      "
+            "smithy.api#documentation": "<p>The percentage of targets to receive a deployed configuration during each\n         interval.</p>"
           }
         },
         "GrowthType": {
           "target": "com.amazonaws.services.blue#GrowthType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The algorithm used to define how percentage grows over time.</p>\n      "
+            "smithy.api#documentation": "<p>The algorithm used to define how percentage grows over time.</p>"
           }
         }
       }
@@ -2537,7 +2542,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates an environment.</p>\n      ",
+        "smithy.api#documentation": "<p>Updates an environment.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}",
@@ -2551,7 +2556,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2559,13 +2564,13 @@
         "Description": {
           "target": "com.amazonaws.services.blue#Description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A description of the environment.</p>\n      "
+            "smithy.api#documentation": "<p>A description of the environment.</p>"
           }
         },
         "EnvironmentId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The environment ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The environment ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2573,13 +2578,13 @@
         "Monitors": {
           "target": "com.amazonaws.services.blue#MonitorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>\n      "
+            "smithy.api#documentation": "<p>Amazon CloudWatch alarms to monitor during the deployment process.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.services.blue#Name",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the environment.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the environment.</p>"
           }
         }
       }
@@ -2610,7 +2615,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Uses the validators in a configuration profile to validate a configuration.</p>\n      ",
+        "smithy.api#documentation": "<p>Uses the validators in a configuration profile to validate a configuration.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators",
@@ -2624,7 +2629,7 @@
         "ApplicationId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The application ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The application ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2632,7 +2637,7 @@
         "ConfigurationProfileId": {
           "target": "com.amazonaws.services.blue#Id",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration profile ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The configuration profile ID.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2640,7 +2645,7 @@
         "ConfigurationVersion": {
           "target": "com.amazonaws.services.blue#Version",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the configuration to validate.</p>\n      ",
+            "smithy.api#documentation": "<p>The version of the configuration to validate.</p>",
             "smithy.api#httpQuery": "configuration_version",
             "smithy.api#required": true
           }
@@ -2653,20 +2658,20 @@
         "Content": {
           "target": "com.amazonaws.services.blue#StringWithLengthBetween0And32768",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Either the JSON Schema content or an AWS Lambda function name.</p>\n      ",
+            "smithy.api#documentation": "<p>Either the JSON Schema content or an AWS Lambda function name.</p>",
             "smithy.api#required": true
           }
         },
         "Type": {
           "target": "com.amazonaws.services.blue#ValidatorType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and <code>LAMBDA</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and <code>LAMBDA</code>\n         </p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A validator provides a syntactic or semantic check to ensure the configuration you want\n         to deploy functions as intended. To validate your application configuration data, you\n         provide a schema or a Lambda function that runs against the configuration. The\n         configuration deployment or update can only proceed when the configuration data is\n         valid.</p>\n      "
+        "smithy.api#documentation": "<p>A validator provides a syntactic or semantic check to ensure the configuration you want\n         to deploy functions as intended. To validate your application configuration data, you\n         provide a schema or a Lambda function that runs against the configuration. The\n         configuration deployment or update can only proceed when the configuration data is\n         valid.</p>"
       }
     },
     "com.amazonaws.services.blue#ValidatorList": {

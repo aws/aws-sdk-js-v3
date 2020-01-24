@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -43,30 +48,30 @@
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the component.</p>"
           }
         },
         "Monitor": {
           "target": "com.amazonaws.ec2windowsbarley#Monitor",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates whether the application component is monitored. </p>\n      "
+            "smithy.api#documentation": "<p>Indicates whether the application component is monitored. </p>"
           }
         },
         "ResourceType": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.</p>\n      "
+            "smithy.api#documentation": "<p>The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue.</p>"
           }
         },
         "Tier": {
           "target": "com.amazonaws.ec2windowsbarley#Tier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The stack tier of the application component.</p>\n      "
+            "smithy.api#documentation": "<p>The stack tier of the application component.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes a standalone resource or similarly grouped resources that the application is made\n         up of.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a standalone resource or similarly grouped resources that the application is made\n         up of.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#ApplicationComponentList": {
@@ -81,36 +86,36 @@
         "LifeCycle": {
           "target": "com.amazonaws.ec2windowsbarley#LifeCycle",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The lifecycle of the application. </p>\n      "
+            "smithy.api#documentation": "<p>The lifecycle of the application. </p>"
           }
         },
         "OpsCenterEnabled": {
           "target": "com.amazonaws.ec2windowsbarley#OpsCenterEnabled",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         Indicates whether Application Insights will create opsItems for any problem detected by Application\n         Insights for an application.\n      </p>\n      "
+            "smithy.api#documentation": "<p>\n         Indicates whether Application Insights will create opsItems for any problem detected by Application\n         Insights for an application.\n      </p>"
           }
         },
         "OpsItemSNSTopicArn": {
           "target": "com.amazonaws.ec2windowsbarley#OpsItemSNSTopicArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications\n         for opsItem updates.\n      </p>\n      "
+            "smithy.api#documentation": "<p>\n         The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications\n         for opsItem updates.\n      </p>"
           }
         },
         "Remarks": {
           "target": "com.amazonaws.ec2windowsbarley#Remarks",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The issues on the user side that block Application Insights from successfully monitoring\n         an application.</p>\n      "
+            "smithy.api#documentation": "<p>The issues on the user side that block Application Insights from successfully monitoring\n         an application. Example remarks include:</p>\n         <ul>\n            <li>\n               <p>“Configuring application, detected 1 Errors, 3 Warnings”</p>\n            </li>\n            <li>\n               <p>“Configuring application, detected 1 Unconfigured Components”</p>\n            </li>\n         </ul>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group used for the application.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group used for the application.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the status of the application.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the status of the application.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#ApplicationInfoList": {
@@ -127,7 +132,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The request is not understood by the server.</p>\n      ",
+        "smithy.api#documentation": "<p>The request is not understood by the server.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -143,6 +148,88 @@
     },
     "com.amazonaws.ec2windowsbarley#ComponentName": {
       "type": "string"
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEvent": {
+      "type": "structure",
+      "members": {
+        "EventDetail": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The details of the event in plain text. \n      </p>"
+          }
+        },
+        "EventResourceName": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The name of the resource Application Insights attempted to configure. \n      </p>"
+          }
+        },
+        "EventResourceType": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The resource type that Application Insights attempted to configure, for example, CLOUDWATCH_ALARM.\n      </p>"
+          }
+        },
+        "EventStatus": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The status of the configuration update event. Possible values include INFO, WARN, and ERROR.\n      </p>"
+          }
+        },
+        "EventTime": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventTime",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The timestamp of the event. \n      </p>"
+          }
+        },
+        "MonitoredResourceARN": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventMonitoredResourceARN",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The resource monitored by Application Insights.\n      </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n         The event information.\n      </p>"
+      }
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEventDetail": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEventList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2windowsbarley#ConfigurationEvent"
+      }
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEventMonitoredResourceARN": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEventResourceName": {
+      "type": "string"
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEventResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "CLOUDWATCH_ALARM": { },
+          "CLOUDFORMATION": { },
+          "SSM_ASSOCIATION": { }
+        }
+      }
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEventStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "INFO": { },
+          "WARN": { },
+          "ERROR": { }
+        }
+      }
+    },
+    "com.amazonaws.ec2windowsbarley#ConfigurationEventTime": {
+      "type": "timestamp"
     },
     "com.amazonaws.ec2windowsbarley#CreateApplication": {
       "type": "operation",
@@ -170,7 +257,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds an application that is created from a resource group.</p>\n      "
+        "smithy.api#documentation": "<p>Adds an application that is created from a resource group.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#CreateApplicationRequest": {
@@ -179,26 +266,26 @@
         "OpsCenterEnabled": {
           "target": "com.amazonaws.ec2windowsbarley#OpsCenterEnabled",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>\n      "
+            "smithy.api#documentation": "<p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>"
           }
         },
         "OpsItemSNSTopicArn": {
           "target": "com.amazonaws.ec2windowsbarley#OpsItemSNSTopicArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to\n         receive notifications for updates to the opsItem.\n      </p>\n      "
+            "smithy.api#documentation": "<p>\n         The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to\n         receive notifications for updates to the opsItem.\n      </p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.ec2windowsbarley#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>List of tags to add to the application.\n         tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n         length of a tag key is 128 characters. The maximum length of a tag value is 256\n         characters.</p>\n      "
+            "smithy.api#documentation": "<p>List of tags to add to the application.\n         tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n         length of a tag key is 128 characters. The maximum length of a tag value is 256\n         characters.</p>"
           }
         }
       }
@@ -209,7 +296,7 @@
         "ApplicationInfo": {
           "target": "com.amazonaws.ec2windowsbarley#ApplicationInfo",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the application.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the application.</p>"
           }
         }
       }
@@ -237,7 +324,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a custom component by grouping similar standalone instances to monitor.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a custom component by grouping similar standalone instances to monitor.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#CreateComponentRequest": {
@@ -246,21 +333,21 @@
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceList": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of resource ARNs that belong to the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The list of resource ARNs that belong to the component.</p>",
             "smithy.api#required": true
           }
         }
@@ -293,7 +380,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds an log pattern to a <code>LogPatternSet</code>.</p>\n      "
+        "smithy.api#documentation": "<p>Adds an log pattern to a <code>LogPatternSet</code>.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#CreateLogPatternRequest": {
@@ -302,35 +389,35 @@
         "Pattern": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternRegex",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The log pattern.</p>\n      ",
+            "smithy.api#documentation": "<p>The log pattern.</p>",
             "smithy.api#required": true
           }
         },
         "PatternName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern.</p>",
             "smithy.api#required": true
           }
         },
         "PatternSetName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternSetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern set.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern set.</p>",
             "smithy.api#required": true
           }
         },
         "Rank": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternRank",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Rank of the log pattern.</p>\n      ",
+            "smithy.api#documentation": "<p>Rank of the log pattern.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -342,13 +429,13 @@
         "LogPattern": {
           "target": "com.amazonaws.ec2windowsbarley#LogPattern",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The successfully created log pattern.</p>\n      "
+            "smithy.api#documentation": "<p>The successfully created log pattern.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -376,7 +463,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes the specified application from monitoring. Does not delete the application.</p>\n      "
+        "smithy.api#documentation": "<p>Removes the specified application from monitoring. Does not delete the application.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DeleteApplicationRequest": {
@@ -385,7 +472,7 @@
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -415,7 +502,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Ungroups a custom component. When you ungroup custom components, all applicable\n         monitors that are set up for the component are removed and the instances revert to their standalone status.</p>\n      "
+        "smithy.api#documentation": "<p>Ungroups a custom component. When you ungroup custom components, all applicable\n         monitors that are set up for the component are removed and the instances revert to their standalone status.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DeleteComponentRequest": {
@@ -424,14 +511,14 @@
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -464,7 +551,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>\n      "
+        "smithy.api#documentation": "<p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DeleteLogPatternRequest": {
@@ -473,21 +560,21 @@
         "PatternName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern.</p>",
             "smithy.api#required": true
           }
         },
         "PatternSetName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternSetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern set.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern set.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -517,7 +604,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the application.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the application.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeApplicationRequest": {
@@ -526,7 +613,7 @@
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -538,7 +625,7 @@
         "ApplicationInfo": {
           "target": "com.amazonaws.ec2windowsbarley#ApplicationInfo",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the application.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the application.</p>"
           }
         }
       }
@@ -563,7 +650,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes a component and lists the resources that are grouped together in a component.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a component and lists the resources that are grouped together in a component.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeComponentConfiguration": {
@@ -586,7 +673,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the monitoring configuration of the component.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the monitoring configuration of the component.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeComponentConfigurationRecommendation": {
@@ -609,7 +696,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the recommended monitoring configuration of the component.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the recommended monitoring configuration of the component.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeComponentConfigurationRecommendationRequest": {
@@ -618,21 +705,21 @@
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         },
         "Tier": {
           "target": "com.amazonaws.ec2windowsbarley#Tier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tier of the application component. Supported tiers include\n         <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>,\n         and <code>DEFAULT</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The tier of the application component. Supported tiers include\n         <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>,\n         and <code>DEFAULT</code>.</p>",
             "smithy.api#required": true
           }
         }
@@ -644,7 +731,7 @@
         "ComponentConfiguration": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentConfiguration",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The recommended configuration settings of the component. The value is the escaped JSON of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The recommended configuration settings of the component. The value is the escaped JSON of the configuration.</p>"
           }
         }
       }
@@ -655,14 +742,14 @@
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -674,19 +761,19 @@
         "ComponentConfiguration": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentConfiguration",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>"
           }
         },
         "Monitor": {
           "target": "com.amazonaws.ec2windowsbarley#Monitor",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates whether the application component is monitored.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates whether the application component is monitored.</p>"
           }
         },
         "Tier": {
           "target": "com.amazonaws.ec2windowsbarley#Tier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tier of the application component. Supported tiers include\n         <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>,\n         <code>SQL_SERVER</code>, and <code>DEFAULT</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>The tier of the application component. Supported tiers include\n         <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>,\n         <code>SQL_SERVER</code>, and <code>DEFAULT</code>\n         </p>"
           }
         }
       }
@@ -697,14 +784,14 @@
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -719,7 +806,7 @@
         "ResourceList": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of resource ARNs that belong to the component.</p>\n      "
+            "smithy.api#documentation": "<p>The list of resource ARNs that belong to the component.</p>"
           }
         }
       }
@@ -744,7 +831,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>\n      "
+        "smithy.api#documentation": "<p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeLogPatternRequest": {
@@ -753,21 +840,21 @@
         "PatternName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern.</p>",
             "smithy.api#required": true
           }
         },
         "PatternSetName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternSetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern set.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern set.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -779,13 +866,13 @@
         "LogPattern": {
           "target": "com.amazonaws.ec2windowsbarley#LogPattern",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The successfully created log pattern.</p>\n      "
+            "smithy.api#documentation": "<p>The successfully created log pattern.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -810,7 +897,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes an anomaly or error with the application.</p>\n      "
+        "smithy.api#documentation": "<p>Describes an anomaly or error with the application.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeObservationRequest": {
@@ -819,7 +906,7 @@
         "ObservationId": {
           "target": "com.amazonaws.ec2windowsbarley#ObservationId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the observation.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the observation.</p>",
             "smithy.api#required": true
           }
         }
@@ -831,7 +918,7 @@
         "Observation": {
           "target": "com.amazonaws.ec2windowsbarley#Observation",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the observation.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the observation.</p>"
           }
         }
       }
@@ -856,7 +943,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes an application problem.</p>\n      "
+        "smithy.api#documentation": "<p>Describes an application problem.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeProblemObservations": {
@@ -879,7 +966,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes the anomalies or errors associated with the problem.</p>\n      "
+        "smithy.api#documentation": "<p>Describes the anomalies or errors associated with the problem.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#DescribeProblemObservationsRequest": {
@@ -888,7 +975,7 @@
         "ProblemId": {
           "target": "com.amazonaws.ec2windowsbarley#ProblemId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the problem.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the problem.</p>",
             "smithy.api#required": true
           }
         }
@@ -900,7 +987,7 @@
         "RelatedObservations": {
           "target": "com.amazonaws.ec2windowsbarley#RelatedObservations",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Observations related to the problem.</p>\n      "
+            "smithy.api#documentation": "<p>Observations related to the problem.</p>"
           }
         }
       }
@@ -911,7 +998,7 @@
         "ProblemId": {
           "target": "com.amazonaws.ec2windowsbarley#ProblemId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the problem.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the problem.</p>",
             "smithy.api#required": true
           }
         }
@@ -923,7 +1010,7 @@
         "Problem": {
           "target": "com.amazonaws.ec2windowsbarley#Problem",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the problem. </p>\n      "
+            "smithy.api#documentation": "<p>Information about the problem. </p>"
           }
         }
       }
@@ -981,6 +1068,9 @@
           "target": "com.amazonaws.ec2windowsbarley#ListComponents"
         },
         {
+          "target": "com.amazonaws.ec2windowsbarley#ListConfigurationHistory"
+        },
+        {
           "target": "com.amazonaws.ec2windowsbarley#ListLogPatternSets"
         },
         {
@@ -1018,7 +1108,7 @@
           "cloudFormationName": "ApplicationInsights",
           "cloudTrailEventSource": "ec2windowsbarley.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <fullname>Amazon CloudWatch Application Insights for .NET and SQL Server</fullname>\n         <p> Amazon CloudWatch Application Insights for .NET and SQL Server is a service that\n         helps you detect common problems with your .NET and SQL Server-based applications. It\n         enables you to pinpoint the source of issues in your applications (built with technologies\n         such as Microsoft IIS, .NET, and Microsoft SQL Server), by providing key insights into\n         detected problems.</p>\n         <p>After you onboard your application, CloudWatch Application Insights for .NET and SQL\n         Server identifies, recommends, and sets up metrics and logs. It continuously analyzes and\n         correlates your metrics and logs for unusual behavior to surface actionable problems with\n         your application. For example, if your application is slow and unresponsive and leading to\n         HTTP 500 errors in your Application Load Balancer (ALB), Application Insights informs you\n         that a memory pressure problem with your SQL Server database is occurring. It bases this\n         analysis on impactful metrics and log errors. </p>\n      ",
+        "smithy.api#documentation": "<fullname>Amazon CloudWatch Application Insights for .NET and SQL Server</fullname>\n         <p> Amazon CloudWatch Application Insights for .NET and SQL Server is a service that\n         helps you detect common problems with your .NET and SQL Server-based applications. It\n         enables you to pinpoint the source of issues in your applications (built with technologies\n         such as Microsoft IIS, .NET, and Microsoft SQL Server), by providing key insights into\n         detected problems.</p>\n         <p>After you onboard your application, CloudWatch Application Insights for .NET and SQL\n         Server identifies, recommends, and sets up metrics and logs. It continuously analyzes and\n         correlates your metrics and logs for unusual behavior to surface actionable problems with\n         your application. For example, if your application is slow and unresponsive and leading to\n         HTTP 500 errors in your Application Load Balancer (ALB), Application Insights informs you\n         that a memory pressure problem with your SQL Server database is occurring. It bases this\n         analysis on impactful metrics and log errors. </p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -1083,7 +1173,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The server encountered an internal error and is unable to complete the request.</p>\n      ",
+        "smithy.api#documentation": "<p>The server encountered an internal error and is unable to complete the request.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -1111,7 +1201,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the IDs of the applications that you are monitoring. </p>\n      ",
+        "smithy.api#documentation": "<p>Lists the IDs of the applications that you are monitoring. </p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1125,13 +1215,13 @@
         "MaxResults": {
           "target": "com.amazonaws.ec2windowsbarley#MaxEntities",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token to request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         }
       }
@@ -1142,13 +1232,13 @@
         "ApplicationInfoList": {
           "target": "com.amazonaws.ec2windowsbarley#ApplicationInfoList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of applications.</p>\n      "
+            "smithy.api#documentation": "<p>The list of applications.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>\n      "
+            "smithy.api#documentation": "<p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>"
           }
         }
       }
@@ -1173,7 +1263,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the auto-grouped, standalone, and custom components of the application.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the auto-grouped, standalone, and custom components of the application.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1187,19 +1277,19 @@
         "MaxResults": {
           "target": "com.amazonaws.ec2windowsbarley#MaxEntities",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token to request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -1211,13 +1301,99 @@
         "ApplicationComponentList": {
           "target": "com.amazonaws.ec2windowsbarley#ApplicationComponentList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of application components.</p>\n      "
+            "smithy.api#documentation": "<p>The list of application components.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token to request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2windowsbarley#ListConfigurationHistory": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2windowsbarley#ListConfigurationHistoryRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2windowsbarley#ListConfigurationHistoryResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ec2windowsbarley#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.ec2windowsbarley#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ec2windowsbarley#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n         Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by Application Insights. Examples of events represented are:\n      </p>\n         <ul>\n            <li>\n               <p>INFO: creating a new alarm or updating an alarm threshold.</p>\n            </li>\n            <li>\n               <p>WARN: alarm not created due to insufficient data points used to predict thresholds.</p>\n            </li>\n            <li>\n               <p>ERROR: alarm not created due to permission errors or exceeding quotas. </p>\n            </li>\n         </ul>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2windowsbarley#ListConfigurationHistoryRequest": {
+      "type": "structure",
+      "members": {
+        "EndTime": {
+          "target": "com.amazonaws.ec2windowsbarley#EndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of the event.</p>"
+          }
+        },
+        "EventStatus": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the configuration update event. Possible values include INFO, WARN, and ERROR.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2windowsbarley#MaxEntities",
+          "traits": {
+            "smithy.api#documentation": "<p> The maximum number of results returned by <code>ListConfigurationHistory</code> in\n         paginated output. When this parameter is used, <code>ListConfigurationHistory</code>\n         returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code>\n         response element. The remaining results of the initial request can be seen by sending\n         another <code>ListConfigurationHistory</code> request with the returned\n            <code>NextToken</code> value. If this parameter is not used, then\n            <code>ListConfigurationHistory</code> returns all results. </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where\n         <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination\n         continues from the end of the previous results that returned the <code>NextToken</code> value. This\n         value is <code>null</code> when there are no more results to return.</p>"
+          }
+        },
+        "ResourceGroupName": {
+          "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
+          "traits": {
+            "smithy.api#documentation": "<p>Resource group to which the application belongs. </p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.ec2windowsbarley#StartTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the event. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2windowsbarley#ListConfigurationHistoryResponse": {
+      "type": "structure",
+      "members": {
+        "EventList": {
+          "target": "com.amazonaws.ec2windowsbarley#ConfigurationEventList",
+          "traits": {
+            "smithy.api#documentation": "<p> The list of configuration events and their corresponding details. </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>NextToken</code> value to include in a future\n            <code>ListConfigurationHistory</code> request. When the results of a\n            <code>ListConfigurationHistory</code> request exceed <code>MaxResults</code>, this value\n         can be used to retrieve the next page of results. This value is <code>null</code> when\n         there are no more results to return.</p>"
           }
         }
       }
@@ -1242,7 +1418,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the log pattern sets in the specific application.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the log pattern sets in the specific application.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1256,19 +1432,19 @@
         "MaxResults": {
           "target": "com.amazonaws.ec2windowsbarley#MaxEntities",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token to request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -1280,19 +1456,19 @@
         "LogPatternSets": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternSetList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of log pattern sets.</p>\n      "
+            "smithy.api#documentation": "<p>The list of log pattern sets.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>\n      "
+            "smithy.api#documentation": "<p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -1317,7 +1493,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1331,25 +1507,25 @@
         "MaxResults": {
           "target": "com.amazonaws.ec2windowsbarley#MaxEntities",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token to request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         },
         "PatternSetName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternSetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern set.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the log pattern set.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -1361,19 +1537,19 @@
         "LogPatterns": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of log patterns.</p>\n      "
+            "smithy.api#documentation": "<p>The list of log patterns.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>\n      "
+            "smithy.api#documentation": "<p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -1398,7 +1574,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the problems with your application.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the problems with your application.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1412,31 +1588,31 @@
         "EndTime": {
           "target": "com.amazonaws.ec2windowsbarley#EndTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when the problem ended, in epoch seconds. If not specified, problems within the\n         past seven days are returned.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the problem ended, in epoch seconds. If not specified, problems within the\n         past seven days are returned.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.ec2windowsbarley#MaxEntities",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining\n         results, make another call with the returned <code>NextToken</code> value.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token to request the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.ec2windowsbarley#StartTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when the problem was detected, in epoch\n         seconds. If you don't specify a time frame for the request, problems within the past seven days are returned.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the problem was detected, in epoch\n         seconds. If you don't specify a time frame for the request, problems within the past seven days are returned.</p>"
           }
         }
       }
@@ -1447,13 +1623,13 @@
         "NextToken": {
           "target": "com.amazonaws.ec2windowsbarley#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>\n      "
+            "smithy.api#documentation": "<p>The token used to retrieve the next page of results. This value is <code>null</code>\n         when there are no more results to return. </p>"
           }
         },
         "ProblemList": {
           "target": "com.amazonaws.ec2windowsbarley#ProblemList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of problems. </p>\n      "
+            "smithy.api#documentation": "<p>The list of problems. </p>"
           }
         }
       }
@@ -1475,7 +1651,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve a list of the tags (keys and values) that are associated with a specified\n         application. A <i>tag</i> is a label that you optionally define and associate\n         with an application. Each tag consists of a required <i>tag key</i> and an\n         optional associated <i>tag value</i>. A tag key is a general label that\n         acts as a category for more specific tag values. A tag value acts as a descriptor within\n         a tag key.</p>\n      "
+        "smithy.api#documentation": "<p>Retrieve a list of the tags (keys and values) that are associated with a specified\n         application. A <i>tag</i> is a label that you optionally define and associate\n         with an application. Each tag consists of a required <i>tag key</i> and an\n         optional associated <i>tag value</i>. A tag key is a general label that\n         acts as a category for more specific tag values. A tag value acts as a descriptor within\n         a tag key.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#ListTagsForResourceRequest": {
@@ -1484,7 +1660,7 @@
         "ResourceARN": {
           "target": "com.amazonaws.ec2windowsbarley#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the application that you want to retrieve tag\n         information for.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application that you want to retrieve tag\n         information for.</p>",
             "smithy.api#required": true
           }
         }
@@ -1496,7 +1672,7 @@
         "Tags": {
           "target": "com.amazonaws.ec2windowsbarley#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array that lists all the tags that are associated with the application. Each tag\n         consists of a required tag key (<code>Key</code>) and an associated tag value\n         (<code>Value</code>).</p>\n      "
+            "smithy.api#documentation": "<p>An array that lists all the tags that are associated with the application. Each tag\n         consists of a required tag key (<code>Key</code>) and an associated tag value\n         (<code>Value</code>).</p>"
           }
         }
       }
@@ -1520,30 +1696,30 @@
         "Pattern": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternRegex",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A regular expression that defines the log pattern. A log pattern can contains at many as 50 characters, and it cannot\n         be empty.</p>\n      "
+            "smithy.api#documentation": "<p>A regular expression that defines the log pattern. A log pattern can contains at many as 50 characters, and it cannot\n         be empty.</p>"
           }
         },
         "PatternName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern. A log pattern name can contains at many as 50 characters, and it cannot\n         be empty. The characters can be Unicode letters, digits or one of the following symbols: period, dash, underscore.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the log pattern. A log pattern name can contains at many as 50 characters, and it cannot\n         be empty. The characters can be Unicode letters, digits or one of the following symbols: period, dash, underscore.</p>"
           }
         },
         "PatternSetName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternSetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern. A log pattern name can contains at many as 30 characters, and it cannot\n         be empty. The characters can be Unicode letters, digits or one of the following symbols: period, dash, underscore.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the log pattern. A log pattern name can contains at many as 30 characters, and it cannot\n         be empty. The characters can be Unicode letters, digits or one of the following symbols: period, dash, underscore.</p>"
           }
         },
         "Rank": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternRank",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Rank of the log pattern.</p>\n      "
+            "smithy.api#documentation": "<p>Rank of the log pattern.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that defines the log patterns that belongs to a <code>LogPatternSet</code>.</p>\n      "
+        "smithy.api#documentation": "<p>An object that defines the log patterns that belongs to a <code>LogPatternSet</code>.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#LogPatternList": {
@@ -1621,84 +1797,84 @@
         "EndTime": {
           "target": "com.amazonaws.ec2windowsbarley#EndTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when the observation ended, in epoch seconds.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the observation ended, in epoch seconds.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.ec2windowsbarley#ObservationId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the observation type.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the observation type.</p>"
           }
         },
         "LineTime": {
           "target": "com.amazonaws.ec2windowsbarley#LineTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp in the CloudWatch Logs that specifies when the matched line occurred.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp in the CloudWatch Logs that specifies when the matched line occurred.</p>"
           }
         },
         "LogFilter": {
           "target": "com.amazonaws.ec2windowsbarley#LogFilter",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The log filter of the observation.</p>\n      "
+            "smithy.api#documentation": "<p>The log filter of the observation.</p>"
           }
         },
         "LogGroup": {
           "target": "com.amazonaws.ec2windowsbarley#LogGroup",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The log group name.</p>\n      "
+            "smithy.api#documentation": "<p>The log group name.</p>"
           }
         },
         "LogText": {
           "target": "com.amazonaws.ec2windowsbarley#LogText",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The log text of the observation.</p>\n      "
+            "smithy.api#documentation": "<p>The log text of the observation.</p>"
           }
         },
         "MetricName": {
           "target": "com.amazonaws.ec2windowsbarley#MetricName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the observation metric.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the observation metric.</p>"
           }
         },
         "MetricNamespace": {
           "target": "com.amazonaws.ec2windowsbarley#MetricNamespace",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The namespace of the observation metric.</p>\n      "
+            "smithy.api#documentation": "<p>The namespace of the observation metric.</p>"
           }
         },
         "SourceARN": {
           "target": "com.amazonaws.ec2windowsbarley#SourceARN",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The source resource ARN of the observation.</p>\n      "
+            "smithy.api#documentation": "<p>The source resource ARN of the observation.</p>"
           }
         },
         "SourceType": {
           "target": "com.amazonaws.ec2windowsbarley#SourceType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The source type of the observation.</p>\n      "
+            "smithy.api#documentation": "<p>The source type of the observation.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.ec2windowsbarley#StartTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when the observation was  first detected, in epoch seconds.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the observation was  first detected, in epoch seconds.</p>"
           }
         },
         "Unit": {
           "target": "com.amazonaws.ec2windowsbarley#Unit",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unit of the source observation metric.</p>\n      "
+            "smithy.api#documentation": "<p>The unit of the source observation metric.</p>"
           }
         },
         "Value": {
           "target": "com.amazonaws.ec2windowsbarley#Value",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The value of the source observation metric.</p>\n      "
+            "smithy.api#documentation": "<p>The value of the source observation metric.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes an anomaly or error with the application.</p>\n      "
+        "smithy.api#documentation": "<p>Describes an anomaly or error with the application.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#ObservationId": {
@@ -1741,66 +1917,66 @@
         "AffectedResource": {
           "target": "com.amazonaws.ec2windowsbarley#AffectedResource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource affected by the problem.</p>\n      "
+            "smithy.api#documentation": "<p>The resource affected by the problem.</p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.ec2windowsbarley#EndTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when the problem ended, in epoch seconds.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the problem ended, in epoch seconds.</p>"
           }
         },
         "Feedback": {
           "target": "com.amazonaws.ec2windowsbarley#Feedback",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Feedback provided by the user about the problem.</p>\n      "
+            "smithy.api#documentation": "<p>Feedback provided by the user about the problem.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.ec2windowsbarley#ProblemId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the problem.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the problem.</p>"
           }
         },
         "Insights": {
           "target": "com.amazonaws.ec2windowsbarley#Insights",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A detailed analysis of the problem using machine learning.</p>\n      "
+            "smithy.api#documentation": "<p>A detailed analysis of the problem using machine learning.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group affected by the problem.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group affected by the problem.</p>"
           }
         },
         "SeverityLevel": {
           "target": "com.amazonaws.ec2windowsbarley#SeverityLevel",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A measure of the level of impact of the problem.</p>\n      "
+            "smithy.api#documentation": "<p>A measure of the level of impact of the problem.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.ec2windowsbarley#StartTime",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when the problem started, in epoch seconds.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the problem started, in epoch seconds.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.ec2windowsbarley#Status",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the problem.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the problem.</p>"
           }
         },
         "Title": {
           "target": "com.amazonaws.ec2windowsbarley#Title",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the problem.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes a problem that is detected by correlating observations.</p>\n      "
+        "smithy.api#documentation": "<p>Describes a problem that is detected by correlating observations.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#ProblemId": {
@@ -1825,12 +2001,12 @@
         "ObservationList": {
           "target": "com.amazonaws.ec2windowsbarley#ObservationList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of observations related to the problem.</p>\n      "
+            "smithy.api#documentation": "<p>The list of observations related to the problem.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes observations related to the problem.</p>\n      "
+        "smithy.api#documentation": "<p>Describes observations related to the problem.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#Remarks": {
@@ -1869,7 +2045,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The resource is already created or in use.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource is already created or in use.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1888,7 +2064,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The resource does not exist in the customer account.</p>\n      ",
+        "smithy.api#documentation": "<p>The resource does not exist in the customer account.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1931,20 +2107,20 @@
         "Key": {
           "target": "com.amazonaws.ec2windowsbarley#TagKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is\n         128 characters. The minimum length is 1 character.</p>\n      ",
+            "smithy.api#documentation": "<p>One part of a key-value pair that defines a tag. The maximum length of a tag key is\n         128 characters. The minimum length is 1 character.</p>",
             "smithy.api#required": true
           }
         },
         "Value": {
           "target": "com.amazonaws.ec2windowsbarley#TagValue",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag\n         value is 256 characters. The minimum length is 0 characters. If you don't want an\n         application to have a specific tag value, don't specify a value for this parameter.</p>\n      ",
+            "smithy.api#documentation": "<p>The optional part of a key-value pair that defines a tag. The maximum length of a tag\n         value is 256 characters. The minimum length is 0 characters. If you don't want an\n         application to have a specific tag value, don't specify a value for this parameter.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object that defines the tags associated with an application.\n         A <i>tag</i> is a label that you optionally define and associate with\n         an application. Tags can help you categorize and manage resources in different ways, such as\n         by purpose, owner, environment, or other criteria.</p>\n         <p>Each tag consists of a required <i>tag key</i> and an\n         associated <i>tag value</i>, both of which you define. A tag key is a\n         general label that acts as a category for a more specific tag value. A tag value acts as\n         a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag\n         value can contain as many as 256 characters. The characters can be Unicode letters,\n         digits, white space, or one of the following symbols: _ . : / = + -. The following\n         additional restrictions apply to tags:</p>\n         <ul>\n            <li>\n               <p>Tag keys and values are case sensitive.</p>\n            </li>\n            <li>\n               <p>For each associated resource, each tag key must be unique and it can have only\n               one value.</p>\n            </li>\n            <li>\n               <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in\n               any tag keys or values that you define. In addition, you can't edit or remove\n               tag keys or values that use this prefix. </p>\n            </li>\n         </ul>\n      "
+        "smithy.api#documentation": "<p>An object that defines the tags associated with an application.\n         A <i>tag</i> is a label that you optionally define and associate with\n         an application. Tags can help you categorize and manage resources in different ways, such as\n         by purpose, owner, environment, or other criteria.</p>\n         <p>Each tag consists of a required <i>tag key</i> and an\n         associated <i>tag value</i>, both of which you define. A tag key is a\n         general label that acts as a category for a more specific tag value. A tag value acts as\n         a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag\n         value can contain as many as 256 characters. The characters can be Unicode letters,\n         digits, white space, or one of the following symbols: _ . : / = + -. The following\n         additional restrictions apply to tags:</p>\n         <ul>\n            <li>\n               <p>Tag keys and values are case sensitive.</p>\n            </li>\n            <li>\n               <p>For each associated resource, each tag key must be unique and it can have only\n               one value.</p>\n            </li>\n            <li>\n               <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in\n               any tag keys or values that you define. In addition, you can't edit or remove\n               tag keys or values that use this prefix. </p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.ec2windowsbarley#TagKey": {
@@ -2000,7 +2176,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Add one or more tags (keys and values) to a specified application. A\n         <i>tag</i> is a label that you optionally define and associate with an\n         application. Tags can help you categorize and manage application in different ways, such as\n         by purpose, owner, environment, or other criteria. </p>\n         <p>Each tag consists of a required <i>tag key</i> and an\n         associated <i>tag value</i>, both of which you define. A tag key is a\n         general label that acts as a category for more specific tag values. A tag value acts as\n         a descriptor within a tag key.</p>\n      "
+        "smithy.api#documentation": "<p>Add one or more tags (keys and values) to a specified application. A\n         <i>tag</i> is a label that you optionally define and associate with an\n         application. Tags can help you categorize and manage application in different ways, such as\n         by purpose, owner, environment, or other criteria. </p>\n         <p>Each tag consists of a required <i>tag key</i> and an\n         associated <i>tag value</i>, both of which you define. A tag key is a\n         general label that acts as a category for more specific tag values. A tag value acts as\n         a descriptor within a tag key.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#TagResourceRequest": {
@@ -2009,14 +2185,14 @@
         "ResourceARN": {
           "target": "com.amazonaws.ec2windowsbarley#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.ec2windowsbarley#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of tags that to add to the application. A tag consists of a required\n         tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n         length of a tag key is 128 characters. The maximum length of a tag value is 256\n         characters.</p>\n      ",
+            "smithy.api#documentation": "<p>A list of tags that to add to the application. A tag consists of a required\n         tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum\n         length of a tag key is 128 characters. The maximum length of a tag value is 256\n         characters.</p>",
             "smithy.api#required": true
           }
         }
@@ -2043,7 +2219,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Tags are already registered for the specified application ARN.</p>\n      ",
+        "smithy.api#documentation": "<p>Tags are already registered for the specified application ARN.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -2076,12 +2252,12 @@
         "ResourceName": {
           "target": "com.amazonaws.ec2windowsbarley#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource with too many tags.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource with too many tags.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The number of the provided tags is beyond the limit, or\n         the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>\n      ",
+        "smithy.api#documentation": "<p>The number of the provided tags is beyond the limit, or\n         the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -2106,7 +2282,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Remove one or more tags (keys and values) from a specified application.</p>\n      "
+        "smithy.api#documentation": "<p>Remove one or more tags (keys and values) from a specified application.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#UntagResourceRequest": {
@@ -2115,14 +2291,14 @@
         "ResourceARN": {
           "target": "com.amazonaws.ec2windowsbarley#AmazonResourceName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from.</p>",
             "smithy.api#required": true
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.ec2windowsbarley#TagKeyList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag\n         key, the action removes both that key and its associated tag value.</p>\n         <p>To remove more than one tag from the application, append the <code>TagKeys</code>\n         parameter and argument for each additional tag to remove, separated by an ampersand.\n      </p>\n      ",
+            "smithy.api#documentation": "<p>The tags (tag keys) that you want to remove from the resource. When you specify a tag\n         key, the action removes both that key and its associated tag value.</p>\n         <p>To remove more than one tag from the application, append the <code>TagKeys</code>\n         parameter and argument for each additional tag to remove, separated by an ampersand.\n      </p>",
             "smithy.api#required": true
           }
         }
@@ -2152,7 +2328,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the application.</p>\n      "
+        "smithy.api#documentation": "<p>Updates the application.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#UpdateApplicationRequest": {
@@ -2161,25 +2337,25 @@
         "OpsCenterEnabled": {
           "target": "com.amazonaws.ec2windowsbarley#OpsCenterEnabled",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>\n      "
+            "smithy.api#documentation": "<p>\n         When set to <code>true</code>, creates opsItems for any problems detected on an application.\n      </p>"
           }
         },
         "OpsItemSNSTopicArn": {
           "target": "com.amazonaws.ec2windowsbarley#OpsItemSNSTopicArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to\n         receive notifications for updates to the opsItem.</p>\n      "
+            "smithy.api#documentation": "<p>\n         The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to\n         receive notifications for updates to the opsItem.</p>"
           }
         },
         "RemoveSNSTopic": {
           "target": "com.amazonaws.ec2windowsbarley#RemoveSNSTopic",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n         Disassociates the SNS topic from the opsItem created for detected problems.</p>\n      "
+            "smithy.api#documentation": "<p>\n         Disassociates the SNS topic from the opsItem created for detected problems.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -2191,7 +2367,7 @@
         "ApplicationInfo": {
           "target": "com.amazonaws.ec2windowsbarley#ApplicationInfo",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the application. </p>\n      "
+            "smithy.api#documentation": "<p>Information about the application. </p>"
           }
         }
       }
@@ -2219,7 +2395,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the custom component name and/or the list of resources that make up the\n         component.</p>\n\n      "
+        "smithy.api#documentation": "<p>Updates the custom component name and/or the list of resources that make up the\n         component.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#UpdateComponentConfiguration": {
@@ -2242,7 +2418,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the monitoring configurations for the component. The configuration input parameter\n         is an escaped JSON of the configuration and should match the schema of what is returned\n         by <code>DescribeComponentConfigurationRecommendation</code>. </p>\n      "
+        "smithy.api#documentation": "<p>Updates the monitoring configurations for the component. The configuration input parameter\n         is an escaped JSON of the configuration and should match the schema of what is returned\n         by <code>DescribeComponentConfigurationRecommendation</code>. </p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#UpdateComponentConfigurationRequest": {
@@ -2251,33 +2427,33 @@
         "ComponentConfiguration": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentConfiguration",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The configuration settings of the component. The value is the escaped JSON of the configuration. For\n         more information about the JSON format, see <a href=\"https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html\">Working with JSON</a>.\n         You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete\n         format of the component configuration file, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html\">Component Configuration</a>.</p>\n      "
+            "smithy.api#documentation": "<p>The configuration settings of the component. The value is the escaped JSON of the configuration. For\n         more information about the JSON format, see <a href=\"https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html\">Working with JSON</a>.\n         You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete\n         format of the component configuration file, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html\">Component Configuration</a>.</p>"
           }
         },
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": true
           }
         },
         "Monitor": {
           "target": "com.amazonaws.ec2windowsbarley#Monitor",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates whether the application component is monitored.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates whether the application component is monitored.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         },
         "Tier": {
           "target": "com.amazonaws.ec2windowsbarley#Tier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,\n         <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,\n         <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</p>"
           }
         }
       }
@@ -2292,27 +2468,27 @@
         "ComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#ComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the component.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the component.</p>",
             "smithy.api#required": true
           }
         },
         "NewComponentName": {
           "target": "com.amazonaws.ec2windowsbarley#NewComponentName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new name of the component.</p>\n      "
+            "smithy.api#documentation": "<p>The new name of the component.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         },
         "ResourceList": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of resource ARNs that belong to the component.</p>\n      "
+            "smithy.api#documentation": "<p>The list of resource ARNs that belong to the component.</p>"
           }
         }
       }
@@ -2344,7 +2520,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds a log pattern to a <code>LogPatternSet</code>.</p>\n      "
+        "smithy.api#documentation": "<p>Adds a log pattern to a <code>LogPatternSet</code>.</p>"
       }
     },
     "com.amazonaws.ec2windowsbarley#UpdateLogPatternRequest": {
@@ -2353,33 +2529,33 @@
         "Pattern": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternRegex",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The log pattern.</p>\n      "
+            "smithy.api#documentation": "<p>The log pattern.</p>"
           }
         },
         "PatternName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern.</p>",
             "smithy.api#required": true
           }
         },
         "PatternSetName": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternSetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the log pattern set.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the log pattern set.</p>",
             "smithy.api#required": true
           }
         },
         "Rank": {
           "target": "com.amazonaws.ec2windowsbarley#LogPatternRank",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Rank of the log pattern.</p>\n      "
+            "smithy.api#documentation": "<p>Rank of the log pattern.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the resource group.</p>",
             "smithy.api#required": true
           }
         }
@@ -2391,13 +2567,13 @@
         "LogPattern": {
           "target": "com.amazonaws.ec2windowsbarley#LogPattern",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The successfully created log pattern.</p>\n      "
+            "smithy.api#documentation": "<p>The successfully created log pattern.</p>"
           }
         },
         "ResourceGroupName": {
           "target": "com.amazonaws.ec2windowsbarley#ResourceGroupName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the resource group.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the resource group.</p>"
           }
         }
       }
@@ -2410,7 +2586,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The parameter is not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The parameter is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }

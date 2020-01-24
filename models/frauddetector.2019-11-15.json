@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -127,7 +132,7 @@
           "cloudFormationName": "FraudDetector",
           "cloudTrailEventSource": "servicefacade.hawksnest.amazonaws.com"
         },
-        "smithy.api#documentation": "\n        <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need\n            detailed information about Amazon Fraud Detector API actions, data types, and errors. For\n            more information about Amazon Fraud Detector features, see the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/\">Amazon Fraud Detector User Guide</a>.</p>\n      ",
+        "smithy.api#documentation": "<p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need\n            detailed information about Amazon Fraud Detector API actions, data types, and errors. For\n            more information about Amazon Fraud Detector features, see the <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/\">Amazon Fraud Detector User Guide</a>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -162,7 +167,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a batch of variables.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a batch of variables.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableError": {
@@ -171,24 +176,24 @@
         "code": {
           "target": "com.amazonaws.hawksnest.servicefacade#integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The error code. </p>\n      "
+            "smithy.api#documentation": "<p>The error code. </p>"
           }
         },
         "message": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The error message.</p>\n      "
+            "smithy.api#documentation": "<p>The error message.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name.</p>\n      "
+            "smithy.api#documentation": "<p>The name.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Provides the error of the batch create variable API.</p>\n      "
+        "smithy.api#documentation": "<p>Provides the error of the batch create variable API.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableErrorList": {
@@ -203,7 +208,7 @@
         "variableEntries": {
           "target": "com.amazonaws.hawksnest.servicefacade#VariableEntryList",
           "traits": {
-            "smithy.api#documentation": "\n             <p>The list of variables for the batch create variable request.</p>\n      ",
+            "smithy.api#documentation": "<p>The list of variables for the batch create variable request.</p>",
             "smithy.api#required": true
           }
         }
@@ -215,7 +220,7 @@
         "errors": {
           "target": "com.amazonaws.hawksnest.servicefacade#BatchCreateVariableErrorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>\n      "
+            "smithy.api#documentation": "<p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>"
           }
         }
       }
@@ -240,7 +245,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a batch of variables.</p>\n      "
+        "smithy.api#documentation": "<p>Gets a batch of variables.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#BatchGetVariableError": {
@@ -249,24 +254,24 @@
         "code": {
           "target": "com.amazonaws.hawksnest.servicefacade#integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The error code. </p>\n      "
+            "smithy.api#documentation": "<p>The error code. </p>"
           }
         },
         "message": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The error message.</p>\n      "
+            "smithy.api#documentation": "<p>The error message.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The error name. </p>\n      "
+            "smithy.api#documentation": "<p>The error name. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Provides the error of the batch get variable API.</p>\n      "
+        "smithy.api#documentation": "<p>Provides the error of the batch get variable API.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#BatchGetVariableErrorList": {
@@ -281,7 +286,7 @@
         "names": {
           "target": "com.amazonaws.hawksnest.servicefacade#NameList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of variable names to get.</p>\n      ",
+            "smithy.api#documentation": "<p>The list of variable names to get.</p>",
             "smithy.api#required": true
           }
         }
@@ -293,13 +298,13 @@
         "errors": {
           "target": "com.amazonaws.hawksnest.servicefacade#BatchGetVariableErrorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The errors from the request.</p>\n      "
+            "smithy.api#documentation": "<p>The errors from the request.</p>"
           }
         },
         "variables": {
           "target": "com.amazonaws.hawksnest.servicefacade#VariableList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The returned variables.</p>\n      "
+            "smithy.api#documentation": "<p>The returned variables.</p>"
           }
         }
       }
@@ -327,7 +332,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#CreateDetectorVersionRequest": {
@@ -336,32 +341,32 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the detector version.</p>"
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the detector under which you want to create a new version.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the detector under which you want to create a new version.</p>",
             "smithy.api#required": true
           }
         },
         "externalModelEndpoints": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Sagemaker model endpoints to include in the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Sagemaker model endpoints to include in the detector version.</p>"
           }
         },
         "modelVersions": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelVersions",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model versions to include in the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The model versions to include in the detector version.</p>"
           }
         },
         "rules": {
           "target": "com.amazonaws.hawksnest.servicefacade#RuleList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rules to include in the detector version.</p>\n      ",
+            "smithy.api#documentation": "<p>The rules to include in the detector version.</p>",
             "smithy.api#required": true
           }
         }
@@ -373,19 +378,19 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID for the created version's parent detector.</p>\n      "
+            "smithy.api#documentation": "<p>The ID for the created version's parent detector.</p>"
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID for the created detector. </p>\n      "
+            "smithy.api#documentation": "<p>The ID for the created detector. </p>"
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the detector version.</p>"
           }
         }
       }
@@ -410,7 +415,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a version of the model using the specified model type.\n        </p>\n      "
+        "smithy.api#documentation": "<p>Creates a version of the model using the specified model type.\n        </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#CreateModelVersionRequest": {
@@ -419,20 +424,20 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version description.</p>\n      "
+            "smithy.api#documentation": "<p>The model version description.</p>"
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The model ID. </p>",
             "smithy.api#required": true
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type.</p>\n      ",
+            "smithy.api#documentation": "<p>The model type.</p>",
             "smithy.api#required": true
           }
         }
@@ -444,25 +449,25 @@
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID. </p>\n      "
+            "smithy.api#documentation": "<p>The model ID. </p>"
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type.</p>\n      "
+            "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVersionNumber": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The version of the model. </p>\n      "
+            "smithy.api#documentation": "<p>The version of the model. </p>"
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version status. </p>\n      "
+            "smithy.api#documentation": "<p>The model version status. </p>"
           }
         }
       }
@@ -487,7 +492,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a rule for use with the specified detector. </p>\n      "
+        "smithy.api#documentation": "<p>Creates a rule for use with the specified detector. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#CreateRuleRequest": {
@@ -496,41 +501,41 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule description.</p>\n      "
+            "smithy.api#documentation": "<p>The rule description.</p>"
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID for the rule's parent detector.</p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID for the rule's parent detector.</p>",
             "smithy.api#required": true
           }
         },
         "expression": {
           "target": "com.amazonaws.hawksnest.servicefacade#ruleExpression",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule expression.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule expression.</p>",
             "smithy.api#required": true
           }
         },
         "language": {
           "target": "com.amazonaws.hawksnest.servicefacade#Language",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The language of the rule.</p>\n      ",
+            "smithy.api#documentation": "<p>The language of the rule.</p>",
             "smithy.api#required": true
           }
         },
         "outcomes": {
           "target": "com.amazonaws.hawksnest.servicefacade#NonEmptyListOfStrings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The outcome or outcomes returned when the rule expression matches.</p>\n      ",
+            "smithy.api#documentation": "<p>The outcome or outcomes returned when the rule expression matches.</p>",
             "smithy.api#required": true
           }
         },
         "ruleId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule ID.</p>",
             "smithy.api#required": true
           }
         }
@@ -542,7 +547,7 @@
         "rule": {
           "target": "com.amazonaws.hawksnest.servicefacade#Rule",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The created rule.</p>\n      "
+            "smithy.api#documentation": "<p>The created rule.</p>"
           }
         }
       }
@@ -567,7 +572,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a variable.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a variable.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#CreateVariableRequest": {
@@ -576,41 +581,41 @@
         "dataSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#DataSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The source of the data.</p>\n      ",
+            "smithy.api#documentation": "<p>The source of the data.</p>",
             "smithy.api#required": true
           }
         },
         "dataType": {
           "target": "com.amazonaws.hawksnest.servicefacade#DataType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The data type.</p>\n      ",
+            "smithy.api#documentation": "<p>The data type.</p>",
             "smithy.api#required": true
           }
         },
         "defaultValue": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The default value for the variable when no value is received.</p>\n      ",
+            "smithy.api#documentation": "<p>The default value for the variable when no value is received.</p>",
             "smithy.api#required": true
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description.</p>\n      "
+            "smithy.api#documentation": "<p>The description.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the variable.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the variable.</p>",
             "smithy.api#required": true
           }
         },
         "variableType": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The variable type.</p>\n      "
+            "smithy.api#documentation": "<p>The variable type.</p>"
           }
         }
       }
@@ -686,7 +691,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the detector version.</p>\n      "
+        "smithy.api#documentation": "<p>Deletes the detector version.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#DeleteDetectorVersionRequest": {
@@ -695,14 +700,14 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the parent detector for the detector version to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the parent detector for the detector version to delete.</p>",
             "smithy.api#required": true
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the detector version to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the detector version to delete.</p>",
             "smithy.api#required": true
           }
         }
@@ -729,7 +734,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified event.</p>\n      "
+        "smithy.api#documentation": "<p>Deletes the specified event.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#DeleteEventRequest": {
@@ -738,7 +743,7 @@
         "eventId": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the event to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the event to delete.</p>",
             "smithy.api#required": true
           }
         }
@@ -771,7 +776,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets all versions for a specified detector.</p>\n      "
+        "smithy.api#documentation": "<p>Gets all versions for a specified detector.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#DescribeDetectorRequest": {
@@ -780,20 +785,20 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID.</p>",
             "smithy.api#required": true
           }
         },
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionMaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum number of results to return for the request.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return for the request.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next token from the previous response.</p>\n      "
+            "smithy.api#documentation": "<p>The next token from the previous response.</p>"
           }
         }
       }
@@ -804,19 +809,19 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      "
+            "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "detectorVersionSummaries": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionSummaryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status and description for each detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The status and description for each detector version.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next token to be used for subsequent requests.</p>\n      "
+            "smithy.api#documentation": "<p>The next token to be used for subsequent requests.</p>"
           }
         }
       }
@@ -844,7 +849,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>\n      ",
+        "smithy.api#documentation": "<p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -858,31 +863,31 @@
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID.</p>\n      "
+            "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type.</p>\n      "
+            "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVersionNumber": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version. </p>\n      "
+            "smithy.api#documentation": "<p>The model version. </p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next token from the previous results.</p>\n      "
+            "smithy.api#documentation": "<p>The next token from the previous results.</p>"
           }
         }
       }
@@ -893,13 +898,13 @@
         "modelVersionDetails": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelVersionDetailList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version details.</p>\n      "
+            "smithy.api#documentation": "<p>The model version details.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The next token.</p>\n      "
+            "smithy.api#documentation": "<p>The next token.</p>"
           }
         }
       }
@@ -910,30 +915,30 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of when the detector was created.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of when the detector was created.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector description.</p>\n      "
+            "smithy.api#documentation": "<p>The detector description.</p>"
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      "
+            "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of when the detector was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of when the detector was last updated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The detector.</p>\n      "
+        "smithy.api#documentation": "<p>The detector.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#DetectorList": {
@@ -974,30 +979,30 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version description. </p>\n      "
+            "smithy.api#documentation": "<p>The detector version description. </p>"
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version ID. </p>\n      "
+            "smithy.api#documentation": "<p>The detector version ID. </p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of when the detector version was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of when the detector version was last updated.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version status. </p>\n      "
+            "smithy.api#documentation": "<p>The detector version status. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The summary of the detector version.</p>\n      "
+        "smithy.api#documentation": "<p>The summary of the detector version.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#DetectorVersionSummaryList": {
@@ -1031,54 +1036,54 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of when the model was last created.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of when the model was last created.</p>"
           }
         },
         "inputConfiguration": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelInputConfiguration",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The input configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The input configuration.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of when the model was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of when the model was last updated.</p>"
           }
         },
         "modelEndpoint": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon SageMaker model endpoints.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon SageMaker model endpoints.</p>"
           }
         },
         "modelEndpointStatus": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelEndpointStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Fraud Detector status for the external model endpoint</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Fraud Detector status for the external model endpoint</p>"
           }
         },
         "modelSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The source of the model.</p>\n      "
+            "smithy.api#documentation": "<p>The source of the model.</p>"
           }
         },
         "outputConfiguration": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelOutputConfiguration",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The output configuration.</p>\n      "
+            "smithy.api#documentation": "<p>The output configuration.</p>"
           }
         },
         "role": {
           "target": "com.amazonaws.hawksnest.servicefacade#Role",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The role used to invoke the model. </p>\n      "
+            "smithy.api#documentation": "<p>The role used to invoke the model. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The Amazon SageMaker model.</p>\n      "
+        "smithy.api#documentation": "<p>The Amazon SageMaker model.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ExternalModelEndpointDataBlobMap": {
@@ -1132,7 +1137,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a particular detector version. </p>\n      "
+        "smithy.api#documentation": "<p>Gets a particular detector version. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#GetDetectorVersionRequest": {
@@ -1141,14 +1146,14 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID.</p>",
             "smithy.api#required": true
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The detector version ID.</p>",
             "smithy.api#required": true
           }
         }
@@ -1160,55 +1165,55 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp when the detector version was created. </p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the detector version was created. </p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version description.</p>\n      "
+            "smithy.api#documentation": "<p>The detector version description.</p>"
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      "
+            "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version ID.</p>\n      "
+            "smithy.api#documentation": "<p>The detector version ID.</p>"
           }
         },
         "externalModelEndpoints": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon SageMaker model endpoints included in the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon SageMaker model endpoints included in the detector version.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp when the detector version was last updated.\n        </p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the detector version was last updated.\n        </p>"
           }
         },
         "modelVersions": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelVersions",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model versions included in the detector version. </p>\n      "
+            "smithy.api#documentation": "<p>The model versions included in the detector version. </p>"
           }
         },
         "rules": {
           "target": "com.amazonaws.hawksnest.servicefacade#RuleList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rules included in the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The rules included in the detector version.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The status of the detector version.</p>"
           }
         }
       }
@@ -1236,7 +1241,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets all of detectors. This is a paginated API. If you\n         provide a null <code>maxSizePerPage</code>, this actions retrieves a maximum of 10 records\n         per page. If you provide a <code>maxSizePerPage</code>, the value must be between 5 and 10.\n         To get the next page results, provide the pagination token from the\n            <code>GetEventTypesResponse</code> as part of your request. A null pagination token\n         fetches the records from the beginning. </p>\n      ",
+        "smithy.api#documentation": "<p>Gets all of detectors. This is a paginated API. If you\n         provide a null <code>maxSizePerPage</code>, this actions retrieves a maximum of 10 records\n         per page. If you provide a <code>maxSizePerPage</code>, the value must be between 5 and 10.\n         To get the next page results, provide the pagination token from the\n            <code>GetEventTypesResponse</code> as part of your request. A null pagination token\n         fetches the records from the beginning. </p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1250,19 +1255,19 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      "
+            "smithy.api#documentation": "<p>The detector ID.</p>"
           }
         },
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorsMaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of objects to return for the request.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next token for the subsequent request.</p>\n      "
+            "smithy.api#documentation": "<p>The next token for the subsequent request.</p>"
           }
         }
       }
@@ -1273,13 +1278,13 @@
         "detectors": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detectors.</p>\n      "
+            "smithy.api#documentation": "<p>The detectors.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token.</p>\n      "
+            "smithy.api#documentation": "<p>The next page token.</p>"
           }
         }
       }
@@ -1307,7 +1312,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the details for one or more Amazon SageMaker models that have been imported into the\n         service. This is a paginated API. If you provide a null <code>maxSizePerPage</code>, this\n         actions retrieves a maximum of 10 records per page. If you provide a\n            <code>maxSizePerPage</code>, the value must be between 5 and 10. To get the next page\n         results, provide the pagination token from the <code>GetExternalModelsResult</code> as part\n         of your request. A null pagination token fetches the records from the beginning. </p>\n      ",
+        "smithy.api#documentation": "<p>Gets the details for one or more Amazon SageMaker models that have been imported into the\n         service. This is a paginated API. If you provide a null <code>maxSizePerPage</code>, this\n         actions retrieves a maximum of 10 records per page. If you provide a\n            <code>maxSizePerPage</code>, the value must be between 5 and 10. To get the next page\n         results, provide the pagination token from the <code>GetExternalModelsResult</code> as part\n         of your request. A null pagination token fetches the records from the beginning. </p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1321,19 +1326,19 @@
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#ExternalModelsMaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of objects to return for the request.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of objects to return for the request.</p>"
           }
         },
         "modelEndpoint": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon SageMaker model endpoint.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon SageMaker model endpoint.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token for the request.</p>\n      "
+            "smithy.api#documentation": "<p>The next page token for the request.</p>"
           }
         }
       }
@@ -1344,13 +1349,13 @@
         "externalModels": {
           "target": "com.amazonaws.hawksnest.servicefacade#ExternalModelList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Gets the Amazon SageMaker models.</p>\n      "
+            "smithy.api#documentation": "<p>Gets the Amazon SageMaker models.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token to be used in subsequent requests.</p>\n      "
+            "smithy.api#documentation": "<p>The next page token to be used in subsequent requests.</p>"
           }
         }
       }
@@ -1378,7 +1383,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a model version. </p>\n      "
+        "smithy.api#documentation": "<p>Gets a model version. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#GetModelVersionRequest": {
@@ -1387,21 +1392,21 @@
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The model ID. </p>",
             "smithy.api#required": true
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The model type. </p>\n      ",
+            "smithy.api#documentation": "<p>The model type. </p>",
             "smithy.api#required": true
           }
         },
         "modelVersionNumber": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The model version. </p>\n      ",
+            "smithy.api#documentation": "<p>The model version. </p>",
             "smithy.api#required": true
           }
         }
@@ -1413,31 +1418,31 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version description.</p>\n      "
+            "smithy.api#documentation": "<p>The model version description.</p>"
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The model ID. </p>\n      "
+            "smithy.api#documentation": "<p>The model ID. </p>"
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The model type. </p>\n      "
+            "smithy.api#documentation": "<p>The model type. </p>"
           }
         },
         "modelVersionNumber": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version. </p>\n      "
+            "smithy.api#documentation": "<p>The model version. </p>"
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version status. </p>\n      "
+            "smithy.api#documentation": "<p>The model version status. </p>"
           }
         }
       }
@@ -1465,7 +1470,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets all of the models for the AWS account, or the specified model type, or gets a single model for the specified model type, model ID combination.\n        </p>\n      ",
+        "smithy.api#documentation": "<p>Gets all of the models for the AWS account, or the specified model type, or gets a single model for the specified model type, model ID combination.\n        </p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1479,25 +1484,25 @@
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The maximum results to return for the request.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum results to return for the request.</p>"
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID.</p>\n      "
+            "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type.</p>\n      "
+            "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next token for the request.</p>\n      "
+            "smithy.api#documentation": "<p>The next token for the request.</p>"
           }
         }
       }
@@ -1508,13 +1513,13 @@
         "models": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The returned models. </p>\n      "
+            "smithy.api#documentation": "<p>The returned models. </p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next token for subsequent requests. </p>\n      "
+            "smithy.api#documentation": "<p>The next token for subsequent requests. </p>"
           }
         }
       }
@@ -1542,7 +1547,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets one or more outcomes. This is a paginated\n         API. If you provide a null <code>maxSizePerPage</code>, this actions retrieves a maximum of\n         10 records per page. If you provide a <code>maxSizePerPage</code>, the value must be\n         between 50 and 100. To get the next page results, provide the pagination token from the\n        <code>GetOutcomesResult</code> as part of your request. A null pagination token\n         fetches the records from the beginning. </p>\n      ",
+        "smithy.api#documentation": "<p>Gets one or more outcomes. This is a paginated\n         API. If you provide a null <code>maxSizePerPage</code>, this actions retrieves a maximum of\n         10 records per page. If you provide a <code>maxSizePerPage</code>, the value must be\n         between 50 and 100. To get the next page results, provide the pagination token from the\n        <code>GetOutcomesResult</code> as part of your request. A null pagination token\n         fetches the records from the beginning. </p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1556,19 +1561,19 @@
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#OutcomesMaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of objects to return for the request. </p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of objects to return for the request. </p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the outcome or outcomes to get.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the outcome or outcomes to get.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token for the request. </p>\n      "
+            "smithy.api#documentation": "<p>The next page token for the request. </p>"
           }
         }
       }
@@ -1579,13 +1584,13 @@
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token for subsequent requests.</p>\n      "
+            "smithy.api#documentation": "<p>The next page token for subsequent requests.</p>"
           }
         },
         "outcomes": {
           "target": "com.amazonaws.hawksnest.servicefacade#OutcomeList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The outcomes. </p>\n      "
+            "smithy.api#documentation": "<p>The outcomes. </p>"
           }
         }
       }
@@ -1613,7 +1618,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.  </p>\n      "
+        "smithy.api#documentation": "<p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.  </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#GetPredictionRequest": {
@@ -1622,33 +1627,33 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID. </p>",
             "smithy.api#required": true
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version ID.</p>\n      "
+            "smithy.api#documentation": "<p>The detector version ID.</p>"
           }
         },
         "eventAttributes": {
           "target": "com.amazonaws.hawksnest.servicefacade#EventAttributeMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Names of variables you defined in Amazon Fraud Detector to represent event data elements and their corresponding values for the event you are sending for evaluation.</p>\n      "
+            "smithy.api#documentation": "<p>Names of variables you defined in Amazon Fraud Detector to represent event data elements and their corresponding values for the event you are sending for evaluation.</p>"
           }
         },
         "eventId": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique ID used to identify the event.</p>\n      ",
+            "smithy.api#documentation": "<p>The unique ID used to identify the event.</p>",
             "smithy.api#required": true
           }
         },
         "externalModelEndpointDataBlobs": {
           "target": "com.amazonaws.hawksnest.servicefacade#ExternalModelEndpointDataBlobMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon SageMaker model endpoint input data blobs.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon SageMaker model endpoint input data blobs.</p>"
           }
         }
       }
@@ -1659,13 +1664,13 @@
         "modelScores": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelScores",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model scores for models used in the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The model scores for models used in the detector version.</p>"
           }
         },
         "outcomes": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The prediction outcomes.</p>\n      "
+            "smithy.api#documentation": "<p>The prediction outcomes.</p>"
           }
         }
       }
@@ -1693,7 +1698,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets all rules available for the specified detector.</p>\n      ",
+        "smithy.api#documentation": "<p>Gets all rules available for the specified detector.</p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1707,32 +1712,32 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID.</p>",
             "smithy.api#required": true
           }
         },
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#RulesMaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of rules to return for the request.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of rules to return for the request.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The next page token.</p>\n      "
+            "smithy.api#documentation": "<p>The next page token.</p>"
           }
         },
         "ruleId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule ID.</p>\n      "
+            "smithy.api#documentation": "<p>The rule ID.</p>"
           }
         },
         "ruleVersion": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule version.</p>\n      "
+            "smithy.api#documentation": "<p>The rule version.</p>"
           }
         }
       }
@@ -1743,13 +1748,13 @@
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token to be used in subsequent requests.</p>\n      "
+            "smithy.api#documentation": "<p>The next page token to be used in subsequent requests.</p>"
           }
         },
         "ruleDetails": {
           "target": "com.amazonaws.hawksnest.servicefacade#RuleDetailList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The details of the requested rule.</p>\n      "
+            "smithy.api#documentation": "<p>The details of the requested rule.</p>"
           }
         }
       }
@@ -1777,7 +1782,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets all of the variables or the specific variable. This is a\n         paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of\n         100 records per page. If you provide <code>maxSizePerPage</code> the value must be between\n         50 and 100. To get the next page result, a provide a pagination token from\n        <code>GetVariablesResult</code> as part of your request. Null pagination token\n         fetches the records from the beginning. </p>\n      ",
+        "smithy.api#documentation": "<p>Gets all of the variables or the specific variable. This is a\n         paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of\n         100 records per page. If you provide <code>maxSizePerPage</code> the value must be between\n         50 and 100. To get the next page result, a provide a pagination token from\n        <code>GetVariablesResult</code> as part of your request. Null pagination token\n         fetches the records from the beginning. </p>",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -1791,19 +1796,19 @@
         "maxResults": {
           "target": "com.amazonaws.hawksnest.servicefacade#VariablesMaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The max size per page determined for the get variable request. </p>\n      "
+            "smithy.api#documentation": "<p>The max size per page determined for the get variable request. </p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the variable. </p>\n      "
+            "smithy.api#documentation": "<p>The name of the variable. </p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token of the get variable request. </p>\n      "
+            "smithy.api#documentation": "<p>The next page token of the get variable request. </p>"
           }
         }
       }
@@ -1814,13 +1819,13 @@
         "nextToken": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The next page token to be used in subsequent requests. </p>\n      "
+            "smithy.api#documentation": "<p>The next page token to be used in subsequent requests. </p>"
           }
         },
         "variables": {
           "target": "com.amazonaws.hawksnest.servicefacade#VariableList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The names of the variables returned. </p>\n      "
+            "smithy.api#documentation": "<p>The names of the variables returned. </p>"
           }
         }
       }
@@ -1836,7 +1841,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An exception indicating an internal server error.</p>\n      ",
+        "smithy.api#documentation": "<p>An exception indicating an internal server error.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -1871,20 +1876,20 @@
         "labelKey": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The label key.</p>\n      ",
+            "smithy.api#documentation": "<p>The label key.</p>",
             "smithy.api#required": true
           }
         },
         "labelMapper": {
           "target": "com.amazonaws.hawksnest.servicefacade#LabelMapper",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The label mapper maps the Amazon Fraud Detector supported label to the appropriate source labels.\n            For example, if <code>\"FRAUD\"</code> and <code>\"LEGIT\"</code> are Amazon Fraud Detector supported labels, this mapper could\n            be: <code>{\"FRAUD\" => [\"0\"]</code>, \"LEGIT\" => [\"1\"]} or <code>{\"FRAUD\" => [\"false\"], \"LEGIT\" => [\"true\"]}</code>\n            or <code>{\"FRAUD\" => [\"fraud\", \"abuse\"], \"LEGIT\" => [\"legit\", \"safe\"]}</code>. The value part of the\n            mapper is a list, because you may have multiple variants for a single Amazon Fraud Detector label.\n        </p>\n      ",
+            "smithy.api#documentation": "<p>The label mapper maps the Amazon Fraud Detector supported label to the appropriate source labels.\n            For example, if <code>\"FRAUD\"</code> and <code>\"LEGIT\"</code> are Amazon Fraud Detector supported labels, this mapper could\n            be: <code>{\"FRAUD\" => [\"0\"]</code>, \"LEGIT\" => [\"1\"]} or <code>{\"FRAUD\" => [\"false\"], \"LEGIT\" => [\"true\"]}</code>\n            or <code>{\"FRAUD\" => [\"fraud\", \"abuse\"], \"LEGIT\" => [\"legit\", \"safe\"]}</code>. The value part of the\n            mapper is a list, because you may have multiple variants for a single Amazon Fraud Detector label.\n        </p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The label schema.</p>\n      "
+        "smithy.api#documentation": "<p>The label schema.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#Language": {
@@ -1940,54 +1945,54 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of when the model was created.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of when the model was created.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model description.</p>\n      "
+            "smithy.api#documentation": "<p>The model description.</p>"
           }
         },
         "labelSchema": {
           "target": "com.amazonaws.hawksnest.servicefacade#LabelSchema",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model label schema.</p>\n      "
+            "smithy.api#documentation": "<p>The model label schema.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of last time the model was updated.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of last time the model was updated.</p>"
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID.</p>\n      "
+            "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type.</p>\n      "
+            "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVariables": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelVariablesList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model input variables.</p>\n      "
+            "smithy.api#documentation": "<p>The model input variables.</p>"
           }
         },
         "trainingDataSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#TrainingDataSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model training data source in Amazon S3.</p>\n      "
+            "smithy.api#documentation": "<p>The model training data source in Amazon S3.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The model.</p>\n      "
+        "smithy.api#documentation": "<p>The model.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelEndpointDataBlob": {
@@ -1996,18 +2001,18 @@
         "byteBuffer": {
           "target": "com.amazonaws.hawksnest.servicefacade#blob",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The byte buffer of the Amazon SageMaker model endpoint input data blob.</p>\n      "
+            "smithy.api#documentation": "<p>The byte buffer of the Amazon SageMaker model endpoint input data blob.</p>"
           }
         },
         "contentType": {
           "target": "com.amazonaws.hawksnest.servicefacade#contentType",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The content type of the Amazon SageMaker model endpoint input data blob. </p>\n      "
+            "smithy.api#documentation": "<p>The content type of the Amazon SageMaker model endpoint input data blob. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A pre-formed Amazon SageMaker model input you can include if your detector version includes an imported Amazon SageMaker model endpoint with pass-through input configuration.</p>\n      "
+        "smithy.api#documentation": "<p>A pre-formed Amazon SageMaker model input you can include if your detector version includes an imported Amazon SageMaker model endpoint with pass-through input configuration.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelEndpointStatus": {
@@ -2029,31 +2034,31 @@
         "csvInputTemplate": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p> Template for constructing the CSV input-data sent to SageMaker. At event-evaluation,\n            the placeholders for variable-names in the template will be replaced with the variable\n            values before being sent to SageMaker. </p>\n      "
+            "smithy.api#documentation": "<p> Template for constructing the CSV input-data sent to SageMaker. At event-evaluation,\n            the placeholders for variable-names in the template will be replaced with the variable\n            values before being sent to SageMaker. </p>"
           }
         },
         "format": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelInputDataFormat",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The format of the model input configuration. The format differs depending on if it is\n            passed through to SageMaker or constructed by Amazon Fraud Detector.</p>\n      "
+            "smithy.api#documentation": "<p> The format of the model input configuration. The format differs depending on if it is\n            passed through to SageMaker or constructed by Amazon Fraud Detector.</p>"
           }
         },
         "isOpaque": {
           "target": "com.amazonaws.hawksnest.servicefacade#IsOpaque",
           "traits": {
-            "smithy.api#documentation": "\n        <p> For an opaque-model, the input to the model will be a ByteBuffer blob provided in the\n            getPrediction request, and will be passed to SageMaker as-is. For non-opaque models,\n            the input will be constructed by Amazon Fraud Detector based on the model-configuration. </p>\n      ",
+            "smithy.api#documentation": "<p> For an opaque-model, the input to the model will be a ByteBuffer blob provided in the\n            getPrediction request, and will be passed to SageMaker as-is. For non-opaque models,\n            the input will be constructed by Amazon Fraud Detector based on the model-configuration. </p>",
             "smithy.api#required": true
           }
         },
         "jsonInputTemplate": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p> Template for constructing the JSON input-data sent to SageMaker. At event-evaluation,\n            the placeholders for variable names in the template will be replaced with the variable\n            values before being sent to SageMaker. </p>\n      "
+            "smithy.api#documentation": "<p> Template for constructing the JSON input-data sent to SageMaker. At event-evaluation,\n            the placeholders for variable names in the template will be replaced with the variable\n            values before being sent to SageMaker. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The model input configuration.</p>\n      "
+        "smithy.api#documentation": "<p>The model input configuration.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelInputDataFormat": {
@@ -2081,25 +2086,25 @@
         "csvIndexToVariableMap": {
           "target": "com.amazonaws.hawksnest.servicefacade#CsvIndexToVariableMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables. </p>\n      "
+            "smithy.api#documentation": "<p>A map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables. </p>"
           }
         },
         "format": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelOutputDataFormat",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The format of the model output configuration.</p>\n      ",
+            "smithy.api#documentation": "<p>The format of the model output configuration.</p>",
             "smithy.api#required": true
           }
         },
         "jsonKeyToVariableMap": {
           "target": "com.amazonaws.hawksnest.servicefacade#JsonKeyToVariableMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>\n      "
+            "smithy.api#documentation": "<p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Provides the model output configuration.</p>\n      "
+        "smithy.api#documentation": "<p>Provides the model output configuration.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelOutputDataFormat": {
@@ -2130,18 +2135,18 @@
         "modelVersion": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelVersion",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version.</p>\n      "
+            "smithy.api#documentation": "<p>The model version.</p>"
           }
         },
         "scores": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelPredictionMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model's fraud prediction scores.</p>\n      "
+            "smithy.api#documentation": "<p>The model's fraud prediction scores.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The fraud prediction scores.</p>\n      "
+        "smithy.api#documentation": "<p>The fraud prediction scores.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelSource": {
@@ -2170,19 +2175,19 @@
         "index": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelVariableIndex",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model variable's index.></p>\n      "
+            "smithy.api#documentation": "<p>The model variable's index.></p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model variable's name.></p>\n      ",
+            "smithy.api#documentation": "<p>The model variable's name.></p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The model variable.></p>\n      "
+        "smithy.api#documentation": "<p>The model variable.></p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelVariableIndex": {
@@ -2203,27 +2208,27 @@
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The parent model ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The parent model ID.</p>",
             "smithy.api#required": true
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The model type.</p>\n      ",
+            "smithy.api#documentation": "<p>The model type.</p>",
             "smithy.api#required": true
           }
         },
         "modelVersionNumber": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The model version.</p>\n      ",
+            "smithy.api#documentation": "<p>The model version.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The model version.</p>\n      "
+        "smithy.api#documentation": "<p>The model version.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelVersionDetail": {
@@ -2232,78 +2237,78 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp when the model was created.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the model was created.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model description.</p>\n      "
+            "smithy.api#documentation": "<p>The model description.</p>"
           }
         },
         "labelSchema": {
           "target": "com.amazonaws.hawksnest.servicefacade#LabelSchema",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model label schema.</p>\n      "
+            "smithy.api#documentation": "<p>The model label schema.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp when the model was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the model was last updated.</p>"
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID.</p>\n      "
+            "smithy.api#documentation": "<p>The model ID.</p>"
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type.</p>\n      "
+            "smithy.api#documentation": "<p>The model type.</p>"
           }
         },
         "modelVariables": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelVariablesList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model variables.</p>\n      "
+            "smithy.api#documentation": "<p>The model variables.</p>"
           }
         },
         "modelVersionNumber": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version.</p>\n      "
+            "smithy.api#documentation": "<p>The model version.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model status.</p>\n      "
+            "smithy.api#documentation": "<p>The model status.</p>"
           }
         },
         "trainingDataSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#TrainingDataSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model training data source.</p>\n      "
+            "smithy.api#documentation": "<p>The model training data source.</p>"
           }
         },
         "trainingMetrics": {
           "target": "com.amazonaws.hawksnest.servicefacade#MetricsMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model training metrics.</p>\n      "
+            "smithy.api#documentation": "<p>The model training metrics.</p>"
           }
         },
         "validationMetrics": {
           "target": "com.amazonaws.hawksnest.servicefacade#MetricsMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model validation metrics.</p>\n      "
+            "smithy.api#documentation": "<p>The model validation metrics.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Provides the model version details. </p>\n      "
+        "smithy.api#documentation": "<p>Provides the model version details. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#ModelVersionDetailList": {
@@ -2372,30 +2377,30 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp when the outcome was created.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the outcome was created.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The outcome description.</p>\n      "
+            "smithy.api#documentation": "<p>The outcome description.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp when the outcome was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp when the outcome was last updated.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The outcome name.</p>\n      "
+            "smithy.api#documentation": "<p>The outcome name.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The outcome.</p>\n      "
+        "smithy.api#documentation": "<p>The outcome.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#OutcomeList": {
@@ -2434,7 +2439,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates or updates a detector. </p>\n      "
+        "smithy.api#documentation": "<p>Creates or updates a detector. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#PutDetectorRequest": {
@@ -2443,13 +2448,13 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the detector.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the detector.</p>"
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID. </p>",
             "smithy.api#required": true
           }
         }
@@ -2479,7 +2484,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>\n      "
+        "smithy.api#documentation": "<p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#PutExternalModelRequest": {
@@ -2488,42 +2493,42 @@
         "inputConfiguration": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelInputConfiguration",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model endpoint input configuration.</p>\n      ",
+            "smithy.api#documentation": "<p>The model endpoint input configuration.</p>",
             "smithy.api#required": true
           }
         },
         "modelEndpoint": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model endpoints name.</p>\n      ",
+            "smithy.api#documentation": "<p>The model endpoints name.</p>",
             "smithy.api#required": true
           }
         },
         "modelEndpointStatus": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelEndpointStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model endpoint’s status in Amazon Fraud Detector.</p>\n      ",
+            "smithy.api#documentation": "<p>The model endpoint’s status in Amazon Fraud Detector.</p>",
             "smithy.api#required": true
           }
         },
         "modelSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The source of the model.</p>\n      ",
+            "smithy.api#documentation": "<p>The source of the model.</p>",
             "smithy.api#required": true
           }
         },
         "outputConfiguration": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelOutputConfiguration",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model endpoint output configuration.</p>\n      ",
+            "smithy.api#documentation": "<p>The model endpoint output configuration.</p>",
             "smithy.api#required": true
           }
         },
         "role": {
           "target": "com.amazonaws.hawksnest.servicefacade#Role",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The IAM role used to invoke the model endpoint.</p>\n      ",
+            "smithy.api#documentation": "<p>The IAM role used to invoke the model endpoint.</p>",
             "smithy.api#required": true
           }
         }
@@ -2553,7 +2558,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates or updates a model. </p>\n      "
+        "smithy.api#documentation": "<p>Creates or updates a model. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#PutModelRequest": {
@@ -2562,41 +2567,41 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model description. </p>\n      "
+            "smithy.api#documentation": "<p>The model description. </p>"
           }
         },
         "labelSchema": {
           "target": "com.amazonaws.hawksnest.servicefacade#LabelSchema",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The label schema.</p>\n      ",
+            "smithy.api#documentation": "<p>The label schema.</p>",
             "smithy.api#required": true
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The model ID.</p>",
             "smithy.api#required": true
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type. </p>\n      ",
+            "smithy.api#documentation": "<p>The model type. </p>",
             "smithy.api#required": true
           }
         },
         "modelVariables": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelVariablesList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model input variables.</p>\n      ",
+            "smithy.api#documentation": "<p>The model input variables.</p>",
             "smithy.api#required": true
           }
         },
         "trainingDataSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#TrainingDataSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The training data source location in Amazon S3.  </p>\n      ",
+            "smithy.api#documentation": "<p>The training data source location in Amazon S3.  </p>",
             "smithy.api#required": true
           }
         }
@@ -2626,7 +2631,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates or updates an outcome. </p>\n      "
+        "smithy.api#documentation": "<p>Creates or updates an outcome. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#PutOutcomeRequest": {
@@ -2635,13 +2640,13 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The outcome description.</p>\n      "
+            "smithy.api#documentation": "<p>The outcome description.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the outcome.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the outcome.</p>",
             "smithy.api#required": true
           }
         }
@@ -2662,7 +2667,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An exception indicating the specified resource was not found.</p>\n      ",
+        "smithy.api#documentation": "<p>An exception indicating the specified resource was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -2673,20 +2678,20 @@
         "arn": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The role ARN.</p>\n      ",
+            "smithy.api#documentation": "<p>The role ARN.</p>",
             "smithy.api#required": true
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The role name.</p>\n      ",
+            "smithy.api#documentation": "<p>The role name.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The role used to invoke external model endpoints.</p>\n      "
+        "smithy.api#documentation": "<p>The role used to invoke external model endpoints.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#Rule": {
@@ -2695,27 +2700,27 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector for which the rule is associated.</p>\n      ",
+            "smithy.api#documentation": "<p>The detector for which the rule is associated.</p>",
             "smithy.api#required": true
           }
         },
         "ruleId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule ID.</p>",
             "smithy.api#required": true
           }
         },
         "ruleVersion": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule version.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule version.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A rule.</p>\n      "
+        "smithy.api#documentation": "<p>A rule.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#RuleDetail": {
@@ -2724,60 +2729,60 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp of when the rule was created.</p>\n      "
+            "smithy.api#documentation": "<p>The timestamp of when the rule was created.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule description.</p>\n      "
+            "smithy.api#documentation": "<p>The rule description.</p>"
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector for which the rule is associated.</p>\n      "
+            "smithy.api#documentation": "<p>The detector for which the rule is associated.</p>"
           }
         },
         "expression": {
           "target": "com.amazonaws.hawksnest.servicefacade#ruleExpression",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule expression.</p>\n      "
+            "smithy.api#documentation": "<p>The rule expression.</p>"
           }
         },
         "language": {
           "target": "com.amazonaws.hawksnest.servicefacade#Language",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule language.</p>\n      "
+            "smithy.api#documentation": "<p>The rule language.</p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Timestamp of the last time the rule was updated.</p>\n      "
+            "smithy.api#documentation": "<p>Timestamp of the last time the rule was updated.</p>"
           }
         },
         "outcomes": {
           "target": "com.amazonaws.hawksnest.servicefacade#NonEmptyListOfStrings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule outcomes.</p>\n      "
+            "smithy.api#documentation": "<p>The rule outcomes.</p>"
           }
         },
         "ruleId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule ID.</p>\n      "
+            "smithy.api#documentation": "<p>The rule ID.</p>"
           }
         },
         "ruleVersion": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule version.</p>\n      "
+            "smithy.api#documentation": "<p>The rule version.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The details of the rule.</p>\n      "
+        "smithy.api#documentation": "<p>The details of the rule.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#RuleDetailList": {
@@ -2813,7 +2818,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An exception indicating a throttling error.</p>\n      ",
+        "smithy.api#documentation": "<p>An exception indicating a throttling error.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -2824,20 +2829,20 @@
         "dataAccessRoleArn": {
           "target": "com.amazonaws.hawksnest.servicefacade#iamRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The data access role ARN for the training data source.</p>\n      ",
+            "smithy.api#documentation": "<p>The data access role ARN for the training data source.</p>",
             "smithy.api#required": true
           }
         },
         "dataLocation": {
           "target": "com.amazonaws.hawksnest.servicefacade#s3BucketLocation",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The data location of the training data source.</p>\n      ",
+            "smithy.api#documentation": "<p>The data location of the training data source.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The training data source.</p>\n      "
+        "smithy.api#documentation": "<p>The training data source.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersion": {
@@ -2863,7 +2868,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, and description. You can only update a <code>DRAFT</code> detector version.</p>\n   \n      "
+        "smithy.api#documentation": "<p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, and description. You can only update a <code>DRAFT</code> detector version.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadata": {
@@ -2886,7 +2891,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or\n                <code>INACTIVE</code>). </p>\n      "
+        "smithy.api#documentation": "<p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or\n                <code>INACTIVE</code>). </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionMetadataRequest": {
@@ -2895,21 +2900,21 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description.</p>\n      ",
+            "smithy.api#documentation": "<p>The description.</p>",
             "smithy.api#required": true
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID.</p>",
             "smithy.api#required": true
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The detector version ID. </p>",
             "smithy.api#required": true
           }
         }
@@ -2925,40 +2930,40 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version description. </p>\n      "
+            "smithy.api#documentation": "<p>The detector version description. </p>"
           }
         },
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The parent detector ID for the detector version you want to update.</p>\n      ",
+            "smithy.api#documentation": "<p>The parent detector ID for the detector version you want to update.</p>",
             "smithy.api#required": true
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The detector version ID. </p>",
             "smithy.api#required": true
           }
         },
         "externalModelEndpoints": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfStrings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon SageMaker model endpoints to include in the detector version.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon SageMaker model endpoints to include in the detector version.</p>",
             "smithy.api#required": true
           }
         },
         "modelVersions": {
           "target": "com.amazonaws.hawksnest.servicefacade#ListOfModelVersions",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model versions to include in the detector version.</p>\n      "
+            "smithy.api#documentation": "<p>The model versions to include in the detector version.</p>"
           }
         },
         "rules": {
           "target": "com.amazonaws.hawksnest.servicefacade#RuleList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rules to include in the detector version.</p>\n      ",
+            "smithy.api#documentation": "<p>The rules to include in the detector version.</p>",
             "smithy.api#required": true
           }
         }
@@ -2991,7 +2996,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the detector version’s status. You can perform the following promotions or\n            demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>\n      "
+        "smithy.api#documentation": "<p>Updates the detector version’s status. You can perform the following promotions or\n            demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateDetectorVersionStatusRequest": {
@@ -3000,21 +3005,21 @@
         "detectorId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The detector ID. </p>",
             "smithy.api#required": true
           }
         },
         "detectorVersionId": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The detector version ID. </p>\n      ",
+            "smithy.api#documentation": "<p>The detector version ID. </p>",
             "smithy.api#required": true
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#DetectorVersionStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new status.</p>\n      ",
+            "smithy.api#documentation": "<p>The new status.</p>",
             "smithy.api#required": true
           }
         }
@@ -3047,7 +3052,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n             <p>Updates a model version. You can update the description and status attributes\n            using this action. You can perform the following status updates: </p>\n        <ol>\n            <li>\n                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>\n                    </p>\n            </li>\n            <li>\n                <p>Change <code>ACTIVE</code> back to <code>TRAINING_COMPLETE</code>\n                    </p>\n            </li>\n         </ol>\n      "
+        "smithy.api#documentation": "<p>Updates a model version. You can update the description and status attributes\n            using this action. You can perform the following status updates: </p>\n        <ol>\n            <li>\n                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>\n                    </p>\n            </li>\n            <li>\n                <p>Change <code>ACTIVE</code> back to <code>TRAINING_COMPLETE</code>\n                    </p>\n            </li>\n         </ol>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateModelVersionRequest": {
@@ -3056,35 +3061,35 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model description.</p>\n      ",
+            "smithy.api#documentation": "<p>The model description.</p>",
             "smithy.api#required": true
           }
         },
         "modelId": {
           "target": "com.amazonaws.hawksnest.servicefacade#identifier",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model ID.</p>\n      ",
+            "smithy.api#documentation": "<p>The model ID.</p>",
             "smithy.api#required": true
           }
         },
         "modelType": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelTypeEnum",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model type.</p>\n      ",
+            "smithy.api#documentation": "<p>The model type.</p>",
             "smithy.api#required": true
           }
         },
         "modelVersionNumber": {
           "target": "com.amazonaws.hawksnest.servicefacade#nonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The model version.</p>\n      ",
+            "smithy.api#documentation": "<p>The model version.</p>",
             "smithy.api#required": true
           }
         },
         "status": {
           "target": "com.amazonaws.hawksnest.servicefacade#ModelVersionStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new model status.</p>\n      ",
+            "smithy.api#documentation": "<p>The new model status.</p>",
             "smithy.api#required": true
           }
         }
@@ -3117,7 +3122,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a rule's metadata. </p>\n      "
+        "smithy.api#documentation": "<p>Updates a rule's metadata. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateRuleMetadataRequest": {
@@ -3126,14 +3131,14 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule description.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule description.</p>",
             "smithy.api#required": true
           }
         },
         "rule": {
           "target": "com.amazonaws.hawksnest.servicefacade#Rule",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule to update.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule to update.</p>",
             "smithy.api#required": true
           }
         }
@@ -3166,7 +3171,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a rule version resulting in a new rule version. </p>\n      "
+        "smithy.api#documentation": "<p>Updates a rule version resulting in a new rule version. </p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateRuleVersionRequest": {
@@ -3175,34 +3180,34 @@
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#description",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description.</p>\n      "
+            "smithy.api#documentation": "<p>The description.</p>"
           }
         },
         "expression": {
           "target": "com.amazonaws.hawksnest.servicefacade#ruleExpression",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule expression.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule expression.</p>",
             "smithy.api#required": true
           }
         },
         "language": {
           "target": "com.amazonaws.hawksnest.servicefacade#Language",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The language.</p>\n      ",
+            "smithy.api#documentation": "<p>The language.</p>",
             "smithy.api#required": true
           }
         },
         "outcomes": {
           "target": "com.amazonaws.hawksnest.servicefacade#NonEmptyListOfStrings",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The outcomes.</p>\n      ",
+            "smithy.api#documentation": "<p>The outcomes.</p>",
             "smithy.api#required": true
           }
         },
         "rule": {
           "target": "com.amazonaws.hawksnest.servicefacade#Rule",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The rule to update.</p>\n      ",
+            "smithy.api#documentation": "<p>The rule to update.</p>",
             "smithy.api#required": true
           }
         }
@@ -3214,7 +3219,7 @@
         "rule": {
           "target": "com.amazonaws.hawksnest.servicefacade#Rule",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new rule version that was created.</p>\n      "
+            "smithy.api#documentation": "<p>The new rule version that was created.</p>"
           }
         }
       }
@@ -3242,7 +3247,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a variable.</p>\n      "
+        "smithy.api#documentation": "<p>Updates a variable.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#UpdateVariableRequest": {
@@ -3251,26 +3256,26 @@
         "defaultValue": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new default value of the variable.</p>\n      "
+            "smithy.api#documentation": "<p>The new default value of the variable.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new description.</p>\n      "
+            "smithy.api#documentation": "<p>The new description.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the variable.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the variable.</p>",
             "smithy.api#required": true
           }
         },
         "variableType": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The variable type.</p>\n      "
+            "smithy.api#documentation": "<p>The variable type.</p>"
           }
         }
       }
@@ -3290,7 +3295,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An exception indicating a specified value is not allowed.</p>\n      ",
+        "smithy.api#documentation": "<p>An exception indicating a specified value is not allowed.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3301,54 +3306,54 @@
         "createdTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when the variable was created.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the variable was created.</p>"
           }
         },
         "dataSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#DataSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The data source of the variable.</p>\n      "
+            "smithy.api#documentation": "<p>The data source of the variable.</p>"
           }
         },
         "dataType": {
           "target": "com.amazonaws.hawksnest.servicefacade#DataType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The data type of the variable.</p>\n      "
+            "smithy.api#documentation": "<p>The data type of the variable.</p>"
           }
         },
         "defaultValue": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The default value of the variable.</p>\n      "
+            "smithy.api#documentation": "<p>The default value of the variable.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n  \n        <p>The description of the variable. </p>\n      "
+            "smithy.api#documentation": "<p>The description of the variable. </p>"
           }
         },
         "lastUpdatedTime": {
           "target": "com.amazonaws.hawksnest.servicefacade#time",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time when variable was last updated.</p>\n      "
+            "smithy.api#documentation": "<p>The time when variable was last updated.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the variable.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the variable.</p>"
           }
         },
         "variableType": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The variable type of the variable.</p>\n\t     "
+            "smithy.api#documentation": "<p>The variable type of the variable.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The variable.</p>\n      "
+        "smithy.api#documentation": "<p>The variable.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#VariableEntry": {
@@ -3357,42 +3362,42 @@
         "dataSource": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The data source of the variable entry.</p>\n      "
+            "smithy.api#documentation": "<p>The data source of the variable entry.</p>"
           }
         },
         "dataType": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The data type of the variable entry.</p>\n      "
+            "smithy.api#documentation": "<p>The data type of the variable entry.</p>"
           }
         },
         "defaultValue": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The default value of the variable entry.</p>\n      "
+            "smithy.api#documentation": "<p>The default value of the variable entry.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the variable entry.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the variable entry.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the variable entry.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the variable entry.</p>"
           }
         },
         "variableType": {
           "target": "com.amazonaws.hawksnest.servicefacade#string",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The type of the variable entry.</p>\n      "
+            "smithy.api#documentation": "<p>The type of the variable entry.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The variable entry in a list.</p>\n      "
+        "smithy.api#documentation": "<p>The variable entry in a list.</p>"
       }
     },
     "com.amazonaws.hawksnest.servicefacade#VariableEntryList": {

@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -40,7 +45,7 @@
           "cloudFormationName": "SageMakerRuntime",
           "cloudTrailEventSource": "runtime.sagemaker.amazonaws.com"
         },
-        "smithy.api#documentation": "\n        <p> The Amazon SageMaker runtime API. </p>\n      ",
+        "smithy.api#documentation": "<p> The Amazon SageMaker runtime API. </p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -101,7 +106,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p> An internal failure occurred. </p>\n      ",
+        "smithy.api#documentation": "<p> An internal failure occurred. </p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -129,7 +134,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>After you deploy a model into production using Amazon SageMaker hosting services, your\n            client applications use this API to get inferences from the model hosted at the\n            specified endpoint. </p>\n        <p>For an overview of Amazon SageMaker, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>\n        <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add\n            additional headers. You should not rely on the behavior of headers outside those\n            enumerated in the request syntax. </p>\n        <p>Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version\n            4. For information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API\n                Reference</i>.</p>\n        <p>A customer's model containers must respond to requests within 60 seconds. The model\n            itself can have a maximum processing time of 60 seconds before responding to the\n            /invocations. If your model is going to take 50-60 seconds of processing time, the SDK\n            socket timeout should be set to be 70 seconds.</p>\n        <note>\n            <p>Endpoints are scoped to an individual account, and are not public. The URL does\n                not contain the account ID, but Amazon SageMaker determines the account ID from the\n                authentication token that is supplied by the caller.</p>\n        </note>\n        \n      ",
+        "smithy.api#documentation": "<p>After you deploy a model into production using Amazon SageMaker hosting services, your\n            client applications use this API to get inferences from the model hosted at the\n            specified endpoint. </p>\n        <p>For an overview of Amazon SageMaker, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html\">How It Works</a>. </p>\n        <p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add\n            additional headers. You should not rely on the behavior of headers outside those\n            enumerated in the request syntax. </p>\n        <p>Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version\n            4. For information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API\n                Reference</i>.</p>\n        <p>A customer's model containers must respond to requests within 60 seconds. The model\n            itself can have a maximum processing time of 60 seconds before responding to the\n            /invocations. If your model is going to take 50-60 seconds of processing time, the SDK\n            socket timeout should be set to be 70 seconds.</p>\n        <note>\n            <p>Endpoints are scoped to an individual account, and are not public. The URL does\n                not contain the account ID, but Amazon SageMaker determines the account ID from the\n                authentication token that is supplied by the caller.</p>\n        </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/endpoints/{EndpointName}/invocations",
@@ -143,14 +148,14 @@
         "Accept": {
           "target": "com.amazonaws.sagemaker.runtime#Header",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The desired MIME type of the inference in the response.</p>\n      ",
+            "smithy.api#documentation": "<p>The desired MIME type of the inference in the response.</p>",
             "smithy.api#httpHeader": "Accept"
           }
         },
         "Body": {
           "target": "com.amazonaws.sagemaker.runtime#BodyBlob",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Provides input data, in the format specified in the <code>ContentType</code>\n            request header. Amazon SageMaker passes all of the data in the body to the model. </p>\n        <p>For information about the format of the request body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats—Inference</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>Provides input data, in the format specified in the <code>ContentType</code>\n            request header. Amazon SageMaker passes all of the data in the body to the model. </p>\n        <p>For information about the format of the request body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats—Inference</a>.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#required": true
           }
@@ -158,21 +163,21 @@
         "ContentType": {
           "target": "com.amazonaws.sagemaker.runtime#Header",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The MIME type of the input data in the request body.</p>\n      ",
+            "smithy.api#documentation": "<p>The MIME type of the input data in the request body.</p>",
             "smithy.api#httpHeader": "Content-Type"
           }
         },
         "CustomAttributes": {
           "target": "com.amazonaws.sagemaker.runtime#CustomAttributesHeader",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Provides additional information about a request for an inference submitted to a model\n            hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to provide an ID that you can\n            use to track a request or to provide other metadata that a service endpoint was\n            programmed to process. The value must consist of no more than 1024 visible US-ASCII\n            characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is\n            currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.</p>\n      ",
+            "smithy.api#documentation": "<p>Provides additional information about a request for an inference submitted to a model\n            hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to provide an ID that you can\n            use to track a request or to provide other metadata that a service endpoint was\n            programmed to process. The value must consist of no more than 1024 visible US-ASCII\n            characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is\n            currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.</p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Custom-Attributes"
           }
         },
         "EndpointName": {
           "target": "com.amazonaws.sagemaker.runtime#EndpointName",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The name of the endpoint that you specified when you created the endpoint using the\n                <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API. </p>\n      ",
+            "smithy.api#documentation": "<p>The name of the endpoint that you specified when you created the endpoint using the\n                <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API. </p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -180,7 +185,7 @@
         "TargetModel": {
           "target": "com.amazonaws.sagemaker.runtime#TargetModelHeader",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>\n      ",
+            "smithy.api#documentation": "<p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Target-Model"
           }
         }
@@ -192,7 +197,7 @@
         "Body": {
           "target": "com.amazonaws.sagemaker.runtime#BodyBlob",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Includes the inference provided by the model.</p>\n        <p>For information about the format of the response body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats—Inference</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>Includes the inference provided by the model.</p>\n        <p>For information about the format of the response body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data\n                Formats—Inference</a>.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#required": true
           }
@@ -200,21 +205,21 @@
         "ContentType": {
           "target": "com.amazonaws.sagemaker.runtime#Header",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The MIME type of the inference returned in the response body.</p>\n      ",
+            "smithy.api#documentation": "<p>The MIME type of the inference returned in the response body.</p>",
             "smithy.api#httpHeader": "Content-Type"
           }
         },
         "CustomAttributes": {
           "target": "com.amazonaws.sagemaker.runtime#CustomAttributesHeader",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Provides additional information in the response about the inference returned by a\n            model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to return an ID received in\n            the <code>CustomAttributes</code> header of a request or other metadata that a service\n            endpoint was programmed to produce. The value must consist of no more than 1024 visible\n            US-ASCII characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer\n            wants the custom attribute returned, the model must set the custom attribute to be\n            included on the way back. </p>\n        <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker\n            Python SDK.</p>\n      ",
+            "smithy.api#documentation": "<p>Provides additional information in the response about the inference returned by a\n            model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is\n            forwarded verbatim. You could use this value, for example, to return an ID received in\n            the <code>CustomAttributes</code> header of a request or other metadata that a service\n            endpoint was programmed to produce. The value must consist of no more than 1024 visible\n            US-ASCII characters as specified in <a href=\"https://tools.ietf.org/html/rfc7230#section-3.2.6\">Section 3.3.6. Field Value\n                Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer\n            wants the custom attribute returned, the model must set the custom attribute to be\n            included on the way back. </p>\n        <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker\n            Python SDK.</p>",
             "smithy.api#httpHeader": "X-Amzn-SageMaker-Custom-Attributes"
           }
         },
         "InvokedProductionVariant": {
           "target": "com.amazonaws.sagemaker.runtime#Header",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Identifies the production variant that was invoked.</p>\n      ",
+            "smithy.api#documentation": "<p>Identifies the production variant that was invoked.</p>",
             "smithy.api#httpHeader": "x-Amzn-Invoked-Production-Variant"
           }
         }
@@ -238,7 +243,7 @@
         "LogStreamArn": {
           "target": "com.amazonaws.sagemaker.runtime#LogStreamArn",
           "traits": {
-            "smithy.api#documentation": "\n        <p> The Amazon Resource Name (ARN) of the log stream. </p>\n      "
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the log stream. </p>"
           }
         },
         "Message": {
@@ -247,18 +252,18 @@
         "OriginalMessage": {
           "target": "com.amazonaws.sagemaker.runtime#Message",
           "traits": {
-            "smithy.api#documentation": "\n        <p> Original message. </p>\n      "
+            "smithy.api#documentation": "<p> Original message. </p>"
           }
         },
         "OriginalStatusCode": {
           "target": "com.amazonaws.sagemaker.runtime#StatusCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p> Original status code. </p>\n      "
+            "smithy.api#documentation": "<p> Original status code. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p> Model (owned by the customer in the container) returned 4xx or 5xx error code. \n        </p>\n      ",
+        "smithy.api#documentation": "<p> Model (owned by the customer in the container) returned 4xx or 5xx error code. \n        </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 424
       }
@@ -271,7 +276,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p> The service is unavailable. Try your call again. </p>\n      ",
+        "smithy.api#documentation": "<p> The service is unavailable. Try your call again. </p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 503
       }
@@ -300,7 +305,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p> Inspect your request and try again. </p>\n      ",
+        "smithy.api#documentation": "<p> Inspect your request and try again. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
