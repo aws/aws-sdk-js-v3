@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-timestamp",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "A marshaller and unmarshaller for timestamps used by the AWS SDKs",
   "main": "./build/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^1.0.0-alpha.3",
+    "@aws-sdk/types": "^1.0.0-alpha.4",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
