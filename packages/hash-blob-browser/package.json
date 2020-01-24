@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-blob-browser",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",
@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/chunked-blob-reader": "^1.0.0-alpha.2",
-    "@aws-sdk/types": "^1.0.0-alpha.3",
+    "@aws-sdk/types": "^1.0.0-alpha.4",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

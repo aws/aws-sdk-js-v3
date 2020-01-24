@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.6 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* add BucketEndpoint config plugin ([#572](https://github.com/aws/aws-sdk-js-v3/issues/572)) ([ae04135](https://github.com/aws/aws-sdk-js-v3/commit/ae04135))
+* assure bucket endpoint middleware inserted before host-header-middleware ([#574](https://github.com/aws/aws-sdk-js-v3/issues/574)) ([c9c4127](https://github.com/aws/aws-sdk-js-v3/commit/c9c4127))
+
+
+### Features
+
+* migrate bucketEndpointMiddleware ([#552](https://github.com/aws/aws-sdk-js-v3/issues/552)) ([f0c3222](https://github.com/aws/aws-sdk-js-v3/commit/f0c3222))
+
+
+
+
+
 # 1.0.0-alpha.5 (2020-01-22)
 
 

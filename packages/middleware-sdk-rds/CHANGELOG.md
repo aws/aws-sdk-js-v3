@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.5 (2020-01-24)
+
+
+### Bug Fixes
+
+* uri escape presigned url ([#773](https://github.com/aws/aws-sdk-js-v3/issues/773)) ([3928ca1](https://github.com/aws/aws-sdk-js-v3/commit/3928ca1))
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.9 (2020-01-17)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.7 (2020-01-15)
+
+
+### Features
+
+* migrate and apply crossRegionPresignedUrlMiddleware ([#718](https://github.com/aws/aws-sdk-js-v3/issues/718)) ([3e24d71](https://github.com/aws/aws-sdk-js-v3/commit/3e24d71))
+
+
+
+
+
 # 1.0.0-alpha.4 (2020-01-22)
 
 
