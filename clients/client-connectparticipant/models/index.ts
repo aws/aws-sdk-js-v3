@@ -2,9 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *         <p>You do not have sufficient access to perform this action.</p>
- *
+ * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
   extends _smithy.SmithyException,
@@ -24,16 +22,12 @@ export namespace AccessDeniedException {
 export interface CreateParticipantConnectionRequest {
   __type?: "CreateParticipantConnectionRequest";
   /**
-   *
-   *         <p>Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html">StartChatContact</a> API response.</p>
-   *
+   * <p>Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html">StartChatContact</a> API response.</p>
    */
   ParticipantToken: string | undefined;
 
   /**
-   *
-   *         <p>Type of connection information required.</p>
-   *
+   * <p>Type of connection information required.</p>
    */
   Type: Array<ConnectionType | string> | undefined;
 }
@@ -47,17 +41,13 @@ export namespace CreateParticipantConnectionRequest {
 export interface CreateParticipantConnectionResponse extends $MetadataBearer {
   __type?: "CreateParticipantConnectionResponse";
   /**
-   *
-   *         <p>Creates the participant's connection credentials. The authentication token associated
+   * <p>Creates the participant's connection credentials. The authentication token associated
    *             with the participant's connection.</p>
-   *
    */
   ConnectionCredentials?: ConnectionCredentials;
 
   /**
-   *
-   *         <p>Creates the participant's websocket connection.</p>
-   *
+   * <p>Creates the participant's websocket connection.</p>
    */
   Websocket?: Websocket;
 }
@@ -71,17 +61,13 @@ export namespace CreateParticipantConnectionResponse {
 export interface DisconnectParticipantRequest {
   __type?: "DisconnectParticipantRequest";
   /**
-   *
-   *         <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
-   *
    */
   ClientToken?: string;
 
   /**
-   *
-   *         <p>The authentication token associated with the participant's connection.</p>
-   *
+   * <p>The authentication token associated with the participant's connection.</p>
    */
   ConnectionToken: string | undefined;
 }
@@ -105,53 +91,39 @@ export namespace DisconnectParticipantResponse {
 export interface GetTranscriptRequest {
   __type?: "GetTranscriptRequest";
   /**
-   *
-   *         <p>The authentication token associated with the participant's connection.</p>
-   *
+   * <p>The authentication token associated with the participant's connection.</p>
    */
   ConnectionToken: string | undefined;
 
   /**
-   *
-   *         <p>The contactId from the current contact chain for which transcript is needed.</p>
-   *
+   * <p>The contactId from the current contact chain for which transcript is needed.</p>
    */
   ContactId?: string;
 
   /**
-   *
-   *         <p>The maximum number of results to return in the page. Default: 10.
+   * <p>The maximum number of results to return in the page. Default: 10.
    *            </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p>The pagination token. Use the value returned previously in the next subsequent request
+   * <p>The pagination token. Use the value returned previously in the next subsequent request
    *             to retrieve the next set of results.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>
-   *
+   * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>
    */
   ScanDirection?: ScanDirection | string;
 
   /**
-   *
-   *         <p>The sort order for the records. Default: DESCENDING.</p>
-   *
+   * <p>The sort order for the records. Default: DESCENDING.</p>
    */
   SortOrder?: SortKey | string;
 
   /**
-   *
-   *         <p>A filtering option for where to start.</p>
-   *
+   * <p>A filtering option for where to start.</p>
    */
   StartPosition?: StartPosition;
 }
@@ -165,24 +137,18 @@ export namespace GetTranscriptRequest {
 export interface GetTranscriptResponse extends $MetadataBearer {
   __type?: "GetTranscriptResponse";
   /**
-   *
-   *         <p>The initial contact ID for the contact. </p>
-   *
+   * <p>The initial contact ID for the contact. </p>
    */
   InitialContactId?: string;
 
   /**
-   *
-   *         <p>The pagination token. Use the value returned previously in the next subsequent request
+   * <p>The pagination token. Use the value returned previously in the next subsequent request
    *             to retrieve the next set of results.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The list of messages in the session.</p>
-   *
+   * <p>The list of messages in the session.</p>
    */
   Transcript?: Array<Item>;
 }
@@ -194,9 +160,7 @@ export namespace GetTranscriptResponse {
 }
 
 /**
- *
- *         <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
- *
+ * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
  */
 export interface InternalServerException
   extends _smithy.SmithyException,
@@ -216,31 +180,24 @@ export namespace InternalServerException {
 export interface SendEventRequest {
   __type?: "SendEventRequest";
   /**
-   *
-   *         <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
-   *
    */
   ClientToken?: string;
 
   /**
-   *
-   *         <p>The authentication token associated with the participant's connection.</p>
-   *
+   * <p>The authentication token associated with the participant's connection.</p>
    */
   ConnectionToken: string | undefined;
 
   /**
-   *
-   *         <p>The content of the event to be sent (for example, message text). This is not yet
+   * <p>The content of the event to be sent (for example, message text). This is not yet
    *             supported.</p>
-   *
    */
   Content?: string;
 
   /**
-   *
-   *         <p>The content type of the request. Supported types are:</p>
+   * <p>The content type of the request. Supported types are:</p>
    *
    *         <ul>
    *             <li>
@@ -250,8 +207,6 @@ export interface SendEventRequest {
    *                 <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   ContentType: string | undefined;
 }
@@ -265,18 +220,14 @@ export namespace SendEventRequest {
 export interface SendEventResponse extends $MetadataBearer {
   __type?: "SendEventResponse";
   /**
-   *
-   *         <p>The time when the event was sent.</p>
+   * <p>The time when the event was sent.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
-   *
    */
   AbsoluteTime?: string;
 
   /**
-   *
-   *         <p>The ID of the response.</p>
-   *
+   * <p>The ID of the response.</p>
    */
   Id?: string;
 }
@@ -290,31 +241,23 @@ export namespace SendEventResponse {
 export interface SendMessageRequest {
   __type?: "SendMessageRequest";
   /**
-   *
-   *         <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
-   *
    */
   ClientToken?: string;
 
   /**
-   *
-   *         <p>The authentication token associated with the connection.</p>
-   *
+   * <p>The authentication token associated with the connection.</p>
    */
   ConnectionToken: string | undefined;
 
   /**
-   *
-   *         <p>The content of the message.</p>
-   *
+   * <p>The content of the message.</p>
    */
   Content: string | undefined;
 
   /**
-   *
-   *         <p>The type of the content. Supported types are text/plain.</p>
-   *
+   * <p>The type of the content. Supported types are text/plain.</p>
    */
   ContentType: string | undefined;
 }
@@ -328,18 +271,14 @@ export namespace SendMessageRequest {
 export interface SendMessageResponse extends $MetadataBearer {
   __type?: "SendMessageResponse";
   /**
-   *
-   *         <p>The time when the message was sent.</p>
+   * <p>The time when the message was sent.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
-   *
    */
   AbsoluteTime?: string;
 
   /**
-   *
-   *         <p>The ID of the message.</p>
-   *
+   * <p>The ID of the message.</p>
    */
   Id?: string;
 }
@@ -351,9 +290,7 @@ export namespace SendMessageResponse {
 }
 
 /**
- *
- *         <p>The request was denied due to request throttling.</p>
- *
+ * <p>The request was denied due to request throttling.</p>
  */
 export interface ThrottlingException
   extends _smithy.SmithyException,
@@ -371,9 +308,7 @@ export namespace ThrottlingException {
 }
 
 /**
- *
- *         <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
- *
+ * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  */
 export interface ValidationException
   extends _smithy.SmithyException,
@@ -397,67 +332,49 @@ export enum ChatItemType {
 }
 
 /**
- *
- *         <p>An item - message or event - that has been sent. </p>
- *
+ * <p>An item - message or event - that has been sent. </p>
  */
 export interface Item {
   __type?: "Item";
   /**
-   *
-   *         <p>The time when the message or event was sent.</p>
+   * <p>The time when the message or event was sent.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
-   *
    */
   AbsoluteTime?: string;
 
   /**
-   *
-   *         <p>The content of the message or event.</p>
-   *
+   * <p>The content of the message or event.</p>
    */
   Content?: string;
 
   /**
-   *
-   *         <p>The type of content of the item.</p>
-   *
+   * <p>The type of content of the item.</p>
    */
   ContentType?: string;
 
   /**
-   *
-   *         <p>The chat display name of the sender.</p>
-   *
+   * <p>The chat display name of the sender.</p>
    */
   DisplayName?: string;
 
   /**
-   *
-   *         <p>The ID of the item.</p>
-   *
+   * <p>The ID of the item.</p>
    */
   Id?: string;
 
   /**
-   *
-   *         <p>The ID of the sender in the session.</p>
-   *
+   * <p>The ID of the sender in the session.</p>
    */
   ParticipantId?: string;
 
   /**
-   *
-   *         <p>The role of the sender. For example, is it a customer, agent, or system.</p>
-   *
+   * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
    */
   ParticipantRole?: ParticipantRole | string;
 
   /**
-   *
-   *         <p>Type of the item: message or event. </p>
-   *
+   * <p>Type of the item: message or event. </p>
    */
   Type?: ChatItemType | string;
 }
@@ -479,33 +396,25 @@ export enum SortKey {
 }
 
 /**
- *
- *         <p>A filtering option for where to start. For example, if you sent 100 messages, start
+ * <p>A filtering option for where to start. For example, if you sent 100 messages, start
  *             with message 50. </p>
- *
  */
 export interface StartPosition {
   __type?: "StartPosition";
   /**
-   *
-   *         <p>The time in ISO format where to start.</p>
+   * <p>The time in ISO format where to start.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
-   *
    */
   AbsoluteTime?: string;
 
   /**
-   *
-   *         <p>The ID of the message or event where to start. </p>
-   *
+   * <p>The ID of the message or event where to start. </p>
    */
   Id?: string;
 
   /**
-   *
-   *         <p>The start position of the most recent message where you want to start. </p>
-   *
+   * <p>The start position of the most recent message where you want to start. </p>
    */
   MostRecent?: number;
 }
@@ -517,25 +426,19 @@ export namespace StartPosition {
 }
 
 /**
- *
- *         <p>Connection credentials. </p>
- *
+ * <p>Connection credentials. </p>
  */
 export interface ConnectionCredentials {
   __type?: "ConnectionCredentials";
   /**
-   *
-   *         <p>The connection token.</p>
-   *
+   * <p>The connection token.</p>
    */
   ConnectionToken?: string;
 
   /**
-   *
-   *         <p>The expiration of the token.</p>
+   * <p>The expiration of the token.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
-   *
    */
   Expiry?: string;
 }
@@ -558,25 +461,19 @@ export enum ParticipantRole {
 }
 
 /**
- *
- *         <p>The websocket for the participant's connection.</p>
- *
+ * <p>The websocket for the participant's connection.</p>
  */
 export interface Websocket {
   __type?: "Websocket";
   /**
-   *
-   *         <p>The URL expiration timestamp in ISO date format.</p>
+   * <p>The URL expiration timestamp in ISO date format.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
-   *
    */
   ConnectionExpiry?: string;
 
   /**
-   *
-   *         <p>The URL of the websocket.</p>
-   *
+   * <p>The URL of the websocket.</p>
    */
   Url?: string;
 }

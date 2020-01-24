@@ -368,11 +368,9 @@ export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these
+ * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these
  *       actions to determine the topics contained in your documents, the topics they discuss, the
  *       predominant sentiment expressed in them, the predominant language used, and more.</p>
- *
  */
 export class ComprehendClient extends __Client<
   __HttpHandlerOptions,

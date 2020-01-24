@@ -152,21 +152,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Amazon WorkLink is a cloud-based service that provides secure access
+ * <p>Amazon WorkLink is a cloud-based service that provides secure access
  *             to internal websites and web apps from iOS phones. In a single step, your users, such as
  *             employees, can access internal websites as efficiently as they access any other public website.
  *             They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink
  *             authenticates the user's access and securely renders authorized internal web content in a secure
  *             rendering service in the AWS cloud. Amazon WorkLink doesn't download or store any internal web content on
  *             mobile devices.</p>
- *
  */
 export class WorkLink extends WorkLinkClient {
   /**
-   *
-   *         <p>Specifies a domain to be associated to Amazon WorkLink.</p>
-   *
+   * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
    */
   public associateDomain(
     args: AssociateDomainCommandInput,
@@ -201,9 +197,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
-   *
+   * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
    */
   public associateWebsiteAuthorizationProvider(
     args: AssociateWebsiteAuthorizationProviderCommandInput,
@@ -250,10 +244,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
+   * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
    *             certificates used by associated websites within the company network.</p>
-   *
    */
   public associateWebsiteCertificateAuthority(
     args: AssociateWebsiteCertificateAuthorityCommandInput,
@@ -300,10 +292,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
+   * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
    *             associated websites to authorized users who download and set up the Amazon WorkLink app.</p>
-   *
    */
   public createFleet(
     args: CreateFleetCommandInput,
@@ -338,9 +328,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
-   *
+   * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
    */
   public deleteFleet(
     args: DeleteFleetCommandInput,
@@ -375,9 +363,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Describes the configuration for delivering audit streams to the customer account.</p>
-   *
+   * <p>Describes the configuration for delivering audit streams to the customer account.</p>
    */
   public describeAuditStreamConfiguration(
     args: DescribeAuditStreamConfigurationCommandInput,
@@ -418,10 +404,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Describes the networking configuration to access the internal websites associated with
+   * <p>Describes the networking configuration to access the internal websites associated with
    *             the specified fleet.</p>
-   *
    */
   public describeCompanyNetworkConfiguration(
     args: DescribeCompanyNetworkConfigurationCommandInput,
@@ -468,9 +452,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Provides information about a user's device.</p>
-   *
+   * <p>Provides information about a user's device.</p>
    */
   public describeDevice(
     args: DescribeDeviceCommandInput,
@@ -505,9 +487,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Describes the device policy configuration for the specified fleet.</p>
-   *
+   * <p>Describes the device policy configuration for the specified fleet.</p>
    */
   public describeDevicePolicyConfiguration(
     args: DescribeDevicePolicyConfigurationCommandInput,
@@ -554,9 +534,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Provides information about the domain.</p>
-   *
+   * <p>Provides information about the domain.</p>
    */
   public describeDomain(
     args: DescribeDomainCommandInput,
@@ -591,10 +569,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Provides basic information for the specified fleet, excluding identity provider,
+   * <p>Provides basic information for the specified fleet, excluding identity provider,
    *             networking, and device configuration details.</p>
-   *
    */
   public describeFleetMetadata(
     args: DescribeFleetMetadataCommandInput,
@@ -629,9 +605,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Describes the identity provider configuration of the specified fleet.</p>
-   *
+   * <p>Describes the identity provider configuration of the specified fleet.</p>
    */
   public describeIdentityProviderConfiguration(
     args: DescribeIdentityProviderConfigurationCommandInput,
@@ -678,9 +652,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Provides information about the certificate authority.</p>
-   *
+   * <p>Provides information about the certificate authority.</p>
    */
   public describeWebsiteCertificateAuthority(
     args: DescribeWebsiteCertificateAuthorityCommandInput,
@@ -727,9 +699,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
-   *
+   * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
    */
   public disassociateDomain(
     args: DisassociateDomainCommandInput,
@@ -764,11 +734,9 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Disassociates a website authorization provider from a specified fleet. After the
+   * <p>Disassociates a website authorization provider from a specified fleet. After the
    *             disassociation, users can't load any associated websites that require this authorization
    *             provider.</p>
-   *
    */
   public disassociateWebsiteAuthorizationProvider(
     args: DisassociateWebsiteAuthorizationProviderCommandInput,
@@ -815,9 +783,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Removes a certificate authority (CA).</p>
-   *
+   * <p>Removes a certificate authority (CA).</p>
    */
   public disassociateWebsiteCertificateAuthority(
     args: DisassociateWebsiteCertificateAuthorityCommandInput,
@@ -864,9 +830,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list of devices registered with the specified fleet.</p>
-   *
+   * <p>Retrieves a list of devices registered with the specified fleet.</p>
    */
   public listDevices(
     args: ListDevicesCommandInput,
@@ -901,9 +865,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list of domains associated to a specified fleet.</p>
-   *
+   * <p>Retrieves a list of domains associated to a specified fleet.</p>
    */
   public listDomains(
     args: ListDomainsCommandInput,
@@ -938,9 +900,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list of fleets for the current account and Region.</p>
-   *
+   * <p>Retrieves a list of fleets for the current account and Region.</p>
    */
   public listFleets(
     args: ListFleetsCommandInput,
@@ -975,9 +935,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
-   *
+   * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
    */
   public listWebsiteAuthorizationProviders(
     args: ListWebsiteAuthorizationProvidersCommandInput,
@@ -1024,10 +982,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list of certificate authorities added for the current account and
+   * <p>Retrieves a list of certificate authorities added for the current account and
    *             Region.</p>
-   *
    */
   public listWebsiteCertificateAuthorities(
     args: ListWebsiteCertificateAuthoritiesCommandInput,
@@ -1074,9 +1030,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
-   *
+   * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
    */
   public restoreDomainAccess(
     args: RestoreDomainAccessCommandInput,
@@ -1111,9 +1065,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
-   *
+   * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
    */
   public revokeDomainAccess(
     args: RevokeDomainAccessCommandInput,
@@ -1148,10 +1100,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Signs the user out from all of their devices. The user can sign in again if they have
+   * <p>Signs the user out from all of their devices. The user can sign in again if they have
    *             valid credentials.</p>
-   *
    */
   public signOutUser(
     args: SignOutUserCommandInput,
@@ -1186,9 +1136,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Updates the audit stream configuration for the fleet.</p>
-   *
+   * <p>Updates the audit stream configuration for the fleet.</p>
    */
   public updateAuditStreamConfiguration(
     args: UpdateAuditStreamConfigurationCommandInput,
@@ -1226,9 +1174,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Updates the company network configuration for the fleet.</p>
-   *
+   * <p>Updates the company network configuration for the fleet.</p>
    */
   public updateCompanyNetworkConfiguration(
     args: UpdateCompanyNetworkConfigurationCommandInput,
@@ -1275,9 +1221,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Updates the device policy configuration for the fleet.</p>
-   *
+   * <p>Updates the device policy configuration for the fleet.</p>
    */
   public updateDevicePolicyConfiguration(
     args: UpdateDevicePolicyConfigurationCommandInput,
@@ -1315,9 +1259,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Updates domain metadata, such as DisplayName.</p>
-   *
+   * <p>Updates domain metadata, such as DisplayName.</p>
    */
   public updateDomainMetadata(
     args: UpdateDomainMetadataCommandInput,
@@ -1352,9 +1294,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Updates fleet metadata, such as DisplayName.</p>
-   *
+   * <p>Updates fleet metadata, such as DisplayName.</p>
    */
   public updateFleetMetadata(
     args: UpdateFleetMetadataCommandInput,
@@ -1389,9 +1329,7 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
-   *
-   *         <p>Updates the identity provider configuration for the fleet.</p>
-   *
+   * <p>Updates the identity provider configuration for the fleet.</p>
    */
   public updateIdentityProviderConfiguration(
     args: UpdateIdentityProviderConfigurationCommandInput,

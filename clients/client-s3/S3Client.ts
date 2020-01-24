@@ -463,11 +463,7 @@ export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p></p>
- *
- *
- *
+ * <p></p>
  */
 export class S3Client extends __Client<
   __HttpHandlerOptions,

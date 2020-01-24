@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   CopyDBClusterSnapshotMessage,
-  DBClusterSnapshot
+  CopyDBClusterSnapshotResult
 } from "../models/index";
 import {
   deserializeAws_queryCopyDBClusterSnapshotCommand,
@@ -28,7 +28,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyDBClusterSnapshotCommandInput = CopyDBClusterSnapshotMessage;
-export type CopyDBClusterSnapshotCommandOutput = DBClusterSnapshot;
+export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult;
 
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,

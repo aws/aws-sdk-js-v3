@@ -4,26 +4,20 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface GetMediaInput {
   __type?: "GetMediaInput";
   /**
-   *
-   *          <p>Identifies the starting chunk to get from the specified stream. </p>
-   *
+   * <p>Identifies the starting chunk to get from the specified stream. </p>
    */
   StartSelector: StartSelector | undefined;
 
   /**
-   *
-   *          <p>The ARN of the stream from where you want to get the media content. If you don't
+   * <p>The ARN of the stream from where you want to get the media content. If you don't
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
-   *
    */
   StreamARN?: string;
 
   /**
-   *
-   *          <p>The Kinesis video stream name from where you want to get the media content. If you
+   * <p>The Kinesis video stream name from where you want to get the media content. If you
    *       don't specify the <code>streamName</code>, you must specify the
    *       <code>streamARN</code>.</p>
-   *
    */
   StreamName?: string;
 }
@@ -37,15 +31,12 @@ export namespace GetMediaInput {
 export interface GetMediaOutput extends $MetadataBearer {
   __type?: "GetMediaOutput";
   /**
-   *
-   *          <p>The content type of the requested media.</p>
-   *
+   * <p>The content type of the requested media.</p>
    */
   ContentType?: string;
 
   /**
-   *
-   *          <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
+   * <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
    *       stream. For information about the chunks, see . The
    *       chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the
    *       following additional Matroska (MKV) tags: </p>
@@ -113,7 +104,6 @@ export interface GetMediaOutput extends $MetadataBearer {
    *                <p>5000 - Internal error</p>
    *             </li>
    *          </ul>
-   *
    */
   Payload?: Uint8Array;
 }
@@ -125,8 +115,7 @@ export namespace GetMediaOutput {
 }
 
 /**
- *
- *          <p>Identifies the chunk on the Kinesis video stream where you want the
+ * <p>Identifies the chunk on the Kinesis video stream where you want the
  *         <code>GetMedia</code> API to start returning media data. You have the following options to
  *       identify the starting chunk: </p>
  *          <ul>
@@ -145,32 +134,24 @@ export namespace GetMediaOutput {
  *           last API ended.</p>
  *             </li>
  *          </ul>
- *
- *
- *
  */
 export interface StartSelector {
   __type?: "StartSelector";
   /**
-   *
-   *          <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
+   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
    *       start returning the fragments. </p>
-   *
    */
   AfterFragmentNumber?: string;
 
   /**
-   *
-   *          <p>Continuation token that Kinesis Video Streams returned in the previous
+   * <p>Continuation token that Kinesis Video Streams returned in the previous
    *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
    *       identified by the continuation token.</p>
-   *
    */
   ContinuationToken?: string;
 
   /**
-   *
-   *          <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
+   * <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
    *       data from.</p>
    *          <ul>
    *             <li>
@@ -197,16 +178,13 @@ export interface StartSelector {
    *           <code>startSelectorType</code>, you don't provide any additional information in the
    *           <code>startSelector</code>.</p>
    *          </note>
-   *
    */
   StartSelectorType: StartSelectorType | string | undefined;
 
   /**
-   *
-   *          <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
+   * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
    *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
    *       starts with the chunk containing the fragment that has the specified timestamp.</p>
-   *
    */
   StartTimestamp?: Date;
 }
@@ -227,10 +205,8 @@ export enum StartSelectorType {
 }
 
 /**
- *
- *          <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client calls. Try making the call later.</p>
- *
  */
 export interface ClientLimitExceededException
   extends _smithy.SmithyException,
@@ -248,10 +224,8 @@ export namespace ClientLimitExceededException {
 }
 
 /**
- *
- *          <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client connections.</p>
- *
  */
 export interface ConnectionLimitExceededException
   extends _smithy.SmithyException,
@@ -269,9 +243,7 @@ export namespace ConnectionLimitExceededException {
 }
 
 /**
- *
- *          <p>The value for this input parameter is invalid.</p>
- *
+ * <p>The value for this input parameter is invalid.</p>
  */
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
@@ -289,12 +261,10 @@ export namespace InvalidArgumentException {
 }
 
 /**
- *
- *          <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
+ * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
  *       such an exception, the user must call <code>GetDataEndpoint</code> with
  *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
  *         <code>GetMedia</code> call. </p>
- *
  */
 export interface InvalidEndpointException
   extends _smithy.SmithyException,
@@ -312,10 +282,8 @@ export namespace InvalidEndpointException {
 }
 
 /**
- *
- *          <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *       stream, or the token has expired.</p>
- *
  */
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
@@ -333,9 +301,7 @@ export namespace NotAuthorizedException {
 }
 
 /**
- *
- *          <p>Status Code: 404, The stream with the given name does not exist.</p>
- *
+ * <p>Status Code: 404, The stream with the given name does not exist.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,

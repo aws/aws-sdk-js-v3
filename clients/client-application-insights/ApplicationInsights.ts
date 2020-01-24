@@ -80,6 +80,11 @@ import {
   ListComponentsCommandOutput
 } from "./commands/ListComponentsCommand";
 import {
+  ListConfigurationHistoryCommand,
+  ListConfigurationHistoryCommandInput,
+  ListConfigurationHistoryCommandOutput
+} from "./commands/ListConfigurationHistoryCommand";
+import {
   ListLogPatternSetsCommand,
   ListLogPatternSetsCommandInput,
   ListLogPatternSetsCommandOutput
@@ -132,8 +137,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon CloudWatch Application Insights for .NET and SQL Server</fullname>
+ * <fullname>Amazon CloudWatch Application Insights for .NET and SQL Server</fullname>
  *          <p> Amazon CloudWatch Application Insights for .NET and SQL Server is a service that
  *          helps you detect common problems with your .NET and SQL Server-based applications. It
  *          enables you to pinpoint the source of issues in your applications (built with technologies
@@ -146,13 +150,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          HTTP 500 errors in your Application Load Balancer (ALB), Application Insights informs you
  *          that a memory pressure problem with your SQL Server database is occurring. It bases this
  *          analysis on impactful metrics and log errors. </p>
- *
  */
 export class ApplicationInsights extends ApplicationInsightsClient {
   /**
-   *
-   *          <p>Adds an application that is created from a resource group.</p>
-   *
+   * <p>Adds an application that is created from a resource group.</p>
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -187,9 +188,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Creates a custom component by grouping similar standalone instances to monitor.</p>
-   *
+   * <p>Creates a custom component by grouping similar standalone instances to monitor.</p>
    */
   public createComponent(
     args: CreateComponentCommandInput,
@@ -224,9 +223,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Adds an log pattern to a <code>LogPatternSet</code>.</p>
-   *
+   * <p>Adds an log pattern to a <code>LogPatternSet</code>.</p>
    */
   public createLogPattern(
     args: CreateLogPatternCommandInput,
@@ -261,9 +258,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified application from monitoring. Does not delete the application.</p>
-   *
+   * <p>Removes the specified application from monitoring. Does not delete the application.</p>
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -298,10 +293,8 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Ungroups a custom component. When you ungroup custom components, all applicable
+   * <p>Ungroups a custom component. When you ungroup custom components, all applicable
    *          monitors that are set up for the component are removed and the instances revert to their standalone status.</p>
-   *
    */
   public deleteComponent(
     args: DeleteComponentCommandInput,
@@ -336,9 +329,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>
-   *
+   * <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>
    */
   public deleteLogPattern(
     args: DeleteLogPatternCommandInput,
@@ -373,9 +364,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describes the application.</p>
-   *
+   * <p>Describes the application.</p>
    */
   public describeApplication(
     args: DescribeApplicationCommandInput,
@@ -410,9 +399,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describes a component and lists the resources that are grouped together in a component.</p>
-   *
+   * <p>Describes a component and lists the resources that are grouped together in a component.</p>
    */
   public describeComponent(
     args: DescribeComponentCommandInput,
@@ -447,9 +434,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describes the monitoring configuration of the component.</p>
-   *
+   * <p>Describes the monitoring configuration of the component.</p>
    */
   public describeComponentConfiguration(
     args: DescribeComponentConfigurationCommandInput,
@@ -487,9 +472,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describes the recommended monitoring configuration of the component.</p>
-   *
+   * <p>Describes the recommended monitoring configuration of the component.</p>
    */
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
@@ -538,9 +521,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>
-   *
+   * <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>
    */
   public describeLogPattern(
     args: DescribeLogPatternCommandInput,
@@ -575,9 +556,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describes an anomaly or error with the application.</p>
-   *
+   * <p>Describes an anomaly or error with the application.</p>
    */
   public describeObservation(
     args: DescribeObservationCommandInput,
@@ -612,9 +591,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describes an application problem.</p>
-   *
+   * <p>Describes an application problem.</p>
    */
   public describeProblem(
     args: DescribeProblemCommandInput,
@@ -649,9 +626,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Describes the anomalies or errors associated with the problem.</p>
-   *
+   * <p>Describes the anomalies or errors associated with the problem.</p>
    */
   public describeProblemObservations(
     args: DescribeProblemObservationsCommandInput,
@@ -686,9 +661,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Lists the IDs of the applications that you are monitoring. </p>
-   *
+   * <p>Lists the IDs of the applications that you are monitoring. </p>
    */
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -723,9 +696,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Lists the auto-grouped, standalone, and custom components of the application.</p>
-   *
+   * <p>Lists the auto-grouped, standalone, and custom components of the application.</p>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -760,9 +731,55 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Lists the log pattern sets in the specific application.</p>
-   *
+   * <p>
+   *          Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by Application Insights. Examples of events represented are:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>INFO: creating a new alarm or updating an alarm threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>WARN: alarm not created due to insufficient data points used to predict thresholds.</p>
+   *             </li>
+   *             <li>
+   *                <p>ERROR: alarm not created due to permission errors or exceeding quotas. </p>
+   *             </li>
+   *          </ul>
+   */
+  public listConfigurationHistory(
+    args: ListConfigurationHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationHistoryCommandOutput>;
+  public listConfigurationHistory(
+    args: ListConfigurationHistoryCommandInput,
+    cb: (err: any, data?: ListConfigurationHistoryCommandOutput) => void
+  ): void;
+  public listConfigurationHistory(
+    args: ListConfigurationHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationHistoryCommandOutput) => void
+  ): void;
+  public listConfigurationHistory(
+    args: ListConfigurationHistoryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListConfigurationHistoryCommandOutput) => void),
+    cb?: (err: any, data?: ListConfigurationHistoryCommandOutput) => void
+  ): Promise<ListConfigurationHistoryCommandOutput> | void {
+    const command = new ListConfigurationHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the log pattern sets in the specific application.</p>
    */
   public listLogPatternSets(
     args: ListLogPatternSetsCommandInput,
@@ -797,9 +814,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
-   *
+   * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
    */
   public listLogPatterns(
     args: ListLogPatternsCommandInput,
@@ -834,9 +849,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Lists the problems with your application.</p>
-   *
+   * <p>Lists the problems with your application.</p>
    */
   public listProblems(
     args: ListProblemsCommandInput,
@@ -871,14 +884,12 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Retrieve a list of the tags (keys and values) that are associated with a specified
+   * <p>Retrieve a list of the tags (keys and values) that are associated with a specified
    *          application. A <i>tag</i> is a label that you optionally define and associate
    *          with an application. Each tag consists of a required <i>tag key</i> and an
    *          optional associated <i>tag value</i>. A tag key is a general label that
    *          acts as a category for more specific tag values. A tag value acts as a descriptor within
    *          a tag key.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -913,8 +924,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Add one or more tags (keys and values) to a specified application. A
+   * <p>Add one or more tags (keys and values) to a specified application. A
    *          <i>tag</i> is a label that you optionally define and associate with an
    *          application. Tags can help you categorize and manage application in different ways, such as
    *          by purpose, owner, environment, or other criteria. </p>
@@ -922,7 +932,6 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    *          associated <i>tag value</i>, both of which you define. A tag key is a
    *          general label that acts as a category for more specific tag values. A tag value acts as
    *          a descriptor within a tag key.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -957,9 +966,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Remove one or more tags (keys and values) from a specified application.</p>
-   *
+   * <p>Remove one or more tags (keys and values) from a specified application.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -994,9 +1001,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Updates the application.</p>
-   *
+   * <p>Updates the application.</p>
    */
   public updateApplication(
     args: UpdateApplicationCommandInput,
@@ -1031,11 +1036,8 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Updates the custom component name and/or the list of resources that make up the
+   * <p>Updates the custom component name and/or the list of resources that make up the
    *          component.</p>
-   *
-   *
    */
   public updateComponent(
     args: UpdateComponentCommandInput,
@@ -1070,11 +1072,9 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Updates the monitoring configurations for the component. The configuration input parameter
+   * <p>Updates the monitoring configurations for the component. The configuration input parameter
    *          is an escaped JSON of the configuration and should match the schema of what is returned
    *          by <code>DescribeComponentConfigurationRecommendation</code>. </p>
-   *
    */
   public updateComponentConfiguration(
     args: UpdateComponentConfigurationCommandInput,
@@ -1109,9 +1109,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   }
 
   /**
-   *
-   *          <p>Adds a log pattern to a <code>LogPatternSet</code>.</p>
-   *
+   * <p>Adds a log pattern to a <code>LogPatternSet</code>.</p>
    */
   public updateLogPattern(
     args: UpdateLogPatternCommandInput,

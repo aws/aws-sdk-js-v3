@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DocDBClient";
-import { CreateDBInstanceMessage, DBInstance } from "../models/index";
+import {
+  CreateDBInstanceMessage,
+  CreateDBInstanceResult
+} from "../models/index";
 import {
   deserializeAws_queryCreateDBInstanceCommand,
   serializeAws_queryCreateDBInstanceCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBInstanceCommandInput = CreateDBInstanceMessage;
-export type CreateDBInstanceCommandOutput = DBInstance;
+export type CreateDBInstanceCommandOutput = CreateDBInstanceResult;
 
 export class CreateDBInstanceCommand extends $Command<
   CreateDBInstanceCommandInput,

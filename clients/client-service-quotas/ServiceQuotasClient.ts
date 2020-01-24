@@ -228,8 +228,7 @@ export type ServiceQuotasClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p> Service Quotas is a web service that you can use to manage many of your AWS service
+ * <p> Service Quotas is a web service that you can use to manage many of your AWS service
  *       quotas. Quotas, also referred to as limits, are the maximum values for a resource, item, or
  *       operation. This guide provide descriptions of the Service Quotas actions that you can call
  *       from an API. For the Service Quotas user guide, which explains how to use Service Quotas from
@@ -241,7 +240,6 @@ export type ServiceQuotasClientResolvedConfig = __SmithyResolvedConfiguration<
  *         to create programmatic access to Service Quotas and AWS. For information about the AWS SDKs,
  *         including how to download and install them, see the <a href="https://docs.aws.amazon.com/aws.amazon.com/tools">Tools for Amazon Web Services</a> page.</p>
  *          </note>
- *
  */
 export class ServiceQuotasClient extends __Client<
   __HttpHandlerOptions,

@@ -82,17 +82,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>
+ * <p>
  *          AWS S3 Control provides access to Amazon S3 control plane operations.
  *       </p>
- *
  */
 export class S3Control extends S3ControlClient {
   /**
-   *
-   * 	        <p>Creates an access point and associates it with the specified bucket.</p>
-   *
+   * <p>Creates an access point and associates it with the specified bucket.</p>
    */
   public createAccessPoint(
     args: CreateAccessPointCommandInput,
@@ -127,9 +123,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Creates an Amazon S3 batch operations job.</p>
-   *
+   * <p>Creates an Amazon S3 batch operations job.</p>
    */
   public createJob(
     args: CreateJobCommandInput,
@@ -164,9 +158,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified access point.</p>
-   *
+   * <p>Deletes the specified access point.</p>
    */
   public deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
@@ -201,9 +193,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Deletes the access point policy for the specified access point.</p>
-   *
+   * <p>Deletes the access point policy for the specified access point.</p>
    */
   public deleteAccessPointPolicy(
     args: DeleteAccessPointPolicyCommandInput,
@@ -238,10 +228,8 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
+   * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
    *       account.</p>
-   *
    */
   public deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
@@ -276,9 +264,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the configuration parameters and status for a batch operations job.</p>
-   *
+   * <p>Retrieves the configuration parameters and status for a batch operations job.</p>
    */
   public describeJob(
     args: DescribeJobCommandInput,
@@ -313,9 +299,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Returns configuration information about the specified access point.</p>
-   *
+   * <p>Returns configuration information about the specified access point.</p>
    */
   public getAccessPoint(
     args: GetAccessPointCommandInput,
@@ -350,9 +334,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Returns the access point policy associated with the specified access point.</p>
-   *
+   * <p>Returns the access point policy associated with the specified access point.</p>
    */
   public getAccessPointPolicy(
     args: GetAccessPointPolicyCommandInput,
@@ -387,9 +369,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   * 	        <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *
+   * <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   public getAccessPointPolicyStatus(
     args: GetAccessPointPolicyStatusCommandInput,
@@ -424,9 +404,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account.</p>
-   *
+   * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account.</p>
    */
   public getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
@@ -461,10 +439,8 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   * 	        <p>Returns a list of the access points currently associated with the specified bucket. You can
+   * <p>Returns a list of the access points currently associated with the specified bucket. You can
    * 		   retrieve up to 1000 access points per call. If the specified bucket has more than 1000 access points (or the number specified in <code>maxResults</code>, whichever is less), then the response will include a continuation token that you can use to list the additional access points.</p>
-   *
    */
   public listAccessPoints(
     args: ListAccessPointsCommandInput,
@@ -499,9 +475,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Lists current jobs and jobs that have ended within the last 30 days for the AWS account making the request.</p>
-   *
+   * <p>Lists current jobs and jobs that have ended within the last 30 days for the AWS account making the request.</p>
    */
   public listJobs(
     args: ListJobsCommandInput,
@@ -536,9 +510,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API replaces any existing policy associated with the specified access point.</p>
-   *
+   * <p>Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API replaces any existing policy associated with the specified access point.</p>
    */
   public putAccessPointPolicy(
     args: PutAccessPointPolicyCommandInput,
@@ -573,10 +545,8 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
+   * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
    *       account.</p>
-   *
    */
   public putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
@@ -611,9 +581,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing job's priority.</p>
-   *
+   * <p>Updates an existing job's priority.</p>
    */
   public updateJobPriority(
     args: UpdateJobPriorityCommandInput,
@@ -648,9 +616,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   *
-   *          <p>Updates the status for the specified job. Use this operation to confirm that you want to run a job or to cancel an existing job.</p>
-   *
+   * <p>Updates the status for the specified job. Use this operation to confirm that you want to run a job or to cancel an existing job.</p>
    */
   public updateJobStatus(
     args: UpdateJobStatusCommandInput,

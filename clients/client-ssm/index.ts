@@ -57,6 +57,7 @@ export * from "./commands/DescribePatchGroupsCommand";
 export * from "./commands/DescribePatchPropertiesCommand";
 export * from "./commands/DescribeSessionsCommand";
 export * from "./commands/GetAutomationExecutionCommand";
+export * from "./commands/GetCalendarStateCommand";
 export * from "./commands/GetCommandInvocationCommand";
 export * from "./commands/GetConnectionStatusCommand";
 export * from "./commands/GetDefaultPatchBaselineCommand";

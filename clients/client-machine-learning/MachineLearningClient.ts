@@ -276,10 +276,8 @@ export type MachineLearningClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Definition of the public APIs
+ * <p>Definition of the public APIs
  *             exposed by Amazon Machine Learning</p>
- *
  */
 export class MachineLearningClient extends __Client<
   __HttpHandlerOptions,

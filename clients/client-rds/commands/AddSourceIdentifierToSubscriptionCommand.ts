@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   AddSourceIdentifierToSubscriptionMessage,
-  EventSubscription
+  AddSourceIdentifierToSubscriptionResult
 } from "../models/index";
 import {
   deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddSourceIdentifierToSubscriptionCommandInput = AddSourceIdentifierToSubscriptionMessage;
-export type AddSourceIdentifierToSubscriptionCommandOutput = EventSubscription;
+export type AddSourceIdentifierToSubscriptionCommandOutput = AddSourceIdentifierToSubscriptionResult;
 
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<
   AddSourceIdentifierToSubscriptionCommandInput,

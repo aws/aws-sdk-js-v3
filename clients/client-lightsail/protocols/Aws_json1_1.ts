@@ -15245,6 +15245,9 @@ const serializeAws_json1_1UpdateRelationalDatabaseRequest = (
   if (input.applyImmediately !== undefined) {
     bodyParams["applyImmediately"] = input.applyImmediately;
   }
+  if (input.caCertificateIdentifier !== undefined) {
+    bodyParams["caCertificateIdentifier"] = input.caCertificateIdentifier;
+  }
   if (input.disableBackupRetention !== undefined) {
     bodyParams["disableBackupRetention"] = input.disableBackupRetention;
   }
@@ -19227,6 +19230,7 @@ const deserializeAws_json1_1RelationalDatabase = (
     __type: "RelationalDatabase",
     arn: undefined,
     backupRetentionEnabled: undefined,
+    caCertificateIdentifier: undefined,
     createdAt: undefined,
     engine: undefined,
     engineVersion: undefined,
@@ -19256,6 +19260,9 @@ const deserializeAws_json1_1RelationalDatabase = (
   }
   if (output.backupRetentionEnabled !== undefined) {
     contents.backupRetentionEnabled = output.backupRetentionEnabled;
+  }
+  if (output.caCertificateIdentifier !== undefined) {
+    contents.caCertificateIdentifier = output.caCertificateIdentifier;
   }
   if (output.createdAt !== undefined) {
     contents.createdAt = new Date(

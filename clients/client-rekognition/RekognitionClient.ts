@@ -328,9 +328,7 @@ export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>This is the Amazon Rekognition API reference.</p>
- *
+ * <p>This is the Amazon Rekognition API reference.</p>
  */
 export class RekognitionClient extends __Client<
   __HttpHandlerOptions,

@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../DocDBClient";
 import {
-  DBCluster,
-  RestoreDBClusterToPointInTimeMessage
+  RestoreDBClusterToPointInTimeMessage,
+  RestoreDBClusterToPointInTimeResult
 } from "../models/index";
 import {
   deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBClusterToPointInTimeCommandInput = RestoreDBClusterToPointInTimeMessage;
-export type RestoreDBClusterToPointInTimeCommandOutput = DBCluster;
+export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult;
 
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,

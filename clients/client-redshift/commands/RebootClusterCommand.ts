@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, RebootClusterMessage } from "../models/index";
+import { RebootClusterMessage, RebootClusterResult } from "../models/index";
 import {
   deserializeAws_queryRebootClusterCommand,
   serializeAws_queryRebootClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RebootClusterCommandInput = RebootClusterMessage;
-export type RebootClusterCommandOutput = Cluster;
+export type RebootClusterCommandOutput = RebootClusterResult;
 
 export class RebootClusterCommand extends $Command<
   RebootClusterCommandInput,

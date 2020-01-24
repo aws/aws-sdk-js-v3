@@ -82,8 +82,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p> Service Quotas is a web service that you can use to manage many of your AWS service
+ * <p> Service Quotas is a web service that you can use to manage many of your AWS service
  *       quotas. Quotas, also referred to as limits, are the maximum values for a resource, item, or
  *       operation. This guide provide descriptions of the Service Quotas actions that you can call
  *       from an API. For the Service Quotas user guide, which explains how to use Service Quotas from
@@ -95,17 +94,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         to create programmatic access to Service Quotas and AWS. For information about the AWS SDKs,
  *         including how to download and install them, see the <a href="https://docs.aws.amazon.com/aws.amazon.com/tools">Tools for Amazon Web Services</a> page.</p>
  *          </note>
- *
  */
 export class ServiceQuotas extends ServiceQuotasClient {
   /**
-   *
-   *          <p>Associates the Service Quotas template with your organization so that when new accounts
+   * <p>Associates the Service Quotas template with your organization so that when new accounts
    *       are created in your organization, the template submits increase requests for the specified
    *       service quotas. Use the Service Quotas template to request an increase for any adjustable
    *       quota value. After you define the Service Quotas template, use this operation to associate, or
    *       enable, the template. </p>
-   *
    */
   public associateServiceQuotaTemplate(
     args: AssociateServiceQuotaTemplateCommandInput,
@@ -140,9 +136,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Removes a service quota increase request from the Service Quotas template. </p>
-   *
+   * <p>Removes a service quota increase request from the Service Quotas template. </p>
    */
   public deleteServiceQuotaIncreaseRequestFromTemplate(
     args: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
@@ -193,8 +187,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Disables the Service Quotas template. Once the template is disabled, it does not request
+   * <p>Disables the Service Quotas template. Once the template is disabled, it does not request
    *       quota increases for new accounts in your organization. Disabling the quota template does not
    *       apply the quota increase requests from the template. </p>
    *
@@ -210,7 +203,6 @@ export class ServiceQuotas extends ServiceQuotasClient {
    *                <p>To delete a specific service quota from the template, use <a>DeleteServiceQuotaIncreaseRequestFromTemplate</a>.</p>
    *             </li>
    *          </ul>
-   *
    */
   public disassociateServiceQuotaTemplate(
     args: DisassociateServiceQuotaTemplateCommandInput,
@@ -251,10 +243,8 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the default service quotas values. The Value returned for each quota is the AWS
+   * <p>Retrieves the default service quotas values. The Value returned for each quota is the AWS
    *       default value, even if the quotas have been increased.. </p>
-   *
    */
   public getAWSDefaultServiceQuota(
     args: GetAWSDefaultServiceQuotaCommandInput,
@@ -289,10 +279,8 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service.
+   * <p>Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service.
    *       Use this action to determine if the Service Quota template is associated, or enabled. </p>
-   *
    */
   public getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
@@ -339,9 +327,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the details for a particular increase request. </p>
-   *
+   * <p>Retrieves the details for a particular increase request. </p>
    */
   public getRequestedServiceQuotaChange(
     args: GetRequestedServiceQuotaChangeCommandInput,
@@ -379,12 +365,10 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Returns the details for the specified service quota. This operation provides a different
+   * <p>Returns the details for the specified service quota. This operation provides a different
    *       Value than the <code>GetAWSDefaultServiceQuota</code> operation. This operation returns the
    *       applied value for each quota. <code>GetAWSDefaultServiceQuota</code> returns the default AWS
    *       value for each quota. </p>
-   *
    */
   public getServiceQuota(
     args: GetServiceQuotaCommandInput,
@@ -419,9 +403,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Returns the details of the service quota increase request in your template.</p>
-   *
+   * <p>Returns the details of the service quota increase request in your template.</p>
    */
   public getServiceQuotaIncreaseRequestFromTemplate(
     args: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
@@ -468,8 +450,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Lists all default service quotas for the specified AWS service or all AWS services.
+   * <p>Lists all default service quotas for the specified AWS service or all AWS services.
    *       ListAWSDefaultServiceQuotas is similar to <a>ListServiceQuotas</a> except for the
    *       Value object. The Value object returned by <code>ListAWSDefaultServiceQuotas</code> is the
    *       default value assigned by AWS. This request returns a list of all service quotas for the
@@ -482,7 +463,6 @@ export class ServiceQuotas extends ServiceQuotasClient {
    *         response parameter contains a value to pass the next call to the same API to request the
    *         next part of the list.</p>
    *          </note>
-   *
    */
   public listAWSDefaultServiceQuotas(
     args: ListAWSDefaultServiceQuotasCommandInput,
@@ -517,9 +497,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Requests a list of the changes to quotas for a service.</p>
-   *
+   * <p>Requests a list of the changes to quotas for a service.</p>
    */
   public listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
@@ -566,12 +544,10 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Requests a list of the changes to specific service quotas. This command provides
+   * <p>Requests a list of the changes to specific service quotas. This command provides
    *       additional granularity over the <code>ListRequestedServiceQuotaChangeHistory</code> command.
    *       Once a quota change request has reached <code>CASE_CLOSED, APPROVED,</code> or
    *         <code>DENIED</code>, the history has been kept for 90 days.</p>
-   *
    */
   public listRequestedServiceQuotaChangeHistoryByQuota(
     args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
@@ -622,9 +598,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the quota increase requests in the template. </p>
-   *
+   * <p>Returns a list of the quota increase requests in the template. </p>
    */
   public listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
@@ -671,8 +645,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Lists all service quotas for the specified AWS service. This request returns a list of the
+   * <p>Lists all service quotas for the specified AWS service. This request returns a list of the
    *       service quotas for the specified service. you'll see the default values are the values that
    *       AWS provides for the quotas. </p>
    *          <note>
@@ -682,7 +655,6 @@ export class ServiceQuotas extends ServiceQuotasClient {
    *         response parameter contains a value to pass the next call to the same API to request the
    *         next part of the list.</p>
    *          </note>
-   *
    */
   public listServiceQuotas(
     args: ListServiceQuotasCommandInput,
@@ -717,11 +689,9 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Lists the AWS services available in Service Quotas. Not all AWS services are available in
+   * <p>Lists the AWS services available in Service Quotas. Not all AWS services are available in
    *       Service Quotas. To list the see the list of the service quotas for a specific service, use
    *         <a>ListServiceQuotas</a>.</p>
-   *
    */
   public listServices(
     args: ListServicesCommandInput,
@@ -756,12 +726,10 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Defines and adds a quota to the service quota template. To add a quota to the template,
+   * <p>Defines and adds a quota to the service quota template. To add a quota to the template,
    *       you must provide the <code>ServiceCode</code>, <code>QuotaCode</code>, <code>AwsRegion</code>,
    *       and <code>DesiredValue</code>. Once you add a quota to the template, use <a>ListServiceQuotaIncreaseRequestsInTemplate</a> to see the list of quotas in the
    *       template.</p>
-   *
    */
   public putServiceQuotaIncreaseRequestIntoTemplate(
     args: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
@@ -808,10 +776,8 @@ export class ServiceQuotas extends ServiceQuotasClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the details of a service quota increase request. The response to this command
+   * <p>Retrieves the details of a service quota increase request. The response to this command
    *       provides the details in the <a>RequestedServiceQuotaChange</a> object. </p>
-   *
    */
   public requestServiceQuotaIncrease(
     args: RequestServiceQuotaIncreaseCommandInput,

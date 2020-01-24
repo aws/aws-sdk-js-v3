@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   CreateDBClusterParameterGroupMessage,
-  DBClusterParameterGroup
+  CreateDBClusterParameterGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateDBClusterParameterGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBClusterParameterGroupCommandInput = CreateDBClusterParameterGroupMessage;
-export type CreateDBClusterParameterGroupCommandOutput = DBClusterParameterGroup;
+export type CreateDBClusterParameterGroupCommandOutput = CreateDBClusterParameterGroupResult;
 
 export class CreateDBClusterParameterGroupCommand extends $Command<
   CreateDBClusterParameterGroupCommandInput,

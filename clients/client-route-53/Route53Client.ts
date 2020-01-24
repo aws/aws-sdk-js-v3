@@ -388,9 +388,7 @@ export type Route53ClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- * 		       <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
- *
+ * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
  */
 export class Route53Client extends __Client<
   __HttpHandlerOptions,

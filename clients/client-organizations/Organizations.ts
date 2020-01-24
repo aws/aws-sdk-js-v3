@@ -237,14 +237,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Organizations</fullname>
- *
+ * <fullname>AWS Organizations</fullname>
  */
 export class Organizations extends OrganizationsClient {
   /**
-   *
-   *          <p>Sends a response to the originator of a handshake agreeing to the action proposed by the
+   * <p>Sends a response to the originator of a handshake agreeing to the action proposed by the
    *       handshake request. </p>
    *          <p>This operation can be called only by the following principals when they also have the
    *       relevant IAM permissions:</p>
@@ -274,8 +271,6 @@ export class Organizations extends OrganizationsClient {
    *          </ul>
    *          <p>After you accept a handshake, it continues to appear in the results of relevant APIs for
    *       only 30 days. After that, it's deleted.</p>
-   *
-   *
    */
   public acceptHandshake(
     args: AcceptHandshakeCommandInput,
@@ -310,8 +305,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.</p>
+   * <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.</p>
    *          <p>How the policy affects accounts depends on the type of policy:</p>
    *          <ul>
    *             <li>
@@ -326,8 +320,6 @@ export class Organizations extends OrganizationsClient {
    *             </li>
    *          </ul>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,
@@ -362,15 +354,12 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Cancels a handshake. Canceling a handshake sets the handshake state to
+   * <p>Cancels a handshake. Canceling a handshake sets the handshake state to
    *         <code>CANCELED</code>. </p>
    *          <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient can no
    *       longer respond to that handshake.</p>
    *          <p>After you cancel a handshake, it continues to appear in the results of relevant APIs for
    *       only 30 days. After that, it's deleted.</p>
-   *
-   *
    */
   public cancelHandshake(
     args: CancelHandshakeCommandInput,
@@ -405,8 +394,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Creates an AWS account that is automatically a member of the organization whose
+   * <p>Creates an AWS account that is automatically a member of the organization whose
    *       credentials made the request. This is an asynchronous request that AWS performs in the
    *       background. Because <code>CreateAccount</code> operates asynchronously, it can return a
    *       successful completion message even though account initialization might still be in progress.
@@ -481,8 +469,6 @@ export class Organizations extends OrganizationsClient {
    *         disable this switch for an account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting Access to Your Billing Information and
    *           Tools</a>.</p>
    *          </note>
-   *
-   *
    */
   public createAccount(
     args: CreateAccountCommandInput,
@@ -517,8 +503,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>This action is available if all of the following are true:</p>
+   * <p>This action is available if all of the following are true:</p>
    *          <ul>
    *             <li>
    *                <p>You're authorized to create accounts in the AWS GovCloud (US) Region. For more
@@ -640,8 +625,6 @@ export class Organizations extends OrganizationsClient {
    *         disable this switch for an account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting Access to Your Billing Information and
    *           Tools</a>.</p>
    *          </note>
-   *
-   *
    */
   public createGovCloudAccount(
     args: CreateGovCloudAccountCommandInput,
@@ -676,8 +659,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Creates an AWS organization. The account whose user is calling the
+   * <p>Creates an AWS organization. The account whose user is calling the
    *         <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_getting-started_concepts.html#account">master
    *         account</a> of the new organization.</p>
    *          <p>This operation must be called using credentials from the account that is to become the new
@@ -688,8 +670,6 @@ export class Organizations extends OrganizationsClient {
    *       are automatically enabled in the root. If you instead create the organization supporting only
    *       the consolidated billing features, no policy types are enabled by default, and you can't use
    *       organization policies.</p>
-   *
-   *
    */
   public createOrganization(
     args: CreateOrganizationCommandInput,
@@ -724,8 +704,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Creates an organizational unit (OU) within a root or parent OU. An OU is a container for
+   * <p>Creates an organizational unit (OU) within a root or parent OU. An OU is a container for
    *       accounts that enables you to organize your accounts to apply policies according to your
    *       business requirements. The number of levels deep that you can nest OUs is dependent upon the
    *       policy types enabled for that root. For service control policies, the limit is five. </p>
@@ -733,8 +712,6 @@ export class Organizations extends OrganizationsClient {
    *         <i>AWS Organizations User Guide.</i>
    *          </p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public createOrganizationalUnit(
     args: CreateOrganizationalUnitCommandInput,
@@ -769,14 +746,11 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Creates a policy of a specified type that you can attach to a root, an organizational unit
+   * <p>Creates a policy of a specified type that you can attach to a root, an organizational unit
    *       (OU), or an individual AWS account.</p>
    *          <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing Organization
    *         Policies</a>.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public createPolicy(
     args: CreatePolicyCommandInput,
@@ -811,16 +785,13 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code> and
+   * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code> and
    *       effectively deactivates the request.</p>
    *          <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
    *       instead. The originator can't reactivate a declined request, but can reinitiate the process
    *       with a new handshake request.</p>
    *          <p>After you decline a handshake, it continues to appear in the results of relevant API
    *       operations for only 30 days. After that, it's deleted.</p>
-   *
-   *
    */
   public declineHandshake(
     args: DeclineHandshakeCommandInput,
@@ -855,11 +826,8 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Deletes the organization. You can delete an organization only by using credentials from
+   * <p>Deletes the organization. You can delete an organization only by using credentials from
    *       the master account. The organization must be empty of member accounts.</p>
-   *
-   *
    */
   public deleteOrganization(
     args: DeleteOrganizationCommandInput,
@@ -894,12 +862,9 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove all
+   * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove all
    *       accounts and child OUs from the OU that you want to delete.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public deleteOrganizationalUnit(
     args: DeleteOrganizationalUnitCommandInput,
@@ -934,13 +899,10 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified policy from your organization. Before you perform this operation,
+   * <p>Deletes the specified policy from your organization. Before you perform this operation,
    *       you must first detach the policy from all organizational units (OUs), roots, and
    *       accounts.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -975,11 +937,8 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves AWS Organizations related information about the specified account.</p>
+   * <p>Retrieves AWS Organizations related information about the specified account.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public describeAccount(
     args: DescribeAccountCommandInput,
@@ -1014,11 +973,8 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the current status of an asynchronous request to create an account.</p>
+   * <p>Retrieves the current status of an asynchronous request to create an account.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public describeCreateAccountStatus(
     args: DescribeCreateAccountStatusCommandInput,
@@ -1053,16 +1009,13 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Returns the contents of the effective tag policy for the account. The effective tag policy
+   * <p>Returns the contents of the effective tag policy for the account. The effective tag policy
    *       is the aggregation of any tag policies the account inherits, plus any policy directly that is
    *       attached to the account. </p>
    *          <p>This action returns information on tag policies only.</p>
    *          <p>For more information on policy inheritance, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How Policy Inheritance
    *         Works</a> in the <i>AWS Organizations User Guide</i>.</p>
    *          <p>This operation can be called from any account in the organization.</p>
-   *
-   *
    */
   public describeEffectivePolicy(
     args: DescribeEffectivePolicyCommandInput,
@@ -1097,16 +1050,13 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a previously requested handshake. The handshake ID comes from
+   * <p>Retrieves information about a previously requested handshake. The handshake ID comes from
    *       the response to the original <a>InviteAccountToOrganization</a> operation that
    *       generated the handshake.</p>
    *          <p>You can access handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or
    *         <code>CANCELED</code> for only 30 days after they change to that state. They're then deleted
    *       and no longer accessible.</p>
    *          <p>This operation can be called from any account in the organization.</p>
-   *
-   *
    */
   public describeHandshake(
     args: DescribeHandshakeCommandInput,
@@ -1141,15 +1091,12 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the organization that the user's account belongs to.</p>
+   * <p>Retrieves information about the organization that the user's account belongs to.</p>
    *          <p>This operation can be called from any account in the organization.</p>
    *          <note>
    *             <p>Even if a policy type is shown as available in the organization, you can disable it
    *         separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to see the status of policy types for a specified root.</p>
    *          </note>
-   *
-   *
    */
   public describeOrganization(
     args: DescribeOrganizationCommandInput,
@@ -1184,11 +1131,8 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about an organizational unit (OU).</p>
+   * <p>Retrieves information about an organizational unit (OU).</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public describeOrganizationalUnit(
     args: DescribeOrganizationalUnitCommandInput,
@@ -1223,11 +1167,8 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a policy.</p>
+   * <p>Retrieves information about a policy.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public describePolicy(
     args: DescribePolicyCommandInput,
@@ -1262,8 +1203,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Detaches a policy from a target root, organizational unit (OU), or account. If the policy
+   * <p>Detaches a policy from a target root, organizational unit (OU), or account. If the policy
    *       being detached is a service control policy (SCP), the changes to permissions for IAM users
    *       and roles in affected accounts are immediate.</p>
    *          <p>
@@ -1277,8 +1217,6 @@ export class Organizations extends OrganizationsClient {
    *         <code>FullAWSAccess</code> policy (or any other attached SCP). If you take these steps,
    *       you're using the authorization strategy of a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist">deny list</a>. </p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public detachPolicy(
     args: DetachPolicyCommandInput,
@@ -1313,8 +1251,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Disables the integration of an AWS service (the service that is specified by
+   * <p>Disables the integration of an AWS service (the service that is specified by
    *         <code>ServicePrincipal</code>) with AWS Organizations. When you disable integration, the specified
    *       service no longer can create a <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in <i>new</i> accounts in your organization. This
    *       means the service can't perform operations on your behalf on any new accounts in your
@@ -1338,8 +1275,6 @@ export class Organizations extends OrganizationsClient {
    *         <i>AWS Organizations User Guide.</i>
    *          </p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public disableAWSServiceAccess(
     args: DisableAWSServiceAccessCommandInput,
@@ -1374,8 +1309,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Disables an organizational control policy type in a root and detaches all policies of that
+   * <p>Disables an organizational control policy type in a root and detaches all policies of that
    *       type from the organization root, OUs, and accounts. A policy of a certain type can be attached
    *       to entities in a root only if that type is enabled in the root. After you perform this
    *       operation, you no longer can attach policies of the specified type to that root or to any
@@ -1386,8 +1320,6 @@ export class Organizations extends OrganizationsClient {
    *       this operation. </p>
    *          <p>This operation can be called only from the organization's master account.</p>
    *          <p> To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.</p>
-   *
-   *
    */
   public disablePolicyType(
     args: DisablePolicyTypeCommandInput,
@@ -1422,8 +1354,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Enables the integration of an AWS service (the service that is specified by
+   * <p>Enables the integration of an AWS service (the service that is specified by
    *         <code>ServicePrincipal</code>) with AWS Organizations. When you enable integration, you allow the
    *       specified service to create a <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in all the accounts in your organization. This allows the
    *       service to perform operations on your behalf in your organization and its accounts.</p>
@@ -1441,8 +1372,6 @@ export class Organizations extends OrganizationsClient {
    *          <p>This operation can be called only from the organization's master account and only if the
    *       organization has <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
    *         all features</a>.</p>
-   *
-   *
    */
   public enableAWSServiceAccess(
     args: EnableAWSServiceAccessCommandInput,
@@ -1477,8 +1406,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Enables all features in an organization. This enables the use of organization policies
+   * <p>Enables all features in an organization. This enables the use of organization policies
    *       that can restrict the services and actions that can be called in each account. Until you
    *       enable all features, you have access only to consolidated billing. You can't use any of the
    *       advanced account administration features that AWS Organizations supports. For more information, see
@@ -1503,8 +1431,6 @@ export class Organizations extends OrganizationsClient {
    *       accounts from leaving the organization. Ensure that your account administrators are aware of
    *       this.</p>
    *          <p>This operation can be called only from the organization's master account. </p>
-   *
-   *
    */
   public enableAllFeatures(
     args: EnableAllFeaturesCommandInput,
@@ -1539,8 +1465,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Enables a policy type in a root. After you enable a policy type in a root, you can attach
+   * <p>Enables a policy type in a root. After you enable a policy type in a root, you can attach
    *       policies of that type to the root, any organizational unit (OU), or account in that root. You
    *       can undo this by using the <a>DisablePolicyType</a> operation.</p>
    *          <p>This is an asynchronous request that AWS performs in the background. AWS recommends
@@ -1549,8 +1474,6 @@ export class Organizations extends OrganizationsClient {
    *          <p>This operation can be called only from the organization's master account.</p>
    *          <p>You can enable a policy type in a root only if that policy type is available in the
    *       organization. To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.</p>
-   *
-   *
    */
   public enablePolicyType(
     args: EnablePolicyTypeCommandInput,
@@ -1585,8 +1508,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Sends an invitation to another account to join your organization as a member account.
+   * <p>Sends an invitation to another account to join your organization as a member account.
    *       AWS Organizations sends email on your behalf to the email address that is associated with the other
    *       account's owner. The invitation is implemented as a <a>Handshake</a> whose details
    *       are in the response.</p>
@@ -1609,8 +1531,6 @@ export class Organizations extends OrganizationsClient {
    *             </ul>
    *          </important>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public inviteAccountToOrganization(
     args: InviteAccountToOrganizationCommandInput,
@@ -1645,8 +1565,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Removes a member account from its parent organization. This version of the operation is
+   * <p>Removes a member account from its parent organization. This version of the operation is
    *       performed by the account that wants to leave. To remove a member account as a user in the
    *       master account, use <a>RemoveAccountFromOrganization</a> instead.</p>
    *          <p>This operation can be called only from a member account in the organization.</p>
@@ -1681,8 +1600,6 @@ export class Organizations extends OrganizationsClient {
    *                </li>
    *             </ul>
    *          </important>
-   *
-   *
    */
   public leaveOrganization(
     args: LeaveOrganizationCommandInput,
@@ -1717,8 +1634,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the AWS services that you enabled to integrate with your organization.
+   * <p>Returns a list of the AWS services that you enabled to integrate with your organization.
    *       After a service on this list creates the resources that it requires for the integration, it
    *       can perform operations on your organization and its accounts.</p>
    *          <p>For more information about integrating other services with AWS Organizations, including the list of
@@ -1726,8 +1642,6 @@ export class Organizations extends OrganizationsClient {
    *         Services</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
@@ -1774,8 +1688,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists all the accounts in the organization. To request only the accounts in a specified
+   * <p>Lists all the accounts in the organization. To request only the accounts in a specified
    *       root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation
    *       instead.</p>
    *          <note>
@@ -1787,8 +1700,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listAccounts(
     args: ListAccountsCommandInput,
@@ -1823,8 +1734,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the accounts in an organization that are contained by the specified target root or
+   * <p>Lists the accounts in an organization that are contained by the specified target root or
    *       organizational unit (OU). If you specify the root, you get a list of all the accounts that
    *       aren't in any OU. If you specify an OU, you get a list of all the accounts in only that OU and
    *       not in any child OUs. To get a list of all accounts in the organization, use the <a>ListAccounts</a> operation.</p>
@@ -1837,8 +1747,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listAccountsForParent(
     args: ListAccountsForParentCommandInput,
@@ -1873,8 +1781,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists all of the organizational units (OUs) or accounts that are contained in the
+   * <p>Lists all of the organizational units (OUs) or accounts that are contained in the
    *       specified parent OU or root. This operation, along with <a>ListParents</a> enables
    *       you to traverse the tree structure that makes up this root.</p>
    *          <note>
@@ -1886,8 +1793,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listChildren(
     args: ListChildrenCommandInput,
@@ -1922,8 +1827,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the account creation requests that match the specified status that is currently
+   * <p>Lists the account creation requests that match the specified status that is currently
    *       being tracked for the organization.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
@@ -1934,8 +1838,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listCreateAccountStatus(
     args: ListCreateAccountStatusCommandInput,
@@ -1970,8 +1872,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the current handshakes that are associated with the account of the requesting
+   * <p>Lists the current handshakes that are associated with the account of the requesting
    *       user.</p>
    *          <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>CANCELED</code>
    *       appear in the results of this API for only 30 days after changing to that state. After that,
@@ -1985,8 +1886,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called from any account in the organization.</p>
-   *
-   *
    */
   public listHandshakesForAccount(
     args: ListHandshakesForAccountCommandInput,
@@ -2021,8 +1920,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the handshakes that are associated with the organization that the requesting user is
+   * <p>Lists the handshakes that are associated with the organization that the requesting user is
    *       part of. The <code>ListHandshakesForOrganization</code> operation returns a list of handshake
    *       structures. Each structure contains details and status about a handshake.</p>
    *          <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>CANCELED</code>
@@ -2037,8 +1935,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listHandshakesForOrganization(
     args: ListHandshakesForOrganizationCommandInput,
@@ -2073,8 +1969,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>
+   * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    *     for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
@@ -2084,8 +1979,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listOrganizationalUnitsForParent(
     args: ListOrganizationalUnitsForParentCommandInput,
@@ -2126,8 +2019,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the root or organizational units (OUs) that serve as the immediate parent of the
+   * <p>Lists the root or organizational units (OUs) that serve as the immediate parent of the
    *       specified child OU or account. This operation, along with <a>ListChildren</a>
    *       enables you to traverse the tree structure that makes up this root.</p>
    *          <note>
@@ -2142,8 +2034,6 @@ export class Organizations extends OrganizationsClient {
    *          <note>
    *             <p>In the current release, a child can have only a single parent. </p>
    *          </note>
-   *
-   *
    */
   public listParents(
     args: ListParentsCommandInput,
@@ -2178,8 +2068,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the list of all policies in an organization of a specified type.</p>
+   * <p>Retrieves the list of all policies in an organization of a specified type.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    *     for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
@@ -2189,8 +2078,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -2225,8 +2112,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the policies that are directly attached to the specified target root, organizational
+   * <p>Lists the policies that are directly attached to the specified target root, organizational
    *       unit (OU), or account. You must specify the policy type that you want included in the returned
    *       list.</p>
    *          <note>
@@ -2238,8 +2124,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listPoliciesForTarget(
     args: ListPoliciesForTargetCommandInput,
@@ -2274,8 +2158,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists the roots that are defined in the current organization.</p>
+   * <p>Lists the roots that are defined in the current organization.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    *     for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
@@ -2291,8 +2174,6 @@ export class Organizations extends OrganizationsClient {
    *         for use in that organization. Individual policy types can then be enabled and disabled in a
    *         root. To see the availability of a policy type in an organization, use <a>DescribeOrganization</a>.</p>
    *          </note>
-   *
-   *
    */
   public listRoots(
     args: ListRootsCommandInput,
@@ -2327,13 +2208,10 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists tags for the specified resource. </p>
+   * <p>Lists tags for the specified resource. </p>
    *
    *          <p>Currently, you can list tags on an account in AWS Organizations.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2368,8 +2246,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Lists all the roots, organizational units (OUs), and accounts that the specified policy is
+   * <p>Lists all the roots, organizational units (OUs), and accounts that the specified policy is
    *       attached to.</p>
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
@@ -2380,8 +2257,6 @@ export class Organizations extends OrganizationsClient {
    *     when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
@@ -2416,12 +2291,9 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Moves an account from its current source parent root or organizational unit (OU) to the
+   * <p>Moves an account from its current source parent root or organizational unit (OU) to the
    *       specified destination parent root or OU.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public moveAccount(
     args: MoveAccountCommandInput,
@@ -2456,8 +2328,7 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified account from the organization.</p>
+   * <p>Removes the specified account from the organization.</p>
    *          <p>The removed account becomes a standalone account that isn't a member of any organization.
    *       It's no longer subject to any policies and is responsible for its own bill payments. The
    *       organization's master account is no longer charged for any expenses accrued by the member
@@ -2478,8 +2349,6 @@ export class Organizations extends OrganizationsClient {
    *         the <i>AWS Organizations User Guide.</i>
    *             </p>
    *          </important>
-   *
-   *
    */
   public removeAccountFromOrganization(
     args: RemoveAccountFromOrganizationCommandInput,
@@ -2514,13 +2383,10 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more tags to the specified resource.</p>
+   * <p>Adds one or more tags to the specified resource.</p>
    *
    *          <p>Currently, you can tag and untag accounts in AWS Organizations.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -2555,13 +2421,10 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Removes a tag from the specified resource. </p>
+   * <p>Removes a tag from the specified resource. </p>
    *
    *          <p>Currently, you can tag and untag accounts in AWS Organizations.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2596,12 +2459,9 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child OUs
+   * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child OUs
    *       and accounts remain in place, and any attached policies of the OU remain attached. </p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public updateOrganizationalUnit(
     args: UpdateOrganizationalUnitCommandInput,
@@ -2636,12 +2496,9 @@ export class Organizations extends OrganizationsClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing policy with a new name, description, or content. If you don't supply
+   * <p>Updates an existing policy with a new name, description, or content. If you don't supply
    *       any parameter, that value remains unchanged. You can't change a policy's type.</p>
    *          <p>This operation can be called only from the organization's master account.</p>
-   *
-   *
    */
   public updatePolicy(
     args: UpdatePolicyCommandInput,

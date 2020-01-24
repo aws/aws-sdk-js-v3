@@ -3,44 +3,53 @@ import {
   AcceptReservedNodeExchangeOutputMessage,
   AccountAttributeList,
   AuthorizeClusterSecurityGroupIngressMessage,
+  AuthorizeClusterSecurityGroupIngressResult,
   AuthorizeSnapshotAccessMessage,
+  AuthorizeSnapshotAccessResult,
   BatchDeleteClusterSnapshotsRequest,
   BatchDeleteClusterSnapshotsResult,
   BatchModifyClusterSnapshotsMessage,
   BatchModifyClusterSnapshotsOutputMessage,
   CancelResizeMessage,
-  Cluster,
   ClusterCredentials,
   ClusterDbRevisionsMessage,
-  ClusterParameterGroup,
   ClusterParameterGroupDetails,
   ClusterParameterGroupNameMessage,
   ClusterParameterGroupsMessage,
-  ClusterSecurityGroup,
   ClusterSecurityGroupMessage,
-  ClusterSubnetGroup,
   ClusterSubnetGroupMessage,
   ClusterVersionsMessage,
   ClustersMessage,
   CopyClusterSnapshotMessage,
+  CopyClusterSnapshotResult,
   CreateClusterMessage,
   CreateClusterParameterGroupMessage,
+  CreateClusterParameterGroupResult,
+  CreateClusterResult,
   CreateClusterSecurityGroupMessage,
+  CreateClusterSecurityGroupResult,
   CreateClusterSnapshotMessage,
+  CreateClusterSnapshotResult,
   CreateClusterSubnetGroupMessage,
+  CreateClusterSubnetGroupResult,
   CreateEventSubscriptionMessage,
+  CreateEventSubscriptionResult,
   CreateHsmClientCertificateMessage,
+  CreateHsmClientCertificateResult,
   CreateHsmConfigurationMessage,
+  CreateHsmConfigurationResult,
   CreateScheduledActionMessage,
   CreateSnapshotCopyGrantMessage,
+  CreateSnapshotCopyGrantResult,
   CreateSnapshotScheduleMessage,
   CreateTagsMessage,
   CustomerStorageMessage,
-  DefaultClusterParameters,
   DeleteClusterMessage,
   DeleteClusterParameterGroupMessage,
+  DeleteClusterResult,
   DeleteClusterSecurityGroupMessage,
   DeleteClusterSnapshotMessage,
+  DeleteClusterSnapshotResult,
   DeleteClusterSubnetGroupMessage,
   DeleteEventSubscriptionMessage,
   DeleteHsmClientCertificateMessage,
@@ -60,6 +69,7 @@ import {
   DescribeClusterVersionsMessage,
   DescribeClustersMessage,
   DescribeDefaultClusterParametersMessage,
+  DescribeDefaultClusterParametersResult,
   DescribeEventCategoriesMessage,
   DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
@@ -79,55 +89,66 @@ import {
   DescribeTagsMessage,
   DisableLoggingMessage,
   DisableSnapshotCopyMessage,
+  DisableSnapshotCopyResult,
   EnableLoggingMessage,
   EnableSnapshotCopyMessage,
+  EnableSnapshotCopyResult,
   EventCategoriesMessage,
-  EventSubscription,
   EventSubscriptionsMessage,
   EventsMessage,
   GetClusterCredentialsMessage,
   GetReservedNodeExchangeOfferingsInputMessage,
   GetReservedNodeExchangeOfferingsOutputMessage,
-  HsmClientCertificate,
   HsmClientCertificateMessage,
-  HsmConfiguration,
   HsmConfigurationMessage,
   LoggingStatus,
   ModifyClusterDbRevisionMessage,
+  ModifyClusterDbRevisionResult,
   ModifyClusterIamRolesMessage,
+  ModifyClusterIamRolesResult,
   ModifyClusterMaintenanceMessage,
+  ModifyClusterMaintenanceResult,
   ModifyClusterMessage,
   ModifyClusterParameterGroupMessage,
+  ModifyClusterResult,
   ModifyClusterSnapshotMessage,
+  ModifyClusterSnapshotResult,
   ModifyClusterSnapshotScheduleMessage,
   ModifyClusterSubnetGroupMessage,
+  ModifyClusterSubnetGroupResult,
   ModifyEventSubscriptionMessage,
+  ModifyEventSubscriptionResult,
   ModifyScheduledActionMessage,
   ModifySnapshotCopyRetentionPeriodMessage,
+  ModifySnapshotCopyRetentionPeriodResult,
   ModifySnapshotScheduleMessage,
   NodeConfigurationOptionsMessage,
   OrderableClusterOptionsMessage,
   PurchaseReservedNodeOfferingMessage,
+  PurchaseReservedNodeOfferingResult,
   RebootClusterMessage,
-  ReservedNode,
+  RebootClusterResult,
   ReservedNodeOfferingsMessage,
   ReservedNodesMessage,
   ResetClusterParameterGroupMessage,
   ResizeClusterMessage,
+  ResizeClusterResult,
   ResizeProgressMessage,
   RestoreFromClusterSnapshotMessage,
+  RestoreFromClusterSnapshotResult,
   RestoreTableFromClusterSnapshotMessage,
+  RestoreTableFromClusterSnapshotResult,
   RevokeClusterSecurityGroupIngressMessage,
+  RevokeClusterSecurityGroupIngressResult,
   RevokeSnapshotAccessMessage,
+  RevokeSnapshotAccessResult,
   RotateEncryptionKeyMessage,
+  RotateEncryptionKeyResult,
   ScheduledAction,
   ScheduledActionsMessage,
-  Snapshot,
-  SnapshotCopyGrant,
   SnapshotCopyGrantMessage,
   SnapshotMessage,
   SnapshotSchedule,
-  TableRestoreStatus,
   TableRestoreStatusMessage,
   TaggedResourceListMessage,
   TrackListMessage
@@ -277,75 +298,75 @@ export type ServiceOutputTypes =
   | __MetadataBearer
   | AcceptReservedNodeExchangeOutputMessage
   | AccountAttributeList
+  | AuthorizeClusterSecurityGroupIngressResult
+  | AuthorizeSnapshotAccessResult
   | BatchDeleteClusterSnapshotsResult
   | BatchModifyClusterSnapshotsOutputMessage
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
-  | Cluster
   | ClusterCredentials
   | ClusterDbRevisionsMessage
-  | ClusterParameterGroup
   | ClusterParameterGroupDetails
   | ClusterParameterGroupNameMessage
   | ClusterParameterGroupNameMessage
   | ClusterParameterGroupsMessage
-  | ClusterSecurityGroup
-  | ClusterSecurityGroup
-  | ClusterSecurityGroup
   | ClusterSecurityGroupMessage
-  | ClusterSubnetGroup
-  | ClusterSubnetGroup
   | ClusterSubnetGroupMessage
   | ClusterVersionsMessage
   | ClustersMessage
+  | CopyClusterSnapshotResult
+  | CreateClusterParameterGroupResult
+  | CreateClusterResult
+  | CreateClusterSecurityGroupResult
+  | CreateClusterSnapshotResult
+  | CreateClusterSubnetGroupResult
+  | CreateEventSubscriptionResult
+  | CreateHsmClientCertificateResult
+  | CreateHsmConfigurationResult
+  | CreateSnapshotCopyGrantResult
   | CustomerStorageMessage
-  | DefaultClusterParameters
+  | DeleteClusterResult
+  | DeleteClusterSnapshotResult
+  | DescribeDefaultClusterParametersResult
   | DescribeSnapshotSchedulesOutputMessage
+  | DisableSnapshotCopyResult
+  | EnableSnapshotCopyResult
   | EventCategoriesMessage
-  | EventSubscription
-  | EventSubscription
   | EventSubscriptionsMessage
   | EventsMessage
   | GetReservedNodeExchangeOfferingsOutputMessage
-  | HsmClientCertificate
   | HsmClientCertificateMessage
-  | HsmConfiguration
   | HsmConfigurationMessage
   | LoggingStatus
   | LoggingStatus
   | LoggingStatus
+  | ModifyClusterDbRevisionResult
+  | ModifyClusterIamRolesResult
+  | ModifyClusterMaintenanceResult
+  | ModifyClusterResult
+  | ModifyClusterSnapshotResult
+  | ModifyClusterSubnetGroupResult
+  | ModifyEventSubscriptionResult
+  | ModifySnapshotCopyRetentionPeriodResult
   | NodeConfigurationOptionsMessage
   | OrderableClusterOptionsMessage
-  | ReservedNode
+  | PurchaseReservedNodeOfferingResult
+  | RebootClusterResult
   | ReservedNodeOfferingsMessage
   | ReservedNodesMessage
+  | ResizeClusterResult
   | ResizeProgressMessage
   | ResizeProgressMessage
+  | RestoreFromClusterSnapshotResult
+  | RestoreTableFromClusterSnapshotResult
+  | RevokeClusterSecurityGroupIngressResult
+  | RevokeSnapshotAccessResult
+  | RotateEncryptionKeyResult
   | ScheduledAction
   | ScheduledAction
   | ScheduledActionsMessage
-  | Snapshot
-  | Snapshot
-  | Snapshot
-  | Snapshot
-  | Snapshot
-  | Snapshot
-  | SnapshotCopyGrant
   | SnapshotCopyGrantMessage
   | SnapshotMessage
   | SnapshotSchedule
   | SnapshotSchedule
-  | TableRestoreStatus
   | TableRestoreStatusMessage
   | TaggedResourceListMessage
   | TrackListMessage;
@@ -458,8 +479,7 @@ export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Amazon Redshift</fullname>
+ * <fullname>Amazon Redshift</fullname>
  *         <p>
  *             <b>Overview</b>
  *         </p>
@@ -481,8 +501,6 @@ export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<
  *
  *         <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
  *             build, query, and maintain the databases that make up your data warehouse. </p>
- *
- *
  */
 export class RedshiftClient extends __Client<
   __HttpHandlerOptions,

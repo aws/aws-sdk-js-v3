@@ -43,6 +43,10 @@ import {
   DeleteReportGroupCommandOutput
 } from "../commands/DeleteReportGroupCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeleteSourceCredentialsCommandInput,
   DeleteSourceCredentialsCommandOutput
 } from "../commands/DeleteSourceCredentialsCommand";
@@ -54,6 +58,10 @@ import {
   DescribeTestCasesCommandInput,
   DescribeTestCasesCommandOutput
 } from "../commands/DescribeTestCasesCommand";
+import {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput
+} from "../commands/GetResourcePolicyCommand";
 import {
   ImportSourceCredentialsCommandInput,
   ImportSourceCredentialsCommandOutput
@@ -91,9 +99,21 @@ import {
   ListReportsForReportGroupCommandOutput
 } from "../commands/ListReportsForReportGroupCommand";
 import {
+  ListSharedProjectsCommandInput,
+  ListSharedProjectsCommandOutput
+} from "../commands/ListSharedProjectsCommand";
+import {
+  ListSharedReportGroupsCommandInput,
+  ListSharedReportGroupsCommandOutput
+} from "../commands/ListSharedReportGroupsCommand";
+import {
   ListSourceCredentialsCommandInput,
   ListSourceCredentialsCommandOutput
 } from "../commands/ListSourceCredentialsCommand";
+import {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput
+} from "../commands/PutResourcePolicyCommand";
 import {
   StartBuildCommandInput,
   StartBuildCommandOutput
@@ -144,6 +164,8 @@ import {
   DeleteReportGroupOutput,
   DeleteReportInput,
   DeleteReportOutput,
+  DeleteResourcePolicyInput,
+  DeleteResourcePolicyOutput,
   DeleteSourceCredentialsInput,
   DeleteSourceCredentialsOutput,
   DeleteWebhookInput,
@@ -155,6 +177,8 @@ import {
   EnvironmentPlatform,
   EnvironmentVariable,
   ExportedEnvironmentVariable,
+  GetResourcePolicyInput,
+  GetResourcePolicyOutput,
   GitSubmodulesConfig,
   ImportSourceCredentialsInput,
   ImportSourceCredentialsOutput,
@@ -175,6 +199,10 @@ import {
   ListReportsForReportGroupOutput,
   ListReportsInput,
   ListReportsOutput,
+  ListSharedProjectsInput,
+  ListSharedProjectsOutput,
+  ListSharedReportGroupsInput,
+  ListSharedReportGroupsOutput,
   ListSourceCredentialsInput,
   ListSourceCredentialsOutput,
   LogsConfig,
@@ -189,6 +217,8 @@ import {
   ProjectEnvironment,
   ProjectSource,
   ProjectSourceVersion,
+  PutResourcePolicyInput,
+  PutResourcePolicyOutput,
   RegistryCredential,
   Report,
   ReportExportConfig,
@@ -453,6 +483,27 @@ export async function serializeAws_json1_1DeleteReportGroupCommand(
   });
 }
 
+export async function serializeAws_json1_1DeleteResourcePolicyCommand(
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteResourcePolicy";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResourcePolicyInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteResourcePolicy",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1DeleteSourceCredentialsCommand(
   input: DeleteSourceCredentialsCommandInput,
   context: __SerdeContext
@@ -509,6 +560,27 @@ export async function serializeAws_json1_1DescribeTestCasesCommand(
     protocol: "https",
     method: "POST",
     path: "/DescribeTestCases",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetResourcePolicyCommand(
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodeBuild_20161006.GetResourcePolicy";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1GetResourcePolicyInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetResourcePolicy",
     headers: headers,
     body: body
   });
@@ -697,6 +769,48 @@ export async function serializeAws_json1_1ListReportsForReportGroupCommand(
   });
 }
 
+export async function serializeAws_json1_1ListSharedProjectsCommand(
+  input: ListSharedProjectsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodeBuild_20161006.ListSharedProjects";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListSharedProjectsInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListSharedProjects",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListSharedReportGroupsCommand(
+  input: ListSharedReportGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodeBuild_20161006.ListSharedReportGroups";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListSharedReportGroupsInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListSharedReportGroups",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1ListSourceCredentialsCommand(
   input: ListSourceCredentialsCommandInput,
   context: __SerdeContext
@@ -713,6 +827,27 @@ export async function serializeAws_json1_1ListSourceCredentialsCommand(
     protocol: "https",
     method: "POST",
     path: "/ListSourceCredentials",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutResourcePolicyCommand(
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodeBuild_20161006.PutResourcePolicy";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1PutResourcePolicyInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutResourcePolicy",
     headers: headers,
     body: body
   });
@@ -1461,6 +1596,63 @@ async function deserializeAws_json1_1DeleteReportGroupCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1DeleteResourcePolicyCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteResourcePolicyOutput(data, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteResourcePolicyOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.codebuild#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1DeleteSourceCredentialsCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -1615,6 +1807,67 @@ async function deserializeAws_json1_1DescribeTestCasesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTestCasesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codebuild#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.codebuild#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1GetResourcePolicyCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourcePolicyOutput(data, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetResourcePolicyOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetResourcePolicyCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -2189,6 +2442,120 @@ async function deserializeAws_json1_1ListReportsForReportGroupCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1ListSharedProjectsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSharedProjectsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListSharedProjectsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSharedProjectsOutput(data, context);
+  const response: ListSharedProjectsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListSharedProjectsOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListSharedProjectsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSharedProjectsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.codebuild#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1ListSharedReportGroupsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSharedReportGroupsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListSharedReportGroupsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSharedReportGroupsOutput(data, context);
+  const response: ListSharedReportGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListSharedReportGroupsOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListSharedReportGroupsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSharedReportGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.codebuild#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1ListSourceCredentialsCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -2224,6 +2591,67 @@ async function deserializeAws_json1_1ListSourceCredentialsCommandError(
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.codebuild#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1PutResourcePolicyCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutResourcePolicyOutput(data, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutResourcePolicyOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutResourcePolicyCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codebuild#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -2905,6 +3333,17 @@ const serializeAws_json1_1DeleteReportInput = (
   return bodyParams;
 };
 
+const serializeAws_json1_1DeleteResourcePolicyInput = (
+  input: DeleteResourcePolicyInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.resourceArn !== undefined) {
+    bodyParams["resourceArn"] = input.resourceArn;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1DeleteSourceCredentialsInput = (
   input: DeleteSourceCredentialsInput,
   context: __SerdeContext
@@ -2992,6 +3431,17 @@ const serializeAws_json1_1FilterGroups = (
   return (input || []).map(entry =>
     serializeAws_json1_1FilterGroup(entry, context)
   );
+};
+
+const serializeAws_json1_1GetResourcePolicyInput = (
+  input: GetResourcePolicyInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.resourceArn !== undefined) {
+    bodyParams["resourceArn"] = input.resourceArn;
+  }
+  return bodyParams;
 };
 
 const serializeAws_json1_1GitSubmodulesConfig = (
@@ -3157,6 +3607,46 @@ const serializeAws_json1_1ListReportsInput = (
   }
   if (input.nextToken !== undefined) {
     bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.sortOrder !== undefined) {
+    bodyParams["sortOrder"] = input.sortOrder;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListSharedProjectsInput = (
+  input: ListSharedProjectsInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.maxResults !== undefined) {
+    bodyParams["maxResults"] = input.maxResults;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.sortBy !== undefined) {
+    bodyParams["sortBy"] = input.sortBy;
+  }
+  if (input.sortOrder !== undefined) {
+    bodyParams["sortOrder"] = input.sortOrder;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListSharedReportGroupsInput = (
+  input: ListSharedReportGroupsInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.maxResults !== undefined) {
+    bodyParams["maxResults"] = input.maxResults;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.sortBy !== undefined) {
+    bodyParams["sortBy"] = input.sortBy;
   }
   if (input.sortOrder !== undefined) {
     bodyParams["sortOrder"] = input.sortOrder;
@@ -3380,6 +3870,20 @@ const serializeAws_json1_1ProjectSources = (
   );
 };
 
+const serializeAws_json1_1PutResourcePolicyInput = (
+  input: PutResourcePolicyInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.policy !== undefined) {
+    bodyParams["policy"] = input.policy;
+  }
+  if (input.resourceArn !== undefined) {
+    bodyParams["resourceArn"] = input.resourceArn;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1RegistryCredential = (
   input: RegistryCredential,
   context: __SerdeContext
@@ -3522,6 +4026,9 @@ const serializeAws_json1_1StartBuildInput = (
   }
   if (input.computeTypeOverride !== undefined) {
     bodyParams["computeTypeOverride"] = input.computeTypeOverride;
+  }
+  if (input.encryptionKeyOverride !== undefined) {
+    bodyParams["encryptionKeyOverride"] = input.encryptionKeyOverride;
   }
   if (input.environmentTypeOverride !== undefined) {
     bodyParams["environmentTypeOverride"] = input.environmentTypeOverride;
@@ -4382,6 +4889,16 @@ const deserializeAws_json1_1DeleteReportOutput = (
   return contents;
 };
 
+const deserializeAws_json1_1DeleteResourcePolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteResourcePolicyOutput => {
+  let contents: any = {
+    __type: "DeleteResourcePolicyOutput"
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1DeleteSourceCredentialsOutput = (
   output: any,
   context: __SerdeContext
@@ -4597,6 +5114,20 @@ const deserializeAws_json1_1FilterGroups = (
   );
 };
 
+const deserializeAws_json1_1GetResourcePolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): GetResourcePolicyOutput => {
+  let contents: any = {
+    __type: "GetResourcePolicyOutput",
+    policy: undefined
+  };
+  if (output.policy !== undefined) {
+    contents.policy = output.policy;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1GitSubmodulesConfig = (
   output: any,
   context: __SerdeContext
@@ -4787,6 +5318,48 @@ const deserializeAws_json1_1ListReportsOutput = (
   if (output.reports !== undefined) {
     contents.reports = deserializeAws_json1_1ReportArns(
       output.reports,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListSharedProjectsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListSharedProjectsOutput => {
+  let contents: any = {
+    __type: "ListSharedProjectsOutput",
+    nextToken: undefined,
+    projects: undefined
+  };
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  if (output.projects !== undefined) {
+    contents.projects = deserializeAws_json1_1ProjectArns(
+      output.projects,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListSharedReportGroupsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListSharedReportGroupsOutput => {
+  let contents: any = {
+    __type: "ListSharedReportGroupsOutput",
+    nextToken: undefined,
+    reportGroups: undefined
+  };
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  if (output.reportGroups !== undefined) {
+    contents.reportGroups = deserializeAws_json1_1ReportGroupArns(
+      output.reportGroups,
       context
     );
   }
@@ -5071,6 +5644,13 @@ const deserializeAws_json1_1Project = (
   return contents;
 };
 
+const deserializeAws_json1_1ProjectArns = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1ProjectArtifacts = (
   output: any,
   context: __SerdeContext
@@ -5323,6 +5903,20 @@ const deserializeAws_json1_1Projects = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Project(entry, context)
   );
+};
+
+const deserializeAws_json1_1PutResourcePolicyOutput = (
+  output: any,
+  context: __SerdeContext
+): PutResourcePolicyOutput => {
+  let contents: any = {
+    __type: "PutResourcePolicyOutput",
+    resourceArn: undefined
+  };
+  if (output.resourceArn !== undefined) {
+    contents.resourceArn = output.resourceArn;
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1RegistryCredential = (

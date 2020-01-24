@@ -476,6 +476,11 @@ export namespace AudioNormalizationSettings {
   }
 }
 
+export enum AudioOnlyHlsSegmentType {
+  AAC = "AAC",
+  FMP4 = "FMP4"
+}
+
 /**
  * Audio Only Hls Settings
  */
@@ -509,6 +514,11 @@ export interface AudioOnlyHlsSettings {
    * Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
    */
   AudioTrackType?: AudioOnlyHlsTrackType | string;
+
+  /**
+   * Specifies the segment type.
+   */
+  SegmentType?: AudioOnlyHlsSegmentType | string;
 }
 
 export namespace AudioOnlyHlsSettings {
@@ -1231,7 +1241,6 @@ export interface Channel {
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
-   *
    */
   Destinations?: Array<OutputDestination>;
 
@@ -1357,7 +1366,6 @@ export interface ChannelSummary {
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
-   *
    */
   Destinations?: Array<OutputDestination>;
 
@@ -1495,7 +1503,6 @@ export interface CreateChannelRequest {
   /**
    * Unique request ID to be specified. This is needed to prevent retries from
    * creating multiple resources.
-   *
    */
   RequestId?: string;
 
@@ -1557,7 +1564,6 @@ export interface CreateInputRequest {
    * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
    * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
    * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-   *
    */
   MediaConnectFlows?: Array<MediaConnectFlowRequest>;
 
@@ -1569,7 +1575,6 @@ export interface CreateInputRequest {
   /**
    * Unique identifier of the request to ensure the request is handled
    * exactly once in case of retries.
-   *
    */
   RequestId?: string;
 
@@ -1582,7 +1587,6 @@ export interface CreateInputRequest {
    * The source URLs for a PULL-type input. Every PULL type input needs
    * exactly two source URLs for redundancy.
    * Only specify sources for PULL type Inputs. Leave Destinations empty.
-   *
    */
   Sources?: Array<InputSourceRequest>;
 
@@ -1601,7 +1605,6 @@ export interface CreateInputRequest {
    * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
    * This property requires setting the roleArn property on Input creation.
    * Not compatible with the inputSecurityGroups property.
-   *
    */
   Vpc?: InputVpcRequest;
 }
@@ -1691,7 +1694,6 @@ export interface CreateMultiplexProgramRequest {
   /**
    * Unique request ID. This prevents retries from creating multiple
    * resources.
-   *
    */
   RequestId: string | undefined;
 }
@@ -1742,7 +1744,6 @@ export interface CreateMultiplexRequest {
   /**
    * Unique request ID. This prevents retries from creating multiple
    * resources.
-   *
    */
   RequestId: string | undefined;
 
@@ -1833,7 +1834,6 @@ export interface DeleteChannelResponse extends $MetadataBearer {
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
-   *
    */
   Destinations?: Array<OutputDestination>;
 
@@ -2304,7 +2304,6 @@ export interface DescribeChannelResponse extends $MetadataBearer {
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
-   *
    */
   Destinations?: Array<OutputDestination>;
 
@@ -2420,14 +2419,12 @@ export interface DescribeInputResponse extends $MetadataBearer {
   /**
    * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
    * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
-   *
    */
   InputClass?: InputClass | string;
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
    * during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
-   *
    */
   InputSourceType?: InputSourceType | string;
 
@@ -3552,6 +3549,23 @@ export namespace FixedModeScheduleActionStartSettings {
 }
 
 /**
+ * Fmp4 Hls Settings
+ */
+export interface Fmp4HlsSettings {
+  __type?: "Fmp4HlsSettings";
+  /**
+   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+   */
+  AudioRenditionSets?: string;
+}
+
+export namespace Fmp4HlsSettings {
+  export function isa(o: any): o is Fmp4HlsSettings {
+    return _smithy.isa(o, "Fmp4HlsSettings");
+  }
+}
+
+/**
  * Settings to specify if an action follows another.
  */
 export interface FollowModeScheduleActionStartSettings {
@@ -3616,6 +3630,11 @@ export namespace FrameCaptureGroupSettings {
   }
 }
 
+export enum FrameCaptureIntervalUnit {
+  MILLISECONDS = "MILLISECONDS",
+  SECONDS = "SECONDS"
+}
+
 /**
  * Frame Capture Output Settings
  */
@@ -3642,6 +3661,11 @@ export interface FrameCaptureSettings {
    * The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
    */
   CaptureInterval: number | undefined;
+
+  /**
+   * Unit for the frame capture interval.
+   */
+  CaptureIntervalUnits?: FrameCaptureIntervalUnit | string;
 }
 
 export namespace FrameCaptureSettings {
@@ -4022,6 +4046,10 @@ export interface H264Settings {
    *
    * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
    * your assets to devices that cannot handle variable bitrates.
+   *
+   * Multiplex: This rate control mode is only supported (and is required) when the video is being
+   * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
+   * by the properties within the Multiplex Program.
    */
   RateControlMode?: H264RateControlMode | string;
 
@@ -4578,9 +4606,23 @@ export interface HlsGroupSettings {
   BaseUrlContent?: string;
 
   /**
+   * Optional. One value per output group.
+   *
+   * This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
+   */
+  BaseUrlContent1?: string;
+
+  /**
    * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
    */
   BaseUrlManifest?: string;
+
+  /**
+   * Optional. One value per output group.
+   *
+   * Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
+   */
+  BaseUrlManifest1?: string;
 
   /**
    * Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
@@ -4629,6 +4671,11 @@ export interface HlsGroupSettings {
    * Parameters that control interactions with the CDN.
    */
   HlsCdnSettings?: HlsCdnSettings;
+
+  /**
+   * State of HLS ID3 Segment Tagging
+   */
+  HlsId3SegmentTagging?: HlsId3SegmentTaggingState | string;
 
   /**
    * DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).
@@ -4774,6 +4821,33 @@ export namespace HlsGroupSettings {
   }
 }
 
+export enum HlsH265PackagingType {
+  HEV1 = "HEV1",
+  HVC1 = "HVC1"
+}
+
+/**
+ * Settings for the action to insert a user-defined ID3 tag in each HLS segment
+ */
+export interface HlsId3SegmentTaggingScheduleActionSettings {
+  __type?: "HlsId3SegmentTaggingScheduleActionSettings";
+  /**
+   * ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
+   */
+  Tag: string | undefined;
+}
+
+export namespace HlsId3SegmentTaggingScheduleActionSettings {
+  export function isa(o: any): o is HlsId3SegmentTaggingScheduleActionSettings {
+    return _smithy.isa(o, "HlsId3SegmentTaggingScheduleActionSettings");
+  }
+}
+
+export enum HlsId3SegmentTaggingState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
 /**
  * Hls Input Settings
  */
@@ -4883,6 +4957,12 @@ export enum HlsOutputSelection {
 export interface HlsOutputSettings {
   __type?: "HlsOutputSettings";
   /**
+   * Only applicable when this output is referencing an H.265 video description.
+   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+   */
+  H265PackagingType?: HlsH265PackagingType | string;
+
+  /**
    * Settings regarding the underlying stream. These settings are different for audio-only outputs.
    */
   HlsSettings: HlsSettings | undefined;
@@ -4928,6 +5008,11 @@ export interface HlsSettings {
    * Audio Only Hls Settings
    */
   AudioOnlyHlsSettings?: AudioOnlyHlsSettings;
+
+  /**
+   * Fmp4 Hls Settings
+   */
+  Fmp4HlsSettings?: Fmp4HlsSettings;
 
   /**
    * Standard Hls Settings
@@ -5062,14 +5147,12 @@ export interface Input {
   /**
    * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
    * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
-   *
    */
   InputClass?: InputClass | string;
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
    * during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
-   *
    */
   InputSourceType?: InputSourceType | string;
 
@@ -5225,7 +5308,6 @@ export interface InputDestination {
   /**
    * The system-generated static IP address of endpoint.
    * It remains fixed for the lifetime of the input.
-   *
    */
   Ip?: string;
 
@@ -5237,7 +5319,6 @@ export interface InputDestination {
   /**
    * This represents the endpoint that the customer stream will be
    * pushed to.
-   *
    */
   Url?: string;
 
@@ -5261,7 +5342,6 @@ export interface InputDestinationRequest {
   /**
    * A unique name for the location the RTMP stream is being pushed
    * to.
-   *
    */
   StreamName?: string;
 }
@@ -5279,13 +5359,11 @@ export interface InputDestinationVpc {
   __type?: "InputDestinationVpc";
   /**
    * The availability zone of the Input destination.
-   *
    */
   AvailabilityZone?: string;
 
   /**
    * The network interface ID of the Input destination in the VPC.
-   *
    */
   NetworkInterfaceId?: string;
 }
@@ -5526,7 +5604,6 @@ export interface InputSource {
   /**
    * This represents the customer's source URL where stream is
    * pulled from.
-   *
    */
   Url?: string;
 
@@ -5560,7 +5637,6 @@ export interface InputSourceRequest {
   /**
    * This represents the customer's source URL where stream is
    * pulled from.
-   *
    */
   Url?: string;
 
@@ -5663,21 +5739,18 @@ export enum InputType {
  * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
  * This property requires setting the roleArn property on Input creation.
  * Not compatible with the inputSecurityGroups property.
- *
  */
 export interface InputVpcRequest {
   __type?: "InputVpcRequest";
   /**
    * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
    * Requires subnetIds. If none are specified then the VPC default security group will be used.
-   *
    */
   SecurityGroupIds?: Array<string>;
 
   /**
    * A list of 2 VPC subnet IDs from the same VPC.
    * Subnet IDs must be mapped to two unique availability zones (AZ).
-   *
    */
   SubnetIds: Array<string> | undefined;
 }
@@ -5997,13 +6070,11 @@ export interface ListOfferingsRequest {
   __type?: "ListOfferingsRequest";
   /**
    * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
-   *
    */
   ChannelClass?: string;
 
   /**
    * Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)
-   *
    */
   ChannelConfiguration?: string;
 
@@ -6024,7 +6095,6 @@ export interface ListOfferingsRequest {
 
   /**
    * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
-   *
    */
   MaximumBitrate?: string;
 
@@ -6050,13 +6120,11 @@ export interface ListOfferingsRequest {
 
   /**
    * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
-   *
    */
   SpecialFeature?: string;
 
   /**
    * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
-   *
    */
   VideoQuality?: string;
 }
@@ -6096,7 +6164,6 @@ export interface ListReservationsRequest {
   __type?: "ListReservationsRequest";
   /**
    * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
-   *
    */
   ChannelClass?: string;
 
@@ -6112,7 +6179,6 @@ export interface ListReservationsRequest {
 
   /**
    * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
-   *
    */
   MaximumBitrate?: string;
 
@@ -6138,13 +6204,11 @@ export interface ListReservationsRequest {
 
   /**
    * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
-   *
    */
   SpecialFeature?: string;
 
   /**
    * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
-   *
    */
   VideoQuality?: string;
 }
@@ -7415,28 +7479,6 @@ export namespace MultiplexSummary {
 }
 
 /**
- * Placeholder documentation for MultiplexValidationError
- */
-export interface MultiplexValidationError {
-  __type?: "MultiplexValidationError";
-  /**
-   * Path to the source of the error.
-   */
-  ElementPath?: string;
-
-  /**
-   * The error message.
-   */
-  ErrorMessage?: string;
-}
-
-export namespace MultiplexValidationError {
-  export function isa(o: any): o is MultiplexValidationError {
-    return _smithy.isa(o, "MultiplexValidationError");
-  }
-}
-
-/**
  * The video configuration for each program in a multiplex.
  */
 export interface MultiplexVideoSettings {
@@ -8394,6 +8436,11 @@ export namespace ScheduleAction {
 export interface ScheduleActionSettings {
   __type?: "ScheduleActionSettings";
   /**
+   * Action to insert HLS ID3 segment tagging
+   */
+  HlsId3SegmentTaggingSettings?: HlsId3SegmentTaggingScheduleActionSettings;
+
+  /**
    * Action to insert HLS metadata
    */
   HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings;
@@ -8954,7 +9001,6 @@ export interface StartChannelResponse extends $MetadataBearer {
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
-   *
    */
   Destinations?: Array<OutputDestination>;
 
@@ -9265,7 +9311,6 @@ export interface StopChannelResponse extends $MetadataBearer {
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
-   *
    */
   Destinations?: Array<OutputDestination>;
 
@@ -9633,14 +9678,14 @@ export interface UnprocessableEntityException
   name: "UnprocessableEntityException";
   $fault: "client";
   /**
-   * The error message.
+   * Placeholder documentation for __string
    */
   Message?: string;
 
   /**
    * A collection of validation error responses.
    */
-  ValidationErrors?: Array<MultiplexValidationError>;
+  ValidationErrors?: Array<ValidationError>;
 }
 
 export namespace UnprocessableEntityException {
@@ -9786,7 +9831,6 @@ export interface UpdateInputRequest {
    * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
    * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
    * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-   *
    */
   MediaConnectFlows?: Array<MediaConnectFlowRequest>;
 
@@ -9804,7 +9848,6 @@ export interface UpdateInputRequest {
    * The source URLs for a PULL-type input. Every PULL type input needs
    * exactly two source URLs for redundancy.
    * Only specify sources for PULL type Inputs. Leave Destinations empty.
-   *
    */
   Sources?: Array<InputSourceRequest>;
 }
@@ -10000,6 +10043,28 @@ export interface UpdateReservationResponse extends $MetadataBearer {
 export namespace UpdateReservationResponse {
   export function isa(o: any): o is UpdateReservationResponse {
     return _smithy.isa(o, "UpdateReservationResponse");
+  }
+}
+
+/**
+ * Placeholder documentation for ValidationError
+ */
+export interface ValidationError {
+  __type?: "ValidationError";
+  /**
+   * Placeholder documentation for __string
+   */
+  ElementPath?: string;
+
+  /**
+   * Placeholder documentation for __string
+   */
+  ErrorMessage?: string;
+}
+
+export namespace ValidationError {
+  export function isa(o: any): o is ValidationError {
+    return _smithy.isa(o, "ValidationError");
   }
 }
 

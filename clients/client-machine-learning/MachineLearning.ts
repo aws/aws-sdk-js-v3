@@ -142,23 +142,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Definition of the public APIs
+ * <p>Definition of the public APIs
  *             exposed by Amazon Machine Learning</p>
- *
  */
 export class MachineLearning extends MachineLearningClient {
   /**
-   *
-   *         <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
+   * <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
    * 		    and an optional value. If you add a tag using a key that is already associated with the ML object,
    * 			<code>AddTags</code> updates the tag's value.</p>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public addTags(
     args: AddTagsCommandInput,
@@ -193,8 +184,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
+   * <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
    *             by a <code>DataSource</code>. This operation creates a new <code>BatchPrediction</code>, and uses an <code>MLModel</code> and the data
    *             files referenced by the <code>DataSource</code> as information sources.
    *         </p>
@@ -206,9 +196,6 @@ export class MachineLearning extends MachineLearningClient {
    *         </p>
    *         <p>You can poll for status updates by using the <a>GetBatchPrediction</a> operation and checking the <code>Status</code> parameter of the result. After the <code>COMPLETED</code> status appears,
    *             the results are available in the location specified by the <code>OutputUri</code> parameter.</p>
-   *
-   *
-   *
    */
   public createBatchPrediction(
     args: CreateBatchPredictionCommandInput,
@@ -243,8 +230,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>DataSource</code> object from an <a href="http://aws.amazon.com/rds/"> Amazon Relational Database Service</a> (Amazon RDS). A <code>DataSource</code> references data that can be used to perform <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p>
+   * <p>Creates a <code>DataSource</code> object from an <a href="http://aws.amazon.com/rds/"> Amazon Relational Database Service</a> (Amazon RDS). A <code>DataSource</code> references data that can be used to perform <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p>
    *
    *         <p>
    *             <code>CreateDataSourceFromRDS</code> is an asynchronous operation. In response to <code>CreateDataSourceFromRDS</code>,
@@ -256,9 +242,6 @@ export class MachineLearning extends MachineLearningClient {
    *         <p>
    *           If Amazon ML cannot accept the input source, it sets the <code>Status</code> parameter to <code>FAILED</code> and includes an error message in the <code>Message</code> attribute of the <code>GetDataSource</code> operation response.
    *         </p>
-   *
-   *
-   *
    */
   public createDataSourceFromRDS(
     args: CreateDataSourceFromRDSCommandInput,
@@ -293,8 +276,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A
+   * <p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A
    * 		<code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code>
    * 		operations.</p>
    *
@@ -327,9 +309,6 @@ export class MachineLearning extends MachineLearningClient {
    *                 <code>GetDataSource</code> for an existing datasource and copy the values to a
    *                 <code>CreateDataSource</code> call. Change the settings that you want to change and
    *             make sure that all required fields have the appropriate values.</p>
-   *
-   *
-   *
    */
   public createDataSourceFromRedshift(
     args: CreateDataSourceFromRedshiftCommandInput,
@@ -364,8 +343,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Creates a <code>DataSource</code> object. A <code>DataSource</code> references data that
+   * <p>Creates a <code>DataSource</code> object. A <code>DataSource</code> references data that
    *           can be used to perform  <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or
    *           <code>CreateBatchPrediction</code> operations.</p>
    *
@@ -396,9 +374,6 @@ export class MachineLearning extends MachineLearningClient {
    *             the variable be included or excluded from training? Will the variable be manipulated;
    *             for example, will it be combined with another variable or will it be split apart into
    *             word combinations? The recipe provides answers to these questions.</p>
-   *
-   *
-   *
    */
   public createDataSourceFromS3(
     args: CreateDataSourceFromS3CommandInput,
@@ -433,8 +408,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
+   * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
    *           for an <code>MLModel</code>, the <code>DataSource</code> for an <code>Evaluation</code> contains values for the <code>Target Variable</code>. The <code>Evaluation</code> compares the predicted result for each observation to the actual outcome and provides a
    *             summary so that you know how effective the <code>MLModel</code> functions on the test
    *           data. Evaluation generates a relevant performance metric, such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding <code>MLModelType</code>: <code>BINARY</code>, <code>REGRESSION</code> or <code>MULTICLASS</code>.
@@ -446,9 +420,6 @@ export class MachineLearning extends MachineLearningClient {
    *             Amazon ML sets the status to <code>COMPLETED</code>.
    *         </p>
    *         <p>You can use the <code>GetEvaluation</code> operation to check progress of the evaluation during the creation operation.</p>
-   *
-   *
-   *
    */
   public createEvaluation(
     args: CreateEvaluationCommandInput,
@@ -483,8 +454,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
+   * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
    *             information sources. </p>
    *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
    *                 <code>MLModelName</code> and the <code>ScoreThreshold</code> in an
@@ -504,9 +474,6 @@ export class MachineLearning extends MachineLearningClient {
    *           <code>CreateDataSourceFromRDS</code>, <code>CreateDataSourceFromS3</code>, or
    *           <code>CreateDataSourceFromRedshift</code> operations.
    *         </p>
-   *
-   *
-   *
    */
   public createMLModel(
     args: CreateMLModelCommandInput,
@@ -541,12 +508,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
-   *
-   *
-   *
-   *
+   * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
    */
   public createRealtimeEndpoint(
     args: CreateRealtimeEndpointCommandInput,
@@ -581,17 +543,12 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
+   * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
    *         <p>After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
    *             operation to verify that the status of the <code>BatchPrediction</code> changed to DELETED.</p>
    *
    *         <p>
    *             <b>Caution:</b> The result of the <code>DeleteBatchPrediction</code> operation is irreversible.</p>
-   *
-   *
-   *
-   *
    */
   public deleteBatchPrediction(
     args: DeleteBatchPredictionCommandInput,
@@ -626,14 +583,10 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
+   * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
    *         <p>After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a> operation to verify that the status of the <code>DataSource</code> changed to DELETED.</p>
    *         <p>
    *             <b>Caution:</b> The results of the <code>DeleteDataSource</code> operation are irreversible.</p>
-   *
-   *
-   *
    */
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -668,17 +621,12 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it unusable.</p>
+   * <p>Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it unusable.</p>
    *
    *         <p>After invoking the <code>DeleteEvaluation</code> operation, you can use the
    *           <code>GetEvaluation</code> operation to verify that the status of the <code>Evaluation</code> changed to <code>DELETED</code>.</p>
    *         <p>
    *             <b>Caution:</b> The results of the <code>DeleteEvaluation</code> operation are irreversible.</p>
-   *
-   *
-   *
-   *
    */
   public deleteEvaluation(
     args: DeleteEvaluationCommandInput,
@@ -713,16 +661,12 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *          <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>
+   * <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>
    *         <p>After using the <code>DeleteMLModel</code> operation, you can use the
    *           <code>GetMLModel</code> operation to verify that the status of the <code>MLModel</code> changed to DELETED.</p>
    *
    *         <p>
    *             <b>Caution:</b> The result of the <code>DeleteMLModel</code> operation is irreversible.</p>
-   *
-   *
-   *
    */
   public deleteMLModel(
     args: DeleteMLModelCommandInput,
@@ -757,11 +701,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>
-   *
-   *
-   *
+   * <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>
    */
   public deleteRealtimeEndpoint(
     args: DeleteRealtimeEndpointCommandInput,
@@ -796,11 +736,8 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
+   * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
    * 		       <p>If you specify a tag that doesn't exist, Amazon ML ignores it.</p>
-   *
-   *
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -835,10 +772,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
-   *
-   *
+   * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
    */
   public describeBatchPredictions(
     args: DescribeBatchPredictionsCommandInput,
@@ -873,11 +807,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
-   *
-   *
-   *
+   * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
    */
   public describeDataSources(
     args: DescribeDataSourcesCommandInput,
@@ -912,11 +842,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
-   *
-   *
-   *
+   * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
    */
   public describeEvaluations(
     args: DescribeEvaluationsCommandInput,
@@ -951,12 +877,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of <code>MLModel</code> that match the search criteria in the request.</p>
-   *
-   *
-   *
-   *
+   * <p>Returns a list of <code>MLModel</code> that match the search criteria in the request.</p>
    */
   public describeMLModels(
     args: DescribeMLModelsCommandInput,
@@ -991,12 +912,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Describes one or more of the tags for your Amazon ML object.</p>
-   *
-   *
-   *
-   *
+   * <p>Describes one or more of the tags for your Amazon ML object.</p>
    */
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -1031,12 +947,8 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a
+   * <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a
    *             <code>Batch Prediction</code> request.</p>
-   *
-   *
-   *
    */
   public getBatchPrediction(
     args: GetBatchPredictionCommandInput,
@@ -1071,15 +983,10 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>
+   * <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>
    *         <p>
    *             <code>GetDataSource</code> provides results in normal or verbose format. The verbose format
    *             adds the schema description and the list of files pointed to by the DataSource to the normal format.</p>
-   *
-   *
-   *
-   *
    */
   public getDataSource(
     args: GetDataSourceCommandInput,
@@ -1114,11 +1021,7 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *             <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>
-   *
-   *
-   *
+   * <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>
    */
   public getEvaluation(
     args: GetEvaluationCommandInput,
@@ -1153,13 +1056,9 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
+   * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
    *         <p>
    *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
-   *
-   *
-   *
    */
   public getMLModel(
     args: GetMLModelCommandInput,
@@ -1194,13 +1093,10 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>
+   * <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>
    *         <p>
    *             <b>Note:</b> Not all response parameters will be populated. Whether a
    *           response parameter is populated depends on the type of model requested.</p>
-   *
-   *
    */
   public predict(
     args: PredictCommandInput,
@@ -1235,13 +1131,8 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
+   * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
    *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
-   *
-   *
-   *
-   *
    */
   public updateBatchPrediction(
     args: UpdateBatchPredictionCommandInput,
@@ -1276,12 +1167,8 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
+   * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
    *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
-   *
-   *
-   *
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -1316,13 +1203,8 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
+   * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
    *         <p>You can use the <code>GetEvaluation</code> operation to view the contents of the updated data element.</p>
-   *
-   *
-   *
-   *
    */
   public updateEvaluation(
     args: UpdateEvaluationCommandInput,
@@ -1357,13 +1239,8 @@ export class MachineLearning extends MachineLearningClient {
   }
 
   /**
-   *
-   *         <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
+   * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
    *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
-   *
-   *
-   *
-   *
    */
   public updateMLModel(
     args: UpdateMLModelCommandInput,

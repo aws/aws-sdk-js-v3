@@ -92,16 +92,12 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p></p>
+ * <p></p>
  *          <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework. </p>
- *
  */
 export class ManagedBlockchain extends ManagedBlockchainClient {
   /**
-   *
-   *          <p>Creates a member within a Managed Blockchain network.</p>
-   *
+   * <p>Creates a member within a Managed Blockchain network.</p>
    */
   public createMember(
     args: CreateMemberCommandInput,
@@ -136,9 +132,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
-   *
+   * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
    */
   public createNetwork(
     args: CreateNetworkCommandInput,
@@ -173,9 +167,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Creates a peer node in a member.</p>
-   *
+   * <p>Creates a peer node in a member.</p>
    */
   public createNode(
     args: CreateNodeCommandInput,
@@ -210,9 +202,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
-   *
+   * <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
    */
   public createProposal(
     args: CreateProposalCommandInput,
@@ -247,9 +237,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.</p>
-   *
+   * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.</p>
    */
   public deleteMember(
     args: DeleteMemberCommandInput,
@@ -284,9 +272,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
-   *
+   * <p>Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
    */
   public deleteNode(
     args: DeleteNodeCommandInput,
@@ -321,9 +307,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed information about a member.</p>
-   *
+   * <p>Returns detailed information about a member.</p>
    */
   public getMember(
     args: GetMemberCommandInput,
@@ -358,9 +342,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed information about a network.</p>
-   *
+   * <p>Returns detailed information about a network.</p>
    */
   public getNetwork(
     args: GetNetworkCommandInput,
@@ -395,9 +377,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed information about a peer node.</p>
-   *
+   * <p>Returns detailed information about a peer node.</p>
    */
   public getNode(
     args: GetNodeCommandInput,
@@ -432,9 +412,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed information about a proposal.</p>
-   *
+   * <p>Returns detailed information about a proposal.</p>
    */
   public getProposal(
     args: GetProposalCommandInput,
@@ -469,9 +447,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns a listing of all invitations made on the specified network.</p>
-   *
+   * <p>Returns a listing of all invitations made on the specified network.</p>
    */
   public listInvitations(
     args: ListInvitationsCommandInput,
@@ -506,9 +482,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns a listing of the members in a network and properties of their configurations.</p>
-   *
+   * <p>Returns a listing of the members in a network and properties of their configurations.</p>
    */
   public listMembers(
     args: ListMembersCommandInput,
@@ -543,9 +517,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the networks in which the current AWS account has members.</p>
-   *
+   * <p>Returns information about the networks in which the current AWS account has members.</p>
    */
   public listNetworks(
     args: ListNetworksCommandInput,
@@ -580,9 +552,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the nodes within a network.</p>
-   *
+   * <p>Returns information about the nodes within a network.</p>
    */
   public listNodes(
     args: ListNodesCommandInput,
@@ -617,9 +587,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
-   *
+   * <p>Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
    */
   public listProposalVotes(
     args: ListProposalVotesCommandInput,
@@ -654,9 +622,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Returns a listing of proposals for the network.</p>
-   *
+   * <p>Returns a listing of proposals for the network.</p>
    */
   public listProposals(
     args: ListProposalsCommandInput,
@@ -691,9 +657,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>
-   *
+   * <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>
    */
   public rejectInvitation(
     args: RejectInvitationCommandInput,
@@ -728,9 +692,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   *
-   *          <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
-   *
+   * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
    */
   public voteOnProposal(
     args: VoteOnProposalCommandInput,

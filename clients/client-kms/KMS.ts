@@ -232,8 +232,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Key Management Service</fullname>
+ * <fullname>AWS Key Management Service</fullname>
  *          <p>AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes
  *       the AWS KMS operations that you can call programmatically. For general information about AWS KMS,
  *       see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/">
@@ -322,12 +321,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                </p>
  *             </li>
  *          </ul>
- *
  */
 export class KMS extends KMSClient {
   /**
-   *
-   *          <p>Cancels the deletion of a customer master key (CMK). When this operation succeeds, the key
+   * <p>Cancels the deletion of a customer master key (CMK). When this operation succeeds, the key
    *       state of the CMK is <code>Disabled</code>. To enable the CMK, use <a>EnableKey</a>.
    *       You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>For more information about scheduling and canceling deletion of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting Customer Master
@@ -335,8 +332,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public cancelKeyDeletion(
     args: CancelKeyDeletionCommandInput,
@@ -371,14 +366,16 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its associated AWS CloudHSM cluster.</p>
+   * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its associated AWS CloudHSM cluster.</p>
    *          <p>The custom key store must be connected before you can create customer master keys (CMKs)
    *       in the key store or use the CMKs it contains. You can disconnect and reconnect a custom key
    *       store at any time.</p>
    *          <p>To connect a custom key store, its associated AWS CloudHSM cluster must have at least one active
    *       HSM. To get the number of active HSMs in a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation. To add HSMs
-   *       to the cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation.</p>
+   *       to the cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">
+   *                <code>kmsuser</code> crypto
+   *         user</a> (CU) must not be logged into the cluster. This prevents AWS KMS from using this
+   *       account to log in.</p>
    *          <p>The connection process can take an extended amount of time to complete; up to 20 minutes.
    *       This operation starts the connection process, but it does not wait for it to complete. When it
    *       succeeds, this operation quickly returns an HTTP 200 response and a JSON object with no
@@ -386,9 +383,7 @@ export class KMS extends KMSClient {
    *       To get the connection state of the custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
    *          <p>During the connection process, AWS KMS finds the AWS CloudHSM cluster that is associated with the
    *       custom key store, creates the connection infrastructure, connects to the cluster, logs into
-   *       the AWS CloudHSM client as the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">
-   *                <code>kmsuser</code> crypto
-   *         user</a> (CU), and rotates its password.</p>
+   *       the AWS CloudHSM client as the <code>kmsuser</code> CU, and rotates its password.</p>
    *          <p>The <code>ConnectCustomKeyStore</code> operation might fail for various reasons. To find
    *       the reason, use the <a>DescribeCustomKeyStores</a> operation and see the
    *         <code>ConnectionErrorCode</code> in the response. For help interpreting the
@@ -398,7 +393,6 @@ export class KMS extends KMSClient {
    *         <code>ConnectCustomKeyStore</code> again.</p>
    *          <p>If you are having trouble connecting or disconnecting a custom key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a Custom Key
    *         Store</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
    */
   public connectCustomKeyStore(
     args: ConnectCustomKeyStoreCommandInput,
@@ -433,8 +427,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Creates a display name for a customer managed customer master key (CMK). You can use an
+   * <p>Creates a display name for a customer managed customer master key (CMK). You can use an
    *       alias to identify a CMK in cryptographic operations, such as <a>Encrypt</a> and
    *         <a>GenerateDataKey</a>. You can change the CMK associated with the alias at any
    *       time.</p>
@@ -446,13 +439,15 @@ export class KMS extends KMSClient {
    *         <code>alias/ApplicationKey</code> alias that is associated with a CMK in that Region. When
    *       you run your code, it uses the <code>alias/ApplicationKey</code> CMK for that AWS Region
    *       without any Region-specific code.</p>
-   *          <p>This operation does not return a response. To get the alias that you created, use the <a>ListAliases</a> operation.</p>
+   *          <p>This operation does not return a response. To get the alias that you created, use the
+   *         <a>ListAliases</a> operation.</p>
    *
    *          <p>To use aliases successfully, be aware of the following information.</p>
    *          <ul>
    *             <li>
    *                <p>Each alias points to only one CMK at a time, although a single CMK can have multiple
-   *           aliases. The alias and its associated CMK must be in the same AWS account and Region. </p>
+   *           aliases. The alias and its associated CMK must be in the same AWS account and Region.
+   *         </p>
    *             </li>
    *             <li>
    *                <p>You can associate an alias with any customer managed CMK in the same AWS account and
@@ -462,8 +457,9 @@ export class KMS extends KMSClient {
    *             <li>
    *                <p>To change the CMK associated with an alias, use the <a>UpdateAlias</a>
    *           operation. The current CMK and the new CMK must be the same type (both symmetric or both
-   *           asymmetric) and they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>). This
-   *           restriction prevents cryptographic errors in code that uses aliases.</p>
+   *           asymmetric) and they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or
+   *             <code>SIGN_VERIFY</code>). This restriction prevents cryptographic errors in code that
+   *           uses aliases.</p>
    *             </li>
    *             <li>
    *                <p>The alias name must begin with <code>alias/</code> followed by a
@@ -494,12 +490,9 @@ export class KMS extends KMSClient {
    *          <p>Because an alias is not a property of a CMK, you can delete and change the aliases of a
    *       CMK without affecting the CMK. Also, aliases do not appear in the response from the <a>DescribeKey</a> operation. To get the aliases and alias ARNs of CMKs in each AWS
    *       account and Region, use the <a>ListAliases</a> operation.</p>
-   *
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public createAlias(
     args: CreateAliasCommandInput,
@@ -534,8 +527,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that is associated with an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">AWS CloudHSM cluster</a> that you own and
+   * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that is associated with an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">AWS CloudHSM cluster</a> that you own and
    *     manage.</p>
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
    * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
@@ -551,7 +543,6 @@ export class KMS extends KMSClient {
    *       to use it.</p>
    *          <p>For help with failures, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a Custom Key Store</a> in the
    *       <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
    */
   public createCustomKeyStore(
     args: CreateCustomKeyStoreCommandInput,
@@ -586,13 +577,12 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Adds a grant to a customer master key (CMK). The grant allows the grantee principal to use
+   * <p>Adds a grant to a customer master key (CMK). The grant allows the grantee principal to use
    *       the CMK when the conditions specified in the grant are met. When setting permissions, grants
    *       are an alternative to key policies. </p>
    *          <p>To create a grant that allows a cryptographic operation only when the request includes a
-   *       particular <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>,
-   *       use the <code>Constraints</code> parameter. For details, see <a>GrantConstraints</a>.</p>
+   *       particular <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>, use the <code>Constraints</code> parameter. For details, see
+   *         <a>GrantConstraints</a>.</p>
    *          <p>You can create grants on symmetric and asymmetric CMKs. However, if the grant allows an
    *       operation that the CMK does not support, <code>CreateGrant</code> fails with a
    *         <code>ValidationException</code>. </p>
@@ -605,17 +595,15 @@ export class KMS extends KMSClient {
    *           support.)</p>
    *             </li>
    *             <li>
-   *                <p>Grants for asymmetric CMKs cannot allow operations that are not supported for asymmetric CMKs,
-   *           including operations that <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey">generate data keys</a> or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair">data key pairs</a>, or
-   *           operations related to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic key
-   *             rotation</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key
-   *             material</a>, or CMKs in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a>.</p>
+   *                <p>Grants for asymmetric CMKs cannot allow operations that are not supported for
+   *           asymmetric CMKs, including operations that <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey">generate data keys</a> or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair">data key pairs</a>,
+   *           or operations related to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic key rotation</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or CMKs in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key
+   *             stores</a>.</p>
    *             </li>
    *             <li>
-   *                <p>Grants for asymmetric CMKs with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code> cannot
-   *           allow the <a>Sign</a> or <a>Verify</a> operations. Grants for
-   *           asymmetric CMKs with a <code>KeyUsage</code> of <code>SIGN_VERIFY</code> cannot allow the
-   *             <a>Encrypt</a> or <a>Decrypt</a> operations.</p>
+   *                <p>Grants for asymmetric CMKs with a <code>KeyUsage</code> of
+   *             <code>ENCRYPT_DECRYPT</code> cannot allow the <a>Sign</a> or <a>Verify</a> operations. Grants for asymmetric CMKs with a <code>KeyUsage</code>
+   *           of <code>SIGN_VERIFY</code> cannot allow the <a>Encrypt</a> or <a>Decrypt</a> operations.</p>
    *             </li>
    *             <li>
    *                <p>Grants for asymmetric CMKs cannot include an encryption context grant constraint. An
@@ -631,8 +619,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public createGrant(
     args: CreateGrantCommandInput,
@@ -667,8 +653,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master-keys">customer master key</a> (CMK) in your AWS
+   * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master-keys">customer master key</a> (CMK) in your AWS
    *       account and Region. You cannot use this operation to create a CMK in a different AWS
    *       account.</p>
    *
@@ -681,7 +666,8 @@ export class KMS extends KMSClient {
    *           never leaves AWS KMS unencrypted. To use the CMK, you must call AWS KMS. You can use a
    *           symmetric CMK to encrypt and decrypt small amounts of data, but they are typically used to
    *           generate <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data
-   *             keys</a> or data key pairs. For details, see <a>GenerateDataKey</a> and
+   *             keys</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-key-pairs">data
+   *               keys pairs</a>. For details, see <a>GenerateDataKey</a> and
    *             <a>GenerateDataKeyPair</a>.</p>
    *             </li>
    *             <li>
@@ -713,8 +699,8 @@ export class KMS extends KMSClient {
    *                <p>When creating a symmetric CMK, you don't need to specify the
    *               <code>CustomerMasterKeySpec</code> or <code>KeyUsage</code> parameters. The default
    *             value for <code>CustomerMasterKeySpec</code>, <code>SYMMETRIC_DEFAULT</code>, and the
-   *             default value for <code>KeyUsage</code>, <code>ENCRYPT_DECRYPT</code>, are the only valid values for
-   *             symmetric CMKs. </p>
+   *             default value for <code>KeyUsage</code>, <code>ENCRYPT_DECRYPT</code>, are the only
+   *             valid values for symmetric CMKs. </p>
    *                <p> </p>
    *             </dd>
    *             <dt>Imported Key Material</dt>
@@ -743,9 +729,6 @@ export class KMS extends KMSClient {
    *                   </i>.</p>
    *             </dd>
    *          </dl>
-   *
-   *
-   *
    */
   public createKey(
     args: CreateKeyCommandInput,
@@ -780,9 +763,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *
-   *          <p>Decrypts ciphertext that was encrypted by a AWS KMS customer master key (CMK) using any of
+   * <p>Decrypts ciphertext that was encrypted by a AWS KMS customer master key (CMK) using any of
    *       the following operations:</p>
    *          <ul>
    *             <li>
@@ -833,8 +814,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public decrypt(
     args: DecryptCommandInput,
@@ -869,15 +848,12 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified alias. You cannot perform this operation on an alias in a different AWS account. </p>
+   * <p>Deletes the specified alias. You cannot perform this operation on an alias in a different AWS account. </p>
    *          <p>Because an alias is not a property of a CMK, you can delete and change the aliases of a
    *       CMK without affecting the CMK. Also, aliases do not appear in the response from the <a>DescribeKey</a> operation. To get the aliases of all CMKs, use the <a>ListAliases</a> operation. </p>
    *          <p>Each CMK can have multiple aliases. To change the alias of a CMK, use <a>DeleteAlias</a> to delete the current alias and <a>CreateAlias</a> to
    *       create a new alias. To associate an existing alias with a different customer master key (CMK),
    *       call <a>UpdateAlias</a>.</p>
-   *
-   *
    */
   public deleteAlias(
     args: DeleteAliasCommandInput,
@@ -912,8 +888,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not delete the AWS CloudHSM cluster that is
+   * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not delete the AWS CloudHSM cluster that is
    *       associated with the custom key store, or affect any users or keys in the cluster.</p>
    *          <p>The custom key store that you delete cannot contain any AWS KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">customer master keys (CMKs)</a>. Before
    *       deleting the key store, verify that you will never need to use any of the CMKs in the key
@@ -933,7 +908,6 @@ export class KMS extends KMSClient {
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
    * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
    * single-tenant key store.</p>
-   *
    */
   public deleteCustomKeyStore(
     args: DeleteCustomKeyStoreCommandInput,
@@ -968,8 +942,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Deletes key material that you previously imported. This operation makes the specified
+   * <p>Deletes key material that you previously imported. This operation makes the specified
    *       customer master key (CMK) unusable. For more information about importing key material into
    *       AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
    *         Material</a> in the <i>AWS Key Management Service Developer Guide</i>. You cannot perform this operation on a CMK in a different AWS account.</p>
@@ -981,8 +954,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public deleteImportedKeyMaterial(
     args: DeleteImportedKeyMaterialCommandInput,
@@ -1017,8 +988,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and region.</p>
+   * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and region.</p>
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
    * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
    * single-tenant key store.</p>
@@ -1038,7 +1008,6 @@ export class KMS extends KMSClient {
    *       minimum number of HSMs required for the operation, if any.</p>
    *          <p> For help repairing your custom key store, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting Custom Key Stores</a> topic in the
    *       <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
    */
   public describeCustomKeyStores(
     args: DescribeCustomKeyStoresCommandInput,
@@ -1073,9 +1042,9 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Provides detailed information about a customer master key (CMK). You can run
-   *       <code>DescribeKey</code> on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed CMK</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS managed CMK</a>.</p>
+   * <p>Provides detailed information about a customer master key (CMK). You can run
+   *         <code>DescribeKey</code> on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed CMK</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS managed
+   *         CMK</a>.</p>
    *          <p>This detailed information includes the key ARN, creation date (and deletion date, if
    *       applicable), the key state, and the origin and expiration date (if any) of the key material.
    *       For CMKs in custom key stores, it includes information about the custom key store, such as the
@@ -1091,15 +1060,15 @@ export class KMS extends KMSClient {
    *             </li>
    *             <li>
    *                <p>Whether automatic key rotation is enabled on the CMK. To get this information, use
-   *         <a>GetKeyRotationStatus</a>. Also, some key states prevent a CMK from being automatically
-   *           rotated. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works">How Automatic Key Rotation Works</a> in <i>AWS Key Management Service Developer Guide</i>.</p>
+   *             <a>GetKeyRotationStatus</a>. Also, some key states prevent a CMK from being
+   *           automatically rotated. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works">How Automatic Key Rotation
+   *             Works</a> in <i>AWS Key Management Service Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>Tags on the CMK. To get this information, use <a>ListResourceTags</a>.</p>
    *             </li>
    *             <li>
-   *                <p>Key policies and grants on the CMK. To get this information, use <a>GetKeyPolicy</a> and
-   *         <a>ListGrants</a>.</p>
+   *                <p>Key policies and grants on the CMK. To get this information, use <a>GetKeyPolicy</a> and <a>ListGrants</a>.</p>
    *             </li>
    *          </ul>
    *          <p>If you call the <code>DescribeKey</code> operation on a <i>predefined AWS
@@ -1108,8 +1077,6 @@ export class KMS extends KMSClient {
    *         <code>Arn</code> of the new CMK in the response.</p>
    *          <p>To perform this operation on a CMK in a different AWS account, specify
    *   the key ARN or alias ARN in the value of the KeyId parameter.</p>
-   *
-   *
    */
   public describeKey(
     args: DescribeKeyCommandInput,
@@ -1144,8 +1111,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for
+   * <p>Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for
    *       cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects the Use of a
    *         Customer Master Key</a> in the <i>
@@ -1154,8 +1120,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public disableKey(
     args: DisableKeyCommandInput,
@@ -1190,16 +1154,13 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
+   * <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
    *         rotation of the key material</a> for the specified symmetric customer master key
    *       (CMK).</p>
    *          <p> You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public disableKeyRotation(
     args: DisableKeyRotationCommandInput,
@@ -1234,8 +1195,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its associated AWS CloudHSM cluster. While a custom key
+   * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its associated AWS CloudHSM cluster. While a custom key
    *       store is disconnected, you can manage the custom key store and its customer master keys
    *       (CMKs), but you cannot create or use CMKs in the custom key store. You can reconnect the
    *       custom key store at any time.</p>
@@ -1252,7 +1212,6 @@ export class KMS extends KMSClient {
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
    * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
    * single-tenant key store.</p>
-   *
    */
   public disconnectCustomKeyStore(
     args: DisconnectCustomKeyStoreCommandInput,
@@ -1287,14 +1246,11 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Sets the key state of a customer master key (CMK) to enabled. This allows you to use the
+   * <p>Sets the key state of a customer master key (CMK) to enabled. This allows you to use the
    *       CMK for cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public enableKey(
     args: EnableKeyCommandInput,
@@ -1329,16 +1285,13 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
+   * <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
    *         of the key material</a> for the specified symmetric customer master key (CMK).
    *       You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public enableKeyRotation(
     args: EnableKeyRotationCommandInput,
@@ -1373,13 +1326,12 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Encrypts plaintext into ciphertext by using a customer master key (CMK). The
+   * <p>Encrypts plaintext into ciphertext by using a customer master key (CMK). The
    *         <code>Encrypt</code> operation has two primary use cases:</p>
    *          <ul>
    *             <li>
-   *                <p>You can encrypt small amounts of arbitrary data, such as a personal identifier or database
-   *           password, or other sensitive information. </p>
+   *                <p>You can encrypt small amounts of arbitrary data, such as a personal identifier or
+   *           database password, or other sensitive information. </p>
    *             </li>
    *             <li>
    *                <p>You can use the <code>Encrypt</code> operation to move encrypted data from one AWS
@@ -1474,9 +1426,6 @@ export class KMS extends KMSClient {
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>To perform this operation on a CMK in a different AWS account, specify
    *   the key ARN or alias ARN in the value of the KeyId parameter.</p>
-   *
-   *
-   *
    */
   public encrypt(
     args: EncryptCommandInput,
@@ -1511,8 +1460,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Generates a unique symmetric data key. This operation returns a plaintext copy of the data
+   * <p>Generates a unique symmetric data key. This operation returns a plaintext copy of the data
    *       key and a copy that is encrypted under a customer master key (CMK) that you specify. You can
    *       use the plaintext key to encrypt your data outside of AWS KMS and store the encrypted data key
    *       with the encrypted data.</p>
@@ -1522,7 +1470,8 @@ export class KMS extends KMSClient {
    *       key are not related to the caller or CMK that is used to encrypt the data key.</p>
    *
    *          <p>To generate a data key, specify the symmetric CMK that will be used to encrypt the data
-   *       key. You cannot use an asymmetric CMK to generate data keys.</p>
+   *       key. You cannot use an asymmetric CMK to generate data keys. To get the type
+   *       of your CMK, use the <a>DescribeKey</a> operation.</p>
    *
    *          <p>You must also specify the length of the data key. Use either the <code>KeySpec</code> or
    *         <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
@@ -1570,8 +1519,6 @@ export class KMS extends KMSClient {
    *           from memory.</p>
    *             </li>
    *          </ol>
-   *
-   *
    */
   public generateDataKey(
     args: GenerateDataKeyCommandInput,
@@ -1606,8 +1553,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Generates a unique asymmetric data key pair. The <code>GenerateDataKeyPair</code>
+   * <p>Generates a unique asymmetric data key pair. The <code>GenerateDataKeyPair</code>
    *       operation returns a plaintext public key, a plaintext private key, and a copy of the private
    *       key that is encrypted under the symmetric CMK you specify. You can use the data key pair to
    *       perform asymmetric cryptography outside of AWS KMS.</p>
@@ -1617,13 +1563,13 @@ export class KMS extends KMSClient {
    *       bytes in the keys are not related to the caller or the CMK that is used to encrypt the private
    *       key.</p>
    *
-   *          <p>You can use the public key that <code>GenerateDataKeyPair</code> returns
-   *       to encrypt data or verify a signature outside of AWS KMS. Then, store the encrypted private key
-   *       with the data. When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
+   *          <p>You can use the public key that <code>GenerateDataKeyPair</code> returns to encrypt data
+   *       or verify a signature outside of AWS KMS. Then, store the encrypted private key with the data.
+   *       When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
    *
    *          <p>To generate a data key pair, you must specify a symmetric customer master key (CMK) to
-   *       encrypt the private key in a data key pair. You cannot use an asymmetric CMK. To get the type of your CMK, use the <a>DescribeKey</a>
-   *       operation.</p>
+   *       encrypt the private key in a data key pair. You cannot use an asymmetric CMK. To get the type
+   *       of your CMK, use the <a>DescribeKey</a> operation.</p>
    *
    *          <p>If you are using the data key pair to encrypt data, or for any operation where you don't
    *       immediately need a private key, consider using the <a>GenerateDataKeyPairWithoutPlaintext</a> operation.
@@ -1641,7 +1587,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
    */
   public generateDataKeyPair(
     args: GenerateDataKeyPairCommandInput,
@@ -1676,14 +1621,15 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Generates a unique asymmetric data key pair. The
+   * <p>Generates a unique asymmetric data key pair. The
    *         <code>GenerateDataKeyPairWithoutPlaintext</code> operation returns a plaintext public key
    *       and a copy of the private key that is encrypted under the symmetric CMK you specify. Unlike
    *         <a>GenerateDataKeyPair</a>, this operation does not return a plaintext private
    *       key. </p>
    *          <p>To generate a data key pair, you must specify a symmetric customer master key (CMK) to
-   *       encrypt the private key in the data key pair. You cannot use an asymmetric CMK. To get the type of your CMK, use the <code>KeySpec</code> field in the <a>DescribeKey</a> response.</p>
+   *       encrypt the private key in the data key pair. You cannot use an asymmetric CMK. To get the
+   *       type of your CMK, use the <code>KeySpec</code> field in the <a>DescribeKey</a>
+   *       response.</p>
    *          <p>You can use the public key that <code>GenerateDataKeyPairWithoutPlaintext</code> returns
    *       to encrypt data or verify a signature outside of AWS KMS. Then, store the encrypted private key
    *       with the data. When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
@@ -1700,7 +1646,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
    */
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
@@ -1747,8 +1692,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Generates a unique symmetric data key. This operation returns a data key that is encrypted
+   * <p>Generates a unique symmetric data key. This operation returns a data key that is encrypted
    *       under a customer master key (CMK) that you specify. To request an asymmetric data key pair,
    *       use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operations.</p>
    *          <p>
@@ -1764,18 +1708,15 @@ export class KMS extends KMSClient {
    *       plaintext data key. In this system, the component that creates the containers never sees the
    *       plaintext data key.</p>
    *          <p>
-   *             <code>GenerateDataKeyWithoutPlaintext</code> returns a unique data key for each
-   *       request. The bytes in the keys are not related to the caller or CMK that is used to encrypt
-   *       the private key.</p>
+   *             <code>GenerateDataKeyWithoutPlaintext</code> returns a unique data key for each request.
+   *       The bytes in the keys are not related to the caller or CMK that is used to encrypt the private
+   *       key.</p>
    *
    *          <p>To generate a data key, you must specify the symmetric customer master key (CMK) that is
-   *       used to encrypt the data key. You cannot use an asymmetric CMK to generate a data key. To
-   *       get the type of your CMK, use the <code>KeySpec</code> field in the <a>DescribeKey</a> response. You must also specify the length of the data key using
-   *       either the <code>KeySpec</code> or <code>NumberOfBytes</code> field (but not both). For common
-   *       key lengths (128-bit and 256-bit symmetric keys), use the <code>KeySpec</code> parameter. </p>
+   *       used to encrypt the data key. You cannot use an asymmetric CMK to generate a data key. To get the type
+   *       of your CMK, use the <a>DescribeKey</a> operation.</p>
    *
-   *          <p>If the operation succeeds, you will find the plaintext copy of the data key in the
-   *         <code>Plaintext</code> field of the response, and the encrypted copy of the data key in the
+   *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
    *         <code>CiphertextBlob</code> field.</p>
    *
    *          <p>You can use the optional encryption context to add additional security to the encryption
@@ -1786,8 +1727,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public generateDataKeyWithoutPlaintext(
     args: GenerateDataKeyWithoutPlaintextCommandInput,
@@ -1825,15 +1764,12 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Returns a random byte string that is cryptographically secure.</p>
+   * <p>Returns a random byte string that is cryptographically secure.</p>
    *          <p>By default, the random byte string is generated in AWS KMS. To generate the byte string in
    *       the AWS CloudHSM cluster that is associated with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, specify the custom key store
    *       ID.</p>
    *          <p>For more information about entropy and random number generation, see the <a href="https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf">AWS Key Management Service
    *         Cryptographic Details</a> whitepaper.</p>
-   *
-   *
    */
   public generateRandom(
     args: GenerateRandomCommandInput,
@@ -1868,11 +1804,8 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Gets a key policy attached to the specified customer master key (CMK).
+   * <p>Gets a key policy attached to the specified customer master key (CMK).
    *       You cannot perform this operation on a CMK in a different AWS account.</p>
-   *
-   *
    */
   public getKeyPolicy(
     args: GetKeyPolicyCommandInput,
@@ -1907,8 +1840,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
+   * <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
    *       enabled for the specified customer master key (CMK).</p>
    *          <p>You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. The key rotation status for these CMKs is always <code>false</code>.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
@@ -1927,8 +1859,6 @@ export class KMS extends KMSClient {
    *          </ul>
    *          <p>To perform this operation on a CMK in a different AWS account, specify the key
    *   ARN in the value of the <code>KeyId</code> parameter.</p>
-   *
-   *
    */
   public getKeyRotationStatus(
     args: GetKeyRotationStatusCommandInput,
@@ -1963,8 +1893,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Returns the items you need to import key material into a symmetric, customer managed
+   * <p>Returns the items you need to import key material into a symmetric, customer managed
    *       customer master key (CMK). For more information about importing key material into AWS KMS, see
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
    *         Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -1981,8 +1910,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public getParametersForImport(
     args: GetParametersForImportCommandInput,
@@ -2017,8 +1944,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Returns the public key of an asymmetric CMK. Unlike the private key of a asymmetric CMK,
+   * <p>Returns the public key of an asymmetric CMK. Unlike the private key of a asymmetric CMK,
    *       which never leaves AWS KMS unencrypted, callers with <code>kms:GetPublicKey</code> permission
    *       can download the public key of an asymmetric CMK. You can share the public key to allow others
    *       to encrypt messages and verify signatures outside of AWS KMS. For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2026,7 +1952,7 @@ export class KMS extends KMSClient {
    *       AWS KMS by calling the <a>Encrypt</a>, <a>ReEncrypt</a>, or <a>Verify</a> operations with the identifier of an asymmetric CMK. When you use the
    *       public key within AWS KMS, you benefit from the authentication, authorization, and logging that
    *       are part of every AWS KMS operation. You also reduce of risk of encrypting data that cannot be
-   *       decrypted. These features are not effective outside of AWS KMS. For details, see <a href="kms/latest/developerguide/get-public-key.html#get-public-key-considerations">Special Considerations
+   *       decrypted. These features are not effective outside of AWS KMS. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/download-public-key.html#download-public-key-considerations">Special Considerations
    *         for Downloading Public Keys</a>.</p>
    *          <p>To help you use the public key safely outside of AWS KMS, <code>GetPublicKey</code> returns
    *       important information about the public key in the response, including:</p>
@@ -2053,12 +1979,9 @@ export class KMS extends KMSClient {
    *       public key from being used with an encryption algorithm that is not supported by AWS KMS. You
    *       can also avoid errors, such as using the wrong signing algorithm in a verification
    *       operation.</p>
-   *
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public getPublicKey(
     args: GetPublicKeyCommandInput,
@@ -2093,13 +2016,13 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Imports key material into an existing symmetric AWS KMS customer master key (CMK) that was
+   * <p>Imports key material into an existing symmetric AWS KMS customer master key (CMK) that was
    *       created without key material. After you successfully import key material into a CMK, you can
-   *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that CMK, but you cannot import different key
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that CMK, but you cannot import different key
    *       material.</p>
-   *          <p>You cannot perform this operation on an asymmetric CMK or on any CMK in a different AWS account. For more information about creating CMKs with no key material and then
-   *       importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *          <p>You cannot perform this operation on an asymmetric CMK or on any CMK in a different AWS account. For more information about creating CMKs with no key material and
+   *       then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the
+   *       <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>Before using this operation, call <a>GetParametersForImport</a>. Its response
    *       includes a public key and an import token. Use the public key to encrypt the key material.
    *       Then, submit the import token from the same <code>GetParametersForImport</code>
@@ -2138,8 +2061,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public importKeyMaterial(
     args: ImportKeyMaterialCommandInput,
@@ -2174,8 +2095,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of aliases in the caller's AWS account and region. You cannot list aliases in
+   * <p>Gets a list of aliases in the caller's AWS account and region. You cannot list aliases in
    *       other accounts. For more information about aliases, see <a>CreateAlias</a>.</p>
    *          <p>By default, the ListAliases command returns all aliases in the account and region. To get
    *       only the aliases that point to a particular customer master key (CMK), use the
@@ -2188,9 +2108,7 @@ export class KMS extends KMSClient {
    *       are predefined aliases that AWS has created but has not yet associated with a CMK. Aliases
    *       that AWS creates in your account, including predefined aliases, do not count against your
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">AWS KMS aliases
-   *         limit</a>.</p>
-   *
-   *
+   *         quota</a>.</p>
    */
   public listAliases(
     args: ListAliasesCommandInput,
@@ -2225,12 +2143,9 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of all grants for the specified customer master key (CMK).</p>
+   * <p>Gets a list of all grants for the specified customer master key (CMK).</p>
    *          <p>To perform this operation on a CMK in a different AWS account, specify the key
    *   ARN in the value of the <code>KeyId</code> parameter.</p>
-   *
-   *
    */
   public listGrants(
     args: ListGrantsCommandInput,
@@ -2265,13 +2180,10 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Gets the names of the key policies that are attached to a customer master key (CMK). This
+   * <p>Gets the names of the key policies that are attached to a customer master key (CMK). This
    *       operation is designed to get policy names that you can use in a <a>GetKeyPolicy</a>
    *       operation. However, the only valid policy name is <code>default</code>.
    *       You cannot perform this operation on a CMK in a different AWS account.</p>
-   *
-   *
    */
   public listKeyPolicies(
     args: ListKeyPoliciesCommandInput,
@@ -2306,11 +2218,8 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of all customer master keys (CMKs) in the caller's AWS account and
+   * <p>Gets a list of all customer master keys (CMKs) in the caller's AWS account and
    *       Region.</p>
-   *
-   *
    */
   public listKeys(
     args: ListKeysCommandInput,
@@ -2345,11 +2254,8 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of all tags for the specified customer master key (CMK).</p>
+   * <p>Returns a list of all tags for the specified customer master key (CMK).</p>
    *          <p>You cannot perform this operation on a CMK in a different AWS account.</p>
-   *
-   *
    */
   public listResourceTags(
     args: ListResourceTagsCommandInput,
@@ -2384,13 +2290,10 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of all grants for which the grant's <code>RetiringPrincipal</code> matches
+   * <p>Returns a list of all grants for which the grant's <code>RetiringPrincipal</code> matches
    *       the one specified.</p>
    *          <p>A typical use is to list all grants that you are able to retire. To retire a grant, use
    *         <a>RetireGrant</a>.</p>
-   *
-   *
    */
   public listRetirableGrants(
     args: ListRetirableGrantsCommandInput,
@@ -2425,12 +2328,9 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Attaches a key policy to the specified customer master key (CMK).
+   * <p>Attaches a key policy to the specified customer master key (CMK).
    *       You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public putKeyPolicy(
     args: PutKeyPolicyCommandInput,
@@ -2465,10 +2365,9 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Decrypts ciphertext and then reencrypts it entirely within AWS KMS. You can use this
+   * <p>Decrypts ciphertext and then reencrypts it entirely within AWS KMS. You can use this
    *       operation to change the customer master key (CMK) under which data is encrypted, such as when
-   *       you <a href="kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually rotate</a> a
+   *       you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually rotate</a> a
    *       CMK or change the CMK that protects a ciphertext. You can also use it to reencrypt ciphertext
    *       under the same CMK, such as to change the encryption context of a ciphertext. </p>
    *          <p>The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by using an
@@ -2526,8 +2425,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public reEncrypt(
     args: ReEncryptCommandInput,
@@ -2562,8 +2459,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Retires a grant. To clean up, you can retire a grant when you're done using it. You should
+   * <p>Retires a grant. To clean up, you can retire a grant when you're done using it. You should
    *       revoke a grant when you intend to actively deny operations that depend on it. The following
    *       are permitted to call this API:</p>
    *          <ul>
@@ -2582,8 +2478,6 @@ export class KMS extends KMSClient {
    *       ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant token is a
    *       unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier
    *       of a grant. The <a>CreateGrant</a> operation returns both.</p>
-   *
-   *
    */
   public retireGrant(
     args: RetireGrantCommandInput,
@@ -2618,13 +2512,10 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Revokes the specified grant for the specified customer master key (CMK). You can revoke a
+   * <p>Revokes the specified grant for the specified customer master key (CMK). You can revoke a
    *       grant to actively deny operations that depend on it.</p>
    *          <p>To perform this operation on a CMK in a different AWS account, specify the key
    *   ARN in the value of the <code>KeyId</code> parameter.</p>
-   *
-   *
    */
   public revokeGrant(
     args: RevokeGrantCommandInput,
@@ -2659,8 +2550,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Schedules the deletion of a customer master key (CMK). You may provide a waiting period,
+   * <p>Schedules the deletion of a customer master key (CMK). You may provide a waiting period,
    *       specified in days, before deletion occurs. If you do not provide a waiting period, the default
    *       period of 30 days is used. When this operation is successful, the key state of the CMK changes
    *       to <code>PendingDeletion</code>. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the CMK. After the waiting period
@@ -2682,8 +2572,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public scheduleKeyDeletion(
     args: ScheduleKeyDeletionCommandInput,
@@ -2718,8 +2606,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
+   * <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
    *         signature</a> for a message or message digest by using the private key in an asymmetric
    *       CMK. To verify the signature, use the <a>Verify</a> operation, or use the public
    *       key in the same asymmetric CMK outside of AWS KMS. For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2744,7 +2631,7 @@ export class KMS extends KMSClient {
    *             <code>MessageType</code> parameter.</p>
    *             </li>
    *             <li>
-   *                <p>Choose a signing algorithm that is compatible with the CMK.  </p>
+   *                <p>Choose a signing algorithm that is compatible with the CMK. </p>
    *             </li>
    *          </ul>
    *          <important>
@@ -2757,7 +2644,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
    */
   public sign(
     args: SignCommandInput,
@@ -2792,8 +2678,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Adds or edits tags for a customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p>
+   * <p>Adds or edits tags for a customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required,
    *       but tag values can be empty (null) strings.</p>
    *          <p>You can only use a tag key once for each CMK. If you use the tag key again, AWS KMS replaces
@@ -2803,8 +2688,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -2839,16 +2722,13 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the specified customer master key (CMK).
+   * <p>Removes the specified tags from the specified customer master key (CMK).
    *       You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>To remove a tag, specify the tag key. To change the tag value of an existing tag key, use
    *         <a>TagResource</a>.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2883,8 +2763,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Associates an existing AWS KMS alias with a different customer master key (CMK). Each alias
+   * <p>Associates an existing AWS KMS alias with a different customer master key (CMK). Each alias
    *       is associated with only one CMK at a time, although a CMK can have multiple aliases. The alias
    *       and the CMK must be in the same AWS account and region. You cannot perform this operation on an alias in a different AWS account. </p>
    *          <p>The current and new CMK must be the same type (both symmetric or both asymmetric), and
@@ -2901,8 +2780,6 @@ export class KMS extends KMSClient {
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public updateAlias(
     args: UpdateAliasCommandInput,
@@ -2937,8 +2814,7 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Changes the properties of a custom key store. Use the <code>CustomKeyStoreId</code>
+   * <p>Changes the properties of a custom key store. Use the <code>CustomKeyStoreId</code>
    *       parameter to identify the custom key store you want to edit. Use the remaining parameters to
    *       change the properties of the custom key store.</p>
    *          <p>You can only update a custom key store that is disconnected. To disconnect the custom key
@@ -2976,7 +2852,6 @@ export class KMS extends KMSClient {
    *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
    * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
    * single-tenant key store.</p>
-   *
    */
   public updateCustomKeyStore(
     args: UpdateCustomKeyStoreCommandInput,
@@ -3011,15 +2886,12 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Updates the description of a customer master key (CMK). To see the description of a CMK,
+   * <p>Updates the description of a customer master key (CMK). To see the description of a CMK,
    *       use <a>DescribeKey</a>. </p>
    *          <p>You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
-   *
    */
   public updateKeyDescription(
     args: UpdateKeyDescriptionCommandInput,
@@ -3054,36 +2926,29 @@ export class KMS extends KMSClient {
   }
 
   /**
-   *
-   *          <p>Verifies a digital signature that was generated by the <a>Sign</a> operation.
-   *       This operation requires an asymmetric CMK with a <code>KeyUsage</code> value of
-   *         <code>SIGN_VERIFY</code>.</p>
+   * <p>Verifies a digital signature that was generated by the <a>Sign</a> operation. </p>
    *          <p></p>
-   *          <p>Verification confirms that an authorized user signed the message with the specified key
-   *       and signing algorithm, and the message hasn't changed since it was signed. A digital signature
-   *       is generated by using the private key in an asymmetric CMK. The signature is verified by using
-   *       the public key in the same asymmetric CMK. For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *          <p>Verification confirms that an authorized user signed the message with the specified CMK
+   *       and signing algorithm, and the message hasn't changed since it was signed. If the signature is
+   *       verified, the value of the <code>SignatureValid</code> field in the response is
+   *         <code>True</code>. If the signature verification fails, the <code>Verify</code> operation
+   *       fails with an <code>KMSInvalidSignatureException</code> exception.</p>
+   *          <p>A digital signature is generated by using the private key in an asymmetric CMK. The
+   *       signature is verified by using the public key in the same asymmetric CMK.
+   *       For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>To verify a digital signature, you can use the <code>Verify</code> operation. Specify the
-   *       same asymmetric CMK that was used by the <code>Sign</code> operation to generate the digital
+   *       same asymmetric CMK, message, and signing algorithm that were used to produce the
    *       signature.</p>
    *          <p>You can also verify the digital signature by using the public key of the CMK outside of
    *       AWS KMS. Use the <a>GetPublicKey</a> operation to download the public key in the
-   *       asymmetric CMK and then use the public key to verify the signature outside of AWS KMS.</p>
-   *          <p>The
+   *       asymmetric CMK and then use the public key to verify the signature outside of AWS KMS. The
    *       advantage of using the <code>Verify</code> operation is that it is performed within AWS KMS. As
    *       a result, it's easy to call, the operation is performed within the FIPS boundary, it is logged
    *       in AWS CloudTrail, and you can use key policy and IAM policy to determine who is authorized to use
    *       the CMK to verify signatures.</p>
-   *          <important>
-   *             <p>The result of the <code>Verify</code> operation, which is represented by its HTTP status
-   *         code, does not indicate whether the signature verification succeeded or failed. To determine
-   *         whether the signature was verified, see the <code>SignatureValid</code> field in the
-   *         response. </p>
-   *          </important>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *
    */
   public verify(
     args: VerifyCommandInput,

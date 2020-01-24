@@ -17,6 +17,8 @@ import {
   DisassociateDiscoveredResourceResult,
   ImportMigrationTaskRequest,
   ImportMigrationTaskResult,
+  ListApplicationStatesRequest,
+  ListApplicationStatesResult,
   ListCreatedArtifactsRequest,
   ListCreatedArtifactsResult,
   ListDiscoveredResourcesRequest,
@@ -94,6 +96,7 @@ export type ServiceInputTypes =
   | DisassociateCreatedArtifactRequest
   | DisassociateDiscoveredResourceRequest
   | ImportMigrationTaskRequest
+  | ListApplicationStatesRequest
   | ListCreatedArtifactsRequest
   | ListDiscoveredResourcesRequest
   | ListMigrationTasksRequest
@@ -112,6 +115,7 @@ export type ServiceOutputTypes =
   | DisassociateCreatedArtifactResult
   | DisassociateDiscoveredResourceResult
   | ImportMigrationTaskResult
+  | ListApplicationStatesResult
   | ListCreatedArtifactsResult
   | ListDiscoveredResourcesResult
   | ListMigrationTasksResult
@@ -228,14 +232,12 @@ export type MigrationHubClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>The AWS Migration Hub API methods help to obtain server and application migration status and
- *          integrate your resource-specific migration tool by providing a programmatic interface to
- *          Migration Hub.</p>
+ * <p>The AWS Migration Hub API methods help to obtain server and application migration status
+ *          and integrate your resource-specific migration tool by providing a programmatic interface
+ *          to Migration Hub.</p>
  *          <p>Remember that you must set your AWS Migration Hub home region before you call any of
- *          these APIs, or a <code>HomeRegionNotSetException</code> error will be returned. Also, you must
- *          make the API calls while in your home region.</p>
- *
+ *          these APIs, or a <code>HomeRegionNotSetException</code> error will be returned. Also, you
+ *          must make the API calls while in your home region.</p>
  */
 export class MigrationHubClient extends __Client<
   __HttpHandlerOptions,

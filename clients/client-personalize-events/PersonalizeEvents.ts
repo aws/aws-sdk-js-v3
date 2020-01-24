@@ -7,15 +7,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export class PersonalizeEvents extends PersonalizeEventsClient {
   /**
-   *
-   *          <p>Records user interaction event data.</p>
-   *
+   * <p>Records user interaction event data.</p>
    */
   public putEvents(
     args: PutEventsCommandInput,

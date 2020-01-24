@@ -212,8 +212,7 @@ export type ResourceGroupsClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Resource Groups</fullname>
+ * <fullname>AWS Resource Groups</fullname>
  *          <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances,
  *       Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria
  *       that you define as tags. A resource group is a collection of resources that match the resource
@@ -246,7 +245,6 @@ export type ResourceGroupsClientResolvedConfig = __SmithyResolvedConfiguration<
  *                <p>Searching AWS resources based on a resource query</p>
  *             </li>
  *          </ul>
- *
  */
 export class ResourceGroupsClient extends __Client<
   __HttpHandlerOptions,

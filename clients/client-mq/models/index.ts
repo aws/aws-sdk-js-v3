@@ -114,6 +114,16 @@ export interface BrokerInstanceOption {
   HostInstanceType?: string;
 
   /**
+   * The broker's storage type.
+   */
+  StorageType?: BrokerStorageType | string;
+
+  /**
+   * The list of supported deployment modes.
+   */
+  SupportedDeploymentModes?: Array<DeploymentMode | string>;
+
+  /**
    * The list of supported engine versions.
    */
   SupportedEngineVersions?: Array<string>;
@@ -131,6 +141,11 @@ export enum BrokerState {
   DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
   REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
   RUNNING = "RUNNING"
+}
+
+export enum BrokerStorageType {
+  EBS = "EBS",
+  EFS = "EFS"
 }
 
 /**
@@ -411,9 +426,14 @@ export interface CreateBrokerRequest {
   PubliclyAccessible?: boolean;
 
   /**
-   * The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.
+   * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
   SecurityGroups?: Array<string>;
+
+  /**
+   * The broker's storage type.
+   */
+  StorageType?: BrokerStorageType | string;
 
   /**
    * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
@@ -751,6 +771,11 @@ export interface DescribeBrokerInstanceOptionsRequest {
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
   NextToken?: string;
+
+  /**
+   * Filter response by storage type.
+   */
+  StorageType?: string;
 }
 
 export namespace DescribeBrokerInstanceOptionsRequest {
@@ -895,9 +920,14 @@ export interface DescribeBrokerResponse extends $MetadataBearer {
   PubliclyAccessible?: boolean;
 
   /**
-   * The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.
+   * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
   SecurityGroups?: Array<string>;
+
+  /**
+   * The broker's storage type.
+   */
+  StorageType?: BrokerStorageType | string;
 
   /**
    * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
@@ -1626,7 +1656,7 @@ export interface UpdateBrokerRequest {
   Logs?: Logs;
 
   /**
-   * The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.
+   * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
   SecurityGroups?: Array<string>;
 }
@@ -1670,7 +1700,7 @@ export interface UpdateBrokerResponse extends $MetadataBearer {
   Logs?: Logs;
 
   /**
-   * The list of security groups (1 minimum, 5 maximum) that authorize connections to brokers.
+   * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
   SecurityGroups?: Array<string>;
 }

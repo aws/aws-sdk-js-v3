@@ -81,6 +81,8 @@ import {
   PutDeliverabilityDashboardOptionResponse,
   PutEmailIdentityDkimAttributesRequest,
   PutEmailIdentityDkimAttributesResponse,
+  PutEmailIdentityDkimSigningAttributesRequest,
+  PutEmailIdentityDkimSigningAttributesResponse,
   PutEmailIdentityFeedbackAttributesRequest,
   PutEmailIdentityFeedbackAttributesResponse,
   PutEmailIdentityMailFromAttributesRequest,
@@ -190,6 +192,7 @@ export type ServiceInputTypes =
   | PutDedicatedIpWarmupAttributesRequest
   | PutDeliverabilityDashboardOptionRequest
   | PutEmailIdentityDkimAttributesRequest
+  | PutEmailIdentityDkimSigningAttributesRequest
   | PutEmailIdentityFeedbackAttributesRequest
   | PutEmailIdentityMailFromAttributesRequest
   | PutSuppressedDestinationRequest
@@ -240,6 +243,7 @@ export type ServiceOutputTypes =
   | PutDedicatedIpWarmupAttributesResponse
   | PutDeliverabilityDashboardOptionResponse
   | PutEmailIdentityDkimAttributesResponse
+  | PutEmailIdentityDkimSigningAttributesResponse
   | PutEmailIdentityFeedbackAttributesResponse
   | PutEmailIdentityMailFromAttributesResponse
   | PutSuppressedDestinationResponse
@@ -356,8 +360,7 @@ export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Amazon SES API v2</fullname>
+ * <fullname>Amazon SES API v2</fullname>
  *         <p>Welcome to the Amazon SES API v2 Reference. This guide provides information about the Amazon SES API v2,
  *             including supported operations, data types, parameters, and schemas.</p>
  *         <p>
@@ -377,7 +380,6 @@ export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<
  *             enable us to provide very high levels of availability and redundancy, while also
  *             minimizing latency. To learn more about the number of Availability Zones that are
  *             available in each Region, see <a href="http://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>.</p>
- *
  */
 export class SESv2Client extends __Client<
   __HttpHandlerOptions,

@@ -378,8 +378,7 @@ export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS CloudFormation</fullname>
+ * <fullname>AWS CloudFormation</fullname>
  *          <p>AWS CloudFormation allows you to create and manage AWS infrastructure deployments
  *          predictably and repeatedly. You can use AWS CloudFormation to leverage AWS products, such
  *          as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification
@@ -394,33 +393,6 @@ export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<
  *          <p>Amazon CloudFormation makes use of other AWS products. If you need additional
  *          technical information about a specific AWS product, you can find the product's technical
  *          documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
  */
 export class CloudFormationClient extends __Client<
   __HttpHandlerOptions,

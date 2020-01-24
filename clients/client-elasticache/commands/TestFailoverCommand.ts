@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { ReplicationGroup, TestFailoverMessage } from "../models/index";
+import { TestFailoverMessage, TestFailoverResult } from "../models/index";
 import {
   deserializeAws_queryTestFailoverCommand,
   serializeAws_queryTestFailoverCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestFailoverCommandInput = TestFailoverMessage;
-export type TestFailoverCommandOutput = ReplicationGroup;
+export type TestFailoverCommandOutput = TestFailoverResult;
 
 export class TestFailoverCommand extends $Command<
   TestFailoverCommandInput,

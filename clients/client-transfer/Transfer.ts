@@ -92,8 +92,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS Transfer for SFTP is a fully managed service that enables the transfer of files
+ * <p>AWS Transfer for SFTP is a fully managed service that enables the transfer of files
  *       directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known
  *       as Secure Shell (SSH) File Transfer Protocol. AWS helps you seamlessly migrate your file
  *       transfer workflows to AWS Transfer for SFTP—by integrating with existing authentication
@@ -102,22 +101,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer
  *       for SFTP (AWS SFTP) is easy; there is no infrastructure to buy and set
  *       up. </p>
- *
  */
 export class Transfer extends TransferClient {
   /**
-   *
-   *
-   *          <p>Instantiates an autoscaling virtual server based on Secure File Transfer Protocol (SFTP)
+   * <p>Instantiates an autoscaling virtual server based on Secure File Transfer Protocol (SFTP)
    *       in AWS. When you make updates to your server or when you work with users, use the
    *       service-generated <code>ServerId</code> property that is assigned to the newly created
    *       server.</p>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public createServer(
     args: CreateServerCommandInput,
@@ -152,18 +142,12 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Creates a user and associates them with an existing Secure File Transfer Protocol (SFTP)
+   * <p>Creates a user and associates them with an existing Secure File Transfer Protocol (SFTP)
    *       server. You can only create and associate users with SFTP servers that have the <code>IdentityProviderType</code>
    *       set to <code>SERVICE_MANAGED</code>. Using parameters for <code>CreateUser</code>, you can specify the user name, set the
    *       home directory, store the user's public key, and assign the user's AWS Identity and Access
    *       Management (IAM) role. You can also optionally add a scope-down policy, and assign metadata
    *       with tags that can be used to group and search for users.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public createUser(
     args: CreateUserCommandInput,
@@ -198,16 +182,10 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Deletes the Secure File Transfer Protocol (SFTP) server that you specify.</p>
+   * <p>Deletes the Secure File Transfer Protocol (SFTP) server that you specify.</p>
    *
    *
    *          <p>No response returns from this operation.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public deleteServer(
     args: DeleteServerCommandInput,
@@ -242,15 +220,9 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Deletes a user's Secure Shell (SSH) public key.</p>
+   * <p>Deletes a user's Secure Shell (SSH) public key.</p>
    *
    *          <p>No response is returned from this operation.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public deleteSshPublicKey(
     args: DeleteSshPublicKeyCommandInput,
@@ -285,20 +257,13 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *
-   *          <p>Deletes the user belonging to the server you specify.</p>
+   * <p>Deletes the user belonging to the server you specify.</p>
    *
    *          <p>No response returns from this operation.</p>
    *
    *          <note>
    *             <p>When you delete a user from a server, the user's information is lost.</p>
    *          </note>
-   *
-   *
-   *
-   *
-   *
    */
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -333,16 +298,12 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Describes the server that you specify by passing the <code>ServerId</code>
+   * <p>Describes the server that you specify by passing the <code>ServerId</code>
    *       parameter.</p>
    *
-   *          <p>The response contains a description of the server's properties.</p>
-   *
-   *
-   *
-   *
-   *
+   *          <p>The response contains a description of the server's properties. When you set
+   *         <code>EndpointType</code> to VPC, the response will contain the
+   *       <code>EndpointDetails</code>.</p>
    */
   public describeServer(
     args: DescribeServerCommandInput,
@@ -377,17 +338,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Describes the user assigned to a specific server, as identified by its
+   * <p>Describes the user assigned to a specific server, as identified by its
    *         <code>ServerId</code> property.</p>
    *
    *          <p>The response from this call returns the properties of the user associated with the
    *         <code>ServerId</code> value that was specified.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public describeUser(
     args: DescribeUserCommandInput,
@@ -422,18 +377,12 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Adds a Secure Shell (SSH) public key to a user account identified by a
+   * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
    *         <code>UserName</code> value assigned to a specific server, identified by
    *         <code>ServerId</code>.</p>
    *
    *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
    *       the name of the <code>SshPublicKeyId</code>.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public importSshPublicKey(
     args: ImportSshPublicKeyCommandInput,
@@ -468,14 +417,8 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Lists the Secure File Transfer Protocol (SFTP) servers that are associated with your AWS
+   * <p>Lists the Secure File Transfer Protocol (SFTP) servers that are associated with your AWS
    *       account.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public listServers(
     args: ListServersCommandInput,
@@ -510,14 +453,8 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Lists all of the tags associated with the Amazon Resource Number (ARN) you specify. The
+   * <p>Lists all of the tags associated with the Amazon Resource Number (ARN) you specify. The
    *       resource can be a user, server, or role.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -552,14 +489,8 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Lists the users for the server that you specify by passing the <code>ServerId</code>
+   * <p>Lists the users for the server that you specify by passing the <code>ServerId</code>
    *       parameter.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public listUsers(
     args: ListUsersCommandInput,
@@ -594,8 +525,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Changes the state of a Secure File Transfer Protocol (SFTP) server from
+   * <p>Changes the state of a Secure File Transfer Protocol (SFTP) server from
    *         <code>OFFLINE</code> to <code>ONLINE</code>. It has no impact on an SFTP server that is
    *       already <code>ONLINE</code>. An <code>ONLINE</code> server can accept and process file
    *       transfer jobs.</p>
@@ -605,11 +535,6 @@ export class Transfer extends TransferClient {
    *       can indicate an error condition. </p>
    *
    *          <p>No response is returned from this call.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public startServer(
     args: StartServerCommandInput,
@@ -644,8 +569,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Changes the state of an SFTP server from <code>ONLINE</code> to <code>OFFLINE</code>. An
+   * <p>Changes the state of an SFTP server from <code>ONLINE</code> to <code>OFFLINE</code>. An
    *         <code>OFFLINE</code> server cannot accept and process file transfer jobs. Information tied
    *       to your server such as server and user properties are not affected by stopping your server.
    *       Stopping a server will not reduce or impact your Secure File Transfer Protocol (SFTP) endpoint
@@ -656,11 +580,6 @@ export class Transfer extends TransferClient {
    *       can indicate an error condition.</p>
    *
    *          <p>No response is returned from this call.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public stopServer(
     args: StopServerCommandInput,
@@ -695,16 +614,10 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN).
+   * <p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN).
    *       Resources are users, servers, roles, and other entities.</p>
    *
    *          <p>There is no response returned from this call.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -739,17 +652,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>, tests
+   * <p>If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>, tests
    *       whether your API Gateway is set up successfully. We highly recommend that you call this
    *       operation to test your authentication method as soon as you create your server. By doing so,
    *       you can troubleshoot issues with the API Gateway integration to ensure that your users can
    *       successfully use the service.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public testIdentityProvider(
     args: TestIdentityProviderCommandInput,
@@ -784,15 +691,9 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
+   * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
    *       (ARN). Resources are users, servers, roles, and other entities.</p>
    *          <p>No response is returned from this call.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -827,16 +728,10 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Updates the server properties after that server has been created.</p>
+   * <p>Updates the server properties after that server has been created.</p>
    *
    *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the Secure File
    *       Transfer Protocol (SFTP) server you updated.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public updateServer(
     args: UpdateServerCommandInput,
@@ -871,18 +766,12 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   *
-   *          <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
+   * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
    *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
    *       you specify.</p>
    *
    *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
    *       updated user.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public updateUser(
     args: UpdateUserCommandInput,

@@ -257,18 +257,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these
+ * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these
  *       actions to determine the topics contained in your documents, the topics they discuss, the
  *       predominant sentiment expressed in them, the predominant language used, and more.</p>
- *
  */
 export class Comprehend extends ComprehendClient {
   /**
-   *
-   *          <p>Determines the dominant language of the input text for a batch of documents. For a list
+   * <p>Determines the dominant language of the input text for a batch of documents. For a list
    *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
-   *
    */
   public batchDetectDominantLanguage(
     args: BatchDetectDominantLanguageCommandInput,
@@ -303,11 +299,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Inspects the text of a batch of documents for named entities and returns information
+   * <p>Inspects the text of a batch of documents for named entities and returns information
    *       about them. For more information about named entities, see <a>how-entities</a>
    *          </p>
-   *
    */
   public batchDetectEntities(
     args: BatchDetectEntitiesCommandInput,
@@ -342,9 +336,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Detects the key noun phrases found in a batch of documents.</p>
-   *
+   * <p>Detects the key noun phrases found in a batch of documents.</p>
    */
   public batchDetectKeyPhrases(
     args: BatchDetectKeyPhrasesCommandInput,
@@ -379,11 +371,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
+   * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
    *         <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>,
    *       in each one.</p>
-   *
    */
   public batchDetectSentiment(
     args: BatchDetectSentimentCommandInput,
@@ -418,10 +408,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
+   * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
    *       in the document and returns information about them. For more information, see <a>how-syntax</a>.</p>
-   *
    */
   public batchDetectSyntax(
     args: BatchDetectSyntaxCommandInput,
@@ -456,9 +444,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p>
-   *
+   * <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p>
    */
   public classifyDocument(
     args: ClassifyDocumentCommandInput,
@@ -493,12 +479,10 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Creates a new document classifier that you can use to categorize documents. To create a
+   * <p>Creates a new document classifier that you can use to categorize documents. To create a
    *       classifier you provide a set of training documents that labeled with the categories that you
    *       want to use. After the classifier is trained you can use it to categorize a set of labeled
    *       documents into the categories. For more information, see <a>how-document-classification</a>.</p>
-   *
    */
   public createDocumentClassifier(
     args: CreateDocumentClassifierCommandInput,
@@ -533,9 +517,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>
-   *
+   * <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -570,10 +552,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code> request is
+   * <p>Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code> request is
    *       submitted, you can check job status using the  API. </p>
-   *
    */
   public createEntityRecognizer(
     args: CreateEntityRecognizerCommandInput,
@@ -608,15 +588,12 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Deletes a previously created document classifier</p>
+   * <p>Deletes a previously created document classifier</p>
    *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be
    *       deleted. If an active inference job is using the model, a <code>ResourceInUseException</code> will be
    *       returned.</p>
    *          <p>This is an asynchronous action that puts the classifier into a DELETING state, and it is then removed by
    *       a background job. Once removed, the classifier disappears from your account and is no longer available for use. </p>
-   *
-   *
    */
   public deleteDocumentClassifier(
     args: DeleteDocumentClassifierCommandInput,
@@ -651,9 +628,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>
-   *
+   * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -688,14 +663,12 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Deletes an entity recognizer.</p>
+   * <p>Deletes an entity recognizer.</p>
    *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be
    *       deleted. If an active inference job is using the model, a <code>ResourceInUseException</code> will be
    *     returned.</p>
    *          <p>This is an asynchronous action that puts the recognizer into a DELETING state, and it is then removed by
    *       a background job. Once removed, the recognizer disappears from your account and is no longer available for use. </p>
-   *
    */
   public deleteEntityRecognizer(
     args: DeleteEntityRecognizerCommandInput,
@@ -730,10 +703,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties associated with a document classification job. Use this operation to
+   * <p>Gets the properties associated with a document classification job. Use this operation to
    *       get the status of a classification job.</p>
-   *
    */
   public describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
@@ -780,9 +751,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *         <p>Gets the properties associated with a document classifier.</p>
-   *
+   * <p>Gets the properties associated with a document classifier.</p>
    */
   public describeDocumentClassifier(
     args: DescribeDocumentClassifierCommandInput,
@@ -817,10 +786,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties associated with a dominant language detection job. Use this operation
+   * <p>Gets the properties associated with a dominant language detection job. Use this operation
    *       to get the status of a detection job.</p>
-   *
    */
   public describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
@@ -867,9 +834,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>
-   *
+   * <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>
    */
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -904,10 +869,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties associated with an entities detection job. Use this operation to get
+   * <p>Gets the properties associated with an entities detection job. Use this operation to get
    *       the status of a detection job.</p>
-   *
    */
   public describeEntitiesDetectionJob(
     args: DescribeEntitiesDetectionJobCommandInput,
@@ -942,10 +905,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Provides details about an entity recognizer including status, S3 buckets containing
+   * <p>Provides details about an entity recognizer including status, S3 buckets containing
    *       training data, recognizer metadata, metrics, and so on.</p>
-   *
    */
   public describeEntityRecognizer(
     args: DescribeEntityRecognizerCommandInput,
@@ -980,10 +941,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties associated with a key phrases detection job. Use this operation to get
+   * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
    *       the status of a detection job.</p>
-   *
    */
   public describeKeyPhrasesDetectionJob(
     args: DescribeKeyPhrasesDetectionJobCommandInput,
@@ -1021,10 +980,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties associated with a sentiment detection job. Use this operation to get
+   * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
    *       the status of a detection job.</p>
-   *
    */
   public describeSentimentDetectionJob(
     args: DescribeSentimentDetectionJobCommandInput,
@@ -1059,10 +1016,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties associated with a topic detection job. Use this operation to get
+   * <p>Gets the properties associated with a topic detection job. Use this operation to get
    *       the status of a detection job.</p>
-   *
    */
   public describeTopicsDetectionJob(
     args: DescribeTopicsDetectionJobCommandInput,
@@ -1097,11 +1052,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend
+   * <p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend
    *       can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
-   *
-   *
    */
   public detectDominantLanguage(
     args: DetectDominantLanguageCommandInput,
@@ -1136,11 +1088,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Inspects text for named entities, and returns information about them. For more
+   * <p>Inspects text for named entities, and returns information about them. For more
    *       information, about named entities, see <a>how-entities</a>. </p>
-   *
-   *
    */
   public detectEntities(
     args: DetectEntitiesCommandInput,
@@ -1175,10 +1124,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Detects the key noun phrases found in the text. </p>
-   *
-   *
+   * <p>Detects the key noun phrases found in the text. </p>
    */
   public detectKeyPhrases(
     args: DetectKeyPhrasesCommandInput,
@@ -1213,11 +1159,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Inspects text and returns an inference of the prevailing sentiment
+   * <p>Inspects text and returns an inference of the prevailing sentiment
    *         (<code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>). </p>
-   *
-   *
    */
   public detectSentiment(
     args: DetectSentimentCommandInput,
@@ -1252,10 +1195,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Inspects text for syntax and the part of speech of words in the document. For more
+   * <p>Inspects text for syntax and the part of speech of words in the document. For more
    *       information, <a>how-syntax</a>.</p>
-   *
    */
   public detectSyntax(
     args: DetectSyntaxCommandInput,
@@ -1290,9 +1231,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of the documentation classification jobs that you have submitted.</p>
-   *
+   * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
    */
   public listDocumentClassificationJobs(
     args: ListDocumentClassificationJobsCommandInput,
@@ -1330,9 +1269,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the document classifiers that you have created.</p>
-   *
+   * <p>Gets a list of the document classifiers that you have created.</p>
    */
   public listDocumentClassifiers(
     args: ListDocumentClassifiersCommandInput,
@@ -1367,9 +1304,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
-   *
+   * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
    */
   public listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
@@ -1416,9 +1351,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of all existing endpoints that you've created.</p>
-   *
+   * <p>Gets a list of all existing endpoints that you've created.</p>
    */
   public listEndpoints(
     args: ListEndpointsCommandInput,
@@ -1453,9 +1386,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the entity detection jobs that you have submitted.</p>
-   *
+   * <p>Gets a list of the entity detection jobs that you have submitted.</p>
    */
   public listEntitiesDetectionJobs(
     args: ListEntitiesDetectionJobsCommandInput,
@@ -1490,15 +1421,13 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the properties of all entity recognizers that you created, including recognizers currently
+   * <p>Gets a list of the properties of all entity recognizers that you created, including recognizers currently
    *       in training. Allows
    *       you to filter the list of recognizers based on criteria such as status and submission time. This
    *       call returns up to 500 entity recognizers in the list, with a default number of 100
    *       recognizers in the list.</p>
    *          <p>The results of this list are not in any particular order. Please get the list and sort
    *       locally if needed.</p>
-   *
    */
   public listEntityRecognizers(
     args: ListEntityRecognizersCommandInput,
@@ -1533,9 +1462,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Get a list of key phrase detection jobs that you have submitted.</p>
-   *
+   * <p>Get a list of key phrase detection jobs that you have submitted.</p>
    */
   public listKeyPhrasesDetectionJobs(
     args: ListKeyPhrasesDetectionJobsCommandInput,
@@ -1570,9 +1497,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of sentiment detection jobs that you have submitted.</p>
-   *
+   * <p>Gets a list of sentiment detection jobs that you have submitted.</p>
    */
   public listSentimentDetectionJobs(
     args: ListSentimentDetectionJobsCommandInput,
@@ -1607,9 +1532,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags associated with a given Amazon Comprehend resource.     </p>
-   *
+   * <p>Lists all tags associated with a given Amazon Comprehend resource.     </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1644,9 +1567,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the topic detection jobs that you have submitted.</p>
-   *
+   * <p>Gets a list of the topic detection jobs that you have submitted.</p>
    */
   public listTopicsDetectionJobs(
     args: ListTopicsDetectionJobsCommandInput,
@@ -1681,10 +1602,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
+   * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
    *       job.</p>
-   *
    */
   public startDocumentClassificationJob(
     args: StartDocumentClassificationJobCommandInput,
@@ -1722,11 +1641,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Starts an asynchronous dominant language detection job for a collection of documents. Use
+   * <p>Starts an asynchronous dominant language detection job for a collection of documents. Use
    *       the  operation to track the status
    *       of a job.</p>
-   *
    */
   public startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
@@ -1773,12 +1690,10 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
+   * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
    *          <p>This API can be used for either standard entity detection or custom entity recognition. In order
    *     to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code> must be used
    *     in order to provide access to the recognizer being used to detect the custom entity.</p>
-   *
    */
   public startEntitiesDetectionJob(
     args: StartEntitiesDetectionJobCommandInput,
@@ -1813,11 +1728,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
+   * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
    *          operation to track the status of a
    *       job.</p>
-   *
    */
   public startKeyPhrasesDetectionJob(
     args: StartKeyPhrasesDetectionJobCommandInput,
@@ -1852,11 +1765,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Starts an asynchronous sentiment detection job for a collection of documents. use the
+   * <p>Starts an asynchronous sentiment detection job for a collection of documents. use the
    *          operation to track the status of a
    *       job.</p>
-   *
    */
   public startSentimentDetectionJob(
     args: StartSentimentDetectionJobCommandInput,
@@ -1891,10 +1802,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Starts an asynchronous topic detection job. Use the
+   * <p>Starts an asynchronous topic detection job. Use the
    *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
-   *
    */
   public startTopicsDetectionJob(
     args: StartTopicsDetectionJobCommandInput,
@@ -1929,8 +1838,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Stops a dominant language detection job in progress.</p>
+   * <p>Stops a dominant language detection job in progress.</p>
    *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
    *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
    *       is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the
@@ -1940,7 +1848,6 @@ export class Comprehend extends ComprehendClient {
    *       Internal Request Exception. </p>
    *          <p>When a job is stopped, any documents already processed are written to the output
    *       location.</p>
-   *
    */
   public stopDominantLanguageDetectionJob(
     args: StopDominantLanguageDetectionJobCommandInput,
@@ -1981,8 +1888,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Stops an entities detection job in progress.</p>
+   * <p>Stops an entities detection job in progress.</p>
    *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
    *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
    *       is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the
@@ -1992,7 +1898,6 @@ export class Comprehend extends ComprehendClient {
    *       Internal Request Exception. </p>
    *          <p>When a job is stopped, any documents already processed are written to the output
    *       location.</p>
-   *
    */
   public stopEntitiesDetectionJob(
     args: StopEntitiesDetectionJobCommandInput,
@@ -2027,8 +1932,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Stops a key phrases detection job in progress.</p>
+   * <p>Stops a key phrases detection job in progress.</p>
    *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
    *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
    *       is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the
@@ -2038,7 +1942,6 @@ export class Comprehend extends ComprehendClient {
    *       Internal Request Exception. </p>
    *          <p>When a job is stopped, any documents already processed are written to the output
    *       location.</p>
-   *
    */
   public stopKeyPhrasesDetectionJob(
     args: StopKeyPhrasesDetectionJobCommandInput,
@@ -2073,8 +1976,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Stops a sentiment detection job in progress.</p>
+   * <p>Stops a sentiment detection job in progress.</p>
    *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
    *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
    *       is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the
@@ -2084,7 +1986,6 @@ export class Comprehend extends ComprehendClient {
    *       Internal Request Exception. </p>
    *          <p>When a job is stopped, any documents already processed are written to the output
    *       location.</p>
-   *
    */
   public stopSentimentDetectionJob(
     args: StopSentimentDetectionJobCommandInput,
@@ -2119,15 +2020,12 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Stops a document classifier training job while in progress.</p>
+   * <p>Stops a document classifier training job while in progress.</p>
    *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination
    *       and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
    *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
    *       put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response
    *       with an empty HTTP body. </p>
-   *
-   *
    */
   public stopTrainingDocumentClassifier(
     args: StopTrainingDocumentClassifierCommandInput,
@@ -2165,13 +2063,10 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Stops an entity recognizer training job while in progress.</p>
+   * <p>Stops an entity recognizer training job while in progress.</p>
    *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into
    *       the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the
    *       training job is stopped and putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body.</p>
-   *
-   *
    */
   public stopTrainingEntityRecognizer(
     args: StopTrainingEntityRecognizerCommandInput,
@@ -2206,11 +2101,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend.
+   * <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend.
    *       For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.     </p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -2245,9 +2138,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
-   *
+   * <p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2282,9 +2173,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   *
-   *          <p>Updates information about the specified endpoint.</p>
-   *
+   * <p>Updates information about the specified endpoint.</p>
    */
   public updateEndpoint(
     args: UpdateEndpointCommandInput,

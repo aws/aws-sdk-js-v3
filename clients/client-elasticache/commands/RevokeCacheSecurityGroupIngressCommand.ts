@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../ElastiCacheClient";
 import {
-  CacheSecurityGroup,
-  RevokeCacheSecurityGroupIngressMessage
+  RevokeCacheSecurityGroupIngressMessage,
+  RevokeCacheSecurityGroupIngressResult
 } from "../models/index";
 import {
   deserializeAws_queryRevokeCacheSecurityGroupIngressCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeCacheSecurityGroupIngressCommandInput = RevokeCacheSecurityGroupIngressMessage;
-export type RevokeCacheSecurityGroupIngressCommandOutput = CacheSecurityGroup;
+export type RevokeCacheSecurityGroupIngressCommandOutput = RevokeCacheSecurityGroupIngressResult;
 
 export class RevokeCacheSecurityGroupIngressCommand extends $Command<
   RevokeCacheSecurityGroupIngressCommandInput,

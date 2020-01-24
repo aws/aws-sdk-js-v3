@@ -94,18 +94,19 @@ import {
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput
 } from "./commands/UpdateClusterConfigurationCommand";
+import {
+  UpdateMonitoringCommand,
+  UpdateMonitoringCommandInput,
+  UpdateMonitoringCommandOutput
+} from "./commands/UpdateMonitoringCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *                <p>The operations for managing an Amazon MSK cluster.</p>
- *
+ * <p>The operations for managing an Amazon MSK cluster.</p>
  */
 export class Kafka extends KafkaClient {
   /**
-   *
-   *             <p>Creates a new MSK cluster.</p>
-   *
+   * <p>Creates a new MSK cluster.</p>
    */
   public createCluster(
     args: CreateClusterCommandInput,
@@ -140,9 +141,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Creates a new MSK configuration.</p>
-   *
+   * <p>Creates a new MSK configuration.</p>
    */
   public createConfiguration(
     args: CreateConfigurationCommandInput,
@@ -177,9 +176,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
-   *
+   * <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
    */
   public deleteCluster(
     args: DeleteClusterCommandInput,
@@ -214,9 +211,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
-   *
+   * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
    */
   public describeCluster(
     args: DescribeClusterCommandInput,
@@ -251,9 +246,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a description of the cluster operation specified by the ARN.</p>
-   *
+   * <p>Returns a description of the cluster operation specified by the ARN.</p>
    */
   public describeClusterOperation(
     args: DescribeClusterOperationCommandInput,
@@ -288,9 +281,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a description of this MSK configuration.</p>
-   *
+   * <p>Returns a description of this MSK configuration.</p>
    */
   public describeConfiguration(
     args: DescribeConfigurationCommandInput,
@@ -325,9 +316,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a description of this revision of the configuration.</p>
-   *
+   * <p>Returns a description of this revision of the configuration.</p>
    */
   public describeConfigurationRevision(
     args: DescribeConfigurationRevisionCommandInput,
@@ -362,9 +351,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>A list of brokers that a client application can use to bootstrap.</p>
-   *
+   * <p>A list of brokers that a client application can use to bootstrap.</p>
    */
   public getBootstrapBrokers(
     args: GetBootstrapBrokersCommandInput,
@@ -399,9 +386,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
-   *
+   * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
    */
   public listClusterOperations(
     args: ListClusterOperationsCommandInput,
@@ -436,9 +421,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a list of all the MSK clusters in the current Region.</p>
-   *
+   * <p>Returns a list of all the MSK clusters in the current Region.</p>
    */
   public listClusters(
     args: ListClustersCommandInput,
@@ -473,9 +456,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a list of all the MSK configurations in this Region.</p>
-   *
+   * <p>Returns a list of all the MSK configurations in this Region.</p>
    */
   public listConfigurationRevisions(
     args: ListConfigurationRevisionsCommandInput,
@@ -510,9 +491,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a list of all the MSK configurations in this Region.</p>
-   *
+   * <p>Returns a list of all the MSK configurations in this Region.</p>
    */
   public listConfigurations(
     args: ListConfigurationsCommandInput,
@@ -547,9 +526,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a list of the broker nodes in the cluster.</p>
-   *
+   * <p>Returns a list of the broker nodes in the cluster.</p>
    */
   public listNodes(
     args: ListNodesCommandInput,
@@ -584,9 +561,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Returns a list of the tags associated with the specified resource.</p>
-   *
+   * <p>Returns a list of the tags associated with the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -621,9 +596,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Adds tags to the specified MSK resource.</p>
-   *
+   * <p>Adds tags to the specified MSK resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -658,9 +631,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Removes the tags associated with the keys that are provided in the query.</p>
-   *
+   * <p>Removes the tags associated with the keys that are provided in the query.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -695,9 +666,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Updates the number of broker nodes in the cluster.</p>
-   *
+   * <p>Updates the number of broker nodes in the cluster.</p>
    */
   public updateBrokerCount(
     args: UpdateBrokerCountCommandInput,
@@ -732,9 +701,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Updates the EBS storage associated with MSK brokers.</p>
-   *
+   * <p>Updates the EBS storage associated with MSK brokers.</p>
    */
   public updateBrokerStorage(
     args: UpdateBrokerStorageCommandInput,
@@ -769,9 +736,7 @@ export class Kafka extends KafkaClient {
   }
 
   /**
-   *
-   *             <p>Updates the cluster with the configuration that is specified in the request body.</p>
-   *
+   * <p>Updates the cluster with the configuration that is specified in the request body.</p>
    */
   public updateClusterConfiguration(
     args: UpdateClusterConfigurationCommandInput,
@@ -794,6 +759,41 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
   ): Promise<UpdateClusterConfigurationCommandOutput> | void {
     const command = new UpdateClusterConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus.</p>
+   */
+  public updateMonitoring(
+    args: UpdateMonitoringCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMonitoringCommandOutput>;
+  public updateMonitoring(
+    args: UpdateMonitoringCommandInput,
+    cb: (err: any, data?: UpdateMonitoringCommandOutput) => void
+  ): void;
+  public updateMonitoring(
+    args: UpdateMonitoringCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMonitoringCommandOutput) => void
+  ): void;
+  public updateMonitoring(
+    args: UpdateMonitoringCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateMonitoringCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMonitoringCommandOutput) => void
+  ): Promise<UpdateMonitoringCommandOutput> | void {
+    const command = new UpdateMonitoringCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

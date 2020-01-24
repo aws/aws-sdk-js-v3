@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   CreateEventSubscriptionMessage,
-  EventSubscription
+  CreateEventSubscriptionResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateEventSubscriptionCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEventSubscriptionCommandInput = CreateEventSubscriptionMessage;
-export type CreateEventSubscriptionCommandOutput = EventSubscription;
+export type CreateEventSubscriptionCommandOutput = CreateEventSubscriptionResult;
 
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,

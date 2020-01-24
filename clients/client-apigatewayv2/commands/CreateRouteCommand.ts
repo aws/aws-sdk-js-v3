@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import { CreateRouteRequest, CreateRouteResponseShape } from "../models/index";
+import { CreateRouteRequest, CreateRouteResult } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateRouteCommand,
   serializeAws_restJson1_1CreateRouteCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRouteCommandInput = CreateRouteRequest;
-export type CreateRouteCommandOutput = CreateRouteResponseShape;
+export type CreateRouteCommandOutput = CreateRouteResult;
 
 export class CreateRouteCommand extends $Command<
   CreateRouteCommandInput,

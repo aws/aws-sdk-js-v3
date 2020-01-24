@@ -82,22 +82,18 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname> AWS License Manager </fullname>
+ * <fullname> AWS License Manager </fullname>
  *          <p>AWS License Manager makes it easier to manage licenses from software vendors across multiple
  *          AWS accounts and on-premises servers.</p>
- *
  */
 export class LicenseManager extends LicenseManagerClient {
   /**
-   *
-   *          <p>Creates a license configuration.</p>
+   * <p>Creates a license configuration.</p>
    *          <p>A license configuration is an abstraction of a customer license agreement that can be
    *          consumed and enforced by License Manager. Components include specifications for the license
    *          type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,
    *          Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM
    *          must be associated with a host), and the number of licenses purchased and used.</p>
-   *
    */
   public createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
@@ -132,10 +128,8 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified license configuration.</p>
+   * <p>Deletes the specified license configuration.</p>
    *          <p>You cannot delete a license configuration that is in use.</p>
-   *
    */
   public deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
@@ -170,9 +164,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Gets detailed information about the specified license configuration.</p>
-   *
+   * <p>Gets detailed information about the specified license configuration.</p>
    */
   public getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
@@ -207,9 +199,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Gets the License Manager settings for the current Region.</p>
-   *
+   * <p>Gets the License Manager settings for the current Region.</p>
    */
   public getServiceSettings(
     args: GetServiceSettingsCommandInput,
@@ -244,12 +234,10 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists the resource associations for the specified license configuration.</p>
+   * <p>Lists the resource associations for the specified license configuration.</p>
    *          <p>Resource associations need not consume licenses from a license configuration.
    *          For example, an AMI or a stopped instance might not consume a license (depending on
    *          the license rules).</p>
-   *
    */
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
@@ -296,9 +284,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists the license configuration operations that failed.</p>
-   *
+   * <p>Lists the license configuration operations that failed.</p>
    */
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
@@ -349,9 +335,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists the license configurations for your account.</p>
-   *
+   * <p>Lists the license configurations for your account.</p>
    */
   public listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
@@ -386,9 +370,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Describes the license configurations for the specified resource.</p>
-   *
+   * <p>Describes the license configurations for the specified resource.</p>
    */
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
@@ -435,9 +417,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists resources managed using Systems Manager inventory.</p>
-   *
+   * <p>Lists resources managed using Systems Manager inventory.</p>
    */
   public listResourceInventory(
     args: ListResourceInventoryCommandInput,
@@ -472,9 +452,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags for the specified license configuration.</p>
-   *
+   * <p>Lists the tags for the specified license configuration.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -509,11 +487,9 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists all license usage records for a license configuration, displaying license
+   * <p>Lists all license usage records for a license configuration, displaying license
    *          consumption details by resource at a selected point in time. Use this action to audit the
    *          current license consumption for any license inventory and configuration.</p>
-   *
    */
   public listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
@@ -554,9 +530,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Adds the specified tags to the specified license configuration.</p>
-   *
+   * <p>Adds the specified tags to the specified license configuration.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -591,9 +565,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the specified license configuration.</p>
-   *
+   * <p>Removes the specified tags from the specified license configuration.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -628,14 +600,12 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Modifies the attributes of an existing license configuration.</p>
+   * <p>Modifies the attributes of an existing license configuration.</p>
    *          <p>A license configuration is an abstraction of a customer license agreement that can be
    *          consumed and enforced by License Manager. Components include specifications for the license
    *          type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,
    *          Dedicated Instance, Dedicated Host, or all of these), host affinity (how long a VM
    *          must be associated with a host), and the number of licenses purchased and used.</p>
-   *
    */
   public updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
@@ -670,12 +640,10 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Adds or removes the specified license configurations for the specified AWS resource.</p>
+   * <p>Adds or removes the specified license configurations for the specified AWS resource.</p>
    *          <p>You can update the license specifications of AMIs, instances, and hosts.
    *          You cannot update the license specifications for launch templates and AWS CloudFormation templates,
    *          as they send license configurations to the operation that creates the resource.</p>
-   *
    */
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
@@ -722,9 +690,7 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
-   *
-   *          <p>Updates License Manager settings for the current Region.</p>
-   *
+   * <p>Updates License Manager settings for the current Region.</p>
    */
   public updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,

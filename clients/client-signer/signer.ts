@@ -62,22 +62,18 @@ import { signerClient } from "./signerClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <p>With code signing for IoT, you can sign code that you create for any IoT device that is
+ * <p>With code signing for IoT, you can sign code that you create for any IoT device that is
  * 			supported by Amazon Web Services (AWS). Code signing is available through <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
  * 				(ACM)</a>. In order to sign code, you import a third-party code signing
  * 			certificate with ACM that is used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For
  * 			general information about using code signing, see the <a href="http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">Code Signing for IoT Developer Guide</a>.</p>
- *
  */
 export class signer extends signerClient {
   /**
-   *
-   * 		       <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
+   * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
    * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
    * 			operation, but it cannot perform new signing jobs, and is deleted two years after
    * 			cancelation.</p>
-   *
    */
   public cancelSigningProfile(
     args: CancelSigningProfileCommandInput,
@@ -112,12 +108,9 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Returns information about a specific code signing job. You specify the job by using
+   * <p>Returns information about a specific code signing job. You specify the job by using
    * 			the <code>jobId</code> value that is returned by the <a>StartSigningJob</a>
    * 			operation. </p>
-   *
-   *
    */
   public describeSigningJob(
     args: DescribeSigningJobCommandInput,
@@ -152,9 +145,7 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Returns information on a specific signing platform.</p>
-   *
+   * <p>Returns information on a specific signing platform.</p>
    */
   public getSigningPlatform(
     args: GetSigningPlatformCommandInput,
@@ -189,9 +180,7 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Returns information on a specific signing profile.</p>
-   *
+   * <p>Returns information on a specific signing profile.</p>
    */
   public getSigningProfile(
     args: GetSigningProfileCommandInput,
@@ -226,16 +215,13 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to
+   * <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to
    * 			limit the number of signing jobs that are returned in the response. If additional jobs
    * 			remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in
    * 			subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can
    * 			continue calling <code>ListSigningJobs</code> with your <code>maxResults</code>
    * 			parameter and with new values that code signing returns in the <code>nextToken</code>
    * 			parameter until all of your signing jobs have been returned. </p>
-   *
-   *
    */
   public listSigningJobs(
     args: ListSigningJobsCommandInput,
@@ -270,15 +256,13 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all signing platforms available in code signing that match the request parameters. If
+   * <p>Lists all signing platforms available in code signing that match the request parameters. If
    * 			additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use
    * 			this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining
    * 			values. You can continue calling <code>ListSigningJobs</code> with your
    * 				<code>maxResults</code> parameter and with new values that code signing returns in the
    * 				<code>nextToken</code> parameter until all of your signing jobs have been
    * 			returned.</p>
-   *
    */
   public listSigningPlatforms(
     args: ListSigningPlatformsCommandInput,
@@ -313,8 +297,7 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all available signing profiles in your AWS account. Returns only profiles with
+   * <p>Lists all available signing profiles in your AWS account. Returns only profiles with
    * 			an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is
    * 			set to <code>true</code>. If additional jobs remain to be listed, code signing returns a
    * 				<code>nextToken</code> value. Use this value in subsequent calls to
@@ -322,7 +305,6 @@ export class signer extends signerClient {
    * 				<code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with
    * 			new values that code signing returns in the <code>nextToken</code> parameter until all of your
    * 			signing jobs have been returned.</p>
-   *
    */
   public listSigningProfiles(
     args: ListSigningProfilesCommandInput,
@@ -357,11 +339,9 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of
+   * <p>Returns a list of
    * 			the tags associated with a signing profile
    * 			resource.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -396,11 +376,9 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a signing profile. A signing profile is a code signing template that can be used to
+   * <p>Creates a signing profile. A signing profile is a code signing template that can be used to
    * 			carry out a pre-defined signing job. For more information, see <a href="http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>
    *          </p>
-   *
    */
   public putSigningProfile(
     args: PutSigningProfileCommandInput,
@@ -435,8 +413,7 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Initiates a signing job to be performed on the code provided. Signing jobs are
+   * <p>Initiates a signing job to be performed on the code provided. Signing jobs are
    * 			viewable by the <code>ListSigningJobs</code> operation for two years after they are
    * 			performed. Note the following requirements: </p>
    * 		       <ul>
@@ -464,8 +441,6 @@ export class signer extends signerClient {
    * 			<code>StartSigningJob</code>.</p>
    * 		       <p>For a Java example that shows how to use this action, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/">http://docs.aws.amazon.com/acm/latest/userguide/</a>
    *          </p>
-   *
-   *
    */
   public startSigningJob(
     args: StartSigningJobCommandInput,
@@ -500,14 +475,12 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Adds one or more
+   * <p>Adds one or more
    * 			tags to a signing profile. Tags are labels that you can use to identify and organize
    * 			your AWS resources. Each tag consists of a key and an optional value. You specify the
    * 			signing profile using its Amazon Resource Name (ARN). You specify the tag by using a
    * 			key-value
    * 			pair.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -542,11 +515,9 @@ export class signer extends signerClient {
   }
 
   /**
-   *
-   * 		       <p>Remove one or more
+   * <p>Remove one or more
    * 			tags from a signing profile. Specify a list of tag keys to remove the
    * 			tags.</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,

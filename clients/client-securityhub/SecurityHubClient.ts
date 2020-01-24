@@ -29,6 +29,8 @@ import {
   DescribeHubResponse,
   DescribeProductsRequest,
   DescribeProductsResponse,
+  DescribeStandardsControlsRequest,
+  DescribeStandardsControlsResponse,
   DisableImportFindingsForProductRequest,
   DisableImportFindingsForProductResponse,
   DisableSecurityHubRequest,
@@ -74,7 +76,9 @@ import {
   UpdateFindingsRequest,
   UpdateFindingsResponse,
   UpdateInsightRequest,
-  UpdateInsightResponse
+  UpdateInsightResponse,
+  UpdateStandardsControlRequest,
+  UpdateStandardsControlResponse
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -144,6 +148,7 @@ export type ServiceInputTypes =
   | DescribeActionTargetsRequest
   | DescribeHubRequest
   | DescribeProductsRequest
+  | DescribeStandardsControlsRequest
   | DisableImportFindingsForProductRequest
   | DisableSecurityHubRequest
   | DisassociateFromMasterAccountRequest
@@ -166,7 +171,8 @@ export type ServiceInputTypes =
   | UntagResourceRequest
   | UpdateActionTargetRequest
   | UpdateFindingsRequest
-  | UpdateInsightRequest;
+  | UpdateInsightRequest
+  | UpdateStandardsControlRequest;
 
 export type ServiceOutputTypes =
   | AcceptInvitationResponse
@@ -184,6 +190,7 @@ export type ServiceOutputTypes =
   | DescribeActionTargetsResponse
   | DescribeHubResponse
   | DescribeProductsResponse
+  | DescribeStandardsControlsResponse
   | DisableImportFindingsForProductResponse
   | DisableSecurityHubResponse
   | DisassociateFromMasterAccountResponse
@@ -206,7 +213,8 @@ export type ServiceOutputTypes =
   | UntagResourceResponse
   | UpdateActionTargetResponse
   | UpdateFindingsResponse
-  | UpdateInsightResponse;
+  | UpdateInsightResponse
+  | UpdateStandardsControlResponse;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -316,8 +324,7 @@ export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Security Hub provides you with a comprehensive view of the security state of your AWS
+ * <p>Security Hub provides you with a comprehensive view of the security state of your AWS
  *          environment and resources. It also provides you with the compliance status of your
  *          environment based on CIS AWS Foundations compliance checks. Security Hub collects security data
  *          from AWS accounts, services, and integrated third-party products and helps you analyze
@@ -334,8 +341,20 @@ export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<
  *          to Security Hub, the association of the member account with the master account is created only in
  *          the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that
  *          the invite was sent from.</p>
- *
- *
+ *          <p>The following throttling limits apply to using Security Hub API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>GetFindings</code> - RateLimit of 3 requests per second, and a BurstLimit of 6 requests per second.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UpdateFindings</code> - RateLimit of 1 request per second, and a BurstLimit of 5 requests per second.</p>
+ *             </li>
+ *             <li>
+ *                <p>All other operations - RateLimit of 10 request per second, and a BurstLimit of 30 requests per second.</p>
+ *             </li>
+ *          </ul>
  */
 export class SecurityHubClient extends __Client<
   __HttpHandlerOptions,

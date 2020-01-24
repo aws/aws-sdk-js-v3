@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { CreateSnapshotMessage, Snapshot } from "../models/index";
+import { CreateSnapshotMessage, CreateSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCreateSnapshotCommand,
   serializeAws_queryCreateSnapshotCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSnapshotCommandInput = CreateSnapshotMessage;
-export type CreateSnapshotCommandOutput = Snapshot;
+export type CreateSnapshotCommandOutput = CreateSnapshotResult;
 
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,

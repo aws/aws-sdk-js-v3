@@ -1,5 +1,15 @@
 import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient";
 import {
+  DescribeReportCreationCommand,
+  DescribeReportCreationCommandInput,
+  DescribeReportCreationCommandOutput
+} from "./commands/DescribeReportCreationCommand";
+import {
+  GetComplianceSummaryCommand,
+  GetComplianceSummaryCommandInput,
+  GetComplianceSummaryCommandOutput
+} from "./commands/GetComplianceSummaryCommand";
+import {
   GetResourcesCommand,
   GetResourcesCommandInput,
   GetResourcesCommandOutput
@@ -15,6 +25,11 @@ import {
   GetTagValuesCommandOutput
 } from "./commands/GetTagValuesCommand";
 import {
+  StartReportCreationCommand,
+  StartReportCreationCommandInput,
+  StartReportCreationCommandOutput
+} from "./commands/StartReportCreationCommand";
+import {
   TagResourcesCommand,
   TagResourcesCommandInput,
   TagResourcesCommandOutput
@@ -27,8 +42,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>Resource Groups Tagging API</fullname>
+ * <fullname>Resource Groups Tagging API</fullname>
  *         <p>This guide describes the API operations for the resource groups tagging.</p>
  *         <p>A tag is a label that you assign to an AWS resource. A tag consists of a key and a
  *             value, both of which you define. For example, if you have two Amazon EC2 instances, you might
@@ -360,12 +374,86 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                 <p>Amazon WorkSpaces</p>
  *             </li>
  *          </ul>
- *
  */
 export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   /**
-   *
-   *         <p>Returns all the tagged or previously tagged resources that are located in the
+   * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
+   *         <p>You can call this operation only from the organization's master account and from the us-east-1 Region.</p>
+   */
+  public describeReportCreation(
+    args: DescribeReportCreationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReportCreationCommandOutput>;
+  public describeReportCreation(
+    args: DescribeReportCreationCommandInput,
+    cb: (err: any, data?: DescribeReportCreationCommandOutput) => void
+  ): void;
+  public describeReportCreation(
+    args: DescribeReportCreationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReportCreationCommandOutput) => void
+  ): void;
+  public describeReportCreation(
+    args: DescribeReportCreationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeReportCreationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReportCreationCommandOutput) => void
+  ): Promise<DescribeReportCreationCommandOutput> | void {
+    const command = new DescribeReportCreationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a table that shows counts of resources that are noncompliant with their tag
+   *             policies.</p>
+   *         <p>For more information on tag policies, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
+   *             the <i>AWS Organizations User Guide.</i>
+   *          </p>
+   *         <p>You can call this operation only from the organization's master account and from the us-east-1 Region.</p>
+   */
+  public getComplianceSummary(
+    args: GetComplianceSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComplianceSummaryCommandOutput>;
+  public getComplianceSummary(
+    args: GetComplianceSummaryCommandInput,
+    cb: (err: any, data?: GetComplianceSummaryCommandOutput) => void
+  ): void;
+  public getComplianceSummary(
+    args: GetComplianceSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetComplianceSummaryCommandOutput) => void
+  ): void;
+  public getComplianceSummary(
+    args: GetComplianceSummaryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetComplianceSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetComplianceSummaryCommandOutput) => void
+  ): Promise<GetComplianceSummaryCommandOutput> | void {
+    const command = new GetComplianceSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns all the tagged or previously tagged resources that are located in the
    *             specified Region for the AWS account.</p>
    *         <p>Depending on what information you want returned, you can also specify the
    *             following:</p>
@@ -390,8 +478,6 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
    *                     <code>null</code>
    *                 <i>only</i> when there are no more results to display. </p>
    *         </note>
-   *
-   *
    */
   public getResources(
     args: GetResourcesCommandInput,
@@ -426,10 +512,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
-   *
-   *         <p>Returns all tag keys in the specified Region for the AWS account.</p>
-   *
-   *
+   * <p>Returns all tag keys in the specified Region for the AWS account.</p>
    */
   public getTagKeys(
     args: GetTagKeysCommandInput,
@@ -464,11 +547,8 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
-   *
-   *         <p>Returns all tag values for the specified key in the specified Region for the AWS
+   * <p>Returns all tag values for the specified key in the specified Region for the AWS
    *             account.</p>
-   *
-   *
    */
   public getTagValues(
     args: GetTagValuesCommandInput,
@@ -503,8 +583,49 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
-   *
-   *         <p>Applies one or more tags to the specified resources. Note the following:</p>
+   * <p>Generates a report that lists all tagged resources in accounts across your
+   *             organization and tells whether each resource is compliant with the effective tag policy.
+   *             Compliance data is refreshed daily. </p>
+   *         <p>The generated report is saved to the following location:</p>
+   *         <p>
+   *             <code>s3://example-bucket/AwsTagPolicies/o-exampleorgid/YYYY-MM-ddTHH:mm:ssZ/report.csv</code>
+   *          </p>
+   *         <p>You can call this operation only from the organization's master account and from the us-east-1 Region.</p>
+   */
+  public startReportCreation(
+    args: StartReportCreationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReportCreationCommandOutput>;
+  public startReportCreation(
+    args: StartReportCreationCommandInput,
+    cb: (err: any, data?: StartReportCreationCommandOutput) => void
+  ): void;
+  public startReportCreation(
+    args: StartReportCreationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReportCreationCommandOutput) => void
+  ): void;
+  public startReportCreation(
+    args: StartReportCreationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartReportCreationCommandOutput) => void),
+    cb?: (err: any, data?: StartReportCreationCommandOutput) => void
+  ): Promise<StartReportCreationCommandOutput> | void {
+    const command = new StartReportCreationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies one or more tags to the specified resources. Note the following:</p>
    *         <ul>
    *             <li>
    *                 <p>Not all resources can have tags. For a list of services that support tagging,
@@ -526,8 +647,6 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
    *                     information, see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this list</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public tagResources(
     args: TagResourcesCommandInput,
@@ -562,8 +681,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   }
 
   /**
-   *
-   *         <p>Removes the specified tags from the specified resources. When you specify a tag key,
+   * <p>Removes the specified tags from the specified resources. When you specify a tag key,
    *             the action removes both that key and its associated value. The operation succeeds even
    *             if you attempt to remove tags from a resource that were already removed. Note the
    *             following:</p>
@@ -578,8 +696,6 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
    *                     AWS account.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public untagResources(
     args: UntagResourcesCommandInput,

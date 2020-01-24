@@ -236,8 +236,7 @@ export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS CloudTrail</fullname>
+ * <fullname>AWS CloudTrail</fullname>
  *          <p>This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.</p>
  *          <p>CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.</p>
  *
@@ -252,7 +251,6 @@ export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<
  *             page</a>.</p>
  *          </note>
  *          <p>See the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">AWS CloudTrail User Guide</a> for information about the data that is included with each AWS API call listed in the log files.</p>
- *
  */
 export class CloudTrailClient extends __Client<
   __HttpHandlerOptions,

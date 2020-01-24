@@ -152,17 +152,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
+ * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
  *             detailed information about Amazon Fraud Detector API actions, data types, and errors. For
  *             more information about Amazon Fraud Detector features, see the <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/">Amazon Fraud Detector User Guide</a>.</p>
- *
  */
 export class FraudDetector extends FraudDetectorClient {
   /**
-   *
-   *          <p>Creates a batch of variables.</p>
-   *
+   * <p>Creates a batch of variables.</p>
    */
   public batchCreateVariable(
     args: BatchCreateVariableCommandInput,
@@ -197,9 +193,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets a batch of variables.</p>
-   *
+   * <p>Gets a batch of variables.</p>
    */
   public batchGetVariable(
     args: BatchGetVariableCommandInput,
@@ -234,9 +228,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *         <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>
-   *
+   * <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>
    */
   public createDetectorVersion(
     args: CreateDetectorVersionCommandInput,
@@ -271,10 +263,8 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Creates a version of the model using the specified model type.
+   * <p>Creates a version of the model using the specified model type.
    *         </p>
-   *
    */
   public createModelVersion(
     args: CreateModelVersionCommandInput,
@@ -309,9 +299,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Creates a rule for use with the specified detector. </p>
-   *
+   * <p>Creates a rule for use with the specified detector. </p>
    */
   public createRule(
     args: CreateRuleCommandInput,
@@ -346,9 +334,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Creates a variable.</p>
-   *
+   * <p>Creates a variable.</p>
    */
   public createVariable(
     args: CreateVariableCommandInput,
@@ -383,9 +369,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Deletes the detector version.</p>
-   *
+   * <p>Deletes the detector version.</p>
    */
   public deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
@@ -420,9 +404,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified event.</p>
-   *
+   * <p>Deletes the specified event.</p>
    */
   public deleteEvent(
     args: DeleteEventCommandInput,
@@ -457,9 +439,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets all versions for a specified detector.</p>
-   *
+   * <p>Gets all versions for a specified detector.</p>
    */
   public describeDetector(
     args: DescribeDetectorCommandInput,
@@ -494,9 +474,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
-   *
+   * <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
    */
   public describeModelVersions(
     args: DescribeModelVersionsCommandInput,
@@ -531,9 +509,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets a particular detector version. </p>
-   *
+   * <p>Gets a particular detector version. </p>
    */
   public getDetectorVersion(
     args: GetDetectorVersionCommandInput,
@@ -568,14 +544,12 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets all of detectors. This is a paginated API. If you
+   * <p>Gets all of detectors. This is a paginated API. If you
    *          provide a null <code>maxSizePerPage</code>, this actions retrieves a maximum of 10 records
    *          per page. If you provide a <code>maxSizePerPage</code>, the value must be between 5 and 10.
    *          To get the next page results, provide the pagination token from the
    *             <code>GetEventTypesResponse</code> as part of your request. A null pagination token
    *          fetches the records from the beginning. </p>
-   *
    */
   public getDetectors(
     args: GetDetectorsCommandInput,
@@ -610,14 +584,12 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets the details for one or more Amazon SageMaker models that have been imported into the
+   * <p>Gets the details for one or more Amazon SageMaker models that have been imported into the
    *          service. This is a paginated API. If you provide a null <code>maxSizePerPage</code>, this
    *          actions retrieves a maximum of 10 records per page. If you provide a
    *             <code>maxSizePerPage</code>, the value must be between 5 and 10. To get the next page
    *          results, provide the pagination token from the <code>GetExternalModelsResult</code> as part
    *          of your request. A null pagination token fetches the records from the beginning. </p>
-   *
    */
   public getExternalModels(
     args: GetExternalModelsCommandInput,
@@ -652,9 +624,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets a model version. </p>
-   *
+   * <p>Gets a model version. </p>
    */
   public getModelVersion(
     args: GetModelVersionCommandInput,
@@ -689,10 +659,8 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets all of the models for the AWS account, or the specified model type, or gets a single model for the specified model type, model ID combination.
+   * <p>Gets all of the models for the AWS account, or the specified model type, or gets a single model for the specified model type, model ID combination.
    *         </p>
-   *
    */
   public getModels(
     args: GetModelsCommandInput,
@@ -727,14 +695,12 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets one or more outcomes. This is a paginated
+   * <p>Gets one or more outcomes. This is a paginated
    *          API. If you provide a null <code>maxSizePerPage</code>, this actions retrieves a maximum of
    *          10 records per page. If you provide a <code>maxSizePerPage</code>, the value must be
    *          between 50 and 100. To get the next page results, provide the pagination token from the
    *         <code>GetOutcomesResult</code> as part of your request. A null pagination token
    *          fetches the records from the beginning. </p>
-   *
    */
   public getOutcomes(
     args: GetOutcomesCommandInput,
@@ -769,9 +735,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.  </p>
-   *
+   * <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.  </p>
    */
   public getPrediction(
     args: GetPredictionCommandInput,
@@ -806,9 +770,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets all rules available for the specified detector.</p>
-   *
+   * <p>Gets all rules available for the specified detector.</p>
    */
   public getRules(
     args: GetRulesCommandInput,
@@ -843,14 +805,12 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Gets all of the variables or the specific variable. This is a
+   * <p>Gets all of the variables or the specific variable. This is a
    *          paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of
    *          100 records per page. If you provide <code>maxSizePerPage</code> the value must be between
    *          50 and 100. To get the next page result, a provide a pagination token from
    *         <code>GetVariablesResult</code> as part of your request. Null pagination token
    *          fetches the records from the beginning. </p>
-   *
    */
   public getVariables(
     args: GetVariablesCommandInput,
@@ -885,9 +845,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Creates or updates a detector. </p>
-   *
+   * <p>Creates or updates a detector. </p>
    */
   public putDetector(
     args: PutDetectorCommandInput,
@@ -922,9 +880,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>
-   *
+   * <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>
    */
   public putExternalModel(
     args: PutExternalModelCommandInput,
@@ -959,9 +915,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Creates or updates a model. </p>
-   *
+   * <p>Creates or updates a model. </p>
    */
   public putModel(
     args: PutModelCommandInput,
@@ -996,9 +950,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Creates or updates an outcome. </p>
-   *
+   * <p>Creates or updates an outcome. </p>
    */
   public putOutcome(
     args: PutOutcomeCommandInput,
@@ -1033,10 +985,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, and description. You can only update a <code>DRAFT</code> detector version.</p>
-   *
-   *
+   * <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, and description. You can only update a <code>DRAFT</code> detector version.</p>
    */
   public updateDetectorVersion(
     args: UpdateDetectorVersionCommandInput,
@@ -1071,10 +1020,8 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
+   * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
    *                 <code>INACTIVE</code>). </p>
-   *
    */
   public updateDetectorVersionMetadata(
     args: UpdateDetectorVersionMetadataCommandInput,
@@ -1109,10 +1056,8 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Updates the detector version’s status. You can perform the following promotions or
+   * <p>Updates the detector version’s status. You can perform the following promotions or
    *             demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>
-   *
    */
   public updateDetectorVersionStatus(
     args: UpdateDetectorVersionStatusCommandInput,
@@ -1147,8 +1092,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *              <p>Updates a model version. You can update the description and status attributes
+   * <p>Updates a model version. You can update the description and status attributes
    *             using this action. You can perform the following status updates: </p>
    *         <ol>
    *             <li>
@@ -1160,7 +1104,6 @@ export class FraudDetector extends FraudDetectorClient {
    *                     </p>
    *             </li>
    *          </ol>
-   *
    */
   public updateModelVersion(
     args: UpdateModelVersionCommandInput,
@@ -1195,9 +1138,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Updates a rule's metadata. </p>
-   *
+   * <p>Updates a rule's metadata. </p>
    */
   public updateRuleMetadata(
     args: UpdateRuleMetadataCommandInput,
@@ -1232,9 +1173,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Updates a rule version resulting in a new rule version. </p>
-   *
+   * <p>Updates a rule version resulting in a new rule version. </p>
    */
   public updateRuleVersion(
     args: UpdateRuleVersionCommandInput,
@@ -1269,9 +1208,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   *
-   *          <p>Updates a variable.</p>
-   *
+   * <p>Updates a variable.</p>
    */
   public updateVariable(
     args: UpdateVariableCommandInput,

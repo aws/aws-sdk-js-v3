@@ -4,33 +4,24 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AssociateDeviceWithPlacementRequest {
   __type?: "AssociateDeviceWithPlacementRequest";
   /**
-   *
-   *          <p>The ID of the physical device to be associated with the given placement in the project.
-   *          Note that a mandatory 4 character prefix is required for all <code>deviceId</code>
-   *          values.</p>
-   *
+   * <p>The ID of the physical device to be associated with the given placement in the project.
+   *       Note that a mandatory 4 character prefix is required for all <code>deviceId</code>
+   *       values.</p>
    */
   deviceId: string | undefined;
 
   /**
-   *
-   *          <p>The device template name to associate with the device ID.</p>
-   *
+   * <p>The device template name to associate with the device ID.</p>
    */
   deviceTemplateName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the placement in which to associate the device.</p>
-   *
+   * <p>The name of the placement in which to associate the device.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the project containing the placement in which to associate the
-   *          device.</p>
-   *
+   * <p>The name of the project containing the placement in which to associate the device.</p>
    */
   projectName: string | undefined;
 }
@@ -54,24 +45,18 @@ export namespace AssociateDeviceWithPlacementResponse {
 export interface CreatePlacementRequest {
   __type?: "CreatePlacementRequest";
   /**
-   *
-   *          <p>Optional user-defined key/value pairs providing contextual data (such as location or
-   *          function) for the placement.</p>
-   *
+   * <p>Optional user-defined key/value pairs providing contextual data (such as location or
+   *       function) for the placement.</p>
    */
   attributes?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The name of the placement to be created.</p>
-   *
+   * <p>The name of the placement to be created.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the project in which to create the placement.</p>
-   *
+   * <p>The name of the project in which to create the placement.</p>
    */
   projectName: string | undefined;
 }
@@ -95,28 +80,29 @@ export namespace CreatePlacementResponse {
 export interface CreateProjectRequest {
   __type?: "CreateProjectRequest";
   /**
-   *
-   *          <p>An optional description for the project.</p>
-   *
+   * <p>An optional description for the project.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>The schema defining the placement to be created. A placement template defines placement
-   *          default attributes and device templates. You cannot add or remove device templates after
-   *          the project has been created. However, you can update <code>callbackOverrides</code> for
-   *          the device templates using the <code>UpdateProject</code> API.</p>
-   *
+   * <p>The schema defining the placement to be created. A placement template defines placement
+   *       default attributes and device templates. You cannot add or remove device templates after the
+   *       project has been created. However, you can update <code>callbackOverrides</code> for the
+   *       device templates using the <code>UpdateProject</code> API.</p>
    */
   placementTemplate?: PlacementTemplate;
 
   /**
-   *
-   *          <p>The name of the project to create.</p>
-   *
+   * <p>The name of the project to create.</p>
    */
   projectName: string | undefined;
+
+  /**
+   * <p>Optional tags (metadata key/value pairs) to be associated with the project. For example,
+   *         <code>{ {"key1": "value1", "key2": "value2"} }</code>. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
+   *         Strategies</a>.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateProjectRequest {
@@ -138,16 +124,12 @@ export namespace CreateProjectResponse {
 export interface DeletePlacementRequest {
   __type?: "DeletePlacementRequest";
   /**
-   *
-   *          <p>The name of the empty placement to delete.</p>
-   *
+   * <p>The name of the empty placement to delete.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The project containing the empty placement to delete.</p>
-   *
+   * <p>The project containing the empty placement to delete.</p>
    */
   projectName: string | undefined;
 }
@@ -171,9 +153,7 @@ export namespace DeletePlacementResponse {
 export interface DeleteProjectRequest {
   __type?: "DeleteProjectRequest";
   /**
-   *
-   *          <p>The name of the empty project to delete.</p>
-   *
+   * <p>The name of the empty project to delete.</p>
    */
   projectName: string | undefined;
 }
@@ -197,16 +177,12 @@ export namespace DeleteProjectResponse {
 export interface DescribePlacementRequest {
   __type?: "DescribePlacementRequest";
   /**
-   *
-   *          <p>The name of the placement within a project.</p>
-   *
+   * <p>The name of the placement within a project.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The project containing the placement to be described.</p>
-   *
+   * <p>The project containing the placement to be described.</p>
    */
   projectName: string | undefined;
 }
@@ -220,9 +196,7 @@ export namespace DescribePlacementRequest {
 export interface DescribePlacementResponse extends $MetadataBearer {
   __type?: "DescribePlacementResponse";
   /**
-   *
-   *          <p>An object describing the placement.</p>
-   *
+   * <p>An object describing the placement.</p>
    */
   placement: PlacementDescription | undefined;
 }
@@ -236,9 +210,7 @@ export namespace DescribePlacementResponse {
 export interface DescribeProjectRequest {
   __type?: "DescribeProjectRequest";
   /**
-   *
-   *          <p>The name of the project to be described.</p>
-   *
+   * <p>The name of the project to be described.</p>
    */
   projectName: string | undefined;
 }
@@ -252,9 +224,7 @@ export namespace DescribeProjectRequest {
 export interface DescribeProjectResponse extends $MetadataBearer {
   __type?: "DescribeProjectResponse";
   /**
-   *
-   *          <p>An object describing the project.</p>
-   *
+   * <p>An object describing the project.</p>
    */
   project: ProjectDescription | undefined;
 }
@@ -266,24 +236,18 @@ export namespace DescribeProjectResponse {
 }
 
 /**
- *
- *          <p>An object representing a device for a placement template (see <a>PlacementTemplate</a>).</p>
- *
+ * <p>An object representing a device for a placement template (see <a>PlacementTemplate</a>).</p>
  */
 export interface DeviceTemplate {
   __type?: "DeviceTemplate";
   /**
-   *
-   *          <p>An optional Lambda function to invoke instead of the default Lambda function provided by
-   *          the placement template.</p>
-   *
+   * <p>An optional Lambda function to invoke instead of the default Lambda function provided by
+   *       the placement template.</p>
    */
   callbackOverrides?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The device type, which currently must be <code>"button"</code>.</p>
-   *
+   * <p>The device type, which currently must be <code>"button"</code>.</p>
    */
   deviceType?: string;
 }
@@ -297,23 +261,17 @@ export namespace DeviceTemplate {
 export interface DisassociateDeviceFromPlacementRequest {
   __type?: "DisassociateDeviceFromPlacementRequest";
   /**
-   *
-   *          <p>The device ID that should be removed from the placement.</p>
-   *
+   * <p>The device ID that should be removed from the placement.</p>
    */
   deviceTemplateName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the placement that the device should be removed from.</p>
-   *
+   * <p>The name of the placement that the device should be removed from.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the project that contains the placement.</p>
-   *
+   * <p>The name of the project that contains the placement.</p>
    */
   projectName: string | undefined;
 }
@@ -338,16 +296,12 @@ export namespace DisassociateDeviceFromPlacementResponse {
 export interface GetDevicesInPlacementRequest {
   __type?: "GetDevicesInPlacementRequest";
   /**
-   *
-   *          <p>The name of the placement to get the devices from.</p>
-   *
+   * <p>The name of the placement to get the devices from.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the project containing the placement.</p>
-   *
+   * <p>The name of the project containing the placement.</p>
    */
   projectName: string | undefined;
 }
@@ -361,9 +315,7 @@ export namespace GetDevicesInPlacementRequest {
 export interface GetDevicesInPlacementResponse extends $MetadataBearer {
   __type?: "GetDevicesInPlacementResponse";
   /**
-   *
-   *          <p>An object containing the devices (zero or more) within the placement.</p>
-   *
+   * <p>An object containing the devices (zero or more) within the placement.</p>
    */
   devices: { [key: string]: string } | undefined;
 }
@@ -375,9 +327,7 @@ export namespace GetDevicesInPlacementResponse {
 }
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export interface InternalFailureException
   extends _smithy.SmithyException,
@@ -396,9 +346,7 @@ export namespace InternalFailureException {
 }
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export interface InvalidRequestException
   extends _smithy.SmithyException,
@@ -419,24 +367,18 @@ export namespace InvalidRequestException {
 export interface ListPlacementsRequest {
   __type?: "ListPlacementsRequest";
   /**
-   *
-   *          <p>The maximum number of results to return per request. If not set, a default value of 100
-   *          is used.</p>
-   *
+   * <p>The maximum number of results to return per request. If not set, a default value of 100 is
+   *       used.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token to retrieve the next set of results.</p>
-   *
+   * <p>The token to retrieve the next set of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The project containing the placements to be listed.</p>
-   *
+   * <p>The project containing the placements to be listed.</p>
    */
   projectName: string | undefined;
 }
@@ -450,17 +392,13 @@ export namespace ListPlacementsRequest {
 export interface ListPlacementsResponse extends $MetadataBearer {
   __type?: "ListPlacementsResponse";
   /**
-   *
-   *          <p>The token used to retrieve the next set of results - will be effectively empty if there
-   *          are no further results.</p>
-   *
+   * <p>The token used to retrieve the next set of results - will be effectively empty if there
+   *       are no further results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>An object listing the requested placements.</p>
-   *
+   * <p>An object listing the requested placements.</p>
    */
   placements: Array<PlacementSummary> | undefined;
 }
@@ -474,17 +412,13 @@ export namespace ListPlacementsResponse {
 export interface ListProjectsRequest {
   __type?: "ListProjectsRequest";
   /**
-   *
-   *          <p>The maximum number of results to return per request. If not set, a default value of 100
-   *          is used.</p>
-   *
+   * <p>The maximum number of results to return per request. If not set, a default value of 100 is
+   *       used.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token to retrieve the next set of results.</p>
-   *
+   * <p>The token to retrieve the next set of results.</p>
    */
   nextToken?: string;
 }
@@ -498,17 +432,13 @@ export namespace ListProjectsRequest {
 export interface ListProjectsResponse extends $MetadataBearer {
   __type?: "ListProjectsResponse";
   /**
-   *
-   *          <p>The token used to retrieve the next set of results - will be effectively empty if there
-   *          are no further results.</p>
-   *
+   * <p>The token used to retrieve the next set of results - will be effectively empty if there
+   *       are no further results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>An object containing the list of projects.</p>
-   *
+   * <p>An object containing the list of projects.</p>
    */
   projects: Array<ProjectSummary> | undefined;
 }
@@ -519,47 +449,63 @@ export namespace ListProjectsResponse {
   }
 }
 
+export interface ListTagsForResourceRequest {
+  __type?: "ListTagsForResourceRequest";
+  /**
+   * <p>The ARN of the resource whose tags you want to list.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export function isa(o: any): o is ListTagsForResourceRequest {
+    return _smithy.isa(o, "ListTagsForResourceRequest");
+  }
+}
+
+export interface ListTagsForResourceResponse extends $MetadataBearer {
+  __type?: "ListTagsForResourceResponse";
+  /**
+   * <p>The tags (metadata key/value pairs) which you have assigned to the resource.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  export function isa(o: any): o is ListTagsForResourceResponse {
+    return _smithy.isa(o, "ListTagsForResourceResponse");
+  }
+}
+
 /**
- *
- *          <p>An object describing a project's placement.</p>
- *
+ * <p>An object describing a project's placement.</p>
  */
 export interface PlacementDescription {
   __type?: "PlacementDescription";
   /**
-   *
-   *          <p>The user-defined attributes associated with the placement.</p>
-   *
+   * <p>The user-defined attributes associated with the placement.</p>
    */
   attributes: { [key: string]: string } | undefined;
 
   /**
-   *
-   *          <p>The date when the placement was initially created, in UNIX epoch time format.</p>
-   *
+   * <p>The date when the placement was initially created, in UNIX epoch time format.</p>
    */
   createdDate: Date | undefined;
 
   /**
-   *
-   *          <p>The name of the placement.</p>
-   *
+   * <p>The name of the placement.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the project containing the placement.</p>
-   *
+   * <p>The name of the project containing the placement.</p>
    */
   projectName: string | undefined;
 
   /**
-   *
-   *          <p>The date when the placement was last updated, in UNIX epoch time format. If the
-   *          placement was not updated, then <code>createdDate</code> and <code>updatedDate</code> are
-   *          the same.</p>
-   *
+   * <p>The date when the placement was last updated, in UNIX epoch time format. If the placement
+   *       was not updated, then <code>createdDate</code> and <code>updatedDate</code> are the
+   *       same.</p>
    */
   updatedDate: Date | undefined;
 }
@@ -571,39 +517,29 @@ export namespace PlacementDescription {
 }
 
 /**
- *
- *          <p>An object providing summary information for a particular placement.</p>
- *
+ * <p>An object providing summary information for a particular placement.</p>
  */
 export interface PlacementSummary {
   __type?: "PlacementSummary";
   /**
-   *
-   *          <p>The date when the placement was originally created, in UNIX epoch time format.</p>
-   *
+   * <p>The date when the placement was originally created, in UNIX epoch time format.</p>
    */
   createdDate: Date | undefined;
 
   /**
-   *
-   *          <p>The name of the placement being summarized.</p>
-   *
+   * <p>The name of the placement being summarized.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the project containing the placement.</p>
-   *
+   * <p>The name of the project containing the placement.</p>
    */
   projectName: string | undefined;
 
   /**
-   *
-   *          <p>The date when the placement was last updated, in UNIX epoch time format. If the
-   *          placement was not updated, then <code>createdDate</code> and <code>updatedDate</code> are
-   *          the same.</p>
-   *
+   * <p>The date when the placement was last updated, in UNIX epoch time format. If the placement
+   *       was not updated, then <code>createdDate</code> and <code>updatedDate</code> are the
+   *       same.</p>
    */
   updatedDate: Date | undefined;
 }
@@ -615,25 +551,19 @@ export namespace PlacementSummary {
 }
 
 /**
- *
- *          <p>An object defining the template for a placement.</p>
- *
+ * <p>An object defining the template for a placement.</p>
  */
 export interface PlacementTemplate {
   __type?: "PlacementTemplate";
   /**
-   *
-   *          <p>The default attributes (key/value pairs) to be applied to all placements using this
-   *          template.</p>
-   *
+   * <p>The default attributes (key/value pairs) to be applied to all placements using this
+   *       template.</p>
    */
   defaultAttributes?: { [key: string]: string };
 
   /**
-   *
-   *          <p>An object specifying the <a>DeviceTemplate</a> for all placements using this
-   *             (<a>PlacementTemplate</a>) template.</p>
-   *
+   * <p>An object specifying the <a>DeviceTemplate</a> for all placements using this
+   *         (<a>PlacementTemplate</a>) template.</p>
    */
   deviceTemplates?: { [key: string]: DeviceTemplate };
 }
@@ -645,47 +575,44 @@ export namespace PlacementTemplate {
 }
 
 /**
- *
- *          <p>An object providing detailed information for a particular project associated with an
- *          AWS account and region.</p>
- *
+ * <p>An object providing detailed information for a particular project associated with an AWS
+ *       account and region.</p>
  */
 export interface ProjectDescription {
   __type?: "ProjectDescription";
   /**
-   *
-   *          <p>The date when the project was originally created, in UNIX epoch time format.</p>
-   *
+   * <p>The ARN of the project.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The date when the project was originally created, in UNIX epoch time format.</p>
    */
   createdDate: Date | undefined;
 
   /**
-   *
-   *          <p>The description of the project.</p>
-   *
+   * <p>The description of the project.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>An object describing the project's placement specifications.</p>
-   *
+   * <p>An object describing the project's placement specifications.</p>
    */
   placementTemplate?: PlacementTemplate;
 
   /**
-   *
-   *          <p>The name of the project for which to obtain information from.</p>
-   *
+   * <p>The name of the project for which to obtain information from.</p>
    */
   projectName: string | undefined;
 
   /**
-   *
-   *          <p>The date when the project was last updated, in UNIX epoch time format. If the project
-   *          was not updated, then <code>createdDate</code> and <code>updatedDate</code> are the
-   *          same.</p>
-   *
+   * <p>The tags (metadata key/value pairs) associated with the project.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The date when the project was last updated, in UNIX epoch time format. If the project was
+   *       not updated, then <code>createdDate</code> and <code>updatedDate</code> are the same.</p>
    */
   updatedDate: Date | undefined;
 }
@@ -697,33 +624,34 @@ export namespace ProjectDescription {
 }
 
 /**
- *
- *          <p>An object providing summary information for a particular project for an associated AWS
- *          account and region.</p>
- *
+ * <p>An object providing summary information for a particular project for an associated AWS
+ *       account and region.</p>
  */
 export interface ProjectSummary {
   __type?: "ProjectSummary";
   /**
-   *
-   *          <p>The date when the project was originally created, in UNIX epoch time format.</p>
-   *
+   * <p>The ARN of the project.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The date when the project was originally created, in UNIX epoch time format.</p>
    */
   createdDate: Date | undefined;
 
   /**
-   *
-   *          <p>The name of the project being summarized.</p>
-   *
+   * <p>The name of the project being summarized.</p>
    */
   projectName: string | undefined;
 
   /**
-   *
-   *          <p>The date when the project was last updated, in UNIX epoch time format. If the project
-   *          was not updated, then <code>createdDate</code> and <code>updatedDate</code> are the
-   *          same.</p>
-   *
+   * <p>The tags (metadata key/value pairs) associated with the project.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The date when the project was last updated, in UNIX epoch time format. If the project was
+   *       not updated, then <code>createdDate</code> and <code>updatedDate</code> are the same.</p>
    */
   updatedDate: Date | undefined;
 }
@@ -735,9 +663,7 @@ export namespace ProjectSummary {
 }
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export interface ResourceConflictException
   extends _smithy.SmithyException,
@@ -756,9 +682,7 @@ export namespace ResourceConflictException {
 }
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -776,10 +700,38 @@ export namespace ResourceNotFoundException {
   }
 }
 
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   * <p>The ARN of the resouce for which tag(s) should be added or modified.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The new or modifying tag(s) for the resource. See <a href="https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per
+   *       resource.</p>
+   */
+  tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export function isa(o: any): o is TagResourceRequest {
+    return _smithy.isa(o, "TagResourceRequest");
+  }
+}
+
+export interface TagResourceResponse extends $MetadataBearer {
+  __type?: "TagResourceResponse";
+}
+
+export namespace TagResourceResponse {
+  export function isa(o: any): o is TagResourceResponse {
+    return _smithy.isa(o, "TagResourceResponse");
+  }
+}
+
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
@@ -797,27 +749,50 @@ export namespace TooManyRequestsException {
   }
 }
 
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   * <p>The ARN of the resource whose tag you want to remove.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The keys of those tags which you want to remove.</p>
+   */
+  tagKeys: Array<string> | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export function isa(o: any): o is UntagResourceRequest {
+    return _smithy.isa(o, "UntagResourceRequest");
+  }
+}
+
+export interface UntagResourceResponse extends $MetadataBearer {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export function isa(o: any): o is UntagResourceResponse {
+    return _smithy.isa(o, "UntagResourceResponse");
+  }
+}
+
 export interface UpdatePlacementRequest {
   __type?: "UpdatePlacementRequest";
   /**
-   *
-   *          <p>The user-defined object of attributes used to update the placement. The maximum number
-   *          of key/value pairs is 50.</p>
-   *
+   * <p>The user-defined object of attributes used to update the placement. The maximum number of
+   *       key/value pairs is 50.</p>
    */
   attributes?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The name of the placement to update.</p>
-   *
+   * <p>The name of the placement to update.</p>
    */
   placementName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the project containing the placement to be updated.</p>
-   *
+   * <p>The name of the project containing the placement to be updated.</p>
    */
   projectName: string | undefined;
 }
@@ -841,26 +816,20 @@ export namespace UpdatePlacementResponse {
 export interface UpdateProjectRequest {
   __type?: "UpdateProjectRequest";
   /**
-   *
-   *          <p>An optional user-defined description for the project.</p>
-   *
+   * <p>An optional user-defined description for the project.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>An object defining the project update. Once a project has been created, you cannot add
-   *          device template names to the project. However, for a given <code>placementTemplate</code>,
-   *          you can update the associated <code>callbackOverrides</code> for the device definition
-   *          using this API.</p>
-   *
+   * <p>An object defining the project update. Once a project has been created, you cannot add
+   *       device template names to the project. However, for a given <code>placementTemplate</code>, you
+   *       can update the associated <code>callbackOverrides</code> for the device definition using this
+   *       API.</p>
    */
   placementTemplate?: PlacementTemplate;
 
   /**
-   *
-   *          <p>The name of the project to be updated.</p>
-   *
+   * <p>The name of the project to be updated.</p>
    */
   projectName: string | undefined;
 }

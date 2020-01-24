@@ -98,6 +98,7 @@ import {
   ConfigurationRevision,
   Configurations,
   ConflictException,
+  DeploymentMode,
   EncryptionOptions,
   EngineVersion,
   ForbiddenException,
@@ -186,6 +187,9 @@ export async function serializeAws_restJson1_1CreateBrokerCommand(
       input.SecurityGroups,
       context
     );
+  }
+  if (input.StorageType !== undefined) {
+    bodyParams["storageType"] = input.StorageType;
   }
   if (input.SubnetIds !== undefined) {
     bodyParams["subnetIds"] = serializeAws_restJson1_1__listOf__string(
@@ -500,6 +504,9 @@ export async function serializeAws_restJson1_1DescribeBrokerInstanceOptionsComma
   }
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken.toString();
+  }
+  if (input.StorageType !== undefined) {
+    query["storageType"] = input.StorageType.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1476,6 +1483,7 @@ export async function deserializeAws_restJson1_1DescribeBrokerCommand(
     PendingSecurityGroups: undefined,
     PubliclyAccessible: undefined,
     SecurityGroups: undefined,
+    StorageType: undefined,
     SubnetIds: undefined,
     Tags: undefined,
     Users: undefined
@@ -1558,6 +1566,9 @@ export async function deserializeAws_restJson1_1DescribeBrokerCommand(
       data.securityGroups,
       context
     );
+  }
+  if (data.storageType !== undefined) {
+    contents.StorageType = data.storageType;
   }
   if (data.subnetIds !== undefined) {
     contents.SubnetIds = deserializeAws_restJson1_1__listOf__string(
@@ -3156,6 +3167,8 @@ const deserializeAws_restJson1_1BrokerInstanceOption = (
     AvailabilityZones: undefined,
     EngineType: undefined,
     HostInstanceType: undefined,
+    StorageType: undefined,
+    SupportedDeploymentModes: undefined,
     SupportedEngineVersions: undefined
   };
   if (output.availabilityZones !== undefined) {
@@ -3169,6 +3182,15 @@ const deserializeAws_restJson1_1BrokerInstanceOption = (
   }
   if (output.hostInstanceType !== undefined) {
     contents.HostInstanceType = output.hostInstanceType;
+  }
+  if (output.storageType !== undefined) {
+    contents.StorageType = output.storageType;
+  }
+  if (output.supportedDeploymentModes !== undefined) {
+    contents.SupportedDeploymentModes = deserializeAws_restJson1_1__listOfDeploymentMode(
+      output.supportedDeploymentModes,
+      context
+    );
   }
   if (output.supportedEngineVersions !== undefined) {
     contents.SupportedEngineVersions = deserializeAws_restJson1_1__listOf__string(
@@ -3598,6 +3620,13 @@ const deserializeAws_restJson1_1__listOfConfigurationRevision = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ConfigurationRevision(entry, context)
   );
+};
+
+const deserializeAws_restJson1_1__listOfDeploymentMode = (
+  output: any,
+  context: __SerdeContext
+): Array<DeploymentMode | string> => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOfEngineVersion = (

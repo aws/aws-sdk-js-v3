@@ -149,6 +149,8 @@ import {
   ListJourneysResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListTemplateVersionsRequest,
+  ListTemplateVersionsResponse,
   ListTemplatesRequest,
   ListTemplatesResponse,
   PhoneNumberValidateRequest,
@@ -203,6 +205,8 @@ import {
   UpdateSmsChannelResponse,
   UpdateSmsTemplateRequest,
   UpdateSmsTemplateResponse,
+  UpdateTemplateActiveVersionRequest,
+  UpdateTemplateActiveVersionResponse,
   UpdateVoiceChannelRequest,
   UpdateVoiceChannelResponse,
   UpdateVoiceTemplateRequest,
@@ -337,6 +341,7 @@ export type ServiceInputTypes =
   | GetVoiceTemplateRequest
   | ListJourneysRequest
   | ListTagsForResourceRequest
+  | ListTemplateVersionsRequest
   | ListTemplatesRequest
   | PhoneNumberValidateRequest
   | PutEventStreamRequest
@@ -365,6 +370,7 @@ export type ServiceInputTypes =
   | UpdateSegmentRequest
   | UpdateSmsChannelRequest
   | UpdateSmsTemplateRequest
+  | UpdateTemplateActiveVersionRequest
   | UpdateVoiceChannelRequest
   | UpdateVoiceTemplateRequest;
 
@@ -445,6 +451,7 @@ export type ServiceOutputTypes =
   | GetVoiceTemplateResponse
   | ListJourneysResponse
   | ListTagsForResourceResponse
+  | ListTemplateVersionsResponse
   | ListTemplatesResponse
   | PhoneNumberValidateResponse
   | PutEventStreamResponse
@@ -471,6 +478,7 @@ export type ServiceOutputTypes =
   | UpdateSegmentResponse
   | UpdateSmsChannelResponse
   | UpdateSmsTemplateResponse
+  | UpdateTemplateActiveVersionResponse
   | UpdateVoiceChannelResponse
   | UpdateVoiceTemplateResponse;
 

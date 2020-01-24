@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import { UpdateRouteRequest, UpdateRouteResponseShape } from "../models/index";
+import { UpdateRouteRequest, UpdateRouteResult } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRouteCommand,
   serializeAws_restJson1_1UpdateRouteCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRouteCommandInput = UpdateRouteRequest;
-export type UpdateRouteCommandOutput = UpdateRouteResponseShape;
+export type UpdateRouteCommandOutput = UpdateRouteResult;
 
 export class UpdateRouteCommand extends $Command<
   UpdateRouteCommandInput,

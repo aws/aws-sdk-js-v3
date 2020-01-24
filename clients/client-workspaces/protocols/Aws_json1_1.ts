@@ -95,6 +95,10 @@ import {
   ListAvailableManagementCidrRangesCommandOutput
 } from "../commands/ListAvailableManagementCidrRangesCommand";
 import {
+  MigrateWorkspaceCommandInput,
+  MigrateWorkspaceCommandOutput
+} from "../commands/MigrateWorkspaceCommand";
+import {
   ModifyAccountCommandInput,
   ModifyAccountCommandOutput
 } from "../commands/ModifyAccountCommand";
@@ -218,6 +222,8 @@ import {
   IpRuleItem,
   ListAvailableManagementCidrRangesRequest,
   ListAvailableManagementCidrRangesResult,
+  MigrateWorkspaceRequest,
+  MigrateWorkspaceResult,
   ModificationState,
   ModifyAccountRequest,
   ModifyAccountResult,
@@ -796,6 +802,27 @@ export async function serializeAws_json1_1ListAvailableManagementCidrRangesComma
     protocol: "https",
     method: "POST",
     path: "/ListAvailableManagementCidrRanges",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1MigrateWorkspaceCommand(
+  input: MigrateWorkspaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "WorkspacesService.MigrateWorkspace";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1MigrateWorkspaceRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/MigrateWorkspace",
     headers: headers,
     body: body
   });
@@ -2829,6 +2856,95 @@ async function deserializeAws_json1_1ListAvailableManagementCidrRangesCommandErr
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1MigrateWorkspaceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MigrateWorkspaceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1MigrateWorkspaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1MigrateWorkspaceResult(data, context);
+  const response: MigrateWorkspaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "MigrateWorkspaceResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1MigrateWorkspaceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MigrateWorkspaceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OperationInProgressException":
+    case "com.amazonaws.workspaces#OperationInProgressException":
+      response = await deserializeAws_json1_1OperationInProgressExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      response = await deserializeAws_json1_1OperationNotSupportedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.workspaces#ResourceUnavailableException":
+      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.workspaces#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1ModifyAccountCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -4670,6 +4786,20 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1MigrateWorkspaceRequest = (
+  input: MigrateWorkspaceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.BundleId !== undefined) {
+    bodyParams["BundleId"] = input.BundleId;
+  }
+  if (input.SourceWorkspaceId !== undefined) {
+    bodyParams["SourceWorkspaceId"] = input.SourceWorkspaceId;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1ModifyAccountRequest = (
   input: ModifyAccountRequest,
   context: __SerdeContext
@@ -5977,6 +6107,24 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MigrateWorkspaceResult = (
+  output: any,
+  context: __SerdeContext
+): MigrateWorkspaceResult => {
+  let contents: any = {
+    __type: "MigrateWorkspaceResult",
+    SourceWorkspaceId: undefined,
+    TargetWorkspaceId: undefined
+  };
+  if (output.SourceWorkspaceId !== undefined) {
+    contents.SourceWorkspaceId = output.SourceWorkspaceId;
+  }
+  if (output.TargetWorkspaceId !== undefined) {
+    contents.TargetWorkspaceId = output.TargetWorkspaceId;
   }
   return contents;
 };

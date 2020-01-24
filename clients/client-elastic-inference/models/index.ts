@@ -2,9 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *         Raised when a malformed input has been provided to the API.
- *
+ * Raised when a malformed input has been provided to the API.
  */
 export interface BadRequestException
   extends _smithy.SmithyException,
@@ -22,9 +20,7 @@ export namespace BadRequestException {
 }
 
 /**
- *
- *         Raised when an unexpected error occurred during request processing.
- *
+ * Raised when an unexpected error occurred during request processing.
  */
 export interface InternalServerException
   extends _smithy.SmithyException,
@@ -44,9 +40,7 @@ export namespace InternalServerException {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   *
-   *         The ARN of the Elastic Inference Accelerator to list the tags for.
-   *
+   * The ARN of the Elastic Inference Accelerator to list the tags for.
    */
   resourceArn: string | undefined;
 }
@@ -60,9 +54,7 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResult extends $MetadataBearer {
   __type?: "ListTagsForResourceResult";
   /**
-   *
-   *         The tags of the Elastic Inference Accelerator.
-   *
+   * The tags of the Elastic Inference Accelerator.
    */
   tags?: { [key: string]: string };
 }
@@ -74,9 +66,7 @@ export namespace ListTagsForResourceResult {
 }
 
 /**
- *
- *         Raised when the requested resource cannot be found.
- *
+ * Raised when the requested resource cannot be found.
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -96,16 +86,12 @@ export namespace ResourceNotFoundException {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *         The ARN of the Elastic Inference Accelerator to tag.
-   *
+   * The ARN of the Elastic Inference Accelerator to tag.
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *         The tags to add to the Elastic Inference Accelerator.
-   *
+   * The tags to add to the Elastic Inference Accelerator.
    */
   tags: { [key: string]: string } | undefined;
 }
@@ -129,16 +115,12 @@ export namespace TagResourceResult {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *         The ARN of the Elastic Inference Accelerator to untag.
-   *
+   * The ARN of the Elastic Inference Accelerator to untag.
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *         The list of tags to remove from the Elastic Inference Accelerator.
-   *
+   * The list of tags to remove from the Elastic Inference Accelerator.
    */
   tagKeys: Array<string> | undefined;
 }

@@ -5,7 +5,7 @@ import {
 } from "../ApiGatewayV2Client";
 import {
   UpdateIntegrationRequest,
-  UpdateIntegrationResponseShape
+  UpdateIntegrationResult
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateIntegrationCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateIntegrationCommandInput = UpdateIntegrationRequest;
-export type UpdateIntegrationCommandOutput = UpdateIntegrationResponseShape;
+export type UpdateIntegrationCommandOutput = UpdateIntegrationResult;
 
 export class UpdateIntegrationCommand extends $Command<
   UpdateIntegrationCommandInput,

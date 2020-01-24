@@ -260,6 +260,7 @@ import {
   InvalidKeyUsageException,
   InvalidMarkerException,
   KMSInternalException,
+  KMSInvalidSignatureException,
   KMSInvalidStateException,
   KeyListEntry,
   KeyMetadata,
@@ -4865,6 +4866,13 @@ async function deserializeAws_json1_1SignCommandError(
         context
       );
       break;
+    case "KMSInvalidStateException":
+    case "com.amazon.trent#KMSInvalidStateException":
+      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "KeyUnavailableException":
     case "com.amazon.trent#KeyUnavailableException":
       response = await deserializeAws_json1_1KeyUnavailableExceptionResponse(
@@ -5378,6 +5386,20 @@ async function deserializeAws_json1_1VerifyCommandError(
         context
       );
       break;
+    case "KMSInvalidSignatureException":
+    case "com.amazon.trent#KMSInvalidSignatureException":
+      response = await deserializeAws_json1_1KMSInvalidSignatureExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "KMSInvalidStateException":
+    case "com.amazon.trent#KMSInvalidStateException":
+      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "KeyUnavailableException":
     case "com.amazon.trent#KeyUnavailableException":
       response = await deserializeAws_json1_1KeyUnavailableExceptionResponse(
@@ -5876,6 +5898,25 @@ const deserializeAws_json1_1KMSInternalExceptionResponse = async (
     name: "KMSInternalException",
     __type: "KMSInternalException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1KMSInvalidSignatureExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KMSInvalidSignatureException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1KMSInvalidSignatureException(
+    body,
+    context
+  );
+  const contents: KMSInvalidSignatureException = {
+    name: "KMSInvalidSignatureException",
+    __type: "KMSInvalidSignatureException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
@@ -7890,6 +7931,20 @@ const deserializeAws_json1_1KMSInternalException = (
 ): KMSInternalException => {
   let contents: any = {
     __type: "KMSInternalException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1KMSInvalidSignatureException = (
+  output: any,
+  context: __SerdeContext
+): KMSInvalidSignatureException => {
+  let contents: any = {
+    __type: "KMSInvalidSignatureException",
     message: undefined
   };
   if (output.message !== undefined) {

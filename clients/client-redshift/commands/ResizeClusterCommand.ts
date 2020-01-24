@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, ResizeClusterMessage } from "../models/index";
+import { ResizeClusterMessage, ResizeClusterResult } from "../models/index";
 import {
   deserializeAws_queryResizeClusterCommand,
   serializeAws_queryResizeClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResizeClusterCommandInput = ResizeClusterMessage;
-export type ResizeClusterCommandOutput = Cluster;
+export type ResizeClusterCommandOutput = ResizeClusterResult;
 
 export class ResizeClusterCommand extends $Command<
   ResizeClusterCommandInput,

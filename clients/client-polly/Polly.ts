@@ -47,21 +47,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p>
+ * <p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p>
  *          <p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML),
  *       along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>
- *
  */
 export class Polly extends PollyClient {
   /**
-   *
-   *          <p>Deletes the specified pronunciation lexicon stored in an AWS Region.
+   * <p>Deletes the specified pronunciation lexicon stored in an AWS Region.
    *       A lexicon which has been deleted is not available for speech synthesis,
    *       nor is it possible to retrieve it using either the
    *       <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
-   *
    */
   public deleteLexicon(
     args: DeleteLexiconCommandInput,
@@ -96,8 +92,7 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Returns the list of voices that are available for use when requesting speech synthesis.
+   * <p>Returns the list of voices that are available for use when requesting speech synthesis.
    *       Each voice speaks a specified language, is either male or female, and is identified by an ID,
    *       which is the ASCII version of the voice name. </p>
    *
@@ -117,7 +112,6 @@ export class Polly extends PollyClient {
    *     </p>
    *          <p>This operation requires permissions to perform the
    *       <code>polly:DescribeVoices</code> action.</p>
-   *
    */
   public describeVoices(
     args: DescribeVoicesCommandInput,
@@ -152,10 +146,8 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region.
+   * <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region.
    *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
-   *
    */
   public getLexicon(
     args: GetLexiconCommandInput,
@@ -190,11 +182,9 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object
+   * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object
    *       contains information about the given speech synthesis task, including the status of the
    *       task, and a link to the S3 bucket containing the output of the task.</p>
-   *
    */
   public getSpeechSynthesisTask(
     args: GetSpeechSynthesisTaskCommandInput,
@@ -229,10 +219,8 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of pronunciation lexicons stored in an AWS Region.
+   * <p>Returns a list of pronunciation lexicons stored in an AWS Region.
    *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
-   *
    */
   public listLexicons(
     args: ListLexiconsCommandInput,
@@ -267,10 +255,8 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation
+   * <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation
    *       can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
-   *
    */
   public listSpeechSynthesisTasks(
     args: ListSpeechSynthesisTasksCommandInput,
@@ -305,14 +291,12 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Stores a pronunciation lexicon in an AWS Region.
+   * <p>Stores a pronunciation lexicon in an AWS Region.
    *       If a lexicon with the same name already exists in the region,
    *       it is overwritten by the new lexicon.
    *       Lexicon operations have eventual consistency,
    *       therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
-   *
    */
   public putLexicon(
     args: PutLexiconCommandInput,
@@ -347,13 +331,11 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This
+   * <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This
    *       operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket
    *       for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn).
    *       Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an
    *       identifier of this task as well as the current status.</p>
-   *
    */
   public startSpeechSynthesisTask(
     args: StartSpeechSynthesisTaskCommandInput,
@@ -388,12 +370,10 @@ export class Polly extends PollyClient {
   }
 
   /**
-   *
-   *          <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
+   * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
    *       SSML input must be valid, well-formed SSML.
    *       Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used.
    *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
-   *
    */
   public synthesizeSpeech(
     args: SynthesizeSpeechCommandInput,

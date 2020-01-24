@@ -292,12 +292,10 @@ export type LexModelBuildingServiceClientResolvedConfig = __SmithyResolvedConfig
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Amazon Lex Build-Time Actions</fullname>
+ * <fullname>Amazon Lex Build-Time Actions</fullname>
  *          <p> Amazon Lex is an AWS service for building conversational voice and text interfaces. Use
  *       these actions to create, update, and delete conversational bots for new and existing client
  *       applications. </p>
- *
  */
 export class LexModelBuildingServiceClient extends __Client<
   __HttpHandlerOptions,

@@ -1,4 +1,8 @@
 import {
+  CreateAccessPointCommandInput,
+  CreateAccessPointCommandOutput
+} from "../commands/CreateAccessPointCommand";
+import {
   CreateFileSystemCommandInput,
   CreateFileSystemCommandOutput
 } from "../commands/CreateFileSystemCommand";
@@ -11,9 +15,17 @@ import {
   CreateTagsCommandOutput
 } from "../commands/CreateTagsCommand";
 import {
+  DeleteAccessPointCommandInput,
+  DeleteAccessPointCommandOutput
+} from "../commands/DeleteAccessPointCommand";
+import {
   DeleteFileSystemCommandInput,
   DeleteFileSystemCommandOutput
 } from "../commands/DeleteFileSystemCommand";
+import {
+  DeleteFileSystemPolicyCommandInput,
+  DeleteFileSystemPolicyCommandOutput
+} from "../commands/DeleteFileSystemPolicyCommand";
 import {
   DeleteMountTargetCommandInput,
   DeleteMountTargetCommandOutput
@@ -22,6 +34,14 @@ import {
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput
 } from "../commands/DeleteTagsCommand";
+import {
+  DescribeAccessPointsCommandInput,
+  DescribeAccessPointsCommandOutput
+} from "../commands/DescribeAccessPointsCommand";
+import {
+  DescribeFileSystemPolicyCommandInput,
+  DescribeFileSystemPolicyCommandOutput
+} from "../commands/DescribeFileSystemPolicyCommand";
 import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput
@@ -43,19 +63,40 @@ import {
   DescribeTagsCommandOutput
 } from "../commands/DescribeTagsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "../commands/ListTagsForResourceCommand";
+import {
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput
 } from "../commands/ModifyMountTargetSecurityGroupsCommand";
+import {
+  PutFileSystemPolicyCommandInput,
+  PutFileSystemPolicyCommandOutput
+} from "../commands/PutFileSystemPolicyCommand";
 import {
   PutLifecycleConfigurationCommandInput,
   PutLifecycleConfigurationCommandOutput
 } from "../commands/PutLifecycleConfigurationCommand";
 import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "../commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "../commands/UntagResourceCommand";
+import {
   UpdateFileSystemCommandInput,
   UpdateFileSystemCommandOutput
 } from "../commands/UpdateFileSystemCommand";
 import {
+  AccessPointAlreadyExists,
+  AccessPointDescription,
+  AccessPointLimitExceeded,
+  AccessPointNotFound,
   BadRequest,
+  CreationInfo,
   DependencyTimeout,
   FileSystemAlreadyExists,
   FileSystemDescription,
@@ -67,6 +108,7 @@ import {
   IncorrectMountTargetState,
   InsufficientThroughputCapacity,
   InternalServerError,
+  InvalidPolicyException,
   IpAddressInUse,
   LifecyclePolicy,
   MountTargetConflict,
@@ -74,6 +116,9 @@ import {
   MountTargetNotFound,
   NetworkInterfaceLimitExceeded,
   NoFreeAddressesInSubnet,
+  PolicyNotFound,
+  PosixUser,
+  RootDirectory,
   SecurityGroupLimitExceeded,
   SecurityGroupNotFound,
   SubnetNotFound,
@@ -93,6 +138,47 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+
+export async function serializeAws_restJson1_1CreateAccessPointCommand(
+  input: CreateAccessPointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/2015-02-01/access-points";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ClientToken !== undefined) {
+    bodyParams["ClientToken"] = input.ClientToken;
+  }
+  if (input.FileSystemId !== undefined) {
+    bodyParams["FileSystemId"] = input.FileSystemId;
+  }
+  if (input.PosixUser !== undefined) {
+    bodyParams["PosixUser"] = serializeAws_restJson1_1PosixUser(
+      input.PosixUser,
+      context
+    );
+  }
+  if (input.RootDirectory !== undefined) {
+    bodyParams["RootDirectory"] = serializeAws_restJson1_1RootDirectory(
+      input.RootDirectory,
+      context
+    );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
 
 export async function serializeAws_restJson1_1CreateFileSystemCommand(
   input: CreateFileSystemCommandInput,
@@ -205,6 +291,33 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
   });
 }
 
+export async function serializeAws_restJson1_1DeleteAccessPointCommand(
+  input: DeleteAccessPointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/2015-02-01/access-points/{AccessPointId}";
+  if (input.AccessPointId !== undefined) {
+    const labelValue: any = input.AccessPointId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: AccessPointId."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{AccessPointId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: AccessPointId.");
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "DELETE",
+    headers: headers,
+    path: resolvedPath
+  });
+}
+
 export async function serializeAws_restJson1_1DeleteFileSystemCommand(
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
@@ -212,6 +325,33 @@ export async function serializeAws_restJson1_1DeleteFileSystemCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
+  if (input.FileSystemId !== undefined) {
+    const labelValue: any = input.FileSystemId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: FileSystemId."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{FileSystemId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: FileSystemId.");
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "DELETE",
+    headers: headers,
+    path: resolvedPath
+  });
+}
+
+export async function serializeAws_restJson1_1DeleteFileSystemPolicyCommand(
+  input: DeleteFileSystemPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: any = input.FileSystemId.toString();
     if (labelValue.length <= 0) {
@@ -293,6 +433,63 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
     headers: headers,
     path: resolvedPath,
     body: body
+  });
+}
+
+export async function serializeAws_restJson1_1DescribeAccessPointsCommand(
+  input: DescribeAccessPointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/2015-02-01/access-points";
+  const query: any = {};
+  if (input.AccessPointId !== undefined) {
+    query["AccessPointId"] = input.AccessPointId.toString();
+  }
+  if (input.FileSystemId !== undefined) {
+    query["FileSystemId"] = input.FileSystemId.toString();
+  }
+  if (input.MaxResults !== undefined) {
+    query["MaxResults"] = input.MaxResults.toString();
+  }
+  if (input.NextToken !== undefined) {
+    query["NextToken"] = input.NextToken.toString();
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath,
+    query: query
+  });
+}
+
+export async function serializeAws_restJson1_1DescribeFileSystemPolicyCommand(
+  input: DescribeFileSystemPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  if (input.FileSystemId !== undefined) {
+    const labelValue: any = input.FileSystemId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: FileSystemId."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{FileSystemId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: FileSystemId.");
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath
   });
 }
 
@@ -390,6 +587,9 @@ export async function serializeAws_restJson1_1DescribeMountTargetsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/mount-targets";
   const query: any = {};
+  if (input.AccessPointId !== undefined) {
+    query["AccessPointId"] = input.AccessPointId.toString();
+  }
   if (input.FileSystemId !== undefined) {
     query["FileSystemId"] = input.FileSystemId.toString();
   }
@@ -447,6 +647,39 @@ export async function serializeAws_restJson1_1DescribeTagsCommand(
   });
 }
 
+export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  if (input.ResourceId !== undefined) {
+    const labelValue: any = input.ResourceId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceId.");
+  }
+  const query: any = {};
+  if (input.MaxResults !== undefined) {
+    query["MaxResults"] = input.MaxResults.toString();
+  }
+  if (input.NextToken !== undefined) {
+    query["NextToken"] = input.NextToken.toString();
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath,
+    query: query
+  });
+}
+
 export async function serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(
   input: ModifyMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
@@ -473,6 +706,44 @@ export async function serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCom
       input.SecurityGroups,
       context
     );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "PUT",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1PutFileSystemPolicyCommand(
+  input: PutFileSystemPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  if (input.FileSystemId !== undefined) {
+    const labelValue: any = input.FileSystemId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: FileSystemId."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{FileSystemId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: FileSystemId.");
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.BypassPolicyLockoutSafetyCheck !== undefined) {
+    bodyParams["BypassPolicyLockoutSafetyCheck"] =
+      input.BypassPolicyLockoutSafetyCheck;
+  }
+  if (input.Policy !== undefined) {
+    bodyParams["Policy"] = input.Policy;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -523,6 +794,73 @@ export async function serializeAws_restJson1_1PutLifecycleConfigurationCommand(
   });
 }
 
+export async function serializeAws_restJson1_1TagResourceCommand(
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  if (input.ResourceId !== undefined) {
+    const labelValue: any = input.ResourceId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceId.");
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1UntagResourceCommand(
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  if (input.ResourceId !== undefined) {
+    const labelValue: any = input.ResourceId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceId.");
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.TagKeys !== undefined) {
+    bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeys(
+      input.TagKeys,
+      context
+    );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "DELETE",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
 export async function serializeAws_restJson1_1UpdateFileSystemCommand(
   input: UpdateFileSystemCommandInput,
   context: __SerdeContext
@@ -559,6 +897,130 @@ export async function serializeAws_restJson1_1UpdateFileSystemCommand(
     path: resolvedPath,
     body: body
   });
+}
+
+export async function deserializeAws_restJson1_1CreateAccessPointCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessPointCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1CreateAccessPointCommandError(
+      output,
+      context
+    );
+  }
+  const contents: CreateAccessPointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AccessPointDescription",
+    AccessPointArn: undefined,
+    AccessPointId: undefined,
+    ClientToken: undefined,
+    FileSystemId: undefined,
+    LifeCycleState: undefined,
+    Name: undefined,
+    OwnerId: undefined,
+    PosixUser: undefined,
+    RootDirectory: undefined,
+    Tags: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.AccessPointArn !== undefined) {
+    contents.AccessPointArn = data.AccessPointArn;
+  }
+  if (data.AccessPointId !== undefined) {
+    contents.AccessPointId = data.AccessPointId;
+  }
+  if (data.ClientToken !== undefined) {
+    contents.ClientToken = data.ClientToken;
+  }
+  if (data.FileSystemId !== undefined) {
+    contents.FileSystemId = data.FileSystemId;
+  }
+  if (data.LifeCycleState !== undefined) {
+    contents.LifeCycleState = data.LifeCycleState;
+  }
+  if (data.Name !== undefined) {
+    contents.Name = data.Name;
+  }
+  if (data.OwnerId !== undefined) {
+    contents.OwnerId = data.OwnerId;
+  }
+  if (data.PosixUser !== undefined) {
+    contents.PosixUser = deserializeAws_restJson1_1PosixUser(
+      data.PosixUser,
+      context
+    );
+  }
+  if (data.RootDirectory !== undefined) {
+    contents.RootDirectory = deserializeAws_restJson1_1RootDirectory(
+      data.RootDirectory,
+      context
+    );
+  }
+  if (data.Tags !== undefined) {
+    contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1CreateAccessPointCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessPointCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessPointAlreadyExists":
+    case "com.amazon.magnolio.api#AccessPointAlreadyExists":
+      response = await deserializeAws_restJson1_1AccessPointAlreadyExistsResponse(
+        output,
+        context
+      );
+      break;
+    case "AccessPointLimitExceeded":
+    case "com.amazon.magnolio.api#AccessPointLimitExceeded":
+      response = await deserializeAws_restJson1_1AccessPointLimitExceededResponse(
+        output,
+        context
+      );
+      break;
+    case "BadRequest":
+    case "com.amazon.magnolio.api#BadRequest":
+      response = await deserializeAws_restJson1_1BadRequestResponse(
+        output,
+        context
+      );
+      break;
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateFileSystemCommand(
@@ -722,6 +1184,8 @@ export async function deserializeAws_restJson1_1CreateMountTargetCommand(
   const contents: CreateMountTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "MountTargetDescription",
+    AvailabilityZoneId: undefined,
+    AvailabilityZoneName: undefined,
     FileSystemId: undefined,
     IpAddress: undefined,
     LifeCycleState: undefined,
@@ -731,6 +1195,12 @@ export async function deserializeAws_restJson1_1CreateMountTargetCommand(
     SubnetId: undefined
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AvailabilityZoneId !== undefined) {
+    contents.AvailabilityZoneId = data.AvailabilityZoneId;
+  }
+  if (data.AvailabilityZoneName !== undefined) {
+    contents.AvailabilityZoneName = data.AvailabilityZoneName;
+  }
   if (data.FileSystemId !== undefined) {
     contents.FileSystemId = data.FileSystemId;
   }
@@ -923,6 +1393,68 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1DeleteAccessPointCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessPointCommandOutput> {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DeleteAccessPointCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DeleteAccessPointCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DeleteAccessPointCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessPointCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessPointNotFound":
+    case "com.amazon.magnolio.api#AccessPointNotFound":
+      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "BadRequest":
+    case "com.amazon.magnolio.api#BadRequest":
+      response = await deserializeAws_restJson1_1BadRequestResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1DeleteFileSystemCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -966,6 +1498,68 @@ async function deserializeAws_restJson1_1DeleteFileSystemCommandError(
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1DeleteFileSystemPolicyCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFileSystemPolicyCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DeleteFileSystemPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFileSystemPolicyCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "IncorrectFileSystemLifeCycleState":
+    case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
+      response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
         output,
         context
       );
@@ -1101,6 +1695,160 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1DescribeAccessPointsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccessPointsCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DescribeAccessPointsCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DescribeAccessPointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAccessPointsResponse",
+    AccessPoints: undefined,
+    NextToken: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.AccessPoints !== undefined) {
+    contents.AccessPoints = deserializeAws_restJson1_1AccessPointDescriptions(
+      data.AccessPoints,
+      context
+    );
+  }
+  if (data.NextToken !== undefined) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DescribeAccessPointsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccessPointsCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessPointNotFound":
+    case "com.amazon.magnolio.api#AccessPointNotFound":
+      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "BadRequest":
+    case "com.amazon.magnolio.api#BadRequest":
+      response = await deserializeAws_restJson1_1BadRequestResponse(
+        output,
+        context
+      );
+      break;
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1DescribeFileSystemPolicyCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemPolicyCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DescribeFileSystemPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "FileSystemPolicyDescription",
+    FileSystemId: undefined,
+    Policy: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.FileSystemId !== undefined) {
+    contents.FileSystemId = data.FileSystemId;
+  }
+  if (data.Policy !== undefined) {
+    contents.Policy = data.Policy;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemPolicyCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    case "PolicyNotFound":
+    case "com.amazon.magnolio.api#PolicyNotFound":
+      response = await deserializeAws_restJson1_1PolicyNotFoundResponse(
         output,
         context
       );
@@ -1391,6 +2139,13 @@ async function deserializeAws_restJson1_1DescribeMountTargetsCommandError(
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
+    case "AccessPointNotFound":
+    case "com.amazon.magnolio.api#AccessPointNotFound":
+      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+        output,
+        context
+      );
+      break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = await deserializeAws_restJson1_1BadRequestResponse(
@@ -1471,6 +2226,85 @@ async function deserializeAws_restJson1_1DescribeTagsCommandError(
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
+    case "BadRequest":
+    case "com.amazon.magnolio.api#BadRequest":
+      response = await deserializeAws_restJson1_1BadRequestResponse(
+        output,
+        context
+      );
+      break;
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    NextToken: undefined,
+    Tags: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.Tags !== undefined) {
+    contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessPointNotFound":
+    case "com.amazon.magnolio.api#AccessPointNotFound":
+      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+        output,
+        context
+      );
+      break;
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = await deserializeAws_restJson1_1BadRequestResponse(
@@ -1590,6 +2424,85 @@ async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandE
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1PutFileSystemPolicyCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFileSystemPolicyCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1PutFileSystemPolicyCommandError(
+      output,
+      context
+    );
+  }
+  const contents: PutFileSystemPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "FileSystemPolicyDescription",
+    FileSystemId: undefined,
+    Policy: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.FileSystemId !== undefined) {
+    contents.FileSystemId = data.FileSystemId;
+  }
+  if (data.Policy !== undefined) {
+    contents.Policy = data.Policy;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1PutFileSystemPolicyCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFileSystemPolicyCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "IncorrectFileSystemLifeCycleState":
+    case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
+      response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidPolicyException":
+    case "com.amazon.magnolio.api#InvalidPolicyException":
+      response = await deserializeAws_restJson1_1InvalidPolicyExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1PutLifecycleConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -1642,6 +2555,138 @@ async function deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
     case "IncorrectFileSystemLifeCycleState":
     case "com.amazon.magnolio.api#IncorrectFileSystemLifeCycleState":
       response = await deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1TagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1TagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessPointNotFound":
+    case "com.amazon.magnolio.api#AccessPointNotFound":
+      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "BadRequest":
+    case "com.amazon.magnolio.api#BadRequest":
+      response = await deserializeAws_restJson1_1BadRequestResponse(
+        output,
+        context
+      );
+      break;
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.magnolio.api#InternalServerError":
+      response = await deserializeAws_restJson1_1InternalServerErrorResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1UntagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UntagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessPointNotFound":
+    case "com.amazon.magnolio.api#AccessPointNotFound":
+      response = await deserializeAws_restJson1_1AccessPointNotFoundResponse(
+        output,
+        context
+      );
+      break;
+    case "BadRequest":
+    case "com.amazon.magnolio.api#BadRequest":
+      response = await deserializeAws_restJson1_1BadRequestResponse(
+        output,
+        context
+      );
+      break;
+    case "FileSystemNotFound":
+    case "com.amazon.magnolio.api#FileSystemNotFound":
+      response = await deserializeAws_restJson1_1FileSystemNotFoundResponse(
         output,
         context
       );
@@ -1822,6 +2867,76 @@ async function deserializeAws_restJson1_1UpdateFileSystemCommandError(
   }
   return Promise.reject(Object.assign(new Error(), response));
 }
+
+const deserializeAws_restJson1_1AccessPointAlreadyExistsResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AccessPointAlreadyExists> => {
+  const contents: AccessPointAlreadyExists = {
+    name: "AccessPointAlreadyExists",
+    __type: "AccessPointAlreadyExists",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    AccessPointId: undefined,
+    ErrorCode: undefined,
+    Message: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.AccessPointId !== undefined) {
+    contents.AccessPointId = data.AccessPointId;
+  }
+  if (data.ErrorCode !== undefined) {
+    contents.ErrorCode = data.ErrorCode;
+  }
+  if (data.Message !== undefined) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AccessPointLimitExceededResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AccessPointLimitExceeded> => {
+  const contents: AccessPointLimitExceeded = {
+    name: "AccessPointLimitExceeded",
+    __type: "AccessPointLimitExceeded",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ErrorCode: undefined,
+    Message: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ErrorCode !== undefined) {
+    contents.ErrorCode = data.ErrorCode;
+  }
+  if (data.Message !== undefined) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AccessPointNotFoundResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AccessPointNotFound> => {
+  const contents: AccessPointNotFound = {
+    name: "AccessPointNotFound",
+    __type: "AccessPointNotFound",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ErrorCode: undefined,
+    Message: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ErrorCode !== undefined) {
+    contents.ErrorCode = data.ErrorCode;
+  }
+  if (data.Message !== undefined) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
 
 const deserializeAws_restJson1_1BadRequestResponse = async (
   output: any,
@@ -2047,6 +3162,28 @@ const deserializeAws_restJson1_1InternalServerErrorResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1_1InvalidPolicyExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidPolicyException> => {
+  const contents: InvalidPolicyException = {
+    name: "InvalidPolicyException",
+    __type: "InvalidPolicyException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ErrorCode: undefined,
+    Message: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ErrorCode !== undefined) {
+    contents.ErrorCode = data.ErrorCode;
+  }
+  if (data.Message !== undefined) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1IpAddressInUseResponse = async (
   output: any,
   context: __SerdeContext
@@ -2142,6 +3279,28 @@ const deserializeAws_restJson1_1NoFreeAddressesInSubnetResponse = async (
   const contents: NoFreeAddressesInSubnet = {
     name: "NoFreeAddressesInSubnet",
     __type: "NoFreeAddressesInSubnet",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ErrorCode: undefined,
+    Message: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ErrorCode !== undefined) {
+    contents.ErrorCode = data.ErrorCode;
+  }
+  if (data.Message !== undefined) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1PolicyNotFoundResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<PolicyNotFound> => {
+  const contents: PolicyNotFound = {
+    name: "PolicyNotFound",
+    __type: "PolicyNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -2289,6 +3448,23 @@ const deserializeAws_restJson1_1UnsupportedAvailabilityZoneResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1_1CreationInfo = (
+  input: CreationInfo,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.OwnerGid !== undefined) {
+    bodyParams["OwnerGid"] = input.OwnerGid;
+  }
+  if (input.OwnerUid !== undefined) {
+    bodyParams["OwnerUid"] = input.OwnerUid;
+  }
+  if (input.Permissions !== undefined) {
+    bodyParams["Permissions"] = input.Permissions;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1LifecyclePolicies = (
   input: Array<LifecyclePolicy>,
   context: __SerdeContext
@@ -2307,6 +3483,50 @@ const serializeAws_restJson1_1LifecyclePolicy = (
     bodyParams["TransitionToIA"] = input.TransitionToIA;
   }
   return bodyParams;
+};
+
+const serializeAws_restJson1_1PosixUser = (
+  input: PosixUser,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Gid !== undefined) {
+    bodyParams["Gid"] = input.Gid;
+  }
+  if (input.SecondaryGids !== undefined) {
+    bodyParams["SecondaryGids"] = serializeAws_restJson1_1SecondaryGids(
+      input.SecondaryGids,
+      context
+    );
+  }
+  if (input.Uid !== undefined) {
+    bodyParams["Uid"] = input.Uid;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1RootDirectory = (
+  input: RootDirectory,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.CreationInfo !== undefined) {
+    bodyParams["CreationInfo"] = serializeAws_restJson1_1CreationInfo(
+      input.CreationInfo,
+      context
+    );
+  }
+  if (input.Path !== undefined) {
+    bodyParams["Path"] = input.Path;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1SecondaryGids = (
+  input: Array<number>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_restJson1_1SecurityGroups = (
@@ -2344,6 +3564,93 @@ const serializeAws_restJson1_1Tags = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Tag(entry, context)
   );
+};
+
+const deserializeAws_restJson1_1AccessPointDescription = (
+  output: any,
+  context: __SerdeContext
+): AccessPointDescription => {
+  let contents: any = {
+    __type: "AccessPointDescription",
+    AccessPointArn: undefined,
+    AccessPointId: undefined,
+    ClientToken: undefined,
+    FileSystemId: undefined,
+    LifeCycleState: undefined,
+    Name: undefined,
+    OwnerId: undefined,
+    PosixUser: undefined,
+    RootDirectory: undefined,
+    Tags: undefined
+  };
+  if (output.AccessPointArn !== undefined) {
+    contents.AccessPointArn = output.AccessPointArn;
+  }
+  if (output.AccessPointId !== undefined) {
+    contents.AccessPointId = output.AccessPointId;
+  }
+  if (output.ClientToken !== undefined) {
+    contents.ClientToken = output.ClientToken;
+  }
+  if (output.FileSystemId !== undefined) {
+    contents.FileSystemId = output.FileSystemId;
+  }
+  if (output.LifeCycleState !== undefined) {
+    contents.LifeCycleState = output.LifeCycleState;
+  }
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  if (output.OwnerId !== undefined) {
+    contents.OwnerId = output.OwnerId;
+  }
+  if (output.PosixUser !== undefined) {
+    contents.PosixUser = deserializeAws_restJson1_1PosixUser(
+      output.PosixUser,
+      context
+    );
+  }
+  if (output.RootDirectory !== undefined) {
+    contents.RootDirectory = deserializeAws_restJson1_1RootDirectory(
+      output.RootDirectory,
+      context
+    );
+  }
+  if (output.Tags !== undefined) {
+    contents.Tags = deserializeAws_restJson1_1Tags(output.Tags, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AccessPointDescriptions = (
+  output: any,
+  context: __SerdeContext
+): Array<AccessPointDescription> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1AccessPointDescription(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1CreationInfo = (
+  output: any,
+  context: __SerdeContext
+): CreationInfo => {
+  let contents: any = {
+    __type: "CreationInfo",
+    OwnerGid: undefined,
+    OwnerUid: undefined,
+    Permissions: undefined
+  };
+  if (output.OwnerGid !== undefined) {
+    contents.OwnerGid = output.OwnerGid;
+  }
+  if (output.OwnerUid !== undefined) {
+    contents.OwnerUid = output.OwnerUid;
+  }
+  if (output.Permissions !== undefined) {
+    contents.Permissions = output.Permissions;
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1FileSystemDescription = (
@@ -2487,6 +3794,8 @@ const deserializeAws_restJson1_1MountTargetDescription = (
 ): MountTargetDescription => {
   let contents: any = {
     __type: "MountTargetDescription",
+    AvailabilityZoneId: undefined,
+    AvailabilityZoneName: undefined,
     FileSystemId: undefined,
     IpAddress: undefined,
     LifeCycleState: undefined,
@@ -2495,6 +3804,12 @@ const deserializeAws_restJson1_1MountTargetDescription = (
     OwnerId: undefined,
     SubnetId: undefined
   };
+  if (output.AvailabilityZoneId !== undefined) {
+    contents.AvailabilityZoneId = output.AvailabilityZoneId;
+  }
+  if (output.AvailabilityZoneName !== undefined) {
+    contents.AvailabilityZoneName = output.AvailabilityZoneName;
+  }
   if (output.FileSystemId !== undefined) {
     contents.FileSystemId = output.FileSystemId;
   }
@@ -2526,6 +3841,59 @@ const deserializeAws_restJson1_1MountTargetDescriptions = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MountTargetDescription(entry, context)
   );
+};
+
+const deserializeAws_restJson1_1PosixUser = (
+  output: any,
+  context: __SerdeContext
+): PosixUser => {
+  let contents: any = {
+    __type: "PosixUser",
+    Gid: undefined,
+    SecondaryGids: undefined,
+    Uid: undefined
+  };
+  if (output.Gid !== undefined) {
+    contents.Gid = output.Gid;
+  }
+  if (output.SecondaryGids !== undefined) {
+    contents.SecondaryGids = deserializeAws_restJson1_1SecondaryGids(
+      output.SecondaryGids,
+      context
+    );
+  }
+  if (output.Uid !== undefined) {
+    contents.Uid = output.Uid;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1RootDirectory = (
+  output: any,
+  context: __SerdeContext
+): RootDirectory => {
+  let contents: any = {
+    __type: "RootDirectory",
+    CreationInfo: undefined,
+    Path: undefined
+  };
+  if (output.CreationInfo !== undefined) {
+    contents.CreationInfo = deserializeAws_restJson1_1CreationInfo(
+      output.CreationInfo,
+      context
+    );
+  }
+  if (output.Path !== undefined) {
+    contents.Path = output.Path;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1SecondaryGids = (
+  output: any,
+  context: __SerdeContext
+): Array<number> => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SecurityGroups = (

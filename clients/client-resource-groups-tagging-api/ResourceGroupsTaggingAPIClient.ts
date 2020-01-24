@@ -1,10 +1,16 @@
 import {
+  DescribeReportCreationInput,
+  DescribeReportCreationOutput,
+  GetComplianceSummaryInput,
+  GetComplianceSummaryOutput,
   GetResourcesInput,
   GetResourcesOutput,
   GetTagKeysInput,
   GetTagKeysOutput,
   GetTagValuesInput,
   GetTagValuesOutput,
+  StartReportCreationInput,
+  StartReportCreationOutput,
   TagResourcesInput,
   TagResourcesOutput,
   UntagResourcesInput,
@@ -63,16 +69,22 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | DescribeReportCreationInput
+  | GetComplianceSummaryInput
   | GetResourcesInput
   | GetTagKeysInput
   | GetTagValuesInput
+  | StartReportCreationInput
   | TagResourcesInput
   | UntagResourcesInput;
 
 export type ServiceOutputTypes =
+  | DescribeReportCreationOutput
+  | GetComplianceSummaryOutput
   | GetResourcesOutput
   | GetTagKeysOutput
   | GetTagValuesOutput
+  | StartReportCreationOutput
   | TagResourcesOutput
   | UntagResourcesOutput;
 
@@ -184,8 +196,7 @@ export type ResourceGroupsTaggingAPIClientResolvedConfig = __SmithyResolvedConfi
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Resource Groups Tagging API</fullname>
+ * <fullname>Resource Groups Tagging API</fullname>
  *         <p>This guide describes the API operations for the resource groups tagging.</p>
  *         <p>A tag is a label that you assign to an AWS resource. A tag consists of a key and a
  *             value, both of which you define. For example, if you have two Amazon EC2 instances, you might
@@ -517,7 +528,6 @@ export type ResourceGroupsTaggingAPIClientResolvedConfig = __SmithyResolvedConfi
  *                 <p>Amazon WorkSpaces</p>
  *             </li>
  *          </ul>
- *
  */
 export class ResourceGroupsTaggingAPIClient extends __Client<
   __HttpHandlerOptions,

@@ -207,16 +207,12 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS AppSync provides API actions for creating and interacting with data sources using
+ * <p>AWS AppSync provides API actions for creating and interacting with data sources using
  *          GraphQL from your application.</p>
- *
  */
 export class AppSync extends AppSyncClient {
   /**
-   *
-   *         <p>Creates a cache for the GraphQL API.</p>
-   *
+   * <p>Creates a cache for the GraphQL API.</p>
    */
   public createApiCache(
     args: CreateApiCacheCommandInput,
@@ -251,10 +247,8 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates a unique key that you can distribute to clients who are executing your
+   * <p>Creates a unique key that you can distribute to clients who are executing your
    *          API.</p>
-   *
    */
   public createApiKey(
     args: CreateApiKeyCommandInput,
@@ -289,9 +283,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>DataSource</code> object.</p>
-   *
+   * <p>Creates a <code>DataSource</code> object.</p>
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -326,10 +318,8 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *         <p>Creates a <code>Function</code> object.</p>
+   * <p>Creates a <code>Function</code> object.</p>
    *         <p>A function is a reusable entity. Multiple functions can be used to compose the resolver logic.</p>
-   *
    */
   public createFunction(
     args: CreateFunctionCommandInput,
@@ -364,9 +354,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>GraphqlApi</code> object.</p>
-   *
+   * <p>Creates a <code>GraphqlApi</code> object.</p>
    */
   public createGraphqlApi(
     args: CreateGraphqlApiCommandInput,
@@ -401,11 +389,9 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>Resolver</code> object.</p>
+   * <p>Creates a <code>Resolver</code> object.</p>
    *          <p>A resolver converts incoming requests into a format that a data source can understand
    *          and converts the data source's responses into GraphQL.</p>
-   *
    */
   public createResolver(
     args: CreateResolverCommandInput,
@@ -440,9 +426,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>Type</code> object.</p>
-   *
+   * <p>Creates a <code>Type</code> object.</p>
    */
   public createType(
     args: CreateTypeCommandInput,
@@ -477,9 +461,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes an <code>ApiCache</code> object.</p>
-   *
+   * <p>Deletes an <code>ApiCache</code> object.</p>
    */
   public deleteApiCache(
     args: DeleteApiCacheCommandInput,
@@ -514,9 +496,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes an API key.</p>
-   *
+   * <p>Deletes an API key.</p>
    */
   public deleteApiKey(
     args: DeleteApiKeyCommandInput,
@@ -551,9 +531,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes a <code>DataSource</code> object.</p>
-   *
+   * <p>Deletes a <code>DataSource</code> object.</p>
    */
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -588,9 +566,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes a <code>Function</code>.</p>
-   *
+   * <p>Deletes a <code>Function</code>.</p>
    */
   public deleteFunction(
     args: DeleteFunctionCommandInput,
@@ -625,9 +601,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes a <code>GraphqlApi</code> object.</p>
-   *
+   * <p>Deletes a <code>GraphqlApi</code> object.</p>
    */
   public deleteGraphqlApi(
     args: DeleteGraphqlApiCommandInput,
@@ -662,9 +636,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes a <code>Resolver</code> object.</p>
-   *
+   * <p>Deletes a <code>Resolver</code> object.</p>
    */
   public deleteResolver(
     args: DeleteResolverCommandInput,
@@ -699,9 +671,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes a <code>Type</code> object.</p>
-   *
+   * <p>Deletes a <code>Type</code> object.</p>
    */
   public deleteType(
     args: DeleteTypeCommandInput,
@@ -736,9 +706,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Flushes an <code>ApiCache</code> object.</p>
-   *
+   * <p>Flushes an <code>ApiCache</code> object.</p>
    */
   public flushApiCache(
     args: FlushApiCacheCommandInput,
@@ -773,9 +741,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Retrieves an <code>ApiCache</code> object.</p>
-   *
+   * <p>Retrieves an <code>ApiCache</code> object.</p>
    */
   public getApiCache(
     args: GetApiCacheCommandInput,
@@ -810,9 +776,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a <code>DataSource</code> object.</p>
-   *
+   * <p>Retrieves a <code>DataSource</code> object.</p>
    */
   public getDataSource(
     args: GetDataSourceCommandInput,
@@ -847,9 +811,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Get a <code>Function</code>.</p>
-   *
+   * <p>Get a <code>Function</code>.</p>
    */
   public getFunction(
     args: GetFunctionCommandInput,
@@ -884,9 +846,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a <code>GraphqlApi</code> object.</p>
-   *
+   * <p>Retrieves a <code>GraphqlApi</code> object.</p>
    */
   public getGraphqlApi(
     args: GetGraphqlApiCommandInput,
@@ -921,9 +881,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the introspection schema for a GraphQL API.</p>
-   *
+   * <p>Retrieves the introspection schema for a GraphQL API.</p>
    */
   public getIntrospectionSchema(
     args: GetIntrospectionSchemaCommandInput,
@@ -958,9 +916,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a <code>Resolver</code> object.</p>
-   *
+   * <p>Retrieves a <code>Resolver</code> object.</p>
    */
   public getResolver(
     args: GetResolverCommandInput,
@@ -995,9 +951,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the current status of a schema creation operation.</p>
-   *
+   * <p>Retrieves the current status of a schema creation operation.</p>
    */
   public getSchemaCreationStatus(
     args: GetSchemaCreationStatusCommandInput,
@@ -1032,9 +986,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a <code>Type</code> object.</p>
-   *
+   * <p>Retrieves a <code>Type</code> object.</p>
    */
   public getType(
     args: GetTypeCommandInput,
@@ -1069,15 +1021,13 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Lists the API keys for a given API.</p>
+   * <p>Lists the API keys for a given API.</p>
    *          <note>
    *             <p>API keys are deleted automatically sometime after they expire. However, they may
    *             still be included in the response until they have actually been deleted. You can safely
    *             call <code>DeleteApiKey</code> to manually delete a key before it's automatically
    *             deleted.</p>
    *          </note>
-   *
    */
   public listApiKeys(
     args: ListApiKeysCommandInput,
@@ -1112,9 +1062,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Lists the data sources for a given API.</p>
-   *
+   * <p>Lists the data sources for a given API.</p>
    */
   public listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1149,9 +1097,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>List multiple functions.</p>
-   *
+   * <p>List multiple functions.</p>
    */
   public listFunctions(
     args: ListFunctionsCommandInput,
@@ -1186,9 +1132,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Lists your GraphQL APIs.</p>
-   *
+   * <p>Lists your GraphQL APIs.</p>
    */
   public listGraphqlApis(
     args: ListGraphqlApisCommandInput,
@@ -1223,9 +1167,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Lists the resolvers for a given API and type.</p>
-   *
+   * <p>Lists the resolvers for a given API and type.</p>
    */
   public listResolvers(
     args: ListResolversCommandInput,
@@ -1260,9 +1202,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>List the resolvers that are associated with a specific function.</p>
-   *
+   * <p>List the resolvers that are associated with a specific function.</p>
    */
   public listResolversByFunction(
     args: ListResolversByFunctionCommandInput,
@@ -1297,9 +1237,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags for a resource.</p>
-   *
+   * <p>Lists the tags for a resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1334,9 +1272,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Lists the types for a given API.</p>
-   *
+   * <p>Lists the types for a given API.</p>
    */
   public listTypes(
     args: ListTypesCommandInput,
@@ -1371,11 +1307,9 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Adds a new schema to your GraphQL API.</p>
+   * <p>Adds a new schema to your GraphQL API.</p>
    *          <p>This operation is asynchronous. Use  to
    *          determine when it has completed.</p>
-   *
    */
   public startSchemaCreation(
     args: StartSchemaCreationCommandInput,
@@ -1410,9 +1344,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Tags a resource with user-supplied tags.</p>
-   *
+   * <p>Tags a resource with user-supplied tags.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1447,9 +1379,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Untags a resource.</p>
-   *
+   * <p>Untags a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1484,9 +1414,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *         <p>Updates the cache for the GraphQL API.</p>
-   *
+   * <p>Updates the cache for the GraphQL API.</p>
    */
   public updateApiCache(
     args: UpdateApiCacheCommandInput,
@@ -1521,9 +1449,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Updates an API key.</p>
-   *
+   * <p>Updates an API key.</p>
    */
   public updateApiKey(
     args: UpdateApiKeyCommandInput,
@@ -1558,9 +1484,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Updates a <code>DataSource</code> object.</p>
-   *
+   * <p>Updates a <code>DataSource</code> object.</p>
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -1595,9 +1519,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *         <p>Updates a <code>Function</code> object.</p>
-   *
+   * <p>Updates a <code>Function</code> object.</p>
    */
   public updateFunction(
     args: UpdateFunctionCommandInput,
@@ -1632,9 +1554,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Updates a <code>GraphqlApi</code> object.</p>
-   *
+   * <p>Updates a <code>GraphqlApi</code> object.</p>
    */
   public updateGraphqlApi(
     args: UpdateGraphqlApiCommandInput,
@@ -1669,9 +1589,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Updates a <code>Resolver</code> object.</p>
-   *
+   * <p>Updates a <code>Resolver</code> object.</p>
    */
   public updateResolver(
     args: UpdateResolverCommandInput,
@@ -1706,9 +1624,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   *
-   *          <p>Updates a <code>Type</code> object.</p>
-   *
+   * <p>Updates a <code>Type</code> object.</p>
    */
   public updateType(
     args: UpdateTypeCommandInput,

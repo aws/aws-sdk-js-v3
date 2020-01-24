@@ -177,21 +177,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS IoT Things Graph</fullname>
+ * <fullname>AWS IoT Things Graph</fullname>
  *          <p>AWS IoT Things Graph provides an integrated set of tools that enable developers to connect devices and services that use different standards,
  *        such as units of measure and communication protocols. AWS IoT Things Graph makes it possible to build IoT applications with little to no code by connecting devices and services
  *        and defining how they interact at an abstract level.</p>
  *          <p>For more information about how AWS IoT Things Graph works, see the <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html">User Guide</a>.</p>
- *
- *
  */
 export class IoTThingsGraph extends IoTThingsGraphClient {
   /**
-   *
-   *          <p>Associates a device with a concrete thing that is in the user's registry.</p>
+   * <p>Associates a device with a concrete thing that is in the user's registry.</p>
    *          <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>
-   *
    */
   public associateEntityToThing(
     args: AssociateEntityToThingCommandInput,
@@ -226,11 +221,9 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
+   * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
    *          entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the
    *       latest version of the user's namespace unless another namespace version is specified in the request.</p>
-   *
    */
   public createFlowTemplate(
     args: CreateFlowTemplateCommandInput,
@@ -265,8 +258,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Creates a system instance. </p>
+   * <p>Creates a system instance. </p>
    *          <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is
    *             specified by the <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified by the <code>s3BucketName</code> parameter. You need to
    *             call <code>DeploySystemInstance</code> after running this action.</p>
@@ -275,7 +267,6 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
    *          <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role
    *       that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>
    *          <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>
-   *
    */
   public createSystemInstance(
     args: CreateSystemInstanceCommandInput,
@@ -310,10 +301,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Creates a system. The system is validated against the entities in the
+   * <p>Creates a system. The system is validated against the entities in the
    *          latest version of the user's namespace unless another namespace version is specified in the request.</p>
-   *
    */
   public createSystemTemplate(
     args: CreateSystemTemplateCommandInput,
@@ -348,10 +337,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
+   * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
    *          Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>
-   *
    */
   public deleteFlowTemplate(
     args: DeleteFlowTemplateCommandInput,
@@ -386,9 +373,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.</p>
-   *
+   * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.</p>
    */
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -423,11 +408,9 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Deletes a system instance.
+   * <p>Deletes a system instance.
    *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>
    *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>
-   *
    */
   public deleteSystemInstance(
     args: DeleteSystemInstanceCommandInput,
@@ -462,10 +445,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Deletes a system. New deployments can't contain the system after its deletion.
+   * <p>Deletes a system. New deployments can't contain the system after its deletion.
    *       Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>
-   *
    */
   public deleteSystemTemplate(
     args: DeleteSystemTemplateCommandInput,
@@ -500,8 +481,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             <b>Greengrass and Cloud Deployments</b>
    *          </p>
    *          <p>Deploys the system instance to the target specified in <code>CreateSystemInstance</code>. </p>
@@ -513,7 +493,6 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
    *          <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions
    *          to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p>
    *          <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>
-   *
    */
   public deploySystemInstance(
     args: DeploySystemInstanceCommandInput,
@@ -548,9 +527,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
-   *
+   * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
    */
   public deprecateFlowTemplate(
     args: DeprecateFlowTemplateCommandInput,
@@ -585,9 +562,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Deprecates the specified system.</p>
-   *
+   * <p>Deprecates the specified system.</p>
    */
   public deprecateSystemTemplate(
     args: DeprecateSystemTemplateCommandInput,
@@ -622,9 +597,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
-   *
+   * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
    */
   public describeNamespace(
     args: DescribeNamespaceCommandInput,
@@ -659,10 +632,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
+   * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
    *          one entity of a particular type can be associated with a thing.</p>
-   *
    */
   public dissociateEntityFromThing(
     args: DissociateEntityFromThingCommandInput,
@@ -697,8 +668,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
+   * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
    *       following TDM entities.</p>
    *          <ul>
    *             <li>
@@ -730,7 +700,6 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
    *             </li>
    *          </ul>
    *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
-   *
    */
   public getEntities(
     args: GetEntitiesCommandInput,
@@ -765,9 +734,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
-   *
+   * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
    */
   public getFlowTemplate(
     args: GetFlowTemplateCommandInput,
@@ -802,10 +769,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,
+   * <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,
    *       this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted.</p>
-   *
    */
   public getFlowTemplateRevisions(
     args: GetFlowTemplateRevisionsCommandInput,
@@ -840,9 +805,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets the status of a namespace deletion task.</p>
-   *
+   * <p>Gets the status of a namespace deletion task.</p>
    */
   public getNamespaceDeletionStatus(
     args: GetNamespaceDeletionStatusCommandInput,
@@ -877,9 +840,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets a system instance.</p>
-   *
+   * <p>Gets a system instance.</p>
    */
   public getSystemInstance(
     args: GetSystemInstanceCommandInput,
@@ -914,9 +875,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets a system.</p>
-   *
+   * <p>Gets a system.</p>
    */
   public getSystemTemplate(
     args: GetSystemTemplateCommandInput,
@@ -951,10 +910,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
+   * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
    *       the revisions that occurred before its deprecation. This action won't work with systems that have been deleted.</p>
-   *
    */
   public getSystemTemplateRevisions(
     args: GetSystemTemplateRevisionsCommandInput,
@@ -989,9 +946,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Gets the status of the specified upload.</p>
-   *
+   * <p>Gets the status of the specified upload.</p>
    */
   public getUploadStatus(
     args: GetUploadStatusCommandInput,
@@ -1026,9 +981,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of objects that contain information about events in a flow execution.</p>
-   *
+   * <p>Returns a list of objects that contain information about events in a flow execution.</p>
    */
   public listFlowExecutionMessages(
     args: ListFlowExecutionMessagesCommandInput,
@@ -1063,9 +1016,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags on an AWS IoT Things Graph resource.</p>
-   *
+   * <p>Lists all tags on an AWS IoT Things Graph resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1100,9 +1051,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
-   *
+   * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
    */
   public searchEntities(
     args: SearchEntitiesCommandInput,
@@ -1137,9 +1086,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
-   *
+   * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
    */
   public searchFlowExecutions(
     args: SearchFlowExecutionsCommandInput,
@@ -1174,9 +1121,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Searches for summary information about workflows.</p>
-   *
+   * <p>Searches for summary information about workflows.</p>
    */
   public searchFlowTemplates(
     args: SearchFlowTemplatesCommandInput,
@@ -1211,9 +1156,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Searches for system instances in the user's account.</p>
-   *
+   * <p>Searches for system instances in the user's account.</p>
    */
   public searchSystemInstances(
     args: SearchSystemInstancesCommandInput,
@@ -1248,9 +1191,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
-   *
+   * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
    */
   public searchSystemTemplates(
     args: SearchSystemTemplatesCommandInput,
@@ -1285,12 +1226,10 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>
+   * <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>
    *          <p>For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2.
    *          <code>SearchThings(camera2)</code> will return only thing2, but <code>SearchThings(camera)</code> will return both thing1 and thing2.</p>
    *          <p>This action searches for exact matches and doesn't perform partial text matching.</p>
-   *
    */
   public searchThings(
     args: SearchThingsCommandInput,
@@ -1325,9 +1264,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Creates a tag for the specified resource.</p>
-   *
+   * <p>Creates a tag for the specified resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1362,9 +1299,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Removes a system instance from its target (Cloud or Greengrass).</p>
-   *
+   * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
    */
   public undeploySystemInstance(
     args: UndeploySystemInstanceCommandInput,
@@ -1399,9 +1334,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Removes a tag from the specified resource.</p>
-   *
+   * <p>Removes a tag from the specified resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1436,10 +1369,8 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
+   * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
    *          behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. </p>
-   *
    */
   public updateFlowTemplate(
     args: UpdateFlowTemplateCommandInput,
@@ -1474,9 +1405,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
-   *
+   * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
    */
   public updateSystemTemplate(
     args: UpdateSystemTemplateCommandInput,
@@ -1511,8 +1440,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   }
 
   /**
-   *
-   *          <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if
+   * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if
    *       <code>syncWithPublicNamespace</code> and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code> parameter  is set to
    *          <code>true</code>, the user's namespace will synchronize with the latest version of the public namespace. If <code>deprecateExistingEntities</code> is set to true,
    *       all entities in the latest version will be deleted before the new <code>DefinitionDocument</code> is uploaded.</p>
@@ -1523,7 +1451,6 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
    *          <p>Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>, <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>, <code>Property</code>,
    *          <code>Mapping</code>, <code>Enum</code>.
    *          </p>
-   *
    */
   public uploadEntityDefinitions(
     args: UploadEntityDefinitionsCommandInput,

@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../DocDBClient";
 import {
-  DBClusterSnapshotAttributesResult,
-  DescribeDBClusterSnapshotAttributesMessage
+  DescribeDBClusterSnapshotAttributesMessage,
+  DescribeDBClusterSnapshotAttributesResult
 } from "../models/index";
 import {
   deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBClusterSnapshotAttributesCommandInput = DescribeDBClusterSnapshotAttributesMessage;
-export type DescribeDBClusterSnapshotAttributesCommandOutput = DBClusterSnapshotAttributesResult;
+export type DescribeDBClusterSnapshotAttributesCommandOutput = DescribeDBClusterSnapshotAttributesResult;
 
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
   DescribeDBClusterSnapshotAttributesCommandInput,

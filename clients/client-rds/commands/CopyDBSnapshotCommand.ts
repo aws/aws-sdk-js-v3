@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { CopyDBSnapshotMessage, DBSnapshot } from "../models/index";
+import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCopyDBSnapshotCommand,
   serializeAws_queryCopyDBSnapshotCommand
@@ -25,7 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyDBSnapshotCommandInput = CopyDBSnapshotMessage;
-export type CopyDBSnapshotCommandOutput = DBSnapshot;
+export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult;
 
 export class CopyDBSnapshotCommand extends $Command<
   CopyDBSnapshotCommandInput,

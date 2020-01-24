@@ -237,8 +237,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>Amazon AppStream 2.0</fullname>
+ * <fullname>Amazon AppStream 2.0</fullname>
  *         <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
  *
  *         <note>
@@ -259,14 +258,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                </p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class AppStream extends AppStreamClient {
   /**
-   *
-   *         <p>Associates the specified fleet with the specified stack.</p>
-   *
+   * <p>Associates the specified fleet with the specified stack.</p>
    */
   public associateFleet(
     args: AssociateFleetCommandInput,
@@ -301,9 +296,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.</p>
-   *
+   * <p>Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.</p>
    */
   public batchAssociateUserStack(
     args: BatchAssociateUserStackCommandInput,
@@ -338,9 +331,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Disassociates the specified users from the specified stacks.</p>
-   *
+   * <p>Disassociates the specified users from the specified stacks.</p>
    */
   public batchDisassociateUserStack(
     args: BatchDisassociateUserStackCommandInput,
@@ -375,9 +366,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
-   *
+   * <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
    */
   public copyImage(
     args: CopyImageCommandInput,
@@ -412,9 +401,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
-   *
+   * <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
    */
   public createDirectoryConfig(
     args: CreateDirectoryConfigCommandInput,
@@ -449,9 +436,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates a fleet. A fleet consists of streaming instances that run a specified image.</p>
-   *
+   * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image.</p>
    */
   public createFleet(
     args: CreateFleetCommandInput,
@@ -486,10 +471,8 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>
+   * <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>
    *         <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
-   *
    */
   public createImageBuilder(
     args: CreateImageBuilderCommandInput,
@@ -524,9 +507,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates a URL to start an image builder streaming session.</p>
-   *
+   * <p>Creates a URL to start an image builder streaming session.</p>
    */
   public createImageBuilderStreamingURL(
     args: CreateImageBuilderStreamingURLCommandInput,
@@ -564,9 +545,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
-   *
+   * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
    */
   public createStack(
     args: CreateStackCommandInput,
@@ -601,9 +580,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
-   *
+   * <p>Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
    */
   public createStreamingURL(
     args: CreateStreamingURLCommandInput,
@@ -638,9 +615,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates a usage report subscription. Usage reports are generated daily.</p>
-   *
+   * <p>Creates a usage report subscription. Usage reports are generated daily.</p>
    */
   public createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
@@ -675,9 +650,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Creates a new user in the user pool.</p>
-   *
+   * <p>Creates a new user in the user pool.</p>
    */
   public createUser(
     args: CreateUserCommandInput,
@@ -712,9 +685,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>
-   *
+   * <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>
    */
   public deleteDirectoryConfig(
     args: DeleteDirectoryConfigCommandInput,
@@ -749,9 +720,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified fleet.</p>
-   *
+   * <p>Deletes the specified fleet.</p>
    */
   public deleteFleet(
     args: DeleteFleetCommandInput,
@@ -786,10 +755,8 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified image. You cannot delete an image when it is in use.
+   * <p>Deletes the specified image. You cannot delete an image when it is in use.
    *             After you delete an image, you cannot provision new capacity using the image.</p>
-   *
    */
   public deleteImage(
     args: DeleteImageCommandInput,
@@ -824,9 +791,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified image builder and releases the capacity.</p>
-   *
+   * <p>Deletes the specified image builder and releases the capacity.</p>
    */
   public deleteImageBuilder(
     args: DeleteImageBuilderCommandInput,
@@ -861,9 +826,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.</p>
-   *
+   * <p>Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.</p>
    */
   public deleteImagePermissions(
     args: DeleteImagePermissionsCommandInput,
@@ -898,9 +861,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>
-   *
+   * <p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>
    */
   public deleteStack(
     args: DeleteStackCommandInput,
@@ -935,9 +896,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Disables usage report generation.</p>
-   *
+   * <p>Disables usage report generation.</p>
    */
   public deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
@@ -972,9 +931,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Deletes a user from the user pool.</p>
-   *
+   * <p>Deletes a user from the user pool.</p>
    */
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -1009,11 +966,9 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
+   * <p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
    *         </p>
    *         <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>
-   *
    */
   public describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
@@ -1048,9 +1003,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.</p>
-   *
+   * <p>Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.</p>
    */
   public describeFleets(
     args: DescribeFleetsCommandInput,
@@ -1085,9 +1038,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.</p>
-   *
+   * <p>Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.</p>
    */
   public describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
@@ -1122,9 +1073,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>
-   *
+   * <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>
    */
   public describeImagePermissions(
     args: DescribeImagePermissionsCommandInput,
@@ -1159,9 +1108,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.</p>
-   *
+   * <p>Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.</p>
    */
   public describeImages(
     args: DescribeImagesCommandInput,
@@ -1196,11 +1143,9 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,
+   * <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,
    *             only streaming sessions for that user are described. If an authentication type is not provided,
    *             the default is to authenticate users using a streaming URL.</p>
-   *
    */
   public describeSessions(
     args: DescribeSessionsCommandInput,
@@ -1235,9 +1180,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.</p>
-   *
+   * <p>Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.</p>
    */
   public describeStacks(
     args: DescribeStacksCommandInput,
@@ -1272,9 +1215,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes one or more usage report subscriptions.</p>
-   *
+   * <p>Retrieves a list that describes one or more usage report subscriptions.</p>
    */
   public describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
@@ -1315,8 +1256,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
+   * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
    *         <ul>
    *             <li>
    *                <p>The stack name</p>
@@ -1325,7 +1265,6 @@ export class AppStream extends AppStreamClient {
    *                <p>The user name (email address of the user associated with the stack) and the authentication type for the user</p>
    *             </li>
    *          </ul>
-   *
    */
   public describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
@@ -1360,9 +1299,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list that describes one or more specified users in the user pool.</p>
-   *
+   * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
    */
   public describeUsers(
     args: DescribeUsersCommandInput,
@@ -1397,9 +1334,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>
-   *
+   * <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>
    */
   public disableUser(
     args: DisableUserCommandInput,
@@ -1434,9 +1369,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Disassociates the specified fleet from the specified stack.</p>
-   *
+   * <p>Disassociates the specified fleet from the specified stack.</p>
    */
   public disassociateFleet(
     args: DisassociateFleetCommandInput,
@@ -1471,9 +1404,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.</p>
-   *
+   * <p>Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.</p>
    */
   public enableUser(
     args: EnableUserCommandInput,
@@ -1508,9 +1439,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Immediately stops the specified streaming session.</p>
-   *
+   * <p>Immediately stops the specified streaming session.</p>
    */
   public expireSession(
     args: ExpireSessionCommandInput,
@@ -1545,9 +1474,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves the name of the fleet that is associated with the specified stack.</p>
-   *
+   * <p>Retrieves the name of the fleet that is associated with the specified stack.</p>
    */
   public listAssociatedFleets(
     args: ListAssociatedFleetsCommandInput,
@@ -1582,9 +1509,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves the name of the stack with which the specified fleet is associated.</p>
-   *
+   * <p>Retrieves the name of the stack with which the specified fleet is associated.</p>
    */
   public listAssociatedStacks(
     args: ListAssociatedStacksCommandInput,
@@ -1619,10 +1544,8 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p>
+   * <p>Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p>
    *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1657,9 +1580,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Starts the specified fleet.</p>
-   *
+   * <p>Starts the specified fleet.</p>
    */
   public startFleet(
     args: StartFleetCommandInput,
@@ -1694,9 +1615,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Starts the specified image builder.</p>
-   *
+   * <p>Starts the specified image builder.</p>
    */
   public startImageBuilder(
     args: StartImageBuilderCommandInput,
@@ -1731,9 +1650,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Stops the specified fleet.</p>
-   *
+   * <p>Stops the specified fleet.</p>
    */
   public stopFleet(
     args: StopFleetCommandInput,
@@ -1768,9 +1685,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Stops the specified image builder.</p>
-   *
+   * <p>Stops the specified image builder.</p>
    */
   public stopImageBuilder(
     args: StopImageBuilderCommandInput,
@@ -1805,16 +1720,13 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *
-   *         <p>Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p>
+   * <p>Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p>
    *             <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key,
    *                 this operation updates its value.</p>
    *
    *             <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.
    *                 To disassociate tags from your resources, use <a>UntagResource</a>.</p>
    *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1849,11 +1761,9 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Disassociates one or more specified tags from the specified AppStream 2.0 resource.</p>
+   * <p>Disassociates one or more specified tags from the specified AppStream 2.0 resource.</p>
    *         <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p>
    *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1888,9 +1798,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
-   *
+   * <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
    */
   public updateDirectoryConfig(
     args: UpdateDirectoryConfigCommandInput,
@@ -1925,12 +1833,10 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified fleet.</p>
+   * <p>Updates the specified fleet.</p>
    *         <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name.
    *             If the fleet is in the <code>RUNNING</code> state, you can update the <code>DisplayName</code>, <code>ComputeCapacity</code>, <code>ImageARN</code>, <code>ImageName</code>, <code>IdleDisconnectTimeoutInSeconds</code>, and <code>DisconnectTimeoutInSeconds</code> attributes.
    *             If the fleet is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.</p>
-   *
    */
   public updateFleet(
     args: UpdateFleetCommandInput,
@@ -1965,9 +1871,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Adds or updates permissions for the specified private image. </p>
-   *
+   * <p>Adds or updates permissions for the specified private image. </p>
    */
   public updateImagePermissions(
     args: UpdateImagePermissionsCommandInput,
@@ -2002,9 +1906,7 @@ export class AppStream extends AppStreamClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified fields for the specified stack.</p>
-   *
+   * <p>Updates the specified fields for the specified stack.</p>
    */
   public updateStack(
     args: UpdateStackCommandInput,

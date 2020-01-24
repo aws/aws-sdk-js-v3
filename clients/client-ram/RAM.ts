@@ -117,20 +117,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Use AWS Resource Access Manager to share AWS resources between AWS accounts. To share a resource, you
+ * <p>Use AWS Resource Access Manager to share AWS resources between AWS accounts. To share a resource, you
  *           create a resource share, associate the resource with the resource share, and specify the principals that
  *           can access the resources associated with the resource share. The following principals are supported:
  *           AWS accounts, organizational units (OU) from AWS Organizations, and organizations from
  *           AWS Organizations.</p>
  *          <p>For more information, see the <a href="https://docs.aws.amazon.com/ram/latest/userguide/">AWS Resource Access Manager User Guide</a>.</p>
- *
  */
 export class RAM extends RAMClient {
   /**
-   *
-   *          <p>Accepts an invitation to a resource share from another AWS account.</p>
-   *
+   * <p>Accepts an invitation to a resource share from another AWS account.</p>
    */
   public acceptResourceShareInvitation(
     args: AcceptResourceShareInvitationCommandInput,
@@ -165,9 +161,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Associates the specified resource share with the specified principals and resources.</p>
-   *
+   * <p>Associates the specified resource share with the specified principals and resources.</p>
    */
   public associateResourceShare(
     args: AssociateResourceShareCommandInput,
@@ -202,9 +196,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *         <p>Associates a permission with a resource share.</p>
-   *
+   * <p>Associates a permission with a resource share.</p>
    */
   public associateResourceSharePermission(
     args: AssociateResourceSharePermissionCommandInput,
@@ -245,9 +237,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Creates a resource share.</p>
-   *
+   * <p>Creates a resource share.</p>
    */
   public createResourceShare(
     args: CreateResourceShareCommandInput,
@@ -282,9 +272,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified resource share.</p>
-   *
+   * <p>Deletes the specified resource share.</p>
    */
   public deleteResourceShare(
     args: DeleteResourceShareCommandInput,
@@ -319,9 +307,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified principals or resources from the specified resource share.</p>
-   *
+   * <p>Disassociates the specified principals or resources from the specified resource share.</p>
    */
   public disassociateResourceShare(
     args: DisassociateResourceShareCommandInput,
@@ -356,9 +342,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   * 	        <p>Disassociates an AWS RAM permission from a resource share.</p>
-   *
+   * <p>Disassociates an AWS RAM permission from a resource share.</p>
    */
   public disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
@@ -405,10 +389,8 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Enables resource sharing within your AWS Organization.</p>
+   * <p>Enables resource sharing within your AWS Organization.</p>
    *          <p>The caller must be the master account for the AWS Organization.</p>
-   *
    */
   public enableSharingWithAwsOrganization(
     args: EnableSharingWithAwsOrganizationCommandInput,
@@ -449,9 +431,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   * 	        <p>Gets the contents of an AWS RAM permission in JSON format.</p>
-   *
+   * <p>Gets the contents of an AWS RAM permission in JSON format.</p>
    */
   public getPermission(
     args: GetPermissionCommandInput,
@@ -486,9 +466,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Gets the policies for the specified resources that you own and have shared.</p>
-   *
+   * <p>Gets the policies for the specified resources that you own and have shared.</p>
    */
   public getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
@@ -523,9 +501,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Gets the resources or principals for the resource shares that you own.</p>
-   *
+   * <p>Gets the resources or principals for the resource shares that you own.</p>
    */
   public getResourceShareAssociations(
     args: GetResourceShareAssociationsCommandInput,
@@ -560,9 +536,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Gets the invitations for resource sharing that you've received.</p>
-   *
+   * <p>Gets the invitations for resource sharing that you've received.</p>
    */
   public getResourceShareInvitations(
     args: GetResourceShareInvitationsCommandInput,
@@ -597,9 +571,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>
-   *
+   * <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>
    */
   public getResourceShares(
     args: GetResourceSharesCommandInput,
@@ -634,9 +606,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *   	      <p>Lists the resources in a resource share that is shared with you but that the invitation is still pending for.</p>
-   *
+   * <p>Lists the resources in a resource share that is shared with you but that the invitation is still pending for.</p>
    */
   public listPendingInvitationResources(
     args: ListPendingInvitationResourcesCommandInput,
@@ -674,9 +644,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   * 	        <p>Lists the AWS RAM permissions.</p>
-   *
+   * <p>Lists the AWS RAM permissions.</p>
    */
   public listPermissions(
     args: ListPermissionsCommandInput,
@@ -711,10 +679,8 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the principals that you have shared resources with or that have shared resources
+   * <p>Lists the principals that you have shared resources with or that have shared resources
    * 			with you.</p>
-   *
    */
   public listPrincipals(
     args: ListPrincipalsCommandInput,
@@ -749,9 +715,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   * 	        <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
-   *
+   * <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
    */
   public listResourceSharePermissions(
     args: ListResourceSharePermissionsCommandInput,
@@ -786,9 +750,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
-   *
+   * <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
    */
   public listResources(
     args: ListResourcesCommandInput,
@@ -823,8 +785,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *     	    <p>Resource shares that were created by attaching a policy to a resource are visible only to
+   * <p>Resource shares that were created by attaching a policy to a resource are visible only to
    * 			the resource share owner, and the resource share cannot be modified in AWS RAM.</p>
    *
    *     	    <p>Use this API action to promote the resource share. When you promote the resource share,
@@ -837,7 +798,6 @@ export class RAM extends RAMClient {
    *     			        <p>Modifiable in AWS RAM.</p>
    *     		      </li>
    *          </ul>
-   *
    */
   public promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
@@ -884,9 +844,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Rejects an invitation to a resource share from another AWS account.</p>
-   *
+   * <p>Rejects an invitation to a resource share from another AWS account.</p>
    */
   public rejectResourceShareInvitation(
     args: RejectResourceShareInvitationCommandInput,
@@ -921,9 +879,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Adds the specified tags to the specified resource share that you own.</p>
-   *
+   * <p>Adds the specified tags to the specified resource share that you own.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -958,9 +914,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the specified resource share that you own.</p>
-   *
+   * <p>Removes the specified tags from the specified resource share that you own.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -995,9 +949,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified resource share that you own.</p>
-   *
+   * <p>Updates the specified resource share that you own.</p>
    */
   public updateResourceShare(
     args: UpdateResourceShareCommandInput,

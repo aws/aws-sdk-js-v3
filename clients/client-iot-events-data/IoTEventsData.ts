@@ -22,21 +22,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
+ * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
  *         and triggers actions when such events occur. AWS IoT Events Data API commands enable you to send
  *         inputs to detectors, list detectors, and view or update a detector's status.</p>
- *
  */
 export class IoTEventsData extends IoTEventsDataClient {
   /**
-   *
-   *          <p>Sends a set of messages to the AWS IoT Events system. Each message payload is transformed
+   * <p>Sends a set of messages to the AWS IoT Events system. Each message payload is transformed
    *        into the input you specify (<code>"inputName"</code>) and ingested into any detectors that monitor
    *        that input. If multiple messages are sent, the order in which the messages are processed isn't
    *        guaranteed. To guarantee ordering, you must send messages one at a time and wait for a successful
    *        response.</p>
-   *
    */
   public batchPutMessage(
     args: BatchPutMessageCommandInput,
@@ -71,10 +67,8 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
-   *
-   *          <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
+   * <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
    *         of a specified detector model.</p>
-   *
    */
   public batchUpdateDetector(
     args: BatchUpdateDetectorCommandInput,
@@ -109,9 +103,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the specified detector (instance).</p>
-   *
+   * <p>Returns information about the specified detector (instance).</p>
    */
   public describeDetector(
     args: DescribeDetectorCommandInput,
@@ -146,9 +138,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   }
 
   /**
-   *
-   *         <p>Lists detectors (the instances of a detector model).</p>
-   *
+   * <p>Lists detectors (the instances of a detector model).</p>
    */
   public listDetectors(
     args: ListDetectorsCommandInput,

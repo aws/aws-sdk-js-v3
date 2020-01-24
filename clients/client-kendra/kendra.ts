@@ -102,19 +102,15 @@ import { kendraClient } from "./kendraClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon Kendra is a service for indexing large document sets.</p>
- *
+ * <p>Amazon Kendra is a service for indexing large document sets.</p>
  */
 export class kendra extends kendraClient {
   /**
-   *
-   *          <p>Removes one or more documents from an index. The documents must have been added with the
+   * <p>Removes one or more documents from an index. The documents must have been added with the
    *         <a>BatchPutDocument</a> operation.</p>
    *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
    *       using AWS CloudWatch. Any error messages releated to the processing of the batch are sent to
    *       you CloudWatch log.</p>
-   *
    */
   public batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
@@ -149,8 +145,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more documents to an index.</p>
+   * <p>Adds one or more documents to an index.</p>
    *          <p>The <code>BatchPutDocument</code> operation enables you to ingest inline documents or a
    *       set of documents stored in an Amazon S3 bucket. Use this operation to ingest your text and
    *       unstructured text into an index, add custom attributes to the documents, and to attach an
@@ -158,7 +153,6 @@ export class kendra extends kendraClient {
    *          <p>The documents are indexed asynchronously. You can see the progress of the batch using AWS
    *       CloudWatch. Any error messages related to processing the batch are sent to your AWS CloudWatch
    *       log.</p>
-   *
    */
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -193,8 +187,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Creates a data source that you use to with an Amazon Kendra index. </p>
+   * <p>Creates a data source that you use to with an Amazon Kendra index. </p>
    *          <p>You specify a name, connector type and description for your data source. You can choose
    *       between an S3 connector, a SharePoint Online connector, and a database connector.</p>
    *          <p>You also specify configuration information such as document metadata (author, source URI,
@@ -202,7 +195,6 @@ export class kendra extends kendraClient {
    *          <p>
    *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
    *       data source was successfully created. Otherwise, an exception is raised.</p>
-   *
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -237,9 +229,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *         <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
-   *
+   * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
    */
   public createFaq(
     args: CreateFaqCommandInput,
@@ -274,14 +264,12 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Creates a new Amazon Kendra index. Index creation is an asynchronous operation. To
+   * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous operation. To
    *       determine if index creation has completed, check the <code>Status</code> field returned from a
    *       call to . The <code>Status</code> field is set to
    *         <code>ACTIVE</code> when the index is ready to use.</p>
    *          <p>Once the index is active you can index your documents using the  operation or using one of the supported data sources.
    *     </p>
-   *
    */
   public createIndex(
     args: CreateIndexCommandInput,
@@ -316,9 +304,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *         <p>Removes an FAQ from an index.</p>
-   *
+   * <p>Removes an FAQ from an index.</p>
    */
   public deleteFaq(
     args: DeleteFaqCommandInput,
@@ -353,11 +339,9 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is already
+   * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is already
    *       being deleted. While the index is being deleted, the <code>Status</code> field returned by a
    *       call to the <a>DescribeIndex</a> operation is set to <code>DELETING</code>.</p>
-   *
    */
   public deleteIndex(
     args: DeleteIndexCommandInput,
@@ -392,9 +376,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Gets information about a Amazon Kendra data source.</p>
-   *
+   * <p>Gets information about a Amazon Kendra data source.</p>
    */
   public describeDataSource(
     args: DescribeDataSourceCommandInput,
@@ -429,9 +411,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *         <p>Gets information about an FAQ list.</p>
-   *
+   * <p>Gets information about an FAQ list.</p>
    */
   public describeFaq(
     args: DescribeFaqCommandInput,
@@ -466,9 +446,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Describes an existing Amazon Kendra index</p>
-   *
+   * <p>Describes an existing Amazon Kendra index</p>
    */
   public describeIndex(
     args: DescribeIndexCommandInput,
@@ -503,9 +481,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Gets statistics about synchronizing Amazon Kendra with a data source.</p>
-   *
+   * <p>Gets statistics about synchronizing Amazon Kendra with a data source.</p>
    */
   public listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
@@ -540,9 +516,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Lists the data sources that you have created.</p>
-   *
+   * <p>Lists the data sources that you have created.</p>
    */
   public listDataSources(
     args: ListDataSourcesCommandInput,
@@ -577,9 +551,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of FAQ lists associated with an index.</p>
-   *
+   * <p>Gets a list of FAQ lists associated with an index.</p>
    */
   public listFaqs(
     args: ListFaqsCommandInput,
@@ -614,9 +586,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Lists the Amazon Kendra indexes that you have created.</p>
-   *
+   * <p>Lists the Amazon Kendra indexes that you have created.</p>
    */
   public listIndices(
     args: ListIndicesCommandInput,
@@ -651,8 +621,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Searches an active index. Use this API to search your documents using query. The
+   * <p>Searches an active index. Use this API to search your documents using query. The
    *             <code>Query</code> operation enables to do faceted search and to filter results based on
    *          document attributes.</p>
    *          <p>It also enables you to provide user context that Amazon Kendra uses to enforce document
@@ -672,7 +641,6 @@ export class kendra extends kendraClient {
    *          </ul>
    *          <p>You can specify that the query return only one type of result using the
    *       <code>QueryResultTypeConfig</code> parameter.</p>
-   *
    */
   public query(
     args: QueryCommandInput,
@@ -707,10 +675,8 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Starts a synchronization job for a data source. If a synchronization job is already in
+   * <p>Starts a synchronization job for a data source. If a synchronization job is already in
    *       progress, Amazon Kendra returns a <code>ResourceInUseException</code> exception.</p>
-   *
    */
   public startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
@@ -745,10 +711,8 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Stops a running synchronization job. You can't stop a scheduled synchronization
+   * <p>Stops a running synchronization job. You can't stop a scheduled synchronization
    *       job.</p>
-   *
    */
   public stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
@@ -783,10 +747,8 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *         <p>Enables you to provide feedback to Amazon Kendra to improve the performance
+   * <p>Enables you to provide feedback to Amazon Kendra to improve the performance
    *         of the service. </p>
-   *
    */
   public submitFeedback(
     args: SubmitFeedbackCommandInput,
@@ -821,9 +783,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing Amazon Kendra data source.</p>
-   *
+   * <p>Updates an existing Amazon Kendra data source.</p>
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -858,9 +818,7 @@ export class kendra extends kendraClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing Amazon Kendra index.</p>
-   *
+   * <p>Updates an existing Amazon Kendra index.</p>
    */
   public updateIndex(
     args: UpdateIndexCommandInput,

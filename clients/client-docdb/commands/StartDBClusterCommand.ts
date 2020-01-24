@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DocDBClient";
-import { DBCluster, StartDBClusterMessage } from "../models/index";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryStartDBClusterCommand,
   serializeAws_queryStartDBClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDBClusterCommandInput = StartDBClusterMessage;
-export type StartDBClusterCommandOutput = DBCluster;
+export type StartDBClusterCommandOutput = StartDBClusterResult;
 
 export class StartDBClusterCommand extends $Command<
   StartDBClusterCommandInput,

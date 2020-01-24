@@ -27,18 +27,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3
+ * <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3
  *          service. Objects are the fundamental entities that are stored in AWS Elemental
  *          MediaStore.</p>
- *
  */
 export class MediaStoreData extends MediaStoreDataClient {
   /**
-   *
-   *          <p>Deletes an object at the specified path.</p>
-   *
-   *
+   * <p>Deletes an object at the specified path.</p>
    */
   public deleteObject(
     args: DeleteObjectCommandInput,
@@ -73,10 +68,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
-   *
-   *          <p>Gets the headers for an object at the specified path.</p>
-   *
-   *
+   * <p>Gets the headers for an object at the specified path.</p>
    */
   public describeObject(
     args: DescribeObjectCommandInput,
@@ -111,10 +103,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
-   *
-   *          <p>Downloads the object at the specified path.</p>
-   *
-   *
+   * <p>Downloads the object at the specified path.</p>
    */
   public getObject(
     args: GetObjectCommandInput,
@@ -149,10 +138,8 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
-   *
-   *          <p>Provides a list of metadata entries about folders and objects in the specified
+   * <p>Provides a list of metadata entries about folders and objects in the specified
    *          folder.</p>
-   *
    */
   public listItems(
     args: ListItemsCommandInput,
@@ -187,10 +174,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
-   *
-   *          <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>
-   *
-   *
+   * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>
    */
   public putObject(
     args: PutObjectCommandInput,

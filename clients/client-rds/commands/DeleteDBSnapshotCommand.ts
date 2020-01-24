@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBSnapshot, DeleteDBSnapshotMessage } from "../models/index";
+import {
+  DeleteDBSnapshotMessage,
+  DeleteDBSnapshotResult
+} from "../models/index";
 import {
   deserializeAws_queryDeleteDBSnapshotCommand,
   serializeAws_queryDeleteDBSnapshotCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBSnapshotCommandInput = DeleteDBSnapshotMessage;
-export type DeleteDBSnapshotCommandOutput = DBSnapshot;
+export type DeleteDBSnapshotCommandOutput = DeleteDBSnapshotResult;
 
 export class DeleteDBSnapshotCommand extends $Command<
   DeleteDBSnapshotCommandInput,

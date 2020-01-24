@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  ClusterSecurityGroup,
-  CreateClusterSecurityGroupMessage
+  CreateClusterSecurityGroupMessage,
+  CreateClusterSecurityGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateClusterSecurityGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClusterSecurityGroupCommandInput = CreateClusterSecurityGroupMessage;
-export type CreateClusterSecurityGroupCommandOutput = ClusterSecurityGroup;
+export type CreateClusterSecurityGroupCommandOutput = CreateClusterSecurityGroupResult;
 
 export class CreateClusterSecurityGroupCommand extends $Command<
   CreateClusterSecurityGroupCommandInput,

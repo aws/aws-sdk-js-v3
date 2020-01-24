@@ -4,16 +4,12 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AcceptResourceShareInvitationRequest {
   __type?: "AcceptResourceShareInvitationRequest";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the invitation.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
 }
@@ -27,16 +23,12 @@ export namespace AcceptResourceShareInvitationRequest {
 export interface AcceptResourceShareInvitationResponse extends $MetadataBearer {
   __type?: "AcceptResourceShareInvitationResponse";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>Information about the invitation.</p>
-   *
+   * <p>Information about the invitation.</p>
    */
   resourceShareInvitation?: ResourceShareInvitation;
 }
@@ -50,32 +42,24 @@ export namespace AcceptResourceShareInvitationResponse {
 export interface AssociateResourceSharePermissionRequest {
   __type?: "AssociateResourceSharePermissionRequest";
   /**
-   *
-   *         <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *         <p>The ARN of the AWS RAM permission to associate with the resource share.</p>
-   *
+   * <p>The ARN of the AWS RAM permission to associate with the resource share.</p>
    */
   permissionArn: string | undefined;
 
   /**
-   *
-   *         <p>Indicates whether the permission should replace the permissions that are currently
+   * <p>Indicates whether the permission should replace the permissions that are currently
    *         	associated with the resource share. Use <code>true</code> to replace the current permissions.
    *         	Use <code>false</code> to add the permission to the current permission.</p>
-   *
    */
   replace?: boolean;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -90,16 +74,12 @@ export interface AssociateResourceSharePermissionResponse
   extends $MetadataBearer {
   __type?: "AssociateResourceSharePermissionResponse";
   /**
-   *
-   *         <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *         <p>Indicates whether the request succeeded.</p>
-   *
+   * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
 }
@@ -113,30 +93,22 @@ export namespace AssociateResourceSharePermissionResponse {
 export interface AssociateResourceShareRequest {
   __type?: "AssociateResourceShareRequest";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The principals.</p>
-   *
+   * <p>The principals.</p>
    */
   principals?: Array<string>;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resources.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
   resourceArns?: Array<string>;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -150,16 +122,12 @@ export namespace AssociateResourceShareRequest {
 export interface AssociateResourceShareResponse extends $MetadataBearer {
   __type?: "AssociateResourceShareResponse";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>Information about the associations.</p>
-   *
+   * <p>Information about the associations.</p>
    */
   resourceShareAssociations?: Array<ResourceShareAssociation>;
 }
@@ -173,54 +141,40 @@ export namespace AssociateResourceShareResponse {
 export interface CreateResourceShareRequest {
   __type?: "CreateResourceShareRequest";
   /**
-   *
-   *          <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
-   *
+   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
 
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The name of the resource share.</p>
-   *
+   * <p>The name of the resource share.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *         <p>The ARNs of the permissions to associate with the resource share. If you do not specify an ARN
+   * <p>The ARNs of the permissions to associate with the resource share. If you do not specify an ARN
    * 			for the permission, AWS RAM automatically attaches the default version of the permission
    * 			for each resource type.</p>
-   *
    */
   permissionArns?: Array<string>;
 
   /**
-   *
-   *          <p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,
+   * <p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,
    *           the ARN of an OU or organization from AWS Organizations.</p>
-   *
    */
   principals?: Array<string>;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
    */
   resourceArns?: Array<string>;
 
   /**
-   *
-   *          <p>One or more tags.</p>
-   *
+   * <p>One or more tags.</p>
    */
   tags?: Array<Tag>;
 }
@@ -234,16 +188,12 @@ export namespace CreateResourceShareRequest {
 export interface CreateResourceShareResponse extends $MetadataBearer {
   __type?: "CreateResourceShareResponse";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>Information about the resource share.</p>
-   *
+   * <p>Information about the resource share.</p>
    */
   resourceShare?: ResourceShare;
 }
@@ -257,16 +207,12 @@ export namespace CreateResourceShareResponse {
 export interface DeleteResourceShareRequest {
   __type?: "DeleteResourceShareRequest";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -280,16 +226,12 @@ export namespace DeleteResourceShareRequest {
 export interface DeleteResourceShareResponse extends $MetadataBearer {
   __type?: "DeleteResourceShareResponse";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>Indicates whether the request succeeded.</p>
-   *
+   * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
 }
@@ -303,23 +245,17 @@ export namespace DeleteResourceShareResponse {
 export interface DisassociateResourceSharePermissionRequest {
   __type?: "DisassociateResourceSharePermissionRequest";
   /**
-   *
-   * 	        <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   * 	        <p>The ARN of the permission to disassociate from the resource share.</p>
-   *
+   * <p>The ARN of the permission to disassociate from the resource share.</p>
    */
   permissionArn: string | undefined;
 
   /**
-   *
-   * 	        <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -334,16 +270,12 @@ export interface DisassociateResourceSharePermissionResponse
   extends $MetadataBearer {
   __type?: "DisassociateResourceSharePermissionResponse";
   /**
-   *
-   *     	    <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   * 	        <p>Indicates whether the request succeeded.</p>
-   *
+   * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
 }
@@ -359,30 +291,22 @@ export namespace DisassociateResourceSharePermissionResponse {
 export interface DisassociateResourceShareRequest {
   __type?: "DisassociateResourceShareRequest";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The principals.</p>
-   *
+   * <p>The principals.</p>
    */
   principals?: Array<string>;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARNs) of the resources.</p>
-   *
+   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
   resourceArns?: Array<string>;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -396,16 +320,12 @@ export namespace DisassociateResourceShareRequest {
 export interface DisassociateResourceShareResponse extends $MetadataBearer {
   __type?: "DisassociateResourceShareResponse";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>Information about the associations.</p>
-   *
+   * <p>Information about the associations.</p>
    */
   resourceShareAssociations?: Array<ResourceShareAssociation>;
 }
@@ -430,9 +350,7 @@ export interface EnableSharingWithAwsOrganizationResponse
   extends $MetadataBearer {
   __type?: "EnableSharingWithAwsOrganizationResponse";
   /**
-   *
-   *    	     <p>Indicates whether the request succeeded.</p>
-   *
+   * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
 }
@@ -446,16 +364,12 @@ export namespace EnableSharingWithAwsOrganizationResponse {
 export interface GetPermissionRequest {
   __type?: "GetPermissionRequest";
   /**
-   *
-   * 	        <p>The ARN of the permission.</p>
-   *
+   * <p>The ARN of the permission.</p>
    */
   permissionArn: string | undefined;
 
   /**
-   *
-   *     	    <p>The identifier for the version of the permission.</p>
-   *
+   * <p>The identifier for the version of the permission.</p>
    */
   permissionVersion?: number;
 }
@@ -469,9 +383,7 @@ export namespace GetPermissionRequest {
 export interface GetPermissionResponse extends $MetadataBearer {
   __type?: "GetPermissionResponse";
   /**
-   *
-   * 	        <p>Information about the permission.</p>
-   *
+   * <p>Information about the permission.</p>
    */
   permission?: ResourceSharePermissionDetail;
 }
@@ -485,31 +397,23 @@ export namespace GetPermissionResponse {
 export interface GetResourcePoliciesRequest {
   __type?: "GetResourcePoliciesRequest";
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The principal.</p>
-   *
+   * <p>The principal.</p>
    */
   principal?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resources.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
   resourceArns: Array<string> | undefined;
 }
@@ -523,16 +427,12 @@ export namespace GetResourcePoliciesRequest {
 export interface GetResourcePoliciesResponse extends $MetadataBearer {
   __type?: "GetResourcePoliciesResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>A key policy document, in JSON format.</p>
-   *
+   * <p>A key policy document, in JSON format.</p>
    */
   policies?: Array<string>;
 }
@@ -546,56 +446,42 @@ export namespace GetResourcePoliciesResponse {
 export interface GetResourceShareAssociationsRequest {
   __type?: "GetResourceShareAssociationsRequest";
   /**
-   *
-   *          <p>The association status.</p>
-   *
+   * <p>The association status.</p>
    */
   associationStatus?: ResourceShareAssociationStatus | string;
 
   /**
-   *
-   *    	     <p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are
+   * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are
    *    		associated with the specified resource share. Specify <code>RESOURCE</code> to list
    *    		the resources that are associated with the specified resource share.</p>
-   *
    */
   associationType: ResourceShareAssociationType | string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The principal. You cannot specify this parameter if the association type is
+   * <p>The principal. You cannot specify this parameter if the association type is
    *      	<code>RESOURCE</code>.</p>
-   *
    */
   principal?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the
+   * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the
    *       	association type is <code>PRINCIPAL</code>.</p>
-   *
    */
   resourceArn?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resource shares.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
   resourceShareArns?: Array<string>;
 }
@@ -609,16 +495,12 @@ export namespace GetResourceShareAssociationsRequest {
 export interface GetResourceShareAssociationsResponse extends $MetadataBearer {
   __type?: "GetResourceShareAssociationsResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Information about the associations.</p>
-   *
+   * <p>Information about the associations.</p>
    */
   resourceShareAssociations?: Array<ResourceShareAssociation>;
 }
@@ -632,31 +514,23 @@ export namespace GetResourceShareAssociationsResponse {
 export interface GetResourceShareInvitationsRequest {
   __type?: "GetResourceShareInvitationsRequest";
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resource shares.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
   resourceShareArns?: Array<string>;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the invitations.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the invitations.</p>
    */
   resourceShareInvitationArns?: Array<string>;
 }
@@ -670,16 +544,12 @@ export namespace GetResourceShareInvitationsRequest {
 export interface GetResourceShareInvitationsResponse extends $MetadataBearer {
   __type?: "GetResourceShareInvitationsResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Information about the invitations.</p>
-   *
+   * <p>Information about the invitations.</p>
    */
   resourceShareInvitations?: Array<ResourceShareInvitation>;
 }
@@ -693,52 +563,38 @@ export namespace GetResourceShareInvitationsResponse {
 export interface GetResourceSharesRequest {
   __type?: "GetResourceSharesRequest";
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The name of the resource share.</p>
-   *
+   * <p>The name of the resource share.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The type of owner.</p>
-   *
+   * <p>The type of owner.</p>
    */
   resourceOwner: ResourceOwner | string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resource shares.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
   resourceShareArns?: Array<string>;
 
   /**
-   *
-   *          <p>The status of the resource share.</p>
-   *
+   * <p>The status of the resource share.</p>
    */
   resourceShareStatus?: ResourceShareStatus | string;
 
   /**
-   *
-   *          <p>One or more tag filters.</p>
-   *
+   * <p>One or more tag filters.</p>
    */
   tagFilters?: Array<TagFilter>;
 }
@@ -752,16 +608,12 @@ export namespace GetResourceSharesRequest {
 export interface GetResourceSharesResponse extends $MetadataBearer {
   __type?: "GetResourceSharesResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Information about the resource shares.</p>
-   *
+   * <p>Information about the resource shares.</p>
    */
   resourceShares?: Array<ResourceShare>;
 }
@@ -773,10 +625,8 @@ export namespace GetResourceSharesResponse {
 }
 
 /**
- *
- *          <p>A client token input parameter was reused with an operation, but at least one of
+ * <p>A client token input parameter was reused with an operation, but at least one of
  *         the other input parameters is different from the previous call to the operation.</p>
- *
  */
 export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
@@ -794,9 +644,7 @@ export namespace IdempotentParameterMismatchException {
 }
 
 /**
- *
- *          <p>A client token is not valid.</p>
- *
+ * <p>A client token is not valid.</p>
  */
 export interface InvalidClientTokenException
   extends _smithy.SmithyException,
@@ -814,9 +662,7 @@ export namespace InvalidClientTokenException {
 }
 
 /**
- *
- *          <p>The specified value for MaxResults is not valid.</p>
- *
+ * <p>The specified value for MaxResults is not valid.</p>
  */
 export interface InvalidMaxResultsException
   extends _smithy.SmithyException,
@@ -834,9 +680,7 @@ export namespace InvalidMaxResultsException {
 }
 
 /**
- *
- *          <p>The specified value for NextToken is not valid.</p>
- *
+ * <p>The specified value for NextToken is not valid.</p>
  */
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
@@ -854,9 +698,7 @@ export namespace InvalidNextTokenException {
 }
 
 /**
- *
- *          <p>A parameter is not valid.</p>
- *
+ * <p>A parameter is not valid.</p>
  */
 export interface InvalidParameterException
   extends _smithy.SmithyException,
@@ -874,9 +716,7 @@ export namespace InvalidParameterException {
 }
 
 /**
- *
- *          <p>The specified resource type is not valid.</p>
- *
+ * <p>The specified resource type is not valid.</p>
  */
 export interface InvalidResourceTypeException
   extends _smithy.SmithyException,
@@ -894,9 +734,7 @@ export namespace InvalidResourceTypeException {
 }
 
 /**
- *
- *          <p>The requested state transition is not valid.</p>
- *
+ * <p>The requested state transition is not valid.</p>
  */
 export interface InvalidStateTransitionException
   extends _smithy.SmithyException,
@@ -916,24 +754,18 @@ export namespace InvalidStateTransitionException {
 export interface ListPendingInvitationResourcesRequest {
   __type?: "ListPendingInvitationResourcesRequest";
   /**
-   *
-   *   	      <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *   	      <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *   	      <p>The Amazon Resource Name (ARN) of the invitation.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
 }
@@ -948,16 +780,12 @@ export interface ListPendingInvitationResourcesResponse
   extends $MetadataBearer {
   __type?: "ListPendingInvitationResourcesResponse";
   /**
-   *
-   *   	      <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *   	      <p>Information about the resources included the resource share.</p>
-   *
+   * <p>Information about the resources included the resource share.</p>
    */
   resources?: Array<Resource>;
 }
@@ -971,25 +799,19 @@ export namespace ListPendingInvitationResourcesResponse {
 export interface ListPermissionsRequest {
   __type?: "ListPermissionsRequest";
   /**
-   *
-   * 	        <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   * 	        <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   * 	        <p>Specifies the resource type for which to list permissions. For example, to list only
+   * <p>Specifies the resource type for which to list permissions. For example, to list only
    * 		permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>
-   *
    */
   resourceType?: string;
 }
@@ -1003,16 +825,12 @@ export namespace ListPermissionsRequest {
 export interface ListPermissionsResponse extends $MetadataBearer {
   __type?: "ListPermissionsResponse";
   /**
-   *
-   * 	        <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   * 	        <p>Information about the permissions.</p>
-   *
+   * <p>Information about the permissions.</p>
    */
   permissions?: Array<ResourceSharePermissionSummary>;
 }
@@ -1026,58 +844,44 @@ export namespace ListPermissionsResponse {
 export interface ListPrincipalsRequest {
   __type?: "ListPrincipalsRequest";
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The principals.</p>
-   *
+   * <p>The principals.</p>
    */
   principals?: Array<string>;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn?: string;
 
   /**
-   *
-   *          <p>The type of owner.</p>
-   *
+   * <p>The type of owner.</p>
    */
   resourceOwner: ResourceOwner | string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resource shares.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
   resourceShareArns?: Array<string>;
 
   /**
-   *
-   *          <p>The resource type.</p>
+   * <p>The resource type.</p>
    *          <p>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> |
    *     	<code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> |
    *     	<code>license-manager:LicenseConfiguration</code> |
    *     	<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> I
    *     	<code>resource-groups:Group</code>
    *          </p>
-   *
    */
   resourceType?: string;
 }
@@ -1091,16 +895,12 @@ export namespace ListPrincipalsRequest {
 export interface ListPrincipalsResponse extends $MetadataBearer {
   __type?: "ListPrincipalsResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The principals.</p>
-   *
+   * <p>The principals.</p>
    */
   principals?: Array<Principal>;
 }
@@ -1114,24 +914,18 @@ export namespace ListPrincipalsResponse {
 export interface ListResourceSharePermissionsRequest {
   __type?: "ListResourceSharePermissionsRequest";
   /**
-   *
-   * 	        <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   * 	        <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   * 	        <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -1145,16 +939,12 @@ export namespace ListResourceSharePermissionsRequest {
 export interface ListResourceSharePermissionsResponse extends $MetadataBearer {
   __type?: "ListResourceSharePermissionsResponse";
   /**
-   *
-   * 	        <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   * 	        <p>The permissions associated with the resource share.</p>
-   *
+   * <p>The permissions associated with the resource share.</p>
    */
   permissions?: Array<ResourceSharePermissionSummary>;
 }
@@ -1168,58 +958,44 @@ export namespace ListResourceSharePermissionsResponse {
 export interface ListResourcesRequest {
   __type?: "ListResourcesRequest";
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The principal.</p>
-   *
+   * <p>The principal.</p>
    */
   principal?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resources.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
   resourceArns?: Array<string>;
 
   /**
-   *
-   *          <p>The type of owner.</p>
-   *
+   * <p>The type of owner.</p>
    */
   resourceOwner: ResourceOwner | string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the resource shares.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
   resourceShareArns?: Array<string>;
 
   /**
-   *
-   *          <p>The resource type.</p>
+   * <p>The resource type.</p>
    *    	     <p>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> |
    *    		<code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> |
    *    		<code>license-manager:LicenseConfiguration</code> |
    *    		<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> |
    *    		<code>resource-groups:Group</code>
    *          </p>
-   *
    */
   resourceType?: string;
 }
@@ -1233,16 +1009,12 @@ export namespace ListResourcesRequest {
 export interface ListResourcesResponse extends $MetadataBearer {
   __type?: "ListResourcesResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Information about the resources.</p>
-   *
+   * <p>Information about the resources.</p>
    */
   resources?: Array<Resource>;
 }
@@ -1254,9 +1026,7 @@ export namespace ListResourcesResponse {
 }
 
 /**
- *
- *          <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
- *
+ * <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
  */
 export interface MalformedArnException
   extends _smithy.SmithyException,
@@ -1274,9 +1044,7 @@ export namespace MalformedArnException {
 }
 
 /**
- *
- *          <p>A required input parameter is missing.</p>
- *
+ * <p>A required input parameter is missing.</p>
  */
 export interface MissingRequiredParameterException
   extends _smithy.SmithyException,
@@ -1294,9 +1062,7 @@ export namespace MissingRequiredParameterException {
 }
 
 /**
- *
- *          <p>The requested operation is not permitted.</p>
- *
+ * <p>The requested operation is not permitted.</p>
  */
 export interface OperationNotPermittedException
   extends _smithy.SmithyException,
@@ -1314,44 +1080,32 @@ export namespace OperationNotPermittedException {
 }
 
 /**
- *
- *          <p>Describes a principal for use with AWS Resource Access Manager.</p>
- *
+ * <p>Describes a principal for use with AWS Resource Access Manager.</p>
  */
 export interface Principal {
   __type?: "Principal";
   /**
-   *
-   *          <p>The time when the principal was associated with the resource share.</p>
-   *
+   * <p>The time when the principal was associated with the resource share.</p>
    */
   creationTime?: Date;
 
   /**
-   *
-   *          <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
-   *
+   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
    */
   external?: boolean;
 
   /**
-   *
-   *          <p>The ID of the principal.</p>
-   *
+   * <p>The ID of the principal.</p>
    */
   id?: string;
 
   /**
-   *
-   *          <p>The time when the association was last updated.</p>
-   *
+   * <p>The time when the association was last updated.</p>
    */
   lastUpdatedTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
 }
@@ -1365,9 +1119,7 @@ export namespace Principal {
 export interface PromoteResourceShareCreatedFromPolicyRequest {
   __type?: "PromoteResourceShareCreatedFromPolicyRequest";
   /**
-   *
-   * 	        <p>The ARN of the resource share to promote.</p>
-   *
+   * <p>The ARN of the resource share to promote.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -1384,9 +1136,7 @@ export interface PromoteResourceShareCreatedFromPolicyResponse
   extends $MetadataBearer {
   __type?: "PromoteResourceShareCreatedFromPolicyResponse";
   /**
-   *
-   * 	        <p>Indicates whether the request succeeded.</p>
-   *
+   * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
 }
@@ -1402,16 +1152,12 @@ export namespace PromoteResourceShareCreatedFromPolicyResponse {
 export interface RejectResourceShareInvitationRequest {
   __type?: "RejectResourceShareInvitationRequest";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the invitation.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
 }
@@ -1425,16 +1171,12 @@ export namespace RejectResourceShareInvitationRequest {
 export interface RejectResourceShareInvitationResponse extends $MetadataBearer {
   __type?: "RejectResourceShareInvitationResponse";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>Information about the invitation.</p>
-   *
+   * <p>Information about the invitation.</p>
    */
   resourceShareInvitation?: ResourceShareInvitation;
 }
@@ -1446,66 +1188,48 @@ export namespace RejectResourceShareInvitationResponse {
 }
 
 /**
- *
- *          <p>Describes a resource associated with a resource share.</p>
- *
+ * <p>Describes a resource associated with a resource share.</p>
  */
 export interface Resource {
   __type?: "Resource";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   arn?: string;
 
   /**
-   *
-   *          <p>The time when the resource was associated with the resource share.</p>
-   *
+   * <p>The time when the resource was associated with the resource share.</p>
    */
   creationTime?: Date;
 
   /**
-   *
-   *          <p>The time when the association was last updated.</p>
-   *
+   * <p>The time when the association was last updated.</p>
    */
   lastUpdatedTime?: Date;
 
   /**
-   *
-   * 	        <p>The ARN of the resource group. This value is returned only if the resource is a resource
+   * <p>The ARN of the resource group. This value is returned only if the resource is a resource
    * 			group.</p>
-   *
    */
   resourceGroupArn?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
 
   /**
-   *
-   *          <p>The status of the resource.</p>
-   *
+   * <p>The status of the resource.</p>
    */
   status?: ResourceStatus | string;
 
   /**
-   *
-   *          <p>A message about the status of the resource.</p>
-   *
+   * <p>A message about the status of the resource.</p>
    */
   statusMessage?: string;
 
   /**
-   *
-   *          <p>The resource type.</p>
-   *
+   * <p>The resource type.</p>
    */
   type?: string;
 }
@@ -1517,9 +1241,7 @@ export namespace Resource {
 }
 
 /**
- *
- *          <p>An Amazon Resource Name (ARN) was not found.</p>
- *
+ * <p>An Amazon Resource Name (ARN) was not found.</p>
  */
 export interface ResourceArnNotFoundException
   extends _smithy.SmithyException,
@@ -1542,29 +1264,22 @@ export enum ResourceOwner {
 }
 
 /**
- *
- *          <p>Describes a resource share.</p>
- *
+ * <p>Describes a resource share.</p>
  */
 export interface ResourceShare {
   __type?: "ResourceShare";
   /**
-   *
-   *          <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
-   *
+   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
 
   /**
-   *
-   *          <p>The time when the resource share was created.</p>
-   *
+   * <p>The time when the resource share was created.</p>
    */
   creationTime?: Date;
 
   /**
-   *
-   * 	        <p>Indicates how the resource share was created. Possible values include:</p>
+   * <p>Indicates how the resource share was created. Possible values include:</p>
    * 	        <ul>
    *             <li>
    * 			            <p>
@@ -1586,56 +1301,41 @@ export interface ResourceShare {
    * 					in AWS RAM.</p>
    * 		          </li>
    *          </ul>
-   *
    */
   featureSet?: ResourceShareFeatureSet | string;
 
   /**
-   *
-   *          <p>The time when the resource share was last updated.</p>
-   *
+   * <p>The time when the resource share was last updated.</p>
    */
   lastUpdatedTime?: Date;
 
   /**
-   *
-   *          <p>The name of the resource share.</p>
-   *
+   * <p>The name of the resource share.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the resource share.</p>
-   *
+   * <p>The ID of the AWS account that owns the resource share.</p>
    */
   owningAccountId?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
 
   /**
-   *
-   *          <p>The status of the resource share.</p>
-   *
+   * <p>The status of the resource share.</p>
    */
   status?: ResourceShareStatus | string;
 
   /**
-   *
-   *          <p>A message about the status of the resource share.</p>
-   *
+   * <p>A message about the status of the resource share.</p>
    */
   statusMessage?: string;
 
   /**
-   *
-   *          <p>The tags for the resource share.</p>
-   *
+   * <p>The tags for the resource share.</p>
    */
   tags?: Array<Tag>;
 }
@@ -1647,74 +1347,54 @@ export namespace ResourceShare {
 }
 
 /**
- *
- *          <p>Describes an association with a resource share.</p>
- *
+ * <p>Describes an association with a resource share.</p>
  */
 export interface ResourceShareAssociation {
   __type?: "ResourceShareAssociation";
   /**
-   *
-   *          <p>The associated entity. For resource associations, this is the ARN of the resource.
+   * <p>The associated entity. For resource associations, this is the ARN of the resource.
    *        For principal associations, this is the ID of an AWS account or the ARN of an OU or
    *        organization from AWS Organizations.</p>
-   *
    */
   associatedEntity?: string;
 
   /**
-   *
-   *          <p>The association type.</p>
-   *
+   * <p>The association type.</p>
    */
   associationType?: ResourceShareAssociationType | string;
 
   /**
-   *
-   *          <p>The time when the association was created.</p>
-   *
+   * <p>The time when the association was created.</p>
    */
   creationTime?: Date;
 
   /**
-   *
-   *          <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
-   *
+   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
    */
   external?: boolean;
 
   /**
-   *
-   *          <p>The time when the association was last updated.</p>
-   *
+   * <p>The time when the association was last updated.</p>
    */
   lastUpdatedTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
 
   /**
-   *
-   * 	        <p>The name of the resource share.</p>
-   *
+   * <p>The name of the resource share.</p>
    */
   resourceShareName?: string;
 
   /**
-   *
-   *          <p>The status of the association.</p>
-   *
+   * <p>The status of the association.</p>
    */
   status?: ResourceShareAssociationStatus | string;
 
   /**
-   *
-   *          <p>A message about the status of the association.</p>
-   *
+   * <p>A message about the status of the association.</p>
    */
   statusMessage?: string;
 }
@@ -1740,67 +1420,49 @@ export type ResourceShareFeatureSet =
   | "STANDARD";
 
 /**
- *
- *          <p>Describes an invitation to join a resource share.</p>
- *
+ * <p>Describes an invitation to join a resource share.</p>
  */
 export interface ResourceShareInvitation {
   __type?: "ResourceShareInvitation";
   /**
-   *
-   *          <p>The date and time when the invitation was sent.</p>
-   *
+   * <p>The date and time when the invitation was sent.</p>
    */
   invitationTimestamp?: Date;
 
   /**
-   *
-   *          <p>The ID of the AWS account that received the invitation.</p>
-   *
+   * <p>The ID of the AWS account that received the invitation.</p>
    */
   receiverAccountId?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
 
   /**
-   *
-   *          <p>To view the resources associated with a pending resource share invitation, use
+   * <p>To view the resources associated with a pending resource share invitation, use
    *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
    *       		ListPendingInvitationResources</a>.</p>
-   *
    */
   resourceShareAssociations?: Array<ResourceShareAssociation>;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the invitation.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn?: string;
 
   /**
-   *
-   *          <p>The name of the resource share.</p>
-   *
+   * <p>The name of the resource share.</p>
    */
   resourceShareName?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that sent the invitation.</p>
-   *
+   * <p>The ID of the AWS account that sent the invitation.</p>
    */
   senderAccountId?: string;
 
   /**
-   *
-   *          <p>The status of the invitation.</p>
-   *
+   * <p>The status of the invitation.</p>
    */
   status?: ResourceShareInvitationStatus | string;
 }
@@ -1812,9 +1474,7 @@ export namespace ResourceShareInvitation {
 }
 
 /**
- *
- *          <p>The invitation was already accepted.</p>
- *
+ * <p>The invitation was already accepted.</p>
  */
 export interface ResourceShareInvitationAlreadyAcceptedException
   extends _smithy.SmithyException,
@@ -1834,9 +1494,7 @@ export namespace ResourceShareInvitationAlreadyAcceptedException {
 }
 
 /**
- *
- *          <p>The invitation was already rejected.</p>
- *
+ * <p>The invitation was already rejected.</p>
  */
 export interface ResourceShareInvitationAlreadyRejectedException
   extends _smithy.SmithyException,
@@ -1856,9 +1514,7 @@ export namespace ResourceShareInvitationAlreadyRejectedException {
 }
 
 /**
- *
- *          <p>The Amazon Resource Name (ARN) for an invitation was not found.</p>
- *
+ * <p>The Amazon Resource Name (ARN) for an invitation was not found.</p>
  */
 export interface ResourceShareInvitationArnNotFoundException
   extends _smithy.SmithyException,
@@ -1878,9 +1534,7 @@ export namespace ResourceShareInvitationArnNotFoundException {
 }
 
 /**
- *
- *          <p>The invitation is expired.</p>
- *
+ * <p>The invitation is expired.</p>
  */
 export interface ResourceShareInvitationExpiredException
   extends _smithy.SmithyException,
@@ -1904,9 +1558,7 @@ export type ResourceShareInvitationStatus =
   | "REJECTED";
 
 /**
- *
- *          <p>The requested resource share exceeds the limit for your account.</p>
- *
+ * <p>The requested resource share exceeds the limit for your account.</p>
  */
 export interface ResourceShareLimitExceededException
   extends _smithy.SmithyException,
@@ -1924,68 +1576,50 @@ export namespace ResourceShareLimitExceededException {
 }
 
 /**
- *
- * 	        <p>Information about an AWS RAM permission.</p>
- *
+ * <p>Information about an AWS RAM permission.</p>
  */
 export interface ResourceSharePermissionDetail {
   __type?: "ResourceSharePermissionDetail";
   /**
-   *
-   * 	        <p>The ARN of the permission.</p>
-   *
+   * <p>The ARN of the permission.</p>
    */
   arn?: string;
 
   /**
-   *
-   * 	        <p>The date and time when the permission was created.</p>
-   *
+   * <p>The date and time when the permission was created.</p>
    */
   creationTime?: Date;
 
   /**
-   *
-   *     	    <p>The identifier for the version of the permission that is set as the
+   * <p>The identifier for the version of the permission that is set as the
    *     		default version.</p>
-   *
    */
   defaultVersion?: boolean;
 
   /**
-   *
-   *     	    <p>The date and time when the permission was last updated.</p>
-   *
+   * <p>The date and time when the permission was last updated.</p>
    */
   lastUpdatedTime?: Date;
 
   /**
-   *
-   * 	        <p>The name of the permission.</p>
-   *
+   * <p>The name of the permission.</p>
    */
   name?: string;
 
   /**
-   *
-   * 	        <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates whether
+   * <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates whether
    * 			the actions are allowed or denied. The <code>actions</code> list the API actions to
    * 			which the principal is granted or denied access.</p>
-   *
    */
   permission?: string;
 
   /**
-   *
-   * 	        <p>The resource type to which the permission applies.</p>
-   *
+   * <p>The resource type to which the permission applies.</p>
    */
   resourceType?: string;
 
   /**
-   *
-   *     	    <p>The identifier for the version of the permission.</p>
-   *
+   * <p>The identifier for the version of the permission.</p>
    */
   version?: string;
 }
@@ -1997,65 +1631,47 @@ export namespace ResourceSharePermissionDetail {
 }
 
 /**
- *
- * 	        <p>Information about a permission that is associated with a resource share.</p>
- *
+ * <p>Information about a permission that is associated with a resource share.</p>
  */
 export interface ResourceSharePermissionSummary {
   __type?: "ResourceSharePermissionSummary";
   /**
-   *
-   * 	        <p>The ARN of the permission.</p>
-   *
+   * <p>The ARN of the permission.</p>
    */
   arn?: string;
 
   /**
-   *
-   *     	    <p>The date and time when the permission was created.</p>
-   *
+   * <p>The date and time when the permission was created.</p>
    */
   creationTime?: Date;
 
   /**
-   *
-   *     	    <p>The identifier for the version of the permission that is set as the default version.</p>
-   *
+   * <p>The identifier for the version of the permission that is set as the default version.</p>
    */
   defaultVersion?: boolean;
 
   /**
-   *
-   *     	    <p>The date and time when the permission was last updated.</p>
-   *
+   * <p>The date and time when the permission was last updated.</p>
    */
   lastUpdatedTime?: Date;
 
   /**
-   *
-   * 	        <p>The name of the permission.</p>
-   *
+   * <p>The name of the permission.</p>
    */
   name?: string;
 
   /**
-   *
-   * 	        <p>The type of resource to which the permission applies.</p>
-   *
+   * <p>The type of resource to which the permission applies.</p>
    */
   resourceType?: string;
 
   /**
-   *
-   * 	        <p>The current status of the permission.</p>
-   *
+   * <p>The current status of the permission.</p>
    */
   status?: string;
 
   /**
-   *
-   *     	    <p>The identifier for the version of the permission.</p>
-   *
+   * <p>The identifier for the version of the permission.</p>
    */
   version?: string;
 }
@@ -2081,9 +1697,7 @@ export type ResourceStatus =
   | "ZONAL_RESOURCE_INACCESSIBLE";
 
 /**
- *
- *          <p>The service could not respond to the request due to an internal problem.</p>
- *
+ * <p>The service could not respond to the request due to an internal problem.</p>
  */
 export interface ServerInternalException
   extends _smithy.SmithyException,
@@ -2101,9 +1715,7 @@ export namespace ServerInternalException {
 }
 
 /**
- *
- *          <p>The service is not available.</p>
- *
+ * <p>The service is not available.</p>
  */
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
@@ -2121,23 +1733,17 @@ export namespace ServiceUnavailableException {
 }
 
 /**
- *
- *          <p>Information about a tag.</p>
- *
+ * <p>Information about a tag.</p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *          <p>The key of the tag.</p>
-   *
+   * <p>The key of the tag.</p>
    */
   key?: string;
 
   /**
-   *
-   *          <p>The value of the tag.</p>
-   *
+   * <p>The value of the tag.</p>
    */
   value?: string;
 }
@@ -2149,23 +1755,17 @@ export namespace Tag {
 }
 
 /**
- *
- *          <p>Used to filter information based on tags.</p>
- *
+ * <p>Used to filter information based on tags.</p>
  */
 export interface TagFilter {
   __type?: "TagFilter";
   /**
-   *
-   *          <p>The tag key.</p>
-   *
+   * <p>The tag key.</p>
    */
   tagKey?: string;
 
   /**
-   *
-   *          <p>The tag values.</p>
-   *
+   * <p>The tag values.</p>
    */
   tagValues?: Array<string>;
 }
@@ -2177,9 +1777,7 @@ export namespace TagFilter {
 }
 
 /**
- *
- *          <p>The requested tags exceed the limit for your account.</p>
- *
+ * <p>The requested tags exceed the limit for your account.</p>
  */
 export interface TagLimitExceededException
   extends _smithy.SmithyException,
@@ -2197,9 +1795,7 @@ export namespace TagLimitExceededException {
 }
 
 /**
- *
- * 	        <p>The specified tag is a reserved word and cannot be used.</p>
- *
+ * <p>The specified tag is a reserved word and cannot be used.</p>
  */
 export interface TagPolicyViolationException
   extends _smithy.SmithyException,
@@ -2219,16 +1815,12 @@ export namespace TagPolicyViolationException {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 
   /**
-   *
-   *          <p>One or more tags.</p>
-   *
+   * <p>One or more tags.</p>
    */
   tags: Array<Tag> | undefined;
 }
@@ -2250,9 +1842,7 @@ export namespace TagResourceResponse {
 }
 
 /**
- *
- *          <p>A specified resource was not found.</p>
- *
+ * <p>A specified resource was not found.</p>
  */
 export interface UnknownResourceException
   extends _smithy.SmithyException,
@@ -2272,16 +1862,12 @@ export namespace UnknownResourceException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 
   /**
-   *
-   *          <p>The tag keys of the tags to remove.</p>
-   *
+   * <p>The tag keys of the tags to remove.</p>
    */
   tagKeys: Array<string> | undefined;
 }
@@ -2305,30 +1891,22 @@ export namespace UntagResourceResponse {
 export interface UpdateResourceShareRequest {
   __type?: "UpdateResourceShareRequest";
   /**
-   *
-   *          <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
-   *
+   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
 
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The name of the resource share.</p>
-   *
+   * <p>The name of the resource share.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
 }
@@ -2342,16 +1920,12 @@ export namespace UpdateResourceShareRequest {
 export interface UpdateResourceShareResponse extends $MetadataBearer {
   __type?: "UpdateResourceShareResponse";
   /**
-   *
-   *          <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>Information about the resource share.</p>
-   *
+   * <p>Information about the resource share.</p>
    */
   resourceShare?: ResourceShare;
 }

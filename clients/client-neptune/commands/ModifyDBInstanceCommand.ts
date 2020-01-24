@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import { DBInstance, ModifyDBInstanceMessage } from "../models/index";
+import {
+  ModifyDBInstanceMessage,
+  ModifyDBInstanceResult
+} from "../models/index";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
-export type ModifyDBInstanceCommandOutput = DBInstance;
+export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult;
 
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,

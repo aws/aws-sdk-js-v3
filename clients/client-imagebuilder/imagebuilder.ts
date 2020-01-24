@@ -212,21 +212,11 @@ import { imagebuilderClient } from "./imagebuilderClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p> Amazon Elastic Compute Cloud Image Builder provides a one-stop-shop to automate the image management processes. You configure an automated pipeline that
- *     creates images for use on AWS. As software updates become available, Image Builder automatically produces a new image
- *     based on a customizable schedule and distributes it to stipulated AWS Regions after running tests on it. With the Image Builder, organizations
- *     can capture their internal or industry-specific compliance policies as a vetted template that can be consistently applied to every new image.
- *     Built-in integration with AWS Organizations provides customers with a centralized way to enforce image distribution and access
- *     policies across their AWS accounts and Regions. Image Builder supports multiple image format AMIs on AWS.</p>
- *
+ * <p> Amazon Elastic Compute Cloud Image Builder provides a one-stop-shop to automate the image management processes. You configure an automated pipeline that creates images for use on AWS. As software updates become available, Image Builder automatically produces a new image based on a customizable schedule and distributes it to stipulated AWS Regions after running tests on it. With the Image Builder, organizations can capture their internal or industry-specific compliance policies as a vetted template that can be consistently applied to every new image. Built-in integration with AWS Organizations provides customers with a centralized way to enforce image distribution and access policies across their AWS accounts and Regions. Image Builder supports multiple image format AMIs on AWS.</p>
  */
 export class imagebuilder extends imagebuilderClient {
   /**
-   *
-   *          <p>CancelImageCreation cancels the creation of Image. This operation may only be used on images in a non-terminal state.</p>
-   *
-   *
+   * <p>CancelImageCreation cancels the creation of Image. This operation may only be used on images in a non-terminal state.</p>
    */
   public cancelImageCreation(
     args: CancelImageCreationCommandInput,
@@ -261,10 +251,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>Creates a new component that can be used to build, validate, test and assess your image.</p>
-   *
-   *
+   * <p>Creates a new component that can be used to build, validate, test and assess your image.</p>
    */
   public createComponent(
     args: CreateComponentCommandInput,
@@ -299,12 +286,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *     Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.
-   *   </p>
-   *
+   * <p> Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
    */
   public createDistributionConfiguration(
     args: CreateDistributionConfigurationCommandInput,
@@ -342,12 +324,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *     Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration.
-   *   </p>
-   *
+   * <p> Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. </p>
    */
   public createImage(
     args: CreateImageCommandInput,
@@ -382,12 +359,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *     Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.
-   *   </p>
-   *
+   * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
    */
   public createImagePipeline(
     args: CreateImagePipelineCommandInput,
@@ -422,12 +394,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *     Creates a new image recipe. Image Recipes defines how images are configured, tested and assessed.
-   *   </p>
-   *
+   * <p> Creates a new image recipe. Image Recipes defines how images are configured, tested and assessed. </p>
    */
   public createImageRecipe(
     args: CreateImageRecipeCommandInput,
@@ -462,12 +429,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *     Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.
-   *   </p>
-   *
+   * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
    */
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
@@ -514,12 +476,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Deletes a component build version.
-   *     </p>
-   *
+   * <p> Deletes a component build version. </p>
    */
   public deleteComponent(
     args: DeleteComponentCommandInput,
@@ -554,12 +511,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Deletes a distribution configuration.
-   *     </p>
-   *
+   * <p> Deletes a distribution configuration. </p>
    */
   public deleteDistributionConfiguration(
     args: DeleteDistributionConfigurationCommandInput,
@@ -597,12 +549,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Deletes an image.
-   *     </p>
-   *
+   * <p> Deletes an image. </p>
    */
   public deleteImage(
     args: DeleteImageCommandInput,
@@ -637,12 +584,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Deletes an image pipeline.
-   *     </p>
-   *
+   * <p> Deletes an image pipeline. </p>
    */
   public deleteImagePipeline(
     args: DeleteImagePipelineCommandInput,
@@ -677,12 +619,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Deletes an image recipe.
-   *     </p>
-   *
+   * <p> Deletes an image recipe. </p>
    */
   public deleteImageRecipe(
     args: DeleteImageRecipeCommandInput,
@@ -717,12 +654,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Deletes an infrastructure configuration.
-   *     </p>
-   *
+   * <p> Deletes an infrastructure configuration. </p>
    */
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
@@ -769,12 +701,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets a component object.
-   *     </p>
-   *
+   * <p> Gets a component object. </p>
    */
   public getComponent(
     args: GetComponentCommandInput,
@@ -809,12 +736,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets a component policy.
-   *     </p>
-   *
+   * <p> Gets a component policy. </p>
    */
   public getComponentPolicy(
     args: GetComponentPolicyCommandInput,
@@ -849,12 +771,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets a distribution configuration.
-   *     </p>
-   *
+   * <p> Gets a distribution configuration. </p>
    */
   public getDistributionConfiguration(
     args: GetDistributionConfigurationCommandInput,
@@ -889,12 +806,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets an image.
-   *     </p>
-   *
+   * <p> Gets an image. </p>
    */
   public getImage(
     args: GetImageCommandInput,
@@ -929,12 +841,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets an image pipeline.
-   *     </p>
-   *
+   * <p> Gets an image pipeline. </p>
    */
   public getImagePipeline(
     args: GetImagePipelineCommandInput,
@@ -969,12 +876,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets an image policy.
-   *     </p>
-   *
+   * <p> Gets an image policy. </p>
    */
   public getImagePolicy(
     args: GetImagePolicyCommandInput,
@@ -1009,12 +911,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets an image recipe.
-   *     </p>
-   *
+   * <p> Gets an image recipe. </p>
    */
   public getImageRecipe(
     args: GetImageRecipeCommandInput,
@@ -1049,12 +946,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets an image recipe policy.
-   *     </p>
-   *
+   * <p> Gets an image recipe policy. </p>
    */
   public getImageRecipePolicy(
     args: GetImageRecipePolicyCommandInput,
@@ -1089,12 +981,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Gets a infrastructure configuration.
-   *     </p>
-   *
+   * <p> Gets a infrastructure configuration. </p>
    */
   public getInfrastructureConfiguration(
     args: GetInfrastructureConfigurationCommandInput,
@@ -1132,12 +1019,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Imports a component and transforms its data into a component document.
-   *     </p>
-   *
+   * <p> Imports a component and transforms its data into a component document. </p>
    */
   public importComponent(
     args: ImportComponentCommandInput,
@@ -1172,12 +1054,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Returns the list of component build versions for the specified semantic version.
-   *     </p>
-   *
+   * <p> Returns the list of component build versions for the specified semantic version. </p>
    */
   public listComponentBuildVersions(
     args: ListComponentBuildVersionsCommandInput,
@@ -1212,12 +1089,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *
-   *       Returns the list of component build versions for the specified semantic version.
-   *     </p>
-   *
+   * <p> Returns the list of component build versions for the specified semantic version. </p>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -1252,11 +1124,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Returns a list of distribution configurations.
-   *     </p>
-   *
+   * <p> Returns a list of distribution configurations. </p>
    */
   public listDistributionConfigurations(
     args: ListDistributionConfigurationsCommandInput,
@@ -1294,11 +1162,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Returns a list of distribution configurations.
-   *     </p>
-   *
+   * <p> Returns a list of distribution configurations. </p>
    */
   public listImageBuildVersions(
     args: ListImageBuildVersionsCommandInput,
@@ -1333,11 +1197,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Returns a list of images created by the specified pipeline.
-   *     </p>
-   *
+   * <p> Returns a list of images created by the specified pipeline. </p>
    */
   public listImagePipelineImages(
     args: ListImagePipelineImagesCommandInput,
@@ -1372,10 +1232,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of image pipelines.
-   *     </p>
-   *
+   * <p>Returns a list of image pipelines. </p>
    */
   public listImagePipelines(
     args: ListImagePipelinesCommandInput,
@@ -1410,11 +1267,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Returns a list of image recipes.
-   *     </p>
-   *
+   * <p> Returns a list of image recipes. </p>
    */
   public listImageRecipes(
     args: ListImageRecipesCommandInput,
@@ -1449,11 +1302,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Returns the list of image build versions for the specified semantic version.
-   *     </p>
-   *
+   * <p> Returns the list of image build versions for the specified semantic version. </p>
    */
   public listImages(
     args: ListImagesCommandInput,
@@ -1488,11 +1337,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Returns a list of infrastructure configurations.
-   *     </p>
-   *
+   * <p> Returns a list of infrastructure configurations. </p>
    */
   public listInfrastructureConfigurations(
     args: ListInfrastructureConfigurationsCommandInput,
@@ -1533,11 +1378,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Returns the list of tags for the specified resource.
-   *     </p>
-   *
+   * <p> Returns the list of tags for the specified resource. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1572,11 +1413,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Applies a policy to a component.
-   *     </p>
-   *
+   * <p> Applies a policy to a component. </p>
    */
   public putComponentPolicy(
     args: PutComponentPolicyCommandInput,
@@ -1611,11 +1448,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Applies a policy to an image.
-   *     </p>
-   *
+   * <p> Applies a policy to an image. </p>
    */
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
@@ -1650,11 +1483,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Applies a policy to an image recipe.
-   *     </p>
-   *
+   * <p> Applies a policy to an image recipe. </p>
    */
   public putImageRecipePolicy(
     args: PutImageRecipePolicyCommandInput,
@@ -1689,11 +1518,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Manually triggers a pipeline to create an image.
-   *     </p>
-   *
+   * <p> Manually triggers a pipeline to create an image. </p>
    */
   public startImagePipelineExecution(
     args: StartImagePipelineExecutionCommandInput,
@@ -1728,11 +1553,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Adds a tag to a resource.
-   *     </p>
-   *
+   * <p> Adds a tag to a resource. </p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1767,11 +1588,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Removes a tag from a resource.
-   *     </p>
-   *
+   * <p> Removes a tag from a resource. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1806,11 +1623,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.
-   *     </p>
-   *
+   * <p> Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
    */
   public updateDistributionConfiguration(
     args: UpdateDistributionConfigurationCommandInput,
@@ -1848,11 +1661,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.
-   *     </p>
-   *
+   * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
    */
   public updateImagePipeline(
     args: UpdateImagePipelineCommandInput,
@@ -1887,11 +1696,7 @@ export class imagebuilder extends imagebuilderClient {
   }
 
   /**
-   *
-   *          <p>
-   *       Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.
-   *     </p>
-   *
+   * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
    */
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,

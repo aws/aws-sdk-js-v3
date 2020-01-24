@@ -102,8 +102,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>Amazon Kinesis Analytics</fullname>
+ * <fullname>Amazon Kinesis Analytics</fullname>
  *         <p>
  *             <b>Overview</b>
  *          </p>
@@ -113,20 +112,16 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         <p>This is the <i>Amazon Kinesis Analytics v1 API Reference</i>.
  *             The Amazon Kinesis Analytics Developer Guide provides additional information.
  *             </p>
- *
- *
  */
 export class KinesisAnalytics extends KinesisAnalyticsClient {
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Adds a CloudWatch log stream to monitor application configuration errors. For more
    *             information about using CloudWatch log streams with Amazon Kinesis Analytics
    *             applications, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
    *                 CloudWatch Logs</a>.</p>
-   *
    */
   public addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
@@ -173,8 +168,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>
@@ -191,9 +185,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *         </p>
    *         <p>This operation requires permissions to perform the
    *             <code>kinesisanalytics:AddApplicationInput</code> action.</p>
-   *
-   *
-   *
    */
   public addApplicationInput(
     args: AddApplicationInputCommandInput,
@@ -228,14 +219,12 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Adds an <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to an application. An input processor preprocesses records on the input stream
    *             before the application's SQL code executes. Currently, the only input processor available is
    *             <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
-   *
    */
   public addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
@@ -282,8 +271,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Adds an external destination to your Amazon Kinesis Analytics application.</p>
@@ -303,9 +291,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *         <p>For the limits on the number of application inputs and outputs
    *             you can configure, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.</p>
    *         <p>This operation requires permissions to perform the <code>kinesisanalytics:AddApplicationOutput</code> action.</p>
-   *
-   *
-   *
    */
   public addApplicationOutput(
     args: AddApplicationOutputCommandInput,
@@ -340,8 +325,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Adds a reference data source to an existing application.</p>
@@ -355,7 +339,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *         <p>
    *             This operation requires permissions to perform the <code>kinesisanalytics:AddApplicationOutput</code> action.
    *         </p>
-   *
    */
   public addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
@@ -402,8 +385,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *
@@ -430,8 +412,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *             For introductory exercises to create an Amazon Kinesis Analytics application, see
    *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html">Getting Started</a>.
    *         </p>
-   *
-   *
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -466,14 +446,12 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Deletes the specified application. Amazon Kinesis Analytics halts application execution and deletes the application, including any application artifacts (such as in-application streams, reference table, and application code).</p>
    *
    *         <p>This operation requires permissions to perform the <code>kinesisanalytics:DeleteApplication</code> action.</p>
-   *
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -508,14 +486,12 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Deletes a CloudWatch log stream from an application. For more information about
    *             using CloudWatch log streams with Amazon Kinesis Analytics applications, see
    *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon CloudWatch Logs</a>.</p>
-   *
    */
   public deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
@@ -562,12 +538,10 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Deletes an <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> from an input.</p>
-   *
    */
   public deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
@@ -618,14 +592,12 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Deletes output destination configuration from your application configuration. Amazon Kinesis Analytics will no longer write data from the corresponding in-application stream to the external output destination.</p>
    *         <p>This operation requires permissions to perform the
    *             <code>kinesisanalytics:DeleteApplicationOutput</code> action.</p>
-   *
    */
   public deleteApplicationOutput(
     args: DeleteApplicationOutputCommandInput,
@@ -660,8 +632,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Deletes a reference data source configuration from the specified application configuration.</p>
@@ -670,7 +641,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *
    *         <p>This operation requires permissions to perform the <code>kinesisanalytics.DeleteApplicationReferenceDataSource</code>
    *         action.</p>
-   *
    */
   public deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
@@ -717,8 +687,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Returns information about a specific Amazon Kinesis Analytics application.</p>
@@ -728,7 +697,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *             action. You can use <code>DescribeApplication</code> to get the current application versionId, which you need to call other
    *             operations such as <code>Update</code>.
    *         </p>
-   *
    */
   public describeApplication(
     args: DescribeApplicationCommandInput,
@@ -763,8 +731,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Infers a schema by evaluating sample records on the specified streaming source (Amazon Kinesis stream or Amazon Kinesis Firehose delivery stream) or S3 object. In the response, the operation returns the inferred schema and also the sample records that the operation used to infer the schema.</p>
@@ -779,8 +746,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *             This operation requires permissions to perform the
    *             <code>kinesisanalytics:DiscoverInputSchema</code> action.
    *         </p>
-   *
-   *
    */
   public discoverInputSchema(
     args: DiscoverInputSchemaCommandInput,
@@ -815,8 +780,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Returns a list of Amazon Kinesis Analytics applications in your account.
@@ -833,8 +797,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>.</p>
    *         <p>This operation requires permissions to perform the
    *             <code>kinesisanalytics:ListApplications</code> action.</p>
-   *
-   *
    */
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -869,9 +831,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the list of key-value tags assigned to the application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
-   *
+   * <p>Retrieves the list of key-value tags assigned to the application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -906,8 +866,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Starts the specified Amazon Kinesis Analytics application. After creating an application, you must exclusively call this operation to start your application.</p>
@@ -919,8 +878,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *             the input by calling the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_StopApplication.html">StopApplication</a> operation.</p>
    *         <p>This operation requires permissions to perform the
    *             <code>kinesisanalytics:StartApplication</code> action.</p>
-   *
-   *
    */
   public startApplication(
     args: StartApplicationCommandInput,
@@ -955,8 +912,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Stops the application from processing input data. You can stop
@@ -967,7 +923,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *             application stops processing data, and there is no output written to the destination. </p>
    *         <p>This operation requires permissions to perform the
    *             <code>kinesisanalytics:StopApplication</code> action.</p>
-   *
    */
   public stopApplication(
     args: StopApplicationCommandInput,
@@ -1002,10 +957,8 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more key-value tags to a Kinesis Analytics application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+   * <p>Adds one or more key-value tags to a Kinesis Analytics application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
    *       For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1040,9 +993,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Removes one or more tags from a Kinesis Analytics application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
-   *
+   * <p>Removes one or more tags from a Kinesis Analytics application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1077,8 +1028,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
    *          </note>
    *         <p>Updates an existing Amazon Kinesis Analytics application. Using this API,
@@ -1088,7 +1038,6 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
    *             each time you update your application. </p>
    *         <p>This operation requires permission for the
    *             <code>kinesisanalytics:UpdateApplication</code> action.</p>
-   *
    */
   public updateApplication(
     args: UpdateApplicationCommandInput,

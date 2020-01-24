@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  Cluster,
-  ModifySnapshotCopyRetentionPeriodMessage
+  ModifySnapshotCopyRetentionPeriodMessage,
+  ModifySnapshotCopyRetentionPeriodResult
 } from "../models/index";
 import {
   deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifySnapshotCopyRetentionPeriodCommandInput = ModifySnapshotCopyRetentionPeriodMessage;
-export type ModifySnapshotCopyRetentionPeriodCommandOutput = Cluster;
+export type ModifySnapshotCopyRetentionPeriodCommandOutput = ModifySnapshotCopyRetentionPeriodResult;
 
 export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   ModifySnapshotCopyRetentionPeriodCommandInput,

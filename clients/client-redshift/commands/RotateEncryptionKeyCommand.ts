@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, RotateEncryptionKeyMessage } from "../models/index";
+import {
+  RotateEncryptionKeyMessage,
+  RotateEncryptionKeyResult
+} from "../models/index";
 import {
   deserializeAws_queryRotateEncryptionKeyCommand,
   serializeAws_queryRotateEncryptionKeyCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RotateEncryptionKeyCommandInput = RotateEncryptionKeyMessage;
-export type RotateEncryptionKeyCommandOutput = Cluster;
+export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult;
 
 export class RotateEncryptionKeyCommand extends $Command<
   RotateEncryptionKeyCommandInput,

@@ -702,8 +702,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Identity and Access Management</fullname>
+ * <fullname>AWS Identity and Access Management</fullname>
  *          <p>AWS Identity and Access Management (IAM) is a web service that you can use to manage
  *       users and user permissions under your AWS account. This guide provides descriptions of IAM
  *       actions that you can call programmatically. For general information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a>. For the user
@@ -760,17 +759,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *           request using an access key ID and secret access key. </p>
  *             </li>
  *          </ul>
- *
  */
 export class IAM extends IAMClient {
   /**
-   *
-   *          <p>Adds a new client ID (also known as audience) to the list of client IDs already
+   * <p>Adds a new client ID (also known as audience) to the list of client IDs already
    *          registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
    *          <p>This operation is idempotent; it does not fail or return an error if you add an existing
    *          client ID to the provider.</p>
-   *
-   *
    */
   public addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
@@ -817,8 +812,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds the specified IAM role to the specified instance profile. An instance profile can
+   * <p>Adds the specified IAM role to the specified instance profile. An instance profile can
    *          contain only one role, and this limit cannot be increased. You can remove the existing role
    *          and then add a different role to an instance profile. You must then wait for the change to
    *          appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a>.
@@ -831,8 +825,6 @@ export class IAM extends IAMClient {
    *          </note>
    *          <p>For more information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>. For more
    *          information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance Profiles</a>.</p>
-   *
-   *
    */
   public addRoleToInstanceProfile(
     args: AddRoleToInstanceProfileCommandInput,
@@ -867,10 +859,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds the specified user to the specified group.</p>
-   *
-   *
+   * <p>Adds the specified user to the specified group.</p>
    */
   public addUserToGroup(
     args: AddUserToGroupCommandInput,
@@ -905,14 +894,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Attaches the specified managed policy to the specified IAM group.</p>
+   * <p>Attaches the specified managed policy to the specified IAM group.</p>
    *          <p>You use this API to attach a managed policy to a group. To embed an inline policy in a
    *          group, use <a>PutGroupPolicy</a>.</p>
    *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public attachGroupPolicy(
     args: AttachGroupPolicyCommandInput,
@@ -947,8 +933,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Attaches the specified managed policy to the specified IAM role. When you attach a
+   * <p>Attaches the specified managed policy to the specified IAM role. When you attach a
    *          managed policy to a role, the managed policy becomes part of the role's permission (access)
    *          policy.</p>
    *          <note>
@@ -960,8 +945,6 @@ export class IAM extends IAMClient {
    *          inline policy in a role, use <a>PutRolePolicy</a>. For more information about
    *          policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public attachRolePolicy(
     args: AttachRolePolicyCommandInput,
@@ -996,14 +979,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Attaches the specified managed policy to the specified user.</p>
+   * <p>Attaches the specified managed policy to the specified user.</p>
    *          <p>You use this API to attach a <i>managed</i> policy to a user. To embed an
    *          inline policy in a user, use <a>PutUserPolicy</a>.</p>
    *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public attachUserPolicy(
     args: AttachUserPolicyCommandInput,
@@ -1038,14 +1018,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Changes the password of the IAM user who is calling this operation. The AWS account
+   * <p>Changes the password of the IAM user who is calling this operation. The AWS account
    *          root user password is not affected by this operation.</p>
    *          <p>To change the password for a different user, see <a>UpdateLoginProfile</a>.
    *          For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing Passwords</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public changePassword(
     args: ChangePasswordCommandInput,
@@ -1080,8 +1057,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Creates a new AWS secret access key and corresponding AWS access key ID for the
+   * <p> Creates a new AWS secret access key and corresponding AWS access key ID for the
    *          specified user. The default status for new keys is <code>Active</code>.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *          the AWS access key ID signing the request. This operation works for access keys under the
@@ -1095,8 +1071,6 @@ export class IAM extends IAMClient {
    *             if you want to be able to access it again. If a secret key is lost, you can delete the
    *             access keys for the associated user and then create new keys.</p>
    *          </important>
-   *
-   *
    */
   public createAccessKey(
     args: CreateAccessKeyCommandInput,
@@ -1131,13 +1105,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates an alias for your AWS account. For information about using an AWS account
+   * <p>Creates an alias for your AWS account. For information about using an AWS account
    *          alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an
    *             Alias for Your AWS Account ID</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createAccountAlias(
     args: CreateAccountAliasCommandInput,
@@ -1172,12 +1143,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates a new group.</p>
+   * <p>Creates a new group.</p>
    *          <p> For information about the number of groups you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
    *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createGroup(
     args: CreateGroupCommandInput,
@@ -1212,13 +1180,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Creates a new instance profile. For information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
+   * <p> Creates a new instance profile. For information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
    *             Profiles</a>.</p>
    *          <p> For information about the number of instance profiles you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
    *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
@@ -1253,12 +1218,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Creates a password for the specified user, giving the user the ability to access AWS
+   * <p> Creates a password for the specified user, giving the user the ability to access AWS
    *          services through the AWS Management Console. For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
    *             Passwords</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createLoginProfile(
     args: CreateLoginProfileCommandInput,
@@ -1293,8 +1255,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
+   * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
    *          <p>The OIDC provider that you create with this operation can be used as a principal in a
    *          role's trust policy. Such a policy establishes a trust relationship between AWS and the
    *          OIDC provider.</p>
@@ -1317,8 +1278,6 @@ export class IAM extends IAMClient {
    *             <p>The trust for the OIDC provider is derived from the IAM provider that this
    *             operation creates. Therefore, it is best to limit access to the <a>CreateOpenIDConnectProvider</a> operation to highly privileged users.</p>
    *          </note>
-   *
-   *
    */
   public createOpenIDConnectProvider(
     args: CreateOpenIDConnectProviderCommandInput,
@@ -1353,16 +1312,13 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates a new managed policy for your AWS account.</p>
+   * <p>Creates a new managed policy for your AWS account.</p>
    *          <p>This operation creates a policy version with a version identifier of <code>v1</code> and
    *          sets v1 as the policy's default version. For more information about policy versions, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed Policies</a> in the
    *          <i>IAM User Guide</i>.</p>
    *          <p>For more information about managed policies in general, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createPolicy(
     args: CreatePolicyCommandInput,
@@ -1397,8 +1353,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates a new version of the specified managed policy. To update a managed policy, you
+   * <p>Creates a new version of the specified managed policy. To update a managed policy, you
    *          create a new policy version. A managed policy can have up to five versions. If the policy
    *          has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p>
    *          <p>Optionally, you can set the new version as the policy's default version. The default
@@ -1406,8 +1361,6 @@ export class IAM extends IAMClient {
    *          the policy is attached.</p>
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
@@ -1442,14 +1395,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates a new role for your AWS account. For more information about roles, go to
+   * <p>Creates a new role for your AWS account. For more information about roles, go to
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
    *             Roles</a>. For information about limitations on role names and the number of roles
    *          you can create, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in
    *          the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createRole(
     args: CreateRoleCommandInput,
@@ -1484,8 +1434,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML
+   * <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML
    *          2.0.</p>
    *          <p>The SAML provider resource that you create with this operation can be used as a
    *          principal in an IAM role's trust policy. Such a policy can enable federated users who
@@ -1503,8 +1452,6 @@ export class IAM extends IAMClient {
    *          <p> For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling SAML 2.0
    *             Federated Users to Access the AWS Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
    *             Federation</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createSAMLProvider(
     args: CreateSAMLProviderCommandInput,
@@ -1539,8 +1486,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates an IAM role that is linked to a specific AWS service. The service controls
+   * <p>Creates an IAM role that is linked to a specific AWS service. The service controls
    *          the attached policies and when the role can be deleted. This helps ensure that the service
    *          is not broken by an unexpectedly changed or deleted role, which could put your AWS
    *          resources into an unknown state. Allowing the service to control the role helps improve
@@ -1549,7 +1495,6 @@ export class IAM extends IAMClient {
    *          in the <i>IAM User Guide</i>. </p>
    *          <p>To attach a policy to this service-linked role, you must make the request using the
    *          AWS service that depends on this role.</p>
-   *
    */
   public createServiceLinkedRole(
     args: CreateServiceLinkedRoleCommandInput,
@@ -1584,8 +1529,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Generates a set of credentials consisting of a user name and password that can be used
+   * <p>Generates a set of credentials consisting of a user name and password that can be used
    *          to access the service specified in the request. These credentials are generated by IAM,
    *          and can be used only for the specified service. </p>
    *          <p>You can have a maximum of two sets of service-specific credentials for each supported
@@ -1595,8 +1539,6 @@ export class IAM extends IAMClient {
    *          <p>For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">Using IAM with AWS CodeCommit: Git
    *             Credentials, SSH Keys, and AWS Access Keys</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createServiceSpecificCredential(
     args: CreateServiceSpecificCredentialCommandInput,
@@ -1634,13 +1576,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates a new IAM user for your AWS account.</p>
+   * <p>Creates a new IAM user for your AWS account.</p>
    *          <p> For information about limitations on the number of IAM users you can create, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
    *             on IAM Entities</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public createUser(
     args: CreateUserCommandInput,
@@ -1675,8 +1614,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Creates a new virtual MFA device for the AWS account. After creating the virtual MFA,
+   * <p>Creates a new virtual MFA device for the AWS account. After creating the virtual MFA,
    *          use <a>EnableMFADevice</a> to attach the MFA device to an IAM user. For more
    *          information about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a Virtual MFA
    *             Device</a> in the <i>IAM User Guide</i>.</p>
@@ -1689,8 +1627,6 @@ export class IAM extends IAMClient {
    *             device, you should ensure that the information is destroyed following secure
    *             procedures.</p>
    *          </important>
-   *
-   *
    */
   public createVirtualMFADevice(
     args: CreateVirtualMFADeviceCommandInput,
@@ -1725,14 +1661,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deactivates the specified MFA device and removes it from association with the user name
+   * <p>Deactivates the specified MFA device and removes it from association with the user name
    *          for which it was originally enabled.</p>
    *          <p>For more information about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a Virtual
    *             Multi-factor Authentication (MFA) Device</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deactivateMFADevice(
     args: DeactivateMFADeviceCommandInput,
@@ -1767,14 +1700,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the access key pair associated with the specified IAM user.</p>
+   * <p>Deletes the access key pair associated with the specified IAM user.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *          the AWS access key ID signing the request. This operation works for access keys under the
    *          AWS account. Consequently, you can use this operation to manage AWS account root user
    *          credentials even if the AWS account has no associated users.</p>
-   *
-   *
    */
   public deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
@@ -1809,13 +1739,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Deletes the specified AWS account alias. For information about using an AWS account
+   * <p> Deletes the specified AWS account alias. For information about using an AWS account
    *          alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an
    *             Alias for Your AWS Account ID</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deleteAccountAlias(
     args: DeleteAccountAliasCommandInput,
@@ -1850,10 +1777,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the password policy for the AWS account. There are no parameters.</p>
-   *
-   *
+   * <p>Deletes the password policy for the AWS account. There are no parameters.</p>
    */
   public deleteAccountPasswordPolicy(
     args: DeleteAccountPasswordPolicyCommandInput,
@@ -1888,11 +1812,8 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified IAM group. The group must not contain any users or have any
+   * <p>Deletes the specified IAM group. The group must not contain any users or have any
    *          attached policies.</p>
-   *
-   *
    */
   public deleteGroup(
     args: DeleteGroupCommandInput,
@@ -1927,16 +1848,13 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified inline policy that is embedded in the specified IAM
+   * <p>Deletes the specified inline policy that is embedded in the specified IAM
    *          group.</p>
    *          <p>A group can also have managed policies attached to it. To detach a managed policy from a
    *          group, use <a>DetachGroupPolicy</a>. For more information about policies, refer
    *          to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
    *             Policies and Inline Policies</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deleteGroupPolicy(
     args: DeleteGroupPolicyCommandInput,
@@ -1971,8 +1889,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified instance profile. The instance profile must not have an associated
+   * <p>Deletes the specified instance profile. The instance profile must not have an associated
    *          role.</p>
    *          <important>
    *             <p>Make sure that you do not have any Amazon EC2 instances running with the instance
@@ -1980,8 +1897,6 @@ export class IAM extends IAMClient {
    *             with a running instance will break any applications running on the instance.</p>
    *          </important>
    *          <p>For more information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance Profiles</a>.</p>
-   *
-   *
    */
   public deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
@@ -2016,8 +1931,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the password for the specified IAM user, which terminates the user's ability
+   * <p>Deletes the password for the specified IAM user, which terminates the user's ability
    *          to access AWS services through the AWS Management Console.</p>
    *          <important>
    *             <p> Deleting a user's password does not prevent a user from accessing AWS through the
@@ -2025,8 +1939,6 @@ export class IAM extends IAMClient {
    *             any access keys inactive or delete them. For more information about making keys inactive
    *             or deleting them, see <a>UpdateAccessKey</a> and <a>DeleteAccessKey</a>. </p>
    *          </important>
-   *
-   *
    */
   public deleteLoginProfile(
     args: DeleteLoginProfileCommandInput,
@@ -2061,15 +1973,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
+   * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
    *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
    *          provider as a principal in their trust policies. Any attempt to assume a role that
    *          references a deleted provider fails.</p>
    *          <p>This operation is idempotent; it does not fail or return an error if you call the
    *          operation for a provider that does not exist.</p>
-   *
-   *
    */
   public deleteOpenIDConnectProvider(
     args: DeleteOpenIDConnectProviderCommandInput,
@@ -2104,8 +2013,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified managed policy.</p>
+   * <p>Deletes the specified managed policy.</p>
    *          <p>Before you can delete a managed policy, you must first detach the policy from all users,
    *          groups, and roles that it is attached to. In addition, you must delete all the policy's
    *          versions. The following steps describe the process for deleting a managed policy:</p>
@@ -2129,8 +2037,6 @@ export class IAM extends IAMClient {
    *          </ul>
    *          <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -2165,15 +2071,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified version from the specified managed policy.</p>
+   * <p>Deletes the specified version from the specified managed policy.</p>
    *          <p>You cannot delete the default version from a policy using this API. To delete the
    *          default version from a policy, use <a>DeletePolicy</a>. To find out which
    *          version of a policy is marked as the default version, use <a>ListPolicyVersions</a>.</p>
    *          <p>For information about versions for managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
@@ -2208,16 +2111,13 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified role. The role must not have any policies attached. For more
+   * <p>Deletes the specified role. The role must not have any policies attached. For more
    *          information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>.</p>
    *          <important>
    *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you are
    *             about to delete. Deleting a role or instance profile that is associated with a running
    *             instance will break any applications running on the instance.</p>
    *          </important>
-   *
-   *
    */
   public deleteRole(
     args: DeleteRoleCommandInput,
@@ -2252,14 +2152,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the permissions boundary for the specified IAM role. </p>
+   * <p>Deletes the permissions boundary for the specified IAM role. </p>
    *          <important>
    *             <p>Deleting the permissions boundary for a role might increase its permissions. For
    *             example, it might allow anyone who assumes the role to perform all the actions granted
    *             in its permissions policies. </p>
    *          </important>
-   *
    */
   public deleteRolePermissionsBoundary(
     args: DeleteRolePermissionsBoundaryCommandInput,
@@ -2294,15 +2192,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified inline policy that is embedded in the specified IAM role.</p>
+   * <p>Deletes the specified inline policy that is embedded in the specified IAM role.</p>
    *          <p>A role can also have managed policies attached to it. To detach a managed policy from a
    *          role, use <a>DetachRolePolicy</a>. For more information about policies, refer to
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
    *             Policies and Inline Policies</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deleteRolePolicy(
     args: DeleteRolePolicyCommandInput,
@@ -2337,16 +2232,13 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes a SAML provider resource in IAM.</p>
+   * <p>Deletes a SAML provider resource in IAM.</p>
    *          <p>Deleting the provider resource from IAM does not update any roles that reference the
    *          SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume
    *          a role that references a non-existent provider resource ARN fails.</p>
    *          <note>
    *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    *          </note>
-   *
-   *
    */
   public deleteSAMLProvider(
     args: DeleteSAMLProviderCommandInput,
@@ -2381,14 +2273,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified SSH public key.</p>
+   * <p>Deletes the specified SSH public key.</p>
    *          <p>The SSH public key deleted by this operation is used only for authenticating the
    *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
    *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
    *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   *
-   *
    */
   public deleteSSHPublicKey(
     args: DeleteSSHPublicKeyCommandInput,
@@ -2423,8 +2312,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified server certificate.</p>
+   * <p>Deletes the specified server certificate.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
    *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
    *          also includes a list of AWS services that can use the server certificates that you manage
@@ -2438,8 +2326,6 @@ export class IAM extends IAMClient {
    *             before using this command to delete the certificate. For more information, go to <a href="https://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html">DeleteLoadBalancerListeners</a> in the <i>Elastic Load Balancing API
    *                Reference</i>.</p>
    *          </important>
-   *
-   *
    */
   public deleteServerCertificate(
     args: DeleteServerCertificateCommandInput,
@@ -2474,8 +2360,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Submits a service-linked role deletion request and returns a
+   * <p>Submits a service-linked role deletion request and returns a
    *          <code>DeletionTaskId</code>, which you can use to check the status of the deletion. Before
    *          you call this operation, confirm that the role has no active sessions and that any
    *          resources used by the role in the linked service are deleted. If you call this operation
@@ -2490,8 +2375,6 @@ export class IAM extends IAMClient {
    *          <p>For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles
    *             Terms and Concepts: AWS Service-Linked Role</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deleteServiceLinkedRole(
     args: DeleteServiceLinkedRoleCommandInput,
@@ -2526,10 +2409,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified service-specific credential.</p>
-   *
-   *
+   * <p>Deletes the specified service-specific credential.</p>
    */
   public deleteServiceSpecificCredential(
     args: DeleteServiceSpecificCredentialCommandInput,
@@ -2567,14 +2447,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes a signing certificate associated with the specified IAM user.</p>
+   * <p>Deletes a signing certificate associated with the specified IAM user.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *          the AWS access key ID signing the request. This operation works for access keys under the
    *          AWS account. Consequently, you can use this operation to manage AWS account root user
    *          credentials even if the AWS account has no associated IAM users.</p>
-   *
-   *
    */
   public deleteSigningCertificate(
     args: DeleteSigningCertificateCommandInput,
@@ -2609,8 +2486,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified IAM user. Unlike the AWS Management Console, when you delete a user
+   * <p>Deletes the specified IAM user. Unlike the AWS Management Console, when you delete a user
    *          programmatically, you must delete the items attached to the user manually, or the deletion
    *          fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting an IAM
    *             User</a>. Before attempting to delete a user, remove the following items:</p>
@@ -2644,8 +2520,6 @@ export class IAM extends IAMClient {
    *                <p>Group memberships (<a>RemoveUserFromGroup</a>)</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -2680,14 +2554,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the permissions boundary for the specified IAM user.</p>
+   * <p>Deletes the permissions boundary for the specified IAM user.</p>
    *          <important>
    *             <p>Deleting the permissions boundary for a user might increase its permissions by
    *             allowing the user to perform all the actions granted in its permissions policies.
    *          </p>
    *          </important>
-   *
    */
   public deleteUserPermissionsBoundary(
     args: DeleteUserPermissionsBoundaryCommandInput,
@@ -2722,15 +2594,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified inline policy that is embedded in the specified IAM user.</p>
+   * <p>Deletes the specified inline policy that is embedded in the specified IAM user.</p>
    *          <p>A user can also have managed policies attached to it. To detach a managed policy from a
    *          user, use <a>DetachUserPolicy</a>. For more information about policies, refer to
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
    *             Policies and Inline Policies</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public deleteUserPolicy(
     args: DeleteUserPolicyCommandInput,
@@ -2765,15 +2634,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Deletes a virtual MFA device.</p>
+   * <p>Deletes a virtual MFA device.</p>
    *          <note>
    *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
    *             information about deactivating MFA devices, see <a>DeactivateMFADevice</a>.
    *          </p>
    *          </note>
-   *
-   *
    */
   public deleteVirtualMFADevice(
     args: DeleteVirtualMFADeviceCommandInput,
@@ -2808,14 +2674,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified managed policy from the specified IAM group.</p>
+   * <p>Removes the specified managed policy from the specified IAM group.</p>
    *          <p>A group can also have inline policies embedded with it. To delete an inline policy, use
    *          the <a>DeleteGroupPolicy</a> API. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
    *             Policies and Inline Policies</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public detachGroupPolicy(
     args: DetachGroupPolicyCommandInput,
@@ -2850,14 +2713,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified managed policy from the specified role.</p>
+   * <p>Removes the specified managed policy from the specified role.</p>
    *          <p>A role can also have inline policies embedded with it. To delete an inline policy, use
    *          the <a>DeleteRolePolicy</a> API. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
    *             Policies and Inline Policies</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public detachRolePolicy(
     args: DetachRolePolicyCommandInput,
@@ -2892,14 +2752,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified managed policy from the specified user.</p>
+   * <p>Removes the specified managed policy from the specified user.</p>
    *          <p>A user can also have inline policies embedded with it. To delete an inline policy, use
    *          the <a>DeleteUserPolicy</a> API. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
    *             Policies and Inline Policies</a> in the
    *          <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public detachUserPolicy(
     args: DetachUserPolicyCommandInput,
@@ -2934,12 +2791,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Enables the specified MFA device and associates it with the specified IAM user. When
+   * <p>Enables the specified MFA device and associates it with the specified IAM user. When
    *          enabled, the MFA device is required for every subsequent login by the IAM user associated
    *          with the device.</p>
-   *
-   *
    */
   public enableMFADevice(
     args: EnableMFADeviceCommandInput,
@@ -2974,12 +2828,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Generates a credential report for the AWS account. For more information about the
+   * <p> Generates a credential report for the AWS account. For more information about the
    *          credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting Credential Reports</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public generateCredentialReport(
     args: GenerateCredentialReportCommandInput,
@@ -3014,8 +2865,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Generates a report for service last accessed data for AWS Organizations. You can generate a report
+   * <p>Generates a report for service last accessed data for AWS Organizations. You can generate a report
    *          for any entities (organization root, organizational unit, or account) or policies in your
    *          organization.</p>
    *          <p>To call this operation, you must be signed in using your AWS Organizations master account
@@ -3141,8 +2991,6 @@ export class IAM extends IAMClient {
    *          </note>
    *          <p>For more information about service last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing Policy Scope by
    *             Viewing User Activity</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
@@ -3189,8 +3037,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Generates a report that includes details about when an IAM resource (user, group,
+   * <p>Generates a report that includes details about when an IAM resource (user, group,
    *          role, or policy) was last used in an attempt to access AWS services. Recent activity
    *          usually appears within four hours. IAM reports activity for the last 365 days, or less if
    *          your Region began supporting this feature within the last year. For more information, see
@@ -3237,8 +3084,6 @@ export class IAM extends IAMClient {
    *          </note>
    *          <p>For more information about service last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing Policy Scope by
    *             Viewing User Activity</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
@@ -3285,12 +3130,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about when the specified access key was last used. The information
+   * <p>Retrieves information about when the specified access key was last used. The information
    *          includes the date and time of last use, along with the AWS service and Region that were
    *          specified in the last request made with that key.</p>
-   *
-   *
    */
   public getAccessKeyLastUsed(
     args: GetAccessKeyLastUsedCommandInput,
@@ -3325,8 +3167,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about all IAM users, groups, roles, and policies in your AWS
+   * <p>Retrieves information about all IAM users, groups, roles, and policies in your AWS
    *          account, including their relationships to one another. Use this API to obtain a snapshot of
    *          the configuration of IAM permissions (users, groups, roles, and policies) in your
    *          account.</p>
@@ -3340,8 +3181,6 @@ export class IAM extends IAMClient {
    *          <p>You can optionally filter the results using the
    *             <code>Filter</code> parameter. You can paginate the results using the
    *             <code>MaxItems</code> and <code>Marker</code> parameters.</p>
-   *
-   *
    */
   public getAccountAuthorizationDetails(
     args: GetAccountAuthorizationDetailsCommandInput,
@@ -3379,12 +3218,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the password policy for the AWS account. For more information about using a
+   * <p>Retrieves the password policy for the AWS account. For more information about using a
    *          password policy, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM Password
    *             Policy</a>.</p>
-   *
-   *
    */
   public getAccountPasswordPolicy(
     args: GetAccountPasswordPolicyCommandInput,
@@ -3419,13 +3255,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about IAM entity usage and IAM quotas in the AWS
+   * <p>Retrieves information about IAM entity usage and IAM quotas in the AWS
    *          account.</p>
    *          <p> For information about limitations on IAM entities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in
    *          the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public getAccountSummary(
     args: GetAccountSummaryCommandInput,
@@ -3460,8 +3293,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of all of the context keys referenced in the input policies. The policies
+   * <p>Gets a list of all of the context keys referenced in the input policies. The policies
    *          are supplied as a list of one or more strings. To get the context keys from policies
    *          associated with an IAM user, group, or role, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
    *          <p>Context keys are variables maintained by AWS and its services that provide details
@@ -3470,8 +3302,6 @@ export class IAM extends IAMClient {
    *          understand what key names and values you must supply when you call <a>SimulateCustomPolicy</a>. Note that all parameters are shown in unencoded form
    *          here for clarity but must be URL encoded to be included as a part of a real HTML
    *          request.</p>
-   *
-   *
    */
   public getContextKeysForCustomPolicy(
     args: GetContextKeysForCustomPolicyCommandInput,
@@ -3506,8 +3336,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of all of the context keys referenced in all the IAM policies that are
+   * <p>Gets a list of all of the context keys referenced in all the IAM policies that are
    *          attached to the specified IAM entity. The entity can be an IAM user, group, or role. If
    *          you specify a user, then the request also includes all of the policies attached to groups
    *          that the user is a member of.</p>
@@ -3523,8 +3352,6 @@ export class IAM extends IAMClient {
    *          about the context of an API query request. Context keys can be evaluated by testing against
    *          a value in an IAM policy. Use <a>GetContextKeysForPrincipalPolicy</a> to
    *          understand what key names and values you must supply when you call <a>SimulatePrincipalPolicy</a>.</p>
-   *
-   *
    */
   public getContextKeysForPrincipalPolicy(
     args: GetContextKeysForPrincipalPolicyCommandInput,
@@ -3565,12 +3392,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Retrieves a credential report for the AWS account. For more information about the
+   * <p> Retrieves a credential report for the AWS account. For more information about the
    *          credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting Credential Reports</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public getCredentialReport(
     args: GetCredentialReportCommandInput,
@@ -3605,11 +3429,8 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
+   * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
    *          the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
-   *
-   *
    */
   public getGroup(
     args: GetGroupCommandInput,
@@ -3644,8 +3465,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the specified inline policy document that is embedded in the specified IAM
+   * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
    *          group.</p>
    *          <note>
    *             <p>Policies returned by this API are URL-encoded compliant
@@ -3659,8 +3479,6 @@ export class IAM extends IAMClient {
    *             <a>GetPolicy</a> to determine the policy's default version, then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
    *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public getGroupPolicy(
     args: GetGroupPolicyCommandInput,
@@ -3695,13 +3513,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p> Retrieves information about the specified instance profile, including the instance
+   * <p> Retrieves information about the specified instance profile, including the instance
    *          profile's path, GUID, ARN, and role. For more information about instance profiles, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
    *             Instance Profiles</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public getInstanceProfile(
     args: GetInstanceProfileCommandInput,
@@ -3736,12 +3551,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the user name and password-creation date for the specified IAM user. If the
+   * <p>Retrieves the user name and password-creation date for the specified IAM user. If the
    *          user has not been assigned a password, the operation returns a 404
    *             (<code>NoSuchEntity</code>) error.</p>
-   *
-   *
    */
   public getLoginProfile(
     args: GetLoginProfileCommandInput,
@@ -3776,11 +3588,8 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
+   * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
    *          in IAM.</p>
-   *
-   *
    */
   public getOpenIDConnectProvider(
     args: GetOpenIDConnectProviderCommandInput,
@@ -3815,8 +3624,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the service last accessed data report for AWS Organizations that was previously generated
+   * <p>Retrieves the service last accessed data report for AWS Organizations that was previously generated
    *          using the <code>
    *                <a>GenerateOrganizationsAccessReport</a>
    *             </code> operation. This
@@ -3833,8 +3641,6 @@ export class IAM extends IAMClient {
    *          recent attempt to access the service. If the operation fails, it returns the reason that it
    *          failed.</p>
    *          <p>By default, the list is sorted by service namespace.</p>
-   *
-   *
    */
   public getOrganizationsAccessReport(
     args: GetOrganizationsAccessReportCommandInput,
@@ -3869,8 +3675,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the specified managed policy, including the policy's default
+   * <p>Retrieves information about the specified managed policy, including the policy's default
    *          version and the total number of IAM users, groups, and roles to which the policy is
    *          attached. To retrieve the list of the specific users, groups, and roles that the policy is
    *          attached to, use the <a>ListEntitiesForPolicy</a> API. This API returns metadata
@@ -3880,8 +3685,6 @@ export class IAM extends IAMClient {
    *          inline policy that is embedded with an IAM user, group, or role, use the <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a> API.</p>
    *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public getPolicy(
     args: GetPolicyCommandInput,
@@ -3916,8 +3719,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the specified version of the specified managed policy,
+   * <p>Retrieves information about the specified version of the specified managed policy,
    *          including the policy document.</p>
    *          <note>
    *             <p>Policies returned by this API are URL-encoded compliant
@@ -3934,8 +3736,6 @@ export class IAM extends IAMClient {
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public getPolicyVersion(
     args: GetPolicyVersionCommandInput,
@@ -3970,8 +3770,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
+   * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
    *          and the role's trust policy that grants permission to assume the role. For more information
    *          about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>.</p>
    *          <note>
@@ -3981,8 +3780,6 @@ export class IAM extends IAMClient {
    *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
    *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
    *          </note>
-   *
-   *
    */
   public getRole(
     args: GetRoleCommandInput,
@@ -4017,8 +3814,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the specified inline policy document that is embedded with the specified IAM
+   * <p>Retrieves the specified inline policy document that is embedded with the specified IAM
    *          role.</p>
    *          <note>
    *             <p>Policies returned by this API are URL-encoded compliant
@@ -4033,8 +3829,6 @@ export class IAM extends IAMClient {
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    *          <p>For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using Roles to Delegate Permissions and
    *             Federate Identities</a>.</p>
-   *
-   *
    */
   public getRolePolicy(
     args: GetRolePolicyCommandInput,
@@ -4069,14 +3863,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
+   * <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
    *          resource object was created or updated.</p>
    *          <note>
    *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    *          </note>
-   *
-   *
    */
   public getSAMLProvider(
     args: GetSAMLProviderCommandInput,
@@ -4111,14 +3902,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the specified SSH public key, including metadata about the key.</p>
+   * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
    *          <p>The SSH public key retrieved by this operation is used only for authenticating the
    *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
    *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
    *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   *
-   *
    */
   public getSSHPublicKey(
     args: GetSSHPublicKeyCommandInput,
@@ -4153,14 +3941,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the specified server certificate stored in IAM.</p>
+   * <p>Retrieves information about the specified server certificate stored in IAM.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
    *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
    *          includes a list of AWS services that can use the server certificates that you manage with
    *          IAM.</p>
-   *
-   *
    */
   public getServerCertificate(
     args: GetServerCertificateCommandInput,
@@ -4195,8 +3980,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a service last accessed report that was created using the
+   * <p>Retrieves a service last accessed report that was created using the
    *             <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
    *             <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to retrieve
    *          the status of your report job. When the report is complete, you can retrieve the generated
@@ -4241,8 +4025,6 @@ export class IAM extends IAMClient {
    *             </li>
    *          </ul>
    *          <p>By default, the list is sorted by service namespace.</p>
-   *
-   *
    */
   public getServiceLastAccessedDetails(
     args: GetServiceLastAccessedDetailsCommandInput,
@@ -4277,8 +4059,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>After you generate a group or policy report using the
+   * <p>After you generate a group or policy report using the
    *             <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
    *             <code>JobId</code> parameter in <code>GetServiceLastAccessedDetailsWithEntities</code>.
    *          This operation retrieves the status of your report job and a list of entities that could
@@ -4303,8 +4084,6 @@ export class IAM extends IAMClient {
    *          operation returns the reason that it failed.</p>
    *          <p>By default, the list of associated entities is sorted by date, with the most recent
    *          access listed first.</p>
-   *
-   *
    */
   public getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
@@ -4351,14 +4130,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the status of your service-linked role deletion. After you use the <a>DeleteServiceLinkedRole</a> API operation to submit a service-linked role for
+   * <p>Retrieves the status of your service-linked role deletion. After you use the <a>DeleteServiceLinkedRole</a> API operation to submit a service-linked role for
    *          deletion, you can use the <code>DeletionTaskId</code> parameter in
    *             <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion. If
    *          the deletion fails, this operation returns the reason that it failed, if that information
    *          is returned by the service.</p>
-   *
-   *
    */
   public getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
@@ -4405,13 +4181,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the specified IAM user, including the user's creation
+   * <p>Retrieves information about the specified IAM user, including the user's creation
    *          date, path, unique ID, and ARN.</p>
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *          the AWS access key ID used to sign the request to this API.</p>
-   *
-   *
    */
   public getUser(
     args: GetUserCommandInput,
@@ -4446,8 +4219,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the specified inline policy document that is embedded in the specified IAM
+   * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
    *          user.</p>
    *          <note>
    *             <p>Policies returned by this API are URL-encoded compliant
@@ -4460,8 +4232,6 @@ export class IAM extends IAMClient {
    *          attached to it. To retrieve a managed policy document that is attached to a user, use <a>GetPolicy</a> to determine the policy's default version. Then use <a>GetPolicyVersion</a> to retrieve the policy document.</p>
    *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public getUserPolicy(
     args: GetUserPolicyCommandInput,
@@ -4496,8 +4266,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the access key IDs associated with the specified IAM user.
+   * <p>Returns information about the access key IDs associated with the specified IAM user.
    *          If there is none, the operation returns an empty list.</p>
    *          <p>Although each user is limited to a small number of keys, you can still paginate the
    *          results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
@@ -4510,8 +4279,6 @@ export class IAM extends IAMClient {
    *             <p>To ensure the security of your AWS account, the secret access key is accessible
    *             only during key and user creation.</p>
    *          </note>
-   *
-   *
    */
   public listAccessKeys(
     args: ListAccessKeysCommandInput,
@@ -4546,12 +4313,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the account alias associated with the AWS account (Note: you can have only one).
+   * <p>Lists the account alias associated with the AWS account (Note: you can have only one).
    *          For information about using an AWS account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an Alias for Your AWS Account ID</a>
    *          in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public listAccountAliases(
     args: ListAccountAliasesCommandInput,
@@ -4586,8 +4350,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists all managed policies that are attached to the specified IAM group.</p>
+   * <p>Lists all managed policies that are attached to the specified IAM group.</p>
    *          <p>An IAM group can also have inline policies embedded with it. To list the inline
    *          policies for a group, use the <a>ListGroupPolicies</a> API. For information
    *          about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
@@ -4597,8 +4360,6 @@ export class IAM extends IAMClient {
    *          to only those matching the specified path prefix. If there are no policies attached to the
    *          specified group (or none that match the specified path prefix), the operation returns an
    *          empty list.</p>
-   *
-   *
    */
   public listAttachedGroupPolicies(
     args: ListAttachedGroupPoliciesCommandInput,
@@ -4633,8 +4394,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists all managed policies that are attached to the specified IAM role.</p>
+   * <p>Lists all managed policies that are attached to the specified IAM role.</p>
    *          <p>An IAM role can also have inline policies embedded with it. To list the inline
    *          policies for a role, use the <a>ListRolePolicies</a> API. For information about
    *          policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
@@ -4644,8 +4404,6 @@ export class IAM extends IAMClient {
    *          to only those matching the specified path prefix. If there are no policies attached to the
    *          specified role (or none that match the specified path prefix), the operation returns an
    *          empty list.</p>
-   *
-   *
    */
   public listAttachedRolePolicies(
     args: ListAttachedRolePoliciesCommandInput,
@@ -4680,8 +4438,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists all managed policies that are attached to the specified IAM user.</p>
+   * <p>Lists all managed policies that are attached to the specified IAM user.</p>
    *          <p>An IAM user can also have inline policies embedded with it. To list the inline
    *          policies for a user, use the <a>ListUserPolicies</a> API. For information about
    *          policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
@@ -4691,8 +4448,6 @@ export class IAM extends IAMClient {
    *          to only those matching the specified path prefix. If there are no policies attached to the
    *          specified group (or none that match the specified path prefix), the operation returns an
    *          empty list.</p>
-   *
-   *
    */
   public listAttachedUserPolicies(
     args: ListAttachedUserPoliciesCommandInput,
@@ -4727,8 +4482,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
+   * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
    *          to.</p>
    *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
    *          particular type of entity (users, groups, or roles). For example, to list only the roles
@@ -4736,8 +4490,6 @@ export class IAM extends IAMClient {
    *             <code>Role</code>.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listEntitiesForPolicy(
     args: ListEntitiesForPolicyCommandInput,
@@ -4772,8 +4524,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the names of the inline policies that are embedded in the specified IAM
+   * <p>Lists the names of the inline policies that are embedded in the specified IAM
    *          group.</p>
    *          <p>An IAM group can also have managed policies attached to it. To list the managed
    *          policies that are attached to a group, use <a>ListAttachedGroupPolicies</a>. For
@@ -4782,8 +4533,6 @@ export class IAM extends IAMClient {
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters. If there are no inline policies embedded with the specified group, the
    *          operation returns an empty list.</p>
-   *
-   *
    */
   public listGroupPolicies(
     args: ListGroupPoliciesCommandInput,
@@ -4818,12 +4567,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the IAM groups that have the specified path prefix.</p>
+   * <p>Lists the IAM groups that have the specified path prefix.</p>
    *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listGroups(
     args: ListGroupsCommandInput,
@@ -4858,12 +4604,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the IAM groups that the specified IAM user belongs to.</p>
+   * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listGroupsForUser(
     args: ListGroupsForUserCommandInput,
@@ -4898,14 +4641,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the instance profiles that have the specified path prefix. If there are none, the
+   * <p>Lists the instance profiles that have the specified path prefix. If there are none, the
    *          operation returns an empty list. For more information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
    *             Profiles</a>.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
@@ -4940,15 +4680,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the instance profiles that have the specified associated IAM role. If there are
+   * <p>Lists the instance profiles that have the specified associated IAM role. If there are
    *          none, the operation returns an empty list. For more information about instance profiles, go
    *          to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
    *             Instance Profiles</a>.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listInstanceProfilesForRole(
     args: ListInstanceProfilesForRoleCommandInput,
@@ -4983,15 +4720,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name, then
+   * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name, then
    *          this operation lists all the MFA devices associated with the specified user. If you do not
    *          specify a user name, IAM determines the user name implicitly based on the AWS access
    *          key ID signing the request for this API.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listMFADevices(
     args: ListMFADevicesCommandInput,
@@ -5026,11 +4760,8 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
+   * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
    *          defined in the AWS account.</p>
-   *
-   *
    */
   public listOpenIDConnectProviders(
     args: ListOpenIDConnectProvidersCommandInput,
@@ -5065,8 +4796,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists all the managed policies that are available in your AWS account, including your
+   * <p>Lists all the managed policies that are available in your AWS account, including your
    *          own customer-defined managed policies and all AWS managed policies.</p>
    *          <p>You can filter the list of policies that is returned using the optional
    *             <code>OnlyAttached</code>, <code>Scope</code>, and <code>PathPrefix</code> parameters.
@@ -5077,8 +4807,6 @@ export class IAM extends IAMClient {
    *          parameters.</p>
    *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -5113,8 +4841,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to
+   * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to
    *          access each specified service.</p>
    *          <note>
    *             <p>This operation does not use other policy types when determining whether a resource
@@ -5154,8 +4881,6 @@ export class IAM extends IAMClient {
    *          returned. To view which managed policy is currently used to set the permissions boundary
    *          for a user or role, use the <a>GetUser</a> or <a>GetRole</a>
    *          operations.</p>
-   *
-   *
    */
   public listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
@@ -5202,13 +4927,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists information about the versions of the specified managed policy, including the
+   * <p>Lists information about the versions of the specified managed policy, including the
    *          version that is currently set as the policy's default version.</p>
    *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
@@ -5243,8 +4965,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the names of the inline policies that are embedded in the specified IAM
+   * <p>Lists the names of the inline policies that are embedded in the specified IAM
    *          role.</p>
    *          <p>An IAM role can also have managed policies attached to it. To list the managed
    *          policies that are attached to a role, use <a>ListAttachedRolePolicies</a>. For
@@ -5253,8 +4974,6 @@ export class IAM extends IAMClient {
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters. If there are no inline policies embedded with the specified role, the operation
    *          returns an empty list.</p>
-   *
-   *
    */
   public listRolePolicies(
     args: ListRolePoliciesCommandInput,
@@ -5289,12 +5008,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags that are attached to the specified role. The returned list of tags is
+   * <p>Lists the tags that are attached to the specified role. The returned list of tags is
    *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
    *         <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public listRoleTags(
     args: ListRoleTagsCommandInput,
@@ -5329,14 +5045,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the IAM roles that have the specified path prefix. If there are none, the
+   * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
    *          operation returns an empty list. For more information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with
    *             Roles</a>.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listRoles(
     args: ListRolesCommandInput,
@@ -5371,13 +5084,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the SAML provider resource objects defined in IAM in the account.</p>
+   * <p>Lists the SAML provider resource objects defined in IAM in the account.</p>
    *          <note>
    *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    *          </note>
-   *
-   *
    */
   public listSAMLProviders(
     args: ListSAMLProvidersCommandInput,
@@ -5412,8 +5122,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the SSH public keys associated with the specified IAM user.
+   * <p>Returns information about the SSH public keys associated with the specified IAM user.
    *          If none exists, the operation returns an empty list.</p>
    *          <p>The SSH public keys returned by this operation are used only for authenticating the
    *          IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
@@ -5421,8 +5130,6 @@ export class IAM extends IAMClient {
    *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
    *          <p>Although each user is limited to a small number of keys, you can still paginate the
    *          results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
-   *
-   *
    */
   public listSSHPublicKeys(
     args: ListSSHPublicKeysCommandInput,
@@ -5457,8 +5164,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the server certificates stored in IAM that have the specified path prefix. If
+   * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
    *          none exist, the operation returns an empty list.</p>
    *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
@@ -5466,8 +5172,6 @@ export class IAM extends IAMClient {
    *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
    *          also includes a list of AWS services that can use the server certificates that you manage
    *          with IAM.</p>
-   *
-   *
    */
   public listServerCertificates(
     args: ListServerCertificatesCommandInput,
@@ -5502,15 +5206,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the service-specific credentials associated with the specified
+   * <p>Returns information about the service-specific credentials associated with the specified
    *          IAM user. If none exists, the operation returns an empty list. The service-specific
    *          credentials returned by this operation are used only for authenticating the IAM user to a
    *          specific service. For more information about using service-specific credentials to
    *          authenticate to an AWS service, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set Up service-specific credentials</a> in
    *          the AWS CodeCommit User Guide.</p>
-   *
-   *
    */
   public listServiceSpecificCredentials(
     args: ListServiceSpecificCredentialsCommandInput,
@@ -5548,8 +5249,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the signing certificates associated with the specified IAM
+   * <p>Returns information about the signing certificates associated with the specified IAM
    *          user. If none exists, the operation returns an empty list.</p>
    *          <p>Although each user is limited to a small number of signing certificates, you can still
    *          paginate the results using the <code>MaxItems</code> and <code>Marker</code>
@@ -5559,8 +5259,6 @@ export class IAM extends IAMClient {
    *          operation works for access keys under the AWS account. Consequently, you can use this
    *          operation to manage AWS account root user credentials even if the AWS account has no
    *          associated users.</p>
-   *
-   *
    */
   public listSigningCertificates(
     args: ListSigningCertificatesCommandInput,
@@ -5595,8 +5293,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the names of the inline policies embedded in the specified IAM user.</p>
+   * <p>Lists the names of the inline policies embedded in the specified IAM user.</p>
    *          <p>An IAM user can also have managed policies attached to it. To list the managed
    *          policies that are attached to a user, use <a>ListAttachedUserPolicies</a>. For
    *          more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
@@ -5604,8 +5301,6 @@ export class IAM extends IAMClient {
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters. If there are no inline policies embedded with the specified user, the operation
    *          returns an empty list.</p>
-   *
-   *
    */
   public listUserPolicies(
     args: ListUserPoliciesCommandInput,
@@ -5640,12 +5335,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags that are attached to the specified user. The returned list of tags is
+   * <p>Lists the tags that are attached to the specified user. The returned list of tags is
    *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
    *         <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public listUserTags(
     args: ListUserTagsCommandInput,
@@ -5680,14 +5372,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the IAM users that have the specified path prefix. If no path prefix is
+   * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
    *          specified, the operation returns all users in the AWS account. If there are none, the
    *          operation returns an empty list.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listUsers(
     args: ListUsersCommandInput,
@@ -5722,15 +5411,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Lists the virtual MFA devices defined in the AWS account by assignment status. If you
+   * <p>Lists the virtual MFA devices defined in the AWS account by assignment status. If you
    *          do not specify an assignment status, the operation returns a list of all virtual MFA
    *          devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
    *             <code>Any</code>.</p>
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
-   *
-   *
    */
   public listVirtualMFADevices(
     args: ListVirtualMFADevicesCommandInput,
@@ -5765,8 +5451,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds or updates an inline policy document that is embedded in the specified IAM
+   * <p>Adds or updates an inline policy document that is embedded in the specified IAM
    *          group.</p>
    *          <p>A user can also have managed policies attached to it. To attach a managed policy to a
    *          group, use <a>AttachGroupPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -5781,8 +5466,6 @@ export class IAM extends IAMClient {
    *             with IAM, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the
    *                <i>IAM User Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public putGroupPolicy(
     args: PutGroupPolicyCommandInput,
@@ -5817,8 +5500,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds or updates the policy that is specified as the IAM role's permissions boundary.
+   * <p>Adds or updates the policy that is specified as the IAM role's permissions boundary.
    *          You can use an AWS managed policy or a customer managed policy to set the boundary for a
    *          role. Use the boundary to control the maximum permissions that the role can have. Setting a
    *          permissions boundary is an advanced feature that can affect the permissions for the
@@ -5830,7 +5512,6 @@ export class IAM extends IAMClient {
    *             role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON Policy
    *                Evaluation Logic</a> in the IAM User Guide. </p>
    *          </important>
-   *
    */
   public putRolePermissionsBoundary(
     args: PutRolePermissionsBoundaryCommandInput,
@@ -5865,8 +5546,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds or updates an inline policy document that is embedded in the specified IAM
+   * <p>Adds or updates an inline policy document that is embedded in the specified IAM
    *          role.</p>
    *          <p>When you embed an inline policy in a role, the inline policy is used as part of the
    *          role's access (permissions) policy. The role's trust policy is created at the same time as
@@ -5887,8 +5567,6 @@ export class IAM extends IAMClient {
    *             with IAM, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the
    *                <i>IAM User Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public putRolePolicy(
     args: PutRolePolicyCommandInput,
@@ -5923,8 +5601,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds or updates the policy that is specified as the IAM user's permissions boundary.
+   * <p>Adds or updates the policy that is specified as the IAM user's permissions boundary.
    *          You can use an AWS managed policy or a customer managed policy to set the boundary for a
    *          user. Use the boundary to control the maximum permissions that the user can have. Setting a
    *          permissions boundary is an advanced feature that can affect the permissions for the
@@ -5935,7 +5612,6 @@ export class IAM extends IAMClient {
    *             a user are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON Policy
    *                Evaluation Logic</a> in the IAM User Guide. </p>
    *          </important>
-   *
    */
   public putUserPermissionsBoundary(
     args: PutUserPermissionsBoundaryCommandInput,
@@ -5970,8 +5646,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds or updates an inline policy document that is embedded in the specified IAM
+   * <p>Adds or updates an inline policy document that is embedded in the specified IAM
    *          user.</p>
    *          <p>An IAM user can also have a managed policy attached to it. To attach a managed policy
    *          to a user, use <a>AttachUserPolicy</a>. To create a new managed policy, use
@@ -5987,8 +5662,6 @@ export class IAM extends IAMClient {
    *             with IAM, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the
    *                <i>IAM User Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public putUserPolicy(
     args: PutUserPolicyCommandInput,
@@ -6023,13 +5696,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified client ID (also known as audience) from the list of client IDs
+   * <p>Removes the specified client ID (also known as audience) from the list of client IDs
    *          registered for the specified IAM OpenID Connect (OIDC) provider resource object.</p>
    *          <p>This operation is idempotent; it does not fail or return an error if you try to remove a
    *          client ID that does not exist.</p>
-   *
-   *
    */
   public removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
@@ -6076,8 +5746,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified IAM role from the specified EC2 instance profile.</p>
+   * <p>Removes the specified IAM role from the specified EC2 instance profile.</p>
    *          <important>
    *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you are
    *             about to remove from the instance profile. Removing a role from an instance profile that
@@ -6086,8 +5755,6 @@ export class IAM extends IAMClient {
    *          </important>
    *          <p> For more information about IAM roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>. For more
    *          information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance Profiles</a>.</p>
-   *
-   *
    */
   public removeRoleFromInstanceProfile(
     args: RemoveRoleFromInstanceProfileCommandInput,
@@ -6122,10 +5789,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified user from the specified group.</p>
-   *
-   *
+   * <p>Removes the specified user from the specified group.</p>
    */
   public removeUserFromGroup(
     args: RemoveUserFromGroupCommandInput,
@@ -6160,12 +5824,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Resets the password for a service-specific credential. The new password is AWS
+   * <p>Resets the password for a service-specific credential. The new password is AWS
    *          generated and cryptographically strong. It cannot be configured by the user. Resetting the
    *          password immediately invalidates the previous password associated with this user.</p>
-   *
-   *
    */
   public resetServiceSpecificCredential(
     args: ResetServiceSpecificCredentialCommandInput,
@@ -6203,13 +5864,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Synchronizes the specified MFA device with its IAM resource object on the AWS
+   * <p>Synchronizes the specified MFA device with its IAM resource object on the AWS
    *          servers.</p>
    *          <p>For more information about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a Virtual MFA
    *             Device</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public resyncMFADevice(
     args: ResyncMFADeviceCommandInput,
@@ -6244,15 +5902,12 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Sets the specified version of the specified policy as the policy's default (operative)
+   * <p>Sets the specified version of the specified policy as the policy's default (operative)
    *          version.</p>
    *          <p>This operation affects all users, groups, and roles that the policy is attached to. To
    *          list the users, groups, and roles that the policy is attached to, use the <a>ListEntitiesForPolicy</a> API.</p>
    *          <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
@@ -6287,8 +5942,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Sets the specified version of the global endpoint token as the token version used for
+   * <p>Sets the specified version of the global endpoint token as the token version used for
    *          the AWS account.</p>
    *          <p>By default, AWS Security Token Service (STS) is available as a global service, and all STS requests
    *          go to a single endpoint at <code>https://sts.amazonaws.com</code>. AWS recommends using
@@ -6304,8 +5958,6 @@ export class IAM extends IAMClient {
    *             <i>IAM User Guide</i>.</p>
    *          <p>To view the current session token version, see the
    *             <code>GlobalEndpointTokenVersion</code> entry in the response of the <a>GetAccountSummary</a> operation.</p>
-   *
-   *
    */
   public setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
@@ -6352,8 +6004,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Simulate how a set of IAM policies and optionally a resource-based policy works with a
+   * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with a
    *          list of API operations and AWS resources to determine the policies' effective
    *          permissions. The policies are provided as strings.</p>
    *          <p>The simulation does not perform the API operations; it only checks the authorization to
@@ -6366,8 +6017,6 @@ export class IAM extends IAMClient {
    *          policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.</p>
    *          <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code>
    *          parameters to paginate the results.</p>
-   *
-   *
    */
   public simulateCustomPolicy(
     args: SimulateCustomPolicyCommandInput,
@@ -6402,8 +6051,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
+   * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
    *          API operations and AWS resources to determine the policies' effective permissions. The
    *          entity can be an IAM user, group, or role. If you specify a user, then the simulation
    *          also includes all of the policies that are attached to groups that the user belongs
@@ -6425,8 +6073,6 @@ export class IAM extends IAMClient {
    *          policies require for correct simulation, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
    *          <p>If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
    *          parameters to paginate the results.</p>
-   *
-   *
    */
   public simulatePrincipalPolicy(
     args: SimulatePrincipalPolicyCommandInput,
@@ -6461,8 +6107,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more tags to an IAM role. The role can be a regular role or a
+   * <p>Adds one or more tags to an IAM role. The role can be a regular role or a
    *       service-linked role. If a tag with the same key name already exists, then that tag is
    *       overwritten with the new value.</p>
    *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -6507,8 +6152,6 @@ export class IAM extends IAMClient {
    *          </note>
    *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
    *         <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public tagRole(
     args: TagRoleCommandInput,
@@ -6543,8 +6186,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,
+   * <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,
    *       then that tag is overwritten with the new value.</p>
    *
    *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -6589,8 +6231,6 @@ export class IAM extends IAMClient {
    *          </note>
    *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
    *         <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public tagUser(
     args: TagUserCommandInput,
@@ -6625,12 +6265,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the role. For more information about tagging, see
+   * <p>Removes the specified tags from the role. For more information about tagging, see
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
    *       in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public untagRole(
     args: UntagRoleCommandInput,
@@ -6665,12 +6302,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the user. For more information about tagging, see
+   * <p>Removes the specified tags from the user. For more information about tagging, see
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
    *       in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public untagUser(
     args: UntagUserCommandInput,
@@ -6705,8 +6339,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
+   * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
    *          This operation can be used to disable a user's key as part of a key rotation
    *          workflow.</p>
    *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
@@ -6715,8 +6348,6 @@ export class IAM extends IAMClient {
    *          account root user credentials even if the AWS account has no associated users.</p>
    *          <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing Keys and Certificates</a> in
    *          the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public updateAccessKey(
     args: UpdateAccessKeyCommandInput,
@@ -6751,8 +6382,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the password policy settings for the AWS account.</p>
+   * <p>Updates the password policy settings for the AWS account.</p>
    *          <note>
    *             <ul>
    *                <li>
@@ -6767,8 +6397,6 @@ export class IAM extends IAMClient {
    *          </note>
    *          <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM Password
    *             Policy</a> in the <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public updateAccountPasswordPolicy(
     args: UpdateAccountPasswordPolicyCommandInput,
@@ -6803,13 +6431,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the policy that grants an IAM entity permission to assume a role. This is
+   * <p>Updates the policy that grants an IAM entity permission to assume a role. This is
    *          typically referred to as the "role trust policy". For more information about roles, go to
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using Roles to
    *             Delegate Permissions and Federate Identities</a>.</p>
-   *
-   *
    */
   public updateAssumeRolePolicy(
     args: UpdateAssumeRolePolicyCommandInput,
@@ -6844,8 +6469,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the name and/or the path of the specified IAM group.</p>
+   * <p>Updates the name and/or the path of the specified IAM group.</p>
    *          <important>
    *             <p> You should understand the implications of changing a group's path or name. For more
    *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming Users and
@@ -6859,8 +6483,6 @@ export class IAM extends IAMClient {
    *                <code>Managers</code> group, but not the <code>MGRs</code> group, then the update
    *             fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a>. </p>
    *          </note>
-   *
-   *
    */
   public updateGroup(
     args: UpdateGroupCommandInput,
@@ -6895,13 +6517,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Changes the password for the specified IAM user.</p>
+   * <p>Changes the password for the specified IAM user.</p>
    *          <p>IAM users can change their own passwords by calling <a>ChangePassword</a>.
    *          For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing Passwords</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *
-   *
    */
   public updateLoginProfile(
     args: UpdateLoginProfileCommandInput,
@@ -6936,8 +6555,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
+   * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
    *          Connect (OIDC) provider resource object with a new list of thumbprints.</p>
    *          <p>The list that you pass with this operation completely replaces the existing list of
    *          thumbprints. (The lists are not merged.)</p>
@@ -6951,8 +6569,6 @@ export class IAM extends IAMClient {
    *                <code>UpdateOpenIDConnectProviderThumbprint</code> operation to highly privileged
    *             users.</p>
    *          </note>
-   *
-   *
    */
   public updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
@@ -6999,9 +6615,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the description or maximum session duration setting of a role.</p>
-   *
+   * <p>Updates the description or maximum session duration setting of a role.</p>
    */
   public updateRole(
     args: UpdateRoleCommandInput,
@@ -7036,11 +6650,9 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Use <a>UpdateRole</a> instead.</p>
+   * <p>Use <a>UpdateRole</a> instead.</p>
    *          <p>Modifies only the description of a role. This operation performs the same function as
    *          the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
-   *
    */
   public updateRoleDescription(
     args: UpdateRoleDescriptionCommandInput,
@@ -7075,13 +6687,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the metadata document for an existing SAML provider resource object.</p>
+   * <p>Updates the metadata document for an existing SAML provider resource object.</p>
    *          <note>
    *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    *          </note>
-   *
-   *
    */
   public updateSAMLProvider(
     args: UpdateSAMLProviderCommandInput,
@@ -7116,16 +6725,13 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public keys
+   * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public keys
    *          that are inactive cannot be used for authentication. This operation can be used to disable
    *          a user's SSH public key as part of a key rotation work flow.</p>
    *          <p>The SSH public key affected by this operation is used only for authenticating the
    *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
    *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
    *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   *
-   *
    */
   public updateSSHPublicKey(
     args: UpdateSSHPublicKeyCommandInput,
@@ -7160,8 +6766,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the name and/or the path of the specified server certificate stored in
+   * <p>Updates the name and/or the path of the specified server certificate stored in
    *          IAM.</p>
    *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with
    *             Server Certificates</a> in the <i>IAM User Guide</i>. This topic
@@ -7182,8 +6787,6 @@ export class IAM extends IAMClient {
    *             permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
    *                Management</a> in the <i>IAM User Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public updateServerCertificate(
     args: UpdateServerCertificateCommandInput,
@@ -7218,13 +6821,10 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Sets the status of a service-specific credential to <code>Active</code> or
+   * <p>Sets the status of a service-specific credential to <code>Active</code> or
    *             <code>Inactive</code>. Service-specific credentials that are inactive cannot be used for
    *          authentication to the service. This operation can be used to disable a user's
    *          service-specific credential as part of a credential rotation work flow.</p>
-   *
-   *
    */
   public updateServiceSpecificCredential(
     args: UpdateServiceSpecificCredentialCommandInput,
@@ -7262,8 +6862,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Changes the status of the specified user signing certificate from active to disabled, or
+   * <p>Changes the status of the specified user signing certificate from active to disabled, or
    *          vice versa. This operation can be used to disable an IAM user's signing certificate as
    *          part of a certificate rotation work flow.</p>
    *          <p>If the <code>UserName</code> field is not specified, the user name is determined
@@ -7271,8 +6870,6 @@ export class IAM extends IAMClient {
    *          for access keys under the AWS account. Consequently, you can use this operation to manage
    *          AWS account root user credentials even if the AWS account has no associated
    *          users.</p>
-   *
-   *
    */
   public updateSigningCertificate(
     args: UpdateSigningCertificateCommandInput,
@@ -7307,8 +6904,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Updates the name and/or the path of the specified IAM user.</p>
+   * <p>Updates the name and/or the path of the specified IAM user.</p>
    *          <important>
    *             <p> You should understand the implications of changing an IAM user's path or name. For
    *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming an IAM
@@ -7322,8 +6918,6 @@ export class IAM extends IAMClient {
    *             all (*). For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions and Policies</a>.
    *          </p>
    *          </note>
-   *
-   *
    */
   public updateUser(
     args: UpdateUserCommandInput,
@@ -7358,14 +6952,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
+   * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
    *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
    *          associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to
    *          authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
    *             Connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
-   *
-   *
    */
   public uploadSSHPublicKey(
     args: UploadSSHPublicKeyCommandInput,
@@ -7400,8 +6991,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Uploads a server certificate entity for the AWS account. The server certificate entity
+   * <p>Uploads a server certificate entity for the AWS account. The server certificate entity
    *          includes a public key certificate, a private key, and an optional certificate chain, which
    *          should all be PEM-encoded.</p>
    *          <p>We recommend that you use <a href="https://docs.aws.amazon.com/acm/">AWS Certificate
@@ -7425,8 +7015,6 @@ export class IAM extends IAMClient {
    *             Query API with IAM, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html">Calling the API by Making HTTP Query
    *                Requests</a> in the <i>IAM User Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public uploadServerCertificate(
     args: UploadServerCertificateCommandInput,
@@ -7461,8 +7049,7 @@ export class IAM extends IAMClient {
   }
 
   /**
-   *
-   *          <p>Uploads an X.509 signing certificate and associates it with the specified IAM user.
+   * <p>Uploads an X.509 signing certificate and associates it with the specified IAM user.
    *          Some AWS services use X.509 signing certificates to validate requests that are signed
    *          with a corresponding private key. When you upload the certificate, its default status is
    *             <code>Active</code>.</p>
@@ -7479,8 +7066,6 @@ export class IAM extends IAMClient {
    *             information about using the Query API with IAM, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the
    *                <i>IAM User Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public uploadSigningCertificate(
     args: UploadSigningCertificateCommandInput,

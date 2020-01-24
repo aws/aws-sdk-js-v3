@@ -27,19 +27,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage
+ * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage
  *             a customer contact center and provide reliable customer engagement at any scale.</p>
  *         <p>Amazon Connect enables customer contacts through voice or chat.</p>
  *
  *         <p>The APIs described here are used by chat participants, such as agents and
  *             customers.</p>
- *
  */
 export class ConnectParticipant extends ConnectParticipantClient {
   /**
-   *
-   *         <p>Creates the participant's connection. Note that ParticipantToken is used for invoking
+   * <p>Creates the participant's connection. Note that ParticipantToken is used for invoking
    *             this API instead of ConnectionToken.</p>
    *         <p>The participant token is valid for the lifetime of the participant – until the they
    *             are part of a contact.</p>
@@ -56,7 +53,6 @@ export class ConnectParticipant extends ConnectParticipantClient {
    *         <p>Upon websocket URL expiry, as
    *             specified in the response ConnectionExpiry parameter, clients need to call this API
    *             again to obtain a new websocket URL and perform the same steps as before.</p>
-   *
    */
   public createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
@@ -91,10 +87,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
-   *
-   *         <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
+   * <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
    *             instead of ParticipantToken.</p>
-   *
    */
   public disconnectParticipant(
     args: DisconnectParticipantCommandInput,
@@ -129,10 +123,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
-   *
-   *         <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking
+   * <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking
    *             this API instead of ParticipantToken.</p>
-   *
    */
   public getTranscript(
     args: GetTranscriptCommandInput,
@@ -167,10 +159,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
-   *
-   *         <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of
+   * <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of
    *             ParticipantToken.</p>
-   *
    */
   public sendEvent(
     args: SendEventCommandInput,
@@ -205,10 +195,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
-   *
-   *         <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
+   * <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
    *             ParticipantToken.</p>
-   *
    */
   public sendMessage(
     args: SendMessageCommandInput,

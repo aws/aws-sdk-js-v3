@@ -212,18 +212,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon DocumentDB API documentation</p>
- *
+ * <p>Amazon DocumentDB API documentation</p>
  */
 export class DocDB extends DocDBClient {
   /**
-   *
-   *         <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with cost allocation
+   * <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with cost allocation
    *             reporting to track costs that are associated with Amazon DocumentDB resources. or in a
    *                 <code>Condition</code> statement in an AWS Identity and Access Management (IAM)
    *             policy for Amazon DocumentDB.</p>
-   *
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -258,10 +254,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Applies a pending maintenance action to a resource (for example, to a DB
+   * <p>Applies a pending maintenance action to a resource (for example, to a DB
    *             instance).</p>
-   *
    */
   public applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -296,9 +290,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Copies the specified DB cluster parameter group.</p>
-   *
+   * <p>Copies the specified DB cluster parameter group.</p>
    */
   public copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
@@ -333,15 +325,13 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Copies a snapshot of a DB cluster.</p>
+   * <p>Copies a snapshot of a DB cluster.</p>
    *         <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
    *                 <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name
    *             (ARN) of the shared DB cluster snapshot.</p>
    *         <p>To cancel the copy operation after it is in progress, delete the target DB cluster
    *             snapshot identified by <code>TargetDBClusterSnapshotIdentifier</code> while that DB
    *             cluster snapshot is in the <i>copying</i> status.</p>
-   *
    */
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -376,9 +366,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Creates a new Amazon DocumentDB DB cluster.</p>
-   *
+   * <p>Creates a new Amazon DocumentDB DB cluster.</p>
    */
   public createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -413,8 +401,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Creates a new DB cluster parameter group.</p>
+   * <p>Creates a new DB cluster parameter group.</p>
    *         <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
    *             cluster.</p>
    *         <p>A DB cluster parameter group is initially created with the default parameters for the
@@ -432,8 +419,6 @@ export class DocDB extends DocDBClient {
    *                 default database for a DB cluster, such as the character set for the default
    *                 database defined by the <code>character_set_database</code> parameter.</p>
    *         </important>
-   *
-   *
    */
   public createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
@@ -468,9 +453,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Creates a snapshot of a DB cluster. </p>
-   *
+   * <p>Creates a snapshot of a DB cluster. </p>
    */
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -505,9 +488,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Creates a new DB instance.</p>
-   *
+   * <p>Creates a new DB instance.</p>
    */
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
@@ -542,10 +523,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
+   * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
    *             least two Availability Zones in the AWS Region.</p>
-   *
    */
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -580,12 +559,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Deletes a previously provisioned DB cluster. When you delete a DB cluster, all
+   * <p>Deletes a previously provisioned DB cluster. When you delete a DB cluster, all
    *             automated backups for that DB cluster are deleted and can't be recovered. Manual DB
    *             cluster snapshots of the specified DB cluster are not deleted.</p>
    *         <p></p>
-   *
    */
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -620,10 +597,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
+   * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
    *             deleted can't be associated with any DB clusters.</p>
-   *
    */
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -658,14 +633,12 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
+   * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
    *             terminated.</p>
    *         <note>
    *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
    *                 deleted.</p>
    *         </note>
-   *
    */
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -700,12 +673,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Deletes a previously provisioned DB instance.
+   * <p>Deletes a previously provisioned DB instance.
    *             </p>
-   *
-   *
-   *
    */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -740,13 +709,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Deletes a DB subnet group.</p>
+   * <p>Deletes a DB subnet group.</p>
    *         <note>
    *             <p>The specified database subnet group must not be associated with any DB
    *                 instances.</p>
    *         </note>
-   *
    */
   public deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
@@ -781,10 +748,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of certificate authority (CA) certificates provided by Amazon RDS for
+   * <p>Returns a list of certificate authority (CA) certificates provided by Amazon RDS for
    *             this AWS account.</p>
-   *
    */
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -819,11 +784,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
+   * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
    *                 <code>DBClusterParameterGroupName</code> parameter is specified, the list contains
    *             only the description of the specified DB cluster parameter group. </p>
-   *
    */
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -864,10 +827,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns the detailed parameter list for a particular DB cluster parameter
+   * <p>Returns the detailed parameter list for a particular DB cluster parameter
    *             group.</p>
-   *
    */
   public describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
@@ -902,8 +863,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB
+   * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB
    *             cluster snapshot.</p>
    *         <p>When you share snapshots with other AWS accounts,
    *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code>
@@ -911,7 +871,6 @@ export class DocDB extends DocDBClient {
    *             the manual DB cluster snapshot. If <code>all</code> is included in the list of values
    *             for the <code>restore</code> attribute, then the manual DB cluster snapshot is public
    *             and can be copied or restored by all AWS accounts.</p>
-   *
    */
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
@@ -958,10 +917,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns information about DB cluster snapshots. This API operation supports
+   * <p>Returns information about DB cluster snapshots. This API operation supports
    *             pagination.</p>
-   *
    */
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -996,10 +953,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns information about provisioned Amazon DocumentDB DB clusters. This API operation supports
+   * <p>Returns information about provisioned Amazon DocumentDB DB clusters. This API operation supports
    *             pagination.</p>
-   *
    */
   public describeDBClusters(
     args: DescribeDBClustersCommandInput,
@@ -1034,9 +989,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of the available DB engines.</p>
-   *
+   * <p>Returns a list of the available DB engines.</p>
    */
   public describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
@@ -1071,10 +1024,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns information about provisioned Amazon DocumentDB instances. This API supports
+   * <p>Returns information about provisioned Amazon DocumentDB instances. This API supports
    *             pagination.</p>
-   *
    */
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
@@ -1109,11 +1060,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
+   * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
    *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the
    *             descriptions of the specified <code>DBSubnetGroup</code>.</p>
-   *
    */
   public describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
@@ -1148,10 +1097,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns the default engine and system parameter information for the cluster database
+   * <p>Returns the default engine and system parameter information for the cluster database
    *             engine.</p>
-   *
    */
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
@@ -1198,10 +1145,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Displays a list of categories for all event source types, or, if specified, for a
+   * <p>Displays a list of categories for all event source types, or, if specified, for a
    *             specified source type. </p>
-   *
    */
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -1236,12 +1181,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB
+   * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB
    *             parameter groups for the past 14 days. You can obtain events specific to a particular DB
    *             instance, DB security group, DB snapshot, or DB parameter group by providing the name as
    *             a parameter. By default, the events of the past hour are returned.</p>
-   *
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -1276,9 +1219,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of orderable DB instance options for the specified engine.</p>
-   *
+   * <p>Returns a list of orderable DB instance options for the specified engine.</p>
    */
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
@@ -1325,10 +1266,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of resources (for example, DB instances) that have at least one pending
+   * <p>Returns a list of resources (for example, DB instances) that have at least one pending
    *             maintenance action.</p>
-   *
    */
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
@@ -1375,15 +1314,13 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Forces a failover for a DB cluster.</p>
+   * <p>Forces a failover for a DB cluster.</p>
    *         <p>A failover for a DB cluster promotes one of the Amazon DocumentDB replicas (read-only instances)
    *             in the DB cluster to be the primary instance (the cluster writer).</p>
    *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica,
    *             if one exists. You can force a failover when you want to simulate a failure of a primary
    *             instance for
    *             testing.</p>
-   *
    */
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -1418,9 +1355,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Lists all tags on an Amazon DocumentDB resource.</p>
-   *
+   * <p>Lists all tags on an Amazon DocumentDB resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1455,11 +1390,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Modifies a setting for an Amazon DocumentDB DB cluster. You can change one or more database
+   * <p>Modifies a setting for an Amazon DocumentDB DB cluster. You can change one or more database
    *             configuration parameters by specifying these parameters and the new values in the
    *             request. </p>
-   *
    */
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
@@ -1494,8 +1427,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p> Modifies the parameters of a DB cluster parameter group. To modify more than one
+   * <p> Modifies the parameters of a DB cluster parameter group. To modify more than one
    *             parameter, submit a list of the following: <code>ParameterName</code>,
    *                 <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20
    *             parameters can be modified in a single request. </p>
@@ -1514,7 +1446,6 @@ export class DocDB extends DocDBClient {
    *                 database for a DB cluster, such as the character set for the default database
    *                 defined by the <code>character_set_database</code> parameter.</p>
    *         </important>
-   *
    */
   public modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
@@ -1549,8 +1480,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
+   * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
    *             cluster snapshot.</p>
    *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify
    *                 <code>restore</code> as the <code>AttributeName</code>, and use the
@@ -1563,7 +1493,6 @@ export class DocDB extends DocDBClient {
    *             by specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
    *             parameter. You can't use <code>all</code> as a value for that parameter in this
    *             case.</p>
-   *
    */
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -1604,10 +1533,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Modifies settings for a DB instance. You can change one or more database configuration
+   * <p>Modifies settings for a DB instance. You can change one or more database configuration
    *             parameters by specifying these parameters and the new values in the request.</p>
-   *
    */
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
@@ -1642,10 +1569,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one
+   * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one
    *             subnet in at least two Availability Zones in the AWS Region.</p>
-   *
    */
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
@@ -1680,15 +1605,13 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>You might need to reboot your DB instance, usually for maintenance reasons. For
+   * <p>You might need to reboot your DB instance, usually for maintenance reasons. For
    *             example, if you make certain changes, or if you change the DB cluster parameter group
    *             that is associated with the DB instance, you must reboot the instance for the changes to
    *             take effect. </p>
    *         <p>Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
    *             results in a momentary outage, during which the DB instance status is set to
    *                 <i>rebooting</i>. </p>
-   *
    */
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
@@ -1723,9 +1646,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Removes metadata tags from an Amazon DocumentDB resource.</p>
-   *
+   * <p>Removes metadata tags from an Amazon DocumentDB resource.</p>
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -1760,8 +1681,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p> Modifies the parameters of a DB cluster parameter group to the default value. To
+   * <p> Modifies the parameters of a DB cluster parameter group to the default value. To
    *             reset specific parameters, submit a list of the following: <code>ParameterName</code>
    *             and <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify
    *             the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code>
@@ -1769,7 +1689,6 @@ export class DocDB extends DocDBClient {
    *         <p> When you reset the entire group, dynamic parameters are updated immediately and
    *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
    *             instance reboot.</p>
-   *
    */
   public resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
@@ -1804,15 +1723,13 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
+   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
    *         <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
    *             snapshot with a default configuration and default security group.</p>
    *         <p>If a DB cluster snapshot is specified, the target DB cluster is created from the
    *             source DB cluster restore point with the same configuration as the original source DB
    *             cluster, except that the new DB cluster is created with the default security
    *             group.</p>
-   *
    */
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
@@ -1847,14 +1764,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
+   * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
    *             time before <code>LatestRestorableTime</code> for up to
    *                 <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the
    *             source DB cluster with the same configuration as the original DB cluster, except that
    *             the new DB cluster is created with the default DB security group. </p>
-   *
-   *
    */
   public restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
@@ -1889,11 +1803,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>.
+   * <p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>.
    *             For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
    *                 Starting an Amazon DocumentDB Cluster</a>.</p>
-   *
    */
   public startDBCluster(
     args: StartDBClusterCommandInput,
@@ -1928,12 +1840,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   *
-   *         <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
+   * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
    *             cluster must be in the <i>available</i> state. For more information, see
    *                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
    *                 Starting an Amazon DocumentDB Cluster</a>.</p>
-   *
    */
   public stopDBCluster(
     args: StopDBClusterCommandInput,

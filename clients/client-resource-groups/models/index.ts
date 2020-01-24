@@ -2,9 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The request does not comply with validation rules that are defined for the request parameters.</p>
- *
+ * <p>The request does not comply with validation rules that are defined for the request parameters.</p>
  */
 export interface BadRequestException
   extends _smithy.SmithyException,
@@ -24,34 +22,26 @@ export namespace BadRequestException {
 export interface CreateGroupInput {
   __type?: "CreateGroupInput";
   /**
-   *
-   *          <p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores,
+   * <p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores,
    *        punctuation, and spaces.</p>
-   *
    */
   Description?: string;
 
   /**
-   *
-   *          <p>The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created.
+   * <p>The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created.
    *        A resource group name can have a maximum of 128 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with
    *        <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within your account.</p>
-   *
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The resource query that determines which AWS resources are members of this group.</p>
-   *
+   * <p>The resource query that determines which AWS resources are members of this group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
 
   /**
-   *
-   *          <p>The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters,
+   * <p>The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters,
    *        and tag values can have a maximum length of 256 characters.</p>
-   *
    */
   Tags?: { [key: string]: string };
 }
@@ -65,23 +55,17 @@ export namespace CreateGroupInput {
 export interface CreateGroupOutput extends $MetadataBearer {
   __type?: "CreateGroupOutput";
   /**
-   *
-   *          <p>A full description of the resource group after it is created.</p>
-   *
+   * <p>A full description of the resource group after it is created.</p>
    */
   Group?: Group;
 
   /**
-   *
-   *          <p>The resource query associated with the group.</p>
-   *
+   * <p>The resource query associated with the group.</p>
    */
   ResourceQuery?: ResourceQuery;
 
   /**
-   *
-   *          <p>The tags associated with the group.</p>
-   *
+   * <p>The tags associated with the group.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -95,9 +79,7 @@ export namespace CreateGroupOutput {
 export interface DeleteGroupInput {
   __type?: "DeleteGroupInput";
   /**
-   *
-   *          <p>The name of the resource group to delete.</p>
-   *
+   * <p>The name of the resource group to delete.</p>
    */
   GroupName: string | undefined;
 }
@@ -111,9 +93,7 @@ export namespace DeleteGroupInput {
 export interface DeleteGroupOutput extends $MetadataBearer {
   __type?: "DeleteGroupOutput";
   /**
-   *
-   *          <p>A full description of the deleted resource group.</p>
-   *
+   * <p>A full description of the deleted resource group.</p>
    */
   Group?: Group;
 }
@@ -125,9 +105,7 @@ export namespace DeleteGroupOutput {
 }
 
 /**
- *
- *          <p>The caller is not authorized to make the request.</p>
- *
+ * <p>The caller is not authorized to make the request.</p>
  */
 export interface ForbiddenException
   extends _smithy.SmithyException,
@@ -147,9 +125,7 @@ export namespace ForbiddenException {
 export interface GetGroupInput {
   __type?: "GetGroupInput";
   /**
-   *
-   *          <p>The name of the resource group.</p>
-   *
+   * <p>The name of the resource group.</p>
    */
   GroupName: string | undefined;
 }
@@ -163,9 +139,7 @@ export namespace GetGroupInput {
 export interface GetGroupOutput extends $MetadataBearer {
   __type?: "GetGroupOutput";
   /**
-   *
-   *          <p>A full description of the resource group.</p>
-   *
+   * <p>A full description of the resource group.</p>
    */
   Group?: Group;
 }
@@ -179,9 +153,7 @@ export namespace GetGroupOutput {
 export interface GetGroupQueryInput {
   __type?: "GetGroupQueryInput";
   /**
-   *
-   *          <p>The name of the resource group.</p>
-   *
+   * <p>The name of the resource group.</p>
    */
   GroupName: string | undefined;
 }
@@ -195,9 +167,7 @@ export namespace GetGroupQueryInput {
 export interface GetGroupQueryOutput extends $MetadataBearer {
   __type?: "GetGroupQueryOutput";
   /**
-   *
-   *          <p>The resource query associated with the specified group.</p>
-   *
+   * <p>The resource query associated with the specified group.</p>
    */
   GroupQuery?: GroupQuery;
 }
@@ -211,9 +181,7 @@ export namespace GetGroupQueryOutput {
 export interface GetTagsInput {
   __type?: "GetTagsInput";
   /**
-   *
-   *          <p>The ARN of the resource group for which you want a list of tags. The resource must exist within the account you are using.</p>
-   *
+   * <p>The ARN of the resource group for which you want a list of tags. The resource must exist within the account you are using.</p>
    */
   Arn: string | undefined;
 }
@@ -227,16 +195,12 @@ export namespace GetTagsInput {
 export interface GetTagsOutput extends $MetadataBearer {
   __type?: "GetTagsOutput";
   /**
-   *
-   *          <p>The ARN of the tagged resource group.</p>
-   *
+   * <p>The ARN of the tagged resource group.</p>
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The tags associated with the specified resource group.</p>
-   *
+   * <p>The tags associated with the specified resource group.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -248,30 +212,22 @@ export namespace GetTagsOutput {
 }
 
 /**
- *
- *          <p>A resource group.</p>
- *
+ * <p>A resource group.</p>
  */
 export interface Group {
   __type?: "Group";
   /**
-   *
-   *          <p>The description of the resource group.</p>
-   *
+   * <p>The description of the resource group.</p>
    */
   Description?: string;
 
   /**
-   *
-   *          <p>The ARN of a resource group.</p>
-   *
+   * <p>The ARN of a resource group.</p>
    */
   GroupArn: string | undefined;
 
   /**
-   *
-   *          <p>The name of a resource group.</p>
-   *
+   * <p>The name of a resource group.</p>
    */
   Name: string | undefined;
 }
@@ -283,23 +239,17 @@ export namespace Group {
 }
 
 /**
- *
- *          <p>A filter name and value pair that is used to obtain more specific results from a list of groups.</p>
- *
+ * <p>A filter name and value pair that is used to obtain more specific results from a list of groups.</p>
  */
 export interface GroupFilter {
   __type?: "GroupFilter";
   /**
-   *
-   *          <p>The name of the filter. Filter names are case-sensitive.</p>
-   *
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
   Name: GroupFilterName | string | undefined;
 
   /**
-   *
-   *          <p>One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.</p>
-   *
+   * <p>One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.</p>
    */
   Values: Array<string> | undefined;
 }
@@ -315,23 +265,17 @@ export enum GroupFilterName {
 }
 
 /**
- *
- *          <p>The ARN and group name of a group.</p>
- *
+ * <p>The ARN and group name of a group.</p>
  */
 export interface GroupIdentifier {
   __type?: "GroupIdentifier";
   /**
-   *
-   *          <p>The ARN of a resource group.</p>
-   *
+   * <p>The ARN of a resource group.</p>
    */
   GroupArn?: string;
 
   /**
-   *
-   *          <p>The name of a resource group.</p>
-   *
+   * <p>The name of a resource group.</p>
    */
   GroupName?: string;
 }
@@ -343,23 +287,17 @@ export namespace GroupIdentifier {
 }
 
 /**
- *
- *          <p>The underlying resource query of a resource group. Resources that match query results are part of the group.</p>
- *
+ * <p>The underlying resource query of a resource group. Resources that match query results are part of the group.</p>
  */
 export interface GroupQuery {
   __type?: "GroupQuery";
   /**
-   *
-   *          <p>The name of a resource group that is associated with a specific resource query.</p>
-   *
+   * <p>The name of a resource group that is associated with a specific resource query.</p>
    */
   GroupName: string | undefined;
 
   /**
-   *
-   *          <p>The resource query which determines which AWS resources are members of the associated resource group.</p>
-   *
+   * <p>The resource query which determines which AWS resources are members of the associated resource group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
 }
@@ -371,9 +309,7 @@ export namespace GroupQuery {
 }
 
 /**
- *
- *          <p>An internal error occurred while processing the request.</p>
- *
+ * <p>An internal error occurred while processing the request.</p>
  */
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
@@ -393,37 +329,29 @@ export namespace InternalServerErrorException {
 export interface ListGroupResourcesInput {
   __type?: "ListGroupResourcesInput";
   /**
-   *
-   *          <p>Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources operation.</p>
+   * <p>Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources operation.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>resource-type</code> - Filter resources by their type. Specify up to five resource types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or AWS::S3::Bucket.</p>
    *             </li>
    *          </ul>
-   *
    */
   Filters?: Array<ResourceFilter>;
 
   /**
-   *
-   *          <p>The name of the resource group.</p>
-   *
+   * <p>The name of the resource group.</p>
    */
   GroupName: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of group member ARNs that are returned in a single call by ListGroupResources, in paginated output. By default, this number is 50.</p>
-   *
+   * <p>The maximum number of group member ARNs that are returned in a single call by ListGroupResources, in paginated output. By default, this number is 50.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The NextToken value that is returned in a paginated ListGroupResources request. To get the next page of results,
+   * <p>The NextToken value that is returned in a paginated ListGroupResources request. To get the next page of results,
    *        run the call again, add the NextToken parameter, and specify the NextToken value.</p>
-   *
    */
   NextToken?: string;
 }
@@ -437,25 +365,19 @@ export namespace ListGroupResourcesInput {
 export interface ListGroupResourcesOutput extends $MetadataBearer {
   __type?: "ListGroupResourcesOutput";
   /**
-   *
-   *          <p>The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results.</p>
-   *
+   * <p>The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of <code>QueryError</code> objects. Each error is an object that contains
+   * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
    *        <code>ErrorCode</code> and <code>Message</code> structures. Possible values
    *        for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-   *
    */
   QueryErrors?: Array<QueryError>;
 
   /**
-   *
-   *          <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
-   *
+   * <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
    */
   ResourceIdentifiers?: Array<ResourceIdentifier>;
 }
@@ -469,30 +391,24 @@ export namespace ListGroupResourcesOutput {
 export interface ListGroupsInput {
   __type?: "ListGroupsInput";
   /**
-   *
-   *          <p>Filters, formatted as GroupFilter objects, that you want to apply to a ListGroups operation.</p>
+   * <p>Filters, formatted as GroupFilter objects, that you want to apply to a ListGroups operation.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>resource-type</code> - Filter groups by resource type. Specify up to five resource types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or AWS::S3::Bucket.</p>
    *             </li>
    *          </ul>
-   *
    */
   Filters?: Array<GroupFilter>;
 
   /**
-   *
-   *          <p>The maximum number of resource group results that are returned by ListGroups in paginated output. By default, this number is 50.</p>
-   *
+   * <p>The maximum number of resource group results that are returned by ListGroups in paginated output. By default, this number is 50.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The NextToken value that is returned in a paginated <code>ListGroups</code> request. To get the next page of results,
+   * <p>The NextToken value that is returned in a paginated <code>ListGroups</code> request. To get the next page of results,
    *        run the call again, add the NextToken parameter, and specify the NextToken value.</p>
-   *
    */
   NextToken?: string;
 }
@@ -506,23 +422,17 @@ export namespace ListGroupsInput {
 export interface ListGroupsOutput extends $MetadataBearer {
   __type?: "ListGroupsOutput";
   /**
-   *
-   *          <p>A list of GroupIdentifier objects. Each identifier is an object that contains both the GroupName and the GroupArn.</p>
-   *
+   * <p>A list of GroupIdentifier objects. Each identifier is an object that contains both the GroupName and the GroupArn.</p>
    */
   GroupIdentifiers?: Array<GroupIdentifier>;
 
   /**
-   *
-   *          <p>A list of resource groups.</p>
-   *
+   * <p>A list of resource groups.</p>
    */
   Groups?: Array<Group>;
 
   /**
-   *
-   *          <p>The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results.</p>
-   *
+   * <p>The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results.</p>
    */
   NextToken?: string;
 }
@@ -534,9 +444,7 @@ export namespace ListGroupsOutput {
 }
 
 /**
- *
- *          <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
- *
+ * <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
  */
 export interface MethodNotAllowedException
   extends _smithy.SmithyException,
@@ -554,9 +462,7 @@ export namespace MethodNotAllowedException {
 }
 
 /**
- *
- *          <p>One or more resources specified in the request do not exist.</p>
- *
+ * <p>One or more resources specified in the request do not exist.</p>
  */
 export interface NotFoundException
   extends _smithy.SmithyException,
@@ -574,32 +480,26 @@ export namespace NotFoundException {
 }
 
 /**
- *
- *          <p>A two-part error structure that can occur in <code>ListGroupResources</code> or
+ * <p>A two-part error structure that can occur in <code>ListGroupResources</code> or
  *        <code>SearchResources</code> operations on CloudFormation stack-based queries. The error
  *        occurs if the CloudFormation stack on which the query is based either does not exist, or
  *        has a status that renders the stack inactive. A <code>QueryError</code> occurrence does
  *        not necessarily mean that AWS Resource Groups could not complete the operation, but the
  *        resulting group might have no member resources.</p>
- *
  */
 export interface QueryError {
   __type?: "QueryError";
   /**
-   *
-   *          <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-   *
+   * <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
   ErrorCode?: QueryErrorCode | string;
 
   /**
-   *
-   *          <p>A message that explains the <code>ErrorCode</code> value. Messages might state
+   * <p>A message that explains the <code>ErrorCode</code> value. Messages might state
    *        that the specified CloudFormation stack does not exist (or no longer exists).
    *        For <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the
    *        CloudFormation stack has a status that is not (or no longer) active, such as
    *        <code>CREATE_FAILED</code>.</p>
-   *
    */
   Message?: string;
 }
@@ -621,23 +521,17 @@ export enum QueryType {
 }
 
 /**
- *
- *          <p>A filter name and value pair that is used to obtain more specific results from a list of resources.</p>
- *
+ * <p>A filter name and value pair that is used to obtain more specific results from a list of resources.</p>
  */
 export interface ResourceFilter {
   __type?: "ResourceFilter";
   /**
-   *
-   *          <p>The name of the filter. Filter names are case-sensitive.</p>
-   *
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
   Name: ResourceFilterName | string | undefined;
 
   /**
-   *
-   *          <p>One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.</p>
-   *
+   * <p>One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.</p>
    */
   Values: Array<string> | undefined;
 }
@@ -653,23 +547,17 @@ export enum ResourceFilterName {
 }
 
 /**
- *
- *          <p>The ARN of a resource, and its resource type.</p>
- *
+ * <p>The ARN of a resource, and its resource type.</p>
  */
 export interface ResourceIdentifier {
   __type?: "ResourceIdentifier";
   /**
-   *
-   *          <p>The ARN of a resource.</p>
-   *
+   * <p>The ARN of a resource.</p>
    */
   ResourceArn?: string;
 
   /**
-   *
-   *          <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
-   *
+   * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
    */
   ResourceType?: string;
 }
@@ -681,22 +569,17 @@ export namespace ResourceIdentifier {
 }
 
 /**
- *
- *          <p>The query that is used to define a resource group or a search for resources.</p>
- *
+ * <p>The query that is used to define a resource group or a search for resources.</p>
  */
 export interface ResourceQuery {
   __type?: "ResourceQuery";
   /**
-   *
-   *          <p>The query that defines a group or a search.</p>
-   *
+   * <p>The query that defines a group or a search.</p>
    */
   Query: string | undefined;
 
   /**
-   *
-   *          <p>The type of the query. The valid values in this release are <code>TAG_FILTERS_1_0</code> and <code>CLOUDFORMATION_STACK_1_0</code>.</p>
+   * <p>The type of the query. The valid values in this release are <code>TAG_FILTERS_1_0</code> and <code>CLOUDFORMATION_STACK_1_0</code>.</p>
    *          <p>
    *             <i>
    *                <code>TAG_FILTERS_1_0:</code>
@@ -730,7 +613,6 @@ export interface ResourceQuery {
    *             <i>
    *                <code>CLOUDFORMATION_STACK_1_0:</code>
    *             </i> A JSON syntax that lets you specify a CloudFormation stack ARN.</p>
-   *
    */
   Type: QueryType | string | undefined;
 }
@@ -744,24 +626,18 @@ export namespace ResourceQuery {
 export interface SearchResourcesInput {
   __type?: "SearchResourcesInput";
   /**
-   *
-   *          <p>The maximum number of group member ARNs returned by <code>SearchResources</code> in paginated output. By default, this number is 50.</p>
-   *
+   * <p>The maximum number of group member ARNs returned by <code>SearchResources</code> in paginated output. By default, this number is 50.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The NextToken value that is returned in a paginated <code>SearchResources</code> request. To get the next page of results,
+   * <p>The NextToken value that is returned in a paginated <code>SearchResources</code> request. To get the next page of results,
    *        run the call again, add the NextToken parameter, and specify the NextToken value.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The search query, using the same formats that are supported for resource group definition.</p>
-   *
+   * <p>The search query, using the same formats that are supported for resource group definition.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
 }
@@ -775,26 +651,20 @@ export namespace SearchResourcesInput {
 export interface SearchResourcesOutput extends $MetadataBearer {
   __type?: "SearchResourcesOutput";
   /**
-   *
-   *          <p>The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results.</p>
-   *
+   * <p>The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of <code>QueryError</code> objects. Each error is an object that
+   * <p>A list of <code>QueryError</code> objects. Each error is an object that
    *        contains <code>ErrorCode</code> and <code>Message</code> structures. Possible values
    *        for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
    *        <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-   *
    */
   QueryErrors?: Array<QueryError>;
 
   /**
-   *
-   *          <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
-   *
+   * <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
    */
   ResourceIdentifiers?: Array<ResourceIdentifier>;
 }
@@ -808,17 +678,13 @@ export namespace SearchResourcesOutput {
 export interface TagInput {
   __type?: "TagInput";
   /**
-   *
-   *          <p>The ARN of the resource to which to add tags.</p>
-   *
+   * <p>The ARN of the resource to which to add tags.</p>
    */
   Arn: string | undefined;
 
   /**
-   *
-   *          <p>The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters,
+   * <p>The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters,
    *        and tag values can have a maximum length of 256 characters.</p>
-   *
    */
   Tags: { [key: string]: string } | undefined;
 }
@@ -832,16 +698,12 @@ export namespace TagInput {
 export interface TagOutput extends $MetadataBearer {
   __type?: "TagOutput";
   /**
-   *
-   *          <p>The ARN of the tagged resource.</p>
-   *
+   * <p>The ARN of the tagged resource.</p>
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The tags that have been added to the specified resource.</p>
-   *
+   * <p>The tags that have been added to the specified resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -853,9 +715,7 @@ export namespace TagOutput {
 }
 
 /**
- *
- *          <p>The caller has exceeded throttling limits.</p>
- *
+ * <p>The caller has exceeded throttling limits.</p>
  */
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
@@ -873,9 +733,7 @@ export namespace TooManyRequestsException {
 }
 
 /**
- *
- *          <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
- *
+ * <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
  */
 export interface UnauthorizedException
   extends _smithy.SmithyException,
@@ -895,16 +753,12 @@ export namespace UnauthorizedException {
 export interface UntagInput {
   __type?: "UntagInput";
   /**
-   *
-   *          <p>The ARN of the resource from which to remove tags.</p>
-   *
+   * <p>The ARN of the resource from which to remove tags.</p>
    */
   Arn: string | undefined;
 
   /**
-   *
-   *          <p>The keys of the tags to be removed.</p>
-   *
+   * <p>The keys of the tags to be removed.</p>
    */
   Keys: Array<string> | undefined;
 }
@@ -918,16 +772,12 @@ export namespace UntagInput {
 export interface UntagOutput extends $MetadataBearer {
   __type?: "UntagOutput";
   /**
-   *
-   *          <p>The ARN of the resource from which tags have been removed.</p>
-   *
+   * <p>The ARN of the resource from which tags have been removed.</p>
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The keys of tags that have been removed.</p>
-   *
+   * <p>The keys of tags that have been removed.</p>
    */
   Keys?: Array<string>;
 }
@@ -941,17 +791,13 @@ export namespace UntagOutput {
 export interface UpdateGroupInput {
   __type?: "UpdateGroupInput";
   /**
-   *
-   *          <p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores,
+   * <p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores,
    *        punctuation, and spaces.</p>
-   *
    */
   Description?: string;
 
   /**
-   *
-   *          <p>The name of the resource group for which you want to update its description.</p>
-   *
+   * <p>The name of the resource group for which you want to update its description.</p>
    */
   GroupName: string | undefined;
 }
@@ -965,9 +811,7 @@ export namespace UpdateGroupInput {
 export interface UpdateGroupOutput extends $MetadataBearer {
   __type?: "UpdateGroupOutput";
   /**
-   *
-   *          <p>The full description of the resource group after it has been updated.</p>
-   *
+   * <p>The full description of the resource group after it has been updated.</p>
    */
   Group?: Group;
 }
@@ -981,16 +825,12 @@ export namespace UpdateGroupOutput {
 export interface UpdateGroupQueryInput {
   __type?: "UpdateGroupQueryInput";
   /**
-   *
-   *          <p>The name of the resource group for which you want to edit the query.</p>
-   *
+   * <p>The name of the resource group for which you want to edit the query.</p>
    */
   GroupName: string | undefined;
 
   /**
-   *
-   *          <p>The resource query that determines which AWS resources are members of the resource group.</p>
-   *
+   * <p>The resource query that determines which AWS resources are members of the resource group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
 }
@@ -1004,9 +844,7 @@ export namespace UpdateGroupQueryInput {
 export interface UpdateGroupQueryOutput extends $MetadataBearer {
   __type?: "UpdateGroupQueryOutput";
   /**
-   *
-   *          <p>The resource query associated with the resource group after the update.</p>
-   *
+   * <p>The resource query associated with the resource group after the update.</p>
    */
   GroupQuery?: GroupQuery;
 }

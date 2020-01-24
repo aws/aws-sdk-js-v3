@@ -37,21 +37,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon Macie</fullname>
+ * <fullname>Amazon Macie</fullname>
  *          <p>Amazon Macie is a security service that uses machine learning to automatically
  *       discover, classify, and protect sensitive data in AWS. Macie recognizes sensitive data such as
  *       personally identifiable information (PII) or intellectual property, and provides you with
  *       dashboards and alerts that give visibility into how this data is being accessed or moved. For
  *       more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Macie User
  *         Guide</a>. </p>
- *
  */
 export class Macie extends MacieClient {
   /**
-   *
-   *          <p>Associates a specified AWS account with Amazon Macie as a member account.</p>
-   *
+   * <p>Associates a specified AWS account with Amazon Macie as a member account.</p>
    */
   public associateMemberAccount(
     args: AssociateMemberAccountCommandInput,
@@ -86,13 +82,11 @@ export class Macie extends MacieClient {
   }
 
   /**
-   *
-   *          <p>Associates specified S3 resources with Amazon Macie for monitoring and data
+   * <p>Associates specified S3 resources with Amazon Macie for monitoring and data
    *       classification. If memberAccountId isn't specified, the action associates specified S3
    *       resources with Macie for the current master account. If memberAccountId is specified, the
    *       action associates specified S3 resources with Macie for the specified member account.
    *     </p>
-   *
    */
   public associateS3Resources(
     args: AssociateS3ResourcesCommandInput,
@@ -127,9 +121,7 @@ export class Macie extends MacieClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified member account from Amazon Macie.</p>
-   *
+   * <p>Removes the specified member account from Amazon Macie.</p>
    */
   public disassociateMemberAccount(
     args: DisassociateMemberAccountCommandInput,
@@ -164,12 +156,10 @@ export class Macie extends MacieClient {
   }
 
   /**
-   *
-   *          <p>Removes specified S3 resources from being monitored by Amazon Macie. If memberAccountId
+   * <p>Removes specified S3 resources from being monitored by Amazon Macie. If memberAccountId
    *       isn't specified, the action removes specified S3 resources from Macie for the current master
    *       account. If memberAccountId is specified, the action removes specified S3 resources from Macie
    *       for the specified member account.</p>
-   *
    */
   public disassociateS3Resources(
     args: DisassociateS3ResourcesCommandInput,
@@ -204,10 +194,8 @@ export class Macie extends MacieClient {
   }
 
   /**
-   *
-   *          <p>Lists all Amazon Macie member accounts for the current Amazon Macie master
+   * <p>Lists all Amazon Macie member accounts for the current Amazon Macie master
    *       account.</p>
-   *
    */
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
@@ -242,12 +230,10 @@ export class Macie extends MacieClient {
   }
 
   /**
-   *
-   *          <p>Lists all the S3 resources associated with Amazon Macie. If memberAccountId isn't
+   * <p>Lists all the S3 resources associated with Amazon Macie. If memberAccountId isn't
    *       specified, the action lists the S3 resources associated with Amazon Macie for the current
    *       master account. If memberAccountId is specified, the action lists the S3 resources associated
    *       with Amazon Macie for the specified member account. </p>
-   *
    */
   public listS3Resources(
     args: ListS3ResourcesCommandInput,
@@ -282,13 +268,11 @@ export class Macie extends MacieClient {
   }
 
   /**
-   *
-   *          <p>Updates the classification types for the specified S3 resources. If memberAccountId
+   * <p>Updates the classification types for the specified S3 resources. If memberAccountId
    *       isn't specified, the action updates the classification types of the S3 resources associated
    *       with Amazon Macie for the current master account. If memberAccountId is specified, the action
    *       updates the classification types of the S3 resources associated with Amazon Macie for the
    *       specified member account. </p>
-   *
    */
   public updateS3Resources(
     args: UpdateS3ResourcesCommandInput,

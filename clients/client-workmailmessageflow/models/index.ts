@@ -4,9 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface GetRawMessageContentRequest {
   __type?: "GetRawMessageContentRequest";
   /**
-   *
-   *          <p>The identifier of the email message to retrieve.</p>
-   *
+   * <p>The identifier of the email message to retrieve.</p>
    */
   messageId: string | undefined;
 }
@@ -20,9 +18,7 @@ export namespace GetRawMessageContentRequest {
 export interface GetRawMessageContentResponse extends $MetadataBearer {
   __type?: "GetRawMessageContentResponse";
   /**
-   *
-   *          <p>The raw content of the email message, in MIME format.</p>
-   *
+   * <p>The raw content of the email message, in MIME format.</p>
    */
   messageContent: Uint8Array | undefined;
 }
@@ -34,9 +30,7 @@ export namespace GetRawMessageContentResponse {
 }
 
 /**
- *
- *          <p>The requested email message is not found.</p>
- *
+ * <p>The requested email message is not found.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,

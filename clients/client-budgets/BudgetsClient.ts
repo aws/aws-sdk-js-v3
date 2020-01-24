@@ -220,8 +220,7 @@ export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- * 		       <p>The AWS Budgets API enables you to use AWS Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for AWS Budgets. </p>
+ * <p>The AWS Budgets API enables you to use AWS Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for AWS Budgets. </p>
  * 		       <p>Budgets provide you with a way to see the following information:</p>
  * 		       <ul>
  *             <li>
@@ -264,7 +263,6 @@ export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<
  * 			         </li>
  *          </ul>
  * 		       <p>For information about costs that are associated with the AWS Budgets API, see <a href="https://aws.amazon.com/aws-cost-management/pricing/">AWS Cost Management Pricing</a>.</p>
- *
  */
 export class BudgetsClient extends __Client<
   __HttpHandlerOptions,

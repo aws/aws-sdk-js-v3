@@ -3478,6 +3478,9 @@ const serializeAws_json1_1SharePointConfiguration = (
   if (input.CrawlAttachments !== undefined) {
     bodyParams["CrawlAttachments"] = input.CrawlAttachments;
   }
+  if (input.DocumentTitleFieldName !== undefined) {
+    bodyParams["DocumentTitleFieldName"] = input.DocumentTitleFieldName;
+  }
   if (input.FieldMappings !== undefined) {
     bodyParams[
       "FieldMappings"
@@ -5175,6 +5178,7 @@ const deserializeAws_json1_1SharePointConfiguration = (
   let contents: any = {
     __type: "SharePointConfiguration",
     CrawlAttachments: undefined,
+    DocumentTitleFieldName: undefined,
     FieldMappings: undefined,
     SecretArn: undefined,
     SharePointVersion: undefined,
@@ -5183,6 +5187,9 @@ const deserializeAws_json1_1SharePointConfiguration = (
   };
   if (output.CrawlAttachments !== undefined) {
     contents.CrawlAttachments = output.CrawlAttachments;
+  }
+  if (output.DocumentTitleFieldName !== undefined) {
+    contents.DocumentTitleFieldName = output.DocumentTitleFieldName;
   }
   if (output.FieldMappings !== undefined) {
     contents.FieldMappings = deserializeAws_json1_1DataSourceToIndexFieldMappingList(

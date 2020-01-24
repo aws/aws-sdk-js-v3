@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   DeleteEventSubscriptionMessage,
-  EventSubscription
+  DeleteEventSubscriptionResult
 } from "../models/index";
 import {
   deserializeAws_queryDeleteEventSubscriptionCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
-export type DeleteEventSubscriptionCommandOutput = EventSubscription;
+export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResult;
 
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,

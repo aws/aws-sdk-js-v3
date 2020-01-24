@@ -19,9 +19,15 @@ import {
   ListMemberAccountsResponse,
   ListPoliciesRequest,
   ListPoliciesResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   PutNotificationChannelRequest,
   PutPolicyRequest,
-  PutPolicyResponse
+  PutPolicyResponse,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
+  UntagResourceResponse
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -89,8 +95,11 @@ export type ServiceInputTypes =
   | ListComplianceStatusRequest
   | ListMemberAccountsRequest
   | ListPoliciesRequest
+  | ListTagsForResourceRequest
   | PutNotificationChannelRequest
-  | PutPolicyRequest;
+  | PutPolicyRequest
+  | TagResourceRequest
+  | UntagResourceRequest;
 
 export type ServiceOutputTypes =
   | __MetadataBearer
@@ -102,7 +111,10 @@ export type ServiceOutputTypes =
   | ListComplianceStatusResponse
   | ListMemberAccountsResponse
   | ListPoliciesResponse
-  | PutPolicyResponse;
+  | ListTagsForResourceResponse
+  | PutPolicyResponse
+  | TagResourceResponse
+  | UntagResourceResponse;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -212,14 +224,12 @@ export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Firewall Manager</fullname>
+ * <fullname>AWS Firewall Manager</fullname>
  *          <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the AWS Firewall Manager API actions, data
  *       types, and errors. For detailed information about AWS Firewall Manager features, see the
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall
  *         Manager Developer Guide</a>.</p>
- *
  */
 export class FMSClient extends __Client<
   __HttpHandlerOptions,

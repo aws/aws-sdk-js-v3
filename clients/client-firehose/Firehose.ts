@@ -62,17 +62,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon Kinesis Data Firehose API Reference</fullname>
+ * <fullname>Amazon Kinesis Data Firehose API Reference</fullname>
  *          <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time
  *          streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon
  *          Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.</p>
- *
  */
 export class Firehose extends FirehoseClient {
   /**
-   *
-   *          <p>Creates a Kinesis Data Firehose delivery stream.</p>
+   * <p>Creates a Kinesis Data Firehose delivery stream.</p>
    *
    *          <p>By default, you can create up to 50 delivery streams per AWS Region.</p>
    *          <p>This is an asynchronous operation that immediately returns. The initial status of the
@@ -141,10 +138,6 @@ export class Firehose extends FirehoseClient {
    *          information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Kinesis Data
    *             Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Kinesis Data
    *             Firehose Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
    */
   public createDeliveryStream(
     args: CreateDeliveryStreamCommandInput,
@@ -179,8 +172,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Deletes a delivery stream and its data.</p>
+   * <p>Deletes a delivery stream and its data.</p>
    *          <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. You can delete a delivery stream only if it is in one of the following states:
    *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
    *             <code>DELETING_FAILED</code>. You can't delete a delivery stream that is in the
@@ -190,9 +182,6 @@ export class Firehose extends FirehoseClient {
    *          continue to accept records, but it doesn't make any guarantees with respect to delivering
    *          the data. Therefore, as a best practice, first stop any applications that are sending
    *          records before you delete a delivery stream.</p>
-   *
-   *
-   *
    */
   public deleteDeliveryStream(
     args: DeleteDeliveryStreamCommandInput,
@@ -227,17 +216,13 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified delivery stream and its status. For example, after your
+   * <p>Describes the specified delivery stream and its status. For example, after your
    *          delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether the
    *          delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
    *          <p>If the status of a delivery stream is <code>CREATING_FAILED</code>, this status
    *          doesn't change, and you can't invoke <a>CreateDeliveryStream</a> again on it.
    *          However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
    *          If the status is <code>DELETING_FAILED</code>, you can force deletion by invoking <a>DeleteDeliveryStream</a> again but with <a>DeleteDeliveryStreamInput$AllowForceDelete</a> set to true.</p>
-   *
-   *
-   *
    */
   public describeDeliveryStream(
     args: DescribeDeliveryStreamCommandInput,
@@ -272,8 +257,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Lists your delivery streams in alphabetical order of their names.</p>
+   * <p>Lists your delivery streams in alphabetical order of their names.</p>
    *          <p>The number of delivery streams might be too large to return using a single call to
    *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
    *          using the <code>Limit</code> parameter. To determine whether there are more delivery
@@ -281,9 +265,6 @@ export class Firehose extends FirehoseClient {
    *          there are more delivery streams to list, you can request them by calling this operation
    *          again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name
    *          of the last delivery stream returned in the last call.</p>
-   *
-   *
-   *
    */
   public listDeliveryStreams(
     args: ListDeliveryStreamsCommandInput,
@@ -318,11 +299,8 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags for the specified delivery stream. This operation has a limit of five
+   * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
    *          transactions per second per account. </p>
-   *
-   *
    */
   public listTagsForDeliveryStream(
     args: ListTagsForDeliveryStreamCommandInput,
@@ -357,8 +335,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To
+   * <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To
    *          write multiple data records into a delivery stream, use <a>PutRecordBatch</a>.
    *          Applications using these operations are referred to as producers.</p>
    *          <p>By default, each delivery stream can take in up to 2,000 transactions per second,
@@ -392,9 +369,6 @@ export class Firehose extends FirehoseClient {
    *             <p>Don't concatenate two or more base64 strings to form the data fields of your records.
    *             Instead, concatenate the raw data, then perform base64 encoding.</p>
    *          </important>
-   *
-   *
-   *
    */
   public putRecord(
     args: PutRecordCommandInput,
@@ -429,8 +403,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Writes multiple data records into a delivery stream in a single call, which can
+   * <p>Writes multiple data records into a delivery stream in a single call, which can
    *          achieve higher throughput per producer than when writing single records. To write single
    *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
    *          these operations are referred to as producers.</p>
@@ -486,9 +459,6 @@ export class Firehose extends FirehoseClient {
    *             <p>Don't concatenate two or more base64 strings to form the data fields of your records.
    *             Instead, concatenate the raw data, then perform base64 encoding.</p>
    *          </important>
-   *
-   *
-   *
    */
   public putRecordBatch(
     args: PutRecordBatchCommandInput,
@@ -523,8 +493,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Enables server-side encryption (SSE) for the delivery stream. </p>
+   * <p>Enables server-side encryption (SSE) for the delivery stream. </p>
    *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data
    *          Firehose first sets the encryption status of the stream to <code>ENABLING</code>, and then
    *          to <code>ENABLED</code>. The encryption status of a delivery stream is the
@@ -557,10 +526,6 @@ export class Firehose extends FirehoseClient {
    *             <code>StartDeliveryStreamEncryption</code> 13 times and
    *             <code>StopDeliveryStreamEncryption</code> 12 times for the same delivery stream in a
    *          24-hour period.</p>
-   *
-   *
-   *
-   *
    */
   public startDeliveryStreamEncryption(
     args: StartDeliveryStreamEncryptionCommandInput,
@@ -595,8 +560,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Disables server-side encryption (SSE) for the delivery stream. </p>
+   * <p>Disables server-side encryption (SSE) for the delivery stream. </p>
    *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data
    *          Firehose first sets the encryption status of the stream to <code>DISABLING</code>, and then
    *          to <code>DISABLED</code>. You can continue to read and write data to your stream while its
@@ -618,8 +582,6 @@ export class Firehose extends FirehoseClient {
    *             <code>StartDeliveryStreamEncryption</code> 13 times and
    *             <code>StopDeliveryStreamEncryption</code> 12 times for the same delivery stream in a
    *          24-hour period.</p>
-   *
-   *
    */
   public stopDeliveryStreamEncryption(
     args: StopDeliveryStreamEncryptionCommandInput,
@@ -654,8 +616,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair
+   * <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair
    *          that you can define and assign to AWS resources. If you specify a tag that already exists,
    *          the tag value is replaced with the value that you specify in the request. Tags are
    *          metadata. For example, you can add friendly names and descriptions or other types of
@@ -664,10 +625,6 @@ export class Firehose extends FirehoseClient {
    *             User Guide</i>. </p>
    *          <p>Each delivery stream can have up to 50 tags. </p>
    *          <p>This operation has a limit of five transactions per second per account. </p>
-   *
-   *
-   *
-   *
    */
   public tagDeliveryStream(
     args: TagDeliveryStreamCommandInput,
@@ -702,13 +659,10 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
+   * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
    *          can't recover them after this operation successfully completes.</p>
    *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
    *          <p>This operation has a limit of five transactions per second per account. </p>
-   *
-   *
    */
   public untagDeliveryStream(
     args: UntagDeliveryStreamCommandInput,
@@ -743,8 +697,7 @@ export class Firehose extends FirehoseClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified destination of the specified delivery stream.</p>
+   * <p>Updates the specified destination of the specified delivery stream.</p>
    *
    *          <p>Use this operation to change the destination type (for example, to replace the Amazon
    *          S3 destination with Amazon Redshift) or change the parameters associated with a destination
@@ -768,10 +721,6 @@ export class Firehose extends FirehoseClient {
    *          configuration only if the existing configuration has a version ID that matches. After the
    *          update is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>. Use the new version ID to set
    *             <code>CurrentDeliveryStreamVersionId</code> in the next call.</p>
-   *
-   *
-   *
-   *
    */
   public updateDestination(
     args: UpdateDestinationCommandInput,

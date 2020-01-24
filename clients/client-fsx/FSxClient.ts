@@ -1,6 +1,10 @@
 import {
+  CancelDataRepositoryTaskRequest,
+  CancelDataRepositoryTaskResponse,
   CreateBackupRequest,
   CreateBackupResponse,
+  CreateDataRepositoryTaskRequest,
+  CreateDataRepositoryTaskResponse,
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupResponse,
   CreateFileSystemRequest,
@@ -11,6 +15,8 @@ import {
   DeleteFileSystemResponse,
   DescribeBackupsRequest,
   DescribeBackupsResponse,
+  DescribeDataRepositoryTasksRequest,
+  DescribeDataRepositoryTasksResponse,
   DescribeFileSystemsRequest,
   DescribeFileSystemsResponse,
   ListTagsForResourceRequest,
@@ -75,12 +81,15 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CancelDataRepositoryTaskRequest
   | CreateBackupRequest
+  | CreateDataRepositoryTaskRequest
   | CreateFileSystemFromBackupRequest
   | CreateFileSystemRequest
   | DeleteBackupRequest
   | DeleteFileSystemRequest
   | DescribeBackupsRequest
+  | DescribeDataRepositoryTasksRequest
   | DescribeFileSystemsRequest
   | ListTagsForResourceRequest
   | TagResourceRequest
@@ -88,12 +97,15 @@ export type ServiceInputTypes =
   | UpdateFileSystemRequest;
 
 export type ServiceOutputTypes =
+  | CancelDataRepositoryTaskResponse
   | CreateBackupResponse
+  | CreateDataRepositoryTaskResponse
   | CreateFileSystemFromBackupResponse
   | CreateFileSystemResponse
   | DeleteBackupResponse
   | DeleteFileSystemResponse
   | DescribeBackupsResponse
+  | DescribeDataRepositoryTasksResponse
   | DescribeFileSystemsResponse
   | ListTagsForResourceResponse
   | TagResourceResponse
@@ -208,10 +220,8 @@ export type FSxClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Amazon FSx is a fully managed service that makes it easy for storage and
+ * <p>Amazon FSx is a fully managed service that makes it easy for storage and
  *             application administrators to launch and use shared file storage.</p>
- *
  */
 export class FSxClient extends __Client<
   __HttpHandlerOptions,

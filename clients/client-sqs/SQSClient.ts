@@ -233,8 +233,7 @@ export type SQSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p>
+ * <p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p>
  *         <p>Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
  *         <p>You can use <a href="http://aws.amazon.com/tools/#sdk">AWS SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
  *         <ul>
@@ -299,7 +298,6 @@ export type SQSClientResolvedConfig = __SmithyResolvedConfiguration<
  *                </ul>
  *             </li>
  *          </ul>
- *
  */
 export class SQSClient extends __Client<
   __HttpHandlerOptions,

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { CreateClusterSnapshotMessage, Snapshot } from "../models/index";
+import {
+  CreateClusterSnapshotMessage,
+  CreateClusterSnapshotResult
+} from "../models/index";
 import {
   deserializeAws_queryCreateClusterSnapshotCommand,
   serializeAws_queryCreateClusterSnapshotCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClusterSnapshotCommandInput = CreateClusterSnapshotMessage;
-export type CreateClusterSnapshotCommandOutput = Snapshot;
+export type CreateClusterSnapshotCommandOutput = CreateClusterSnapshotResult;
 
 export class CreateClusterSnapshotCommand extends $Command<
   CreateClusterSnapshotCommandInput,

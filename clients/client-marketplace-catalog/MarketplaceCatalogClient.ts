@@ -188,15 +188,13 @@ export type MarketplaceCatalogClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Catalog API actions allow you to create, describe, list, and delete changes to your
+ * <p>Catalog API actions allow you to create, describe, list, and delete changes to your
  *             published entities. An entity is a product or an offer on AWS Marketplace.</p>
  *
  *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
  *             API with your AWS Marketplace product build or deployment pipelines. You can also create
  *             your own applications on top of the Catalog API to manage your products on AWS
  *             Marketplace.</p>
- *
  */
 export class MarketplaceCatalogClient extends __Client<
   __HttpHandlerOptions,

@@ -5,7 +5,7 @@ import {
 } from "../RedshiftClient";
 import {
   CreateSnapshotCopyGrantMessage,
-  SnapshotCopyGrant
+  CreateSnapshotCopyGrantResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateSnapshotCopyGrantCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSnapshotCopyGrantCommandInput = CreateSnapshotCopyGrantMessage;
-export type CreateSnapshotCopyGrantCommandOutput = SnapshotCopyGrant;
+export type CreateSnapshotCopyGrantCommandOutput = CreateSnapshotCopyGrantResult;
 
 export class CreateSnapshotCopyGrantCommand extends $Command<
   CreateSnapshotCopyGrantCommandInput,

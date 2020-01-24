@@ -9,6 +9,10 @@ import {
   CreateProjectResult,
   CreateRemoteAccessSessionRequest,
   CreateRemoteAccessSessionResult,
+  CreateTestGridProjectRequest,
+  CreateTestGridProjectResult,
+  CreateTestGridUrlRequest,
+  CreateTestGridUrlResult,
   CreateUploadRequest,
   CreateUploadResult,
   CreateVPCEConfigurationRequest,
@@ -25,6 +29,8 @@ import {
   DeleteRemoteAccessSessionResult,
   DeleteRunRequest,
   DeleteRunResult,
+  DeleteTestGridProjectRequest,
+  DeleteTestGridProjectResult,
   DeleteUploadRequest,
   DeleteUploadResult,
   DeleteVPCEConfigurationRequest,
@@ -55,6 +61,10 @@ import {
   GetRunResult,
   GetSuiteRequest,
   GetSuiteResult,
+  GetTestGridProjectRequest,
+  GetTestGridProjectResult,
+  GetTestGridSessionRequest,
+  GetTestGridSessionResult,
   GetTestRequest,
   GetTestResult,
   GetUploadRequest,
@@ -95,6 +105,14 @@ import {
   ListSuitesResult,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListTestGridProjectsRequest,
+  ListTestGridProjectsResult,
+  ListTestGridSessionActionsRequest,
+  ListTestGridSessionActionsResult,
+  ListTestGridSessionArtifactsRequest,
+  ListTestGridSessionArtifactsResult,
+  ListTestGridSessionsRequest,
+  ListTestGridSessionsResult,
   ListTestsRequest,
   ListTestsResult,
   ListUniqueProblemsRequest,
@@ -129,6 +147,8 @@ import {
   UpdateNetworkProfileResult,
   UpdateProjectRequest,
   UpdateProjectResult,
+  UpdateTestGridProjectRequest,
+  UpdateTestGridProjectResult,
   UpdateUploadRequest,
   UpdateUploadResult,
   UpdateVPCEConfigurationRequest,
@@ -192,6 +212,8 @@ export type ServiceInputTypes =
   | CreateNetworkProfileRequest
   | CreateProjectRequest
   | CreateRemoteAccessSessionRequest
+  | CreateTestGridProjectRequest
+  | CreateTestGridUrlRequest
   | CreateUploadRequest
   | CreateVPCEConfigurationRequest
   | DeleteDevicePoolRequest
@@ -200,6 +222,7 @@ export type ServiceInputTypes =
   | DeleteProjectRequest
   | DeleteRemoteAccessSessionRequest
   | DeleteRunRequest
+  | DeleteTestGridProjectRequest
   | DeleteUploadRequest
   | DeleteVPCEConfigurationRequest
   | GetAccountSettingsRequest
@@ -215,6 +238,8 @@ export type ServiceInputTypes =
   | GetRemoteAccessSessionRequest
   | GetRunRequest
   | GetSuiteRequest
+  | GetTestGridProjectRequest
+  | GetTestGridSessionRequest
   | GetTestRequest
   | GetUploadRequest
   | GetVPCEConfigurationRequest
@@ -235,6 +260,10 @@ export type ServiceInputTypes =
   | ListSamplesRequest
   | ListSuitesRequest
   | ListTagsForResourceRequest
+  | ListTestGridProjectsRequest
+  | ListTestGridSessionActionsRequest
+  | ListTestGridSessionArtifactsRequest
+  | ListTestGridSessionsRequest
   | ListTestsRequest
   | ListUniqueProblemsRequest
   | ListUploadsRequest
@@ -252,6 +281,7 @@ export type ServiceInputTypes =
   | UpdateInstanceProfileRequest
   | UpdateNetworkProfileRequest
   | UpdateProjectRequest
+  | UpdateTestGridProjectRequest
   | UpdateUploadRequest
   | UpdateVPCEConfigurationRequest;
 
@@ -261,6 +291,8 @@ export type ServiceOutputTypes =
   | CreateNetworkProfileResult
   | CreateProjectResult
   | CreateRemoteAccessSessionResult
+  | CreateTestGridProjectResult
+  | CreateTestGridUrlResult
   | CreateUploadResult
   | CreateVPCEConfigurationResult
   | DeleteDevicePoolResult
@@ -269,6 +301,7 @@ export type ServiceOutputTypes =
   | DeleteProjectResult
   | DeleteRemoteAccessSessionResult
   | DeleteRunResult
+  | DeleteTestGridProjectResult
   | DeleteUploadResult
   | DeleteVPCEConfigurationResult
   | GetAccountSettingsResult
@@ -284,6 +317,8 @@ export type ServiceOutputTypes =
   | GetRemoteAccessSessionResult
   | GetRunResult
   | GetSuiteResult
+  | GetTestGridProjectResult
+  | GetTestGridSessionResult
   | GetTestResult
   | GetUploadResult
   | GetVPCEConfigurationResult
@@ -304,6 +339,10 @@ export type ServiceOutputTypes =
   | ListSamplesResult
   | ListSuitesResult
   | ListTagsForResourceResponse
+  | ListTestGridProjectsResult
+  | ListTestGridSessionActionsResult
+  | ListTestGridSessionArtifactsResult
+  | ListTestGridSessionsResult
   | ListTestsResult
   | ListUniqueProblemsResult
   | ListUploadsResult
@@ -321,6 +360,7 @@ export type ServiceOutputTypes =
   | UpdateInstanceProfileResult
   | UpdateNetworkProfileResult
   | UpdateProjectResult
+  | UpdateTestGridProjectResult
   | UpdateUploadResult
   | UpdateVPCEConfigurationResult;
 
@@ -432,10 +472,21 @@ export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps
- *             on physical phones, tablets, and other devices in the cloud.</p>
- *
+ * <p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Testing on desktop browsers</p>
+ *                 <p> Device Farm makes it possible for you to test your web applications on desktop browsers using
+ *                     Selenium. The APIs for desktop browser testing contain <code>TestGrid</code> in their names. For
+ *                     more information, see <a href="https://docs.aws.amazon.com/devicefarm/latest/testgrid/">Testing Web
+ *                         Applications on Selenium with Device Farm</a>.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Testing on real mobile devices</p>
+ *                 <p>Device Farm makes it possible for you to test apps on physical phones, tablets, and other
+ *                     devices in the cloud. For more information, see the <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/">Device Farm Developer Guide</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export class DeviceFarmClient extends __Client<
   __HttpHandlerOptions,

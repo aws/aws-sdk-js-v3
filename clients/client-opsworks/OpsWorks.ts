@@ -372,8 +372,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS OpsWorks</fullname>
+ * <fullname>AWS OpsWorks</fullname>
  *          <p>Welcome to the <i>AWS OpsWorks Stacks API Reference</i>. This guide provides descriptions, syntax, and
  *       usage examples for AWS OpsWorks Stacks actions and data types, including common parameters and error
  *       codes. </p>
@@ -488,12 +487,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <note>
  *             <p>You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.</p>
  *          </note>
- *
  */
 export class OpsWorks extends OpsWorksClient {
   /**
-   *
-   *          <p>Assign a registered instance to a layer.</p>
+   * <p>Assign a registered instance to a layer.</p>
    *          <ul>
    *             <li>
    *                <p>You can assign registered on-premises instances to any layer type.</p>
@@ -511,7 +508,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public assignInstance(
     args: AssignInstanceCommandInput,
@@ -546,8 +542,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must
+   * <p>Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must
    *       first be registered with the stack by calling <a>RegisterVolume</a>. After you register the
    *       volume, you must call <a>UpdateVolume</a> to specify a mount point before calling
    *         <code>AssignVolume</code>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
@@ -556,7 +551,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public assignVolume(
     args: AssignVolumeCommandInput,
@@ -591,8 +585,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Associates one of the stack's registered Elastic IP addresses with a specified instance. The
+   * <p>Associates one of the stack's registered Elastic IP addresses with a specified instance. The
    *       address must first be registered with the stack by calling <a>RegisterElasticIp</a>. For more
    *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
    *         Management</a>.</p>
@@ -601,7 +594,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public associateElasticIp(
     args: AssociateElasticIpCommandInput,
@@ -636,8 +628,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support
+   * <p>Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support
    *           Application Load Balancer. You can only use Classic Load Balancer with AWS OpsWorks Stacks.
    *           For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html">Elastic Load
    *         Balancing</a>.</p>
@@ -651,7 +642,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public attachElasticLoadBalancer(
     args: AttachElasticLoadBalancerCommandInput,
@@ -686,14 +676,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Creates a clone of a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html">Clone a
+   * <p>Creates a clone of a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html">Clone a
    *         Stack</a>. By default, all parameters are set to the values used by the parent stack.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public cloneStack(
     args: CloneStackCommandInput,
@@ -728,15 +716,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Creates an app for a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
+   * <p>Creates an app for a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
    *       Apps</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public createApp(
     args: CreateAppCommandInput,
@@ -771,15 +757,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Runs deployment or stack commands. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html">Deploying
+   * <p>Runs deployment or stack commands. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html">Deploying
    *         Apps</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html">Run Stack Commands</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Deploy or Manage
    *       permissions level for the stack, or an attached policy that explicitly grants permissions. For
    *       more information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public createDeployment(
     args: CreateDeploymentCommandInput,
@@ -814,15 +798,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an
+   * <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an
    *         Instance to a Layer</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public createInstance(
     args: CreateInstanceCommandInput,
@@ -857,8 +839,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Creates a layer. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">How to
+   * <p>Creates a layer. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">How to
    *         Create a Layer</a>.</p>
    *          <note>
    *             <p>You should use <b>CreateLayer</b> for noncustom layer types such as PHP App Server only if the stack
@@ -872,7 +853,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public createLayer(
     args: CreateLayerCommandInput,
@@ -907,14 +887,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New
+   * <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New
    *         Stack</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public createStack(
     args: CreateStackCommandInput,
@@ -949,13 +927,11 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Creates a new user profile.</p>
+   * <p>Creates a new user profile.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public createUserProfile(
     args: CreateUserProfileCommandInput,
@@ -990,14 +966,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified app.</p>
+   * <p>Deletes a specified app.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deleteApp(
     args: DeleteAppCommandInput,
@@ -1032,8 +1006,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.</p>
+   * <p>Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html">Deleting
    *         Instances</a>.</p>
    *          <p>
@@ -1041,7 +1014,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deleteInstance(
     args: DeleteInstanceCommandInput,
@@ -1076,8 +1048,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified layer. You must first stop and then delete all associated instances or
+   * <p>Deletes a specified layer. You must first stop and then delete all associated instances or
    *       unassign registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html">How to
    *         Delete a Layer</a>.</p>
    *          <p>
@@ -1085,7 +1056,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deleteLayer(
     args: DeleteLayerCommandInput,
@@ -1120,8 +1090,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified stack. You must first delete all instances, layers, and apps or
+   * <p>Deletes a specified stack. You must first delete all instances, layers, and apps or
    *       deregister registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html">Shut Down a
    *         Stack</a>.</p>
    *          <p>
@@ -1129,7 +1098,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deleteStack(
     args: DeleteStackCommandInput,
@@ -1164,13 +1132,11 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deletes a user profile.</p>
+   * <p>Deletes a user profile.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deleteUserProfile(
     args: DeleteUserProfileCommandInput,
@@ -1205,8 +1171,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deregisters a specified Amazon ECS cluster from a stack.
+   * <p>Deregisters a specified Amazon ECS cluster from a stack.
    *       For more information, see
    *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete">
    *         Resource Management</a>.</p>
@@ -1215,7 +1180,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see
    *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html</a>.</p>
-   *
    */
   public deregisterEcsCluster(
     args: DeregisterEcsClusterCommandInput,
@@ -1250,15 +1214,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deregisters a specified Elastic IP address. The address can then be registered by another
+   * <p>Deregisters a specified Elastic IP address. The address can then be registered by another
    *       stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deregisterElasticIp(
     args: DeregisterElasticIpCommandInput,
@@ -1293,8 +1255,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deregister a registered Amazon EC2 or on-premises instance. This action removes the
+   * <p>Deregister a registered Amazon EC2 or on-premises instance. This action removes the
    *           instance from the stack and returns it to your control. This action cannot be used with
    *           instances that were created with AWS OpsWorks Stacks.</p>
    *          <p>
@@ -1302,7 +1263,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deregisterInstance(
     args: DeregisterInstanceCommandInput,
@@ -1337,14 +1297,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deregisters an Amazon RDS instance.</p>
+   * <p>Deregisters an Amazon RDS instance.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deregisterRdsDbInstance(
     args: DeregisterRdsDbInstanceCommandInput,
@@ -1379,8 +1337,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more
+   * <p>Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more
    *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
    *         Management</a>.</p>
    *          <p>
@@ -1388,7 +1345,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public deregisterVolume(
     args: DeregisterVolumeCommandInput,
@@ -1423,11 +1379,9 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a
+   * <p>Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a
    *     configuration manager. <code>DescribeAgentVersions</code> returns a list of available
    *     agent versions for the specified stack or configuration manager.</p>
-   *
    */
   public describeAgentVersions(
     args: DescribeAgentVersionsCommandInput,
@@ -1462,8 +1416,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Requests a description of a specified set of apps.</p>
+   * <p>Requests a description of a specified set of apps.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1472,7 +1425,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeApps(
     args: DescribeAppsCommandInput,
@@ -1507,8 +1459,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes the results of specified commands.</p>
+   * <p>Describes the results of specified commands.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1517,7 +1468,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeCommands(
     args: DescribeCommandsCommandInput,
@@ -1552,8 +1502,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Requests a description of a specified set of deployments.</p>
+   * <p>Requests a description of a specified set of deployments.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1562,7 +1511,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeDeployments(
     args: DescribeDeploymentsCommandInput,
@@ -1597,8 +1545,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID,
+   * <p>Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID,
    *     you can use the <code>MaxResults</code> and <code>NextToken</code> parameters to paginate the
    *     response. However, AWS OpsWorks Stacks currently supports only one cluster per layer, so the result
    *     set has a maximum of one element.</p>
@@ -1608,7 +1555,6 @@ export class OpsWorks extends OpsWorksClient {
    *       permission. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    *          <p>This call accepts only one resource-identifying parameter.</p>
-   *
    */
   public describeEcsClusters(
     args: DescribeEcsClustersCommandInput,
@@ -1643,8 +1589,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>
+   * <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1653,7 +1598,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeElasticIps(
     args: DescribeElasticIpsCommandInput,
@@ -1688,8 +1632,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes a stack's Elastic Load Balancing instances.</p>
+   * <p>Describes a stack's Elastic Load Balancing instances.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1698,7 +1641,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeElasticLoadBalancers(
     args: DescribeElasticLoadBalancersCommandInput,
@@ -1733,8 +1675,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Requests a description of a set of instances.</p>
+   * <p>Requests a description of a set of instances.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1743,7 +1684,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeInstances(
     args: DescribeInstancesCommandInput,
@@ -1778,8 +1718,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Requests a description of one or more layers in a specified stack.</p>
+   * <p>Requests a description of one or more layers in a specified stack.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1788,7 +1727,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeLayers(
     args: DescribeLayersCommandInput,
@@ -1823,8 +1761,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes load-based auto scaling configurations for specified layers.</p>
+   * <p>Describes load-based auto scaling configurations for specified layers.</p>
    *          <note>
    *             <p>You must specify at least one of the parameters.</p>
    *          </note>
@@ -1833,7 +1770,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeLoadBasedAutoScaling(
     args: DescribeLoadBasedAutoScalingCommandInput,
@@ -1868,14 +1804,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes a user's SSH information.</p>
+   * <p>Describes a user's SSH information.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
    *       enabled or an attached policy that explicitly grants permissions. For more information about user
    *       permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeMyUserProfile(
     args: DescribeMyUserProfileCommandInput,
@@ -1910,9 +1844,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *         <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
-   *
+   * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
    */
   public describeOperatingSystems(
     args: DescribeOperatingSystemsCommandInput,
@@ -1947,14 +1879,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes the permissions for a specified stack.</p>
+   * <p>Describes the permissions for a specified stack.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describePermissions(
     args: DescribePermissionsCommandInput,
@@ -1989,8 +1919,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describe an instance's RAID arrays.</p>
+   * <p>Describe an instance's RAID arrays.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -1999,7 +1928,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeRaidArrays(
     args: DescribeRaidArraysCommandInput,
@@ -2034,15 +1962,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes Amazon RDS instances.</p>
+   * <p>Describes Amazon RDS instances.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    *          <p>This call accepts only one resource-identifying parameter.</p>
-   *
    */
   public describeRdsDbInstances(
     args: DescribeRdsDbInstancesCommandInput,
@@ -2077,15 +2003,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes AWS OpsWorks Stacks service errors.</p>
+   * <p>Describes AWS OpsWorks Stacks service errors.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
    *          <p>This call accepts only one resource-identifying parameter.</p>
-   *
    */
   public describeServiceErrors(
     args: DescribeServiceErrorsCommandInput,
@@ -2120,14 +2044,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Requests a description of a stack's provisioning parameters.</p>
+   * <p>Requests a description of a stack's provisioning parameters.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
    *       Manage permissions level for the stack or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeStackProvisioningParameters(
     args: DescribeStackProvisioningParametersCommandInput,
@@ -2174,15 +2096,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes the number of layers and apps in a specified stack, and the number of instances in
+   * <p>Describes the number of layers and apps in a specified stack, and the number of instances in
    *       each state, such as <code>running_setup</code> or <code>online</code>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeStackSummary(
     args: DescribeStackSummaryCommandInput,
@@ -2217,14 +2137,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Requests a description of one or more stacks.</p>
+   * <p>Requests a description of one or more stacks.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeStacks(
     args: DescribeStacksCommandInput,
@@ -2259,8 +2177,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes time-based auto scaling configurations for specified instances.</p>
+   * <p>Describes time-based auto scaling configurations for specified instances.</p>
    *          <note>
    *             <p>You must specify at least one of the parameters.</p>
    *          </note>
@@ -2269,7 +2186,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeTimeBasedAutoScaling(
     args: DescribeTimeBasedAutoScalingCommandInput,
@@ -2304,13 +2220,11 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describe specified users.</p>
+   * <p>Describe specified users.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeUserProfiles(
     args: DescribeUserProfilesCommandInput,
@@ -2345,8 +2259,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Describes an instance's Amazon EBS volumes.</p>
+   * <p>Describes an instance's Amazon EBS volumes.</p>
    *          <note>
    *             <p>This call accepts only one resource-identifying parameter.</p>
    *          </note>
@@ -2355,7 +2268,6 @@ export class OpsWorks extends OpsWorksClient {
    *       Manage permissions level for the stack, or an attached policy that explicitly grants
    *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public describeVolumes(
     args: DescribeVolumesCommandInput,
@@ -2390,14 +2302,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Detaches a specified Elastic Load Balancing instance from its layer.</p>
+   * <p>Detaches a specified Elastic Load Balancing instance from its layer.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public detachElasticLoadBalancer(
     args: DetachElasticLoadBalancerCommandInput,
@@ -2432,15 +2342,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Disassociates an Elastic IP address from its instance. The address remains registered with
+   * <p>Disassociates an Elastic IP address from its instance. The address remains registered with
    *       the stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public disassociateElasticIp(
     args: DisassociateElasticIpCommandInput,
@@ -2475,14 +2383,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>
+   * <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public getHostnameSuggestion(
     args: GetHostnameSuggestionCommandInput,
@@ -2517,12 +2423,10 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This action can be used only with Windows stacks.</p>
    *          </note>
    *          <p>Grants RDP access to a Windows instance for a specified time period.</p>
-   *
    */
   public grantAccess(
     args: GrantAccessCommandInput,
@@ -2557,9 +2461,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of tags that are applied to the specified stack or layer.</p>
-   *
+   * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
    */
   public listTags(
     args: ListTagsCommandInput,
@@ -2594,15 +2496,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Reboots a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
+   * <p>Reboots a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
    *         Stopping, and Rebooting Instances</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public rebootInstance(
     args: RebootInstanceCommandInput,
@@ -2637,8 +2537,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
+   * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
    *       cluster with a stack. A cluster can be registered with only one stack.
    *       For more information, see
    *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html">
@@ -2649,7 +2548,6 @@ export class OpsWorks extends OpsWorksClient {
    *       information on user permissions, see
    *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">
    *       Managing User Permissions</a>.</p>
-   *
    */
   public registerEcsCluster(
     args: RegisterEcsClusterCommandInput,
@@ -2684,8 +2582,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Registers an Elastic IP address with a specified stack. An address can be registered with
+   * <p>Registers an Elastic IP address with a specified stack. An address can be registered with
    *       only one stack at a time. If the address is already registered, you must first deregister it
    *       by calling <a>DeregisterElasticIp</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
    *          <p>
@@ -2693,7 +2590,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public registerElasticIp(
     args: RegisterElasticIpCommandInput,
@@ -2728,8 +2624,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>
+   * <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>
    *          <note>
    *             <p>We do not recommend using this action to register instances. The complete registration
    *       operation includes two tasks: installing the AWS OpsWorks Stacks agent on the instance, and registering
@@ -2748,7 +2643,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public registerInstance(
     args: RegisterInstanceCommandInput,
@@ -2783,14 +2677,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Registers an Amazon RDS instance with a stack.</p>
+   * <p>Registers an Amazon RDS instance with a stack.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public registerRdsDbInstance(
     args: RegisterRdsDbInstanceCommandInput,
@@ -2825,8 +2717,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
+   * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
    *       stack at a time. If the volume is already registered, you must first deregister it by calling
    *         <a>DeregisterVolume</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
    *          <p>
@@ -2834,7 +2725,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public registerVolume(
     args: RegisterVolumeCommandInput,
@@ -2869,8 +2759,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Specify the load-based auto scaling configuration for a specified layer. For more
+   * <p>Specify the load-based auto scaling configuration for a specified layer. For more
    *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
    *         Load with Time-based and Load-based Instances</a>.</p>
    *          <note>
@@ -2881,7 +2770,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public setLoadBasedAutoScaling(
     args: SetLoadBasedAutoScalingCommandInput,
@@ -2916,15 +2804,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Specifies a user's permissions. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and
+   * <p>Specifies a user's permissions. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and
    *         Permissions</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public setPermission(
     args: SetPermissionCommandInput,
@@ -2959,8 +2845,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Specify the time-based auto scaling configuration for a specified instance. For more
+   * <p>Specify the time-based auto scaling configuration for a specified instance. For more
    *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
    *         Load with Time-based and Load-based Instances</a>.</p>
    *          <p>
@@ -2968,7 +2853,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public setTimeBasedAutoScaling(
     args: SetTimeBasedAutoScalingCommandInput,
@@ -3003,15 +2887,13 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Starts a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
+   * <p>Starts a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
    *         Stopping, and Rebooting Instances</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public startInstance(
     args: StartInstanceCommandInput,
@@ -3046,14 +2928,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Starts a stack's instances.</p>
+   * <p>Starts a stack's instances.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public startStack(
     args: StartStackCommandInput,
@@ -3088,8 +2968,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Stops a specified instance. When you stop a standard instance, the data disappears and must
+   * <p>Stops a specified instance. When you stop a standard instance, the data disappears and must
    *       be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without
    *       losing data. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
    *         Stopping, and Rebooting Instances</a>.</p>
@@ -3098,7 +2977,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public stopInstance(
     args: StopInstanceCommandInput,
@@ -3133,14 +3011,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Stops a specified stack.</p>
+   * <p>Stops a specified stack.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public stopStack(
     args: StopStackCommandInput,
@@ -3175,9 +3051,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks. For more information about how tagging works, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html">Tags</a> in the AWS OpsWorks User Guide.</p>
-   *
+   * <p>Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks. For more information about how tagging works, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html">Tags</a> in the AWS OpsWorks User Guide.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -3212,8 +3086,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Unassigns a registered instance from all layers that are using the instance.
+   * <p>Unassigns a registered instance from all layers that are using the instance.
    *           The instance remains in the stack as an unassigned instance, and can be assigned to
    *           another layer as needed. You cannot use this action with instances that were created
    *           with AWS OpsWorks Stacks.</p>
@@ -3222,7 +3095,6 @@ export class OpsWorks extends OpsWorksClient {
    *           have a Manage permissions level for the stack or an attached policy that explicitly
    *           grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public unassignInstance(
     args: UnassignInstanceCommandInput,
@@ -3257,8 +3129,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more
+   * <p>Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more
    *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
    *         Management</a>.</p>
    *          <p>
@@ -3266,7 +3137,6 @@ export class OpsWorks extends OpsWorksClient {
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public unassignVolume(
     args: UnassignVolumeCommandInput,
@@ -3301,9 +3171,7 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Removes tags from a specified stack or layer.</p>
-   *
+   * <p>Removes tags from a specified stack or layer.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3338,14 +3206,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates a specified app.</p>
+   * <p>Updates a specified app.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Deploy or Manage
    *       permissions level for the stack, or an attached policy that explicitly grants permissions. For
    *       more information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateApp(
     args: UpdateAppCommandInput,
@@ -3380,14 +3246,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates a registered Elastic IP address's name. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
+   * <p>Updates a registered Elastic IP address's name. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateElasticIp(
     args: UpdateElasticIpCommandInput,
@@ -3422,14 +3286,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates a specified instance.</p>
+   * <p>Updates a specified instance.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateInstance(
     args: UpdateInstanceCommandInput,
@@ -3464,14 +3326,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates a specified layer.</p>
+   * <p>Updates a specified layer.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateLayer(
     args: UpdateLayerCommandInput,
@@ -3506,14 +3366,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates a user's SSH public key.</p>
+   * <p>Updates a user's SSH public key.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
    *       enabled or an attached policy that explicitly grants permissions. For more information about user
    *       permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateMyUserProfile(
     args: UpdateMyUserProfileCommandInput,
@@ -3548,14 +3406,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates an Amazon RDS instance.</p>
+   * <p>Updates an Amazon RDS instance.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateRdsDbInstance(
     args: UpdateRdsDbInstanceCommandInput,
@@ -3590,14 +3446,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates a specified stack.</p>
+   * <p>Updates a specified stack.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateStack(
     args: UpdateStackCommandInput,
@@ -3632,13 +3486,11 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates a specified user profile.</p>
+   * <p>Updates a specified user profile.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
    *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateUserProfile(
     args: UpdateUserProfileCommandInput,
@@ -3673,14 +3525,12 @@ export class OpsWorks extends OpsWorksClient {
   }
 
   /**
-   *
-   *          <p>Updates an Amazon EBS volume's name or mount point. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
+   * <p>Updates an Amazon EBS volume's name or mount point. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
    *          <p>
    *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
    *       level for the stack, or an attached policy that explicitly grants permissions. For more
    *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
    *         Permissions</a>.</p>
-   *
    */
   public updateVolume(
     args: UpdateVolumeCommandInput,

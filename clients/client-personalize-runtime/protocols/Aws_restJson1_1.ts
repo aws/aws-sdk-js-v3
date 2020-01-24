@@ -35,6 +35,12 @@ export async function serializeAws_restJson1_1GetPersonalizedRankingCommand(
   if (input.campaignArn !== undefined) {
     bodyParams["campaignArn"] = input.campaignArn;
   }
+  if (input.context !== undefined) {
+    bodyParams["context"] = serializeAws_restJson1_1Context(
+      input.context,
+      context
+    );
+  }
   if (input.inputList !== undefined) {
     bodyParams["inputList"] = serializeAws_restJson1_1InputList(
       input.inputList,
@@ -66,6 +72,12 @@ export async function serializeAws_restJson1_1GetRecommendationsCommand(
   const bodyParams: any = {};
   if (input.campaignArn !== undefined) {
     bodyParams["campaignArn"] = input.campaignArn;
+  }
+  if (input.context !== undefined) {
+    bodyParams["context"] = serializeAws_restJson1_1Context(
+      input.context,
+      context
+    );
   }
   if (input.itemId !== undefined) {
     bodyParams["itemId"] = input.itemId;
@@ -249,6 +261,17 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     contents.message = data.message;
   }
   return contents;
+};
+
+const serializeAws_restJson1_1Context = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  let mapParams: any = {};
+  Object.keys(input).forEach(key => {
+    mapParams[key] = input[key];
+  });
+  return mapParams;
 };
 
 const serializeAws_restJson1_1InputList = (

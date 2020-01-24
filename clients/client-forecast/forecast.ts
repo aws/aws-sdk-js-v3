@@ -132,14 +132,11 @@ import { forecastClient } from "./forecastClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
- *
+ * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
 export class forecast extends forecastClient {
   /**
-   *
-   *          <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
+   * <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
    *       Forecast understand how to consume the data for model training. This includes the
    *       following:</p>
    *          <ul>
@@ -181,7 +178,6 @@ export class forecast extends forecastClient {
    *             <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
    *         training data. Use the <a>DescribeDataset</a> operation to get the status.</p>
    *          </note>
-   *
    */
   public createDataset(
     args: CreateDatasetCommandInput,
@@ -216,8 +212,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Creates a dataset group, which holds a collection of related datasets. You can add
+   * <p>Creates a dataset group, which holds a collection of related datasets. You can add
    *       datasets to the dataset group when you create the dataset group, or later by using the <a>UpdateDatasetGroup</a> operation.</p>
    *          <p>After creating a dataset group and adding datasets, you use the dataset group when you
    *       create a predictor. For more information, see <a>howitworks-datasets-groups</a>.</p>
@@ -227,7 +222,6 @@ export class forecast extends forecastClient {
    *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
    *         create use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
    *          </note>
-   *
    */
   public createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
@@ -262,8 +256,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Imports your training data to an Amazon Forecast dataset. You provide the location of your
+   * <p>Imports your training data to an Amazon Forecast dataset. You provide the location of your
    *       training data in an Amazon Simple Storage Service (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset
    *       that you want to import the data to.</p>
    *          <p>You must specify a <a>DataSource</a> object that includes an AWS Identity and Access Management (IAM)
@@ -275,9 +268,6 @@ export class forecast extends forecastClient {
    *
    *          <p>To get a list of all your dataset import jobs, filtered by specified criteria, use the
    *         <a>ListDatasetImportJobs</a> operation.</p>
-   *
-   *
-   *
    */
   public createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
@@ -312,8 +302,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was
+   * <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was
    *       used to train the predictor. This is known as inference. To retrieve the forecast for a single
    *       item at low latency, use the  operation. To
    *       export the complete forecast into your Amazon Simple Storage Service (Amazon S3) bucket, use the <a>CreateForecastExportJob</a> operation.</p>
@@ -332,7 +321,6 @@ export class forecast extends forecastClient {
    *         or export the forecast. Use the <a>DescribeForecast</a> operation to get the
    *         status.</p>
    *          </note>
-   *
    */
   public createForecast(
     args: CreateForecastCommandInput,
@@ -367,8 +355,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
+   * <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
    *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
    *          <p><ForecastExportJobName>_<ExportTimestamp>_<PageNumber></p>
    *          <p>where the <ExportTimestamp> component is in Java SimpleDateFormat
@@ -382,7 +369,6 @@ export class forecast extends forecastClient {
    *             <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before
    *         you can access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
    *          </note>
-   *
    */
   public createForecastExportJob(
     args: CreateForecastExportJobCommandInput,
@@ -417,9 +403,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates an Amazon Forecast predictor.</p>
+   * <p>Creates an Amazon Forecast predictor.</p>
    *          <p>In the request, you provide a dataset group and either specify an algorithm or let
    *       Amazon Forecast choose the algorithm for you using AutoML. If you specify an algorithm, you also can
    *       override algorithm-specific hyperparameters.</p>
@@ -477,7 +461,6 @@ export class forecast extends forecastClient {
    *         predictor must be <code>ACTIVE</code>, signifying that training has completed. To get the
    *         status, use the <a>DescribePredictor</a> operation.</p>
    *          </note>
-   *
    */
   public createPredictor(
     args: CreatePredictorCommandInput,
@@ -512,14 +495,10 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Deletes an Amazon Forecast dataset that was created using the <a>CreateDataset</a>
+   * <p>Deletes an Amazon Forecast dataset that was created using the <a>CreateDataset</a>
    *       operation. You can only delete datasets that have a status of <code>ACTIVE</code> or
    *         <code>CREATE_FAILED</code>. To get the status use the <a>DescribeDataset</a>
    *       operation.</p>
-   *
-   *
-   *
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -554,12 +533,10 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation.
+   * <p>Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation.
    *       You can only delete dataset groups that have a status of <code>ACTIVE</code>,
    *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
    *          <p>This operation deletes only the dataset group, not the datasets in the group.</p>
-   *
    */
   public deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
@@ -594,12 +571,9 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Deletes a dataset import job created using the <a>CreateDatasetImportJob</a>
+   * <p>Deletes a dataset import job created using the <a>CreateDatasetImportJob</a>
    *       operation. You can delete only dataset import jobs that have a status of <code>ACTIVE</code>
    *       or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeDatasetImportJob</a> operation.</p>
-   *
-   *
    */
   public deleteDatasetImportJob(
     args: DeleteDatasetImportJobCommandInput,
@@ -634,13 +608,11 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
+   * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
    *       delete only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
    *       To get the status, use the <a>DescribeForecast</a> operation.</p>
    *          <p>You can't delete a forecast while it is being exported. After a forecast is deleted, you
    *       can no longer query the forecast.</p>
-   *
    */
   public deleteForecast(
     args: DeleteForecastCommandInput,
@@ -675,11 +647,9 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Deletes a forecast export job created using the <a>CreateForecastExportJob</a>
+   * <p>Deletes a forecast export job created using the <a>CreateForecastExportJob</a>
    *       operation. You can delete only export jobs that have a status of <code>ACTIVE</code> or
    *         <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
-   *
    */
   public deleteForecastExportJob(
     args: DeleteForecastExportJobCommandInput,
@@ -714,11 +684,9 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Deletes a predictor created using the <a>CreatePredictor</a> operation. You can
+   * <p>Deletes a predictor created using the <a>CreatePredictor</a> operation. You can
    *       delete only predictor that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
    *       To get the status, use the <a>DescribePredictor</a> operation.</p>
-   *
    */
   public deletePredictor(
     args: DeletePredictorCommandInput,
@@ -753,8 +721,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a>
+   * <p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a>
    *       operation.</p>
    *          <p>In addition to listing the parameters specified in the <code>CreateDataset</code> request,
    *       this operation includes the following dataset properties:</p>
@@ -775,7 +742,6 @@ export class forecast extends forecastClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -810,8 +776,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Describes a dataset group created using the <a>CreateDatasetGroup</a>
+   * <p>Describes a dataset group created using the <a>CreateDatasetGroup</a>
    *       operation.</p>
    *          <p>In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
    *       request, this operation includes the following properties:</p>
@@ -836,7 +801,6 @@ export class forecast extends forecastClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
@@ -871,8 +835,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Describes a dataset import job created using the <a>CreateDatasetImportJob</a>
+   * <p>Describes a dataset import job created using the <a>CreateDatasetImportJob</a>
    *       operation.</p>
    *          <p>In addition to listing the parameters provided in the <code>CreateDatasetImportJob</code>
    *       request, this operation includes the following properties:</p>
@@ -907,7 +870,6 @@ export class forecast extends forecastClient {
    *                   <code>Message</code> - If an error occurred, information about the error.</p>
    *             </li>
    *          </ul>
-   *
    */
   public describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
@@ -942,8 +904,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Describes a forecast created using the <a>CreateForecast</a> operation.</p>
+   * <p>Describes a forecast created using the <a>CreateForecast</a> operation.</p>
    *          <p>In addition to listing the properties provided in the <code>CreateForecast</code> request,
    *       this operation lists the following properties:</p>
    *          <ul>
@@ -972,7 +933,6 @@ export class forecast extends forecastClient {
    *                   <code>Message</code> - If an error occurred, information about the error.</p>
    *             </li>
    *          </ul>
-   *
    */
   public describeForecast(
     args: DescribeForecastCommandInput,
@@ -1007,8 +967,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p>
+   * <p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p>
    *          <p>In addition to listing the properties provided by the user in the
    *         <code>CreateForecastExportJob</code> request, this operation lists the following
    *       properties:</p>
@@ -1033,7 +992,6 @@ export class forecast extends forecastClient {
    *                   <code>Message</code> - If an error occurred, information about the error.</p>
    *             </li>
    *          </ul>
-   *
    */
   public describeForecastExportJob(
     args: DescribeForecastExportJobCommandInput,
@@ -1068,9 +1026,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *
-   *          <p>Describes a predictor created using the <a>CreatePredictor</a>
+   * <p>Describes a predictor created using the <a>CreatePredictor</a>
    *       operation.</p>
    *          <p>In addition to listing the properties provided in the <code>CreatePredictor</code>
    *       request, this operation lists the following properties:</p>
@@ -1105,7 +1061,6 @@ export class forecast extends forecastClient {
    *                   <code>Message</code> - If an error occurred, information about the error.</p>
    *             </li>
    *          </ul>
-   *
    */
   public describePredictor(
     args: DescribePredictorCommandInput,
@@ -1140,8 +1095,7 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Provides metrics on the accuracy of the models that were trained by the
+   * <p>Provides metrics on the accuracy of the models that were trained by the
    *       <a>CreatePredictor</a> operation. Use metrics to see how well the model performed
    *       and to decide whether to use the predictor to generate a forecast. For more information, see
    *       <a>metrics</a>.</p>
@@ -1161,7 +1115,6 @@ export class forecast extends forecastClient {
    *         <code>ACTIVE</code>, signifying that training has completed.
    *         To get the status, use the <a>DescribePredictor</a> operation.</p>
    *          </note>
-   *
    */
   public getAccuracyMetrics(
     args: GetAccuracyMetricsCommandInput,
@@ -1196,12 +1149,10 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of dataset groups created using the <a>CreateDatasetGroup</a>
+   * <p>Returns a list of dataset groups created using the <a>CreateDatasetGroup</a>
    *       operation. For each dataset group, this operation returns a summary of its properties,
    *       including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by
    *       using the dataset group ARN with the <a>DescribeDatasetGroup</a> operation.</p>
-   *
    */
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
@@ -1236,12 +1187,10 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of dataset import jobs created using the <a>CreateDatasetImportJob</a> operation. For each import job, this operation returns a
+   * <p>Returns a list of dataset import jobs created using the <a>CreateDatasetImportJob</a> operation. For each import job, this operation returns a
    *       summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the
    *       complete set of properties by using the ARN with the <a>DescribeDatasetImportJob</a> operation. You can filter the list by providing an array of <a>Filter</a>
    *       objects.</p>
-   *
    */
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
@@ -1276,11 +1225,9 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of datasets created using the <a>CreateDataset</a> operation.
+   * <p>Returns a list of datasets created using the <a>CreateDataset</a> operation.
    *       For each dataset, a summary of its properties, including its Amazon Resource Name (ARN), is
    *       returned. To retrieve the complete set of properties, use the ARN with the <a>DescribeDataset</a> operation.</p>
-   *
    */
   public listDatasets(
     args: ListDatasetsCommandInput,
@@ -1315,12 +1262,10 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a> operation. For each forecast export job, this operation
+   * <p>Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a> operation. For each forecast export job, this operation
    *       returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the
    *       complete set of properties, use the ARN with the <a>DescribeForecastExportJob</a>
    *       operation. You can filter the list using an array of <a>Filter</a> objects.</p>
-   *
    */
   public listForecastExportJobs(
     args: ListForecastExportJobsCommandInput,
@@ -1355,13 +1300,11 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of forecasts created using the <a>CreateForecast</a> operation.
+   * <p>Returns a list of forecasts created using the <a>CreateForecast</a> operation.
    *       For each forecast, this operation returns a summary of its properties, including its Amazon
    *       Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the
    *         <a>DescribeForecast</a> operation. You can filter the list using an array of
    *         <a>Filter</a> objects.</p>
-   *
    */
   public listForecasts(
     args: ListForecastsCommandInput,
@@ -1396,13 +1339,11 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of predictors created using the <a>CreatePredictor</a>
+   * <p>Returns a list of predictors created using the <a>CreatePredictor</a>
    *       operation. For each predictor, this operation returns a summary of its properties, including
    *       its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
    *       ARN with the <a>DescribePredictor</a> operation. You can filter the list using an
    *       array of <a>Filter</a> objects.</p>
-   *
    */
   public listPredictors(
     args: ListPredictorsCommandInput,
@@ -1437,14 +1378,12 @@ export class forecast extends forecastClient {
   }
 
   /**
-   *
-   *          <p>Replaces the datasets in a dataset group with the specified datasets.</p>
+   * <p>Replaces the datasets in a dataset group with the specified datasets.</p>
    *          <note>
    *             <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can
    *         use the dataset group to create a predictor. Use the <a>DescribeDatasetGroup</a>
    *         operation to get the status.</p>
    *          </note>
-   *
    */
   public updateDatasetGroup(
     args: UpdateDatasetGroupCommandInput,

@@ -2,35 +2,43 @@ import {
   AddTagsToResourceMessage,
   AllowedNodeTypeModificationsMessage,
   AuthorizeCacheSecurityGroupIngressMessage,
+  AuthorizeCacheSecurityGroupIngressResult,
   BatchApplyUpdateActionMessage,
   BatchStopUpdateActionMessage,
-  CacheCluster,
   CacheClusterMessage,
   CacheEngineVersionMessage,
-  CacheParameterGroup,
   CacheParameterGroupDetails,
   CacheParameterGroupNameMessage,
   CacheParameterGroupsMessage,
-  CacheSecurityGroup,
   CacheSecurityGroupMessage,
-  CacheSubnetGroup,
   CacheSubnetGroupMessage,
   CompleteMigrationMessage,
   CompleteMigrationResponse,
   CopySnapshotMessage,
+  CopySnapshotResult,
   CreateCacheClusterMessage,
+  CreateCacheClusterResult,
   CreateCacheParameterGroupMessage,
+  CreateCacheParameterGroupResult,
   CreateCacheSecurityGroupMessage,
+  CreateCacheSecurityGroupResult,
   CreateCacheSubnetGroupMessage,
+  CreateCacheSubnetGroupResult,
   CreateReplicationGroupMessage,
+  CreateReplicationGroupResult,
   CreateSnapshotMessage,
+  CreateSnapshotResult,
   DecreaseReplicaCountMessage,
+  DecreaseReplicaCountResult,
   DeleteCacheClusterMessage,
+  DeleteCacheClusterResult,
   DeleteCacheParameterGroupMessage,
   DeleteCacheSecurityGroupMessage,
   DeleteCacheSubnetGroupMessage,
   DeleteReplicationGroupMessage,
+  DeleteReplicationGroupResult,
   DeleteSnapshotMessage,
+  DeleteSnapshotResult,
   DescribeCacheClustersMessage,
   DescribeCacheEngineVersionsMessage,
   DescribeCacheParameterGroupsMessage,
@@ -38,6 +46,7 @@ import {
   DescribeCacheSecurityGroupsMessage,
   DescribeCacheSubnetGroupsMessage,
   DescribeEngineDefaultParametersMessage,
+  DescribeEngineDefaultParametersResult,
   DescribeEventsMessage,
   DescribeReplicationGroupsMessage,
   DescribeReservedCacheNodesMessage,
@@ -46,32 +55,37 @@ import {
   DescribeSnapshotsListMessage,
   DescribeSnapshotsMessage,
   DescribeUpdateActionsMessage,
-  EngineDefaults,
   EventsMessage,
   IncreaseReplicaCountMessage,
+  IncreaseReplicaCountResult,
   ListAllowedNodeTypeModificationsMessage,
   ListTagsForResourceMessage,
   ModifyCacheClusterMessage,
+  ModifyCacheClusterResult,
   ModifyCacheParameterGroupMessage,
   ModifyCacheSubnetGroupMessage,
+  ModifyCacheSubnetGroupResult,
   ModifyReplicationGroupMessage,
+  ModifyReplicationGroupResult,
   ModifyReplicationGroupShardConfigurationMessage,
+  ModifyReplicationGroupShardConfigurationResult,
   PurchaseReservedCacheNodesOfferingMessage,
+  PurchaseReservedCacheNodesOfferingResult,
   RebootCacheClusterMessage,
+  RebootCacheClusterResult,
   RemoveTagsFromResourceMessage,
-  ReplicationGroup,
   ReplicationGroupMessage,
-  ReservedCacheNode,
   ReservedCacheNodeMessage,
   ReservedCacheNodesOfferingMessage,
   ResetCacheParameterGroupMessage,
   RevokeCacheSecurityGroupIngressMessage,
+  RevokeCacheSecurityGroupIngressResult,
   ServiceUpdatesMessage,
-  Snapshot,
   StartMigrationMessage,
   StartMigrationResponse,
   TagListMessage,
   TestFailoverMessage,
+  TestFailoverResult,
   UpdateActionResultsMessage,
   UpdateActionsMessage
 } from "./models/index";
@@ -181,47 +195,47 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | __MetadataBearer
   | AllowedNodeTypeModificationsMessage
-  | CacheCluster
-  | CacheCluster
-  | CacheCluster
-  | CacheCluster
+  | AuthorizeCacheSecurityGroupIngressResult
   | CacheClusterMessage
   | CacheEngineVersionMessage
-  | CacheParameterGroup
   | CacheParameterGroupDetails
   | CacheParameterGroupNameMessage
   | CacheParameterGroupNameMessage
   | CacheParameterGroupsMessage
-  | CacheSecurityGroup
-  | CacheSecurityGroup
-  | CacheSecurityGroup
   | CacheSecurityGroupMessage
-  | CacheSubnetGroup
-  | CacheSubnetGroup
   | CacheSubnetGroupMessage
   | CompleteMigrationResponse
+  | CopySnapshotResult
+  | CreateCacheClusterResult
+  | CreateCacheParameterGroupResult
+  | CreateCacheSecurityGroupResult
+  | CreateCacheSubnetGroupResult
+  | CreateReplicationGroupResult
+  | CreateSnapshotResult
+  | DecreaseReplicaCountResult
+  | DeleteCacheClusterResult
+  | DeleteReplicationGroupResult
+  | DeleteSnapshotResult
+  | DescribeEngineDefaultParametersResult
   | DescribeSnapshotsListMessage
-  | EngineDefaults
   | EventsMessage
-  | ReplicationGroup
-  | ReplicationGroup
-  | ReplicationGroup
-  | ReplicationGroup
-  | ReplicationGroup
-  | ReplicationGroup
-  | ReplicationGroup
+  | IncreaseReplicaCountResult
+  | ModifyCacheClusterResult
+  | ModifyCacheSubnetGroupResult
+  | ModifyReplicationGroupResult
+  | ModifyReplicationGroupShardConfigurationResult
+  | PurchaseReservedCacheNodesOfferingResult
+  | RebootCacheClusterResult
   | ReplicationGroupMessage
-  | ReservedCacheNode
   | ReservedCacheNodeMessage
   | ReservedCacheNodesOfferingMessage
+  | RevokeCacheSecurityGroupIngressResult
   | ServiceUpdatesMessage
-  | Snapshot
-  | Snapshot
-  | Snapshot
   | StartMigrationResponse
   | TagListMessage
   | TagListMessage
   | TagListMessage
+  | TestFailoverResult
   | UpdateActionResultsMessage
   | UpdateActionResultsMessage
   | UpdateActionsMessage;
@@ -334,8 +348,7 @@ export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Amazon ElastiCache</fullname>
+ * <fullname>Amazon ElastiCache</fullname>
  *         <p>Amazon ElastiCache is a web service that makes it easier to set up, operate,
  *             and scale a distributed cache in the cloud.</p>
  *         <p>With ElastiCache, customers get all of the benefits of a high-performance,
@@ -345,7 +358,6 @@ export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<
  *         <p>In addition, through integration with Amazon CloudWatch,
  *             customers get enhanced visibility into the key performance statistics
  *             associated with their cache and can receive alarms if a part of their cache runs hot.</p>
- *
  */
 export class ElastiCacheClient extends __Client<
   __HttpHandlerOptions,

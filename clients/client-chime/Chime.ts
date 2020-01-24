@@ -15,6 +15,11 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
 import {
+  AssociateSigninDelegateGroupsWithAccountCommand,
+  AssociateSigninDelegateGroupsWithAccountCommandInput,
+  AssociateSigninDelegateGroupsWithAccountCommandOutput
+} from "./commands/AssociateSigninDelegateGroupsWithAccountCommand";
+import {
   BatchCreateAttendeeCommand,
   BatchCreateAttendeeCommandInput,
   BatchCreateAttendeeCommandOutput
@@ -84,6 +89,11 @@ import {
   CreateRoomMembershipCommandInput,
   CreateRoomMembershipCommandOutput
 } from "./commands/CreateRoomMembershipCommand";
+import {
+  CreateUserCommand,
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
 import {
   CreateVoiceConnectorCommand,
   CreateVoiceConnectorCommandInput,
@@ -174,6 +184,11 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand";
+import {
+  DisassociateSigninDelegateGroupsFromAccountCommand,
+  DisassociateSigninDelegateGroupsFromAccountCommandInput,
+  DisassociateSigninDelegateGroupsFromAccountCommandOutput
+} from "./commands/DisassociateSigninDelegateGroupsFromAccountCommand";
 import {
   GetAccountCommand,
   GetAccountCommandInput,
@@ -457,8 +472,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The Amazon Chime API (application programming interface) is designed for developers to
+ * <p>The Amazon Chime API (application programming interface) is designed for developers to
  *       perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice
  *       Connectors. This guide provides detailed information about the Amazon Chime API, including
  *       operations, types, inputs and outputs, and error codes. It also includes some server-side API
@@ -495,14 +509,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *          <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a> in the
  *        <i>Amazon Chime Administration Guide</i>.</p>
- *
  */
 export class Chime extends ChimeClient {
   /**
-   *
-   *          <p>Associates a phone number with the specified Amazon Chime user.</p>
-   *
-   *
+   * <p>Associates a phone number with the specified Amazon Chime user.</p>
    */
   public associatePhoneNumberWithUser(
     args: AssociatePhoneNumberWithUserCommandInput,
@@ -537,12 +547,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Associates phone numbers with the specified Amazon Chime Voice Connector.</p>
-   *
-   *
-   *
-   *
+   * <p>Associates phone numbers with the specified Amazon Chime Voice Connector.</p>
    */
   public associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
@@ -589,10 +594,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
-   *
-   *
+   * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
    */
   public associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
@@ -641,9 +643,54 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates up to 100 new attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
-   *
+   * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>
+   */
+  public associateSigninDelegateGroupsWithAccount(
+    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput>;
+  public associateSigninDelegateGroupsWithAccount(
+    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
+    cb: (
+      err: any,
+      data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
+    ) => void
+  ): void;
+  public associateSigninDelegateGroupsWithAccount(
+    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
+    ) => void
+  ): void;
+  public associateSigninDelegateGroupsWithAccount(
+    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
+    ) => void
+  ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput> | void {
+    const command = new AssociateSigninDelegateGroupsWithAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates up to 100 new attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>. </p>
    */
   public batchCreateAttendee(
     args: BatchCreateAttendeeCommandInput,
@@ -678,9 +725,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Adds up to 50 members to a chat room. Members can be either users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
-   *
+   * <p>Adds up to 50 members to a chat room. Members can be either users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
    */
   public batchCreateRoomMembership(
     args: BatchCreateRoomMembershipCommandInput,
@@ -715,14 +760,11 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Moves phone numbers into the <b>Deletion queue</b>. Phone
+   * <p>Moves phone numbers into the <b>Deletion queue</b>. Phone
    *       numbers must be disassociated from any users or Amazon Chime Voice
    *       Connectors before they can be deleted.</p>
    *          <p>Phone numbers remain in the <b>Deletion queue</b> for 7 days
    *       before they are deleted permanently.</p>
-   *
-   *
    */
   public batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
@@ -757,24 +799,21 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon
+   * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon
    *       Chime account. For more information
    *       about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the
    *       <i>Amazon
    *         Chime Administration Guide</i>.</p>
-   *          <p>Users suspended from a <code>Team</code> account are dissasociated from the account, but
-   *       they can continue to use Amazon Chime as free users. To remove the suspension from suspended
-   *         <code>Team</code> account users, invite them to the <code>Team</code> account again. You can
-   *       use the <a>InviteUsers</a> action to do so.</p>
+   *          <p>Users suspended from a <code>Team</code> account are disassociated from the account,
+   *       but they can continue to use Amazon Chime as free users. To remove the suspension from
+   *       suspended <code>Team</code> account users, invite them to the <code>Team</code> account again.
+   *       You can use the <a>InviteUsers</a> action to do so.</p>
    *          <p>Users suspended from an <code>EnterpriseLWA</code> account are immediately signed out
    *       of Amazon Chime and can no longer sign in. To remove the suspension from suspended
    *         <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a>
    *       action. </p>
    *          <p>To sign out users without suspending them, use the <a>LogoutUser</a>
    *       action.</p>
-   *
-   *
    */
   public batchSuspendUser(
     args: BatchSuspendUserCommandInput,
@@ -809,16 +848,13 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Removes the suspension from up to 50 previously suspended users for the specified
+   * <p>Removes the suspension from up to 50 previously suspended users for the specified
    *       Amazon Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
    *       accounts can be unsuspended using this action. For more information about different account
    *       types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
    *         Guide</i>.</p>
    *          <p>Previously suspended users who are unsuspended using this action are returned to
    *       <code>Registered</code> status. Users who are not previously suspended are ignored.</p>
-   *
-   *
    */
   public batchUnsuspendUser(
     args: BatchUnsuspendUserCommandInput,
@@ -853,14 +889,11 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates phone number product types or calling names. You can update one attribute at a time for each <code>UpdatePhoneNumberRequestItem</code>. For example, you can update either the product type or the calling name.</p>
+   * <p>Updates phone number product types or calling names. You can update one attribute at a time for each <code>UpdatePhoneNumberRequestItem</code>. For example, you can update either the product type or the calling name.</p>
    *          <p>For product types, choose from Amazon Chime Business Calling and Amazon Chime Voice
    *       Connector. For toll-free numbers, you must use the Amazon Chime Voice Connector product
    *       type.</p>
    *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
-   *
-   *
    */
   public batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
@@ -895,11 +928,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account.
+   * <p>Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account.
    *        Currently, only <code>LicenseType</code> updates are supported for this action.</p>
-   *
-   *
    */
   public batchUpdateUser(
     args: BatchUpdateUserCommandInput,
@@ -934,14 +964,11 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates an Amazon Chime account under the administrator's AWS account. Only
+   * <p>Creates an Amazon Chime account under the administrator's AWS account. Only
    *        <code>Team</code> account types are currently supported for this action. For more information
    *        about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the
    *        <i>Amazon
    *          Chime Administration Guide</i>.</p>
-   *
-   *
    */
   public createAccount(
     args: CreateAccountCommandInput,
@@ -976,9 +1003,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public createAttendee(
     args: CreateAttendeeCommandInput,
@@ -1013,10 +1038,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates a bot for an Amazon Chime Enterprise account.</p>
-   *
-   *
+   * <p>Creates a bot for an Amazon Chime Enterprise account.</p>
    */
   public createBot(
     args: CreateBotCommandInput,
@@ -1051,9 +1073,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public createMeeting(
     args: CreateMeetingCommandInput,
@@ -1088,12 +1108,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates an order for phone numbers to be provisioned. Choose from Amazon Chime Business
+   * <p>Creates an order for phone numbers to be provisioned. Choose from Amazon Chime Business
    *       Calling and Amazon Chime Voice Connector product types. For toll-free numbers, you must use
    *       the Amazon Chime Voice Connector product type.</p>
-   *
-   *
    */
   public createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
@@ -1128,9 +1145,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates a chat room for the specified Amazon Chime account.</p>
-   *
+   * <p>Creates a chat room for the specified Amazon Chime account.</p>
    */
   public createRoom(
     args: CreateRoomCommandInput,
@@ -1165,9 +1180,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Adds a member to a chat room. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
-   *
+   * <p>Adds a member to a chat room. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
    */
   public createRoomMembership(
     args: CreateRoomMembershipCommandInput,
@@ -1202,12 +1215,44 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>
+   * <p>Creates a user under the specified Amazon Chime account.</p>
+   */
+  public createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  public createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+  public createUser(
+    args: CreateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+  public createUser(
+    args: CreateUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateUserCommandOutput) => void),
+    cb?: (err: any, data?: CreateUserCommandOutput) => void
+  ): Promise<CreateUserCommandOutput> | void {
+    const command = new CreateUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>
    *          <p>Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a> configures your Amazon Chime Voice Connector to use TLS transport for SIP signaling and Secure RTP (SRTP) for media.
    *       Inbound calls use TLS transport, and unencrypted outbound calls are blocked.</p>
-   *
-   *
    */
   public createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
@@ -1242,14 +1287,11 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account.
+   * <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account.
    *       You can associate up to three existing Amazon Chime Voice Connectors with the Amazon Chime
    *       Voice Connector group by including <code>VoiceConnectorItems</code> in the request.</p>
    *          <p>You can include Amazon Chime Voice Connectors from different AWS Regions in your group.
    *       This creates a fault tolerant mechanism for fallback in case of availability events.</p>
-   *
-   *
    */
   public createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
@@ -1284,8 +1326,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
+   * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
    *        a <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action to do
    *        so.</p>
    *          <p>For <code>EnterpriseLWA</code> and <code>EnterpriseAD</code> accounts, you must
@@ -1295,8 +1336,6 @@ export class Chime extends ChimeClient {
    *      deleted account from your <code>Disabled</code> accounts list, you must contact AWS Support.</p>
    *          <p>After 90 days, deleted accounts are permanently removed from your
    *        <code>Disabled</code> accounts list.</p>
-   *
-   *
    */
   public deleteAccount(
     args: DeleteAccountCommandInput,
@@ -1331,9 +1370,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public deleteAttendee(
     args: DeleteAttendeeCommandInput,
@@ -1368,9 +1405,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
-   *
+   * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
    */
   public deleteEventsConfiguration(
     args: DeleteEventsConfigurationCommandInput,
@@ -1405,9 +1440,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified Amazon Chime SDK meeting. When a meeting is deleted, its attendees are also deleted and clients can no longer join it. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Deletes the specified Amazon Chime SDK meeting. When a meeting is deleted, its attendees are also deleted and clients can no longer join it. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public deleteMeeting(
     args: DeleteMeetingCommandInput,
@@ -1442,14 +1475,11 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Moves the specified phone number into the <b>Deletion
+   * <p>Moves the specified phone number into the <b>Deletion
    *       queue</b>. A phone number must be disassociated from any users or Amazon Chime Voice
    *       Connectors before it can be deleted.</p>
    *          <p>Deleted phone numbers remain in the <b>Deletion queue</b>
    *       for 7 days before they are deleted permanently.</p>
-   *
-   *
    */
   public deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
@@ -1484,9 +1514,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes a chat room.</p>
-   *
+   * <p>Deletes a chat room.</p>
    */
   public deleteRoom(
     args: DeleteRoomCommandInput,
@@ -1521,9 +1549,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Removes a member from a chat room.</p>
-   *
+   * <p>Removes a member from a chat room.</p>
    */
   public deleteRoomMembership(
     args: DeleteRoomMembershipCommandInput,
@@ -1558,11 +1584,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with the
+   * <p>Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with the
    *       Amazon Chime Voice Connector must be disassociated from it before it can be deleted.</p>
-   *
-   *
    */
   public deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
@@ -1597,10 +1620,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code> and phone numbers associated with the group must be removed before it can be deleted.</p>
-   *
-   *
+   * <p>Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code> and phone numbers associated with the group must be removed before it can be deleted.</p>
    */
   public deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
@@ -1635,10 +1655,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the origination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Deletes the origination settings for the specified Amazon Chime Voice Connector.</p>
    */
   public deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
@@ -1676,10 +1693,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the streaming configuration for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Deletes the streaming configuration for the specified Amazon Chime Voice Connector.</p>
    */
   public deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
@@ -1726,10 +1740,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the termination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Deletes the termination settings for the specified Amazon Chime Voice Connector.</p>
    */
   public deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
@@ -1767,10 +1778,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
-   *
-   *
+   * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
    */
   public deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
@@ -1817,11 +1825,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
+   * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
    *       user.</p>
-   *
-   *
    */
   public disassociatePhoneNumberFromUser(
     args: DisassociatePhoneNumberFromUserCommandInput,
@@ -1859,10 +1864,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.</p>
    */
   public disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
@@ -1909,10 +1911,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector group.</p>
-   *
-   *
+   * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector group.</p>
    */
   public disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
@@ -1963,11 +1962,57 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details for the specified Amazon Chime account, such as account type and
+   * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>
+   */
+  public disassociateSigninDelegateGroupsFromAccount(
+    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput>;
+  public disassociateSigninDelegateGroupsFromAccount(
+    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+    cb: (
+      err: any,
+      data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
+    ) => void
+  ): void;
+  public disassociateSigninDelegateGroupsFromAccount(
+    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
+    ) => void
+  ): void;
+  public disassociateSigninDelegateGroupsFromAccount(
+    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
+    ) => void
+  ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> | void {
+    const command = new DisassociateSigninDelegateGroupsFromAccountCommand(
+      args
+    );
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves details for the specified Amazon Chime account, such as account type and
    *        supported licenses.</p>
-   *
-   *
    */
   public getAccount(
     args: GetAccountCommandInput,
@@ -2002,13 +2047,10 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves account settings for the specified Amazon Chime account ID, such as remote control and dial
+   * <p>Retrieves account settings for the specified Amazon Chime account ID, such as remote control and dial
    *        out settings. For more information about these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the
    *        <i>Amazon
    *          Chime Administration Guide</i>.</p>
-   *
-   *
    */
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -2043,9 +2085,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public getAttendee(
     args: GetAttendeeCommandInput,
@@ -2080,10 +2120,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
-   *
-   *
+   * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
    */
   public getBot(
     args: GetBotCommandInput,
@@ -2118,9 +2155,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN. </p>
-   *
+   * <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN. </p>
    */
   public getEventsConfiguration(
     args: GetEventsConfigurationCommandInput,
@@ -2155,11 +2190,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves global settings for the administrator's AWS account, such as Amazon
+   * <p>Retrieves global settings for the administrator's AWS account, such as Amazon
    *       Chime Business Calling and Amazon Chime Voice Connector settings.</p>
-   *
-   *
    */
   public getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
@@ -2194,9 +2226,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public getMeeting(
     args: GetMeetingCommandInput,
@@ -2231,11 +2261,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details for the specified phone number ID, such as associations,
+   * <p>Retrieves details for the specified phone number ID, such as associations,
    *       capabilities, and product type.</p>
-   *
-   *
    */
   public getPhoneNumber(
     args: GetPhoneNumberCommandInput,
@@ -2270,11 +2297,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details for the specified phone number order, such as order creation
+   * <p>Retrieves details for the specified phone number order, such as order creation
    *       timestamp, phone numbers in E.164 format, product type, and order status.</p>
-   *
-   *
    */
   public getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
@@ -2309,10 +2333,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
-   *
-   *
+   * <p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
    */
   public getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
@@ -2347,9 +2368,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves room details, such as name.</p>
-   *
+   * <p>Retrieves room details, such as the room name.</p>
    */
   public getRoom(
     args: GetRoomCommandInput,
@@ -2384,12 +2403,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details for the specified user ID, such as primary email address, license type,
+   * <p>Retrieves details for the specified user ID, such as primary email address, license type,
    *      and personal meeting PIN.</p>
    *          <p>To retrieve user details with an email address instead of a user ID, use the <a>ListUsers</a> action, and then filter by email address.</p>
-   *
-   *
    */
   public getUser(
     args: GetUserCommandInput,
@@ -2424,10 +2440,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>
-   *
-   *
+   * <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>
    */
   public getUserSettings(
     args: GetUserSettingsCommandInput,
@@ -2462,11 +2475,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,
+   * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,
    *       name, outbound host, and encryption requirements.</p>
-   *
-   *
    */
   public getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
@@ -2501,11 +2511,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,
+   * <p>Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,
    *       name, and associated <code>VoiceConnectorItems</code>.</p>
-   *
-   *
    */
   public getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
@@ -2540,10 +2547,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
-   *
-   *
+   * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
    */
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
@@ -2590,10 +2594,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves origination setting details for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Retrieves origination setting details for the specified Amazon Chime Voice Connector.</p>
    */
   public getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
@@ -2628,12 +2629,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice
+   * <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice
    *       Connector. Shows whether media streaming is enabled for sending to Amazon Kinesis. It also
    *       shows the retention period, in hours, for the Amazon Kinesis data.</p>
-   *
-   *
    */
   public getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
@@ -2680,10 +2678,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
    */
   public getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
@@ -2718,11 +2713,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received
+   * <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received
    *       from your SIP infrastructure for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
    */
   public getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
@@ -2769,12 +2761,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
+   * <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
    *         <code>Team</code> account. Only <code>Team</code> account types are currently supported for
    *       this action. </p>
-   *
-   *
    */
   public inviteUsers(
     args: InviteUsersCommandInput,
@@ -2809,12 +2798,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter
+   * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter
    *       accounts by account name prefix. To find out which Amazon Chime account a user belongs to, you
    *       can filter by the user's email address, which returns one account result.</p>
-   *
-   *
    */
   public listAccounts(
     args: ListAccountsCommandInput,
@@ -2849,9 +2835,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public listAttendees(
     args: ListAttendeesCommandInput,
@@ -2886,10 +2870,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
-   *
-   *
+   * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
    */
   public listBots(
     args: ListBotsCommandInput,
@@ -2924,9 +2905,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-   *
+   * <p>Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public listMeetings(
     args: ListMeetingsCommandInput,
@@ -2961,10 +2940,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the phone number orders for the administrator's Amazon Chime account.</p>
-   *
-   *
+   * <p>Lists the phone number orders for the administrator's Amazon Chime account.</p>
    */
   public listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
@@ -2999,10 +2975,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the phone numbers for the specified Amazon Chime account, Amazon Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.</p>
-   *
-   *
+   * <p>Lists the phone numbers for the specified Amazon Chime account, Amazon Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.</p>
    */
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -3037,9 +3010,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the membership details for the specified room, such as member IDs, member email addresses, and member names.</p>
-   *
+   * <p>Lists the membership details for the specified room, such as the members' IDs, email
+   *       addresses, and names.</p>
    */
   public listRoomMemberships(
     args: ListRoomMembershipsCommandInput,
@@ -3074,9 +3046,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the room details for the specified Amazon Chime account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
-   *
+   * <p>Lists the room details for the specified Amazon Chime account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
    */
   public listRooms(
     args: ListRoomsCommandInput,
@@ -3111,11 +3081,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the users that belong to the specified Amazon Chime account. You can specify an
+   * <p>Lists the users that belong to the specified Amazon Chime account. You can specify an
    *       email address to list only the user that the email address belongs to.</p>
-   *
-   *
    */
   public listUsers(
     args: ListUsersCommandInput,
@@ -3150,10 +3117,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>
-   *
-   *
+   * <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>
    */
   public listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
@@ -3188,10 +3152,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
    */
   public listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
@@ -3238,10 +3199,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
-   *
-   *
+   * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
    */
   public listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
@@ -3276,10 +3234,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Logs out the specified user from all of the devices they are currently logged into.</p>
-   *
-   *
+   * <p>Logs out the specified user from all of the devices they are currently logged into.</p>
    */
   public logoutUser(
     args: LogoutUserCommandInput,
@@ -3314,10 +3269,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon Chime.
+   * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon Chime.
    *       Choose either an HTTPS endpoint or a Lambda function ARN. For more information, see <a>Bot</a>.</p>
-   *
    */
   public putEventsConfiguration(
     args: PutEventsConfigurationCommandInput,
@@ -3352,10 +3305,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
-   *
-   *
+   * <p>Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
    */
   public putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
@@ -3402,10 +3352,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
    */
   public putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
@@ -3440,13 +3387,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The
+   * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The
    *       streaming configuration specifies whether media streaming is enabled for sending to Amazon
    *       Kinesis. It also sets the retention period, in hours, for the Amazon Kinesis data.</p>
-   *
-   *
-   *
    */
   public putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
@@ -3493,11 +3436,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
-   *
+   * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
    */
   public putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
@@ -3532,10 +3471,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
    */
   public putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
@@ -3582,10 +3518,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Regenerates the security token for a bot.</p>
-   *
-   *
+   * <p>Regenerates the security token for a bot.</p>
    */
   public regenerateSecurityToken(
     args: RegenerateSecurityTokenCommandInput,
@@ -3620,11 +3553,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account.
+   * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account.
    *       Returns the <a>User</a> object with the updated personal meeting PIN.</p>
-   *
-   *
    */
   public resetPersonalPIN(
     args: ResetPersonalPINCommandInput,
@@ -3659,11 +3589,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Moves a phone number from the <b>Deletion queue</b> back into
+   * <p>Moves a phone number from the <b>Deletion queue</b> back into
    *       the phone number <b>Inventory</b>.</p>
-   *
-   *
    */
   public restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
@@ -3698,10 +3625,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Searches phone numbers that can be ordered.</p>
-   *
-   *
+   * <p>Searches phone numbers that can be ordered.</p>
    */
   public searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -3736,11 +3660,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates account details for the specified Amazon Chime account. Currently, only
+   * <p>Updates account details for the specified Amazon Chime account. Currently, only
    *        account name updates are supported for this action.</p>
-   *
-   *
    */
   public updateAccount(
     args: UpdateAccountCommandInput,
@@ -3775,14 +3696,11 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates the settings for the specified Amazon Chime account. You can update settings
+   * <p>Updates the settings for the specified Amazon Chime account. You can update settings
    *       for remote control of shared screens, or for the dial-out option. For more information about
    *       these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the
    *         Policies Page</a> in the <i>Amazon Chime Administration
    *       Guide</i>.</p>
-   *
-   *
    */
   public updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
@@ -3817,10 +3735,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
-   *
-   *
+   * <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
    */
   public updateBot(
     args: UpdateBotCommandInput,
@@ -3855,11 +3770,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business
+   * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business
    *       Calling and Amazon Chime Voice Connector settings.</p>
-   *
-   *
    */
   public updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
@@ -3894,13 +3806,10 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
+   * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
    *          <p>For toll-free numbers, you must use the Amazon Chime Voice Connector product
    *       type.</p>
    *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
-   *
-   *
    */
   public updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -3935,12 +3844,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates the phone number settings for the administrator's AWS account, such as the
+   * <p>Updates the phone number settings for the administrator's AWS account, such as the
    *       default outbound calling name. You can update the default outbound calling name once every
    *       seven days. Outbound calling names can take up to 72 hours to update.</p>
-   *
-   *
    */
   public updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
@@ -3975,9 +3881,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates room details, such as the room name.</p>
-   *
+   * <p>Updates room details, such as the room name.</p>
    */
   public updateRoom(
     args: UpdateRoomCommandInput,
@@ -4012,9 +3916,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates room membership details, such as member role. The member role designates whether the member is a chat room administrator or a general chat room member. Member role can only be updated for user IDs.</p>
-   *
+   * <p>Updates room membership details, such as the member role. The member role designates
+   *       whether the member is a chat room administrator or a general chat room member. The member role
+   *       can be updated only for user IDs.</p>
    */
   public updateRoomMembership(
     args: UpdateRoomMembershipCommandInput,
@@ -4049,10 +3953,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates user details for a specified user ID. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
-   *
-   *
+   * <p>Updates user details for a specified user ID. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
    */
   public updateUser(
     args: UpdateUserCommandInput,
@@ -4087,10 +3988,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates the settings for the specified user, such as phone number settings.</p>
-   *
-   *
+   * <p>Updates the settings for the specified user, such as phone number settings.</p>
    */
   public updateUserSettings(
     args: UpdateUserSettingsCommandInput,
@@ -4125,10 +4023,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates details for the specified Amazon Chime Voice Connector.</p>
-   *
-   *
+   * <p>Updates details for the specified Amazon Chime Voice Connector.</p>
    */
   public updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
@@ -4163,11 +4058,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   *
-   *          <p>Updates details for the specified Amazon Chime Voice Connector group, such as the name
+   * <p>Updates details for the specified Amazon Chime Voice Connector group, such as the name
    *       and Amazon Chime Voice Connector priority ranking.</p>
-   *
-   *
    */
   public updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,

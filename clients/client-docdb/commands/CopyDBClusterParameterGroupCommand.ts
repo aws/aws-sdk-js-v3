@@ -5,7 +5,7 @@ import {
 } from "../DocDBClient";
 import {
   CopyDBClusterParameterGroupMessage,
-  DBClusterParameterGroup
+  CopyDBClusterParameterGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCopyDBClusterParameterGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyDBClusterParameterGroupCommandInput = CopyDBClusterParameterGroupMessage;
-export type CopyDBClusterParameterGroupCommandOutput = DBClusterParameterGroup;
+export type CopyDBClusterParameterGroupCommandOutput = CopyDBClusterParameterGroupResult;
 
 export class CopyDBClusterParameterGroupCommand extends $Command<
   CopyDBClusterParameterGroupCommandInput,

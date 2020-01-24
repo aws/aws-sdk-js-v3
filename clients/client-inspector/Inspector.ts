@@ -187,21 +187,15 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon Inspector</fullname>
+ * <fullname>Amazon Inspector</fullname>
  *          <p>Amazon Inspector enables you to analyze the behavior of your AWS resources and to
  *          identify potential security issues. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html"> Amazon Inspector User
  *             Guide</a>.</p>
- *
  */
 export class Inspector extends InspectorClient {
   /**
-   *
-   *          <p>Assigns attributes (key and value pairs) to the findings that are specified by the
+   * <p>Assigns attributes (key and value pairs) to the findings that are specified by the
    *          ARNs of the findings.</p>
-   *
-   *
-   *
    */
   public addAttributesToFindings(
     args: AddAttributesToFindingsCommandInput,
@@ -236,8 +230,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Creates a new assessment target using the ARN of the resource group that is generated
+   * <p>Creates a new assessment target using the ARN of the resource group that is generated
    *          by <a>CreateResourceGroup</a>. If resourceGroupArn is not specified, all EC2
    *          instances in the current AWS account and region are included in the assessment target. If
    *          the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
@@ -245,9 +238,6 @@ export class Inspector extends InspectorClient {
    *          perform security assessments. You can create up to 50 assessment targets per AWS account.
    *          You can run up to 500 concurrent agents per AWS account. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
    *             Amazon Inspector Assessment Targets</a>.</p>
-   *
-   *
-   *
    */
   public createAssessmentTarget(
     args: CreateAssessmentTargetCommandInput,
@@ -282,14 +272,10 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Creates an assessment template for the assessment target that is specified by the ARN
+   * <p>Creates an assessment template for the assessment target that is specified by the ARN
    *          of the assessment target. If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
    *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
    *          perform security assessments.</p>
-   *
-   *
-   *
    */
   public createAssessmentTemplate(
     args: CreateAssessmentTemplateCommandInput,
@@ -324,12 +310,9 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Starts the generation of an exclusions preview for the specified assessment template.
+   * <p>Starts the generation of an exclusions preview for the specified assessment template.
    *          The exclusions preview lists the potential exclusions (ExclusionPreview) that Inspector can
    *          detect before it runs the assessment. </p>
-   *
-   *
    */
   public createExclusionsPreview(
     args: CreateExclusionsPreviewCommandInput,
@@ -364,14 +347,10 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Creates a resource group using the specified set of tags (key and value pairs) that
+   * <p>Creates a resource group using the specified set of tags (key and value pairs) that
    *          are used to select the EC2 instances to be included in an Amazon Inspector assessment
    *          target. The created resource group is then used to create an Amazon Inspector assessment
    *          target. For more information, see <a>CreateAssessmentTarget</a>.</p>
-   *
-   *
-   *
    */
   public createResourceGroup(
     args: CreateResourceGroupCommandInput,
@@ -406,12 +385,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Deletes the assessment run that is specified by the ARN of the assessment
+   * <p>Deletes the assessment run that is specified by the ARN of the assessment
    *          run.</p>
-   *
-   *
-   *
    */
   public deleteAssessmentRun(
     args: DeleteAssessmentRunCommandInput,
@@ -446,12 +421,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Deletes the assessment target that is specified by the ARN of the assessment
+   * <p>Deletes the assessment target that is specified by the ARN of the assessment
    *          target.</p>
-   *
-   *
-   *
    */
   public deleteAssessmentTarget(
     args: DeleteAssessmentTargetCommandInput,
@@ -486,12 +457,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Deletes the assessment template that is specified by the ARN of the assessment
+   * <p>Deletes the assessment template that is specified by the ARN of the assessment
    *          template.</p>
-   *
-   *
-   *
    */
   public deleteAssessmentTemplate(
     args: DeleteAssessmentTemplateCommandInput,
@@ -526,11 +493,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the assessment runs that are specified by the ARNs of the assessment
+   * <p>Describes the assessment runs that are specified by the ARNs of the assessment
    *          runs.</p>
-   *
-   *
    */
   public describeAssessmentRuns(
     args: DescribeAssessmentRunsCommandInput,
@@ -565,12 +529,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the assessment targets that are specified by the ARNs of the assessment
+   * <p>Describes the assessment targets that are specified by the ARNs of the assessment
    *          targets.</p>
-   *
-   *
-   *
    */
   public describeAssessmentTargets(
     args: DescribeAssessmentTargetsCommandInput,
@@ -605,12 +565,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the assessment templates that are specified by the ARNs of the assessment
+   * <p>Describes the assessment templates that are specified by the ARNs of the assessment
    *          templates.</p>
-   *
-   *
-   *
    */
   public describeAssessmentTemplates(
     args: DescribeAssessmentTemplatesCommandInput,
@@ -645,12 +601,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the IAM role that enables Amazon Inspector to access your AWS
+   * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
    *          account.</p>
-   *
-   *
-   *
    */
   public describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
@@ -688,9 +640,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
-   *
+   * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
    */
   public describeExclusions(
     args: DescribeExclusionsCommandInput,
@@ -725,11 +675,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the findings that are specified by the ARNs of the findings.</p>
-   *
-   *
-   *
+   * <p>Describes the findings that are specified by the ARNs of the findings.</p>
    */
   public describeFindings(
     args: DescribeFindingsCommandInput,
@@ -764,12 +710,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the resource groups that are specified by the ARNs of the resource
+   * <p>Describes the resource groups that are specified by the ARNs of the resource
    *          groups.</p>
-   *
-   *
-   *
    */
   public describeResourceGroups(
     args: DescribeResourceGroupsCommandInput,
@@ -804,12 +746,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Describes the rules packages that are specified by the ARNs of the rules
+   * <p>Describes the rules packages that are specified by the ARNs of the rules
    *          packages.</p>
-   *
-   *
-   *
    */
   public describeRulesPackages(
     args: DescribeRulesPackagesCommandInput,
@@ -844,10 +782,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Produces an assessment report that includes detailed and comprehensive results of a
+   * <p>Produces an assessment report that includes detailed and comprehensive results of a
    *          specified assessment run. </p>
-   *
    */
   public getAssessmentReport(
     args: GetAssessmentReportCommandInput,
@@ -882,11 +818,9 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by
+   * <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by
    *          the preview token. You can obtain the preview token by running the CreateExclusionsPreview
    *          API.</p>
-   *
    */
   public getExclusionsPreview(
     args: GetExclusionsPreviewCommandInput,
@@ -921,12 +855,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Information about the data that is collected for the specified assessment
+   * <p>Information about the data that is collected for the specified assessment
    *          run.</p>
-   *
-   *
-   *
    */
   public getTelemetryMetadata(
     args: GetTelemetryMetadataCommandInput,
@@ -961,12 +891,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists the agents of the assessment runs that are specified by the ARNs of the
+   * <p>Lists the agents of the assessment runs that are specified by the ARNs of the
    *          assessment runs.</p>
-   *
-   *
-   *
    */
   public listAssessmentRunAgents(
     args: ListAssessmentRunAgentsCommandInput,
@@ -1001,11 +927,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists the assessment runs that correspond to the assessment templates that are
+   * <p>Lists the assessment runs that correspond to the assessment templates that are
    *          specified by the ARNs of the assessment templates.</p>
-   *
-   *
    */
   public listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
@@ -1040,13 +963,9 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists the ARNs of the assessment targets within this AWS account. For more
+   * <p>Lists the ARNs of the assessment targets within this AWS account. For more
    *          information about assessment targets, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon Inspector Assessment
    *             Targets</a>.</p>
-   *
-   *
-   *
    */
   public listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
@@ -1081,12 +1000,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists the assessment templates that correspond to the assessment targets that are
+   * <p>Lists the assessment templates that correspond to the assessment targets that are
    *          specified by the ARNs of the assessment targets.</p>
-   *
-   *
-   *
    */
   public listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
@@ -1121,12 +1036,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists all the event subscriptions for the assessment template that is specified by
+   * <p>Lists all the event subscriptions for the assessment template that is specified by
    *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
-   *
-   *
-   *
    */
   public listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
@@ -1161,9 +1072,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>List exclusions that are generated by the assessment run.</p>
-   *
+   * <p>List exclusions that are generated by the assessment run.</p>
    */
   public listExclusions(
     args: ListExclusionsCommandInput,
@@ -1198,11 +1107,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists findings that are generated by the assessment runs that are specified by the
+   * <p>Lists findings that are generated by the assessment runs that are specified by the
    *          ARNs of the assessment runs.</p>
-   *
-   *
    */
   public listFindings(
     args: ListFindingsCommandInput,
@@ -1237,10 +1143,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists all available Amazon Inspector rules packages.</p>
-   *
-   *
+   * <p>Lists all available Amazon Inspector rules packages.</p>
    */
   public listRulesPackages(
     args: ListRulesPackagesCommandInput,
@@ -1275,11 +1178,7 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags associated with an assessment template.</p>
-   *
-   *
-   *
+   * <p>Lists all tags associated with an assessment template.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1314,12 +1213,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Previews the agents installed on the EC2 instances that are part of the specified
+   * <p>Previews the agents installed on the EC2 instances that are part of the specified
    *          assessment target.</p>
-   *
-   *
-   *
    */
   public previewAgents(
     args: PreviewAgentsCommandInput,
@@ -1354,12 +1249,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
+   * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
    *          perform security assessments.</p>
-   *
-   *
-   *
    */
   public registerCrossAccountAccessRole(
     args: RegisterCrossAccountAccessRoleCommandInput,
@@ -1397,12 +1288,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Removes entire attributes (key and value pairs) from the findings that are specified
+   * <p>Removes entire attributes (key and value pairs) from the findings that are specified
    *          by the ARNs of the findings where an attribute with the specified key exists.</p>
-   *
-   *
-   *
    */
   public removeAttributesFromFindings(
     args: RemoveAttributesFromFindingsCommandInput,
@@ -1437,12 +1324,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Sets tags (key and value pairs) to the assessment template that is specified by the
+   * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
    *          ARN of the assessment template.</p>
-   *
-   *
-   *
    */
   public setTagsForResource(
     args: SetTagsForResourceCommandInput,
@@ -1477,13 +1360,9 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Starts the assessment run specified by the ARN of the assessment template. For this
+   * <p>Starts the assessment run specified by the ARN of the assessment template. For this
    *          API to function properly, you must not exceed the limit of running up to 500 concurrent
    *          agents per AWS account.</p>
-   *
-   *
-   *
    */
   public startAssessmentRun(
     args: StartAssessmentRunCommandInput,
@@ -1518,11 +1397,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Stops the assessment run that is specified by the ARN of the assessment
+   * <p>Stops the assessment run that is specified by the ARN of the assessment
    *          run.</p>
-   *
-   *
    */
   public stopAssessmentRun(
     args: StopAssessmentRunCommandInput,
@@ -1557,12 +1433,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
+   * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
    *          about a specified event to a specified SNS topic.</p>
-   *
-   *
-   *
    */
   public subscribeToEvent(
     args: SubscribeToEventCommandInput,
@@ -1597,12 +1469,8 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Disables the process of sending Amazon Simple Notification Service (SNS)
+   * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
    *          notifications about a specified event to a specified SNS topic.</p>
-   *
-   *
-   *
    */
   public unsubscribeFromEvent(
     args: UnsubscribeFromEventCommandInput,
@@ -1637,14 +1505,10 @@ export class Inspector extends InspectorClient {
   }
 
   /**
-   *
-   *          <p>Updates the assessment target that is specified by the ARN of the assessment
+   * <p>Updates the assessment target that is specified by the ARN of the assessment
    *          target.</p>
    *          <p>If resourceGroupArn is not specified, all EC2 instances in the current AWS account
    *          and region are included in the assessment target.</p>
-   *
-   *
-   *
    */
   public updateAssessmentTarget(
     args: UpdateAssessmentTargetCommandInput,

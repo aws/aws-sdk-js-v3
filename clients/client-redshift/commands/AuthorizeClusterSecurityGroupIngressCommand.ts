@@ -5,7 +5,7 @@ import {
 } from "../RedshiftClient";
 import {
   AuthorizeClusterSecurityGroupIngressMessage,
-  ClusterSecurityGroup
+  AuthorizeClusterSecurityGroupIngressResult
 } from "../models/index";
 import {
   deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AuthorizeClusterSecurityGroupIngressCommandInput = AuthorizeClusterSecurityGroupIngressMessage;
-export type AuthorizeClusterSecurityGroupIngressCommandOutput = ClusterSecurityGroup;
+export type AuthorizeClusterSecurityGroupIngressCommandOutput = AuthorizeClusterSecurityGroupIngressResult;
 
 export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
   AuthorizeClusterSecurityGroupIngressCommandInput,

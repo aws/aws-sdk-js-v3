@@ -227,6 +227,10 @@ import {
   GetAutomationExecutionCommandOutput
 } from "../commands/GetAutomationExecutionCommand";
 import {
+  GetCalendarStateCommandInput,
+  GetCalendarStateCommandOutput
+} from "../commands/GetCalendarStateCommand";
+import {
   GetCommandInvocationCommandInput,
   GetCommandInvocationCommandOutput
 } from "../commands/GetCommandInvocationCommand";
@@ -662,6 +666,8 @@ import {
   FeatureNotAvailableException,
   GetAutomationExecutionRequest,
   GetAutomationExecutionResult,
+  GetCalendarStateRequest,
+  GetCalendarStateResponse,
   GetCommandInvocationRequest,
   GetCommandInvocationResult,
   GetConnectionStatusRequest,
@@ -735,6 +741,7 @@ import {
   InvalidDocumentContent,
   InvalidDocumentOperation,
   InvalidDocumentSchemaVersion,
+  InvalidDocumentType,
   InvalidDocumentVersion,
   InvalidFilter,
   InvalidFilterKey,
@@ -940,6 +947,7 @@ import {
   TooManyTagsError,
   TooManyUpdates,
   TotalSizeLimitExceededException,
+  UnsupportedCalendarException,
   UnsupportedFeatureRequiredException,
   UnsupportedInventoryItemContextException,
   UnsupportedInventorySchemaVersionException,
@@ -2214,6 +2222,27 @@ export async function serializeAws_json1_1GetAutomationExecutionCommand(
     protocol: "https",
     method: "POST",
     path: "/GetAutomationExecution",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetCalendarStateCommand(
+  input: GetCalendarStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AmazonSSM.GetCalendarState";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1GetCalendarStateRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetCalendarState",
     headers: headers,
     body: body
   });
@@ -7673,6 +7702,81 @@ async function deserializeAws_json1_1GetAutomationExecutionCommandError(
     case "InternalServerError":
     case "com.amazonaws.services.ssm#InternalServerError":
       response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.services.ssm#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1GetCalendarStateCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCalendarStateCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetCalendarStateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetCalendarStateResponse(data, context);
+  const response: GetCalendarStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetCalendarStateResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetCalendarStateCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCalendarStateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.services.ssm#InternalServerError":
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidDocument":
+    case "com.amazonaws.services.ssm#InvalidDocument":
+      response = await deserializeAws_json1_1InvalidDocumentResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidDocumentType":
+    case "com.amazonaws.services.ssm#InvalidDocumentType":
+      response = await deserializeAws_json1_1InvalidDocumentTypeResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "UnsupportedCalendarException":
+    case "com.amazonaws.services.ssm#UnsupportedCalendarException":
+      response = await deserializeAws_json1_1UnsupportedCalendarExceptionResponse(
         parsedOutput,
         context
       );
@@ -13553,6 +13657,25 @@ const deserializeAws_json1_1InvalidDocumentSchemaVersionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidDocumentTypeResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDocumentType> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidDocumentType(
+    body,
+    context
+  );
+  const contents: InvalidDocumentType = {
+    name: "InvalidDocumentType",
+    __type: "InvalidDocumentType",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidDocumentVersionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -14694,6 +14817,25 @@ const deserializeAws_json1_1TotalSizeLimitExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1UnsupportedCalendarExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedCalendarException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnsupportedCalendarException(
+    body,
+    context
+  );
+  const contents: UnsupportedCalendarException = {
+    name: "UnsupportedCalendarException",
+    __type: "UnsupportedCalendarException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1UnsupportedFeatureRequiredExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -15024,6 +15166,13 @@ const serializeAws_json1_1AutomationParameterMap = (
 };
 
 const serializeAws_json1_1AutomationParameterValueList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1CalendarNameOrARNList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
@@ -16575,6 +16724,23 @@ const serializeAws_json1_1GetAutomationExecutionRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1GetCalendarStateRequest = (
+  input: GetCalendarStateRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AtTime !== undefined) {
+    bodyParams["AtTime"] = input.AtTime;
+  }
+  if (input.CalendarNames !== undefined) {
+    bodyParams["CalendarNames"] = serializeAws_json1_1CalendarNameOrARNList(
+      input.CalendarNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1GetCommandInvocationRequest = (
   input: GetCommandInvocationRequest,
   context: __SerdeContext
@@ -17604,6 +17770,14 @@ const serializeAws_json1_1MaintenanceWindowRunCommandParameters = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.CloudWatchOutputConfig !== undefined) {
+    bodyParams[
+      "CloudWatchOutputConfig"
+    ] = serializeAws_json1_1CloudWatchOutputConfig(
+      input.CloudWatchOutputConfig,
+      context
+    );
+  }
   if (input.Comment !== undefined) {
     bodyParams["Comment"] = input.Comment;
   }
@@ -17612,6 +17786,9 @@ const serializeAws_json1_1MaintenanceWindowRunCommandParameters = (
   }
   if (input.DocumentHashType !== undefined) {
     bodyParams["DocumentHashType"] = input.DocumentHashType;
+  }
+  if (input.DocumentVersion !== undefined) {
+    bodyParams["DocumentVersion"] = input.DocumentVersion;
   }
   if (input.NotificationConfig !== undefined) {
     bodyParams["NotificationConfig"] = serializeAws_json1_1NotificationConfig(
@@ -18850,6 +19027,9 @@ const serializeAws_json1_1StartAutomationExecutionRequest = (
       input.Parameters,
       context
     );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   if (input.TargetLocations !== undefined) {
     bodyParams["TargetLocations"] = serializeAws_json1_1TargetLocations(
@@ -22729,6 +22909,28 @@ const deserializeAws_json1_1GetAutomationExecutionResult = (
   return contents;
 };
 
+const deserializeAws_json1_1GetCalendarStateResponse = (
+  output: any,
+  context: __SerdeContext
+): GetCalendarStateResponse => {
+  let contents: any = {
+    __type: "GetCalendarStateResponse",
+    AtTime: undefined,
+    NextTransitionTime: undefined,
+    State: undefined
+  };
+  if (output.AtTime !== undefined) {
+    contents.AtTime = output.AtTime;
+  }
+  if (output.NextTransitionTime !== undefined) {
+    contents.NextTransitionTime = output.NextTransitionTime;
+  }
+  if (output.State !== undefined) {
+    contents.State = output.State;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1GetCommandInvocationResult = (
   output: any,
   context: __SerdeContext
@@ -24260,6 +24462,20 @@ const deserializeAws_json1_1InvalidDocumentSchemaVersion = (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidDocumentType = (
+  output: any,
+  context: __SerdeContext
+): InvalidDocumentType => {
+  let contents: any = {
+    __type: "InvalidDocumentType",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidDocumentVersion = (
   output: any,
   context: __SerdeContext
@@ -25611,9 +25827,11 @@ const deserializeAws_json1_1MaintenanceWindowRunCommandParameters = (
 ): MaintenanceWindowRunCommandParameters => {
   let contents: any = {
     __type: "MaintenanceWindowRunCommandParameters",
+    CloudWatchOutputConfig: undefined,
     Comment: undefined,
     DocumentHash: undefined,
     DocumentHashType: undefined,
+    DocumentVersion: undefined,
     NotificationConfig: undefined,
     OutputS3BucketName: undefined,
     OutputS3KeyPrefix: undefined,
@@ -25621,6 +25839,12 @@ const deserializeAws_json1_1MaintenanceWindowRunCommandParameters = (
     ServiceRoleArn: undefined,
     TimeoutSeconds: undefined
   };
+  if (output.CloudWatchOutputConfig !== undefined) {
+    contents.CloudWatchOutputConfig = deserializeAws_json1_1CloudWatchOutputConfig(
+      output.CloudWatchOutputConfig,
+      context
+    );
+  }
   if (output.Comment !== undefined) {
     contents.Comment = output.Comment;
   }
@@ -25629,6 +25853,9 @@ const deserializeAws_json1_1MaintenanceWindowRunCommandParameters = (
   }
   if (output.DocumentHashType !== undefined) {
     contents.DocumentHashType = output.DocumentHashType;
+  }
+  if (output.DocumentVersion !== undefined) {
+    contents.DocumentVersion = output.DocumentVersion;
   }
   if (output.NotificationConfig !== undefined) {
     contents.NotificationConfig = deserializeAws_json1_1NotificationConfig(
@@ -28465,6 +28692,20 @@ const deserializeAws_json1_1TotalSizeLimitExceededException = (
 ): TotalSizeLimitExceededException => {
   let contents: any = {
     __type: "TotalSizeLimitExceededException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1UnsupportedCalendarException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedCalendarException => {
+  let contents: any = {
+    __type: "UnsupportedCalendarException",
     Message: undefined
   };
   if (output.Message !== undefined) {

@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   AuthorizeDBSecurityGroupIngressMessage,
-  DBSecurityGroup
+  AuthorizeDBSecurityGroupIngressResult
 } from "../models/index";
 import {
   deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AuthorizeDBSecurityGroupIngressCommandInput = AuthorizeDBSecurityGroupIngressMessage;
-export type AuthorizeDBSecurityGroupIngressCommandOutput = DBSecurityGroup;
+export type AuthorizeDBSecurityGroupIngressCommandOutput = AuthorizeDBSecurityGroupIngressResult;
 
 export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
   AuthorizeDBSecurityGroupIngressCommandInput,

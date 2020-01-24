@@ -163,6 +163,10 @@ import {
   PutEmailIdentityDkimAttributesCommandOutput
 } from "../commands/PutEmailIdentityDkimAttributesCommand";
 import {
+  PutEmailIdentityDkimSigningAttributesCommandInput,
+  PutEmailIdentityDkimSigningAttributesCommandOutput
+} from "../commands/PutEmailIdentityDkimSigningAttributesCommand";
+import {
   PutEmailIdentityFeedbackAttributesCommandInput,
   PutEmailIdentityFeedbackAttributesCommandOutput
 } from "../commands/PutEmailIdentityFeedbackAttributesCommand";
@@ -206,6 +210,7 @@ import {
   DeliveryOptions,
   Destination,
   DkimAttributes,
+  DkimSigningAttributes,
   DomainDeliverabilityCampaign,
   DomainDeliverabilityTrackingOption,
   DomainIspPlacement,
@@ -431,6 +436,14 @@ export async function serializeAws_restJson1_1CreateEmailIdentityCommand(
   let resolvedPath = "/v2/email/identities";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.DkimSigningAttributes !== undefined) {
+    bodyParams[
+      "DkimSigningAttributes"
+    ] = serializeAws_restJson1_1DkimSigningAttributes(
+      input.DkimSigningAttributes,
+      context
+    );
+  }
   if (input.EmailIdentity !== undefined) {
     bodyParams["EmailIdentity"] = input.EmailIdentity;
   }
@@ -1493,6 +1506,48 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimAttributesComm
   });
 }
 
+export async function serializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(
+  input: PutEmailIdentityDkimSigningAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/v1/email/identities/{EmailIdentity}/dkim/signing";
+  if (input.EmailIdentity !== undefined) {
+    const labelValue: any = input.EmailIdentity.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: EmailIdentity."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{EmailIdentity}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: EmailIdentity.");
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.SigningAttributes !== undefined) {
+    bodyParams[
+      "SigningAttributes"
+    ] = serializeAws_restJson1_1DkimSigningAttributes(
+      input.SigningAttributes,
+      context
+    );
+  }
+  if (input.SigningAttributesOrigin !== undefined) {
+    bodyParams["SigningAttributesOrigin"] = input.SigningAttributesOrigin;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "PUT",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
 export async function serializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(
   input: PutEmailIdentityFeedbackAttributesCommandInput,
   context: __SerdeContext
@@ -2144,6 +2199,13 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
     errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
+      response = await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
@@ -4749,6 +4811,81 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandEr
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommandError(
+      output,
+      context
+    );
+  }
+  const contents: PutEmailIdentityDkimSigningAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutEmailIdentityDkimSigningAttributesResponse",
+    DkimStatus: undefined,
+    DkimTokens: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.DkimStatus !== undefined) {
+    contents.DkimStatus = data.DkimStatus;
+  }
+  if (data.DkimTokens !== undefined) {
+    contents.DkimTokens = deserializeAws_restJson1_1DnsTokenList(
+      data.DkimTokens,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "TooManyRequestsException":
+    case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -5582,6 +5719,20 @@ const serializeAws_restJson1_1Destination = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1DkimSigningAttributes = (
+  input: DkimSigningAttributes,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DomainSigningPrivateKey !== undefined) {
+    bodyParams["DomainSigningPrivateKey"] = input.DomainSigningPrivateKey;
+  }
+  if (input.DomainSigningSelector !== undefined) {
+    bodyParams["DomainSigningSelector"] = input.DomainSigningSelector;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
   input: DomainDeliverabilityTrackingOption,
   context: __SerdeContext
@@ -6181,10 +6332,14 @@ const deserializeAws_restJson1_1DkimAttributes = (
 ): DkimAttributes => {
   let contents: any = {
     __type: "DkimAttributes",
+    SigningAttributesOrigin: undefined,
     SigningEnabled: undefined,
     Status: undefined,
     Tokens: undefined
   };
+  if (output.SigningAttributesOrigin !== undefined) {
+    contents.SigningAttributesOrigin = output.SigningAttributesOrigin;
+  }
   if (output.SigningEnabled !== undefined) {
     contents.SigningEnabled = output.SigningEnabled;
   }

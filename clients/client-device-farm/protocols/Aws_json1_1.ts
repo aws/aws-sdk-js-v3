@@ -19,6 +19,14 @@ import {
   CreateRemoteAccessSessionCommandOutput
 } from "../commands/CreateRemoteAccessSessionCommand";
 import {
+  CreateTestGridProjectCommandInput,
+  CreateTestGridProjectCommandOutput
+} from "../commands/CreateTestGridProjectCommand";
+import {
+  CreateTestGridUrlCommandInput,
+  CreateTestGridUrlCommandOutput
+} from "../commands/CreateTestGridUrlCommand";
+import {
   CreateUploadCommandInput,
   CreateUploadCommandOutput
 } from "../commands/CreateUploadCommand";
@@ -50,6 +58,10 @@ import {
   DeleteRunCommandInput,
   DeleteRunCommandOutput
 } from "../commands/DeleteRunCommand";
+import {
+  DeleteTestGridProjectCommandInput,
+  DeleteTestGridProjectCommandOutput
+} from "../commands/DeleteTestGridProjectCommand";
 import {
   DeleteUploadCommandInput,
   DeleteUploadCommandOutput
@@ -114,6 +126,14 @@ import {
   GetTestCommandInput,
   GetTestCommandOutput
 } from "../commands/GetTestCommand";
+import {
+  GetTestGridProjectCommandInput,
+  GetTestGridProjectCommandOutput
+} from "../commands/GetTestGridProjectCommand";
+import {
+  GetTestGridSessionCommandInput,
+  GetTestGridSessionCommandOutput
+} from "../commands/GetTestGridSessionCommand";
 import {
   GetUploadCommandInput,
   GetUploadCommandOutput
@@ -191,6 +211,22 @@ import {
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListTestGridProjectsCommandInput,
+  ListTestGridProjectsCommandOutput
+} from "../commands/ListTestGridProjectsCommand";
+import {
+  ListTestGridSessionActionsCommandInput,
+  ListTestGridSessionActionsCommandOutput
+} from "../commands/ListTestGridSessionActionsCommand";
+import {
+  ListTestGridSessionArtifactsCommandInput,
+  ListTestGridSessionArtifactsCommandOutput
+} from "../commands/ListTestGridSessionArtifactsCommand";
+import {
+  ListTestGridSessionsCommandInput,
+  ListTestGridSessionsCommandOutput
+} from "../commands/ListTestGridSessionsCommand";
+import {
   ListTestsCommandInput,
   ListTestsCommandOutput
 } from "../commands/ListTestsCommand";
@@ -259,6 +295,10 @@ import {
   UpdateProjectCommandOutput
 } from "../commands/UpdateProjectCommand";
 import {
+  UpdateTestGridProjectCommandInput,
+  UpdateTestGridProjectCommandOutput
+} from "../commands/UpdateTestGridProjectCommand";
+import {
   UpdateUploadCommandInput,
   UpdateUploadCommandOutput
 } from "../commands/UpdateUploadCommand";
@@ -271,6 +311,7 @@ import {
   ArgumentException,
   Artifact,
   CPU,
+  CannotDeleteException,
   Counters,
   CreateDevicePoolRequest,
   CreateDevicePoolResult,
@@ -283,6 +324,10 @@ import {
   CreateRemoteAccessSessionConfiguration,
   CreateRemoteAccessSessionRequest,
   CreateRemoteAccessSessionResult,
+  CreateTestGridProjectRequest,
+  CreateTestGridProjectResult,
+  CreateTestGridUrlRequest,
+  CreateTestGridUrlResult,
   CreateUploadRequest,
   CreateUploadResult,
   CreateVPCEConfigurationRequest,
@@ -300,6 +345,8 @@ import {
   DeleteRemoteAccessSessionResult,
   DeleteRunRequest,
   DeleteRunResult,
+  DeleteTestGridProjectRequest,
+  DeleteTestGridProjectResult,
   DeleteUploadRequest,
   DeleteUploadResult,
   DeleteVPCEConfigurationRequest,
@@ -339,6 +386,10 @@ import {
   GetRunResult,
   GetSuiteRequest,
   GetSuiteResult,
+  GetTestGridProjectRequest,
+  GetTestGridProjectResult,
+  GetTestGridSessionRequest,
+  GetTestGridSessionResult,
   GetTestRequest,
   GetTestResult,
   GetUploadRequest,
@@ -350,6 +401,7 @@ import {
   InstallToRemoteAccessSessionRequest,
   InstallToRemoteAccessSessionResult,
   InstanceProfile,
+  InternalServiceException,
   InvalidOperationException,
   Job,
   LimitExceededException,
@@ -385,6 +437,14 @@ import {
   ListSuitesResult,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListTestGridProjectsRequest,
+  ListTestGridProjectsResult,
+  ListTestGridSessionActionsRequest,
+  ListTestGridSessionActionsResult,
+  ListTestGridSessionArtifactsRequest,
+  ListTestGridSessionArtifactsResult,
+  ListTestGridSessionsRequest,
+  ListTestGridSessionsResult,
   ListTestsRequest,
   ListTestsResult,
   ListUniqueProblemsRequest,
@@ -434,6 +494,10 @@ import {
   TagResourceRequest,
   TagResourceResponse,
   Test,
+  TestGridProject,
+  TestGridSession,
+  TestGridSessionAction,
+  TestGridSessionArtifact,
   TooManyTagsException,
   TrialMinutes,
   UniqueProblem,
@@ -449,6 +513,8 @@ import {
   UpdateNetworkProfileResult,
   UpdateProjectRequest,
   UpdateProjectResult,
+  UpdateTestGridProjectRequest,
+  UpdateTestGridProjectResult,
   UpdateUploadRequest,
   UpdateUploadResult,
   UpdateVPCEConfigurationRequest,
@@ -568,6 +634,48 @@ export async function serializeAws_json1_1CreateRemoteAccessSessionCommand(
     protocol: "https",
     method: "POST",
     path: "/CreateRemoteAccessSession",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CreateTestGridProjectCommand(
+  input: CreateTestGridProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateTestGridProject";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTestGridProjectRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CreateTestGridProject",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CreateTestGridUrlCommand(
+  input: CreateTestGridUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateTestGridUrl";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTestGridUrlRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CreateTestGridUrl",
     headers: headers,
     body: body
   });
@@ -734,6 +842,27 @@ export async function serializeAws_json1_1DeleteRunCommand(
     protocol: "https",
     method: "POST",
     path: "/DeleteRun",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteTestGridProjectCommand(
+  input: DeleteTestGridProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteTestGridProject";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTestGridProjectRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteTestGridProject",
     headers: headers,
     body: body
   });
@@ -1058,6 +1187,48 @@ export async function serializeAws_json1_1GetTestCommand(
     protocol: "https",
     method: "POST",
     path: "/GetTest",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetTestGridProjectCommand(
+  input: GetTestGridProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetTestGridProject";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1GetTestGridProjectRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetTestGridProject",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetTestGridSessionCommand(
+  input: GetTestGridSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.GetTestGridSession";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1GetTestGridSessionRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetTestGridSession",
     headers: headers,
     body: body
   });
@@ -1450,6 +1621,90 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   });
 }
 
+export async function serializeAws_json1_1ListTestGridProjectsCommand(
+  input: ListTestGridProjectsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridProjects";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListTestGridProjectsRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListTestGridProjects",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListTestGridSessionActionsCommand(
+  input: ListTestGridSessionActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridSessionActions";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListTestGridSessionActionsRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListTestGridSessionActions",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListTestGridSessionArtifactsCommand(
+  input: ListTestGridSessionArtifactsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridSessionArtifacts";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListTestGridSessionArtifactsRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListTestGridSessionArtifacts",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListTestGridSessionsCommand(
+  input: ListTestGridSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTestGridSessions";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListTestGridSessionsRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListTestGridSessions",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1ListTestsCommand(
   input: ListTestsCommandInput,
   context: __SerdeContext
@@ -1790,6 +2045,27 @@ export async function serializeAws_json1_1UpdateProjectCommand(
     protocol: "https",
     method: "POST",
     path: "/UpdateProject",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1UpdateTestGridProjectCommand(
+  input: UpdateTestGridProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateTestGridProject";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateTestGridProjectRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UpdateTestGridProject",
     headers: headers,
     body: body
   });
@@ -2212,6 +2488,131 @@ async function deserializeAws_json1_1CreateRemoteAccessSessionCommandError(
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = await deserializeAws_json1_1ServiceAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1CreateTestGridProjectCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTestGridProjectCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateTestGridProjectCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateTestGridProjectResult(data, context);
+  const response: CreateTestGridProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateTestGridProjectResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CreateTestGridProjectCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTestGridProjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1CreateTestGridUrlCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTestGridUrlCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateTestGridUrlCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateTestGridUrlResult(data, context);
+  const response: CreateTestGridUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateTestGridUrlResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CreateTestGridUrlCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTestGridUrlCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
         parsedOutput,
         context
       );
@@ -2820,6 +3221,84 @@ async function deserializeAws_json1_1DeleteRunCommandError(
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = await deserializeAws_json1_1ServiceAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1DeleteTestGridProjectCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTestGridProjectCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteTestGridProjectCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteTestGridProjectResult(data, context);
+  const response: DeleteTestGridProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteTestGridProjectResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteTestGridProjectCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTestGridProjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "CannotDeleteException":
+    case "com.amazon.devicefarm.model#CannotDeleteException":
+      response = await deserializeAws_json1_1CannotDeleteExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
         parsedOutput,
         context
       );
@@ -4045,6 +4524,148 @@ async function deserializeAws_json1_1GetTestCommandError(
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = await deserializeAws_json1_1ServiceAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1GetTestGridProjectCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTestGridProjectCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetTestGridProjectCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetTestGridProjectResult(data, context);
+  const response: GetTestGridProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetTestGridProjectResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetTestGridProjectCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTestGridProjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1GetTestGridSessionCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTestGridSessionCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetTestGridSessionCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetTestGridSessionResult(data, context);
+  const response: GetTestGridSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetTestGridSessionResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetTestGridSessionCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTestGridSessionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
         parsedOutput,
         context
       );
@@ -5496,6 +6117,13 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
@@ -5506,6 +6134,289 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     case "TagOperationException":
     case "com.amazon.devicefarm.model#TagOperationException":
       response = await deserializeAws_json1_1TagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1ListTestGridProjectsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridProjectsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTestGridProjectsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTestGridProjectsResult(data, context);
+  const response: ListTestGridProjectsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTestGridProjectsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListTestGridProjectsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridProjectsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1ListTestGridSessionActionsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridSessionActionsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTestGridSessionActionsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTestGridSessionActionsResult(
+    data,
+    context
+  );
+  const response: ListTestGridSessionActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTestGridSessionActionsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListTestGridSessionActionsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridSessionActionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1ListTestGridSessionArtifactsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridSessionArtifactsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTestGridSessionArtifactsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTestGridSessionArtifactsResult(
+    data,
+    context
+  );
+  const response: ListTestGridSessionArtifactsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTestGridSessionArtifactsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListTestGridSessionArtifactsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridSessionArtifactsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1ListTestGridSessionsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridSessionsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTestGridSessionsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTestGridSessionsResult(data, context);
+  const response: ListTestGridSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTestGridSessionsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListTestGridSessionsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestGridSessionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
         parsedOutput,
         context
       );
@@ -6323,6 +7234,13 @@ async function deserializeAws_json1_1TagResourceCommandError(
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
@@ -6398,6 +7316,13 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
@@ -6811,6 +7736,77 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1UpdateTestGridProjectCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTestGridProjectCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateTestGridProjectCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateTestGridProjectResult(data, context);
+  const response: UpdateTestGridProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateTestGridProjectResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UpdateTestGridProjectCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTestGridProjectCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazon.devicefarm.model#ArgumentException":
+      response = await deserializeAws_json1_1ArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazon.devicefarm.model#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazon.devicefarm.model#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.devicefarm.model#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1UpdateUploadCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -6983,6 +7979,25 @@ const deserializeAws_json1_1ArgumentExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1CannotDeleteExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CannotDeleteException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1CannotDeleteException(
+    body,
+    context
+  );
+  const contents: CannotDeleteException = {
+    name: "CannotDeleteException",
+    __type: "CannotDeleteException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1IdempotencyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6996,6 +8011,25 @@ const deserializeAws_json1_1IdempotencyExceptionResponse = async (
     name: "IdempotencyException",
     __type: "IdempotencyException",
     $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InternalServiceExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServiceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InternalServiceException(
+    body,
+    context
+  );
+  const contents: InternalServiceException = {
+    name: "InternalServiceException",
+    __type: "InternalServiceException",
+    $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
@@ -7345,6 +8379,34 @@ const serializeAws_json1_1CreateRemoteAccessSessionRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1CreateTestGridProjectRequest = (
+  input: CreateTestGridProjectRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.description !== undefined) {
+    bodyParams["description"] = input.description;
+  }
+  if (input.name !== undefined) {
+    bodyParams["name"] = input.name;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CreateTestGridUrlRequest = (
+  input: CreateTestGridUrlRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.expiresInSeconds !== undefined) {
+    bodyParams["expiresInSeconds"] = input.expiresInSeconds;
+  }
+  if (input.projectArn !== undefined) {
+    bodyParams["projectArn"] = input.projectArn;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1CreateUploadRequest = (
   input: CreateUploadRequest,
   context: __SerdeContext
@@ -7474,6 +8536,17 @@ const serializeAws_json1_1DeleteRunRequest = (
   let bodyParams: any = {};
   if (input.arn !== undefined) {
     bodyParams["arn"] = input.arn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteTestGridProjectRequest = (
+  input: DeleteTestGridProjectRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.projectArn !== undefined) {
+    bodyParams["projectArn"] = input.projectArn;
   }
   return bodyParams;
 };
@@ -7737,6 +8810,34 @@ const serializeAws_json1_1GetSuiteRequest = (
   let bodyParams: any = {};
   if (input.arn !== undefined) {
     bodyParams["arn"] = input.arn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetTestGridProjectRequest = (
+  input: GetTestGridProjectRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.projectArn !== undefined) {
+    bodyParams["projectArn"] = input.projectArn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetTestGridSessionRequest = (
+  input: GetTestGridSessionRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.projectArn !== undefined) {
+    bodyParams["projectArn"] = input.projectArn;
+  }
+  if (input.sessionArn !== undefined) {
+    bodyParams["sessionArn"] = input.sessionArn;
+  }
+  if (input.sessionId !== undefined) {
+    bodyParams["sessionId"] = input.sessionId;
   }
   return bodyParams;
 };
@@ -8025,6 +9126,97 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   let bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
     bodyParams["ResourceARN"] = input.ResourceARN;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListTestGridProjectsRequest = (
+  input: ListTestGridProjectsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.maxResult !== undefined) {
+    bodyParams["maxResult"] = input.maxResult;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListTestGridSessionActionsRequest = (
+  input: ListTestGridSessionActionsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.maxResult !== undefined) {
+    bodyParams["maxResult"] = input.maxResult;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.sessionArn !== undefined) {
+    bodyParams["sessionArn"] = input.sessionArn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListTestGridSessionArtifactsRequest = (
+  input: ListTestGridSessionArtifactsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.maxResult !== undefined) {
+    bodyParams["maxResult"] = input.maxResult;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.sessionArn !== undefined) {
+    bodyParams["sessionArn"] = input.sessionArn;
+  }
+  if (input.type !== undefined) {
+    bodyParams["type"] = input.type;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListTestGridSessionsRequest = (
+  input: ListTestGridSessionsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.creationTimeAfter !== undefined) {
+    bodyParams["creationTimeAfter"] = Math.round(
+      input.creationTimeAfter.getTime() / 1000
+    );
+  }
+  if (input.creationTimeBefore !== undefined) {
+    bodyParams["creationTimeBefore"] = Math.round(
+      input.creationTimeBefore.getTime() / 1000
+    );
+  }
+  if (input.endTimeAfter !== undefined) {
+    bodyParams["endTimeAfter"] = Math.round(
+      input.endTimeAfter.getTime() / 1000
+    );
+  }
+  if (input.endTimeBefore !== undefined) {
+    bodyParams["endTimeBefore"] = Math.round(
+      input.endTimeBefore.getTime() / 1000
+    );
+  }
+  if (input.maxResult !== undefined) {
+    bodyParams["maxResult"] = input.maxResult;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.projectArn !== undefined) {
+    bodyParams["projectArn"] = input.projectArn;
+  }
+  if (input.status !== undefined) {
+    bodyParams["status"] = input.status;
   }
   return bodyParams;
 };
@@ -8547,6 +9739,23 @@ const serializeAws_json1_1UpdateProjectRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1UpdateTestGridProjectRequest = (
+  input: UpdateTestGridProjectRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.description !== undefined) {
+    bodyParams["description"] = input.description;
+  }
+  if (input.name !== undefined) {
+    bodyParams["name"] = input.name;
+  }
+  if (input.projectArn !== undefined) {
+    bodyParams["projectArn"] = input.projectArn;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1UpdateUploadRequest = (
   input: UpdateUploadRequest,
   context: __SerdeContext
@@ -8727,6 +9936,20 @@ const deserializeAws_json1_1CPU = (
   return contents;
 };
 
+const deserializeAws_json1_1CannotDeleteException = (
+  output: any,
+  context: __SerdeContext
+): CannotDeleteException => {
+  let contents: any = {
+    __type: "CannotDeleteException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1Counters = (
   output: any,
   context: __SerdeContext
@@ -8843,6 +10066,45 @@ const deserializeAws_json1_1CreateRemoteAccessSessionResult = (
       output.remoteAccessSession,
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CreateTestGridProjectResult = (
+  output: any,
+  context: __SerdeContext
+): CreateTestGridProjectResult => {
+  let contents: any = {
+    __type: "CreateTestGridProjectResult",
+    testGridProject: undefined
+  };
+  if (output.testGridProject !== undefined) {
+    contents.testGridProject = deserializeAws_json1_1TestGridProject(
+      output.testGridProject,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CreateTestGridUrlResult = (
+  output: any,
+  context: __SerdeContext
+): CreateTestGridUrlResult => {
+  let contents: any = {
+    __type: "CreateTestGridUrlResult",
+    expires: undefined,
+    url: undefined
+  };
+  if (output.expires !== undefined) {
+    contents.expires = new Date(
+      output.expires % 1 != 0
+        ? Math.round(output.expires * 1000)
+        : output.expires
+    );
+  }
+  if (output.url !== undefined) {
+    contents.url = output.url;
   }
   return contents;
 };
@@ -8965,6 +10227,16 @@ const deserializeAws_json1_1DeleteRunResult = (
 ): DeleteRunResult => {
   let contents: any = {
     __type: "DeleteRunResult"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1DeleteTestGridProjectResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteTestGridProjectResult => {
+  let contents: any = {
+    __type: "DeleteTestGridProjectResult"
   };
   return contents;
 };
@@ -9543,6 +10815,40 @@ const deserializeAws_json1_1GetSuiteResult = (
   return contents;
 };
 
+const deserializeAws_json1_1GetTestGridProjectResult = (
+  output: any,
+  context: __SerdeContext
+): GetTestGridProjectResult => {
+  let contents: any = {
+    __type: "GetTestGridProjectResult",
+    testGridProject: undefined
+  };
+  if (output.testGridProject !== undefined) {
+    contents.testGridProject = deserializeAws_json1_1TestGridProject(
+      output.testGridProject,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetTestGridSessionResult = (
+  output: any,
+  context: __SerdeContext
+): GetTestGridSessionResult => {
+  let contents: any = {
+    __type: "GetTestGridSessionResult",
+    testGridSession: undefined
+  };
+  if (output.testGridSession !== undefined) {
+    contents.testGridSession = deserializeAws_json1_1TestGridSession(
+      output.testGridSession,
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1GetTestResult = (
   output: any,
   context: __SerdeContext
@@ -9697,6 +11003,20 @@ const deserializeAws_json1_1InstanceProfiles = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceProfile(entry, context)
   );
+};
+
+const deserializeAws_json1_1InternalServiceException = (
+  output: any,
+  context: __SerdeContext
+): InternalServiceException => {
+  let contents: any = {
+    __type: "InternalServiceException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1InvalidOperationException = (
@@ -10141,6 +11461,90 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   };
   if (output.Tags !== undefined) {
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListTestGridProjectsResult = (
+  output: any,
+  context: __SerdeContext
+): ListTestGridProjectsResult => {
+  let contents: any = {
+    __type: "ListTestGridProjectsResult",
+    nextToken: undefined,
+    testGridProjects: undefined
+  };
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  if (output.testGridProjects !== undefined) {
+    contents.testGridProjects = deserializeAws_json1_1TestGridProjects(
+      output.testGridProjects,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListTestGridSessionActionsResult = (
+  output: any,
+  context: __SerdeContext
+): ListTestGridSessionActionsResult => {
+  let contents: any = {
+    __type: "ListTestGridSessionActionsResult",
+    actions: undefined,
+    nextToken: undefined
+  };
+  if (output.actions !== undefined) {
+    contents.actions = deserializeAws_json1_1TestGridSessionActions(
+      output.actions,
+      context
+    );
+  }
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListTestGridSessionArtifactsResult = (
+  output: any,
+  context: __SerdeContext
+): ListTestGridSessionArtifactsResult => {
+  let contents: any = {
+    __type: "ListTestGridSessionArtifactsResult",
+    artifacts: undefined,
+    nextToken: undefined
+  };
+  if (output.artifacts !== undefined) {
+    contents.artifacts = deserializeAws_json1_1TestGridSessionArtifacts(
+      output.artifacts,
+      context
+    );
+  }
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListTestGridSessionsResult = (
+  output: any,
+  context: __SerdeContext
+): ListTestGridSessionsResult => {
+  let contents: any = {
+    __type: "ListTestGridSessionsResult",
+    nextToken: undefined,
+    testGridSessions: undefined
+  };
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  if (output.testGridSessions !== undefined) {
+    contents.testGridSessions = deserializeAws_json1_1TestGridSessions(
+      output.testGridSessions,
+      context
+    );
   }
   return contents;
 };
@@ -11403,6 +12807,168 @@ const deserializeAws_json1_1Test = (
   return contents;
 };
 
+const deserializeAws_json1_1TestGridProject = (
+  output: any,
+  context: __SerdeContext
+): TestGridProject => {
+  let contents: any = {
+    __type: "TestGridProject",
+    arn: undefined,
+    created: undefined,
+    description: undefined,
+    name: undefined
+  };
+  if (output.arn !== undefined) {
+    contents.arn = output.arn;
+  }
+  if (output.created !== undefined) {
+    contents.created = new Date(
+      output.created % 1 != 0
+        ? Math.round(output.created * 1000)
+        : output.created
+    );
+  }
+  if (output.description !== undefined) {
+    contents.description = output.description;
+  }
+  if (output.name !== undefined) {
+    contents.name = output.name;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1TestGridProjects = (
+  output: any,
+  context: __SerdeContext
+): Array<TestGridProject> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1TestGridProject(entry, context)
+  );
+};
+
+const deserializeAws_json1_1TestGridSession = (
+  output: any,
+  context: __SerdeContext
+): TestGridSession => {
+  let contents: any = {
+    __type: "TestGridSession",
+    arn: undefined,
+    billingMinutes: undefined,
+    created: undefined,
+    ended: undefined,
+    seleniumProperties: undefined,
+    status: undefined
+  };
+  if (output.arn !== undefined) {
+    contents.arn = output.arn;
+  }
+  if (output.billingMinutes !== undefined) {
+    contents.billingMinutes = output.billingMinutes;
+  }
+  if (output.created !== undefined) {
+    contents.created = new Date(
+      output.created % 1 != 0
+        ? Math.round(output.created * 1000)
+        : output.created
+    );
+  }
+  if (output.ended !== undefined) {
+    contents.ended = new Date(
+      output.ended % 1 != 0 ? Math.round(output.ended * 1000) : output.ended
+    );
+  }
+  if (output.seleniumProperties !== undefined) {
+    contents.seleniumProperties = output.seleniumProperties;
+  }
+  if (output.status !== undefined) {
+    contents.status = output.status;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1TestGridSessionAction = (
+  output: any,
+  context: __SerdeContext
+): TestGridSessionAction => {
+  let contents: any = {
+    __type: "TestGridSessionAction",
+    action: undefined,
+    duration: undefined,
+    requestMethod: undefined,
+    started: undefined,
+    statusCode: undefined
+  };
+  if (output.action !== undefined) {
+    contents.action = output.action;
+  }
+  if (output.duration !== undefined) {
+    contents.duration = output.duration;
+  }
+  if (output.requestMethod !== undefined) {
+    contents.requestMethod = output.requestMethod;
+  }
+  if (output.started !== undefined) {
+    contents.started = new Date(
+      output.started % 1 != 0
+        ? Math.round(output.started * 1000)
+        : output.started
+    );
+  }
+  if (output.statusCode !== undefined) {
+    contents.statusCode = output.statusCode;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1TestGridSessionActions = (
+  output: any,
+  context: __SerdeContext
+): Array<TestGridSessionAction> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1TestGridSessionAction(entry, context)
+  );
+};
+
+const deserializeAws_json1_1TestGridSessionArtifact = (
+  output: any,
+  context: __SerdeContext
+): TestGridSessionArtifact => {
+  let contents: any = {
+    __type: "TestGridSessionArtifact",
+    filename: undefined,
+    type: undefined,
+    url: undefined
+  };
+  if (output.filename !== undefined) {
+    contents.filename = output.filename;
+  }
+  if (output.type !== undefined) {
+    contents.type = output.type;
+  }
+  if (output.url !== undefined) {
+    contents.url = output.url;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1TestGridSessionArtifacts = (
+  output: any,
+  context: __SerdeContext
+): Array<TestGridSessionArtifact> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1TestGridSessionArtifact(entry, context)
+  );
+};
+
+const deserializeAws_json1_1TestGridSessions = (
+  output: any,
+  context: __SerdeContext
+): Array<TestGridSession> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1TestGridSession(entry, context)
+  );
+};
+
 const deserializeAws_json1_1Tests = (
   output: any,
   context: __SerdeContext
@@ -11577,6 +13143,23 @@ const deserializeAws_json1_1UpdateProjectResult = (
   };
   if (output.project !== undefined) {
     contents.project = deserializeAws_json1_1Project(output.project, context);
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1UpdateTestGridProjectResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateTestGridProjectResult => {
+  let contents: any = {
+    __type: "UpdateTestGridProjectResult",
+    testGridProject: undefined
+  };
+  if (output.testGridProject !== undefined) {
+    contents.testGridProject = deserializeAws_json1_1TestGridProject(
+      output.testGridProject,
+      context
+    );
   }
   return contents;
 };

@@ -17,8 +17,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS
+ * <p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS
  *             snapshots, and identify the difference between two snapshots. You can view the details
  *             of blocks in an EBS snapshot, compare the block difference between two snapshots, and
  *             directly access the data in a snapshot. If you’re an independent software vendor (ISV)
@@ -35,13 +34,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             endpoints for the EBS direct APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ebs_region">AWS
  *                 Service Endpoints</a> in the <i>AWS General
  *             Reference</i>.</p>
- *
  */
 export class EBS extends EBSClient {
   /**
-   *
-   *         <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
-   *
+   * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
    */
   public getSnapshotBlock(
     args: GetSnapshotBlockCommandInput,
@@ -76,10 +72,8 @@ export class EBS extends EBSClient {
   }
 
   /**
-   *
-   *         <p>Returns the block indexes and block tokens for blocks that are different between two
+   * <p>Returns the block indexes and block tokens for blocks that are different between two
    *             Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>
-   *
    */
   public listChangedBlocks(
     args: ListChangedBlocksCommandInput,
@@ -114,9 +108,7 @@ export class EBS extends EBSClient {
   }
 
   /**
-   *
-   *         <p>Returns the block indexes and block tokens for blocks in an Amazon Elastic Block Store snapshot.</p>
-   *
+   * <p>Returns the block indexes and block tokens for blocks in an Amazon Elastic Block Store snapshot.</p>
    */
   public listSnapshotBlocks(
     args: ListSnapshotBlocksCommandInput,

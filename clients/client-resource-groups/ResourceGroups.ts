@@ -62,8 +62,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Resource Groups</fullname>
+ * <fullname>AWS Resource Groups</fullname>
  *          <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances,
  *       Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria
  *       that you define as tags. A resource group is a collection of resources that match the resource
@@ -96,13 +95,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                <p>Searching AWS resources based on a resource query</p>
  *             </li>
  *          </ul>
- *
  */
 export class ResourceGroups extends ResourceGroupsClient {
   /**
-   *
-   *          <p>Creates a group with a specified name, description, and resource query.</p>
-   *
+   * <p>Creates a group with a specified name, description, and resource query.</p>
    */
   public createGroup(
     args: CreateGroupCommandInput,
@@ -137,9 +133,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified resource group. Deleting a resource group does not delete resources that are members of the group; it only deletes the group structure.</p>
-   *
+   * <p>Deletes a specified resource group. Deleting a resource group does not delete resources that are members of the group; it only deletes the group structure.</p>
    */
   public deleteGroup(
     args: DeleteGroupCommandInput,
@@ -174,9 +168,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Returns information about a specified resource group.</p>
-   *
+   * <p>Returns information about a specified resource group.</p>
    */
   public getGroup(
     args: GetGroupCommandInput,
@@ -211,9 +203,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Returns the resource query associated with the specified resource group.</p>
-   *
+   * <p>Returns the resource query associated with the specified resource group.</p>
    */
   public getGroupQuery(
     args: GetGroupQueryCommandInput,
@@ -248,9 +238,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of tags that are associated with a resource group, specified by an ARN.</p>
-   *
+   * <p>Returns a list of tags that are associated with a resource group, specified by an ARN.</p>
    */
   public getTags(
     args: GetTagsCommandInput,
@@ -285,9 +273,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of ARNs of resources that are members of a specified resource group.</p>
-   *
+   * <p>Returns a list of ARNs of resources that are members of a specified resource group.</p>
    */
   public listGroupResources(
     args: ListGroupResourcesCommandInput,
@@ -322,9 +308,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of existing resource groups in your account.</p>
-   *
+   * <p>Returns a list of existing resource groups in your account.</p>
    */
   public listGroups(
     args: ListGroupsCommandInput,
@@ -359,9 +343,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of AWS resource identifiers that matches a specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.</p>
-   *
+   * <p>Returns a list of AWS resource identifiers that matches a specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.</p>
    */
   public searchResources(
     args: SearchResourcesCommandInput,
@@ -396,9 +378,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.</p>
-   *
+   * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.</p>
    */
   public tag(
     args: TagCommandInput,
@@ -433,9 +413,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Deletes specified tags from a specified resource.</p>
-   *
+   * <p>Deletes specified tags from a specified resource.</p>
    */
   public untag(
     args: UntagCommandInput,
@@ -470,9 +448,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing group with a new or changed description. You cannot update the name of a resource group.</p>
-   *
+   * <p>Updates an existing group with a new or changed description. You cannot update the name of a resource group.</p>
    */
   public updateGroup(
     args: UpdateGroupCommandInput,
@@ -507,9 +483,7 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   *
-   *          <p>Updates the resource query of a group.</p>
-   *
+   * <p>Updates the resource query of a group.</p>
    */
   public updateGroupQuery(
     args: UpdateGroupQueryCommandInput,

@@ -22,8 +22,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
+ * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
  *         AWS Cost and Usage report definitions.</p>
  *          <p>AWS Cost and Usage reports track the monthly AWS costs and usage
  *    associated with your AWS account.
@@ -42,16 +41,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                <p>cur.us-east-1.amazonaws.com</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class CostandUsageReportService extends CostandUsageReportServiceClient {
   /**
-   *
-   *          <p>Deletes the specified report.</p>
-   *
-   *
-   *
+   * <p>Deletes the specified report.</p>
    */
   public deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
@@ -86,11 +79,7 @@ export class CostandUsageReportService extends CostandUsageReportServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists the AWS Cost and Usage reports available to this account.</p>
-   *
-   *
-   *
+   * <p>Lists the AWS Cost and Usage reports available to this account.</p>
    */
   public describeReportDefinitions(
     args: DescribeReportDefinitionsCommandInput,
@@ -125,9 +114,7 @@ export class CostandUsageReportService extends CostandUsageReportServiceClient {
   }
 
   /**
-   *
-   *          <p>Allows you to programatically update your report preferences.</p>
-   *
+   * <p>Allows you to programatically update your report preferences.</p>
    */
   public modifyReportDefinition(
     args: ModifyReportDefinitionCommandInput,
@@ -162,11 +149,7 @@ export class CostandUsageReportService extends CostandUsageReportServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a new report using the description that you provide.</p>
-   *
-   *
-   *
+   * <p>Creates a new report using the description that you provide.</p>
    */
   public putReportDefinition(
     args: PutReportDefinitionCommandInput,

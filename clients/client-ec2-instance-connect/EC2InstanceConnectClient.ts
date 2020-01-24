@@ -166,11 +166,9 @@ export type EC2InstanceConnectClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>AWS EC2 Connect Service is a service that enables system administrators to publish
+ * <p>AWS EC2 Connect Service is a service that enables system administrators to publish
  *             temporary SSH keys to their EC2 instances in order to establish connections to their
  *             instances without leaving a permanent authentication option.</p>
- *
  */
 export class EC2InstanceConnectClient extends __Client<
   __HttpHandlerOptions,

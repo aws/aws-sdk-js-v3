@@ -5,7 +5,7 @@ import {
 } from "../NeptuneClient";
 import {
   ApplyPendingMaintenanceActionMessage,
-  ResourcePendingMaintenanceActions
+  ApplyPendingMaintenanceActionResult
 } from "../models/index";
 import {
   deserializeAws_queryApplyPendingMaintenanceActionCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ApplyPendingMaintenanceActionCommandInput = ApplyPendingMaintenanceActionMessage;
-export type ApplyPendingMaintenanceActionCommandOutput = ResourcePendingMaintenanceActions;
+export type ApplyPendingMaintenanceActionCommandOutput = ApplyPendingMaintenanceActionResult;
 
 export class ApplyPendingMaintenanceActionCommand extends $Command<
   ApplyPendingMaintenanceActionCommandInput,

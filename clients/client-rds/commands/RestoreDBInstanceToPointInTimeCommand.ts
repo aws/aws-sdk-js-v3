@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RDSClient";
 import {
-  DBInstance,
-  RestoreDBInstanceToPointInTimeMessage
+  RestoreDBInstanceToPointInTimeMessage,
+  RestoreDBInstanceToPointInTimeResult
 } from "../models/index";
 import {
   deserializeAws_queryRestoreDBInstanceToPointInTimeCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBInstanceToPointInTimeCommandInput = RestoreDBInstanceToPointInTimeMessage;
-export type RestoreDBInstanceToPointInTimeCommandOutput = DBInstance;
+export type RestoreDBInstanceToPointInTimeCommandOutput = RestoreDBInstanceToPointInTimeResult;
 
 export class RestoreDBInstanceToPointInTimeCommand extends $Command<
   RestoreDBInstanceToPointInTimeCommandInput,

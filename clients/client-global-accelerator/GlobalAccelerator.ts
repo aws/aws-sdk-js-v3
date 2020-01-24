@@ -87,8 +87,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <fullname>AWS Global Accelerator</fullname>
+ * <fullname>AWS Global Accelerator</fullname>
  * 		       <p>This is the <i>AWS Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
  * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>. </p>
  * 		       <p>AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for
@@ -158,23 +157,16 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 						for example, to do performance testing within a Region.</p>
  * 				        </dd>
  *          </dl>
- *
- *
  */
 export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
-   *
-   * 		       <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
+   * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
    * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI
    * 			example of creating an accelerator, scroll down to <b>Example</b>.</p>
    *
    * 		       <important>
    * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
-   *
-   *
-   *
-   *
    */
   public createAccelerator(
     args: CreateAcceleratorCommandInput,
@@ -209,12 +201,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS
+   * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS
    * 			Region. To see an AWS CLI example of creating an endpoint group, scroll down to <b>Example</b>.</p>
-   *
-   *
-   *
    */
   public createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
@@ -249,13 +237,9 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
+   * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
    * 			IP addresses on a port, port range, or list of port ranges that you specify. To see an AWS CLI example of creating a
    * 			listener, scroll down to <b>Example</b>.</p>
-   *
-   *
-   *
    */
   public createListener(
     args: CreateListenerCommandInput,
@@ -290,10 +274,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Delete an accelerator. Note: before you can delete an accelerator, you must disable it and remove all dependent resources
+   * <p>Delete an accelerator. Note: before you can delete an accelerator, you must disable it and remove all dependent resources
    * 			(listeners and endpoint groups).</p>
-   *
    */
   public deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
@@ -328,9 +310,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Delete an endpoint group from a listener.</p>
-   *
+   * <p>Delete an endpoint group from a listener.</p>
    */
   public deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
@@ -365,9 +345,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Delete a listener from an accelerator.</p>
-   *
+   * <p>Delete a listener from an accelerator.</p>
    */
   public deleteListener(
     args: DeleteListenerCommandInput,
@@ -402,11 +380,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll down to <b>Example</b>.</p>
-   *
-   *
-   *
+   * <p>Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll down to <b>Example</b>.</p>
    */
   public describeAccelerator(
     args: DescribeAcceleratorCommandInput,
@@ -441,9 +415,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Describe the attributes of an accelerator.</p>
-   *
+   * <p>Describe the attributes of an accelerator.</p>
    */
   public describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
@@ -478,9 +450,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Describe an endpoint group.</p>
-   *
+   * <p>Describe an endpoint group.</p>
    */
   public describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
@@ -515,9 +485,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Describe a listener.</p>
-   *
+   * <p>Describe a listener.</p>
    */
   public describeListener(
     args: DescribeListenerCommandInput,
@@ -552,9 +520,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>List the accelerators for an AWS account.</p>
-   *
+   * <p>List the accelerators for an AWS account.</p>
    */
   public listAccelerators(
     args: ListAcceleratorsCommandInput,
@@ -589,9 +555,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>List the endpoint groups that are associated with a listener.</p>
-   *
+   * <p>List the endpoint groups that are associated with a listener.</p>
    */
   public listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
@@ -626,9 +590,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>List the listeners for an accelerator.</p>
-   *
+   * <p>List the listeners for an accelerator.</p>
    */
   public listListeners(
     args: ListListenersCommandInput,
@@ -663,17 +625,12 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Update an accelerator. To see an AWS CLI example of updating an accelerator,
+   * <p>Update an accelerator. To see an AWS CLI example of updating an accelerator,
    * 			scroll down to <b>Example</b>.</p>
    *
    * 		       <important>
    * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
-   *
-   *
-   *
-   *
    */
   public updateAccelerator(
     args: UpdateAcceleratorCommandInput,
@@ -708,13 +665,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Update the attributes for an accelerator. To see an AWS CLI example of updating an accelerator to enable flow logs,
+   * <p>Update the attributes for an accelerator. To see an AWS CLI example of updating an accelerator to enable flow logs,
    * 			scroll down to <b>Example</b>.</p>
-   *
-   *
-   *
-   *
    */
   public updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
@@ -749,11 +701,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Update an endpoint group. To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.</p>
-   *
-   *
-   *
+   * <p>Update an endpoint group. To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.</p>
    */
   public updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
@@ -788,9 +736,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   *
-   * 		       <p>Update a listener.</p>
-   *
+   * <p>Update a listener.</p>
    */
   public updateListener(
     args: UpdateListenerCommandInput,

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBInstance, RestoreDBInstanceFromS3Message } from "../models/index";
+import {
+  RestoreDBInstanceFromS3Message,
+  RestoreDBInstanceFromS3Result
+} from "../models/index";
 import {
   deserializeAws_queryRestoreDBInstanceFromS3Command,
   serializeAws_queryRestoreDBInstanceFromS3Command
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBInstanceFromS3CommandInput = RestoreDBInstanceFromS3Message;
-export type RestoreDBInstanceFromS3CommandOutput = DBInstance;
+export type RestoreDBInstanceFromS3CommandOutput = RestoreDBInstanceFromS3Result;
 
 export class RestoreDBInstanceFromS3Command extends $Command<
   RestoreDBInstanceFromS3CommandInput,

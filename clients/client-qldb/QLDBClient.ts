@@ -224,9 +224,7 @@ export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>The control plane for Amazon QLDB</p>
- *
+ * <p>The control plane for Amazon QLDB</p>
  */
 export class QLDBClient extends __Client<
   __HttpHandlerOptions,

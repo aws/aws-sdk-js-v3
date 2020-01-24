@@ -276,10 +276,8 @@ export type NetworkManagerClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
+ * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
  *             AWS and on-premises networks that are built around transit gateways.</p>
- *
  */
 export class NetworkManagerClient extends __Client<
   __HttpHandlerOptions,

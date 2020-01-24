@@ -188,12 +188,9 @@ export type TextractClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *
- *          <p>Amazon Textract detects and analyzes text in documents and converts it
+ * <p>Amazon Textract detects and analyzes text in documents and converts it
  *          into machine-readable text. This is the API reference documentation for
  *          Amazon Textract.</p>
- *
  */
 export class TextractClient extends __Client<
   __HttpHandlerOptions,

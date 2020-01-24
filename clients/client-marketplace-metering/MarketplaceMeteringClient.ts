@@ -180,8 +180,7 @@ export type MarketplaceMeteringClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>AWS Marketplace Metering Service</fullname>
+ * <fullname>AWS Marketplace Metering Service</fullname>
  *         <p>This reference provides descriptions of the low-level AWS Marketplace Metering
  *             Service API.</p>
  *         <p>AWS Marketplace sellers can use this API to submit usage data for custom usage
@@ -235,8 +234,6 @@ export type MarketplaceMeteringClientResolvedConfig = __SmithyResolvedConfigurat
  *             records over time. For more information, see the <i>
  *                <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">AWS CloudTrail User Guide</a>
  *             </i>.</p>
- *
- *
  */
 export class MarketplaceMeteringClient extends __Client<
   __HttpHandlerOptions,

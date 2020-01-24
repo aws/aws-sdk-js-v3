@@ -188,8 +188,7 @@ export type ComputeOptimizerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of
+ * <p>AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of
  *             your AWS resources, such as EC2 instances and Auto Scaling groups. It reports whether your
  *             resources are optimal, and generates optimization recommendations to reduce the cost and
  *             improve the performance of your workloads. Compute Optimizer also provides recent utilization
@@ -199,7 +198,6 @@ export type ComputeOptimizerClientResolvedConfig = __SmithyResolvedConfiguration
  *             resize your running resources, and still meet your performance and capacity
  *             requirements. For more information about Compute Optimizer, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">AWS Compute Optimizer User
  *                 Guide</a>.</p>
- *
  */
 export class ComputeOptimizerClient extends __Client<
   __HttpHandlerOptions,

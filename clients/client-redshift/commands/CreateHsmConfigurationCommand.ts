@@ -5,7 +5,7 @@ import {
 } from "../RedshiftClient";
 import {
   CreateHsmConfigurationMessage,
-  HsmConfiguration
+  CreateHsmConfigurationResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateHsmConfigurationCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateHsmConfigurationCommandInput = CreateHsmConfigurationMessage;
-export type CreateHsmConfigurationCommandOutput = HsmConfiguration;
+export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult;
 
 export class CreateHsmConfigurationCommand extends $Command<
   CreateHsmConfigurationCommandInput,

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { RevokeSnapshotAccessMessage, Snapshot } from "../models/index";
+import {
+  RevokeSnapshotAccessMessage,
+  RevokeSnapshotAccessResult
+} from "../models/index";
 import {
   deserializeAws_queryRevokeSnapshotAccessCommand,
   serializeAws_queryRevokeSnapshotAccessCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeSnapshotAccessCommandInput = RevokeSnapshotAccessMessage;
-export type RevokeSnapshotAccessCommandOutput = Snapshot;
+export type RevokeSnapshotAccessCommandOutput = RevokeSnapshotAccessResult;
 
 export class RevokeSnapshotAccessCommand extends $Command<
   RevokeSnapshotAccessCommandInput,

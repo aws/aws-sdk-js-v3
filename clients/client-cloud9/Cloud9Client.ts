@@ -204,8 +204,7 @@ export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Cloud9</fullname>
+ * <fullname>AWS Cloud9</fullname>
  *          <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p>
  *          <p>For more information about AWS Cloud9, see the <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide">AWS Cloud9 User Guide</a>.</p>
  *          <p>AWS Cloud9 supports these operations:</p>
@@ -251,7 +250,6 @@ export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<
  *                   <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p>
  *             </li>
  *          </ul>
- *
  */
 export class Cloud9Client extends __Client<
   __HttpHandlerOptions,

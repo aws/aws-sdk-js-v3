@@ -1007,8 +1007,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>AWS IoT</fullname>
+ * <fullname>AWS IoT</fullname>
  *         <p>AWS IoT provides secure, bi-directional communication between Internet-connected
  *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS
  *             cloud. You can discover your custom IoT-Data endpoint to communicate with, configure
@@ -1018,16 +1017,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         <p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
  *         <p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
- *
  */
 export class IoT extends IoTClient {
   /**
-   *
-   *          <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS
+   * <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS
    *          IoT sends a confirmation message to the endpoint or base address you specify. The message
    *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
    *          to confirm that you own or have access to the endpoint.</p>
-   *
    */
   public confirmTopicRuleDestination(
     args: ConfirmTopicRuleDestinationCommandInput,
@@ -1062,10 +1058,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
+   * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
    *          permission to create rules will be able to access data processed by the rule.</p>
-   *
    */
   public createTopicRule(
     args: CreateTopicRuleCommandInput,
@@ -1100,9 +1094,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
-   *
+   * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
    */
   public createTopicRuleDestination(
     args: CreateTopicRuleDestinationCommandInput,
@@ -1137,9 +1129,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes the rule.</p>
-   *
+   * <p>Deletes the rule.</p>
    */
   public deleteTopicRule(
     args: DeleteTopicRuleCommandInput,
@@ -1174,9 +1164,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a topic rule destination.</p>
-   *
+   * <p>Deletes a topic rule destination.</p>
    */
   public deleteTopicRuleDestination(
     args: DeleteTopicRuleDestinationCommandInput,
@@ -1211,9 +1199,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a logging level.</p>
-   *
+   * <p>Deletes a logging level.</p>
    */
   public deleteV2LoggingLevel(
     args: DeleteV2LoggingLevelCommandInput,
@@ -1248,9 +1234,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Disables the rule.</p>
-   *
+   * <p>Disables the rule.</p>
    */
   public disableTopicRule(
     args: DisableTopicRuleCommandInput,
@@ -1285,9 +1269,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Enables the rule.</p>
-   *
+   * <p>Enables the rule.</p>
    */
   public enableTopicRule(
     args: EnableTopicRuleCommandInput,
@@ -1322,11 +1304,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets the logging options.</p>
+   * <p>Gets the logging options.</p>
    *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
    *          instead.</p>
-   *
    */
   public getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
@@ -1361,9 +1341,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the rule.</p>
-   *
+   * <p>Gets information about the rule.</p>
    */
   public getTopicRule(
     args: GetTopicRuleCommandInput,
@@ -1398,9 +1376,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about a topic rule destination.</p>
-   *
+   * <p>Gets information about a topic rule destination.</p>
    */
   public getTopicRuleDestination(
     args: GetTopicRuleDestinationCommandInput,
@@ -1435,9 +1411,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets the fine grained logging options.</p>
-   *
+   * <p>Gets the fine grained logging options.</p>
    */
   public getV2LoggingOptions(
     args: GetV2LoggingOptionsCommandInput,
@@ -1472,9 +1446,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists all the topic rule destinations in your AWS account.</p>
-   *
+   * <p>Lists all the topic rule destinations in your AWS account.</p>
    */
   public listTopicRuleDestinations(
     args: ListTopicRuleDestinationsCommandInput,
@@ -1509,9 +1481,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the rules for the specific topic.</p>
-   *
+   * <p>Lists the rules for the specific topic.</p>
    */
   public listTopicRules(
     args: ListTopicRulesCommandInput,
@@ -1546,9 +1516,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists logging levels.</p>
-   *
+   * <p>Lists logging levels.</p>
    */
   public listV2LoggingLevels(
     args: ListV2LoggingLevelsCommandInput,
@@ -1583,11 +1551,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
+   * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
    *          is an administrator-level action. Any user who has permission to create rules will be able
    *          to access data processed by the rule.</p>
-   *
    */
   public replaceTopicRule(
     args: ReplaceTopicRuleCommandInput,
@@ -1622,11 +1588,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Sets the logging options.</p>
+   * <p>Sets the logging options.</p>
    *          <p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code>
    *          instead.</p>
-   *
    */
   public setLoggingOptions(
     args: SetLoggingOptionsCommandInput,
@@ -1661,9 +1625,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Sets the logging level.</p>
-   *
+   * <p>Sets the logging level.</p>
    */
   public setV2LoggingLevel(
     args: SetV2LoggingLevelCommandInput,
@@ -1698,9 +1660,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Sets the logging options for the V2 logging service.</p>
-   *
+   * <p>Sets the logging options for the V2 logging service.</p>
    */
   public setV2LoggingOptions(
     args: SetV2LoggingOptionsCommandInput,
@@ -1735,10 +1695,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
+   * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
    *          confirmation URL of the destination.</p>
-   *
    */
   public updateTopicRuleDestination(
     args: UpdateTopicRuleDestinationCommandInput,
@@ -1773,12 +1731,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Accepts a pending certificate transfer. The default state of the certificate is
+   * <p>Accepts a pending certificate transfer. The default state of the certificate is
    *          INACTIVE.</p>
    *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
    *          to enumerate your certificates.</p>
-   *
    */
   public acceptCertificateTransfer(
     args: AcceptCertificateTransferCommandInput,
@@ -1813,9 +1769,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Attaches a policy to the specified target.</p>
-   *
+   * <p>Attaches a policy to the specified target.</p>
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,
@@ -1850,12 +1804,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Attaches the specified policy to the specified principal (certificate or other
+   * <p>Attaches the specified policy to the specified principal (certificate or other
    *          credential).</p>
    *          <p>
    *             <b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>
-   *
    */
   public attachPrincipalPolicy(
     args: AttachPrincipalPolicyCommandInput,
@@ -1890,8 +1842,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Cancels a pending transfer for the specified certificate.</p>
+   * <p>Cancels a pending transfer for the specified certificate.</p>
    *          <p>
    *             <b>Note</b> Only the transfer source account can use this
    *          operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the
@@ -1899,7 +1850,6 @@ export class IoT extends IoTClient {
    *          accepted the transfer, the transfer cannot be cancelled.</p>
    *          <p>After a certificate transfer is cancelled, the status of the certificate changes from
    *          PENDING_TRANSFER to INACTIVE.</p>
-   *
    */
   public cancelCertificateTransfer(
     args: CancelCertificateTransferCommandInput,
@@ -1934,9 +1884,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Clears the default authorizer.</p>
-   *
+   * <p>Clears the default authorizer.</p>
    */
   public clearDefaultAuthorizer(
     args: ClearDefaultAuthorizerCommandInput,
@@ -1971,9 +1919,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates an authorizer.</p>
-   *
+   * <p>Creates an authorizer.</p>
    */
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
@@ -2008,8 +1954,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates an X.509 certificate using the specified certificate signing
+   * <p>Creates an X.509 certificate using the specified certificate signing
    *          request.</p>
    *          <p>
    *             <b>Note:</b> The CSR must include a public key that is either an
@@ -2044,7 +1989,6 @@ export class IoT extends IoTClient {
    *          my-csr-directory is:</p>
    *          <p>> forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
    *          --certificate-signing-request file://@path"</p>
-   *
    */
   public createCertificateFromCsr(
     args: CreateCertificateFromCsrCommandInput,
@@ -2079,12 +2023,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a domain configuration.</p>
+   * <p>Creates a domain configuration.</p>
    *          <note>
    *             <p>The domain configuration feature is in public preview and is subject to change.</p>
    *          </note>
-   *
    */
   public createDomainConfiguration(
     args: CreateDomainConfigurationCommandInput,
@@ -2119,14 +2061,12 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
+   * <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
    *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
    *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
    *          <p>
    *             <b>Note</b> This is the only time AWS IoT issues the private key
    *          for this certificate, so it is important to keep it in a secure location.</p>
-   *
    */
   public createKeysAndCertificate(
     args: CreateKeysAndCertificateCommandInput,
@@ -2161,12 +2101,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates an AWS IoT policy.</p>
+   * <p>Creates an AWS IoT policy.</p>
    *          <p>The created policy is the default version for the policy. This operation creates a
    *          policy version with a version identifier of <b>1</b> and sets
    *             <b>1</b> as the policy's default version.</p>
-   *
    */
   public createPolicy(
     args: CreatePolicyCommandInput,
@@ -2201,16 +2139,13 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a
+   * <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a
    *          new policy version. A managed policy can have up to five versions. If the policy has five
    *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
    *          before you create a new one.</p>
    *          <p>Optionally, you can set the new version as the policy's default version. The default
    *          version is the operative version (that is, the version that is in effect for the
    *          certificates to which the policy is attached).</p>
-   *
-   *
    */
   public createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
@@ -2245,9 +2180,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a provisioning claim.</p>
-   *
+   * <p>Creates a provisioning claim.</p>
    */
   public createProvisioningClaim(
     args: CreateProvisioningClaimCommandInput,
@@ -2282,9 +2215,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a fleet provisioning template.</p>
-   *
+   * <p>Creates a fleet provisioning template.</p>
    */
   public createProvisioningTemplate(
     args: CreateProvisioningTemplateCommandInput,
@@ -2319,9 +2250,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a new version of a fleet provisioning template.</p>
-   *
+   * <p>Creates a new version of a fleet provisioning template.</p>
    */
   public createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
@@ -2368,9 +2297,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a role alias.</p>
-   *
+   * <p>Creates a role alias.</p>
    */
   public createRoleAlias(
     args: CreateRoleAliasCommandInput,
@@ -2405,9 +2332,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes an authorizer.</p>
-   *
+   * <p>Deletes an authorizer.</p>
    */
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
@@ -2442,9 +2367,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a registered CA certificate.</p>
-   *
+   * <p>Deletes a registered CA certificate.</p>
    */
   public deleteCACertificate(
     args: DeleteCACertificateCommandInput,
@@ -2479,12 +2402,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified certificate.</p>
+   * <p>Deletes the specified certificate.</p>
    *          <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if
    *          its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE
    *          status.</p>
-   *
    */
   public deleteCertificate(
     args: DeleteCertificateCommandInput,
@@ -2519,12 +2440,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified domain configuration.</p>
+   * <p>Deletes the specified domain configuration.</p>
    *          <note>
    *             <p>The domain configuration feature is in public preview and is subject to change.</p>
    *          </note>
-   *
    */
   public deleteDomainConfiguration(
     args: DeleteDomainConfigurationCommandInput,
@@ -2559,8 +2478,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified policy.</p>
+   * <p>Deletes the specified policy.</p>
    *          <p>A policy cannot be deleted if it has non-default versions or it is attached to any
    *          certificate.</p>
    *          <p>To delete a policy, use the DeletePolicyVersion API to delete all non-default
@@ -2568,7 +2486,6 @@ export class IoT extends IoTClient {
    *          certificate; and then use the DeletePolicy API to delete the policy.</p>
    *          <p>When a policy is deleted using DeletePolicy, its default version is deleted with
    *          it.</p>
-   *
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -2603,12 +2520,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified version of the specified policy. You cannot delete the default
+   * <p>Deletes the specified version of the specified policy. You cannot delete the default
    *          version of a policy using this API. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default
    *          version, use ListPolicyVersions.</p>
-   *
-   *
    */
   public deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
@@ -2643,9 +2557,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a fleet provisioning template.</p>
-   *
+   * <p>Deletes a fleet provisioning template.</p>
    */
   public deleteProvisioningTemplate(
     args: DeleteProvisioningTemplateCommandInput,
@@ -2680,9 +2592,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a fleet provisioning template version.</p>
-   *
+   * <p>Deletes a fleet provisioning template version.</p>
    */
   public deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
@@ -2729,9 +2639,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a CA certificate registration code.</p>
-   *
+   * <p>Deletes a CA certificate registration code.</p>
    */
   public deleteRegistrationCode(
     args: DeleteRegistrationCodeCommandInput,
@@ -2766,9 +2674,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a role alias</p>
-   *
+   * <p>Deletes a role alias</p>
    */
   public deleteRoleAlias(
     args: DeleteRoleAliasCommandInput,
@@ -2803,9 +2709,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Describes an authorizer.</p>
-   *
+   * <p>Describes an authorizer.</p>
    */
   public describeAuthorizer(
     args: DescribeAuthorizerCommandInput,
@@ -2840,9 +2744,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Describes a registered CA certificate.</p>
-   *
+   * <p>Describes a registered CA certificate.</p>
    */
   public describeCACertificate(
     args: DescribeCACertificateCommandInput,
@@ -2877,9 +2779,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified certificate.</p>
-   *
+   * <p>Gets information about the specified certificate.</p>
    */
   public describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -2914,9 +2814,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Describes the default authorizer.</p>
-   *
+   * <p>Describes the default authorizer.</p>
    */
   public describeDefaultAuthorizer(
     args: DescribeDefaultAuthorizerCommandInput,
@@ -2951,12 +2849,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets summary information about a domain configuration.</p>
+   * <p>Gets summary information about a domain configuration.</p>
    *          <note>
    *             <p>The domain configuration feature is in public preview and is subject to change.</p>
    *          </note>
-   *
    */
   public describeDomainConfiguration(
     args: DescribeDomainConfigurationCommandInput,
@@ -2991,9 +2887,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Returns a unique endpoint specific to the AWS account making the call.</p>
-   *
+   * <p>Returns a unique endpoint specific to the AWS account making the call.</p>
    */
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -3028,9 +2922,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Returns information about a fleet provisioning template.</p>
-   *
+   * <p>Returns information about a fleet provisioning template.</p>
    */
   public describeProvisioningTemplate(
     args: DescribeProvisioningTemplateCommandInput,
@@ -3065,9 +2957,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Returns information about a fleet provisioning template version.</p>
-   *
+   * <p>Returns information about a fleet provisioning template version.</p>
    */
   public describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
@@ -3114,9 +3004,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Describes a role alias.</p>
-   *
+   * <p>Describes a role alias.</p>
    */
   public describeRoleAlias(
     args: DescribeRoleAliasCommandInput,
@@ -3151,9 +3039,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Detaches a policy from the specified target.</p>
-   *
+   * <p>Detaches a policy from the specified target.</p>
    */
   public detachPolicy(
     args: DetachPolicyCommandInput,
@@ -3188,11 +3074,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified policy from the specified certificate.</p>
+   * <p>Removes the specified policy from the specified certificate.</p>
    *          <p>
    *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
-   *
    */
   public detachPrincipalPolicy(
     args: DetachPrincipalPolicyCommandInput,
@@ -3227,10 +3111,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the policies that have an effect on the authorization behavior of the
+   * <p>Gets a list of the policies that have an effect on the authorization behavior of the
    *          specified device when it connects to the AWS IoT device gateway.</p>
-   *
    */
   public getEffectivePolicies(
     args: GetEffectivePoliciesCommandInput,
@@ -3265,10 +3147,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified policy with the policy document of the default
+   * <p>Gets information about the specified policy with the policy document of the default
    *          version.</p>
-   *
    */
   public getPolicy(
     args: GetPolicyCommandInput,
@@ -3303,9 +3183,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified policy version.</p>
-   *
+   * <p>Gets information about the specified policy version.</p>
    */
   public getPolicyVersion(
     args: GetPolicyVersionCommandInput,
@@ -3340,9 +3218,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
-   *
+   * <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
    */
   public getRegistrationCode(
     args: GetRegistrationCodeCommandInput,
@@ -3377,9 +3253,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the policies attached to the specified thing group.</p>
-   *
+   * <p>Lists the policies attached to the specified thing group.</p>
    */
   public listAttachedPolicies(
     args: ListAttachedPoliciesCommandInput,
@@ -3414,9 +3288,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the authorizers registered in your account.</p>
-   *
+   * <p>Lists the authorizers registered in your account.</p>
    */
   public listAuthorizers(
     args: ListAuthorizersCommandInput,
@@ -3451,11 +3323,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the CA certificates registered for your AWS account.</p>
+   * <p>Lists the CA certificates registered for your AWS account.</p>
    *          <p>The results are paginated with a default page size of 25. You can use the returned
    *          marker to retrieve additional results.</p>
-   *
    */
   public listCACertificates(
     args: ListCACertificatesCommandInput,
@@ -3490,11 +3360,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the certificates registered in your AWS account.</p>
+   * <p>Lists the certificates registered in your AWS account.</p>
    *          <p>The results are paginated with a default page size of 25. You can use the returned
    *          marker to retrieve additional results.</p>
-   *
    */
   public listCertificates(
     args: ListCertificatesCommandInput,
@@ -3529,9 +3397,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>List the device certificates signed by the specified CA certificate.</p>
-   *
+   * <p>List the device certificates signed by the specified CA certificate.</p>
    */
   public listCertificatesByCA(
     args: ListCertificatesByCACommandInput,
@@ -3566,12 +3432,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
+   * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
    *          <note>
    *             <p>The domain configuration feature is in public preview and is subject to change.</p>
    *          </note>
-   *
    */
   public listDomainConfigurations(
     args: ListDomainConfigurationsCommandInput,
@@ -3606,9 +3470,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists certificates that are being transferred but not yet accepted.</p>
-   *
+   * <p>Lists certificates that are being transferred but not yet accepted.</p>
    */
   public listOutgoingCertificates(
     args: ListOutgoingCertificatesCommandInput,
@@ -3643,9 +3505,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists your policies.</p>
-   *
+   * <p>Lists your policies.</p>
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -3680,11 +3540,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the principals associated with the specified policy.</p>
+   * <p>Lists the principals associated with the specified policy.</p>
    *          <p>
    *             <b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
-   *
    */
   public listPolicyPrincipals(
     args: ListPolicyPrincipalsCommandInput,
@@ -3719,10 +3577,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the versions of the specified policy and identifies the default
+   * <p>Lists the versions of the specified policy and identifies the default
    *          version.</p>
-   *
    */
   public listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
@@ -3757,12 +3613,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the policies attached to the specified principal. If you use an Cognito
+   * <p>Lists the policies attached to the specified principal. If you use an Cognito
    *          identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
    *          <p>
    *             <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
-   *
    */
   public listPrincipalPolicies(
     args: ListPrincipalPoliciesCommandInput,
@@ -3797,9 +3651,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>A list of fleet provisioning template versions.</p>
-   *
+   * <p>A list of fleet provisioning template versions.</p>
    */
   public listProvisioningTemplateVersions(
     args: ListProvisioningTemplateVersionsCommandInput,
@@ -3840,9 +3692,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the fleet provisioning templates in your AWS account.</p>
-   *
+   * <p>Lists the fleet provisioning templates in your AWS account.</p>
    */
   public listProvisioningTemplates(
     args: ListProvisioningTemplatesCommandInput,
@@ -3877,9 +3727,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the role aliases registered in your account.</p>
-   *
+   * <p>Lists the role aliases registered in your account.</p>
    */
   public listRoleAliases(
     args: ListRoleAliasesCommandInput,
@@ -3914,9 +3762,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>List targets for the specified policy.</p>
-   *
+   * <p>List targets for the specified policy.</p>
    */
   public listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
@@ -3951,14 +3797,12 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign
+   * <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign
    *          device certificates, which can be then registered with AWS IoT. You can register up to 10
    *          CA certificates per AWS account that have the same subject field. This enables you to have
    *          up to 10 certificate authorities sign your device certificates. If you have more than one
    *          CA certificate registered, make sure you pass the CA certificate when you register your
    *          device certificates with the RegisterCertificate API.</p>
-   *
    */
   public registerCACertificate(
     args: RegisterCACertificateCommandInput,
@@ -3993,11 +3837,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate
+   * <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate
    *          that has the same subject field, you must specify the CA certificate that was used to sign
    *          the device certificate being registered.</p>
-   *
    */
   public registerCertificate(
     args: RegisterCertificateCommandInput,
@@ -4032,12 +3874,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control
+   * <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control
    *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
    *             AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise
    *          your throttling limits if necessary.</p>
-   *
    */
   public registerThing(
     args: RegisterThingCommandInput,
@@ -4072,15 +3912,13 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
+   * <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
    *          the certificate status changes from <b>PENDING_TRANSFER</b> to
    *             <b>INACTIVE</b>.</p>
    *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
    *          to enumerate your certificates.</p>
    *          <p>This operation can only be called by the transfer destination. After it is called,
    *          the certificate will be returned to the source's account in the INACTIVE state.</p>
-   *
    */
   public rejectCertificateTransfer(
     args: RejectCertificateTransferCommandInput,
@@ -4115,10 +3953,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Sets the default authorizer. This will be used if a websocket connection is made
+   * <p>Sets the default authorizer. This will be used if a websocket connection is made
    *          without specifying an authorizer.</p>
-   *
    */
   public setDefaultAuthorizer(
     args: SetDefaultAuthorizerCommandInput,
@@ -4153,12 +3989,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Sets the specified version of the specified policy as the policy's default
+   * <p>Sets the specified version of the specified policy as the policy's default
    *          (operative) version. This action affects all certificates to which the policy is attached.
    *          To list the principals the policy is attached to, use the ListPrincipalPolicy
    *          API.</p>
-   *
    */
   public setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
@@ -4193,11 +4027,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Tests if a specified principal is authorized to perform an AWS IoT action on a
+   * <p>Tests if a specified principal is authorized to perform an AWS IoT action on a
    *          specified resource. Use this to test and debug the authorization behavior of devices that
    *          connect to the AWS IoT device gateway.</p>
-   *
    */
   public testAuthorization(
     args: TestAuthorizationCommandInput,
@@ -4232,11 +4064,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
+   * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
    *          this to test and debug the custom authorization behavior of devices that connect to the AWS
    *          IoT device gateway.</p>
-   *
    */
   public testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
@@ -4271,8 +4101,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Transfers the specified certificate to the specified AWS account.</p>
+   * <p>Transfers the specified certificate to the specified AWS account.</p>
    *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
    *          <p>No notification is sent to the transfer destination's account. It is up to the caller
    *          to notify the transfer target.</p>
@@ -4280,7 +4109,6 @@ export class IoT extends IoTClient {
    *          UpdateCertificate API to deactivate it.</p>
    *          <p>The certificate must not have any policies attached to it. You can use the
    *          DetachPrincipalPolicy API to detach them.</p>
-   *
    */
   public transferCertificate(
     args: TransferCertificateCommandInput,
@@ -4315,9 +4143,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates an authorizer.</p>
-   *
+   * <p>Updates an authorizer.</p>
    */
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
@@ -4352,9 +4178,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates a registered CA certificate.</p>
-   *
+   * <p>Updates a registered CA certificate.</p>
    */
   public updateCACertificate(
     args: UpdateCACertificateCommandInput,
@@ -4389,14 +4213,12 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates the status of the specified certificate. This operation is
+   * <p>Updates the status of the specified certificate. This operation is
    *          idempotent.</p>
    *          <p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect
    *          currently connected devices, but these devices will be unable to reconnect.</p>
    *          <p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a
    *          certificate.</p>
-   *
    */
   public updateCertificate(
     args: UpdateCertificateCommandInput,
@@ -4431,12 +4253,10 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
+   * <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
    *          <note>
    *             <p>The domain configuration feature is in public preview and is subject to change.</p>
    *          </note>
-   *
    */
   public updateDomainConfiguration(
     args: UpdateDomainConfigurationCommandInput,
@@ -4471,9 +4291,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates a fleet provisioning template.</p>
-   *
+   * <p>Updates a fleet provisioning template.</p>
    */
   public updateProvisioningTemplate(
     args: UpdateProvisioningTemplateCommandInput,
@@ -4508,9 +4326,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates a role alias.</p>
-   *
+   * <p>Updates a role alias.</p>
    */
   public updateRoleAlias(
     args: UpdateRoleAliasCommandInput,
@@ -4545,9 +4361,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Describes a search index.</p>
-   *
+   * <p>Describes a search index.</p>
    */
   public describeIndex(
     args: DescribeIndexCommandInput,
@@ -4582,9 +4396,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Returns the approximate count of unique values that match the query.</p>
-   *
+   * <p>Returns the approximate count of unique values that match the query.</p>
    */
   public getCardinality(
     args: GetCardinalityCommandInput,
@@ -4619,9 +4431,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets the indexing configuration.</p>
-   *
+   * <p>Gets the indexing configuration.</p>
    */
   public getIndexingConfiguration(
     args: GetIndexingConfigurationCommandInput,
@@ -4656,8 +4466,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Groups the aggregated values that match the query into percentile groupings. The default
+   * <p>Groups the aggregated values that match the query into percentile groupings. The default
    *         percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
    *         when you call <code>GetPercentiles</code>. This function returns a value for each
    *         percentile group specified (or the default percentile groupings). The percentile group
@@ -4666,7 +4475,6 @@ export class IoT extends IoTClient {
    *         that occurs in approximately five percent of the values that match the query, and so on.
    *         The result is an approximation, the more values that match the query, the more accurate
    *         the percentile values.</p>
-   *
    */
   public getPercentiles(
     args: GetPercentilesCommandInput,
@@ -4701,11 +4509,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
+   * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
    *       and standard deviation for the specified aggregated field. If the aggregation field is of type
    *       <code>String</code>, only the count statistic is returned.</p>
-   *
    */
   public getStatistics(
     args: GetStatisticsCommandInput,
@@ -4740,9 +4546,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the search indices.</p>
-   *
+   * <p>Lists the search indices.</p>
    */
   public listIndices(
     args: ListIndicesCommandInput,
@@ -4777,9 +4581,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>The query search index.</p>
-   *
+   * <p>The query search index.</p>
    */
   public searchIndex(
     args: SearchIndexCommandInput,
@@ -4814,9 +4616,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates the search configuration.</p>
-   *
+   * <p>Updates the search configuration.</p>
    */
   public updateIndexingConfiguration(
     args: UpdateIndexingConfigurationCommandInput,
@@ -4851,8 +4651,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Associates a group with a continuous job. The following criteria must be met: </p>
+   * <p>Associates a group with a continuous job. The following criteria must be met: </p>
    *         <ul>
    *             <li>
    *                 <p>The job must have been created with the <code>targetSelection</code> field set to
@@ -4865,7 +4664,6 @@ export class IoT extends IoTClient {
    *                 <p>The total number of targets associated with a job must not exceed 100.</p>
    *             </li>
    *          </ul>
-   *
    */
   public associateTargetsWithJob(
     args: AssociateTargetsWithJobCommandInput,
@@ -4900,9 +4698,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Cancels a job.</p>
-   *
+   * <p>Cancels a job.</p>
    */
   public cancelJob(
     args: CancelJobCommandInput,
@@ -4937,9 +4733,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Cancels the execution of a job for a given thing.</p>
-   *
+   * <p>Cancels the execution of a job for a given thing.</p>
    */
   public cancelJobExecution(
     args: CancelJobExecutionCommandInput,
@@ -4974,9 +4768,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Creates a job.</p>
-   *
+   * <p>Creates a job.</p>
    */
   public createJob(
     args: CreateJobCommandInput,
@@ -5011,8 +4803,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a job and its related job executions.</p>
+   * <p>Deletes a job and its related job executions.</p>
    *          <p>Deleting a job may take time, depending on the number of job
    *         executions created for the job and various other factors. While the job
    *         is being deleted, the status of the job will be shown as
@@ -5020,7 +4811,6 @@ export class IoT extends IoTClient {
    *         is already "DELETION_IN_PROGRESS" will result in an error.</p>
    *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
    *         a LimitExceededException will occur.</p>
-   *
    */
   public deleteJob(
     args: DeleteJobCommandInput,
@@ -5055,9 +4845,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a job execution.</p>
-   *
+   * <p>Deletes a job execution.</p>
    */
   public deleteJobExecution(
     args: DeleteJobExecutionCommandInput,
@@ -5092,9 +4880,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Describes a job.</p>
-   *
+   * <p>Describes a job.</p>
    */
   public describeJob(
     args: DescribeJobCommandInput,
@@ -5129,9 +4915,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Describes a job execution.</p>
-   *
+   * <p>Describes a job execution.</p>
    */
   public describeJobExecution(
     args: DescribeJobExecutionCommandInput,
@@ -5166,9 +4950,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Gets a job document.</p>
-   *
+   * <p>Gets a job document.</p>
    */
   public getJobDocument(
     args: GetJobDocumentCommandInput,
@@ -5203,9 +4985,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Lists the job executions for a job.</p>
-   *
+   * <p>Lists the job executions for a job.</p>
    */
   public listJobExecutionsForJob(
     args: ListJobExecutionsForJobCommandInput,
@@ -5240,9 +5020,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Lists the job executions for the specified thing.</p>
-   *
+   * <p>Lists the job executions for the specified thing.</p>
    */
   public listJobExecutionsForThing(
     args: ListJobExecutionsForThingCommandInput,
@@ -5277,9 +5055,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Lists jobs.</p>
-   *
+   * <p>Lists jobs.</p>
    */
   public listJobs(
     args: ListJobsCommandInput,
@@ -5314,9 +5090,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Updates supported fields of the specified job.</p>
-   *
+   * <p>Updates supported fields of the specified job.</p>
    */
   public updateJob(
     args: UpdateJobCommandInput,
@@ -5351,9 +5125,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
-   *
+   * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
    */
   public createOTAUpdate(
     args: CreateOTAUpdateCommandInput,
@@ -5388,9 +5160,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Delete an OTA update.</p>
-   *
+   * <p>Delete an OTA update.</p>
    */
   public deleteOTAUpdate(
     args: DeleteOTAUpdateCommandInput,
@@ -5425,9 +5195,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Gets an OTA update.</p>
-   *
+   * <p>Gets an OTA update.</p>
    */
   public getOTAUpdate(
     args: GetOTAUpdateCommandInput,
@@ -5462,9 +5230,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists OTA updates.</p>
-   *
+   * <p>Lists OTA updates.</p>
    */
   public listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
@@ -5499,9 +5265,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Adds a thing to a billing group.</p>
-   *
+   * <p>Adds a thing to a billing group.</p>
    */
   public addThingToBillingGroup(
     args: AddThingToBillingGroupCommandInput,
@@ -5536,9 +5300,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Adds a thing to a thing group.</p>
-   *
+   * <p>Adds a thing to a thing group.</p>
    */
   public addThingToThingGroup(
     args: AddThingToThingGroupCommandInput,
@@ -5573,11 +5335,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Attaches the specified principal to the specified thing. A principal can be X.509
+   * <p>Attaches the specified principal to the specified thing. A principal can be X.509
    * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
    * 			identities.</p>
-   *
    */
   public attachThingPrincipal(
     args: AttachThingPrincipalCommandInput,
@@ -5612,9 +5372,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a billing group.</p>
-   *
+   * <p>Creates a billing group.</p>
    */
   public createBillingGroup(
     args: CreateBillingGroupCommandInput,
@@ -5649,9 +5407,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a dynamic thing group.</p>
-   *
+   * <p>Creates a dynamic thing group.</p>
    */
   public createDynamicThingGroup(
     args: CreateDynamicThingGroupCommandInput,
@@ -5686,8 +5442,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a thing record in the registry. If this call is made multiple times using
+   * <p>Creates a thing record in the registry. If this call is made multiple times using
    * 			the same thing name and configuration, the call will succeed. If this call is made with
    * 			the same thing name but different configuration a
    * 				<code>ResourceAlreadyExistsException</code> is thrown.</p>
@@ -5695,7 +5450,6 @@ export class IoT extends IoTClient {
    * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
    * 				information about authorizing control plane actions.</p>
    * 		       </note>
-   *
    */
   public createThing(
     args: CreateThingCommandInput,
@@ -5730,13 +5484,11 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Create a thing group.</p>
+   * <p>Create a thing group.</p>
    * 		       <note>
    * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for
    * 				information about authorizing control plane actions.</p>
    * 		       </note>
-   *
    */
   public createThingGroup(
     args: CreateThingGroupCommandInput,
@@ -5771,9 +5523,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a new thing type.</p>
-   *
+   * <p>Creates a new thing type.</p>
    */
   public createThingType(
     args: CreateThingTypeCommandInput,
@@ -5808,9 +5558,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the billing group.</p>
-   *
+   * <p>Deletes the billing group.</p>
    */
   public deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
@@ -5845,9 +5593,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a dynamic thing group.</p>
-   *
+   * <p>Deletes a dynamic thing group.</p>
    */
   public deleteDynamicThingGroup(
     args: DeleteDynamicThingGroupCommandInput,
@@ -5882,10 +5628,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the specified thing. Returns successfully with no error if the deletion is
+   * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
    * 			successful or you specify a thing that doesn't exist.</p>
-   *
    */
   public deleteThing(
     args: DeleteThingCommandInput,
@@ -5920,9 +5664,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a thing group.</p>
-   *
+   * <p>Deletes a thing group.</p>
    */
   public deleteThingGroup(
     args: DeleteThingGroupCommandInput,
@@ -5957,11 +5699,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the specified thing type. You cannot delete a thing type if it has things
+   * <p>Deletes the specified thing type. You cannot delete a thing type if it has things
    * 			associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and
    * 			finally use <a>DeleteThingType</a> to delete the thing type.</p>
-   *
    */
   public deleteThingType(
     args: DeleteThingTypeCommandInput,
@@ -5996,10 +5736,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Deprecates a thing type. You can not associate new things with deprecated thing
+   * <p>Deprecates a thing type. You can not associate new things with deprecated thing
    * 			type.</p>
-   *
    */
   public deprecateThingType(
     args: DeprecateThingTypeCommandInput,
@@ -6034,9 +5772,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Returns information about a billing group.</p>
-   *
+   * <p>Returns information about a billing group.</p>
    */
   public describeBillingGroup(
     args: DescribeBillingGroupCommandInput,
@@ -6071,9 +5807,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Describes event configurations.</p>
-   *
+   * <p>Describes event configurations.</p>
    */
   public describeEventConfigurations(
     args: DescribeEventConfigurationsCommandInput,
@@ -6108,9 +5842,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Gets information about the specified thing.</p>
-   *
+   * <p>Gets information about the specified thing.</p>
    */
   public describeThing(
     args: DescribeThingCommandInput,
@@ -6145,9 +5877,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Describe a thing group.</p>
-   *
+   * <p>Describe a thing group.</p>
    */
   public describeThingGroup(
     args: DescribeThingGroupCommandInput,
@@ -6182,9 +5912,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Describes a bulk thing provisioning task.</p>
-   *
+   * <p>Describes a bulk thing provisioning task.</p>
    */
   public describeThingRegistrationTask(
     args: DescribeThingRegistrationTaskCommandInput,
@@ -6219,9 +5947,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Gets information about the specified thing type.</p>
-   *
+   * <p>Gets information about the specified thing type.</p>
    */
   public describeThingType(
     args: DescribeThingTypeCommandInput,
@@ -6256,15 +5982,13 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Detaches the specified principal from the specified thing. A principal can be X.509
+   * <p>Detaches the specified principal from the specified thing. A principal can be X.509
    * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
    * 			identities.</p>
    * 		       <note>
    * 			         <p>This call is asynchronous. It might take several seconds for the detachment to
    * 				propagate.</p>
    * 		       </note>
-   *
    */
   public detachThingPrincipal(
     args: DetachThingPrincipalCommandInput,
@@ -6299,9 +6023,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the billing groups you have created.</p>
-   *
+   * <p>Lists the billing groups you have created.</p>
    */
   public listBillingGroups(
     args: ListBillingGroupsCommandInput,
@@ -6336,11 +6058,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the things associated with the specified principal. A principal can be X.509
+   * <p>Lists the things associated with the specified principal. A principal can be X.509
    * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
    * 			identities. </p>
-   *
    */
   public listPrincipalThings(
     args: ListPrincipalThingsCommandInput,
@@ -6375,9 +6095,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the tags (metadata) you have assigned to the resource.</p>
-   *
+   * <p>Lists the tags (metadata) you have assigned to the resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -6412,9 +6130,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>List the thing groups in your account.</p>
-   *
+   * <p>List the thing groups in your account.</p>
    */
   public listThingGroups(
     args: ListThingGroupsCommandInput,
@@ -6449,9 +6165,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>List the thing groups to which the specified thing belongs.</p>
-   *
+   * <p>List the thing groups to which the specified thing belongs.</p>
    */
   public listThingGroupsForThing(
     args: ListThingGroupsForThingCommandInput,
@@ -6486,11 +6200,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the principals associated with the specified thing. A principal can be X.509
+   * <p>Lists the principals associated with the specified thing. A principal can be X.509
    * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
    * 			identities.</p>
-   *
    */
   public listThingPrincipals(
     args: ListThingPrincipalsCommandInput,
@@ -6525,9 +6237,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Information about the thing registration tasks.</p>
-   *
+   * <p>Information about the thing registration tasks.</p>
    */
   public listThingRegistrationTaskReports(
     args: ListThingRegistrationTaskReportsCommandInput,
@@ -6568,9 +6278,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>List bulk thing provisioning tasks.</p>
-   *
+   * <p>List bulk thing provisioning tasks.</p>
    */
   public listThingRegistrationTasks(
     args: ListThingRegistrationTasksCommandInput,
@@ -6605,9 +6313,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the existing thing types.</p>
-   *
+   * <p>Lists the existing thing types.</p>
    */
   public listThingTypes(
     args: ListThingTypesCommandInput,
@@ -6642,13 +6348,11 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists your things. Use the <b>attributeName</b> and
+   * <p>Lists your things. Use the <b>attributeName</b> and
    * 				<b>attributeValue</b> parameters to filter your things.
    * 			For example, calling <code>ListThings</code> with attributeName=Color and
    * 			attributeValue=Red retrieves all things in the registry that contain an attribute
    * 				<b>Color</b> with the value <b>Red</b>. </p>
-   *
    */
   public listThings(
     args: ListThingsCommandInput,
@@ -6683,9 +6387,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the things you have added to the given billing group.</p>
-   *
+   * <p>Lists the things you have added to the given billing group.</p>
    */
   public listThingsInBillingGroup(
     args: ListThingsInBillingGroupCommandInput,
@@ -6720,9 +6422,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the things in the specified group.</p>
-   *
+   * <p>Lists the things in the specified group.</p>
    */
   public listThingsInThingGroup(
     args: ListThingsInThingGroupCommandInput,
@@ -6757,9 +6457,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Removes the given thing from the billing group.</p>
-   *
+   * <p>Removes the given thing from the billing group.</p>
    */
   public removeThingFromBillingGroup(
     args: RemoveThingFromBillingGroupCommandInput,
@@ -6794,9 +6492,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Remove the specified thing from the specified group.</p>
-   *
+   * <p>Remove the specified thing from the specified group.</p>
    */
   public removeThingFromThingGroup(
     args: RemoveThingFromThingGroupCommandInput,
@@ -6831,9 +6527,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a bulk thing provisioning task.</p>
-   *
+   * <p>Creates a bulk thing provisioning task.</p>
    */
   public startThingRegistrationTask(
     args: StartThingRegistrationTaskCommandInput,
@@ -6868,9 +6562,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Cancels a bulk thing provisioning task.</p>
-   *
+   * <p>Cancels a bulk thing provisioning task.</p>
    */
   public stopThingRegistrationTask(
     args: StopThingRegistrationTaskCommandInput,
@@ -6905,10 +6597,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be
+   * <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be
    * 			used to manage a resource.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -6943,9 +6633,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Removes the given tags (metadata) from the resource.</p>
-   *
+   * <p>Removes the given tags (metadata) from the resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -6980,9 +6668,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Updates information about the billing group.</p>
-   *
+   * <p>Updates information about the billing group.</p>
    */
   public updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
@@ -7017,9 +6703,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Updates a dynamic thing group.</p>
-   *
+   * <p>Updates a dynamic thing group.</p>
    */
   public updateDynamicThingGroup(
     args: UpdateDynamicThingGroupCommandInput,
@@ -7054,9 +6738,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the event configurations.</p>
-   *
+   * <p>Updates the event configurations.</p>
    */
   public updateEventConfigurations(
     args: UpdateEventConfigurationsCommandInput,
@@ -7091,9 +6773,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the data for a thing.</p>
-   *
+   * <p>Updates the data for a thing.</p>
    */
   public updateThing(
     args: UpdateThingCommandInput,
@@ -7128,9 +6808,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Update a thing group.</p>
-   *
+   * <p>Update a thing group.</p>
    */
   public updateThingGroup(
     args: UpdateThingGroupCommandInput,
@@ -7165,9 +6843,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the groups to which the thing belongs.</p>
-   *
+   * <p>Updates the groups to which the thing belongs.</p>
    */
   public updateThingGroupsForThing(
     args: UpdateThingGroupsForThingCommandInput,
@@ -7202,10 +6878,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Associates a Device Defender security profile with a thing group or this account. Each
+   * <p>Associates a Device Defender security profile with a thing group or this account. Each
    *         thing group or account can have up to five security profiles associated with it.</p>
-   *
    */
   public attachSecurityProfile(
     args: AttachSecurityProfileCommandInput,
@@ -7240,9 +6914,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
-   *
+   * <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
    */
   public cancelAuditMitigationActionsTask(
     args: CancelAuditMitigationActionsTaskCommandInput,
@@ -7283,10 +6955,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
+   * <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
    *           If the audit is not in progress, an "InvalidRequestException" occurs.</p>
-   *
    */
   public cancelAuditTask(
     args: CancelAuditTaskCommandInput,
@@ -7321,9 +6991,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>
-   *
+   * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>
    */
   public createMitigationAction(
     args: CreateMitigationActionCommandInput,
@@ -7358,10 +7026,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a scheduled audit that is run at a specified
+   * <p>Creates a scheduled audit that is run at a specified
    *           time interval.</p>
-   *
    */
   public createScheduledAudit(
     args: CreateScheduledAuditCommandInput,
@@ -7396,9 +7062,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Creates a Device Defender security profile.</p>
-   *
+   * <p>Creates a Device Defender security profile.</p>
    */
   public createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
@@ -7433,11 +7097,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Restores the default settings for Device Defender audits for this account. Any
+   * <p>Restores the default settings for Device Defender audits for this account. Any
    *           configuration data you entered is deleted and all audit checks are reset to
    *           disabled.  </p>
-   *
    */
   public deleteAccountAuditConfiguration(
     args: DeleteAccountAuditConfigurationCommandInput,
@@ -7475,9 +7137,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a defined mitigation action from your AWS account.</p>
-   *
+   * <p>Deletes a defined mitigation action from your AWS account.</p>
    */
   public deleteMitigationAction(
     args: DeleteMitigationActionCommandInput,
@@ -7512,9 +7172,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a scheduled audit.</p>
-   *
+   * <p>Deletes a scheduled audit.</p>
    */
   public deleteScheduledAudit(
     args: DeleteScheduledAuditCommandInput,
@@ -7549,9 +7207,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Deletes a Device Defender security profile.</p>
-   *
+   * <p>Deletes a Device Defender security profile.</p>
    */
   public deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
@@ -7586,11 +7242,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the Device Defender audit settings for this account.
+   * <p>Gets information about the Device Defender audit settings for this account.
    *           Settings include how audit notifications are sent and which audit checks are
    *           enabled or disabled.</p>
-   *
    */
   public describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
@@ -7637,9 +7291,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
-   *
+   * <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
    */
   public describeAuditFinding(
     args: DescribeAuditFindingCommandInput,
@@ -7674,9 +7326,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
-   *
+   * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
    */
   public describeAuditMitigationActionsTask(
     args: DescribeAuditMitigationActionsTaskCommandInput,
@@ -7723,9 +7373,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about a Device Defender audit.</p>
-   *
+   * <p>Gets information about a Device Defender audit.</p>
    */
   public describeAuditTask(
     args: DescribeAuditTaskCommandInput,
@@ -7760,9 +7408,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about a mitigation action.</p>
-   *
+   * <p>Gets information about a mitigation action.</p>
    */
   public describeMitigationAction(
     args: DescribeMitigationActionCommandInput,
@@ -7797,9 +7443,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about a scheduled audit.</p>
-   *
+   * <p>Gets information about a scheduled audit.</p>
    */
   public describeScheduledAudit(
     args: DescribeScheduledAuditCommandInput,
@@ -7834,9 +7478,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets information about a Device Defender security profile.</p>
-   *
+   * <p>Gets information about a Device Defender security profile.</p>
    */
   public describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
@@ -7871,9 +7513,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
-   *
+   * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
    */
   public detachSecurityProfile(
     args: DetachSecurityProfileCommandInput,
@@ -7908,9 +7548,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Lists the active violations for a given Device Defender security profile.</p>
-   *
+   * <p>Lists the active violations for a given Device Defender security profile.</p>
    */
   public listActiveViolations(
     args: ListActiveViolationsCommandInput,
@@ -7945,10 +7583,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the findings (results) of a Device Defender audit or of the audits
+   * <p>Lists the findings (results) of a Device Defender audit or of the audits
    *         performed during a specified time period. (Findings are retained for 180 days.)</p>
-   *
    */
   public listAuditFindings(
     args: ListAuditFindingsCommandInput,
@@ -7983,9 +7619,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets the status of audit mitigation action tasks that were executed.</p>
-   *
+   * <p>Gets the status of audit mitigation action tasks that were executed.</p>
    */
   public listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
@@ -8032,9 +7666,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
-   *
+   * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
    */
   public listAuditMitigationActionsTasks(
     args: ListAuditMitigationActionsTasksCommandInput,
@@ -8072,10 +7704,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the Device Defender audits that have been performed during a given
+   * <p>Lists the Device Defender audits that have been performed during a given
    *           time period.</p>
-   *
    */
   public listAuditTasks(
     args: ListAuditTasksCommandInput,
@@ -8110,9 +7740,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
-   *
+   * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
    */
   public listMitigationActions(
     args: ListMitigationActionsCommandInput,
@@ -8147,9 +7775,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists all of your scheduled audits.</p>
-   *
+   * <p>Lists all of your scheduled audits.</p>
    */
   public listScheduledAudits(
     args: ListScheduledAuditsCommandInput,
@@ -8184,10 +7810,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the Device Defender security profiles you have created. You can use filters to list only those security
+   * <p>Lists the Device Defender security profiles you have created. You can use filters to list only those security
    *       profiles associated with a thing group or only those associated with your account.</p>
-   *
    */
   public listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
@@ -8222,9 +7846,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
-   *
+   * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
    */
   public listSecurityProfilesForTarget(
     args: ListSecurityProfilesForTargetCommandInput,
@@ -8259,9 +7881,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
-   *
+   * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
    */
   public listTargetsForSecurityProfile(
     args: ListTargetsForSecurityProfileCommandInput,
@@ -8296,11 +7916,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Lists the Device Defender security profile violations discovered during the given time period.
+   * <p>Lists the Device Defender security profile violations discovered during the given time period.
    *       You can use filters to limit the results to those alerts issued for a particular security profile,
    *       behavior, or thing (device).</p>
-   *
    */
   public listViolationEvents(
     args: ListViolationEventsCommandInput,
@@ -8335,9 +7953,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
-   *
+   * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
    */
   public startAuditMitigationActionsTask(
     args: StartAuditMitigationActionsTaskCommandInput,
@@ -8375,9 +7991,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Starts an on-demand Device Defender audit.</p>
-   *
+   * <p>Starts an on-demand Device Defender audit.</p>
    */
   public startOnDemandAuditTask(
     args: StartOnDemandAuditTaskCommandInput,
@@ -8412,11 +8026,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Configures or reconfigures the Device Defender audit settings for this account.
+   * <p>Configures or reconfigures the Device Defender audit settings for this account.
    *           Settings include how audit notifications are sent and which audit checks are
    *           enabled or disabled.</p>
-   *
    */
   public updateAccountAuditConfiguration(
     args: UpdateAccountAuditConfigurationCommandInput,
@@ -8454,9 +8066,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates the definition for the specified mitigation action.</p>
-   *
+   * <p>Updates the definition for the specified mitigation action.</p>
    */
   public updateMitigationAction(
     args: UpdateMitigationActionCommandInput,
@@ -8491,10 +8101,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates a scheduled audit, including which checks are performed and
+   * <p>Updates a scheduled audit, including which checks are performed and
    *           how often the audit takes place.</p>
-   *
    */
   public updateScheduledAudit(
     args: UpdateScheduledAuditCommandInput,
@@ -8529,9 +8137,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Updates a Device Defender security profile.</p>
-   *
+   * <p>Updates a Device Defender security profile.</p>
    */
   public updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
@@ -8566,9 +8172,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *          <p>Validates a Device Defender security profile behaviors specification.</p>
-   *
+   * <p>Validates a Device Defender security profile behaviors specification.</p>
    */
   public validateSecurityProfileBehaviors(
     args: ValidateSecurityProfileBehaviorsCommandInput,
@@ -8609,11 +8213,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   *         <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
+   * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
    *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
    *             associated with a stream.</p>
-   *
    */
   public createStream(
     args: CreateStreamCommandInput,
@@ -8648,9 +8250,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a stream.</p>
-   *
+   * <p>Deletes a stream.</p>
    */
   public deleteStream(
     args: DeleteStreamCommandInput,
@@ -8685,9 +8285,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a stream.</p>
-   *
+   * <p>Gets information about a stream.</p>
    */
   public describeStream(
     args: DescribeStreamCommandInput,
@@ -8722,9 +8320,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all of the streams in your AWS account.</p>
-   *
+   * <p>Lists all of the streams in your AWS account.</p>
    */
   public listStreams(
     args: ListStreamsCommandInput,
@@ -8759,9 +8355,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   *
-   * 		       <p>Updates an existing stream. The stream version will be incremented by one.</p>
-   *
+   * <p>Updates an existing stream. The stream version will be incremented by one.</p>
    */
   public updateStream(
     args: UpdateStreamCommandInput,

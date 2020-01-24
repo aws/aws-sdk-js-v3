@@ -182,15 +182,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>This section provides documentation for the AWS RoboMaker API operations.</p>
- *
+ * <p>This section provides documentation for the AWS RoboMaker API operations.</p>
  */
 export class RoboMaker extends RoboMakerClient {
   /**
-   *
-   *          <p>Describes one or more simulation jobs.</p>
-   *
+   * <p>Describes one or more simulation jobs.</p>
    */
   public batchDescribeSimulationJob(
     args: BatchDescribeSimulationJobCommandInput,
@@ -225,9 +221,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Cancels the specified deployment job.</p>
-   *
+   * <p>Cancels the specified deployment job.</p>
    */
   public cancelDeploymentJob(
     args: CancelDeploymentJobCommandInput,
@@ -262,10 +256,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Cancels the specified simulation job.</p>
-   *
-   *
+   * <p>Cancels the specified simulation job.</p>
    */
   public cancelSimulationJob(
     args: CancelSimulationJobCommandInput,
@@ -300,8 +291,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Deploys a specific version of a robot application to robots in a fleet.</p>
+   * <p>Deploys a specific version of a robot application to robots in a fleet.</p>
    *          <p>The robot application must have a numbered <code>applicationVersion</code>
    *          for consistency reasons. To create a new version, use <code>CreateRobotApplicationVersion</code>
    *          or see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating a Robot Application Version</a>.
@@ -310,7 +300,6 @@ export class RoboMaker extends RoboMakerClient {
    *             <p>After 90 days, deployment jobs expire and will be deleted. They will no longer be accessible.
    *          </p>
    *          </note>
-   *
    */
   public createDeploymentJob(
     args: CreateDeploymentJobCommandInput,
@@ -345,9 +334,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a fleet, a logical group of robots running the same robot application.</p>
-   *
+   * <p>Creates a fleet, a logical group of robots running the same robot application.</p>
    */
   public createFleet(
     args: CreateFleetCommandInput,
@@ -382,9 +369,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a robot.</p>
-   *
+   * <p>Creates a robot.</p>
    */
   public createRobot(
     args: CreateRobotCommandInput,
@@ -419,10 +404,8 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a robot application.
+   * <p>Creates a robot application.
    *       </p>
-   *
    */
   public createRobotApplication(
     args: CreateRobotApplicationCommandInput,
@@ -457,9 +440,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a version of a robot application.</p>
-   *
+   * <p>Creates a version of a robot application.</p>
    */
   public createRobotApplicationVersion(
     args: CreateRobotApplicationVersionCommandInput,
@@ -494,9 +475,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a simulation application.</p>
-   *
+   * <p>Creates a simulation application.</p>
    */
   public createSimulationApplication(
     args: CreateSimulationApplicationCommandInput,
@@ -531,9 +510,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a simulation application with a specific revision id.</p>
-   *
+   * <p>Creates a simulation application with a specific revision id.</p>
    */
   public createSimulationApplicationVersion(
     args: CreateSimulationApplicationVersionCommandInput,
@@ -580,13 +557,11 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a simulation job.</p>
+   * <p>Creates a simulation job.</p>
    *          <note>
    *             <p>After 90 days, simulation jobs expire and will be deleted. They will no longer be accessible.
    *          </p>
    *          </note>
-   *
    */
   public createSimulationJob(
     args: CreateSimulationJobCommandInput,
@@ -621,9 +596,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes a fleet.</p>
-   *
+   * <p>Deletes a fleet.</p>
    */
   public deleteFleet(
     args: DeleteFleetCommandInput,
@@ -658,9 +631,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes a robot.</p>
-   *
+   * <p>Deletes a robot.</p>
    */
   public deleteRobot(
     args: DeleteRobotCommandInput,
@@ -695,9 +666,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes a robot application.</p>
-   *
+   * <p>Deletes a robot application.</p>
    */
   public deleteRobotApplication(
     args: DeleteRobotApplicationCommandInput,
@@ -732,9 +701,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes a simulation application.</p>
-   *
+   * <p>Deletes a simulation application.</p>
    */
   public deleteSimulationApplication(
     args: DeleteSimulationApplicationCommandInput,
@@ -769,9 +736,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Deregisters a robot.</p>
-   *
+   * <p>Deregisters a robot.</p>
    */
   public deregisterRobot(
     args: DeregisterRobotCommandInput,
@@ -806,9 +771,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes a deployment job.</p>
-   *
+   * <p>Describes a deployment job.</p>
    */
   public describeDeploymentJob(
     args: DescribeDeploymentJobCommandInput,
@@ -843,9 +806,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes a fleet.</p>
-   *
+   * <p>Describes a fleet.</p>
    */
   public describeFleet(
     args: DescribeFleetCommandInput,
@@ -880,9 +841,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes a robot.</p>
-   *
+   * <p>Describes a robot.</p>
    */
   public describeRobot(
     args: DescribeRobotCommandInput,
@@ -917,9 +876,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes a robot application.</p>
-   *
+   * <p>Describes a robot application.</p>
    */
   public describeRobotApplication(
     args: DescribeRobotApplicationCommandInput,
@@ -954,9 +911,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes a simulation application.</p>
-   *
+   * <p>Describes a simulation application.</p>
    */
   public describeSimulationApplication(
     args: DescribeSimulationApplicationCommandInput,
@@ -991,9 +946,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes a simulation job.</p>
-   *
+   * <p>Describes a simulation job.</p>
    */
   public describeSimulationJob(
     args: DescribeSimulationJobCommandInput,
@@ -1028,14 +981,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve
+   * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve
    *          specific deployment jobs.
    *          </p>
    *          <note>
    *             <p> </p>
    *          </note>
-   *
    */
   public listDeploymentJobs(
     args: ListDeploymentJobsCommandInput,
@@ -1070,10 +1021,8 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of fleets. You can optionally provide filters to retrieve
+   * <p>Returns a list of fleets. You can optionally provide filters to retrieve
    *          specific fleets. </p>
-   *
    */
   public listFleets(
     args: ListFleetsCommandInput,
@@ -1108,10 +1057,8 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of robot application. You can optionally provide filters to retrieve
+   * <p>Returns a list of robot application. You can optionally provide filters to retrieve
    *          specific robot applications.</p>
-   *
    */
   public listRobotApplications(
     args: ListRobotApplicationsCommandInput,
@@ -1146,10 +1093,8 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of robots. You can optionally provide filters to retrieve
+   * <p>Returns a list of robots. You can optionally provide filters to retrieve
    *          specific robots.</p>
-   *
    */
   public listRobots(
     args: ListRobotsCommandInput,
@@ -1184,10 +1129,8 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of simulation applications. You can optionally provide filters to retrieve
+   * <p>Returns a list of simulation applications. You can optionally provide filters to retrieve
    *          specific simulation applications. </p>
-   *
    */
   public listSimulationApplications(
     args: ListSimulationApplicationsCommandInput,
@@ -1222,10 +1165,8 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
+   * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
    *          specific simulation jobs. </p>
-   *
    */
   public listSimulationJobs(
     args: ListSimulationJobsCommandInput,
@@ -1260,9 +1201,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags on a AWS RoboMaker resource.</p>
-   *
+   * <p>Lists all tags on a AWS RoboMaker resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1297,9 +1236,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Registers a robot with a fleet.</p>
-   *
+   * <p>Registers a robot with a fleet.</p>
    */
   public registerRobot(
     args: RegisterRobotCommandInput,
@@ -1334,10 +1271,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Restarts a running simulation job.</p>
-   *
-   *
+   * <p>Restarts a running simulation job.</p>
    */
   public restartSimulationJob(
     args: RestartSimulationJobCommandInput,
@@ -1372,9 +1306,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
-   *
+   * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
    */
   public syncDeploymentJob(
     args: SyncDeploymentJobCommandInput,
@@ -1409,11 +1341,9 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Adds or edits tags for a AWS RoboMaker resource.</p>
+   * <p>Adds or edits tags for a AWS RoboMaker resource.</p>
    *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty strings. </p>
    *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1448,14 +1378,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the specified AWS RoboMaker resource.</p>
+   * <p>Removes the specified tags from the specified AWS RoboMaker resource.</p>
    *          <p>To remove a tag, specify the tag key. To change the tag value of an existing tag key, use
    *          <a href="https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html">
    *                <code>TagResource</code>
    *             </a>.
    *       </p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1490,9 +1418,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Updates a robot application.</p>
-   *
+   * <p>Updates a robot application.</p>
    */
   public updateRobotApplication(
     args: UpdateRobotApplicationCommandInput,
@@ -1527,9 +1453,7 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   *
-   *          <p>Updates a simulation application.</p>
-   *
+   * <p>Updates a simulation application.</p>
    */
   public updateSimulationApplication(
     args: UpdateSimulationApplicationCommandInput,

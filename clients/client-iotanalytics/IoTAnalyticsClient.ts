@@ -282,9 +282,7 @@ export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *
- *          <p>AWS IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
+ * <p>AWS IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
  *     You can then query the data and run sophisticated analytics on it.  AWS IoT Analytics enables advanced
  *     data exploration through integration with Jupyter Notebooks and data visualization through integration
  *     with Amazon QuickSight.</p>
@@ -303,8 +301,6 @@ export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<
  *     or perform more complex analytics and machine learning inference. AWS IoT Analytics includes pre-built models
  *     for common IoT use cases so you can answer questions like which devices are about to fail or which customers
  *     are at risk of abandoning their wearable devices.</p>
- *
- *
  */
 export class IoTAnalyticsClient extends __Client<
   __HttpHandlerOptions,

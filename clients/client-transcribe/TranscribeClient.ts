@@ -1,18 +1,27 @@
 import {
+  CreateVocabularyFilterRequest,
+  CreateVocabularyFilterResponse,
   CreateVocabularyRequest,
   CreateVocabularyResponse,
   DeleteTranscriptionJobRequest,
+  DeleteVocabularyFilterRequest,
   DeleteVocabularyRequest,
   GetTranscriptionJobRequest,
   GetTranscriptionJobResponse,
+  GetVocabularyFilterRequest,
+  GetVocabularyFilterResponse,
   GetVocabularyRequest,
   GetVocabularyResponse,
   ListTranscriptionJobsRequest,
   ListTranscriptionJobsResponse,
   ListVocabulariesRequest,
   ListVocabulariesResponse,
+  ListVocabularyFiltersRequest,
+  ListVocabularyFiltersResponse,
   StartTranscriptionJobRequest,
   StartTranscriptionJobResponse,
+  UpdateVocabularyFilterRequest,
+  UpdateVocabularyFilterResponse,
   UpdateVocabularyRequest,
   UpdateVocabularyResponse
 } from "./models/index";
@@ -70,24 +79,33 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateVocabularyFilterRequest
   | CreateVocabularyRequest
   | DeleteTranscriptionJobRequest
+  | DeleteVocabularyFilterRequest
   | DeleteVocabularyRequest
   | GetTranscriptionJobRequest
+  | GetVocabularyFilterRequest
   | GetVocabularyRequest
   | ListTranscriptionJobsRequest
   | ListVocabulariesRequest
+  | ListVocabularyFiltersRequest
   | StartTranscriptionJobRequest
+  | UpdateVocabularyFilterRequest
   | UpdateVocabularyRequest;
 
 export type ServiceOutputTypes =
   | __MetadataBearer
+  | CreateVocabularyFilterResponse
   | CreateVocabularyResponse
   | GetTranscriptionJobResponse
+  | GetVocabularyFilterResponse
   | GetVocabularyResponse
   | ListTranscriptionJobsResponse
   | ListVocabulariesResponse
+  | ListVocabularyFiltersResponse
   | StartTranscriptionJobResponse
+  | UpdateVocabularyFilterResponse
   | UpdateVocabularyResponse;
 
 export interface ClientDefaults
@@ -198,9 +216,7 @@ export type TranscribeClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Operations and objects for transcribing speech to text.</p>
- *
+ * <p>Operations and objects for transcribing speech to text.</p>
  */
 export class TranscribeClient extends __Client<
   __HttpHandlerOptions,

@@ -320,9 +320,7 @@ export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Amazon Mechanical Turk API Reference</fullname>
- *
+ * <fullname>Amazon Mechanical Turk API Reference</fullname>
  */
 export class MTurkClient extends __Client<
   __HttpHandlerOptions,

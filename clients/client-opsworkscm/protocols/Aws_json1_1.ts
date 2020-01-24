@@ -47,6 +47,10 @@ import {
   ExportServerEngineAttributeCommandOutput
 } from "../commands/ExportServerEngineAttributeCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "../commands/ListTagsForResourceCommand";
+import {
   RestoreServerCommandInput,
   RestoreServerCommandOutput
 } from "../commands/RestoreServerCommand";
@@ -54,6 +58,14 @@ import {
   StartMaintenanceCommandInput,
   StartMaintenanceCommandOutput
 } from "../commands/StartMaintenanceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "../commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "../commands/UntagResourceCommand";
 import {
   UpdateServerCommandInput,
   UpdateServerCommandOutput
@@ -93,6 +105,8 @@ import {
   InvalidNextTokenException,
   InvalidStateException,
   LimitExceededException,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   RestoreServerRequest,
@@ -101,6 +115,11 @@ import {
   ServerEvent,
   StartMaintenanceRequest,
   StartMaintenanceResponse,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateServerEngineAttributesRequest,
   UpdateServerEngineAttributesResponse,
   UpdateServerRequest,
@@ -373,6 +392,27 @@ export async function serializeAws_json1_1ExportServerEngineAttributeCommand(
   });
 }
 
+export async function serializeAws_json1_1ListTagsForResourceCommand(
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.ListTagsForResource";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListTagsForResource",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1RestoreServerCommand(
   input: RestoreServerCommandInput,
   context: __SerdeContext
@@ -410,6 +450,46 @@ export async function serializeAws_json1_1StartMaintenanceCommand(
     protocol: "https",
     method: "POST",
     path: "/StartMaintenance",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1TagResourceCommand(
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.TagResource";
+  let body: any = {};
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/TagResource",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1UntagResourceCommand(
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.UntagResource";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UntagResource",
     headers: headers,
     body: body
   });
@@ -1278,6 +1358,70 @@ async function deserializeAws_json1_1ExportServerEngineAttributeCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1ListTagsForResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListTagsForResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.opsworkscm#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.opsworkscm#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1RestoreServerCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -1368,6 +1512,142 @@ async function deserializeAws_json1_1StartMaintenanceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMaintenanceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidStateException":
+    case "com.amazonaws.opsworkscm#InvalidStateException":
+      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.opsworkscm#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.opsworkscm#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1TagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1TagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidStateException":
+    case "com.amazonaws.opsworkscm#InvalidStateException":
+      response = await deserializeAws_json1_1InvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.opsworkscm#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.opsworkscm#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1UntagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UntagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1701,6 +1981,9 @@ const serializeAws_json1_1CreateBackupRequest = (
   if (input.ServerName !== undefined) {
     bodyParams["ServerName"] = input.ServerName;
   }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
   return bodyParams;
 };
 
@@ -1777,6 +2060,9 @@ const serializeAws_json1_1CreateServerRequest = (
       input.SubnetIds,
       context
     );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
 };
@@ -1942,6 +2228,23 @@ const serializeAws_json1_1ExportServerEngineAttributeRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceArn !== undefined) {
+    bodyParams["ResourceArn"] = input.ResourceArn;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1RestoreServerRequest = (
   input: RestoreServerRequest,
   context: __SerdeContext
@@ -1984,6 +2287,62 @@ const serializeAws_json1_1Strings = (
   context: __SerdeContext
 ): any => {
   return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  let bodyParams: any = {};
+  if (input.Key !== undefined) {
+    bodyParams["Key"] = input.Key;
+  }
+  if (input.Value !== undefined) {
+    bodyParams["Value"] = input.Value;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1TagKeyList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1TagList = (
+  input: Array<Tag>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1TagResourceRequest = (
+  input: TagResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceArn !== undefined) {
+    bodyParams["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1UntagResourceRequest = (
+  input: UntagResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceArn !== undefined) {
+    bodyParams["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.TagKeys !== undefined) {
+    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
+      input.TagKeys,
+      context
+    );
+  }
+  return bodyParams;
 };
 
 const serializeAws_json1_1UpdateServerEngineAttributesRequest = (
@@ -2443,6 +2802,24 @@ const deserializeAws_json1_1LimitExceededException = (
   return contents;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  let contents: any = {
+    __type: "ListTagsForResourceResponse",
+    NextToken: undefined,
+    Tags: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.Tags !== undefined) {
+    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
@@ -2667,6 +3044,53 @@ const deserializeAws_json1_1Strings = (
   context: __SerdeContext
 ): Array<string> => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1Tag = (
+  output: any,
+  context: __SerdeContext
+): Tag => {
+  let contents: any = {
+    __type: "Tag",
+    Key: undefined,
+    Value: undefined
+  };
+  if (output.Key !== undefined) {
+    contents.Key = output.Key;
+  }
+  if (output.Value !== undefined) {
+    contents.Value = output.Value;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1TagList = (
+  output: any,
+  context: __SerdeContext
+): Array<Tag> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Tag(entry, context)
+  );
+};
+
+const deserializeAws_json1_1TagResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): TagResourceResponse => {
+  let contents: any = {
+    __type: "TagResourceResponse"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): UntagResourceResponse => {
+  let contents: any = {
+    __type: "UntagResourceResponse"
+  };
+  return contents;
 };
 
 const deserializeAws_json1_1UpdateServerEngineAttributesResponse = (

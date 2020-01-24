@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RDSClient";
 import {
-  DBSnapshotAttributesResult,
-  DescribeDBSnapshotAttributesMessage
+  DescribeDBSnapshotAttributesMessage,
+  DescribeDBSnapshotAttributesResult
 } from "../models/index";
 import {
   deserializeAws_queryDescribeDBSnapshotAttributesCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBSnapshotAttributesCommandInput = DescribeDBSnapshotAttributesMessage;
-export type DescribeDBSnapshotAttributesCommandOutput = DBSnapshotAttributesResult;
+export type DescribeDBSnapshotAttributesCommandOutput = DescribeDBSnapshotAttributesResult;
 
 export class DescribeDBSnapshotAttributesCommand extends $Command<
   DescribeDBSnapshotAttributesCommandInput,

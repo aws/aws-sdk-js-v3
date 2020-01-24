@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../ElastiCacheClient";
 import {
-  CacheParameterGroup,
-  CreateCacheParameterGroupMessage
+  CreateCacheParameterGroupMessage,
+  CreateCacheParameterGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateCacheParameterGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCacheParameterGroupCommandInput = CreateCacheParameterGroupMessage;
-export type CreateCacheParameterGroupCommandOutput = CacheParameterGroup;
+export type CreateCacheParameterGroupCommandOutput = CreateCacheParameterGroupResult;
 
 export class CreateCacheParameterGroupCommand extends $Command<
   CreateCacheParameterGroupCommandInput,

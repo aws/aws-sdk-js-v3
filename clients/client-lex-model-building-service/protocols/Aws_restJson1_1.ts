@@ -152,6 +152,8 @@ import {
   BuiltinSlotTypeMetadata,
   CodeHook,
   ConflictException,
+  ConversationLogsRequest,
+  ConversationLogsResponse,
   EnumerationValue,
   FollowUpPrompt,
   FulfillmentActivity,
@@ -160,6 +162,8 @@ import {
   InternalFailureException,
   LimitExceededException,
   Locale,
+  LogSettingsRequest,
+  LogSettingsResponse,
   Message,
   NotFoundException,
   PreconditionFailedException,
@@ -1291,6 +1295,14 @@ export async function serializeAws_restJson1_1PutBotAliasCommand(
   }
   if (input.checksum !== undefined) {
     bodyParams["checksum"] = input.checksum;
+  }
+  if (input.conversationLogs !== undefined) {
+    bodyParams[
+      "conversationLogs"
+    ] = serializeAws_restJson1_1ConversationLogsRequest(
+      input.conversationLogs,
+      context
+    );
   }
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
@@ -2825,6 +2837,7 @@ export async function deserializeAws_restJson1_1GetBotAliasCommand(
     botName: undefined,
     botVersion: undefined,
     checksum: undefined,
+    conversationLogs: undefined,
     createdDate: undefined,
     description: undefined,
     lastUpdatedDate: undefined,
@@ -2839,6 +2852,12 @@ export async function deserializeAws_restJson1_1GetBotAliasCommand(
   }
   if (data.checksum !== undefined) {
     contents.checksum = data.checksum;
+  }
+  if (data.conversationLogs !== undefined) {
+    contents.conversationLogs = deserializeAws_restJson1_1ConversationLogsResponse(
+      data.conversationLogs,
+      context
+    );
   }
   if (data.createdDate !== undefined) {
     contents.createdDate = new Date(
@@ -4614,6 +4633,7 @@ export async function deserializeAws_restJson1_1PutBotAliasCommand(
     botName: undefined,
     botVersion: undefined,
     checksum: undefined,
+    conversationLogs: undefined,
     createdDate: undefined,
     description: undefined,
     lastUpdatedDate: undefined,
@@ -4628,6 +4648,12 @@ export async function deserializeAws_restJson1_1PutBotAliasCommand(
   }
   if (data.checksum !== undefined) {
     contents.checksum = data.checksum;
+  }
+  if (data.conversationLogs !== undefined) {
+    contents.conversationLogs = deserializeAws_restJson1_1ConversationLogsResponse(
+      data.conversationLogs,
+      context
+    );
   }
   if (data.createdDate !== undefined) {
     contents.createdDate = new Date(
@@ -5242,6 +5268,23 @@ const serializeAws_restJson1_1CodeHook = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1ConversationLogsRequest = (
+  input: ConversationLogsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.iamRoleArn !== undefined) {
+    bodyParams["iamRoleArn"] = input.iamRoleArn;
+  }
+  if (input.logSettings !== undefined) {
+    bodyParams["logSettings"] = serializeAws_restJson1_1LogSettingsRequestList(
+      input.logSettings,
+      context
+    );
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1EnumerationValue = (
   input: EnumerationValue,
   context: __SerdeContext
@@ -5335,6 +5378,35 @@ const serializeAws_restJson1_1IntentUtteranceList = (
   return (input || []).map(entry => entry);
 };
 
+const serializeAws_restJson1_1LogSettingsRequest = (
+  input: LogSettingsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.destination !== undefined) {
+    bodyParams["destination"] = input.destination;
+  }
+  if (input.kmsKeyArn !== undefined) {
+    bodyParams["kmsKeyArn"] = input.kmsKeyArn;
+  }
+  if (input.logType !== undefined) {
+    bodyParams["logType"] = input.logType;
+  }
+  if (input.resourceArn !== undefined) {
+    bodyParams["resourceArn"] = input.resourceArn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1LogSettingsRequestList = (
+  input: Array<LogSettingsRequest>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1LogSettingsRequest(entry, context)
+  );
+};
+
 const serializeAws_restJson1_1Message = (
   input: Message,
   context: __SerdeContext
@@ -5391,6 +5463,9 @@ const serializeAws_restJson1_1Slot = (
   }
   if (input.name !== undefined) {
     bodyParams["name"] = input.name;
+  }
+  if (input.obfuscationSetting !== undefined) {
+    bodyParams["obfuscationSetting"] = input.obfuscationSetting;
   }
   if (input.priority !== undefined) {
     bodyParams["priority"] = input.priority;
@@ -5471,6 +5546,7 @@ const deserializeAws_restJson1_1BotAliasMetadata = (
     botName: undefined,
     botVersion: undefined,
     checksum: undefined,
+    conversationLogs: undefined,
     createdDate: undefined,
     description: undefined,
     lastUpdatedDate: undefined,
@@ -5484,6 +5560,12 @@ const deserializeAws_restJson1_1BotAliasMetadata = (
   }
   if (output.checksum !== undefined) {
     contents.checksum = output.checksum;
+  }
+  if (output.conversationLogs !== undefined) {
+    contents.conversationLogs = deserializeAws_restJson1_1ConversationLogsResponse(
+      output.conversationLogs,
+      context
+    );
   }
   if (output.createdDate !== undefined) {
     contents.createdDate = new Date(
@@ -5742,6 +5824,27 @@ const deserializeAws_restJson1_1CodeHook = (
   return contents;
 };
 
+const deserializeAws_restJson1_1ConversationLogsResponse = (
+  output: any,
+  context: __SerdeContext
+): ConversationLogsResponse => {
+  let contents: any = {
+    __type: "ConversationLogsResponse",
+    iamRoleArn: undefined,
+    logSettings: undefined
+  };
+  if (output.iamRoleArn !== undefined) {
+    contents.iamRoleArn = output.iamRoleArn;
+  }
+  if (output.logSettings !== undefined) {
+    contents.logSettings = deserializeAws_restJson1_1LogSettingsResponseList(
+      output.logSettings,
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1EnumerationValue = (
   output: any,
   context: __SerdeContext
@@ -5920,6 +6023,45 @@ const deserializeAws_restJson1_1LocaleList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1_1LogSettingsResponse = (
+  output: any,
+  context: __SerdeContext
+): LogSettingsResponse => {
+  let contents: any = {
+    __type: "LogSettingsResponse",
+    destination: undefined,
+    kmsKeyArn: undefined,
+    logType: undefined,
+    resourceArn: undefined,
+    resourcePrefix: undefined
+  };
+  if (output.destination !== undefined) {
+    contents.destination = output.destination;
+  }
+  if (output.kmsKeyArn !== undefined) {
+    contents.kmsKeyArn = output.kmsKeyArn;
+  }
+  if (output.logType !== undefined) {
+    contents.logType = output.logType;
+  }
+  if (output.resourceArn !== undefined) {
+    contents.resourceArn = output.resourceArn;
+  }
+  if (output.resourcePrefix !== undefined) {
+    contents.resourcePrefix = output.resourcePrefix;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1LogSettingsResponseList = (
+  output: any,
+  context: __SerdeContext
+): Array<LogSettingsResponse> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1LogSettingsResponse(entry, context)
+  );
+};
+
 const deserializeAws_restJson1_1Message = (
   output: any,
   context: __SerdeContext
@@ -6002,6 +6144,7 @@ const deserializeAws_restJson1_1Slot = (
     __type: "Slot",
     description: undefined,
     name: undefined,
+    obfuscationSetting: undefined,
     priority: undefined,
     responseCard: undefined,
     sampleUtterances: undefined,
@@ -6015,6 +6158,9 @@ const deserializeAws_restJson1_1Slot = (
   }
   if (output.name !== undefined) {
     contents.name = output.name;
+  }
+  if (output.obfuscationSetting !== undefined) {
+    contents.obfuscationSetting = output.obfuscationSetting;
   }
   if (output.priority !== undefined) {
     contents.priority = output.priority;

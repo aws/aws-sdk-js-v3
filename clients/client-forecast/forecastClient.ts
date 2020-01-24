@@ -258,9 +258,7 @@ export type forecastClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
- *
+ * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
  */
 export class forecastClient extends __Client<
   __HttpHandlerOptions,

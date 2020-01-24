@@ -137,21 +137,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS DataSync</fullname>
+ * <fullname>AWS DataSync</fullname>
  *
  *          <p>AWS DataSync is a managed data transfer service that makes it simpler for you to
  *       automate moving data between on-premises storage and Amazon Simple Storage Service (Amazon S3)
  *       or Amazon Elastic File System (Amazon EFS). </p>
  *          <p>This API interface reference for AWS DataSync contains documentation for a
  *       programming interface that you can use to manage AWS DataSync.</p>
- *
- *
  */
 export class DataSync extends DataSyncClient {
   /**
-   *
-   *          <p>Cancels execution of a task. </p>
+   * <p>Cancels execution of a task. </p>
    *          <p>When you cancel a task execution, the transfer of some files are abruptly interrupted.
    *       The contents of files that are transferred to the destination might be incomplete or
    *       inconsistent with the source files. However, if you start a new task execution on the same
@@ -159,7 +155,6 @@ export class DataSync extends DataSyncClient {
    *       and consistent. This applies to other unexpected failures that interrupt a task execution. In
    *       all of these cases, AWS DataSync successfully complete the transfer when you start the next
    *       task execution.</p>
-   *
    */
   public cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
@@ -194,8 +189,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Activates an AWS DataSync agent that you have deployed on your host. The activation
+   * <p>Activates an AWS DataSync agent that you have deployed on your host. The activation
    *       process associates your agent with your account. In the activation process, you specify
    *       information such as the AWS Region that you want to activate the agent in. You activate the
    *       agent in the AWS Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
@@ -210,9 +204,6 @@ export class DataSync extends DataSyncClient {
    *          <p>Agents are automatically updated by AWS on a regular basis, using a mechanism that
    *       ensures minimal interruption to your tasks.</p>
    *          <p></p>
-   *
-   *
-   *
    */
   public createAgent(
     args: CreateAgentCommandInput,
@@ -247,10 +238,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates an endpoint for an Amazon EFS file system.</p>
-   *
-   *
+   * <p>Creates an endpoint for an Amazon EFS file system.</p>
    */
   public createLocationEfs(
     args: CreateLocationEfsCommandInput,
@@ -285,11 +273,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Defines a file system on a  Network File System (NFS) server that can be read from or
+   * <p>Defines a file system on a  Network File System (NFS) server that can be read from or
    *       written to</p>
-   *
-   *
    */
   public createLocationNfs(
     args: CreateLocationNfsCommandInput,
@@ -324,8 +309,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates an endpoint for an Amazon S3 bucket.</p>
+   * <p>Creates an endpoint for an Amazon S3 bucket.</p>
    *          <p>For AWS DataSync to access a destination S3 bucket, it needs an AWS Identity and Access
    *       Management (IAM) role that has the required permissions. You can set up the required
    *       permissions by creating an IAM policy that grants the required permissions and attaching the
@@ -335,12 +319,6 @@ export class DataSync extends DataSyncClient {
    *          <p>For more information, see https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location in the
    *         <i>AWS DataSync User Guide.</i>
    *          </p>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public createLocationS3(
     args: CreateLocationS3CommandInput,
@@ -375,11 +353,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Defines a file system on an Server Message Block (SMB) server that can be read from or
+   * <p>Defines a file system on an Server Message Block (SMB) server that can be read from or
    *       written to.</p>
-   *
-   *
    */
   public createLocationSmb(
     args: CreateLocationSmbCommandInput,
@@ -414,8 +389,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Creates a task. A task is a set of two locations (source and destination) and a set of
+   * <p>Creates a task. A task is a set of two locations (source and destination) and a set of
    *       Options that you use to control the behavior of a task. If you don't specify Options when you
    *       create a task, AWS DataSync populates them with service defaults.</p>
    *          <p>When you create a task, it first enters the CREATING state. During CREATING
@@ -427,8 +401,6 @@ export class DataSync extends DataSyncClient {
    *       status for more than a few minutes, it means that your agent might be having trouble mounting
    *       the source NFS file system. Check the task's ErrorCode and ErrorDetail. Mount issues are often
    *       caused by either a misconfigured firewall or a mistyped NFS server host name.</p>
-   *
-   *
    */
   public createTask(
     args: CreateTaskCommandInput,
@@ -463,12 +435,10 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
+   * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
    *       of the agent in your request. The operation disassociates the agent from your AWS account.
    *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
    *       environment.</p>
-   *
    */
   public deleteAgent(
     args: DeleteAgentCommandInput,
@@ -503,9 +473,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes the configuration of a location used by AWS DataSync. </p>
-   *
+   * <p>Deletes the configuration of a location used by AWS DataSync. </p>
    */
   public deleteLocation(
     args: DeleteLocationCommandInput,
@@ -540,9 +508,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Deletes a task.</p>
-   *
+   * <p>Deletes a task.</p>
    */
   public deleteTask(
     args: DeleteTaskCommandInput,
@@ -577,12 +543,9 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata such as the name, the network interfaces, and the status (that is,
+   * <p>Returns metadata such as the name, the network interfaces, and the status (that is,
    *       whether the agent is running or not) for an agent. To specify which agent to describe, use the
    *       Amazon Resource Name (ARN) of the agent in your request. </p>
-   *
-   *
    */
   public describeAgent(
     args: DescribeAgentCommandInput,
@@ -617,10 +580,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata, such as the path information about an Amazon EFS location.</p>
-   *
-   *
+   * <p>Returns metadata, such as the path information about an Amazon EFS location.</p>
    */
   public describeLocationEfs(
     args: DescribeLocationEfsCommandInput,
@@ -655,10 +615,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata, such as the path information, about a NFS location.</p>
-   *
-   *
+   * <p>Returns metadata, such as the path information, about a NFS location.</p>
    */
   public describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
@@ -693,10 +650,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
-   *
-   *
+   * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
    */
   public describeLocationS3(
     args: DescribeLocationS3CommandInput,
@@ -731,10 +685,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata, such as the path and user information about a SMB location.</p>
-   *
-   *
+   * <p>Returns metadata, such as the path and user information about a SMB location.</p>
    */
   public describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
@@ -769,10 +720,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata about a task.</p>
-   *
-   *
+   * <p>Returns metadata about a task.</p>
    */
   public describeTask(
     args: DescribeTaskCommandInput,
@@ -807,10 +755,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed metadata about a task that is being executed.</p>
-   *
-   *
+   * <p>Returns detailed metadata about a task that is being executed.</p>
    */
   public describeTaskExecution(
     args: DescribeTaskExecutionCommandInput,
@@ -845,8 +790,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of agents owned by an AWS account in the AWS Region specified in the
+   * <p>Returns a list of agents owned by an AWS account in the AWS Region specified in the
    *       request. The returned list is ordered by agent Amazon Resource Name (ARN).</p>
    *          <p>By default, this operation returns a maximum of 100 agents. This operation supports
    *       pagination that enables you to optionally reduce the number of agents returned in a
@@ -854,7 +798,6 @@ export class DataSync extends DataSyncClient {
    *          <p>If you have more agents than are returned in a response (that is, the response returns
    *       only a truncated list of your agents), the response contains a marker that you can specify in
    *       your next request to fetch the next page of agents.</p>
-   *
    */
   public listAgents(
     args: ListAgentsCommandInput,
@@ -889,12 +832,10 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns a lists of source and destination locations.</p>
+   * <p>Returns a lists of source and destination locations.</p>
    *          <p>If you have more locations than are returned in a response (that is, the response
    *       returns only a truncated list of your agents), the response contains a token that you can
    *       specify in your next request to fetch the next page of locations.</p>
-   *
    */
   public listLocations(
     args: ListLocationsCommandInput,
@@ -929,9 +870,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns all the tags associated with a specified resources. </p>
-   *
+   * <p>Returns all the tags associated with a specified resources. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -966,9 +905,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of executed tasks.</p>
-   *
+   * <p>Returns a list of executed tasks.</p>
    */
   public listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
@@ -1003,9 +940,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of all the tasks.</p>
-   *
+   * <p>Returns a list of all the tasks.</p>
    */
   public listTasks(
     args: ListTasksCommandInput,
@@ -1040,8 +975,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
+   * <p>Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
    *       an individual run of a task. Each task can have at most one <code>TaskExecution</code> at a
    *       time.</p>
    *          <p>
@@ -1050,8 +984,6 @@ export class DataSync extends DataSyncClient {
    *
    *          <p>For detailed information, see the Task Execution section in the Components
    *       and Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
-   *
-   *
    */
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
@@ -1086,9 +1018,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Applies a key-value pair to an AWS resource.</p>
-   *
+   * <p>Applies a key-value pair to an AWS resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1123,9 +1053,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Removes a tag from an AWS resource.</p>
-   *
+   * <p>Removes a tag from an AWS resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1160,9 +1088,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Updates the name of an agent.</p>
-   *
+   * <p>Updates the name of an agent.</p>
    */
   public updateAgent(
     args: UpdateAgentCommandInput,
@@ -1197,9 +1123,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   *
-   *          <p>Updates the metadata associated with a task.</p>
-   *
+   * <p>Updates the metadata associated with a task.</p>
    */
   public updateTask(
     args: UpdateTaskCommandInput,

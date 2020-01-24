@@ -75,6 +75,10 @@ import {
   UpdateClusterConfigurationCommandOutput
 } from "../commands/UpdateClusterConfigurationCommand";
 import {
+  UpdateMonitoringCommandInput,
+  UpdateMonitoringCommandOutput
+} from "../commands/UpdateMonitoringCommand";
+import {
   BadRequestException,
   BrokerEBSVolumeInfo,
   BrokerNodeGroupInfo,
@@ -94,9 +98,17 @@ import {
   ErrorInfo,
   ForbiddenException,
   InternalServerErrorException,
+  JmxExporter,
+  JmxExporterInfo,
   MutableClusterInfo,
+  NodeExporter,
+  NodeExporterInfo,
   NodeInfo,
   NotFoundException,
+  OpenMonitoring,
+  OpenMonitoringInfo,
+  Prometheus,
+  PrometheusInfo,
   ServiceUnavailableException,
   StorageInfo,
   Tls,
@@ -164,6 +176,12 @@ export async function serializeAws_restJson1_1CreateClusterCommand(
   }
   if (input.NumberOfBrokerNodes !== undefined) {
     bodyParams["numberOfBrokerNodes"] = input.NumberOfBrokerNodes;
+  }
+  if (input.OpenMonitoring !== undefined) {
+    bodyParams["openMonitoring"] = serializeAws_restJson1_1OpenMonitoringInfo(
+      input.OpenMonitoring,
+      context
+    );
   }
   if (input.Tags !== undefined) {
     bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
@@ -734,6 +752,47 @@ export async function serializeAws_restJson1_1UpdateClusterConfigurationCommand(
   }
   if (input.CurrentVersion !== undefined) {
     bodyParams["currentVersion"] = input.CurrentVersion;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "PUT",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1UpdateMonitoringCommand(
+  input: UpdateMonitoringCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/v1/clusters/{ClusterArn}/monitoring";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: any = input.ClusterArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.CurrentVersion !== undefined) {
+    bodyParams["currentVersion"] = input.CurrentVersion;
+  }
+  if (input.EnhancedMonitoring !== undefined) {
+    bodyParams["enhancedMonitoring"] = input.EnhancedMonitoring;
+  }
+  if (input.OpenMonitoring !== undefined) {
+    bodyParams["openMonitoring"] = serializeAws_restJson1_1OpenMonitoringInfo(
+      input.OpenMonitoring,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -2389,6 +2448,92 @@ async function deserializeAws_restJson1_1UpdateClusterConfigurationCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1UpdateMonitoringCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMonitoringCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UpdateMonitoringCommandError(
+      output,
+      context
+    );
+  }
+  const contents: UpdateMonitoringCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateMonitoringResponse",
+    ClusterArn: undefined,
+    ClusterOperationArn: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.clusterArn !== undefined) {
+    contents.ClusterArn = data.clusterArn;
+  }
+  if (data.clusterOperationArn !== undefined) {
+    contents.ClusterOperationArn = data.clusterOperationArn;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UpdateMonitoringCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMonitoringCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.kafka#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
@@ -2694,6 +2839,62 @@ const serializeAws_restJson1_1EncryptionInfo = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1JmxExporterInfo = (
+  input: JmxExporterInfo,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.EnabledInBroker !== undefined) {
+    bodyParams["enabledInBroker"] = input.EnabledInBroker;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1NodeExporterInfo = (
+  input: NodeExporterInfo,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.EnabledInBroker !== undefined) {
+    bodyParams["enabledInBroker"] = input.EnabledInBroker;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1OpenMonitoringInfo = (
+  input: OpenMonitoringInfo,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Prometheus !== undefined) {
+    bodyParams["prometheus"] = serializeAws_restJson1_1PrometheusInfo(
+      input.Prometheus,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1PrometheusInfo = (
+  input: PrometheusInfo,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.JmxExporter !== undefined) {
+    bodyParams["jmxExporter"] = serializeAws_restJson1_1JmxExporterInfo(
+      input.JmxExporter,
+      context
+    );
+  }
+  if (input.NodeExporter !== undefined) {
+    bodyParams["nodeExporter"] = serializeAws_restJson1_1NodeExporterInfo(
+      input.NodeExporter,
+      context
+    );
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1StorageInfo = (
   input: StorageInfo,
   context: __SerdeContext
@@ -2901,6 +3102,7 @@ const deserializeAws_restJson1_1ClusterInfo = (
     EncryptionInfo: undefined,
     EnhancedMonitoring: undefined,
     NumberOfBrokerNodes: undefined,
+    OpenMonitoring: undefined,
     State: undefined,
     Tags: undefined,
     ZookeeperConnectString: undefined
@@ -2949,6 +3151,12 @@ const deserializeAws_restJson1_1ClusterInfo = (
   }
   if (output.numberOfBrokerNodes !== undefined) {
     contents.NumberOfBrokerNodes = output.numberOfBrokerNodes;
+  }
+  if (output.openMonitoring !== undefined) {
+    contents.OpenMonitoring = deserializeAws_restJson1_1OpenMonitoring(
+      output.openMonitoring,
+      context
+    );
   }
   if (output.state !== undefined) {
     contents.State = output.state;
@@ -3192,6 +3400,20 @@ const deserializeAws_restJson1_1ErrorInfo = (
   return contents;
 };
 
+const deserializeAws_restJson1_1JmxExporter = (
+  output: any,
+  context: __SerdeContext
+): JmxExporter => {
+  let contents: any = {
+    __type: "JmxExporter",
+    EnabledInBroker: undefined
+  };
+  if (output.enabledInBroker !== undefined) {
+    contents.EnabledInBroker = output.enabledInBroker;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1MutableClusterInfo = (
   output: any,
   context: __SerdeContext
@@ -3200,7 +3422,9 @@ const deserializeAws_restJson1_1MutableClusterInfo = (
     __type: "MutableClusterInfo",
     BrokerEBSVolumeInfo: undefined,
     ConfigurationInfo: undefined,
-    NumberOfBrokerNodes: undefined
+    EnhancedMonitoring: undefined,
+    NumberOfBrokerNodes: undefined,
+    OpenMonitoring: undefined
   };
   if (output.brokerEBSVolumeInfo !== undefined) {
     contents.BrokerEBSVolumeInfo = deserializeAws_restJson1_1__listOfBrokerEBSVolumeInfo(
@@ -3214,8 +3438,31 @@ const deserializeAws_restJson1_1MutableClusterInfo = (
       context
     );
   }
+  if (output.enhancedMonitoring !== undefined) {
+    contents.EnhancedMonitoring = output.enhancedMonitoring;
+  }
   if (output.numberOfBrokerNodes !== undefined) {
     contents.NumberOfBrokerNodes = output.numberOfBrokerNodes;
+  }
+  if (output.openMonitoring !== undefined) {
+    contents.OpenMonitoring = deserializeAws_restJson1_1OpenMonitoring(
+      output.openMonitoring,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1NodeExporter = (
+  output: any,
+  context: __SerdeContext
+): NodeExporter => {
+  let contents: any = {
+    __type: "NodeExporter",
+    EnabledInBroker: undefined
+  };
+  if (output.enabledInBroker !== undefined) {
+    contents.EnabledInBroker = output.enabledInBroker;
   }
   return contents;
 };
@@ -3254,6 +3501,47 @@ const deserializeAws_restJson1_1NodeInfo = (
   if (output.zookeeperNodeInfo !== undefined) {
     contents.ZookeeperNodeInfo = deserializeAws_restJson1_1ZookeeperNodeInfo(
       output.zookeeperNodeInfo,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1OpenMonitoring = (
+  output: any,
+  context: __SerdeContext
+): OpenMonitoring => {
+  let contents: any = {
+    __type: "OpenMonitoring",
+    Prometheus: undefined
+  };
+  if (output.prometheus !== undefined) {
+    contents.Prometheus = deserializeAws_restJson1_1Prometheus(
+      output.prometheus,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1Prometheus = (
+  output: any,
+  context: __SerdeContext
+): Prometheus => {
+  let contents: any = {
+    __type: "Prometheus",
+    JmxExporter: undefined,
+    NodeExporter: undefined
+  };
+  if (output.jmxExporter !== undefined) {
+    contents.JmxExporter = deserializeAws_restJson1_1JmxExporter(
+      output.jmxExporter,
+      context
+    );
+  }
+  if (output.nodeExporter !== undefined) {
+    contents.NodeExporter = deserializeAws_restJson1_1NodeExporter(
+      output.nodeExporter,
       context
     );
   }

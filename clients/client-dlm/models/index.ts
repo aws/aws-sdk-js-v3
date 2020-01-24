@@ -4,39 +4,27 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface CreateLifecyclePolicyRequest {
   __type?: "CreateLifecyclePolicyRequest";
   /**
-   *
-   *          <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are
-   *       supported.</p>
-   *
+   * <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.</p>
    */
   Description: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the
-   *       lifecycle policy.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   *
-   *          <p>The configuration details of the lifecycle policy.</p>
-   *
+   * <p>The configuration details of the lifecycle policy.</p>
    */
   PolicyDetails: PolicyDetails | undefined;
 
   /**
-   *
-   *          <p>The desired activation state of the lifecycle policy after creation.</p>
-   *
+   * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
   State: SettablePolicyStateValues | string | undefined;
 
   /**
-   *
-   *          <p>The tags to apply to the lifecycle policy during creation.</p>
-   *
+   * <p>The tags to apply to the lifecycle policy during creation.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -50,9 +38,7 @@ export namespace CreateLifecyclePolicyRequest {
 export interface CreateLifecyclePolicyResponse extends $MetadataBearer {
   __type?: "CreateLifecyclePolicyResponse";
   /**
-   *
-   *          <p>The identifier of the lifecycle policy.</p>
-   *
+   * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId?: string;
 }
@@ -64,31 +50,22 @@ export namespace CreateLifecyclePolicyResponse {
 }
 
 /**
- *
- *          <p>Specifies when to create snapshots of EBS volumes.</p>
- *
+ * <p>Specifies when to create snapshots of EBS volumes.</p>
  */
 export interface CreateRule {
   __type?: "CreateRule";
   /**
-   *
-   *          <p>The interval between snapshots. The supported values are 2, 3, 4, 6, 8, 12, and 24.</p>
-   *
+   * <p>The interval between snapshots. The supported values are 2, 3, 4, 6, 8, 12, and 24.</p>
    */
   Interval: number | undefined;
 
   /**
-   *
-   *          <p>The interval unit.</p>
-   *
+   * <p>The interval unit.</p>
    */
   IntervalUnit: IntervalUnitValues | string | undefined;
 
   /**
-   *
-   *          <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
-   *          <p>The operation occurs within a one-hour window following the specified time.</p>
-   *
+   * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p> <p>The operation occurs within a one-hour window following the specified time.</p>
    */
   Times?: Array<string>;
 }
@@ -99,12 +76,69 @@ export namespace CreateRule {
   }
 }
 
+/**
+ * <p>Specifies the retention rule for cross-Region snapshot copies.</p>
+ */
+export interface CrossRegionCopyRetainRule {
+  __type?: "CrossRegionCopyRetainRule";
+  /**
+   * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
+   */
+  Interval?: number;
+
+  /**
+   * <p>The unit of time for time-based retention.</p>
+   */
+  IntervalUnit?: RetentionIntervalUnitValues | string;
+}
+
+export namespace CrossRegionCopyRetainRule {
+  export function isa(o: any): o is CrossRegionCopyRetainRule {
+    return _smithy.isa(o, "CrossRegionCopyRetainRule");
+  }
+}
+
+/**
+ * <p>Specifies a rule for cross-Region snapshot copies.</p>
+ */
+export interface CrossRegionCopyRule {
+  __type?: "CrossRegionCopyRule";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used.</p>
+   */
+  CmkArn?: string;
+
+  /**
+   * <p>Copy all user-defined tags from the source snapshot to the copied snapshot.</p>
+   */
+  CopyTags?: boolean;
+
+  /**
+   * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.</p>
+   */
+  Encrypted: boolean | undefined;
+
+  /**
+   * <p>The retention rule.</p>
+   */
+  RetainRule?: CrossRegionCopyRetainRule;
+
+  /**
+   * <p>The target Region.</p>
+   */
+  TargetRegion: string | undefined;
+}
+
+export namespace CrossRegionCopyRule {
+  export function isa(o: any): o is CrossRegionCopyRule {
+    return _smithy.isa(o, "CrossRegionCopyRule");
+  }
+}
+
 export interface DeleteLifecyclePolicyRequest {
   __type?: "DeleteLifecyclePolicyRequest";
   /**
-   *
-   *          <p>The identifier of the lifecycle policy.</p>
-   *
+   * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId: string | undefined;
 }
@@ -126,39 +160,27 @@ export namespace DeleteLifecyclePolicyResponse {
 }
 
 /**
- *
- *          <p>Specifies a rule for enabling fast snapshot restore. You can enable fast snapshot
- *         restore based on either a count or a time interval.</p>
- *
+ * <p>Specifies a rule for enabling fast snapshot restore. You can enable fast snapshot restore based on either a count or a time interval.</p>
  */
 export interface FastRestoreRule {
   __type?: "FastRestoreRule";
   /**
-   *
-   *          <p>The Availability Zones in which to enable fast snapshot restore.</p>
-   *
+   * <p>The Availability Zones in which to enable fast snapshot restore.</p>
    */
   AvailabilityZones: Array<string> | undefined;
 
   /**
-   *
-   *          <p>The number of snapshots to be enabled with fast snapshot restore.</p>
-   *
+   * <p>The number of snapshots to be enabled with fast snapshot restore.</p>
    */
   Count?: number;
 
   /**
-   *
-   *          <p>The amount of time to enable fast snapshot restore. The maximum is 100 years.
-   *       This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
-   *
+   * <p>The amount of time to enable fast snapshot restore. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
   /**
-   *
-   *          <p>The unit of time for enabling fast snapshot restore.</p>
-   *
+   * <p>The unit of time for enabling fast snapshot restore.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues | string;
 }
@@ -172,40 +194,27 @@ export namespace FastRestoreRule {
 export interface GetLifecyclePoliciesRequest {
   __type?: "GetLifecyclePoliciesRequest";
   /**
-   *
-   *          <p>The identifiers of the data lifecycle policies.</p>
-   *
+   * <p>The identifiers of the data lifecycle policies.</p>
    */
   PolicyIds?: Array<string>;
 
   /**
-   *
-   *          <p>The resource type.</p>
-   *
+   * <p>The resource type.</p>
    */
   ResourceTypes?: Array<ResourceTypeValues | string>;
 
   /**
-   *
-   *          <p>The activation state.</p>
-   *
+   * <p>The activation state.</p>
    */
   State?: GettablePolicyStateValues | string;
 
   /**
-   *
-   *          <p>The tags to add to objects created by the policy.</p>
-   *          <p>Tags are strings in the format <code>key=value</code>.</p>
-   *          <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>
-   *
+   * <p>The tags to add to objects created by the policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p> <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>
    */
   TagsToAdd?: Array<string>;
 
   /**
-   *
-   *          <p>The target tag for a policy.</p>
-   *          <p>Tags are strings in the format <code>key=value</code>.</p>
-   *
+   * <p>The target tag for a policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p>
    */
   TargetTags?: Array<string>;
 }
@@ -219,9 +228,7 @@ export namespace GetLifecyclePoliciesRequest {
 export interface GetLifecyclePoliciesResponse extends $MetadataBearer {
   __type?: "GetLifecyclePoliciesResponse";
   /**
-   *
-   *          <p>Summary information about the lifecycle policies.</p>
-   *
+   * <p>Summary information about the lifecycle policies.</p>
    */
   Policies?: Array<LifecyclePolicySummary>;
 }
@@ -235,9 +242,7 @@ export namespace GetLifecyclePoliciesResponse {
 export interface GetLifecyclePolicyRequest {
   __type?: "GetLifecyclePolicyRequest";
   /**
-   *
-   *          <p>The identifier of the lifecycle policy.</p>
-   *
+   * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId: string | undefined;
 }
@@ -251,9 +256,7 @@ export namespace GetLifecyclePolicyRequest {
 export interface GetLifecyclePolicyResponse extends $MetadataBearer {
   __type?: "GetLifecyclePolicyResponse";
   /**
-   *
-   *          <p>Detailed information about the lifecycle policy.</p>
-   *
+   * <p>Detailed information about the lifecycle policy.</p>
    */
   Policy?: LifecyclePolicy;
 }
@@ -271,9 +274,7 @@ export enum GettablePolicyStateValues {
 }
 
 /**
- *
- *          <p>The service failed in an unexpected way.</p>
- *
+ * <p>The service failed in an unexpected way.</p>
  */
 export interface InternalServerException
   extends _smithy.SmithyException,
@@ -296,9 +297,7 @@ export enum IntervalUnitValues {
 }
 
 /**
- *
- *          <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
- *
+ * <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
  */
 export interface InvalidRequestException
   extends _smithy.SmithyException,
@@ -309,16 +308,12 @@ export interface InvalidRequestException
   Code?: string;
   Message?: string;
   /**
-   *
-   *          <p>The request included parameters that cannot be provided together.</p>
-   *
+   * <p>The request included parameters that cannot be provided together.</p>
    */
   MutuallyExclusiveParameters?: Array<string>;
 
   /**
-   *
-   *          <p>The request omitted one or more required parameters.</p>
-   *
+   * <p>The request omitted one or more required parameters.</p>
    */
   RequiredParameters?: Array<string>;
 }
@@ -330,80 +325,57 @@ export namespace InvalidRequestException {
 }
 
 /**
- *
- *          <p>Detailed information about a lifecycle policy.</p>
- *
+ * <p>Detailed information about a lifecycle policy.</p>
  */
 export interface LifecyclePolicy {
   __type?: "LifecyclePolicy";
   /**
-   *
-   *          <p>The local date and time when the lifecycle policy was created.</p>
-   *
+   * <p>The local date and time when the lifecycle policy was created.</p>
    */
   DateCreated?: Date;
 
   /**
-   *
-   *          <p>The local date and time when the lifecycle policy was last modified.</p>
-   *
+   * <p>The local date and time when the lifecycle policy was last modified.</p>
    */
   DateModified?: Date;
 
   /**
-   *
-   *          <p>The description of the lifecycle policy.</p>
-   *
+   * <p>The description of the lifecycle policy.</p>
    */
   Description?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the
-   *       lifecycle policy.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
    */
   ExecutionRoleArn?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the policy.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the policy.</p>
    */
   PolicyArn?: string;
 
   /**
-   *
-   *          <p>The configuration of the lifecycle policy</p>
-   *
+   * <p>The configuration of the lifecycle policy</p>
    */
   PolicyDetails?: PolicyDetails;
 
   /**
-   *
-   *          <p>The identifier of the lifecycle policy.</p>
-   *
+   * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId?: string;
 
   /**
-   *
-   *          <p>The activation state of the lifecycle policy.</p>
-   *
+   * <p>The activation state of the lifecycle policy.</p>
    */
   State?: GettablePolicyStateValues | string;
 
   /**
-   *
-   *          <p>The description of the status.</p>
-   *
+   * <p>The description of the status.</p>
    */
   StatusMessage?: string;
 
   /**
-   *
-   *          <p>The tags.</p>
-   *
+   * <p>The tags.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -415,37 +387,27 @@ export namespace LifecyclePolicy {
 }
 
 /**
- *
- *          <p>Summary information about a lifecycle policy.</p>
- *
+ * <p>Summary information about a lifecycle policy.</p>
  */
 export interface LifecyclePolicySummary {
   __type?: "LifecyclePolicySummary";
   /**
-   *
-   *          <p>The description of the lifecycle policy.</p>
-   *
+   * <p>The description of the lifecycle policy.</p>
    */
   Description?: string;
 
   /**
-   *
-   *          <p>The identifier of the lifecycle policy.</p>
-   *
+   * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId?: string;
 
   /**
-   *
-   *          <p>The activation state of the lifecycle policy.</p>
-   *
+   * <p>The activation state of the lifecycle policy.</p>
    */
   State?: GettablePolicyStateValues | string;
 
   /**
-   *
-   *          <p>The tags.</p>
-   *
+   * <p>The tags.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -457,9 +419,7 @@ export namespace LifecyclePolicySummary {
 }
 
 /**
- *
- *          <p>The request failed because a limit was exceeded.</p>
- *
+ * <p>The request failed because a limit was exceeded.</p>
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -470,9 +430,7 @@ export interface LimitExceededException
   Code?: string;
   Message?: string;
   /**
-   *
-   *          <p>Value is the type of resource for which a limit was exceeded.</p>
-   *
+   * <p>Value is the type of resource for which a limit was exceeded.</p>
    */
   ResourceType?: string;
 }
@@ -486,9 +444,7 @@ export namespace LimitExceededException {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -502,9 +458,7 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse extends $MetadataBearer {
   __type?: "ListTagsForResourceResponse";
   /**
-   *
-   *          <p>Information about the tags.</p>
-   *
+   * <p>Information about the tags.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -516,19 +470,12 @@ export namespace ListTagsForResourceResponse {
 }
 
 /**
- *
- *          <p>Optional parameters that can be added to the policy. The set of valid parameters depends
- *       on the combination of <code>policyType</code> and <code>resourceType</code> values.</p>
- *
+ * <p>Optional parameters that can be added to the policy. The set of valid parameters depends on the combination of <code>policyType</code> and <code>resourceType</code> values.</p>
  */
 export interface _Parameters {
   __type?: "Parameters";
   /**
-   *
-   *          <p>When executing an EBS Snapshot Management – Instance policy, execute all CreateSnapshots
-   *       calls with the <code>excludeBootVolume</code> set to the supplied field. Defaults to false.
-   *       Only valid for EBS Snapshot Management – Instance policies.</p>
-   *
+   * <p>When executing an EBS Snapshot Management – Instance policy, execute all CreateSnapshots calls with the <code>excludeBootVolume</code> set to the supplied field. Defaults to false. Only valid for EBS Snapshot Management – Instance policies.</p>
    */
   ExcludeBootVolume?: boolean;
 }
@@ -540,45 +487,32 @@ export namespace _Parameters {
 }
 
 /**
- *
- *          <p>Specifies the configuration of a lifecycle policy.</p>
- *
+ * <p>Specifies the configuration of a lifecycle policy.</p>
  */
 export interface PolicyDetails {
   __type?: "PolicyDetails";
   /**
-   *
-   *          <p>A set of optional parameters that can be provided by the policy. </p>
-   *
+   * <p>A set of optional parameters that can be provided by the policy. </p>
    */
   Parameters?: _Parameters;
 
   /**
-   *
-   *          <p>This field determines the valid target resource types and actions a policy can manage.
-   *       This field defaults to EBS_SNAPSHOT_MANAGEMENT if not present.</p>
-   *
+   * <p>This field determines the valid target resource types and actions a policy can manage. This field defaults to EBS_SNAPSHOT_MANAGEMENT if not present.</p>
    */
   PolicyType?: PolicyTypeValues | string;
 
   /**
-   *
-   *          <p>The resource type.</p>
-   *
+   * <p>The resource type.</p>
    */
   ResourceTypes?: Array<ResourceTypeValues | string>;
 
   /**
-   *
-   *          <p>The schedule of policy-defined actions.</p>
-   *
+   * <p>The schedule of policy-defined actions.</p>
    */
   Schedules?: Array<Schedule>;
 
   /**
-   *
-   *          <p>The single tag that identifies targeted resources for this policy.</p>
-   *
+   * <p>The single tag that identifies targeted resources for this policy.</p>
    */
   TargetTags?: Array<Tag>;
 }
@@ -594,9 +528,7 @@ export enum PolicyTypeValues {
 }
 
 /**
- *
- *          <p>A requested resource was not found.</p>
- *
+ * <p>A requested resource was not found.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -607,16 +539,12 @@ export interface ResourceNotFoundException
   Code?: string;
   Message?: string;
   /**
-   *
-   *          <p>Value is a list of resource IDs that were not found.</p>
-   *
+   * <p>Value is a list of resource IDs that were not found.</p>
    */
   ResourceIds?: Array<string>;
 
   /**
-   *
-   *          <p>Value is the type of resource that was not found.</p>
-   *
+   * <p>Value is the type of resource that was not found.</p>
    */
   ResourceType?: string;
 }
@@ -633,32 +561,22 @@ export enum ResourceTypeValues {
 }
 
 /**
- *
- *          <p>Specifies the retention rule for a lifecycle policy. You can retain snapshots based
- *       on either a count or a time interval.</p>
- *
+ * <p>Specifies the retention rule for a lifecycle policy. You can retain snapshots based on either a count or a time interval.</p>
  */
 export interface RetainRule {
   __type?: "RetainRule";
   /**
-   *
-   *          <p>The number of snapshots to retain for each volume, up to a maximum of 1000.</p>
-   *
+   * <p>The number of snapshots to retain for each volume, up to a maximum of 1000.</p>
    */
   Count?: number;
 
   /**
-   *
-   *          <p>The amount of time to retain each snapshot. The maximum is 100 years. This is
-   *       equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
-   *
+   * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
   /**
-   *
-   *          <p>The unit of time for time-based retention.</p>
-   *
+   * <p>The unit of time for time-based retention.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues | string;
 }
@@ -677,63 +595,47 @@ export enum RetentionIntervalUnitValues {
 }
 
 /**
- *
- *          <p>Specifies a schedule.</p>
- *
+ * <p>Specifies a schedule.</p>
  */
 export interface Schedule {
   __type?: "Schedule";
   /**
-   *
-   *          <p>Copy all user-defined tags on a source volume to snapshots of the volume created by this
-   *       policy.</p>
-   *
+   * <p>Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.</p>
    */
   CopyTags?: boolean;
 
   /**
-   *
-   *          <p>The create rule.</p>
-   *
+   * <p>The creation rule.</p>
    */
   CreateRule?: CreateRule;
 
   /**
-   *
-   *          <p>Enable fast snapshot restore.</p>
-   *
+   * <p>The rule for cross-Region snapshot copies.</p>
+   */
+  CrossRegionCopyRules?: Array<CrossRegionCopyRule>;
+
+  /**
+   * <p>The rule for enabling fast snapshot restore.</p>
    */
   FastRestoreRule?: FastRestoreRule;
 
   /**
-   *
-   *          <p>The name of the schedule.</p>
-   *
+   * <p>The name of the schedule.</p>
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The retention rule.</p>
-   *
+   * <p>The retention rule.</p>
    */
   RetainRule?: RetainRule;
 
   /**
-   *
-   *          <p>The tags to apply to policy-created resources. These user-defined tags are in addition to
-   *       the AWS-added lifecycle tags.</p>
-   *
+   * <p>The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.</p>
    */
   TagsToAdd?: Array<Tag>;
 
   /**
-   *
-   *          <p>A collection of key/value pairs with values determined dynamically when the policy is
-   *       executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following
-   *       formats: <code>$(instance-id)</code> or <code>$(timestamp)</code>. Variable tags are only
-   *       valid for EBS Snapshot Management – Instance policies.</p>
-   *
+   * <p>A collection of key/value pairs with values determined dynamically when the policy is executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: <code>$(instance-id)</code> or <code>$(timestamp)</code>. Variable tags are only valid for EBS Snapshot Management – Instance policies.</p>
    */
   VariableTags?: Array<Tag>;
 }
@@ -750,23 +652,17 @@ export enum SettablePolicyStateValues {
 }
 
 /**
- *
- *          <p>Specifies a tag for a resource.</p>
- *
+ * <p>Specifies a tag for a resource.</p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *          <p>The tag key.</p>
-   *
+   * <p>The tag key.</p>
    */
   Key: string | undefined;
 
   /**
-   *
-   *          <p>The tag value.</p>
-   *
+   * <p>The tag value.</p>
    */
   Value: string | undefined;
 }
@@ -780,16 +676,12 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   *
-   *          <p>One or more tags.</p>
-   *
+   * <p>One or more tags.</p>
    */
   Tags: { [key: string]: string } | undefined;
 }
@@ -813,16 +705,12 @@ export namespace TagResourceResponse {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   *
-   *          <p>The tag keys.</p>
-   *
+   * <p>The tag keys.</p>
    */
   TagKeys: Array<string> | undefined;
 }
@@ -846,38 +734,27 @@ export namespace UntagResourceResponse {
 export interface UpdateLifecyclePolicyRequest {
   __type?: "UpdateLifecyclePolicyRequest";
   /**
-   *
-   *          <p>A description of the lifecycle policy.</p>
-   *
+   * <p>A description of the lifecycle policy.</p>
    */
   Description?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the
-   *       lifecycle policy.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
    */
   ExecutionRoleArn?: string;
 
   /**
-   *
-   *          <p>The configuration of the lifecycle policy. You cannot update the policy type or the resource type.</p>
-   *
+   * <p>The configuration of the lifecycle policy. You cannot update the policy type or the resource type.</p>
    */
   PolicyDetails?: PolicyDetails;
 
   /**
-   *
-   *          <p>The identifier of the lifecycle policy.</p>
-   *
+   * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId: string | undefined;
 
   /**
-   *
-   *          <p>The desired activation state of the lifecycle policy after creation.</p>
-   *
+   * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
   State?: SettablePolicyStateValues | string;
 }

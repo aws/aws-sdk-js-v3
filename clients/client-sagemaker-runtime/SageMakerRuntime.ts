@@ -7,14 +7,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p> The Amazon SageMaker runtime API. </p>
- *
+ * <p> The Amazon SageMaker runtime API. </p>
  */
 export class SageMakerRuntime extends SageMakerRuntimeClient {
   /**
-   *
-   *         <p>After you deploy a model into production using Amazon SageMaker hosting services, your
+   * <p>After you deploy a model into production using Amazon SageMaker hosting services, your
    *             client applications use this API to get inferences from the model hosted at the
    *             specified endpoint. </p>
    *         <p>For an overview of Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
@@ -33,8 +30,6 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
    *                 not contain the account ID, but Amazon SageMaker determines the account ID from the
    *                 authentication token that is supplied by the caller.</p>
    *         </note>
-   *
-   *
    */
   public invokeEndpoint(
     args: InvokeEndpointCommandInput,

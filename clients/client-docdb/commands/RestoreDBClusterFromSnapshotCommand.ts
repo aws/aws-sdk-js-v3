@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../DocDBClient";
 import {
-  DBCluster,
-  RestoreDBClusterFromSnapshotMessage
+  RestoreDBClusterFromSnapshotMessage,
+  RestoreDBClusterFromSnapshotResult
 } from "../models/index";
 import {
   deserializeAws_queryRestoreDBClusterFromSnapshotCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBClusterFromSnapshotCommandInput = RestoreDBClusterFromSnapshotMessage;
-export type RestoreDBClusterFromSnapshotCommandOutput = DBCluster;
+export type RestoreDBClusterFromSnapshotCommandOutput = RestoreDBClusterFromSnapshotResult;
 
 export class RestoreDBClusterFromSnapshotCommand extends $Command<
   RestoreDBClusterFromSnapshotCommandInput,

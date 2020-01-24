@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../DocDBClient";
 import {
-  DBClusterSnapshot,
-  DeleteDBClusterSnapshotMessage
+  DeleteDBClusterSnapshotMessage,
+  DeleteDBClusterSnapshotResult
 } from "../models/index";
 import {
   deserializeAws_queryDeleteDBClusterSnapshotCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterSnapshotCommandInput = DeleteDBClusterSnapshotMessage;
-export type DeleteDBClusterSnapshotCommandOutput = DBClusterSnapshot;
+export type DeleteDBClusterSnapshotCommandOutput = DeleteDBClusterSnapshotResult;
 
 export class DeleteDBClusterSnapshotCommand extends $Command<
   DeleteDBClusterSnapshotCommandInput,

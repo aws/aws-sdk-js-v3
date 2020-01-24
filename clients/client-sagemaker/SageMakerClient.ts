@@ -131,6 +131,8 @@ import {
   DescribeTrialResponse,
   DescribeUserProfileRequest,
   DescribeUserProfileResponse,
+  DescribeWorkforceRequest,
+  DescribeWorkforceResponse,
   DescribeWorkteamRequest,
   DescribeWorkteamResponse,
   DisassociateTrialComponentRequest,
@@ -236,6 +238,8 @@ import {
   UpdateTrialResponse,
   UpdateUserProfileRequest,
   UpdateUserProfileResponse,
+  UpdateWorkforceRequest,
+  UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse
 } from "./models/index";
@@ -365,6 +369,7 @@ export type ServiceInputTypes =
   | DescribeTrialComponentRequest
   | DescribeTrialRequest
   | DescribeUserProfileRequest
+  | DescribeWorkforceRequest
   | DescribeWorkteamRequest
   | DisassociateTrialComponentRequest
   | GetSearchSuggestionsRequest
@@ -423,6 +428,7 @@ export type ServiceInputTypes =
   | UpdateTrialComponentRequest
   | UpdateTrialRequest
   | UpdateUserProfileRequest
+  | UpdateWorkforceRequest
   | UpdateWorkteamRequest;
 
 export type ServiceOutputTypes =
@@ -487,6 +493,7 @@ export type ServiceOutputTypes =
   | DescribeTrialComponentResponse
   | DescribeTrialResponse
   | DescribeUserProfileResponse
+  | DescribeWorkforceResponse
   | DescribeWorkteamResponse
   | DisassociateTrialComponentResponse
   | GetSearchSuggestionsResponse
@@ -534,6 +541,7 @@ export type ServiceOutputTypes =
   | UpdateTrialComponentResponse
   | UpdateTrialResponse
   | UpdateUserProfileResponse
+  | UpdateWorkforceResponse
   | UpdateWorkteamResponse;
 
 export interface ClientDefaults
@@ -644,9 +652,7 @@ export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Provides APIs for creating and managing Amazon SageMaker resources.</p>
- *
+ * <p>Provides APIs for creating and managing Amazon SageMaker resources.</p>
  */
 export class SageMakerClient extends __Client<
   __HttpHandlerOptions,

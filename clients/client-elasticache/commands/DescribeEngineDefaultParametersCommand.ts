@@ -5,7 +5,7 @@ import {
 } from "../ElastiCacheClient";
 import {
   DescribeEngineDefaultParametersMessage,
-  EngineDefaults
+  DescribeEngineDefaultParametersResult
 } from "../models/index";
 import {
   deserializeAws_queryDescribeEngineDefaultParametersCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEngineDefaultParametersCommandInput = DescribeEngineDefaultParametersMessage;
-export type DescribeEngineDefaultParametersCommandOutput = EngineDefaults;
+export type DescribeEngineDefaultParametersCommandOutput = DescribeEngineDefaultParametersResult;
 
 export class DescribeEngineDefaultParametersCommand extends $Command<
   DescribeEngineDefaultParametersCommandInput,

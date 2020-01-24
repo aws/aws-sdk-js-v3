@@ -584,8 +584,7 @@ export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Amazon Lightsail is the easiest way to get started with AWS for developers who just need
+ * <p>Amazon Lightsail is the easiest way to get started with AWS for developers who just need
  *       virtual private servers. Lightsail includes everything you need to launch your project
  *       quickly - a virtual machine, a managed database, SSD-based storage, data transfer, DNS
  *       management, and a static IP - for a low, predictable price. You manage those Lightsail
@@ -595,8 +594,6 @@ export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<
  *          <p>To use the Lightsail API or the CLI, you will need to use AWS Identity and
  *       Access Management (IAM) to generate access keys. For details about how to set this up, see the
  *         <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
- *
- *
  */
 export class LightsailClient extends __Client<
   __HttpHandlerOptions,

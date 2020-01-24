@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  DefaultClusterParameters,
-  DescribeDefaultClusterParametersMessage
+  DescribeDefaultClusterParametersMessage,
+  DescribeDefaultClusterParametersResult
 } from "../models/index";
 import {
   deserializeAws_queryDescribeDefaultClusterParametersCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDefaultClusterParametersCommandInput = DescribeDefaultClusterParametersMessage;
-export type DescribeDefaultClusterParametersCommandOutput = DefaultClusterParameters;
+export type DescribeDefaultClusterParametersCommandOutput = DescribeDefaultClusterParametersResult;
 
 export class DescribeDefaultClusterParametersCommand extends $Command<
   DescribeDefaultClusterParametersCommandInput,

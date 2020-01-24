@@ -3,79 +3,96 @@ import {
   AddRoleToDBClusterMessage,
   AddRoleToDBInstanceMessage,
   AddSourceIdentifierToSubscriptionMessage,
+  AddSourceIdentifierToSubscriptionResult,
   AddTagsToResourceMessage,
   ApplyPendingMaintenanceActionMessage,
+  ApplyPendingMaintenanceActionResult,
   AuthorizeDBSecurityGroupIngressMessage,
+  AuthorizeDBSecurityGroupIngressResult,
   BacktrackDBClusterMessage,
   CertificateMessage,
   CopyDBClusterParameterGroupMessage,
+  CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
+  CopyDBClusterSnapshotResult,
   CopyDBParameterGroupMessage,
+  CopyDBParameterGroupResult,
   CopyDBSnapshotMessage,
+  CopyDBSnapshotResult,
   CopyOptionGroupMessage,
+  CopyOptionGroupResult,
   CreateCustomAvailabilityZoneMessage,
+  CreateCustomAvailabilityZoneResult,
   CreateDBClusterEndpointMessage,
   CreateDBClusterMessage,
   CreateDBClusterParameterGroupMessage,
+  CreateDBClusterParameterGroupResult,
+  CreateDBClusterResult,
   CreateDBClusterSnapshotMessage,
+  CreateDBClusterSnapshotResult,
   CreateDBInstanceMessage,
   CreateDBInstanceReadReplicaMessage,
+  CreateDBInstanceReadReplicaResult,
+  CreateDBInstanceResult,
   CreateDBParameterGroupMessage,
+  CreateDBParameterGroupResult,
   CreateDBProxyRequest,
   CreateDBProxyResponse,
   CreateDBSecurityGroupMessage,
+  CreateDBSecurityGroupResult,
   CreateDBSnapshotMessage,
+  CreateDBSnapshotResult,
   CreateDBSubnetGroupMessage,
+  CreateDBSubnetGroupResult,
   CreateEventSubscriptionMessage,
+  CreateEventSubscriptionResult,
   CreateGlobalClusterMessage,
+  CreateGlobalClusterResult,
   CreateOptionGroupMessage,
-  CustomAvailabilityZone,
+  CreateOptionGroupResult,
   CustomAvailabilityZoneMessage,
-  DBCluster,
   DBClusterBacktrack,
   DBClusterBacktrackMessage,
   DBClusterCapacityInfo,
   DBClusterEndpoint,
   DBClusterEndpointMessage,
   DBClusterMessage,
-  DBClusterParameterGroup,
   DBClusterParameterGroupDetails,
   DBClusterParameterGroupNameMessage,
   DBClusterParameterGroupsMessage,
-  DBClusterSnapshot,
-  DBClusterSnapshotAttributesResult,
   DBClusterSnapshotMessage,
   DBEngineVersionMessage,
-  DBInstance,
-  DBInstanceAutomatedBackup,
   DBInstanceAutomatedBackupMessage,
   DBInstanceMessage,
-  DBParameterGroup,
   DBParameterGroupDetails,
   DBParameterGroupNameMessage,
   DBParameterGroupsMessage,
-  DBSecurityGroup,
   DBSecurityGroupMessage,
-  DBSnapshot,
-  DBSnapshotAttributesResult,
   DBSnapshotMessage,
-  DBSubnetGroup,
   DBSubnetGroupMessage,
   DeleteCustomAvailabilityZoneMessage,
+  DeleteCustomAvailabilityZoneResult,
   DeleteDBClusterEndpointMessage,
   DeleteDBClusterMessage,
   DeleteDBClusterParameterGroupMessage,
+  DeleteDBClusterResult,
   DeleteDBClusterSnapshotMessage,
+  DeleteDBClusterSnapshotResult,
   DeleteDBInstanceAutomatedBackupMessage,
+  DeleteDBInstanceAutomatedBackupResult,
   DeleteDBInstanceMessage,
+  DeleteDBInstanceResult,
   DeleteDBParameterGroupMessage,
   DeleteDBProxyRequest,
   DeleteDBProxyResponse,
   DeleteDBSecurityGroupMessage,
   DeleteDBSnapshotMessage,
+  DeleteDBSnapshotResult,
   DeleteDBSubnetGroupMessage,
   DeleteEventSubscriptionMessage,
+  DeleteEventSubscriptionResult,
   DeleteGlobalClusterMessage,
+  DeleteGlobalClusterResult,
   DeleteInstallationMediaMessage,
   DeleteOptionGroupMessage,
   DeregisterDBProxyTargetsRequest,
@@ -88,6 +105,7 @@ import {
   DescribeDBClusterParameterGroupsMessage,
   DescribeDBClusterParametersMessage,
   DescribeDBClusterSnapshotAttributesMessage,
+  DescribeDBClusterSnapshotAttributesResult,
   DescribeDBClusterSnapshotsMessage,
   DescribeDBClustersMessage,
   DescribeDBEngineVersionsMessage,
@@ -105,10 +123,13 @@ import {
   DescribeDBProxyTargetsResponse,
   DescribeDBSecurityGroupsMessage,
   DescribeDBSnapshotAttributesMessage,
+  DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
   DescribeDBSubnetGroupsMessage,
   DescribeEngineDefaultClusterParametersMessage,
+  DescribeEngineDefaultClusterParametersResult,
   DescribeEngineDefaultParametersMessage,
+  DescribeEngineDefaultParametersResult,
   DescribeEventCategoriesMessage,
   DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
@@ -122,77 +143,100 @@ import {
   DescribeReservedDBInstancesOfferingsMessage,
   DescribeSourceRegionsMessage,
   DescribeValidDBInstanceModificationsMessage,
+  DescribeValidDBInstanceModificationsResult,
   DownloadDBLogFilePortionDetails,
   DownloadDBLogFilePortionMessage,
-  EngineDefaults,
   EventCategoriesMessage,
-  EventSubscription,
   EventSubscriptionsMessage,
   EventsMessage,
   FailoverDBClusterMessage,
-  GlobalCluster,
+  FailoverDBClusterResult,
   GlobalClustersMessage,
   ImportInstallationMediaMessage,
   InstallationMedia,
   InstallationMediaMessage,
   ListTagsForResourceMessage,
+  ModifyCertificatesMessage,
+  ModifyCertificatesResult,
   ModifyCurrentDBClusterCapacityMessage,
   ModifyDBClusterEndpointMessage,
   ModifyDBClusterMessage,
   ModifyDBClusterParameterGroupMessage,
+  ModifyDBClusterResult,
   ModifyDBClusterSnapshotAttributeMessage,
+  ModifyDBClusterSnapshotAttributeResult,
   ModifyDBInstanceMessage,
+  ModifyDBInstanceResult,
   ModifyDBParameterGroupMessage,
   ModifyDBProxyRequest,
   ModifyDBProxyResponse,
   ModifyDBProxyTargetGroupRequest,
   ModifyDBProxyTargetGroupResponse,
   ModifyDBSnapshotAttributeMessage,
+  ModifyDBSnapshotAttributeResult,
   ModifyDBSnapshotMessage,
+  ModifyDBSnapshotResult,
   ModifyDBSubnetGroupMessage,
+  ModifyDBSubnetGroupResult,
   ModifyEventSubscriptionMessage,
+  ModifyEventSubscriptionResult,
   ModifyGlobalClusterMessage,
+  ModifyGlobalClusterResult,
   ModifyOptionGroupMessage,
-  OptionGroup,
+  ModifyOptionGroupResult,
   OptionGroupOptionsMessage,
   OptionGroups,
   OrderableDBInstanceOptionsMessage,
   PendingMaintenanceActionsMessage,
   PromoteReadReplicaDBClusterMessage,
+  PromoteReadReplicaDBClusterResult,
   PromoteReadReplicaMessage,
+  PromoteReadReplicaResult,
   PurchaseReservedDBInstancesOfferingMessage,
+  PurchaseReservedDBInstancesOfferingResult,
   RebootDBInstanceMessage,
+  RebootDBInstanceResult,
   RegisterDBProxyTargetsRequest,
   RegisterDBProxyTargetsResponse,
   RemoveFromGlobalClusterMessage,
+  RemoveFromGlobalClusterResult,
   RemoveRoleFromDBClusterMessage,
   RemoveRoleFromDBInstanceMessage,
   RemoveSourceIdentifierFromSubscriptionMessage,
+  RemoveSourceIdentifierFromSubscriptionResult,
   RemoveTagsFromResourceMessage,
-  ReservedDBInstance,
   ReservedDBInstanceMessage,
   ReservedDBInstancesOfferingMessage,
   ResetDBClusterParameterGroupMessage,
   ResetDBParameterGroupMessage,
-  ResourcePendingMaintenanceActions,
   RestoreDBClusterFromS3Message,
+  RestoreDBClusterFromS3Result,
   RestoreDBClusterFromSnapshotMessage,
+  RestoreDBClusterFromSnapshotResult,
   RestoreDBClusterToPointInTimeMessage,
+  RestoreDBClusterToPointInTimeResult,
   RestoreDBInstanceFromDBSnapshotMessage,
+  RestoreDBInstanceFromDBSnapshotResult,
   RestoreDBInstanceFromS3Message,
+  RestoreDBInstanceFromS3Result,
   RestoreDBInstanceToPointInTimeMessage,
+  RestoreDBInstanceToPointInTimeResult,
   RevokeDBSecurityGroupIngressMessage,
+  RevokeDBSecurityGroupIngressResult,
   SourceRegionMessage,
   StartActivityStreamRequest,
   StartActivityStreamResponse,
   StartDBClusterMessage,
+  StartDBClusterResult,
   StartDBInstanceMessage,
+  StartDBInstanceResult,
   StopActivityStreamRequest,
   StopActivityStreamResponse,
   StopDBClusterMessage,
+  StopDBClusterResult,
   StopDBInstanceMessage,
-  TagListMessage,
-  ValidDBInstanceModificationsMessage
+  StopDBInstanceResult,
+  TagListMessage
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -334,6 +378,7 @@ export type ServiceInputTypes =
   | FailoverDBClusterMessage
   | ImportInstallationMediaMessage
   | ListTagsForResourceMessage
+  | ModifyCertificatesMessage
   | ModifyCurrentDBClusterCapacityMessage
   | ModifyDBClusterEndpointMessage
   | ModifyDBClusterMessage
@@ -378,21 +423,30 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | __MetadataBearer
   | AccountAttributesMessage
+  | AddSourceIdentifierToSubscriptionResult
+  | ApplyPendingMaintenanceActionResult
+  | AuthorizeDBSecurityGroupIngressResult
   | CertificateMessage
+  | CopyDBClusterParameterGroupResult
+  | CopyDBClusterSnapshotResult
+  | CopyDBParameterGroupResult
+  | CopyDBSnapshotResult
+  | CopyOptionGroupResult
+  | CreateCustomAvailabilityZoneResult
+  | CreateDBClusterParameterGroupResult
+  | CreateDBClusterResult
+  | CreateDBClusterSnapshotResult
+  | CreateDBInstanceReadReplicaResult
+  | CreateDBInstanceResult
+  | CreateDBParameterGroupResult
   | CreateDBProxyResponse
-  | CustomAvailabilityZone
-  | CustomAvailabilityZone
+  | CreateDBSecurityGroupResult
+  | CreateDBSnapshotResult
+  | CreateDBSubnetGroupResult
+  | CreateEventSubscriptionResult
+  | CreateGlobalClusterResult
+  | CreateOptionGroupResult
   | CustomAvailabilityZoneMessage
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
   | DBClusterBacktrack
   | DBClusterBacktrackMessage
   | DBClusterCapacityInfo
@@ -401,97 +455,89 @@ export type ServiceOutputTypes =
   | DBClusterEndpoint
   | DBClusterEndpointMessage
   | DBClusterMessage
-  | DBClusterParameterGroup
-  | DBClusterParameterGroup
   | DBClusterParameterGroupDetails
   | DBClusterParameterGroupNameMessage
   | DBClusterParameterGroupNameMessage
   | DBClusterParameterGroupsMessage
-  | DBClusterSnapshot
-  | DBClusterSnapshot
-  | DBClusterSnapshot
-  | DBClusterSnapshotAttributesResult
-  | DBClusterSnapshotAttributesResult
   | DBClusterSnapshotMessage
   | DBEngineVersionMessage
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstanceAutomatedBackup
   | DBInstanceAutomatedBackupMessage
   | DBInstanceMessage
-  | DBParameterGroup
-  | DBParameterGroup
   | DBParameterGroupDetails
   | DBParameterGroupNameMessage
   | DBParameterGroupNameMessage
   | DBParameterGroupsMessage
-  | DBSecurityGroup
-  | DBSecurityGroup
-  | DBSecurityGroup
   | DBSecurityGroupMessage
-  | DBSnapshot
-  | DBSnapshot
-  | DBSnapshot
-  | DBSnapshot
-  | DBSnapshotAttributesResult
-  | DBSnapshotAttributesResult
   | DBSnapshotMessage
-  | DBSubnetGroup
-  | DBSubnetGroup
   | DBSubnetGroupMessage
+  | DeleteCustomAvailabilityZoneResult
+  | DeleteDBClusterResult
+  | DeleteDBClusterSnapshotResult
+  | DeleteDBInstanceAutomatedBackupResult
+  | DeleteDBInstanceResult
   | DeleteDBProxyResponse
+  | DeleteDBSnapshotResult
+  | DeleteEventSubscriptionResult
+  | DeleteGlobalClusterResult
   | DeregisterDBProxyTargetsResponse
+  | DescribeDBClusterSnapshotAttributesResult
   | DescribeDBLogFilesResponse
   | DescribeDBProxiesResponse
   | DescribeDBProxyTargetGroupsResponse
   | DescribeDBProxyTargetsResponse
+  | DescribeDBSnapshotAttributesResult
+  | DescribeEngineDefaultClusterParametersResult
+  | DescribeEngineDefaultParametersResult
+  | DescribeValidDBInstanceModificationsResult
   | DownloadDBLogFilePortionDetails
-  | EngineDefaults
-  | EngineDefaults
   | EventCategoriesMessage
-  | EventSubscription
-  | EventSubscription
-  | EventSubscription
-  | EventSubscription
-  | EventSubscription
   | EventSubscriptionsMessage
   | EventsMessage
-  | GlobalCluster
-  | GlobalCluster
-  | GlobalCluster
-  | GlobalCluster
+  | FailoverDBClusterResult
   | GlobalClustersMessage
   | InstallationMedia
   | InstallationMedia
   | InstallationMediaMessage
+  | ModifyCertificatesResult
+  | ModifyDBClusterResult
+  | ModifyDBClusterSnapshotAttributeResult
+  | ModifyDBInstanceResult
   | ModifyDBProxyResponse
   | ModifyDBProxyTargetGroupResponse
-  | OptionGroup
-  | OptionGroup
-  | OptionGroup
+  | ModifyDBSnapshotAttributeResult
+  | ModifyDBSnapshotResult
+  | ModifyDBSubnetGroupResult
+  | ModifyEventSubscriptionResult
+  | ModifyGlobalClusterResult
+  | ModifyOptionGroupResult
   | OptionGroupOptionsMessage
   | OptionGroups
   | OrderableDBInstanceOptionsMessage
   | PendingMaintenanceActionsMessage
+  | PromoteReadReplicaDBClusterResult
+  | PromoteReadReplicaResult
+  | PurchaseReservedDBInstancesOfferingResult
+  | RebootDBInstanceResult
   | RegisterDBProxyTargetsResponse
-  | ReservedDBInstance
+  | RemoveFromGlobalClusterResult
+  | RemoveSourceIdentifierFromSubscriptionResult
   | ReservedDBInstanceMessage
   | ReservedDBInstancesOfferingMessage
-  | ResourcePendingMaintenanceActions
+  | RestoreDBClusterFromS3Result
+  | RestoreDBClusterFromSnapshotResult
+  | RestoreDBClusterToPointInTimeResult
+  | RestoreDBInstanceFromDBSnapshotResult
+  | RestoreDBInstanceFromS3Result
+  | RestoreDBInstanceToPointInTimeResult
+  | RevokeDBSecurityGroupIngressResult
   | SourceRegionMessage
   | StartActivityStreamResponse
+  | StartDBClusterResult
+  | StartDBInstanceResult
   | StopActivityStreamResponse
-  | TagListMessage
-  | ValidDBInstanceModificationsMessage;
+  | StopDBClusterResult
+  | StopDBInstanceResult
+  | TagListMessage;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -601,8 +647,7 @@ export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Amazon Relational Database Service</fullname>
+ * <fullname>Amazon Relational Database Service</fullname>
  *         <p> </p>
  *          <p>Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and
  *           scale a relational database in the cloud. It provides cost-efficient, resizeable capacity for an industry-standard relational
@@ -659,8 +704,6 @@ export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<
  *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html">Using the Query API</a>.</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class RDSClient extends __Client<
   __HttpHandlerOptions,

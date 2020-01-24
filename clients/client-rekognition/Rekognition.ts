@@ -207,14 +207,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>This is the Amazon Rekognition API reference.</p>
- *
+ * <p>This is the Amazon Rekognition API reference.</p>
  */
 export class Rekognition extends RekognitionClient {
   /**
-   *
-   *          <p>Compares a face in the <i>source</i> input image with
+   * <p>Compares a face in the <i>source</i> input image with
    *       each of the 100 largest faces detected in the <i>target</i> input image.
    *     </p>
    *          <note>
@@ -270,8 +267,6 @@ export class Rekognition extends RekognitionClient {
    *          <p>For an example, see Comparing Faces in Images in the Amazon Rekognition Developer Guide.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code>
    *       action.</p>
-   *
-   *
    */
   public compareFaces(
     args: CompareFacesCommandInput,
@@ -306,9 +301,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates a collection in an AWS Region. You can add faces to the collection using the
+   * <p>Creates a collection in an AWS Region. You can add faces to the collection using the
    *         <a>IndexFaces</a> operation. </p>
    *          <p>For example, you might create collections, one for each of your application users. A
    *       user can then index faces using the <code>IndexFaces</code> operation and persist results in a
@@ -321,8 +314,6 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:CreateCollection</code> action.</p>
-   *
-   *
    */
   public createCollection(
     args: CreateCollectionCommandInput,
@@ -357,12 +348,9 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Creates a new Amazon Rekognition Custom Labels project. A project is a logical grouping of resources (images, Labels, models)
+   * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a logical grouping of resources (images, Labels, models)
    *          and operations (training, evaluation and detection).  </p>
    *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
-   *
-   *
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -397,8 +385,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Creates a new version of a model and begins training.
+   * <p>Creates a new version of a model and begins training.
    *          Models are managed as part of an Amazon Rekognition Custom Labels project.  You can specify
    *          one training dataset and one testing dataset. The response from <code>CreateProjectVersion</code>
    *          is an Amazon Resource Name (ARN) for the version of the model. </p>
@@ -410,8 +397,6 @@ export class Rekognition extends RekognitionClient {
    *          <p>After evaluating the model, you start the model
    *        by calling <a>StartProjectVersion</a>.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code> action.</p>
-   *
-   *
    */
   public createProjectVersion(
     args: CreateProjectVersionCommandInput,
@@ -446,8 +431,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *         <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces in a streaming video.</p>
+   * <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces in a streaming video.</p>
    *         <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. Amazon Rekognition Video sends analysis results to Amazon Kinesis Data Streams.</p>
    *         <p>You provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the
    *             face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize.
@@ -456,7 +440,6 @@ export class Rekognition extends RekognitionClient {
    *             the <code>Name</code> field. </p>
    *         <p>After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
    *         stop processing. You can delete the stream processor by calling <a>DeleteStreamProcessor</a>.</p>
-   *
    */
   public createStreamProcessor(
     args: CreateStreamProcessorCommandInput,
@@ -491,15 +474,11 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *          <p>Deletes the specified collection. Note that this operation
+   * <p>Deletes the specified collection. Note that this operation
    *       removes all faces in the collection. For an example, see <a>delete-collection-procedure</a>.</p>
    *
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:DeleteCollection</code> action.</p>
-   *
-   *
    */
   public deleteCollection(
     args: DeleteCollectionCommandInput,
@@ -534,14 +513,10 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Deletes faces from a collection. You specify a collection ID and an array of face IDs
+   * <p>Deletes faces from a collection. You specify a collection ID and an array of face IDs
    *       to remove from the collection.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:DeleteFaces</code>
    *       action.</p>
-   *
-   *
-   *
    */
   public deleteFaces(
     args: DeleteFacesCommandInput,
@@ -576,10 +551,8 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *         <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
+   * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
    *             <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
-   *
    */
   public deleteStreamProcessor(
     args: DeleteStreamProcessorCommandInput,
@@ -614,14 +587,12 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified collection. You can use <code>DescribeCollection</code> to get
+   * <p>Describes the specified collection. You can use <code>DescribeCollection</code> to get
    *          information, such as the number of faces indexed into a collection and the version of the
    *          model used by the collection for face detection.</p>
    *
    *          <p>For more information, see Describing a Collection in the
    *      Amazon Rekognition Developer Guide.</p>
-   *
    */
   public describeCollection(
     args: DescribeCollectionCommandInput,
@@ -656,14 +627,11 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Lists and describes the models in an Amazon Rekognition Custom Labels project. You
+   * <p>Lists and describes the models in an Amazon Rekognition Custom Labels project. You
    *          can specify up to 10 model versions in <code>ProjectVersionArns</code>. If
    *          you don't specify a value, descriptions for all models are returned.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjectVersions</code>
    *             action.</p>
-   *
-   *
    */
   public describeProjectVersions(
     args: DescribeProjectVersionsCommandInput,
@@ -698,10 +666,8 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>
+   * <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
-   *
    */
   public describeProjects(
     args: DescribeProjectsCommandInput,
@@ -736,10 +702,8 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *         <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,
+   * <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,
    *             and the current status of the stream processor.</p>
-   *
    */
   public describeStreamProcessor(
     args: DescribeStreamProcessorCommandInput,
@@ -774,8 +738,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
+   * <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
    *          <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input
    *       parameter. </p>
    *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in
@@ -801,7 +764,6 @@ export class Rekognition extends RekognitionClient {
    *          data.</p>
    *          <p>This operation requires permissions to perform the
    *          <code>rekognition:DetectCustomLabels</code> action. </p>
-   *
    */
   public detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
@@ -836,8 +798,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Detects faces within an image that is provided as input.</p>
+   * <p>Detects faces within an image that is provided as input.</p>
    *
    *          <p>
    *             <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
@@ -860,8 +821,6 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>This operation requires permissions to perform the
    *       <code>rekognition:DetectFaces</code> action. </p>
-   *
-   *
    */
   public detectFaces(
     args: DetectFacesCommandInput,
@@ -896,9 +855,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *          <p>Detects instances of real-world entities within an image (JPEG or PNG)
+   * <p>Detects instances of real-world entities within an image (JPEG or PNG)
    *        provided as input. This includes objects like flower, tree, and table; events like
    *        wedding, graduation, and birthday party; and concepts like landscape, evening, and nature.
    *      </p>
@@ -972,10 +929,6 @@ export class Rekognition extends RekognitionClient {
    *       data.</p>
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:DetectLabels</code> action. </p>
-   *
-   *
-   *
-   *
    */
   public detectLabels(
     args: DetectLabelsCommandInput,
@@ -1010,9 +963,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *          <p>Detects unsafe content in a specified JPEG or PNG format image.
+   * <p>Detects unsafe content in a specified JPEG or PNG format image.
    *      Use <code>DetectModerationLabels</code> to moderate images depending on your requirements.
    *      For example, you might want to filter images that contain nudity, but not images containing
    *      suggestive content.</p>
@@ -1026,8 +977,6 @@ export class Rekognition extends RekognitionClient {
    *       AWS
    *       CLI to call Amazon Rekognition operations, passing image bytes is not
    *       supported. The image must be either a PNG or JPEG formatted file. </p>
-   *
-   *
    */
   public detectModerationLabels(
     args: DetectModerationLabelsCommandInput,
@@ -1062,9 +1011,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *          <p>Detects text in the input image and converts it into machine-readable text.</p>
+   * <p>Detects text in the input image and converts it into machine-readable text.</p>
    *          <p>Pass the input image as base64-encoded image bytes or as a reference to an image in an
    *       Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a
    *       reference to an image in an Amazon S3 bucket. For the AWS CLI, passing image bytes is not
@@ -1086,7 +1033,6 @@ export class Rekognition extends RekognitionClient {
    *          <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.</p>
    *
    *          <p>For more information, see DetectText in the Amazon Rekognition Developer Guide.</p>
-   *
    */
   public detectText(
     args: DetectTextCommandInput,
@@ -1121,8 +1067,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Gets the name and additional information about a celebrity based on his or her
+   * <p>Gets the name and additional information about a celebrity based on his or her
    *       Amazon Rekognition ID. The additional information is returned as an array of URLs. If there is no
    *       additional information about the celebrity, this list is empty.</p>
    *
@@ -1130,8 +1075,6 @@ export class Rekognition extends RekognitionClient {
    *       the Amazon Rekognition Developer Guide.</p>
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:GetCelebrityInfo</code> action. </p>
-   *
-   *
    */
   public getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
@@ -1166,8 +1109,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by
+   * <p>Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by
    *      <a>StartCelebrityRecognition</a>.</p>
    *          <p>Celebrity recognition in a video is an asynchronous operation. Analysis is started by a call
    *       to <a>StartCelebrityRecognition</a>  which returns a job identifier (<code>JobId</code>).
@@ -1204,9 +1146,6 @@ export class Rekognition extends RekognitionClient {
    *       pagination token for getting the next set of results. To get the next page of results, call <code>GetCelebrityDetection</code>
    *       and populate the <code>NextToken</code> request parameter with the token
    *       value returned from the previous call to <code>GetCelebrityRecognition</code>.</p>
-   *
-   *
-   *
    */
   public getCelebrityRecognition(
     args: GetCelebrityRecognitionCommandInput,
@@ -1241,8 +1180,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Gets the unsafe content analysis results for a Amazon Rekognition Video analysis started by
+   * <p>Gets the unsafe content analysis results for a Amazon Rekognition Video analysis started by
    *        <a>StartContentModeration</a>.</p>
    *
    *          <p>Unsafe content analysis of a video is an asynchronous operation. You start analysis by calling
@@ -1271,9 +1209,6 @@ export class Rekognition extends RekognitionClient {
    *        returned from the previous call to <code>GetContentModeration</code>.</p>
    *
    *          <p>For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
-   *
-   *
-   *
    */
   public getContentModeration(
     args: GetContentModerationCommandInput,
@@ -1308,8 +1243,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Gets face detection results for a Amazon Rekognition Video analysis started by <a>StartFaceDetection</a>.</p>
+   * <p>Gets face detection results for a Amazon Rekognition Video analysis started by <a>StartFaceDetection</a>.</p>
    *          <p>Face detection with Amazon Rekognition Video is an asynchronous operation. You start face detection by calling <a>StartFaceDetection</a>
    *      which returns a job identifier (<code>JobId</code>). When the face detection operation finishes, Amazon Rekognition Video publishes a completion status to
    *      the Amazon Simple Notification Service topic registered in the initial call to <code>StartFaceDetection</code>. To get the results
@@ -1322,7 +1256,6 @@ export class Rekognition extends RekognitionClient {
    *    specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set
    *    of results. To get the next page of results, call <code>GetFaceDetection</code> and populate the <code>NextToken</code> request parameter with the token
    *     value returned from the previous call to <code>GetFaceDetection</code>.</p>
-   *
    */
   public getFaceDetection(
     args: GetFaceDetectionCommandInput,
@@ -1357,8 +1290,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Gets the face search results for Amazon Rekognition Video face search started by
+   * <p>Gets the face search results for Amazon Rekognition Video face search started by
    *       <a>StartFaceSearch</a>. The search returns faces in a collection that match the faces
    *     of persons detected in a video. It also includes the time(s) that faces are matched in the video.</p>
    *          <p>Face search in a video is an asynchronous operation. You start face search by calling
@@ -1390,8 +1322,6 @@ export class Rekognition extends RekognitionClient {
    *     start of the video, persons are matched.
    *     You can also sort by persons by specifying <code>INDEX</code> for the <code>SORTBY</code> input
    *     parameter.</p>
-   *
-   *
    */
   public getFaceSearch(
     args: GetFaceSearchCommandInput,
@@ -1426,8 +1356,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>.  </p>
+   * <p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>.  </p>
    *
    *          <p>The label detection operation is started by a call to <a>StartLabelDetection</a>
    *       which returns a job identifier (<code>JobId</code>). When the label detection operation finishes, Amazon Rekognition publishes a completion status to
@@ -1448,8 +1377,6 @@ export class Rekognition extends RekognitionClient {
    *     specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set
    *     of results. To get the next page of results, call <code>GetlabelDetection</code> and populate the <code>NextToken</code> request parameter with the token
    *      value returned from the previous call to <code>GetLabelDetection</code>.</p>
-   *
-   *
    */
   public getLabelDetection(
     args: GetLabelDetectionCommandInput,
@@ -1484,8 +1411,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
+   * <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
    *
    *          <p>The person path tracking operation is started by a call to <code>StartPersonTracking</code>
    *      which returns a job identifier (<code>JobId</code>). When the operation finishes, Amazon Rekognition Video publishes a completion status to
@@ -1515,8 +1441,6 @@ export class Rekognition extends RekognitionClient {
    *    specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set
    *    of results. To get the next page of results, call <code>GetPersonTracking</code> and populate the <code>NextToken</code> request parameter with the token
    *     value returned from the previous call to <code>GetPersonTracking</code>.</p>
-   *
-   *
    */
   public getPersonTracking(
     args: GetPersonTrackingCommandInput,
@@ -1551,8 +1475,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Detects faces in the input image and adds them to the specified collection. </p>
+   * <p>Detects faces in the input image and adds them to the specified collection. </p>
    *          <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying
    *       detection algorithm first detects the faces in the input image. For each face, the algorithm
    *       extracts facial features into a feature vector, and stores it in the backend database.
@@ -1652,8 +1575,6 @@ export class Rekognition extends RekognitionClient {
    *       passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. </p>
    *          <p>This operation requires permissions to perform the <code>rekognition:IndexFaces</code>
    *       action.</p>
-   *
-   *
    */
   public indexFaces(
     args: IndexFacesCommandInput,
@@ -1688,17 +1609,12 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *          <p>Returns list of collection IDs in your account.
+   * <p>Returns list of collection IDs in your account.
    *     If the result is truncated, the response also provides a <code>NextToken</code>
    *     that you can use in the subsequent request to fetch the next set of collection IDs.</p>
    *
    *          <p>For an example, see Listing Collections in the Amazon Rekognition Developer Guide.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>
-   *
-   *
-   *
    */
   public listCollections(
     args: ListCollectionsCommandInput,
@@ -1733,10 +1649,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *
-   *          <p>Returns metadata for faces in the specified collection.
+   * <p>Returns metadata for faces in the specified collection.
    *       This metadata includes information such as the bounding box coordinates, the confidence
    *       (that the bounding box contains a face), and face ID. For an example, see Listing Faces in a Collection
    *       in the Amazon Rekognition Developer Guide.</p>
@@ -1744,8 +1657,6 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>This operation requires permissions to perform the
    *       <code>rekognition:ListFaces</code> action.</p>
-   *
-   *
    */
   public listFaces(
     args: ListFacesCommandInput,
@@ -1780,9 +1691,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
-   *
+   * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
    */
   public listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
@@ -1817,9 +1726,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *
-   *          <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing Celebrities
+   * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing Celebrities
    *     in the Amazon Rekognition Developer Guide. </p>
    *          <p>
    *             <code>RecognizeCelebrities</code> returns the 100 largest faces in the image. It lists
@@ -1850,8 +1757,6 @@ export class Rekognition extends RekognitionClient {
    *          <p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p>
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:RecognizeCelebrities</code> operation.</p>
-   *
-   *
    */
   public recognizeCelebrities(
     args: RecognizeCelebritiesCommandInput,
@@ -1886,8 +1791,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>For a given input face ID, searches for matching faces in the collection the face
+   * <p>For a given input face ID, searches for matching faces in the collection the face
    *       belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation. The operation compares the features of the input face with
    *       faces in the specified collection. </p>
    *          <note>
@@ -1908,8 +1812,6 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code>
    *       action.</p>
-   *
-   *
    */
   public searchFaces(
     args: SearchFacesCommandInput,
@@ -1944,8 +1846,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>For a given input image, first detects the largest face in the image, and then searches
+   * <p>For a given input image, first detects the largest face in the image, and then searches
    *       the specified collection for matching faces. The operation compares the features of the input
    *       face with faces in the specified collection. </p>
    *          <note>
@@ -1990,9 +1891,6 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>This operation requires permissions to perform the <code>rekognition:SearchFacesByImage</code>
    *       action.</p>
-   *
-   *
-   *
    */
   public searchFacesByImage(
     args: SearchFacesByImageCommandInput,
@@ -2027,8 +1925,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Starts asynchronous recognition of celebrities in a stored video.</p>
+   * <p>Starts asynchronous recognition of celebrities in a stored video.</p>
    *          <p>Amazon Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
    *       and the filename of the video.
    *       <code>StartCelebrityRecognition</code>
@@ -2040,7 +1937,6 @@ export class Rekognition extends RekognitionClient {
    *       (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>. </p>
    *
    *          <p>For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide.</p>
-   *
    */
   public startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
@@ -2075,8 +1971,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p> Starts asynchronous detection of unsafe content in a stored video.</p>
+   * <p> Starts asynchronous detection of unsafe content in a stored video.</p>
    *          <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
    *       and the filename of the video. <code>StartContentModeration</code>
    *         returns a job identifier (<code>JobId</code>) which you use to get the results of the analysis.
@@ -2087,7 +1982,6 @@ export class Rekognition extends RekognitionClient {
    *         (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
    *
    *          <p>For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
-   *
    */
   public startContentModeration(
     args: StartContentModerationCommandInput,
@@ -2122,8 +2016,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Starts asynchronous detection of faces in a stored video.</p>
+   * <p>Starts asynchronous detection of faces in a stored video.</p>
    *          <p>Amazon Rekognition Video can detect faces in a video stored in an Amazon S3 bucket.
    *        Use <a>Video</a> to specify the bucket name and the filename of the video.
    *        <code>StartFaceDetection</code> returns a job identifier (<code>JobId</code>) that you
@@ -2136,7 +2029,6 @@ export class Rekognition extends RekognitionClient {
    *
    *          <p>For more information, see Detecting Faces in a Stored Video in the
    *      Amazon Rekognition Developer Guide.</p>
-   *
    */
   public startFaceDetection(
     args: StartFaceDetectionCommandInput,
@@ -2171,8 +2063,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>
+   * <p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>
    *          <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
    *       and the filename of the video. <code>StartFaceSearch</code>
    *       returns a job identifier (<code>JobId</code>) which you use to get the search results once the search has completed.
@@ -2182,7 +2073,6 @@ export class Rekognition extends RekognitionClient {
    *       topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the job identifier
    *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see
    *       <a>procedure-person-search-videos</a>.</p>
-   *
    */
   public startFaceSearch(
     args: StartFaceSearchCommandInput,
@@ -2217,8 +2107,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Starts asynchronous detection of labels in a stored video.</p>
+   * <p>Starts asynchronous detection of labels in a stored video.</p>
    *          <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities.
    *        This includes objects like flower, tree, and table; events like
    *        wedding, graduation, and birthday party; concepts like landscape, evening, and nature; and activities
@@ -2233,7 +2122,6 @@ export class Rekognition extends RekognitionClient {
    *         topic is <code>SUCCEEDED</code>. If so, call  <a>GetLabelDetection</a> and pass the job identifier
    *        (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p>
    *         <p></p>
-   *
    */
   public startLabelDetection(
     args: StartLabelDetectionCommandInput,
@@ -2268,8 +2156,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
+   * <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
    *          <p>Amazon Rekognition Video can track the path of people in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
    *        and the filename of the video. <code>StartPersonTracking</code>
    *        returns a job identifier (<code>JobId</code>) which you use to get the results of the operation.
@@ -2278,7 +2165,6 @@ export class Rekognition extends RekognitionClient {
    *          <p>To get the results of the person detection operation, first check that the status value published to the Amazon SNS
    *        topic is <code>SUCCEEDED</code>. If so, call  <a>GetPersonTracking</a> and pass the job identifier
    *       (<code>JobId</code>) from the initial call to <code>StartPersonTracking</code>.</p>
-   *
    */
   public startPersonTracking(
     args: StartPersonTrackingCommandInput,
@@ -2313,8 +2199,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Starts the running of the version of a model. Starting a model takes a while
+   * <p>Starts the running of the version of a model. Starting a model takes a while
    *       to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p>
    *          <p>Once the model is running, you can detect custom labels in new images by calling
    *          <a>DetectCustomLabels</a>.</p>
@@ -2324,8 +2209,6 @@ export class Rekognition extends RekognitionClient {
    *          </note>
    *          <p>This operation requires permissions to perform the
    *          <code>rekognition:StartProjectVersion</code> action.</p>
-   *
-   *
    */
   public startProjectVersion(
     args: StartProjectVersionCommandInput,
@@ -2360,11 +2243,9 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *         <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
+   * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
    *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
    *             <code>CreateStreamProcessor</code>.</p>
-   *
    */
   public startStreamProcessor(
     args: StartStreamProcessorCommandInput,
@@ -2399,10 +2280,8 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *          <p>Stops a running model. The operation might take a while to complete. To
+   * <p>Stops a running model. The operation might take a while to complete. To
    *          check the current status, call <a>DescribeProjectVersions</a>. </p>
-   *
    */
   public stopProjectVersion(
     args: StopProjectVersionCommandInput,
@@ -2437,9 +2316,7 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
-   *
-   *         <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>
-   *
+   * <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>
    */
   public stopStreamProcessor(
     args: StopStreamProcessorCommandInput,

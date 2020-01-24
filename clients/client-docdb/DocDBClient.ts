@@ -1,67 +1,82 @@
 import {
   AddTagsToResourceMessage,
   ApplyPendingMaintenanceActionMessage,
+  ApplyPendingMaintenanceActionResult,
   CertificateMessage,
   CopyDBClusterParameterGroupMessage,
+  CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
+  CopyDBClusterSnapshotResult,
   CreateDBClusterMessage,
   CreateDBClusterParameterGroupMessage,
+  CreateDBClusterParameterGroupResult,
+  CreateDBClusterResult,
   CreateDBClusterSnapshotMessage,
+  CreateDBClusterSnapshotResult,
   CreateDBInstanceMessage,
+  CreateDBInstanceResult,
   CreateDBSubnetGroupMessage,
-  DBCluster,
+  CreateDBSubnetGroupResult,
   DBClusterMessage,
-  DBClusterParameterGroup,
   DBClusterParameterGroupDetails,
   DBClusterParameterGroupNameMessage,
   DBClusterParameterGroupsMessage,
-  DBClusterSnapshot,
-  DBClusterSnapshotAttributesResult,
   DBClusterSnapshotMessage,
   DBEngineVersionMessage,
-  DBInstance,
   DBInstanceMessage,
-  DBSubnetGroup,
   DBSubnetGroupMessage,
   DeleteDBClusterMessage,
   DeleteDBClusterParameterGroupMessage,
+  DeleteDBClusterResult,
   DeleteDBClusterSnapshotMessage,
+  DeleteDBClusterSnapshotResult,
   DeleteDBInstanceMessage,
+  DeleteDBInstanceResult,
   DeleteDBSubnetGroupMessage,
   DescribeCertificatesMessage,
   DescribeDBClusterParameterGroupsMessage,
   DescribeDBClusterParametersMessage,
   DescribeDBClusterSnapshotAttributesMessage,
+  DescribeDBClusterSnapshotAttributesResult,
   DescribeDBClusterSnapshotsMessage,
   DescribeDBClustersMessage,
   DescribeDBEngineVersionsMessage,
   DescribeDBInstancesMessage,
   DescribeDBSubnetGroupsMessage,
   DescribeEngineDefaultClusterParametersMessage,
+  DescribeEngineDefaultClusterParametersResult,
   DescribeEventCategoriesMessage,
   DescribeEventsMessage,
   DescribeOrderableDBInstanceOptionsMessage,
   DescribePendingMaintenanceActionsMessage,
-  EngineDefaults,
   EventCategoriesMessage,
   EventsMessage,
   FailoverDBClusterMessage,
+  FailoverDBClusterResult,
   ListTagsForResourceMessage,
   ModifyDBClusterMessage,
   ModifyDBClusterParameterGroupMessage,
+  ModifyDBClusterResult,
   ModifyDBClusterSnapshotAttributeMessage,
+  ModifyDBClusterSnapshotAttributeResult,
   ModifyDBInstanceMessage,
+  ModifyDBInstanceResult,
   ModifyDBSubnetGroupMessage,
+  ModifyDBSubnetGroupResult,
   OrderableDBInstanceOptionsMessage,
   PendingMaintenanceActionsMessage,
   RebootDBInstanceMessage,
+  RebootDBInstanceResult,
   RemoveTagsFromResourceMessage,
   ResetDBClusterParameterGroupMessage,
-  ResourcePendingMaintenanceActions,
   RestoreDBClusterFromSnapshotMessage,
+  RestoreDBClusterFromSnapshotResult,
   RestoreDBClusterToPointInTimeMessage,
+  RestoreDBClusterToPointInTimeResult,
   StartDBClusterMessage,
+  StartDBClusterResult,
   StopDBClusterMessage,
+  StopDBClusterResult,
   TagListMessage
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -163,43 +178,43 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | __MetadataBearer
+  | ApplyPendingMaintenanceActionResult
   | CertificateMessage
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
+  | CopyDBClusterParameterGroupResult
+  | CopyDBClusterSnapshotResult
+  | CreateDBClusterParameterGroupResult
+  | CreateDBClusterResult
+  | CreateDBClusterSnapshotResult
+  | CreateDBInstanceResult
+  | CreateDBSubnetGroupResult
   | DBClusterMessage
-  | DBClusterParameterGroup
-  | DBClusterParameterGroup
   | DBClusterParameterGroupDetails
   | DBClusterParameterGroupNameMessage
   | DBClusterParameterGroupNameMessage
   | DBClusterParameterGroupsMessage
-  | DBClusterSnapshot
-  | DBClusterSnapshot
-  | DBClusterSnapshot
-  | DBClusterSnapshotAttributesResult
-  | DBClusterSnapshotAttributesResult
   | DBClusterSnapshotMessage
   | DBEngineVersionMessage
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
   | DBInstanceMessage
-  | DBSubnetGroup
-  | DBSubnetGroup
   | DBSubnetGroupMessage
-  | EngineDefaults
+  | DeleteDBClusterResult
+  | DeleteDBClusterSnapshotResult
+  | DeleteDBInstanceResult
+  | DescribeDBClusterSnapshotAttributesResult
+  | DescribeEngineDefaultClusterParametersResult
   | EventCategoriesMessage
   | EventsMessage
+  | FailoverDBClusterResult
+  | ModifyDBClusterResult
+  | ModifyDBClusterSnapshotAttributeResult
+  | ModifyDBInstanceResult
+  | ModifyDBSubnetGroupResult
   | OrderableDBInstanceOptionsMessage
   | PendingMaintenanceActionsMessage
-  | ResourcePendingMaintenanceActions
+  | RebootDBInstanceResult
+  | RestoreDBClusterFromSnapshotResult
+  | RestoreDBClusterToPointInTimeResult
+  | StartDBClusterResult
+  | StopDBClusterResult
   | TagListMessage;
 
 export interface ClientDefaults
@@ -310,9 +325,7 @@ export type DocDBClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Amazon DocumentDB API documentation</p>
- *
+ * <p>Amazon DocumentDB API documentation</p>
  */
 export class DocDBClient extends __Client<
   __HttpHandlerOptions,

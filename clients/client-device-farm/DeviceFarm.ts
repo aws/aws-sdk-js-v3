@@ -25,6 +25,16 @@ import {
   CreateRemoteAccessSessionCommandOutput
 } from "./commands/CreateRemoteAccessSessionCommand";
 import {
+  CreateTestGridProjectCommand,
+  CreateTestGridProjectCommandInput,
+  CreateTestGridProjectCommandOutput
+} from "./commands/CreateTestGridProjectCommand";
+import {
+  CreateTestGridUrlCommand,
+  CreateTestGridUrlCommandInput,
+  CreateTestGridUrlCommandOutput
+} from "./commands/CreateTestGridUrlCommand";
+import {
   CreateUploadCommand,
   CreateUploadCommandInput,
   CreateUploadCommandOutput
@@ -64,6 +74,11 @@ import {
   DeleteRunCommandInput,
   DeleteRunCommandOutput
 } from "./commands/DeleteRunCommand";
+import {
+  DeleteTestGridProjectCommand,
+  DeleteTestGridProjectCommandInput,
+  DeleteTestGridProjectCommandOutput
+} from "./commands/DeleteTestGridProjectCommand";
 import {
   DeleteUploadCommand,
   DeleteUploadCommandInput,
@@ -144,6 +159,16 @@ import {
   GetTestCommandInput,
   GetTestCommandOutput
 } from "./commands/GetTestCommand";
+import {
+  GetTestGridProjectCommand,
+  GetTestGridProjectCommandInput,
+  GetTestGridProjectCommandOutput
+} from "./commands/GetTestGridProjectCommand";
+import {
+  GetTestGridSessionCommand,
+  GetTestGridSessionCommandInput,
+  GetTestGridSessionCommandOutput
+} from "./commands/GetTestGridSessionCommand";
 import {
   GetUploadCommand,
   GetUploadCommandInput,
@@ -240,6 +265,26 @@ import {
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTestGridProjectsCommand,
+  ListTestGridProjectsCommandInput,
+  ListTestGridProjectsCommandOutput
+} from "./commands/ListTestGridProjectsCommand";
+import {
+  ListTestGridSessionActionsCommand,
+  ListTestGridSessionActionsCommandInput,
+  ListTestGridSessionActionsCommandOutput
+} from "./commands/ListTestGridSessionActionsCommand";
+import {
+  ListTestGridSessionArtifactsCommand,
+  ListTestGridSessionArtifactsCommandInput,
+  ListTestGridSessionArtifactsCommandOutput
+} from "./commands/ListTestGridSessionArtifactsCommand";
+import {
+  ListTestGridSessionsCommand,
+  ListTestGridSessionsCommandInput,
+  ListTestGridSessionsCommandOutput
+} from "./commands/ListTestGridSessionsCommand";
+import {
   ListTestsCommand,
   ListTestsCommandInput,
   ListTestsCommandOutput
@@ -325,6 +370,11 @@ import {
   UpdateProjectCommandOutput
 } from "./commands/UpdateProjectCommand";
 import {
+  UpdateTestGridProjectCommand,
+  UpdateTestGridProjectCommandInput,
+  UpdateTestGridProjectCommandOutput
+} from "./commands/UpdateTestGridProjectCommand";
+import {
   UpdateUploadCommand,
   UpdateUploadCommandInput,
   UpdateUploadCommandOutput
@@ -337,16 +387,25 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps
- *             on physical phones, tablets, and other devices in the cloud.</p>
- *
+ * <p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Testing on desktop browsers</p>
+ *                 <p> Device Farm makes it possible for you to test your web applications on desktop browsers using
+ *                     Selenium. The APIs for desktop browser testing contain <code>TestGrid</code> in their names. For
+ *                     more information, see <a href="https://docs.aws.amazon.com/devicefarm/latest/testgrid/">Testing Web
+ *                         Applications on Selenium with Device Farm</a>.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Testing on real mobile devices</p>
+ *                 <p>Device Farm makes it possible for you to test apps on physical phones, tablets, and other
+ *                     devices in the cloud. For more information, see the <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/">Device Farm Developer Guide</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export class DeviceFarm extends DeviceFarmClient {
   /**
-   *
-   *         <p>Creates a device pool.</p>
-   *
+   * <p>Creates a device pool.</p>
    */
   public createDevicePool(
     args: CreateDevicePoolCommandInput,
@@ -381,9 +440,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Creates a profile that can be applied to one or more private fleet device instances.</p>
-   *
+   * <p>Creates a profile that can be applied to one or more private fleet device
+   *             instances.</p>
    */
   public createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
@@ -418,9 +476,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Creates a network profile.</p>
-   *
+   * <p>Creates a network profile.</p>
    */
   public createNetworkProfile(
     args: CreateNetworkProfileCommandInput,
@@ -455,9 +511,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Creates a new project.</p>
-   *
+   * <p>Creates a project.</p>
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -492,9 +546,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Specifies and starts a remote access session.</p>
-   *
+   * <p>Specifies and starts a remote access session.</p>
    */
   public createRemoteAccessSession(
     args: CreateRemoteAccessSessionCommandInput,
@@ -529,9 +581,79 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Uploads an app or test scripts.</p>
-   *
+   * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>
+   *          instances.</p>
+   */
+  public createTestGridProject(
+    args: CreateTestGridProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTestGridProjectCommandOutput>;
+  public createTestGridProject(
+    args: CreateTestGridProjectCommandInput,
+    cb: (err: any, data?: CreateTestGridProjectCommandOutput) => void
+  ): void;
+  public createTestGridProject(
+    args: CreateTestGridProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTestGridProjectCommandOutput) => void
+  ): void;
+  public createTestGridProject(
+    args: CreateTestGridProjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTestGridProjectCommandOutput) => void),
+    cb?: (err: any, data?: CreateTestGridProjectCommandOutput) => void
+  ): Promise<CreateTestGridProjectCommandOutput> | void {
+    const command = new CreateTestGridProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
+   *          constructor.</p>
+   */
+  public createTestGridUrl(
+    args: CreateTestGridUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTestGridUrlCommandOutput>;
+  public createTestGridUrl(
+    args: CreateTestGridUrlCommandInput,
+    cb: (err: any, data?: CreateTestGridUrlCommandOutput) => void
+  ): void;
+  public createTestGridUrl(
+    args: CreateTestGridUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTestGridUrlCommandOutput) => void
+  ): void;
+  public createTestGridUrl(
+    args: CreateTestGridUrlCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTestGridUrlCommandOutput) => void),
+    cb?: (err: any, data?: CreateTestGridUrlCommandOutput) => void
+  ): Promise<CreateTestGridUrlCommandOutput> | void {
+    const command = new CreateTestGridUrlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Uploads an app or test scripts.</p>
    */
   public createUpload(
     args: CreateUploadCommandInput,
@@ -566,9 +688,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
-   *
+   * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
+   *             (VPC) endpoint.</p>
    */
   public createVPCEConfiguration(
     args: CreateVPCEConfigurationCommandInput,
@@ -603,10 +724,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools owned by the
-   *             system.</p>
-   *
+   * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools
+   *             owned by the system.</p>
    */
   public deleteDevicePool(
     args: DeleteDevicePoolCommandInput,
@@ -641,9 +760,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes a profile that can be applied to one or more private device instances.</p>
-   *
+   * <p>Deletes a profile that can be applied to one or more private device instances.</p>
    */
   public deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
@@ -678,9 +795,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes a network profile.</p>
-   *
+   * <p>Deletes a network profile.</p>
    */
   public deleteNetworkProfile(
     args: DeleteNetworkProfileCommandInput,
@@ -715,11 +830,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes an AWS Device Farm project, given the project ARN.</p>
-   *         <p>
-   *             <b>Note</b> Deleting this resource does not stop an in-progress run.</p>
-   *
+   * <p>Deletes an AWS Device Farm project, given the project ARN.</p>
+   *         <p> Deleting this resource does not stop an in-progress run.</p>
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -754,9 +866,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes a completed remote access session and its results.</p>
-   *
+   * <p>Deletes a completed remote access session and its results.</p>
    */
   public deleteRemoteAccessSession(
     args: DeleteRemoteAccessSessionCommandInput,
@@ -791,11 +901,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes the run, given the run ARN.</p>
-   *         <p>
-   *             <b>Note</b> Deleting this resource does not stop an in-progress run.</p>
-   *
+   * <p>Deletes the run, given the run ARN.</p>
+   *         <p> Deleting this resource does not stop an in-progress run.</p>
    */
   public deleteRun(
     args: DeleteRunCommandInput,
@@ -830,9 +937,48 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes an upload given the upload ARN.</p>
-   *
+   * <p> Deletes a Selenium testing project and all content generated under it. </p>
+   *          <important>
+   *             <p>You cannot undo this operation.</p>
+   *          </important>
+   *          <note>
+   *             <p>You cannot delete a project if it has active sessions.</p>
+   *          </note>
+   */
+  public deleteTestGridProject(
+    args: DeleteTestGridProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTestGridProjectCommandOutput>;
+  public deleteTestGridProject(
+    args: DeleteTestGridProjectCommandInput,
+    cb: (err: any, data?: DeleteTestGridProjectCommandOutput) => void
+  ): void;
+  public deleteTestGridProject(
+    args: DeleteTestGridProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTestGridProjectCommandOutput) => void
+  ): void;
+  public deleteTestGridProject(
+    args: DeleteTestGridProjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTestGridProjectCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTestGridProjectCommandOutput) => void
+  ): Promise<DeleteTestGridProjectCommandOutput> | void {
+    const command = new DeleteTestGridProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an upload given the upload ARN.</p>
    */
   public deleteUpload(
     args: DeleteUploadCommandInput,
@@ -867,9 +1013,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
-   *
+   * <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
    */
   public deleteVPCEConfiguration(
     args: DeleteVPCEConfigurationCommandInput,
@@ -904,10 +1048,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns the number of unmetered iOS and/or unmetered Android devices that have been purchased by the
+   * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
    *             account.</p>
-   *
    */
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -942,9 +1084,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a unique device type.</p>
-   *
+   * <p>Gets information about a unique device type.</p>
    */
   public getDevice(
     args: GetDeviceCommandInput,
@@ -979,9 +1119,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns information about a device instance belonging to a private device fleet.</p>
-   *
+   * <p>Returns information about a device instance that belongs to a private device fleet.</p>
    */
   public getDeviceInstance(
     args: GetDeviceInstanceCommandInput,
@@ -1016,9 +1154,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a device pool.</p>
-   *
+   * <p>Gets information about a device pool.</p>
    */
   public getDevicePool(
     args: GetDevicePoolCommandInput,
@@ -1053,9 +1189,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about compatibility with a device pool.</p>
-   *
+   * <p>Gets information about compatibility with a device pool.</p>
    */
   public getDevicePoolCompatibility(
     args: GetDevicePoolCompatibilityCommandInput,
@@ -1090,9 +1224,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the specified instance profile.</p>
-   *
+   * <p>Returns information about the specified instance profile.</p>
    */
   public getInstanceProfile(
     args: GetInstanceProfileCommandInput,
@@ -1127,9 +1259,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a job.</p>
-   *
+   * <p>Gets information about a job.</p>
    */
   public getJob(
     args: GetJobCommandInput,
@@ -1164,9 +1294,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns information about a network profile.</p>
-   *
+   * <p>Returns information about a network profile.</p>
    */
   public getNetworkProfile(
     args: GetNetworkProfileCommandInput,
@@ -1201,14 +1329,10 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets the current status and future status of all offerings purchased by an AWS account. The response
+   * <p>Gets the current status and future status of all offerings purchased by an AWS account. The response
    *             indicates how many offerings are currently available and the offerings that will be available in the next
    *             period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the
-   *             operation. Please contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you believe that you should be able to invoke this
-   *             operation.</p>
-   *
-   *
+   *             operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
    */
   public getOfferingStatus(
     args: GetOfferingStatusCommandInput,
@@ -1243,9 +1367,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a project.</p>
-   *
+   * <p>Gets information about a project.</p>
    */
   public getProject(
     args: GetProjectCommandInput,
@@ -1280,9 +1402,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns a link to a currently running remote access session.</p>
-   *
+   * <p>Returns a link to a currently running remote access session.</p>
    */
   public getRemoteAccessSession(
     args: GetRemoteAccessSessionCommandInput,
@@ -1317,9 +1437,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a run.</p>
-   *
+   * <p>Gets information about a run.</p>
    */
   public getRun(
     args: GetRunCommandInput,
@@ -1354,9 +1472,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a suite.</p>
-   *
+   * <p>Gets information about a suite.</p>
    */
   public getSuite(
     args: GetSuiteCommandInput,
@@ -1391,9 +1507,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a test.</p>
-   *
+   * <p>Gets information about a test.</p>
    */
   public getTest(
     args: GetTestCommandInput,
@@ -1428,9 +1542,86 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about an upload.</p>
-   *
+   * <p>Retrieves information about a Selenium testing project.</p>
+   */
+  public getTestGridProject(
+    args: GetTestGridProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestGridProjectCommandOutput>;
+  public getTestGridProject(
+    args: GetTestGridProjectCommandInput,
+    cb: (err: any, data?: GetTestGridProjectCommandOutput) => void
+  ): void;
+  public getTestGridProject(
+    args: GetTestGridProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestGridProjectCommandOutput) => void
+  ): void;
+  public getTestGridProject(
+    args: GetTestGridProjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTestGridProjectCommandOutput) => void),
+    cb?: (err: any, data?: GetTestGridProjectCommandOutput) => void
+  ): Promise<GetTestGridProjectCommandOutput> | void {
+    const command = new GetTestGridProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The session ARN (<a>GetTestGridSessionRequest$sessionArn</a>).</p>
+   *             </li>
+   *             <li>
+   *                <p>The project ARN and a session ID (<a>GetTestGridSessionRequest$projectArn</a> and <a>GetTestGridSessionRequest$sessionId</a>).</p>
+   *             </li>
+   *          </ul>
+   *          <p></p>
+   */
+  public getTestGridSession(
+    args: GetTestGridSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestGridSessionCommandOutput>;
+  public getTestGridSession(
+    args: GetTestGridSessionCommandInput,
+    cb: (err: any, data?: GetTestGridSessionCommandOutput) => void
+  ): void;
+  public getTestGridSession(
+    args: GetTestGridSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestGridSessionCommandOutput) => void
+  ): void;
+  public getTestGridSession(
+    args: GetTestGridSessionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTestGridSessionCommandOutput) => void),
+    cb?: (err: any, data?: GetTestGridSessionCommandOutput) => void
+  ): Promise<GetTestGridSessionCommandOutput> | void {
+    const command = new GetTestGridSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about an upload.</p>
    */
   public getUpload(
     args: GetUploadCommandInput,
@@ -1465,10 +1656,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the configuration settings for your Amazon Virtual Private Cloud (VPC)
-   *             endpoint.</p>
-   *
+   * <p>Returns information about the configuration settings for your Amazon Virtual Private
+   *             Cloud (VPC) endpoint.</p>
    */
   public getVPCEConfiguration(
     args: GetVPCEConfigurationCommandInput,
@@ -1503,10 +1692,9 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Installs an application to the device in a remote access session. For Android applications, the file
-   *             must be in .apk format. For iOS applications, the file must be in .ipa format.</p>
-   *
+   * <p>Installs an application to the device in a remote access session. For Android
+   *             applications, the file must be in .apk format. For iOS applications, the file must be in
+   *             .ipa format.</p>
    */
   public installToRemoteAccessSession(
     args: InstallToRemoteAccessSessionCommandInput,
@@ -1541,9 +1729,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about artifacts.</p>
-   *
+   * <p>Gets information about artifacts.</p>
    */
   public listArtifacts(
     args: ListArtifactsCommandInput,
@@ -1578,9 +1764,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the private device instances associated with one or more AWS accounts.</p>
-   *
+   * <p>Returns information about the private device instances associated with one or more AWS
+   *             accounts.</p>
    */
   public listDeviceInstances(
     args: ListDeviceInstancesCommandInput,
@@ -1615,9 +1800,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about device pools.</p>
-   *
+   * <p>Gets information about device pools.</p>
    */
   public listDevicePools(
     args: ListDevicePoolsCommandInput,
@@ -1652,9 +1835,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about unique device types.</p>
-   *
+   * <p>Gets information about unique device types.</p>
    */
   public listDevices(
     args: ListDevicesCommandInput,
@@ -1689,9 +1870,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns information about all the instance profiles in an AWS account.</p>
-   *
+   * <p>Returns information about all the instance profiles in an AWS account.</p>
    */
   public listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
@@ -1726,9 +1905,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about jobs for a given test run.</p>
-   *
+   * <p>Gets information about jobs for a given test run.</p>
    */
   public listJobs(
     args: ListJobsCommandInput,
@@ -1763,9 +1940,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns the list of available network profiles.</p>
-   *
+   * <p>Returns the list of available network profiles.</p>
    */
   public listNetworkProfiles(
     args: ListNetworkProfilesCommandInput,
@@ -1800,12 +1975,9 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description
+   * <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description
    *             of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke
-   *             the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you believe that you should be able to invoke this
-   *             operation.</p>
-   *
+   *             the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
    */
   public listOfferingPromotions(
     args: ListOfferingPromotionsCommandInput,
@@ -1840,14 +2012,10 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
+   * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
    *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
-   *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation.
-   *             Please contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you believe that you should be able to invoke this
-   *             operation.</p>
-   *
-   *
+   *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
+   *             you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
    */
   public listOfferingTransactions(
     args: ListOfferingTransactionsCommandInput,
@@ -1882,14 +2050,10 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of products or offerings that the user can manage through the API. Each offering record
+   * <p>Returns a list of products or offerings that the user can manage through the API. Each offering record
    *             indicates the recurring price per unit and the frequency for that offering. The API returns a
-   *                 <code>NotEligible</code> error if the user is not permitted to invoke the operation. Please contact
-   *                 <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you
-   *             believe that you should be able to invoke this operation.</p>
-   *
-   *
+   *                 <code>NotEligible</code> error if the user is not permitted to invoke the operation.  If you must be
+   *             able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
    */
   public listOfferings(
     args: ListOfferingsCommandInput,
@@ -1924,9 +2088,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about projects.</p>
-   *
+   * <p>Gets information about projects.</p>
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -1961,9 +2123,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of all currently running remote access sessions.</p>
-   *
+   * <p>Returns a list of all currently running remote access sessions.</p>
    */
   public listRemoteAccessSessions(
     args: ListRemoteAccessSessionsCommandInput,
@@ -1998,9 +2158,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
-   *
+   * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
    */
   public listRuns(
     args: ListRunsCommandInput,
@@ -2035,9 +2193,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
-   *
+   * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
    */
   public listSamples(
     args: ListSamplesCommandInput,
@@ -2072,9 +2228,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about test suites for a given job.</p>
-   *
+   * <p>Gets information about test suites for a given job.</p>
    */
   public listSuites(
     args: ListSuitesCommandInput,
@@ -2109,9 +2263,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>List the tags for an AWS Device Farm resource.</p>
-   *
+   * <p>List the tags for an AWS Device Farm resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2146,9 +2298,147 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about tests in a given test suite.</p>
-   *
+   * <p>Gets a list of all Selenium testing projects in your account.</p>
+   */
+  public listTestGridProjects(
+    args: ListTestGridProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestGridProjectsCommandOutput>;
+  public listTestGridProjects(
+    args: ListTestGridProjectsCommandInput,
+    cb: (err: any, data?: ListTestGridProjectsCommandOutput) => void
+  ): void;
+  public listTestGridProjects(
+    args: ListTestGridProjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestGridProjectsCommandOutput) => void
+  ): void;
+  public listTestGridProjects(
+    args: ListTestGridProjectsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTestGridProjectsCommandOutput) => void),
+    cb?: (err: any, data?: ListTestGridProjectsCommandOutput) => void
+  ): Promise<ListTestGridProjectsCommandOutput> | void {
+    const command = new ListTestGridProjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the actions taken in a <a>TestGridSession</a>.</p>
+   */
+  public listTestGridSessionActions(
+    args: ListTestGridSessionActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestGridSessionActionsCommandOutput>;
+  public listTestGridSessionActions(
+    args: ListTestGridSessionActionsCommandInput,
+    cb: (err: any, data?: ListTestGridSessionActionsCommandOutput) => void
+  ): void;
+  public listTestGridSessionActions(
+    args: ListTestGridSessionActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestGridSessionActionsCommandOutput) => void
+  ): void;
+  public listTestGridSessionActions(
+    args: ListTestGridSessionActionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTestGridSessionActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTestGridSessionActionsCommandOutput) => void
+  ): Promise<ListTestGridSessionActionsCommandOutput> | void {
+    const command = new ListTestGridSessionActionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of artifacts created during the session.</p>
+   */
+  public listTestGridSessionArtifacts(
+    args: ListTestGridSessionArtifactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestGridSessionArtifactsCommandOutput>;
+  public listTestGridSessionArtifacts(
+    args: ListTestGridSessionArtifactsCommandInput,
+    cb: (err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void
+  ): void;
+  public listTestGridSessionArtifacts(
+    args: ListTestGridSessionArtifactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void
+  ): void;
+  public listTestGridSessionArtifacts(
+    args: ListTestGridSessionArtifactsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void),
+    cb?: (err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void
+  ): Promise<ListTestGridSessionArtifactsCommandOutput> | void {
+    const command = new ListTestGridSessionArtifactsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of sessions for a <a>TestGridProject</a>.</p>
+   */
+  public listTestGridSessions(
+    args: ListTestGridSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestGridSessionsCommandOutput>;
+  public listTestGridSessions(
+    args: ListTestGridSessionsCommandInput,
+    cb: (err: any, data?: ListTestGridSessionsCommandOutput) => void
+  ): void;
+  public listTestGridSessions(
+    args: ListTestGridSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestGridSessionsCommandOutput) => void
+  ): void;
+  public listTestGridSessions(
+    args: ListTestGridSessionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTestGridSessionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTestGridSessionsCommandOutput) => void
+  ): Promise<ListTestGridSessionsCommandOutput> | void {
+    const command = new ListTestGridSessionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about tests in a given test suite.</p>
    */
   public listTests(
     args: ListTestsCommandInput,
@@ -2183,9 +2473,11 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about unique problems.</p>
-   *
+   * <p>Gets information about unique problems, such as exceptions or crashes.</p>
+   *         <p>Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
+   *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
+   *                 MyActivity.java:386</code>), <code>ListUniqueProblems</code> returns a single entry instead of many
+   *             individual entries for that exception.</p>
    */
   public listUniqueProblems(
     args: ListUniqueProblemsCommandInput,
@@ -2220,9 +2512,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
-   *
+   * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
    */
   public listUploads(
     args: ListUploadsCommandInput,
@@ -2257,10 +2547,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Returns information about all Amazon Virtual Private Cloud (VPC) endpoint configurations in the AWS
-   *             account.</p>
-   *
+   * <p>Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
+   *             configurations in the AWS account.</p>
    */
   public listVPCEConfigurations(
     args: ListVPCEConfigurationsCommandInput,
@@ -2295,13 +2583,10 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased
+   * <p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased
    *             quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code>
-   *             error if the user is not permitted to invoke the operation. Please contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you believe
-   *             that you should be able to invoke this operation.</p>
-   *
-   *
+   *             error if the user is not permitted to invoke the operation. If you must be able to invoke this operation,
+   *             contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
    */
   public purchaseOffering(
     args: PurchaseOfferingCommandInput,
@@ -2336,13 +2621,9 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
+   * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
    *                 <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the
-   *             user is not permitted to invoke the operation. Please contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you believe
-   *             that you should be able to invoke this operation.</p>
-   *
-   *
+   *             user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
    */
   public renewOffering(
     args: RenewOfferingCommandInput,
@@ -2377,9 +2658,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Schedules a run.</p>
-   *
+   * <p>Schedules a run.</p>
    */
   public scheduleRun(
     args: ScheduleRunCommandInput,
@@ -2414,13 +2693,10 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Initiates a stop request for the current job. AWS Device Farm will immediately stop the job on the device
-   *             where tests have not started executing, and you will not be billed for this device. On the device where
-   *             tests have started executing, Setup Suite and Teardown Suite tests will run to completion before stopping
-   *             execution on the device. You will be billed for Setup, Teardown, and any tests that were in progress or
-   *             already completed.</p>
-   *
+   * <p>Initiates a stop request for the current job. AWS Device Farm immediately stops the job on the device
+   *             where tests have not started. You are not billed for this device. On the device where tests have started,
+   *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
+   *             and any tests that were in progress or already completed.</p>
    */
   public stopJob(
     args: StopJobCommandInput,
@@ -2455,9 +2731,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Ends a specified remote access session.</p>
-   *
+   * <p>Ends a specified remote access session.</p>
    */
   public stopRemoteAccessSession(
     args: StopRemoteAccessSessionCommandInput,
@@ -2492,13 +2766,10 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Initiates a stop request for the current test run. AWS Device Farm will immediately stop the run on
-   *             devices where tests have not started executing, and you will not be billed for these devices. On devices
-   *             where tests have started executing, Setup Suite and Teardown Suite tests will run to completion before
-   *             stopping execution on those devices. You will be billed for Setup, Teardown, and any tests that were in
-   *             progress or already completed.</p>
-   *
+   * <p>Initiates a stop request for the current test run. AWS Device Farm immediately stops the run on devices
+   *             where tests have not started. You are not billed for these devices. On devices where tests have started
+   *             executing, setup suite and teardown suite tests run to completion on those devices. You are billed for
+   *             setup, teardown, and any tests that were in progress or already completed.</p>
    */
   public stopRun(
     args: StopRunCommandInput,
@@ -2533,11 +2804,9 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags
+   * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags
    *             on a resource are not specified in the request parameters, they are not changed. When a resource is deleted,
-   *             the tags associated with that resource are deleted as well.</p>
-   *
+   *             the tags associated with that resource are also deleted.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -2572,9 +2841,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified tags from a resource.</p>
-   *
+   * <p>Deletes the specified tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2609,9 +2876,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Updates information about an existing private device instance.</p>
-   *
+   * <p>Updates information about a private device instance.</p>
    */
   public updateDeviceInstance(
     args: UpdateDeviceInstanceCommandInput,
@@ -2646,10 +2911,9 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Modifies the name, description, and rules in a device pool given the attributes and the pool ARN. Rule
-   *             updates are all-or-nothing, meaning they can only be updated as a whole (or not at all).</p>
-   *
+   * <p>Modifies the name, description, and rules in a device pool given the attributes and
+   *             the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a
+   *             whole (or not at all).</p>
    */
   public updateDevicePool(
     args: UpdateDevicePoolCommandInput,
@@ -2684,9 +2948,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Updates information about an existing private device instance profile.</p>
-   *
+   * <p>Updates information about an existing private device instance profile.</p>
    */
   public updateInstanceProfile(
     args: UpdateInstanceProfileCommandInput,
@@ -2721,9 +2983,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Updates the network profile with specific settings.</p>
-   *
+   * <p>Updates the network profile.</p>
    */
   public updateNetworkProfile(
     args: UpdateNetworkProfileCommandInput,
@@ -2758,9 +3018,8 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Modifies the specified project name, given the project ARN and a new name.</p>
-   *
+   * <p>Modifies the specified project name, given the project ARN and a new
+   *             name.</p>
    */
   public updateProject(
     args: UpdateProjectCommandInput,
@@ -2795,9 +3054,42 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Update an uploaded test specification (test spec).</p>
-   *
+   * <p>Change details of a project.</p>
+   */
+  public updateTestGridProject(
+    args: UpdateTestGridProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTestGridProjectCommandOutput>;
+  public updateTestGridProject(
+    args: UpdateTestGridProjectCommandInput,
+    cb: (err: any, data?: UpdateTestGridProjectCommandOutput) => void
+  ): void;
+  public updateTestGridProject(
+    args: UpdateTestGridProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTestGridProjectCommandOutput) => void
+  ): void;
+  public updateTestGridProject(
+    args: UpdateTestGridProjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateTestGridProjectCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTestGridProjectCommandOutput) => void
+  ): Promise<UpdateTestGridProjectCommandOutput> | void {
+    const command = new UpdateTestGridProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an uploaded test spec.</p>
    */
   public updateUpload(
     args: UpdateUploadCommandInput,
@@ -2832,9 +3124,7 @@ export class DeviceFarm extends DeviceFarmClient {
   }
 
   /**
-   *
-   *         <p>Updates information about an existing Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
-   *
+   * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
    */
   public updateVPCEConfiguration(
     args: UpdateVPCEConfigurationCommandInput,

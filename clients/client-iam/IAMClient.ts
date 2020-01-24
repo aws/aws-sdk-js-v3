@@ -593,8 +593,7 @@ export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Identity and Access Management</fullname>
+ * <fullname>AWS Identity and Access Management</fullname>
  *          <p>AWS Identity and Access Management (IAM) is a web service that you can use to manage
  *       users and user permissions under your AWS account. This guide provides descriptions of IAM
  *       actions that you can call programmatically. For general information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a>. For the user
@@ -651,7 +650,6 @@ export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<
  *           request using an access key ID and secret access key. </p>
  *             </li>
  *          </ul>
- *
  */
 export class IAMClient extends __Client<
   __HttpHandlerOptions,

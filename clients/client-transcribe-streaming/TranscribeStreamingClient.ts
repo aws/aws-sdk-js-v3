@@ -166,9 +166,7 @@ export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Operations and objects for transcribing streaming speech to text.</p>
- *
+ * <p>Operations and objects for transcribing streaming speech to text.</p>
  */
 export class TranscribeStreamingClient extends __Client<
   __HttpHandlerOptions,

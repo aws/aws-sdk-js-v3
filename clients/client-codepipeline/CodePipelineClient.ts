@@ -57,6 +57,8 @@ import {
   RetryStageExecutionOutput,
   StartPipelineExecutionInput,
   StartPipelineExecutionOutput,
+  StopPipelineExecutionInput,
+  StopPipelineExecutionOutput,
   TagResourceInput,
   TagResourceOutput,
   UntagResourceInput,
@@ -151,6 +153,7 @@ export type ServiceInputTypes =
   | RegisterWebhookWithThirdPartyInput
   | RetryStageExecutionInput
   | StartPipelineExecutionInput
+  | StopPipelineExecutionInput
   | TagResourceInput
   | UntagResourceInput
   | UpdatePipelineInput;
@@ -182,6 +185,7 @@ export type ServiceOutputTypes =
   | RegisterWebhookWithThirdPartyOutput
   | RetryStageExecutionOutput
   | StartPipelineExecutionOutput
+  | StopPipelineExecutionOutput
   | TagResourceOutput
   | UntagResourceOutput
   | UpdatePipelineOutput;
@@ -294,17 +298,14 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>AWS CodePipeline</fullname>
+ * <fullname>AWS CodePipeline</fullname>
  *         <p>
  *             <b>Overview</b>
  *         </p>
- *
  *         <p>This is the AWS CodePipeline API Reference. This guide provides descriptions of the
- *             actions and data types for AWS CodePipeline. Some functionality for your pipeline can only be
- *            configured through the API. For more information, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS
+ *             actions and data types for AWS CodePipeline. Some functionality for your pipeline can
+ *             only be configured through the API. For more information, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS
  *                 CodePipeline User Guide</a>.</p>
- *
  *         <p>You can use the AWS CodePipeline API to work with pipelines, stages, actions, and
  *             transitions.</p>
  *         <p>
@@ -357,8 +358,13 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *             <li>
  *                 <p>
- *                     <a>StartPipelineExecution</a>, which runs the most recent
- *                     revision of an artifact through the pipeline.</p>
+ *                     <a>StartPipelineExecution</a>, which runs the most recent revision of
+ *                     an artifact through the pipeline.</p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                     <a>StopPipelineExecution</a>, which stops the specified pipeline
+ *                     execution from continuing through the pipeline.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -366,17 +372,15 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
  *                     to the structure of the pipeline.</p>
  *             </li>
  *          </ul>
- *
  *         <p>Pipelines include <i>stages</i>. Each stage contains one or more
- *             actions that must complete before the next stage begins. A stage results in success
- *             or failure. If a stage fails, the pipeline stops at that stage and remains
- *             stopped until either a new version of an artifact appears in the source location, or a
- *             user takes action to rerun the most recent artifact through the pipeline. You can call
- *                 <a>GetPipelineState</a>, which displays the status of a pipeline,
- *             including the status of stages in the pipeline, or <a>GetPipeline</a>, which
- *             returns the entire structure of the pipeline, including the stages of that pipeline. For
- *             more information about the structure of stages and actions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">AWS
- *                 CodePipeline Pipeline Structure Reference</a>.</p>
+ *             actions that must complete before the next stage begins. A stage results in success or
+ *             failure. If a stage fails, the pipeline stops at that stage and remains stopped until
+ *             either a new version of an artifact appears in the source location, or a user takes
+ *             action to rerun the most recent artifact through the pipeline. You can call <a>GetPipelineState</a>, which displays the status of a pipeline, including the
+ *             status of stages in the pipeline, or <a>GetPipeline</a>, which returns the
+ *             entire structure of the pipeline, including the stages of that pipeline. For more
+ *             information about the structure of stages and actions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">AWS CodePipeline
+ *                 Pipeline Structure Reference</a>.</p>
  *         <p>Pipeline stages include <i>actions</i> that are categorized into
  *             categories such as source or build actions performed in a stage of a pipeline. For
  *             example, you can use a source action to import artifacts into a pipeline from a source
@@ -420,14 +424,12 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
  *                     between stages in a pipeline. </p>
  *             </li>
  *          </ul>
- *
- *
  *         <p>
  *             <b>Using the API to integrate with AWS CodePipeline</b>
  *         </p>
- *
  *         <p>For third-party integrators or developers who want to create their own integrations
- *             with AWS CodePipeline, the expected sequence varies from the standard API user. To integrate with AWS CodePipeline, developers need to work with the following
+ *             with AWS CodePipeline, the expected sequence varies from the standard API user. To
+ *             integrate with AWS CodePipeline, developers need to work with the following
  *             items:</p>
  *         <p>
  *             <b>Jobs</b>, which are instances of an action. For
@@ -451,7 +453,7 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
  *             <li>
  *                 <p>
  *                     <a>PutJobFailureResult</a>, which provides details of a job failure.
- *                     </p>
+ *                 </p>
  *             </li>
  *             <li>
  *                 <p>
@@ -459,7 +461,6 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
  *                     success.</p>
  *             </li>
  *          </ul>
- *
  *         <p>
  *             <b>Third party jobs</b>, which are instances of an action
  *             created by a partner action and integrated into AWS CodePipeline. Partner actions are
@@ -492,8 +493,6 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
  *                     success.</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class CodePipelineClient extends __Client<
   __HttpHandlerOptions,

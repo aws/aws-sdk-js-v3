@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RDSClient";
 import {
-  DBSecurityGroup,
-  RevokeDBSecurityGroupIngressMessage
+  RevokeDBSecurityGroupIngressMessage,
+  RevokeDBSecurityGroupIngressResult
 } from "../models/index";
 import {
   deserializeAws_queryRevokeDBSecurityGroupIngressCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeDBSecurityGroupIngressCommandInput = RevokeDBSecurityGroupIngressMessage;
-export type RevokeDBSecurityGroupIngressCommandOutput = DBSecurityGroup;
+export type RevokeDBSecurityGroupIngressCommandOutput = RevokeDBSecurityGroupIngressResult;
 
 export class RevokeDBSecurityGroupIngressCommand extends $Command<
   RevokeDBSecurityGroupIngressCommandInput,

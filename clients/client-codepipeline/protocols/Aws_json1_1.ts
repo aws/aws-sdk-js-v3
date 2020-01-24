@@ -131,6 +131,10 @@ import {
   StartPipelineExecutionCommandOutput
 } from "../commands/StartPipelineExecutionCommand";
 import {
+  StopPipelineExecutionCommandInput,
+  StopPipelineExecutionCommandOutput
+} from "../commands/StopPipelineExecutionCommand";
+import {
   TagResourceCommandInput,
   TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
@@ -187,6 +191,7 @@ import {
   DeregisterWebhookWithThirdPartyInput,
   DeregisterWebhookWithThirdPartyOutput,
   DisableStageTransitionInput,
+  DuplicatedStopRequestException,
   EnableStageTransitionInput,
   EncryptionKey,
   ErrorDetails,
@@ -243,6 +248,7 @@ import {
   PipelineDeclaration,
   PipelineExecution,
   PipelineExecutionNotFoundException,
+  PipelineExecutionNotStoppableException,
   PipelineExecutionSummary,
   PipelineMetadata,
   PipelineNameInUseException,
@@ -279,6 +285,9 @@ import {
   StageState,
   StartPipelineExecutionInput,
   StartPipelineExecutionOutput,
+  StopExecutionTrigger,
+  StopPipelineExecutionInput,
+  StopPipelineExecutionOutput,
   Tag,
   TagResourceInput,
   TagResourceOutput,
@@ -987,6 +996,27 @@ export async function serializeAws_json1_1StartPipelineExecutionCommand(
     protocol: "https",
     method: "POST",
     path: "/StartPipelineExecution",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1StopPipelineExecutionCommand(
+  input: StopPipelineExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.StopPipelineExecution";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1StopPipelineExecutionInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/StopPipelineExecution",
     headers: headers,
     body: body
   });
@@ -3419,6 +3449,84 @@ async function deserializeAws_json1_1StartPipelineExecutionCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1StopPipelineExecutionCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopPipelineExecutionCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StopPipelineExecutionCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopPipelineExecutionOutput(data, context);
+  const response: StopPipelineExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StopPipelineExecutionOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1StopPipelineExecutionCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopPipelineExecutionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DuplicatedStopRequestException":
+    case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
+      response = await deserializeAws_json1_1DuplicatedStopRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "PipelineExecutionNotStoppableException":
+    case "com.amazonaws.codepipeline#PipelineExecutionNotStoppableException":
+      response = await deserializeAws_json1_1PipelineExecutionNotStoppableExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "PipelineNotFoundException":
+    case "com.amazonaws.codepipeline#PipelineNotFoundException":
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.codepipeline#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -3736,6 +3844,25 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1DuplicatedStopRequestExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DuplicatedStopRequestException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DuplicatedStopRequestException(
+    body,
+    context
+  );
+  const contents: DuplicatedStopRequestException = {
+    name: "DuplicatedStopRequestException",
+    __type: "DuplicatedStopRequestException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidActionDeclarationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4014,6 +4141,25 @@ const deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse = async (
   const contents: PipelineExecutionNotFoundException = {
     name: "PipelineExecutionNotFoundException",
     __type: "PipelineExecutionNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1PipelineExecutionNotStoppableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PipelineExecutionNotStoppableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1PipelineExecutionNotStoppableException(
+    body,
+    context
+  );
+  const contents: PipelineExecutionNotStoppableException = {
+    name: "PipelineExecutionNotStoppableException",
+    __type: "PipelineExecutionNotStoppableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5208,6 +5354,26 @@ const serializeAws_json1_1StartPipelineExecutionInput = (
   return bodyParams;
 };
 
+const serializeAws_json1_1StopPipelineExecutionInput = (
+  input: StopPipelineExecutionInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.abandon !== undefined) {
+    bodyParams["abandon"] = input.abandon;
+  }
+  if (input.pipelineExecutionId !== undefined) {
+    bodyParams["pipelineExecutionId"] = input.pipelineExecutionId;
+  }
+  if (input.pipelineName !== undefined) {
+    bodyParams["pipelineName"] = input.pipelineName;
+  }
+  if (input.reason !== undefined) {
+    bodyParams["reason"] = input.reason;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
@@ -6233,6 +6399,20 @@ const deserializeAws_json1_1DeregisterWebhookWithThirdPartyOutput = (
   return contents;
 };
 
+const deserializeAws_json1_1DuplicatedStopRequestException = (
+  output: any,
+  context: __SerdeContext
+): DuplicatedStopRequestException => {
+  let contents: any = {
+    __type: "DuplicatedStopRequestException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1ErrorDetails = (
   output: any,
   context: __SerdeContext
@@ -7005,6 +7185,20 @@ const deserializeAws_json1_1PipelineExecutionNotFoundException = (
   return contents;
 };
 
+const deserializeAws_json1_1PipelineExecutionNotStoppableException = (
+  output: any,
+  context: __SerdeContext
+): PipelineExecutionNotStoppableException => {
+  let contents: any = {
+    __type: "PipelineExecutionNotStoppableException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1PipelineExecutionSummary = (
   output: any,
   context: __SerdeContext
@@ -7016,6 +7210,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
     sourceRevisions: undefined,
     startTime: undefined,
     status: undefined,
+    stopTrigger: undefined,
     trigger: undefined
   };
   if (output.lastUpdateTime !== undefined) {
@@ -7043,6 +7238,12 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
   }
   if (output.status !== undefined) {
     contents.status = output.status;
+  }
+  if (output.stopTrigger !== undefined) {
+    contents.stopTrigger = deserializeAws_json1_1StopExecutionTrigger(
+      output.stopTrigger,
+      context
+    );
   }
   if (output.trigger !== undefined) {
     contents.trigger = deserializeAws_json1_1ExecutionTrigger(
@@ -7500,6 +7701,34 @@ const deserializeAws_json1_1StartPipelineExecutionOutput = (
 ): StartPipelineExecutionOutput => {
   let contents: any = {
     __type: "StartPipelineExecutionOutput",
+    pipelineExecutionId: undefined
+  };
+  if (output.pipelineExecutionId !== undefined) {
+    contents.pipelineExecutionId = output.pipelineExecutionId;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1StopExecutionTrigger = (
+  output: any,
+  context: __SerdeContext
+): StopExecutionTrigger => {
+  let contents: any = {
+    __type: "StopExecutionTrigger",
+    reason: undefined
+  };
+  if (output.reason !== undefined) {
+    contents.reason = output.reason;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1StopPipelineExecutionOutput = (
+  output: any,
+  context: __SerdeContext
+): StopPipelineExecutionOutput => {
+  let contents: any = {
+    __type: "StopPipelineExecutionOutput",
     pipelineExecutionId: undefined
   };
   if (output.pipelineExecutionId !== undefined) {

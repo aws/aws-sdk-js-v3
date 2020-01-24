@@ -11655,6 +11655,7 @@ const deserializeAws_json1_1DeviceData = (
 ): DeviceData => {
   let contents: any = {
     __type: "DeviceData",
+    CreatedTime: undefined,
     DeviceArn: undefined,
     DeviceName: undefined,
     DeviceSerialNumber: undefined,
@@ -11668,6 +11669,13 @@ const deserializeAws_json1_1DeviceData = (
     RoomName: undefined,
     SoftwareVersion: undefined
   };
+  if (output.CreatedTime !== undefined) {
+    contents.CreatedTime = new Date(
+      output.CreatedTime % 1 != 0
+        ? Math.round(output.CreatedTime * 1000)
+        : output.CreatedTime
+    );
+  }
   if (output.DeviceArn !== undefined) {
     contents.DeviceArn = output.DeviceArn;
   }
@@ -11814,10 +11822,18 @@ const deserializeAws_json1_1DeviceStatusInfo = (
   let contents: any = {
     __type: "DeviceStatusInfo",
     ConnectionStatus: undefined,
+    ConnectionStatusUpdatedTime: undefined,
     DeviceStatusDetails: undefined
   };
   if (output.ConnectionStatus !== undefined) {
     contents.ConnectionStatus = output.ConnectionStatus;
+  }
+  if (output.ConnectionStatusUpdatedTime !== undefined) {
+    contents.ConnectionStatusUpdatedTime = new Date(
+      output.ConnectionStatusUpdatedTime % 1 != 0
+        ? Math.round(output.ConnectionStatusUpdatedTime * 1000)
+        : output.ConnectionStatusUpdatedTime
+    );
   }
   if (output.DeviceStatusDetails !== undefined) {
     contents.DeviceStatusDetails = deserializeAws_json1_1DeviceStatusDetails(

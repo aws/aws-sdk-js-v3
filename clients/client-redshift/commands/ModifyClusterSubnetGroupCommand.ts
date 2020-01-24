@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  ClusterSubnetGroup,
-  ModifyClusterSubnetGroupMessage
+  ModifyClusterSubnetGroupMessage,
+  ModifyClusterSubnetGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryModifyClusterSubnetGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClusterSubnetGroupCommandInput = ModifyClusterSubnetGroupMessage;
-export type ModifyClusterSubnetGroupCommandOutput = ClusterSubnetGroup;
+export type ModifyClusterSubnetGroupCommandOutput = ModifyClusterSubnetGroupResult;
 
 export class ModifyClusterSubnetGroupCommand extends $Command<
   ModifyClusterSubnetGroupCommandInput,

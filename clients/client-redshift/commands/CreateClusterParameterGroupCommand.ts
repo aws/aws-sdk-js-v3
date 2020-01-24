@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  ClusterParameterGroup,
-  CreateClusterParameterGroupMessage
+  CreateClusterParameterGroupMessage,
+  CreateClusterParameterGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateClusterParameterGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClusterParameterGroupCommandInput = CreateClusterParameterGroupMessage;
-export type CreateClusterParameterGroupCommandOutput = ClusterParameterGroup;
+export type CreateClusterParameterGroupCommandOutput = CreateClusterParameterGroupResult;
 
 export class CreateClusterParameterGroupCommand extends $Command<
   CreateClusterParameterGroupCommandInput,

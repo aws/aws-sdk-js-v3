@@ -15,6 +15,28 @@ export enum AdsOnDeliveryRestrictions {
 }
 
 /**
+ * CDN Authorization credentials
+ */
+export interface Authorization {
+  __type?: "Authorization";
+  /**
+   * The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
+   */
+  CdnIdentifierSecret: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+   */
+  SecretsRoleArn: string | undefined;
+}
+
+export namespace Authorization {
+  export function isa(o: any): o is Authorization {
+    return _smithy.isa(o, "Authorization");
+  }
+}
+
+/**
  * A Channel resource configuration.
  */
 export interface Channel {
@@ -91,7 +113,6 @@ export interface CmafPackage {
   /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
-   *
    */
   SegmentDurationSeconds?: number;
 
@@ -130,7 +151,6 @@ export interface CmafPackageCreateOrUpdateParameters {
   /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
-   *
    */
   SegmentDurationSeconds?: number;
 
@@ -164,7 +184,6 @@ export interface CreateChannelRequest {
   /**
    * The ID of the Channel. The ID must be unique within the region and it
    * cannot be changed after a Channel is created.
-   *
    */
   Id: string | undefined;
 
@@ -221,33 +240,28 @@ export interface CreateHarvestJobRequest {
   __type?: "CreateHarvestJobRequest";
   /**
    * The end of the time-window which will be harvested
-   *
    */
   EndTime: string | undefined;
 
   /**
    * The ID of the HarvestJob. The ID must be unique within the region
    * and it cannot be changed after the HarvestJob is submitted
-   *
    */
   Id: string | undefined;
 
   /**
    * The ID of the OriginEndpoint that the HarvestJob will harvest from.
    * This cannot be changed after the HarvestJob is submitted.
-   *
    */
   OriginEndpointId: string | undefined;
 
   /**
    * Configuration parameters for where in an S3 bucket to place the harvested content
-   *
    */
   S3Destination: S3Destination | undefined;
 
   /**
    * The start of the time-window which will be harvested
-   *
    */
   StartTime: string | undefined;
 }
@@ -262,51 +276,43 @@ export interface CreateHarvestJobResponse extends $MetadataBearer {
   __type?: "CreateHarvestJobResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
-   *
    */
   Arn?: string;
 
   /**
    * The ID of the Channel that the HarvestJob will harvest from.
-   *
    */
   ChannelId?: string;
 
   /**
    * The time the HarvestJob was submitted
-   *
    */
   CreatedAt?: string;
 
   /**
    * The end of the time-window which will be harvested.
-   *
    */
   EndTime?: string;
 
   /**
    * The ID of the HarvestJob. The ID must be unique within the region
    * and it cannot be changed after the HarvestJob is submitted.
-   *
    */
   Id?: string;
 
   /**
    * The ID of the OriginEndpoint that the HarvestJob will harvest from.
    * This cannot be changed after the HarvestJob is submitted.
-   *
    */
   OriginEndpointId?: string;
 
   /**
    * Configuration parameters for where in an S3 bucket to place the harvested content
-   *
    */
   S3Destination?: S3Destination;
 
   /**
    * The start of the time-window which will be harvested.
-   *
    */
   StartTime?: string;
 
@@ -314,7 +320,6 @@ export interface CreateHarvestJobResponse extends $MetadataBearer {
    * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
-   *
    */
   Status?: Status | string;
 }
@@ -331,9 +336,13 @@ export namespace CreateHarvestJobResponse {
 export interface CreateOriginEndpointRequest {
   __type?: "CreateOriginEndpointRequest";
   /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
    * The ID of the Channel that the OriginEndpoint will be associated with.
    * This cannot be changed after the OriginEndpoint is created.
-   *
    */
   ChannelId: string | undefined;
 
@@ -360,7 +369,6 @@ export interface CreateOriginEndpointRequest {
   /**
    * The ID of the OriginEndpoint.  The ID must be unique within the region
    * and it cannot be changed after the OriginEndpoint is created.
-   *
    */
   Id: string | undefined;
 
@@ -378,14 +386,12 @@ export interface CreateOriginEndpointRequest {
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   *
    */
   Origination?: Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
-   *
    */
   StartoverWindowSeconds?: number;
 
@@ -397,7 +403,6 @@ export interface CreateOriginEndpointRequest {
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
-   *
    */
   TimeDelaySeconds?: number;
 
@@ -419,6 +424,11 @@ export interface CreateOriginEndpointResponse extends $MetadataBearer {
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
    */
   Arn?: string;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
 
   /**
    * The ID of the Channel the OriginEndpoint is associated with.
@@ -464,14 +474,12 @@ export interface CreateOriginEndpointResponse extends $MetadataBearer {
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   *
    */
   Origination?: Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
-   *
    */
   StartoverWindowSeconds?: number;
 
@@ -483,7 +491,6 @@ export interface CreateOriginEndpointResponse extends $MetadataBearer {
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
-   *
    */
   TimeDelaySeconds?: number;
 
@@ -535,7 +542,6 @@ export interface DashPackage {
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
-   *
    */
   AdTriggers?: Array<__AdTriggersElement | string>;
 
@@ -548,7 +554,6 @@ export interface DashPackage {
    * be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
-   *
    */
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
 
@@ -582,7 +587,6 @@ export interface DashPackage {
    * Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Channel source contains SCTE-35 ad markers.
-   *
    */
   PeriodTriggers?: Array<__PeriodTriggersElement | string>;
 
@@ -594,7 +598,6 @@ export interface DashPackage {
   /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
-   *
    */
   SegmentDurationSeconds?: number;
 
@@ -734,51 +737,43 @@ export interface DescribeHarvestJobResponse extends $MetadataBearer {
   __type?: "DescribeHarvestJobResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
-   *
    */
   Arn?: string;
 
   /**
    * The ID of the Channel that the HarvestJob will harvest from.
-   *
    */
   ChannelId?: string;
 
   /**
    * The time the HarvestJob was submitted
-   *
    */
   CreatedAt?: string;
 
   /**
    * The end of the time-window which will be harvested.
-   *
    */
   EndTime?: string;
 
   /**
    * The ID of the HarvestJob. The ID must be unique within the region
    * and it cannot be changed after the HarvestJob is submitted.
-   *
    */
   Id?: string;
 
   /**
    * The ID of the OriginEndpoint that the HarvestJob will harvest from.
    * This cannot be changed after the HarvestJob is submitted.
-   *
    */
   OriginEndpointId?: string;
 
   /**
    * Configuration parameters for where in an S3 bucket to place the harvested content
-   *
    */
   S3Destination?: S3Destination;
 
   /**
    * The start of the time-window which will be harvested.
-   *
    */
   StartTime?: string;
 
@@ -786,7 +781,6 @@ export interface DescribeHarvestJobResponse extends $MetadataBearer {
    * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
-   *
    */
   Status?: Status | string;
 }
@@ -817,6 +811,11 @@ export interface DescribeOriginEndpointResponse extends $MetadataBearer {
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
    */
   Arn?: string;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
 
   /**
    * The ID of the Channel the OriginEndpoint is associated with.
@@ -862,14 +861,12 @@ export interface DescribeOriginEndpointResponse extends $MetadataBearer {
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   *
    */
   Origination?: Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
-   *
    */
   StartoverWindowSeconds?: number;
 
@@ -881,7 +878,6 @@ export interface DescribeOriginEndpointResponse extends $MetadataBearer {
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
-   *
    */
   TimeDelaySeconds?: number;
 
@@ -932,51 +928,43 @@ export interface HarvestJob {
   __type?: "HarvestJob";
   /**
    * The Amazon Resource Name (ARN) assigned to the HarvestJob.
-   *
    */
   Arn?: string;
 
   /**
    * The ID of the Channel that the HarvestJob will harvest from.
-   *
    */
   ChannelId?: string;
 
   /**
    * The time the HarvestJob was submitted
-   *
    */
   CreatedAt?: string;
 
   /**
    * The end of the time-window which will be harvested.
-   *
    */
   EndTime?: string;
 
   /**
    * The ID of the HarvestJob. The ID must be unique within the region
    * and it cannot be changed after the HarvestJob is submitted.
-   *
    */
   Id?: string;
 
   /**
    * The ID of the OriginEndpoint that the HarvestJob will harvest from.
    * This cannot be changed after the HarvestJob is submitted.
-   *
    */
   OriginEndpointId?: string;
 
   /**
    * Configuration parameters for where in an S3 bucket to place the harvested content
-   *
    */
   S3Destination?: S3Destination;
 
   /**
    * The start of the time-window which will be harvested.
-   *
    */
   StartTime?: string;
 
@@ -984,7 +972,6 @@ export interface HarvestJob {
    * The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
-   *
    */
   Status?: Status | string;
 }
@@ -1003,7 +990,6 @@ export interface HlsEncryption {
   /**
    * A constant initialization vector for encryption (optional).
    * When not specified the initialization vector will be periodically rotated.
-   *
    */
   ConstantInitializationVector?: string;
 
@@ -1063,7 +1049,6 @@ export interface HlsManifest {
    * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
    * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
    * messages in the input source.
-   *
    */
   AdMarkers?: AdMarkers | string;
 
@@ -1086,7 +1071,6 @@ export interface HlsManifest {
    * The HTTP Live Streaming (HLS) playlist type.
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
-   *
    */
   PlaylistType?: PlaylistType | string;
 
@@ -1105,7 +1089,6 @@ export interface HlsManifest {
    * ID3Timed Metadata messages will be generated. Note that irrespective
    * of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
    * it will be passed through to HLS output.
-   *
    */
   ProgramDateTimeIntervalSeconds?: number;
 
@@ -1133,7 +1116,6 @@ export interface HlsManifestCreateOrUpdateParameters {
    * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
    * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
    * messages in the input source.
-   *
    */
   AdMarkers?: AdMarkers | string;
 
@@ -1141,7 +1123,6 @@ export interface HlsManifestCreateOrUpdateParameters {
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
-   *
    */
   AdTriggers?: Array<__AdTriggersElement | string>;
 
@@ -1154,7 +1135,6 @@ export interface HlsManifestCreateOrUpdateParameters {
    * be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
-   *
    */
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
 
@@ -1177,7 +1157,6 @@ export interface HlsManifestCreateOrUpdateParameters {
    * The HTTP Live Streaming (HLS) playlist type.
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
-   *
    */
   PlaylistType?: PlaylistType | string;
 
@@ -1196,7 +1175,6 @@ export interface HlsManifestCreateOrUpdateParameters {
    * ID3Timed Metadata messages will be generated. Note that irrespective
    * of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
    * it will be passed through to HLS output.
-   *
    */
   ProgramDateTimeIntervalSeconds?: number;
 }
@@ -1219,7 +1197,6 @@ export interface HlsPackage {
    * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
    * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
    * messages in the input source.
-   *
    */
   AdMarkers?: AdMarkers | string;
 
@@ -1227,7 +1204,6 @@ export interface HlsPackage {
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
-   *
    */
   AdTriggers?: Array<__AdTriggersElement | string>;
 
@@ -1240,7 +1216,6 @@ export interface HlsPackage {
    * be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
-   *
    */
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
 
@@ -1258,7 +1233,6 @@ export interface HlsPackage {
    * The HTTP Live Streaming (HLS) playlist type.
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
-   *
    */
   PlaylistType?: PlaylistType | string;
 
@@ -1277,14 +1251,12 @@ export interface HlsPackage {
    * ID3Timed Metadata messages will be generated. Note that irrespective
    * of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
    * it will be passed through to HLS output.
-   *
    */
   ProgramDateTimeIntervalSeconds?: number;
 
   /**
    * Duration (in seconds) of each fragment. Actual fragments will be
    * rounded to the nearest multiple of the source fragment duration.
-   *
    */
   SegmentDurationSeconds?: number;
 
@@ -1589,6 +1561,11 @@ export interface OriginEndpoint {
   Arn?: string;
 
   /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
    * The ID of the Channel the OriginEndpoint is associated with.
    */
   ChannelId?: string;
@@ -1632,14 +1609,12 @@ export interface OriginEndpoint {
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   *
    */
   Origination?: Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
-   *
    */
   StartoverWindowSeconds?: number;
 
@@ -1651,7 +1626,6 @@ export interface OriginEndpoint {
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
-   *
    */
   TimeDelaySeconds?: number;
 
@@ -1792,25 +1766,21 @@ export namespace RotateIngestEndpointCredentialsResponse {
 
 /**
  * Configuration parameters for where in an S3 bucket to place the harvested content
- *
  */
 export interface S3Destination {
   __type?: "S3Destination";
   /**
    * The name of an S3 bucket within which harvested content will be exported
-   *
    */
   BucketName: string | undefined;
 
   /**
    * The key in the specified S3 bucket where the harvested top-level manifest will be placed.
-   *
    */
   ManifestKey: string | undefined;
 
   /**
    * The IAM role used to write to the specified S3 bucket
-   *
    */
   RoleArn: string | undefined;
 }
@@ -1854,7 +1824,6 @@ export interface SpekeKeyProvider {
    * An Amazon Resource Name (ARN) of a Certificate Manager certificate
    * that MediaPackage will use for enforcing secure end-to-end data
    * transfer with the key provider service.
-   *
    */
   CertificateArn?: string;
 
@@ -1866,7 +1835,6 @@ export interface SpekeKeyProvider {
   /**
    * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
    * MediaPackage will assume when accessing the key provider service.
-   *
    */
   RoleArn: string | undefined;
 
@@ -2051,6 +2019,11 @@ export namespace UpdateChannelResponse {
 export interface UpdateOriginEndpointRequest {
   __type?: "UpdateOriginEndpointRequest";
   /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
    * A Common Media Application Format (CMAF) packaging configuration.
    */
   CmafPackage?: CmafPackageCreateOrUpdateParameters;
@@ -2089,21 +2062,18 @@ export interface UpdateOriginEndpointRequest {
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   *
    */
   Origination?: Origination | string;
 
   /**
    * Maximum duration (in seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
-   *
    */
   StartoverWindowSeconds?: number;
 
   /**
    * Amount of delay (in seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
-   *
    */
   TimeDelaySeconds?: number;
 
@@ -2125,6 +2095,11 @@ export interface UpdateOriginEndpointResponse extends $MetadataBearer {
    * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
    */
   Arn?: string;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
 
   /**
    * The ID of the Channel the OriginEndpoint is associated with.
@@ -2170,14 +2145,12 @@ export interface UpdateOriginEndpointResponse extends $MetadataBearer {
    * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-   *
    */
   Origination?: Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
    * If not specified, startover playback will be disabled for the OriginEndpoint.
-   *
    */
   StartoverWindowSeconds?: number;
 
@@ -2189,7 +2162,6 @@ export interface UpdateOriginEndpointResponse extends $MetadataBearer {
   /**
    * Amount of delay (seconds) to enforce on the playback of live content.
    * If not specified, there will be no time delay in effect for the OriginEndpoint.
-   *
    */
   TimeDelaySeconds?: number;
 

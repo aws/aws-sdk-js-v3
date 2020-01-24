@@ -142,15 +142,12 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
+ * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
  *             AWS and on-premises networks that are built around transit gateways.</p>
- *
  */
 export class NetworkManager extends NetworkManagerClient {
   /**
-   *
-   *         <p>Associates a customer gateway with a device and optionally, with a link. If you
+   * <p>Associates a customer gateway with a device and optionally, with a link. If you
    *             specify a link, it must be associated with the specified device. </p>
    *         <p>You can only associate customer gateways that are connected to a VPN attachment on a
    *             transit gateway. The transit gateway must be registered in your global network. When
@@ -159,7 +156,6 @@ export class NetworkManager extends NetworkManagerClient {
    *             that are connected to a transit gateway, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html">DescribeVpnConnections</a> EC2 API and filter by
    *                 <code>transit-gateway-id</code>.</p>
    *         <p>You cannot associate a customer gateway with more than one device and link. </p>
-   *
    */
   public associateCustomerGateway(
     args: AssociateCustomerGatewayCommandInput,
@@ -194,9 +190,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
-   *
+   * <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
    */
   public associateLink(
     args: AssociateLinkCommandInput,
@@ -231,10 +225,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Creates a new device in a global network. If you specify both a site ID and a
+   * <p>Creates a new device in a global network. If you specify both a site ID and a
    *             location, the location of the site is used for visualization in the Network Manager console.</p>
-   *
    */
   public createDevice(
     args: CreateDeviceCommandInput,
@@ -269,9 +261,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Creates a new, empty global network.</p>
-   *
+   * <p>Creates a new, empty global network.</p>
    */
   public createGlobalNetwork(
     args: CreateGlobalNetworkCommandInput,
@@ -306,9 +296,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Creates a new link for a specified site.</p>
-   *
+   * <p>Creates a new link for a specified site.</p>
    */
   public createLink(
     args: CreateLinkCommandInput,
@@ -343,9 +331,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Creates a new site in a global network.</p>
-   *
+   * <p>Creates a new site in a global network.</p>
    */
   public createSite(
     args: CreateSiteCommandInput,
@@ -380,10 +366,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Deletes an existing device. You must first disassociate the device from any links and
+   * <p>Deletes an existing device. You must first disassociate the device from any links and
    *             customer gateways.</p>
-   *
    */
   public deleteDevice(
     args: DeleteDeviceCommandInput,
@@ -418,10 +402,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Deletes an existing global network. You must first delete all global network objects
+   * <p>Deletes an existing global network. You must first delete all global network objects
    *             (devices, links, and sites) and deregister all transit gateways.</p>
-   *
    */
   public deleteGlobalNetwork(
     args: DeleteGlobalNetworkCommandInput,
@@ -456,10 +438,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Deletes an existing link. You must first disassociate the link from any devices and
+   * <p>Deletes an existing link. You must first disassociate the link from any devices and
    *             customer gateways.</p>
-   *
    */
   public deleteLink(
     args: DeleteLinkCommandInput,
@@ -494,9 +474,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
-   *
+   * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
    */
   public deleteSite(
     args: DeleteSiteCommandInput,
@@ -531,10 +509,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Deregisters a transit gateway from your global network. This action does not delete
+   * <p>Deregisters a transit gateway from your global network. This action does not delete
    *             your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.</p>
-   *
    */
   public deregisterTransitGateway(
     args: DeregisterTransitGatewayCommandInput,
@@ -569,12 +545,10 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Describes one or more global networks. By default, all global networks are
+   * <p>Describes one or more global networks. By default, all global networks are
    *             described. To describe the objects in your global network, you must use the appropriate
    *                 <code>Get*</code> action. For example, to list the transit gateways in your global
    *             network, use <a>GetTransitGatewayRegistrations</a>.</p>
-   *
    */
   public describeGlobalNetworks(
     args: DescribeGlobalNetworksCommandInput,
@@ -609,9 +583,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Disassociates a customer gateway from a device and a link.</p>
-   *
+   * <p>Disassociates a customer gateway from a device and a link.</p>
    */
   public disassociateCustomerGateway(
     args: DisassociateCustomerGatewayCommandInput,
@@ -646,10 +618,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Disassociates an existing device from a link. You must first disassociate any customer
+   * <p>Disassociates an existing device from a link. You must first disassociate any customer
    *             gateways that are associated with the link.</p>
-   *
    */
   public disassociateLink(
     args: DisassociateLinkCommandInput,
@@ -684,10 +654,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Gets the association information for customer gateways that are associated with
+   * <p>Gets the association information for customer gateways that are associated with
    *             devices and links in your global network.</p>
-   *
    */
   public getCustomerGatewayAssociations(
     args: GetCustomerGatewayAssociationsCommandInput,
@@ -725,9 +693,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more of your devices in a global network.</p>
-   *
+   * <p>Gets information about one or more of your devices in a global network.</p>
    */
   public getDevices(
     args: GetDevicesCommandInput,
@@ -762,10 +728,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Gets the link associations for a device or a link. Either the device ID or the link ID
+   * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
    *             must be specified.</p>
-   *
    */
   public getLinkAssociations(
     args: GetLinkAssociationsCommandInput,
@@ -800,10 +764,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more links in a specified global network.</p>
+   * <p>Gets information about one or more links in a specified global network.</p>
    *         <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
-   *
    */
   public getLinks(
     args: GetLinksCommandInput,
@@ -838,9 +800,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more of your sites in a global network.</p>
-   *
+   * <p>Gets information about one or more of your sites in a global network.</p>
    */
   public getSites(
     args: GetSitesCommandInput,
@@ -875,10 +835,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Gets information about the transit gateway registrations in a specified
+   * <p>Gets information about the transit gateway registrations in a specified
    *             global network.</p>
-   *
    */
   public getTransitGatewayRegistrations(
     args: GetTransitGatewayRegistrationsCommandInput,
@@ -916,9 +874,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Lists the tags for a specified resource.</p>
-   *
+   * <p>Lists the tags for a specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -953,11 +909,9 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Registers a transit gateway in your global network. The transit gateway can be in any
+   * <p>Registers a transit gateway in your global network. The transit gateway can be in any
    *             AWS Region, but it must be owned by the same AWS account that owns the global network.
    *             You cannot register a transit gateway in more than one global network.</p>
-   *
    */
   public registerTransitGateway(
     args: RegisterTransitGatewayCommandInput,
@@ -992,9 +946,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Tags a specified resource.</p>
-   *
+   * <p>Tags a specified resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1029,9 +981,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Removes tags from a specified resource.</p>
-   *
+   * <p>Removes tags from a specified resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1066,10 +1016,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Updates the details for an existing device. To remove information for any of the
+   * <p>Updates the details for an existing device. To remove information for any of the
    *             parameters, specify an empty string.</p>
-   *
    */
   public updateDevice(
     args: UpdateDeviceCommandInput,
@@ -1104,10 +1052,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Updates an existing global network. To remove information for any of the parameters,
+   * <p>Updates an existing global network. To remove information for any of the parameters,
    *             specify an empty string.</p>
-   *
    */
   public updateGlobalNetwork(
     args: UpdateGlobalNetworkCommandInput,
@@ -1142,10 +1088,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Updates the details for an existing link. To remove information for any of the
+   * <p>Updates the details for an existing link. To remove information for any of the
    *             parameters, specify an empty string.</p>
-   *
    */
   public updateLink(
     args: UpdateLinkCommandInput,
@@ -1180,10 +1124,8 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   *
-   *         <p>Updates the information for an existing site. To remove information for any of the
+   * <p>Updates the information for an existing site. To remove information for any of the
    *             parameters, specify an empty string.</p>
-   *
    */
   public updateSite(
     args: UpdateSiteCommandInput,

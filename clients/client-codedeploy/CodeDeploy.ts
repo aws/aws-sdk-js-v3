@@ -232,8 +232,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>AWS CodeDeploy</fullname>
+ * <fullname>AWS CodeDeploy</fullname>
  *         <p>AWS CodeDeploy is a deployment service that automates application deployments to
  *             Amazon EC2 instances, on-premises instances running in your own facility, serverless
  *             AWS Lambda functions, or applications in an Amazon ECS service.</p>
@@ -333,14 +332,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                 </p>
  *             </li>
  *          </ul>
- *
  */
 export class CodeDeploy extends CodeDeployClient {
   /**
-   *
-   *         <p>Adds tags to on-premises instances.</p>
-   *
-   *
+   * <p>Adds tags to on-premises instances.</p>
    */
   public addTagsToOnPremisesInstances(
     args: AddTagsToOnPremisesInstancesCommandInput,
@@ -375,10 +370,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more application revisions. The maximum number of application revisions that can be returned is 25.</p>
-   *
-   *
+   * <p>Gets information about one or more application revisions. The maximum number of application revisions that can be returned is 25.</p>
    */
   public batchGetApplicationRevisions(
     args: BatchGetApplicationRevisionsCommandInput,
@@ -413,10 +405,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more applications. The maximum number of applications that can be returned is 25.</p>
-   *
-   *
+   * <p>Gets information about one or more applications. The maximum number of applications that can be returned is 25.</p>
    */
   public batchGetApplications(
     args: BatchGetApplicationsCommandInput,
@@ -451,10 +440,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more deployment groups.</p>
-   *
-   *
+   * <p>Gets information about one or more deployment groups.</p>
    */
   public batchGetDeploymentGroups(
     args: BatchGetDeploymentGroupsCommandInput,
@@ -489,8 +475,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
    *                 instead. </p>
    *         </note>
@@ -498,8 +483,6 @@ export class CodeDeploy extends CodeDeployClient {
    *             EC2/On-premises and AWS Lambda compute platforms. The newer
    *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms.
    *             The maximum number of instances that can be returned is 25.</p>
-   *
-   *
    */
   public batchGetDeploymentInstances(
     args: BatchGetDeploymentInstancesCommandInput,
@@ -534,8 +517,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p> Returns an array of one or more targets associated with a deployment. This method works with all
+   * <p> Returns an array of one or more targets associated with a deployment. This method works with all
    *             compute types and should be used instead of the deprecated
    *             <code>BatchGetDeploymentInstances</code>.
    *             The maximum number of targets that can be returned is 25.</p>
@@ -557,7 +539,6 @@ export class CodeDeploy extends CodeDeployClient {
    *                     service targets. </p>
    *             </li>
    *          </ul>
-   *
    */
   public batchGetDeploymentTargets(
     args: BatchGetDeploymentTargetsCommandInput,
@@ -592,10 +573,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.</p>
-   *
-   *
+   * <p>Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.</p>
    */
   public batchGetDeployments(
     args: BatchGetDeploymentsCommandInput,
@@ -630,10 +608,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about one or more on-premises instances. The maximum number of on-premises instances that can be returned is 25.</p>
-   *
-   *
+   * <p>Gets information about one or more on-premises instances. The maximum number of on-premises instances that can be returned is 25.</p>
    */
   public batchGetOnPremisesInstances(
     args: BatchGetOnPremisesInstancesCommandInput,
@@ -668,14 +643,11 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
+   * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
    *             the original environment to instances in the replacement environment without waiting for
    *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
    *             instances in the replacement environment with the load balancer, can start as soon as
    *             all instances have a status of Ready.) </p>
-   *
-   *
    */
   public continueDeployment(
     args: ContinueDeploymentCommandInput,
@@ -710,10 +682,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Creates an application.</p>
-   *
-   *
+   * <p>Creates an application.</p>
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -748,10 +717,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Deploys an application revision through the specified deployment group.</p>
-   *
-   *
+   * <p>Deploys an application revision through the specified deployment group.</p>
    */
   public createDeployment(
     args: CreateDeploymentCommandInput,
@@ -786,10 +752,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p> Creates a deployment configuration. </p>
-   *
-   *
+   * <p> Creates a deployment configuration. </p>
    */
   public createDeploymentConfig(
     args: CreateDeploymentConfigCommandInput,
@@ -824,10 +787,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Creates a deployment group to which application revisions are deployed.</p>
-   *
-   *
+   * <p>Creates a deployment group to which application revisions are deployed.</p>
    */
   public createDeploymentGroup(
     args: CreateDeploymentGroupCommandInput,
@@ -862,10 +822,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Deletes an application.</p>
-   *
-   *
+   * <p>Deletes an application.</p>
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -900,14 +857,11 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Deletes a deployment configuration.</p>
+   * <p>Deletes a deployment configuration.</p>
    *         <note>
    *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
    *                 configurations cannot be deleted.</p>
    *         </note>
-   *
-   *
    */
   public deleteDeploymentConfig(
     args: DeleteDeploymentConfigCommandInput,
@@ -942,10 +896,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Deletes a deployment group.</p>
-   *
-   *
+   * <p>Deletes a deployment group.</p>
    */
   public deleteDeploymentGroup(
     args: DeleteDeploymentGroupCommandInput,
@@ -980,9 +931,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Deletes a GitHub account connection.</p>
-   *
+   * <p>Deletes a GitHub account connection.</p>
    */
   public deleteGitHubAccountToken(
     args: DeleteGitHubAccountTokenCommandInput,
@@ -1017,10 +966,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Deregisters an on-premises instance.</p>
-   *
-   *
+   * <p>Deregisters an on-premises instance.</p>
    */
   public deregisterOnPremisesInstance(
     args: DeregisterOnPremisesInstanceCommandInput,
@@ -1055,10 +1001,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about an application.</p>
-   *
-   *
+   * <p>Gets information about an application.</p>
    */
   public getApplication(
     args: GetApplicationCommandInput,
@@ -1093,10 +1036,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about an application revision.</p>
-   *
-   *
+   * <p>Gets information about an application revision.</p>
    */
   public getApplicationRevision(
     args: GetApplicationRevisionCommandInput,
@@ -1131,8 +1071,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a deployment.</p>
+   * <p>Gets information about a deployment.</p>
    *         <note>
    *             <p>
    *                 The <code>content</code> property of the <code>appSpecContent</code> object in the returned revision is always null.
@@ -1140,8 +1079,6 @@ export class CodeDeploy extends CodeDeployClient {
    *                 object to get the content of the deployment’s AppSpec file.
    *             </p>
    *         </note>
-   *
-   *
    */
   public getDeployment(
     args: GetDeploymentCommandInput,
@@ -1176,10 +1113,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a deployment configuration.</p>
-   *
-   *
+   * <p>Gets information about a deployment configuration.</p>
    */
   public getDeploymentConfig(
     args: GetDeploymentConfigCommandInput,
@@ -1214,10 +1148,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a deployment group.</p>
-   *
-   *
+   * <p>Gets information about a deployment group.</p>
    */
   public getDeploymentGroup(
     args: GetDeploymentGroupCommandInput,
@@ -1252,10 +1183,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets information about an instance as part of a deployment.</p>
-   *
-   *
+   * <p>Gets information about an instance as part of a deployment.</p>
    */
   public getDeploymentInstance(
     args: GetDeploymentInstanceCommandInput,
@@ -1290,9 +1218,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p> Returns information about a deployment target. </p>
-   *
+   * <p> Returns information about a deployment target. </p>
    */
   public getDeploymentTarget(
     args: GetDeploymentTargetCommandInput,
@@ -1327,10 +1253,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p> Gets information about an on-premises instance. </p>
-   *
-   *
+   * <p> Gets information about an on-premises instance. </p>
    */
   public getOnPremisesInstance(
     args: GetOnPremisesInstanceCommandInput,
@@ -1365,10 +1288,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Lists information about revisions for an application.</p>
-   *
-   *
+   * <p>Lists information about revisions for an application.</p>
    */
   public listApplicationRevisions(
     args: ListApplicationRevisionsCommandInput,
@@ -1403,10 +1323,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Lists the applications registered with the IAM user or AWS account.</p>
-   *
-   *
+   * <p>Lists the applications registered with the IAM user or AWS account.</p>
    */
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -1441,10 +1358,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Lists the deployment configurations with the IAM user or AWS account.</p>
-   *
-   *
+   * <p>Lists the deployment configurations with the IAM user or AWS account.</p>
    */
   public listDeploymentConfigs(
     args: ListDeploymentConfigsCommandInput,
@@ -1479,11 +1393,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Lists the deployment groups for an application registered with the IAM user or AWS
+   * <p>Lists the deployment groups for an application registered with the IAM user or AWS
    *             account.</p>
-   *
-   *
    */
   public listDeploymentGroups(
     args: ListDeploymentGroupsCommandInput,
@@ -1518,15 +1429,12 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <note>
+   * <note>
    *             <p> The newer BatchGetDeploymentTargets should be used instead because it works with
    *                 all compute types. <code>ListDeploymentInstances</code> throws an exception if it is
    *                 used with a compute platform other than EC2/On-premises or AWS Lambda. </p>
    *         </note>
    *         <p> Lists the instance for a deployment associated with the IAM user or AWS account. </p>
-   *
-   *
    */
   public listDeploymentInstances(
     args: ListDeploymentInstancesCommandInput,
@@ -1561,9 +1469,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p> Returns an array of target IDs that are associated a deployment. </p>
-   *
+   * <p> Returns an array of target IDs that are associated a deployment. </p>
    */
   public listDeploymentTargets(
     args: ListDeploymentTargetsCommandInput,
@@ -1598,11 +1504,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Lists the deployments in a deployment group for an application registered with the IAM
+   * <p>Lists the deployments in a deployment group for an application registered with the IAM
    *             user or AWS account.</p>
-   *
-   *
    */
   public listDeployments(
     args: ListDeploymentsCommandInput,
@@ -1637,9 +1540,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Lists the names of stored connections to GitHub accounts.</p>
-   *
+   * <p>Lists the names of stored connections to GitHub accounts.</p>
    */
   public listGitHubAccountTokenNames(
     args: ListGitHubAccountTokenNamesCommandInput,
@@ -1674,13 +1575,10 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of names for one or more on-premises instances.</p>
+   * <p>Gets a list of names for one or more on-premises instances.</p>
    *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
    *             names are listed. To list only registered or deregistered on-premises instance names,
    *             use the registration status parameter.</p>
-   *
-   *
    */
   public listOnPremisesInstances(
     args: ListOnPremisesInstancesCommandInput,
@@ -1715,12 +1613,10 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Returns a list of tags for the resource identified by a specified ARN. Tags are used to organize and categorize
    *             your CodeDeploy resources.
    *         </p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1755,11 +1651,9 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p> Sets the result of a Lambda validation function. The function validates one or both
+   * <p> Sets the result of a Lambda validation function. The function validates one or both
    *             lifecycle events (<code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>)
    *             and returns <code>Succeeded</code> or <code>Failed</code>. </p>
-   *
    */
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
@@ -1806,10 +1700,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Registers with AWS CodeDeploy a revision for the specified application.</p>
-   *
-   *
+   * <p>Registers with AWS CodeDeploy a revision for the specified application.</p>
    */
   public registerApplicationRevision(
     args: RegisterApplicationRevisionCommandInput,
@@ -1844,14 +1735,11 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Registers an on-premises instance.</p>
+   * <p>Registers an on-premises instance.</p>
    *         <note>
    *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request.
    *                 You cannot use both.</p>
    *         </note>
-   *
-   *
    */
   public registerOnPremisesInstance(
     args: RegisterOnPremisesInstanceCommandInput,
@@ -1886,10 +1774,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Removes one or more tags from one or more on-premises instances.</p>
-   *
-   *
+   * <p>Removes one or more tags from one or more on-premises instances.</p>
    */
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
@@ -1936,11 +1821,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>In a blue/green deployment, overrides any specified wait time and starts terminating
+   * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
    *             instances immediately after the traffic routing is complete.</p>
-   *
-   *
    */
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
@@ -1987,10 +1869,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Attempts to stop an ongoing deployment.</p>
-   *
-   *
+   * <p>Attempts to stop an ongoing deployment.</p>
    */
   public stopDeployment(
     args: StopDeploymentCommandInput,
@@ -2025,11 +1904,9 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Associates the list of tags in the input <code>Tags</code> parameter with the resource identified by the <code>ResourceArn</code> input parameter.
    *         </p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -2064,12 +1941,10 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Disassociates a resource from a list of tags. The resource is identified by the <code>ResourceArn</code>
    *             input parameter. The tags are identfied by the list of keys in the <code>TagKeys</code> input parameter.
    *         </p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2104,10 +1979,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Changes the name of an application.</p>
-   *
-   *
+   * <p>Changes the name of an application.</p>
    */
   public updateApplication(
     args: UpdateApplicationCommandInput,
@@ -2142,10 +2014,7 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   *
-   *         <p>Changes information about a deployment group.</p>
-   *
-   *
+   * <p>Changes information about a deployment group.</p>
    */
   public updateDeploymentGroup(
     args: UpdateDeploymentGroupCommandInput,

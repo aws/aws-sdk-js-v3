@@ -375,6 +375,11 @@ import {
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTemplateVersionsCommand,
+  ListTemplateVersionsCommandInput,
+  ListTemplateVersionsCommandOutput
+} from "./commands/ListTemplateVersionsCommand";
+import {
   ListTemplatesCommand,
   ListTemplatesCommandInput,
   ListTemplatesCommandOutput
@@ -515,6 +520,11 @@ import {
   UpdateSmsTemplateCommandOutput
 } from "./commands/UpdateSmsTemplateCommand";
 import {
+  UpdateTemplateActiveVersionCommand,
+  UpdateTemplateActiveVersionCommandInput,
+  UpdateTemplateActiveVersionCommandOutput
+} from "./commands/UpdateTemplateActiveVersionCommand";
+import {
   UpdateVoiceChannelCommand,
   UpdateVoiceChannelCommandInput,
   UpdateVoiceChannelCommandOutput
@@ -531,7 +541,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Pinpoint extends PinpointClient {
   /**
-   *  <p>Creates an application.</p>
+   * <p>Creates an application.</p>
    */
   public createApp(
     args: CreateAppCommandInput,
@@ -601,7 +611,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Creates a message template that you can use in messages that are sent through the email channel.</p>
+   * <p>Creates a message template for messages that are sent through the email channel.</p>
    */
   public createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
@@ -741,7 +751,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Creates a message template that you can use in messages that are sent through a push notification channel.</p>
+   * <p>Creates a message template for messages that are sent through a push notification channel.</p>
    */
   public createPushTemplate(
     args: CreatePushTemplateCommandInput,
@@ -811,7 +821,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Creates a message template that you can use in messages that are sent through the SMS channel.</p>
+   * <p>Creates a message template for messages that are sent through the SMS channel.</p>
    */
   public createSmsTemplate(
     args: CreateSmsTemplateCommandInput,
@@ -846,7 +856,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Creates a message template that you can use in messages that are sent through the voice channel.</p>
+   * <p>Creates a message template for messages that are sent through the voice channel.</p>
    */
   public createVoiceTemplate(
     args: CreateVoiceTemplateCommandInput,
@@ -1196,7 +1206,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Deletes a message template that was designed for use in messages that were sent through the email channel.</p>
+   * <p>Deletes a message template for messages that were sent through the email channel.</p>
    */
   public deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
@@ -1371,7 +1381,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Deletes a message template that was designed for use in messages that were sent through a push notification channel.</p>
+   * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
    */
   public deletePushTemplate(
     args: DeletePushTemplateCommandInput,
@@ -1476,7 +1486,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Deletes a message template that was designed for use in messages that were sent through the SMS channel.</p>
+   * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
    */
   public deleteSmsTemplate(
     args: DeleteSmsTemplateCommandInput,
@@ -1581,7 +1591,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Deletes a message template that was designed for use in messages that were sent through the voice channel.</p>
+   * <p>Deletes a message template for messages that were sent through the voice channel.</p>
    */
   public deleteVoiceTemplate(
     args: DeleteVoiceTemplateCommandInput,
@@ -1896,7 +1906,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves information about all of your applications.</p>
+   * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
    */
   public getApps(
     args: GetAppsCommandInput,
@@ -2246,7 +2256,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the email channel.</p>
+   * <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
    */
   public getEmailTemplate(
     args: GetEmailTemplateCommandInput,
@@ -2678,7 +2688,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves the content and settings for a message template that you can use in messages that are sent through a push notification channel.</p>
+   * <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
    */
   public getPushTemplate(
     args: GetPushTemplateCommandInput,
@@ -2853,7 +2863,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves information about the configuration, dimension, and other settings for all versions of a specific segment that's associated with an application.</p>
+   * <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
    */
   public getSegmentVersions(
     args: GetSegmentVersionsCommandInput,
@@ -2958,7 +2968,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the SMS channel.</p>
+   * <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
    */
   public getSmsTemplate(
     args: GetSmsTemplateCommandInput,
@@ -3063,7 +3073,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the voice channel.</p>
+   * <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
    */
   public getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
@@ -3156,6 +3166,41 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about all the versions of a specific message template.</p>
+   */
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplateVersionsCommandOutput>;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): void;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): void;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): Promise<ListTemplateVersionsCommandOutput> | void {
+    const command = new ListTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3798,7 +3843,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Updates an existing message template that you can use in messages that are sent through the email channel.</p>
+   * <p>Updates an existing message template for messages that are sent through the email channel.</p>
    */
   public updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,
@@ -3868,7 +3913,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   *  <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for a batch of endpoints.</p>
+   * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for a batch of endpoints.</p>
    */
   public updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
@@ -3973,7 +4018,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Cancels an active journey.</p>
+   * <p>Cancels (stops) an active journey.</p>
    */
   public updateJourneyState(
     args: UpdateJourneyStateCommandInput,
@@ -4008,7 +4053,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Updates an existing message template that you can use in messages that are sent through a push notification channel.</p>
+   * <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
    */
   public updatePushTemplate(
     args: UpdatePushTemplateCommandInput,
@@ -4113,7 +4158,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Updates an existing message template that you can use in messages that are sent through the SMS channel.</p>
+   * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
    */
   public updateSmsTemplate(
     args: UpdateSmsTemplateCommandInput,
@@ -4136,6 +4181,41 @@ export class Pinpoint extends PinpointClient {
     cb?: (err: any, data?: UpdateSmsTemplateCommandOutput) => void
   ): Promise<UpdateSmsTemplateCommandOutput> | void {
     const command = new UpdateSmsTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
+   */
+  public updateTemplateActiveVersion(
+    args: UpdateTemplateActiveVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTemplateActiveVersionCommandOutput>;
+  public updateTemplateActiveVersion(
+    args: UpdateTemplateActiveVersionCommandInput,
+    cb: (err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void
+  ): void;
+  public updateTemplateActiveVersion(
+    args: UpdateTemplateActiveVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void
+  ): void;
+  public updateTemplateActiveVersion(
+    args: UpdateTemplateActiveVersionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void
+  ): Promise<UpdateTemplateActiveVersionCommandOutput> | void {
+    const command = new UpdateTemplateActiveVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4183,7 +4263,7 @@ export class Pinpoint extends PinpointClient {
   }
 
   /**
-   * <p>Updates an existing message template that you can use in messages that are sent through the voice channel.</p>
+   * <p>Updates an existing message template for messages that are sent through the voice channel.</p>
    */
   public updateVoiceTemplate(
     args: UpdateVoiceTemplateCommandInput,

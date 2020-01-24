@@ -2029,7 +2029,7 @@ const serializeAws_queryAWSAccountIdList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "AWSAccountId." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = entry;
     counter++;
   });
@@ -2043,7 +2043,7 @@ const serializeAws_queryActionNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ActionName." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = entry;
     counter++;
   });
@@ -2061,7 +2061,7 @@ const serializeAws_queryAddPermissionRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AWSAccountIds." + key.substring(key.indexOf(".") + 1);
+      const loc = "AWSAccountId." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2071,7 +2071,7 @@ const serializeAws_queryAddPermissionRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Actions." + key.substring(key.indexOf(".") + 1);
+      const loc = "ActionName." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2091,7 +2091,7 @@ const serializeAws_queryAttributeNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "AttributeName." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = entry;
     counter++;
   });
@@ -2123,7 +2123,9 @@ const serializeAws_queryChangeMessageVisibilityBatchRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Entries." + key.substring(key.indexOf(".") + 1);
+      const loc =
+        "ChangeMessageVisibilityBatchRequestEntry." +
+        key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2157,7 +2159,7 @@ const serializeAws_queryChangeMessageVisibilityBatchRequestEntryList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ChangeMessageVisibilityBatchRequestEntry." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = serializeAws_queryChangeMessageVisibilityBatchRequestEntry(
       entry,
       context
@@ -2223,7 +2225,8 @@ const serializeAws_queryDeleteMessageBatchRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Entries." + key.substring(key.indexOf(".") + 1);
+      const loc =
+        "DeleteMessageBatchRequestEntry." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2254,7 +2257,7 @@ const serializeAws_queryDeleteMessageBatchRequestEntryList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "DeleteMessageBatchRequestEntry." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = serializeAws_queryDeleteMessageBatchRequestEntry(
       entry,
       context
@@ -2300,7 +2303,7 @@ const serializeAws_queryGetQueueAttributesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AttributeNames." + key.substring(key.indexOf(".") + 1);
+      const loc = "AttributeName." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2364,7 +2367,7 @@ const serializeAws_queryMessageAttributeNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "MessageAttributeName." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = entry;
     counter++;
   });
@@ -2521,7 +2524,7 @@ const serializeAws_queryReceiveMessageRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AttributeNames." + key.substring(key.indexOf(".") + 1);
+      const loc = "AttributeName." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2534,8 +2537,7 @@ const serializeAws_queryReceiveMessageRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc =
-        "MessageAttributeNames." + key.substring(key.indexOf(".") + 1);
+      const loc = "MessageAttributeName." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2579,7 +2581,8 @@ const serializeAws_querySendMessageBatchRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Entries." + key.substring(key.indexOf(".") + 1);
+      const loc =
+        "SendMessageBatchRequestEntry." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2640,7 +2643,7 @@ const serializeAws_querySendMessageBatchRequestEntryList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "SendMessageBatchRequestEntry." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = serializeAws_querySendMessageBatchRequestEntry(
       entry,
       context
@@ -2736,7 +2739,7 @@ const serializeAws_queryTagKeyList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "TagKey." + counter;
+    const loc: string = "member." + counter;
     entries[loc] = entry;
     counter++;
   });
@@ -2788,7 +2791,7 @@ const serializeAws_queryUntagQueueRequest = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key.substring(key.indexOf(".") + 1);
+      const loc = "TagKey." + key.substring(key.indexOf(".") + 1);
       entries[loc] = memberEntries[key];
     });
   }
@@ -2866,19 +2869,21 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
     Failed: undefined,
     Successful: undefined
   };
-  if (output["Failed"] !== undefined) {
+  if (output["BatchResultErrorEntry"] !== undefined) {
     const wrappedItem =
-      output["Failed"] instanceof Array ? output["Failed"] : [output["Failed"]];
+      output["BatchResultErrorEntry"] instanceof Array
+        ? output["BatchResultErrorEntry"]
+        : [output["BatchResultErrorEntry"]];
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
       wrappedItem,
       context
     );
   }
-  if (output["Successful"] !== undefined) {
+  if (output["ChangeMessageVisibilityBatchResultEntry"] !== undefined) {
     const wrappedItem =
-      output["Successful"] instanceof Array
-        ? output["Successful"]
-        : [output["Successful"]];
+      output["ChangeMessageVisibilityBatchResultEntry"] instanceof Array
+        ? output["ChangeMessageVisibilityBatchResultEntry"]
+        : [output["ChangeMessageVisibilityBatchResultEntry"]];
     contents.Successful = deserializeAws_queryChangeMessageVisibilityBatchResultEntryList(
       wrappedItem,
       context
@@ -2933,19 +2938,21 @@ const deserializeAws_queryDeleteMessageBatchResult = (
     Failed: undefined,
     Successful: undefined
   };
-  if (output["Failed"] !== undefined) {
+  if (output["BatchResultErrorEntry"] !== undefined) {
     const wrappedItem =
-      output["Failed"] instanceof Array ? output["Failed"] : [output["Failed"]];
+      output["BatchResultErrorEntry"] instanceof Array
+        ? output["BatchResultErrorEntry"]
+        : [output["BatchResultErrorEntry"]];
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
       wrappedItem,
       context
     );
   }
-  if (output["Successful"] !== undefined) {
+  if (output["DeleteMessageBatchResultEntry"] !== undefined) {
     const wrappedItem =
-      output["Successful"] instanceof Array
-        ? output["Successful"]
-        : [output["Successful"]];
+      output["DeleteMessageBatchResultEntry"] instanceof Array
+        ? output["DeleteMessageBatchResultEntry"]
+        : [output["DeleteMessageBatchResultEntry"]];
     contents.Successful = deserializeAws_queryDeleteMessageBatchResultEntryList(
       wrappedItem,
       context
@@ -3070,11 +3077,11 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
     __type: "ListDeadLetterSourceQueuesResult",
     queueUrls: undefined
   };
-  if (output["queueUrls"] !== undefined) {
+  if (output["QueueUrl"] !== undefined) {
     const wrappedItem =
-      output["queueUrls"] instanceof Array
-        ? output["queueUrls"]
-        : [output["queueUrls"]];
+      output["QueueUrl"] instanceof Array
+        ? output["QueueUrl"]
+        : [output["QueueUrl"]];
     contents.queueUrls = deserializeAws_queryQueueUrlList(wrappedItem, context);
   }
   return contents;
@@ -3104,11 +3111,11 @@ const deserializeAws_queryListQueuesResult = (
     __type: "ListQueuesResult",
     QueueUrls: undefined
   };
-  if (output["QueueUrls"] !== undefined) {
+  if (output["QueueUrl"] !== undefined) {
     const wrappedItem =
-      output["QueueUrls"] instanceof Array
-        ? output["QueueUrls"]
-        : [output["QueueUrls"]];
+      output["QueueUrl"] instanceof Array
+        ? output["QueueUrl"]
+        : [output["QueueUrl"]];
     contents.QueueUrls = deserializeAws_queryQueueUrlList(wrappedItem, context);
   }
   return contents;
@@ -3340,11 +3347,11 @@ const deserializeAws_queryReceiveMessageResult = (
     __type: "ReceiveMessageResult",
     Messages: undefined
   };
-  if (output["Messages"] !== undefined) {
+  if (output["Message"] !== undefined) {
     const wrappedItem =
-      output["Messages"] instanceof Array
-        ? output["Messages"]
-        : [output["Messages"]];
+      output["Message"] instanceof Array
+        ? output["Message"]
+        : [output["Message"]];
     contents.Messages = deserializeAws_queryMessageList(wrappedItem, context);
   }
   return contents;
@@ -3359,19 +3366,21 @@ const deserializeAws_querySendMessageBatchResult = (
     Failed: undefined,
     Successful: undefined
   };
-  if (output["Failed"] !== undefined) {
+  if (output["BatchResultErrorEntry"] !== undefined) {
     const wrappedItem =
-      output["Failed"] instanceof Array ? output["Failed"] : [output["Failed"]];
+      output["BatchResultErrorEntry"] instanceof Array
+        ? output["BatchResultErrorEntry"]
+        : [output["BatchResultErrorEntry"]];
     contents.Failed = deserializeAws_queryBatchResultErrorEntryList(
       wrappedItem,
       context
     );
   }
-  if (output["Successful"] !== undefined) {
+  if (output["SendMessageBatchResultEntry"] !== undefined) {
     const wrappedItem =
-      output["Successful"] instanceof Array
-        ? output["Successful"]
-        : [output["Successful"]];
+      output["SendMessageBatchResultEntry"] instanceof Array
+        ? output["SendMessageBatchResultEntry"]
+        : [output["SendMessageBatchResultEntry"]];
     contents.Successful = deserializeAws_querySendMessageBatchResultEntryList(
       wrappedItem,
       context

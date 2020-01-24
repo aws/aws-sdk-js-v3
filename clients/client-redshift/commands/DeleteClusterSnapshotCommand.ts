@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { DeleteClusterSnapshotMessage, Snapshot } from "../models/index";
+import {
+  DeleteClusterSnapshotMessage,
+  DeleteClusterSnapshotResult
+} from "../models/index";
 import {
   deserializeAws_queryDeleteClusterSnapshotCommand,
   serializeAws_queryDeleteClusterSnapshotCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteClusterSnapshotCommandInput = DeleteClusterSnapshotMessage;
-export type DeleteClusterSnapshotCommandOutput = Snapshot;
+export type DeleteClusterSnapshotCommandOutput = DeleteClusterSnapshotResult;
 
 export class DeleteClusterSnapshotCommand extends $Command<
   DeleteClusterSnapshotCommandInput,

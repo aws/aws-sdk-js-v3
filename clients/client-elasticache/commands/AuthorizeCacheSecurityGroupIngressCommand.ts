@@ -5,7 +5,7 @@ import {
 } from "../ElastiCacheClient";
 import {
   AuthorizeCacheSecurityGroupIngressMessage,
-  CacheSecurityGroup
+  AuthorizeCacheSecurityGroupIngressResult
 } from "../models/index";
 import {
   deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AuthorizeCacheSecurityGroupIngressCommandInput = AuthorizeCacheSecurityGroupIngressMessage;
-export type AuthorizeCacheSecurityGroupIngressCommandOutput = CacheSecurityGroup;
+export type AuthorizeCacheSecurityGroupIngressCommandOutput = AuthorizeCacheSecurityGroupIngressResult;
 
 export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
   AuthorizeCacheSecurityGroupIngressCommandInput,

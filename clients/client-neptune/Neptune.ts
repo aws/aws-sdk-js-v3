@@ -287,8 +287,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon Neptune</fullname>
+ * <fullname>Amazon Neptune</fullname>
  *          <p>Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it
  *       easy to build and run applications that work with highly connected datasets. The core of
  *       Amazon Neptune is a purpose-built, high-performance graph database engine optimized for
@@ -306,14 +305,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       parameter descriptions indicate whether a command is applied immediately, on the next instance
  *       reboot, or during the maintenance window. The reference structure is as follows, and we list
  *       following some related topics from the user guide.</p>
- *
  */
 export class Neptune extends NeptuneClient {
   /**
-   *
-   *          <p>Associates an Identity and Access Management (IAM) role from an
+   * <p>Associates an Identity and Access Management (IAM) role from an
    *       Neptune DB cluster.</p>
-   *
    */
   public addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
@@ -348,9 +344,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Adds a source identifier to an existing event notification subscription.</p>
-   *
+   * <p>Adds a source identifier to an existing event notification subscription.</p>
    */
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
@@ -397,12 +391,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost
+   * <p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost
    *       allocation reporting to track cost associated with Amazon Neptune resources, or used in a
    *       Condition statement in an IAM policy for Amazon Neptune.</p>
-   *
-   *
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -437,9 +428,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
-   *
+   * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
    */
   public applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -474,9 +463,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Copies the specified DB cluster parameter group.</p>
-   *
+   * <p>Copies the specified DB cluster parameter group.</p>
    */
   public copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
@@ -511,13 +498,11 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Copies a snapshot of a DB cluster.</p>
+   * <p>Copies a snapshot of a DB cluster.</p>
    *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
    *       <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the
    *       shared DB cluster snapshot.</p>
    *          <p>You can't copy from one AWS Region to another.</p>
-   *
    */
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -552,9 +537,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Copies the specified DB parameter group.</p>
-   *
+   * <p>Copies the specified DB parameter group.</p>
    */
   public copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
@@ -589,11 +572,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates a new Amazon Neptune DB cluster.</p>
+   * <p>Creates a new Amazon Neptune DB cluster.</p>
    *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
    *       cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p>
-   *
    */
   public createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -628,8 +609,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB cluster parameter group.</p>
+   * <p>Creates a new DB cluster parameter group.</p>
    *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
    *       cluster.</p>
    *          <p> A DB cluster parameter group is initially created with the default
@@ -654,7 +634,6 @@ export class Neptune extends NeptuneClient {
    *         console</a> or the <a>DescribeDBClusterParameters</a>
    *         command to verify that your DB cluster parameter group has been created or modified.</p>
    *          </important>
-   *
    */
   public createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
@@ -689,9 +668,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates a snapshot of a DB cluster.</p>
-   *
+   * <p>Creates a snapshot of a DB cluster.</p>
    */
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -726,9 +703,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB instance.</p>
-   *
+   * <p>Creates a new DB instance.</p>
    */
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
@@ -763,8 +738,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB parameter group.</p>
+   * <p>Creates a new DB parameter group.</p>
    *
    *          <p>A DB parameter group is initially created with the default parameters for the database
    *       engine used by the DB instance. To provide custom values for any of the parameters, you must
@@ -786,7 +760,6 @@ export class Neptune extends NeptuneClient {
    *         <i>DescribeDBParameters</i> command to verify that your DB parameter group has
    *         been created or modified.</p>
    *          </important>
-   *
    */
   public createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
@@ -821,10 +794,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
+   * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
    *       least two AZs in the AWS Region.</p>
-   *
    */
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -859,8 +830,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates an event notification subscription. This action requires a topic ARN (Amazon
+   * <p>Creates an event notification subscription. This action requires a topic ARN (Amazon
    *       Resource Name) created by either the Neptune console, the SNS console, or the SNS API. To
    *       obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The
    *       ARN is displayed in the SNS console.</p>
@@ -875,7 +845,6 @@ export class Neptune extends NeptuneClient {
    *       receive notice of the events for that source type for all your Neptune sources. If you do not
    *       specify either the SourceType nor the SourceIdentifier, you are notified of events generated
    *       from all Neptune sources belonging to your customer account.</p>
-   *
    */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -910,11 +879,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
+   * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
    *       DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
    *       Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
-   *
    */
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -949,11 +916,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
+   * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
    *       deleted can't be associated with any DB clusters.</p>
-   *
-   *
    */
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -988,14 +952,12 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
+   * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
    *       terminated.</p>
    *          <note>
    *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
    *         deleted.</p>
    *          </note>
-   *
    */
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -1030,8 +992,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete
+   * <p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete
    *       a DB instance, all automated backups for that instance are deleted and can't be recovered.
    *       Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not
    *       deleted.</p>
@@ -1044,7 +1005,6 @@ export class Neptune extends NeptuneClient {
    *       you can only delete it when the <code>SkipFinalSnapshot</code> parameter is set to
    *       <code>true</code>.</p>
    *          <p>You can't delete a DB instance if it is the only instance in the DB cluster.</p>
-   *
    */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -1079,10 +1039,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
+   * <p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
    *       associated with any DB instances.</p>
-   *
    */
   public deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
@@ -1117,12 +1075,10 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Deletes a DB subnet group.</p>
+   * <p>Deletes a DB subnet group.</p>
    *          <note>
    *             <p>The specified database subnet group must not be associated with any DB instances.</p>
    *          </note>
-   *
    */
   public deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
@@ -1157,9 +1113,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Deletes an event notification subscription.</p>
-   *
+   * <p>Deletes an event notification subscription.</p>
    */
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -1194,11 +1148,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p> Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
+   * <p> Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
    *       <code>DBClusterParameterGroupName</code> parameter is specified, the list will contain only
    *       the description of the specified DB cluster parameter group.</p>
-   *
    */
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -1239,10 +1191,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
-   *
-   *
+   * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
    */
   public describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
@@ -1277,8 +1226,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
+   * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
    *       snapshot.</p>
    *          <p>When sharing snapshots with other AWS accounts,
    *       <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute
@@ -1288,7 +1236,6 @@ export class Neptune extends NeptuneClient {
    *       copied or restored by all AWS accounts.</p>
    *          <p>To add or remove access for an AWS account to copy or restore a manual DB cluster
    *       snapshot, or to make the manual DB cluster snapshot public or private, use the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
-   *
    */
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
@@ -1335,10 +1282,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns information about DB cluster snapshots. This API action supports
+   * <p>Returns information about DB cluster snapshots. This API action supports
    *       pagination.</p>
-   *
    */
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -1373,9 +1318,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns information about provisioned DB clusters. This API supports pagination.</p>
-   *
+   * <p>Returns information about provisioned DB clusters. This API supports pagination.</p>
    */
   public describeDBClusters(
     args: DescribeDBClustersCommandInput,
@@ -1410,9 +1353,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the available DB engines.</p>
-   *
+   * <p>Returns a list of the available DB engines.</p>
    */
   public describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
@@ -1447,9 +1388,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns information about provisioned instances. This API supports pagination.</p>
-   *
+   * <p>Returns information about provisioned instances. This API supports pagination.</p>
    */
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
@@ -1484,11 +1423,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a
+   * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a
    *       <code>DBParameterGroupName</code> is specified, the list will contain only the description of
    *       the specified DB parameter group.</p>
-   *
    */
   public describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
@@ -1523,9 +1460,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns the detailed parameter list for a particular DB parameter group.</p>
-   *
+   * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
    */
   public describeDBParameters(
     args: DescribeDBParametersCommandInput,
@@ -1560,11 +1495,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the
+   * <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the
    *       list will contain only the descriptions of the specified DBSubnetGroup.</p>
    *          <p>For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.</p>
-   *
    */
   public describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
@@ -1599,10 +1532,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns the default engine and system parameter information for the cluster database
+   * <p>Returns the default engine and system parameter information for the cluster database
    *       engine.</p>
-   *
    */
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
@@ -1649,10 +1580,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns the default engine and system parameter information for the specified database
+   * <p>Returns the default engine and system parameter information for the specified database
    *       engine.</p>
-   *
    */
   public describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
@@ -1690,10 +1619,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Displays a list of categories for all event source types, or, if specified, for a
+   * <p>Displays a list of categories for all event source types, or, if specified, for a
    *       specified source type.</p>
-   *
    */
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -1728,12 +1655,10 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Lists all the subscription descriptions for a customer account. The description for a
+   * <p>Lists all the subscription descriptions for a customer account. The description for a
    *       subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
    *       CreationTime, and Status.</p>
    *          <p>If you specify a SubscriptionName, lists the description for that subscription.</p>
-   *
    */
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -1768,12 +1693,10 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
+   * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
    *       groups for the past 14 days. Events specific to a particular DB instance, DB security group,
    *       database snapshot, or DB parameter group can be obtained by providing the name as a parameter.
    *       By default, the past hour of events are returned.</p>
-   *
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -1808,9 +1731,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of orderable DB instance options for the specified engine.</p>
-   *
+   * <p>Returns a list of orderable DB instance options for the specified engine.</p>
    */
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
@@ -1857,10 +1778,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of resources (for example, DB instances) that have at least one pending
+   * <p>Returns a list of resources (for example, DB instances) that have at least one pending
    *       maintenance action.</p>
-   *
    */
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
@@ -1907,11 +1826,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>You can call <a>DescribeValidDBInstanceModifications</a>
+   * <p>You can call <a>DescribeValidDBInstanceModifications</a>
    *       to learn what modifications you can make to your DB instance. You can use this
    *       information when you call <a>ModifyDBInstance</a>.</p>
-   *
    */
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
@@ -1958,8 +1875,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Forces a failover for a DB cluster.</p>
+   * <p>Forces a failover for a DB cluster.</p>
    *          <p>A failover for a DB cluster promotes one of the Read Replicas (read-only instances) in the
    *       DB cluster to be the primary instance (the cluster writer).</p>
    *          <p>Amazon Neptune will automatically fail over to a Read Replica, if one exists, when the
@@ -1967,7 +1883,6 @@ export class Neptune extends NeptuneClient {
    *       primary instance for testing. Because each instance in a DB cluster has its own endpoint
    *       address, you will need to clean up and re-establish any existing connections that use those
    *       endpoint addresses when the failover is complete.</p>
-   *
    */
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -2002,9 +1917,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags on an Amazon Neptune resource.</p>
-   *
+   * <p>Lists all tags on an Amazon Neptune resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2039,10 +1952,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Modify a setting for a DB cluster. You can change one or more database configuration
+   * <p>Modify a setting for a DB cluster. You can change one or more database configuration
    *       parameters by specifying these parameters and the new values in the request.</p>
-   *
    */
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
@@ -2077,8 +1988,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p> Modifies the parameters of a DB cluster parameter group. To modify more than one
+   * <p> Modifies the parameters of a DB cluster parameter group. To modify more than one
    *       parameter, submit a list of the following: <code>ParameterName</code>,
    *       <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be
    *       modified in a single request.</p>
@@ -2099,7 +2009,6 @@ export class Neptune extends NeptuneClient {
    *         Groups</i> option of the Amazon Neptune console or the <a>DescribeDBClusterParameters</a> command to verify that your DB cluster parameter
    *         group has been created or modified.</p>
    *          </important>
-   *
    */
   public modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
@@ -2134,8 +2043,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
+   * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
    *       cluster snapshot.</p>
    *          <p>To share a manual DB cluster snapshot with other AWS accounts, specify
    *       <code>restore</code> as the <code>AttributeName</code> and use the <code>ValuesToAdd</code>
@@ -2149,7 +2057,6 @@ export class Neptune extends NeptuneClient {
    *       parameter in this case.</p>
    *          <p>To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or
    *       whether a manual DB cluster snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
-   *
    */
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -2190,11 +2097,9 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Modifies settings for a DB instance. You can change one or more database configuration
+   * <p>Modifies settings for a DB instance. You can change one or more database configuration
    *       parameters by specifying these parameters and the new values in the request. To learn what
    *       modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
-   *
    */
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
@@ -2229,8 +2134,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
+   * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
    *       submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
    *       <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
    *          <note>
@@ -2250,7 +2154,6 @@ export class Neptune extends NeptuneClient {
    *         <i>DescribeDBParameters</i> command to verify that your DB parameter group has
    *         been created or modified.</p>
    *          </important>
-   *
    */
   public modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
@@ -2285,10 +2188,8 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in
+   * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in
    *       at least two AZs in the AWS Region.</p>
-   *
    */
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
@@ -2323,13 +2224,11 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing event notification subscription. Note that you can't modify the
+   * <p>Modifies an existing event notification subscription. Note that you can't modify the
    *       source identifiers using this call; to change source identifiers for a subscription, use the
    *       <a>AddSourceIdentifierToSubscription</a> and <a>RemoveSourceIdentifierFromSubscription</a> calls.</p>
    *          <p>You can see a list of the event categories for a given SourceType
    *       by using the <b>DescribeEventCategories</b> action.</p>
-   *
    */
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -2364,9 +2263,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Not supported.</p>
-   *
+   * <p>Not supported.</p>
    */
   public promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
@@ -2401,13 +2298,11 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>You might need to reboot your DB instance, usually for maintenance reasons. For example,
+   * <p>You might need to reboot your DB instance, usually for maintenance reasons. For example,
    *       if you make certain modifications, or if you change the DB parameter group associated with the
    *       DB instance, you must reboot the instance for the changes to take effect.</p>
    *          <p>Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
    *       results in a momentary outage, during which the DB instance status is set to rebooting.</p>
-   *
    */
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
@@ -2442,9 +2337,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Disassociates an Identity and Access Management (IAM) role from a DB cluster.</p>
-   *
+   * <p>Disassociates an Identity and Access Management (IAM) role from a DB cluster.</p>
    */
   public removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
@@ -2479,9 +2372,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Removes a source identifier from an existing event notification subscription.</p>
-   *
+   * <p>Removes a source identifier from an existing event notification subscription.</p>
    */
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
@@ -2528,9 +2419,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Removes metadata tags from an Amazon Neptune resource.</p>
-   *
+   * <p>Removes metadata tags from an Amazon Neptune resource.</p>
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -2565,8 +2454,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p> Modifies the parameters of a DB cluster parameter group to the default value. To reset
+   * <p> Modifies the parameters of a DB cluster parameter group to the default value. To reset
    *       specific parameters submit a list of the following: <code>ParameterName</code> and
    *       <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify the
    *       <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code> parameters.</p>
@@ -2574,7 +2462,6 @@ export class Neptune extends NeptuneClient {
    *       parameters are set to <code>pending-reboot</code> to take effect on the next DB instance
    *       restart or <a>RebootDBInstance</a> request. You must call <a>RebootDBInstance</a> for every DB instance in your DB cluster
    *       that you want the updated static parameter to apply to.</p>
-   *
    */
   public resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
@@ -2609,15 +2496,13 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Modifies the parameters of a DB parameter group to the engine/system default value. To
+   * <p>Modifies the parameters of a DB parameter group to the engine/system default value. To
    *       reset specific parameters, provide a list of the following: <code>ParameterName</code> and
    *       <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
    *       <code>DBParameterGroup</code> name and <code>ResetAllParameters</code> parameters. When
    *       resetting the entire group, dynamic parameters are updated immediately and static parameters
    *       are set to <code>pending-reboot</code> to take effect on the next DB instance restart or
    *       <code>RebootDBInstance</code> request.</p>
-   *
    */
   public resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
@@ -2652,14 +2537,12 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
+   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
    *          <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
    *       snapshot with a default configuration and default security group.</p>
    *          <p>If a DB cluster snapshot is specified, the target DB cluster is created from the source DB
    *       cluster restore point with the same configuration as the original source DB cluster, except
    *       that the new DB cluster is created with the default security group.</p>
-   *
    */
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
@@ -2694,8 +2577,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   *
-   *          <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
+   * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
    *       time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
    *       days. The target DB cluster is created from the source DB cluster with the same configuration
    *       as the original DB cluster, except that the new DB cluster is created with the default DB
@@ -2708,7 +2590,6 @@ export class Neptune extends NeptuneClient {
    *         <code>RestoreDBClusterToPointInTime</code> action has completed and the DB cluster is
    *         available.</p>
    *          </note>
-   *
    */
   public restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,

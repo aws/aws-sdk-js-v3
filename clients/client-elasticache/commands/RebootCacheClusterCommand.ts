@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { CacheCluster, RebootCacheClusterMessage } from "../models/index";
+import {
+  RebootCacheClusterMessage,
+  RebootCacheClusterResult
+} from "../models/index";
 import {
   deserializeAws_queryRebootCacheClusterCommand,
   serializeAws_queryRebootCacheClusterCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RebootCacheClusterCommandInput = RebootCacheClusterMessage;
-export type RebootCacheClusterCommandOutput = CacheCluster;
+export type RebootCacheClusterCommandOutput = RebootCacheClusterResult;
 
 export class RebootCacheClusterCommand extends $Command<
   RebootCacheClusterCommandInput,

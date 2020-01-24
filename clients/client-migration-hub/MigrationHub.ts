@@ -45,6 +45,11 @@ import {
   ImportMigrationTaskCommandOutput
 } from "./commands/ImportMigrationTaskCommand";
 import {
+  ListApplicationStatesCommand,
+  ListApplicationStatesCommandInput,
+  ListApplicationStatesCommandOutput
+} from "./commands/ListApplicationStatesCommand";
+import {
   ListCreatedArtifactsCommand,
   ListCreatedArtifactsCommandInput,
   ListCreatedArtifactsCommandOutput
@@ -82,20 +87,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The AWS Migration Hub API methods help to obtain server and application migration status and
- *          integrate your resource-specific migration tool by providing a programmatic interface to
- *          Migration Hub.</p>
+ * <p>The AWS Migration Hub API methods help to obtain server and application migration status
+ *          and integrate your resource-specific migration tool by providing a programmatic interface
+ *          to Migration Hub.</p>
  *          <p>Remember that you must set your AWS Migration Hub home region before you call any of
- *          these APIs, or a <code>HomeRegionNotSetException</code> error will be returned. Also, you must
- *          make the API calls while in your home region.</p>
- *
+ *          these APIs, or a <code>HomeRegionNotSetException</code> error will be returned. Also, you
+ *          must make the API calls while in your home region.</p>
  */
 export class MigrationHub extends MigrationHubClient {
   /**
-   *
-   *
-   *          <p>Associates a created artifact of an AWS cloud resource, the target receiving the
+   * <p>Associates a created artifact of an AWS cloud resource, the target receiving the
    *          migration, with the migration task performed by a migration tool. This API has the
    *          following traits:</p>
    *          <ul>
@@ -113,11 +114,6 @@ export class MigrationHub extends MigrationHubClient {
    *                or DMS endpoint, etc.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
    */
   public associateCreatedArtifact(
     args: AssociateCreatedArtifactCommandInput,
@@ -152,12 +148,8 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Associates a discovered resource ID from Application Discovery Service with a migration task.</p>
-   *
-   *
-   *
-   *
+   * <p>Associates a discovered resource ID from Application Discovery Service with a migration
+   *          task.</p>
    */
   public associateDiscoveredResource(
     args: AssociateDiscoveredResourceCommandInput,
@@ -192,17 +184,11 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Creates a progress update stream which is an AWS resource used for access control as
+   * <p>Creates a progress update stream which is an AWS resource used for access control as
    *          well as a namespace for migration task names that is implicitly linked to your AWS account.
    *          It must uniquely identify the migration tool as it is used for all updates made by the
    *          tool; however, it does not need to be unique for each AWS account because it is scoped to
    *          the AWS account.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public createProgressUpdateStream(
     args: CreateProgressUpdateStreamCommandInput,
@@ -237,8 +223,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Deletes a progress update stream, including all of its tasks, which was previously
+   * <p>Deletes a progress update stream, including all of its tasks, which was previously
    *          created as an AWS resource used for access control. This API has the following
    *          traits:</p>
    *          <ul>
@@ -269,10 +254,6 @@ export class MigrationHub extends MigrationHubClient {
    *                resources associated with the old stream).</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public deleteProgressUpdateStream(
     args: DeleteProgressUpdateStreamCommandInput,
@@ -307,12 +288,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Gets the migration status of an application.</p>
-   *
-   *
-   *
-   *
+   * <p>Gets the migration status of an application.</p>
    */
   public describeApplicationState(
     args: DescribeApplicationStateCommandInput,
@@ -347,12 +323,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of all attributes associated with a specific migration task.</p>
-   *
-   *
-   *
-   *
+   * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
    */
   public describeMigrationTask(
     args: DescribeMigrationTaskCommandInput,
@@ -387,8 +358,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Disassociates a created artifact of an AWS resource with a migration task performed by a
+   * <p>Disassociates a created artifact of an AWS resource with a migration task performed by a
    *          migration tool that was previously associated. This API has the following traits:</p>
    *          <ul>
    *             <li>
@@ -405,9 +375,6 @@ export class MigrationHub extends MigrationHubClient {
    *                or RDS instance, etc.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
    */
   public disassociateCreatedArtifact(
     args: DisassociateCreatedArtifactCommandInput,
@@ -442,12 +409,8 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Disassociate an Application Discovery Service discovered resource from a migration task.</p>
-   *
-   *
-   *
-   *
+   * <p>Disassociate an Application Discovery Service discovered resource from a migration
+   *          task.</p>
    */
   public disassociateDiscoveredResource(
     args: DisassociateDiscoveredResourceCommandInput,
@@ -485,15 +448,10 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Registers a new migration task which represents a server, database, etc., being migrated
+   * <p>Registers a new migration task which represents a server, database, etc., being migrated
    *          to AWS by a migration tool.</p>
    *          <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as
    *          the migration tool must first register the migration task with Migration Hub.</p>
-   *
-   *
-   *
-   *
    */
   public importMigrationTask(
     args: ImportMigrationTaskCommandInput,
@@ -528,8 +486,44 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Lists the created artifacts attached to a given migration task in an update stream. This
+   * <p>Lists all the migration statuses for your applications. If you use the optional
+   *             <code>ApplicationIds</code> parameter, only the migration statuses for those
+   *          applications will be returned.</p>
+   */
+  public listApplicationStates(
+    args: ListApplicationStatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationStatesCommandOutput>;
+  public listApplicationStates(
+    args: ListApplicationStatesCommandInput,
+    cb: (err: any, data?: ListApplicationStatesCommandOutput) => void
+  ): void;
+  public listApplicationStates(
+    args: ListApplicationStatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationStatesCommandOutput) => void
+  ): void;
+  public listApplicationStates(
+    args: ListApplicationStatesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationStatesCommandOutput) => void),
+    cb?: (err: any, data?: ListApplicationStatesCommandOutput) => void
+  ): Promise<ListApplicationStatesCommandOutput> | void {
+    const command = new ListApplicationStatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the created artifacts attached to a given migration task in an update stream. This
    *          API has the following traits:</p>
    *          <ul>
    *             <li>
@@ -544,10 +538,6 @@ export class MigrationHub extends MigrationHubClient {
    *                <p>Lists created artifacts in a paginated interface. </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public listCreatedArtifacts(
     args: ListCreatedArtifactsCommandInput,
@@ -582,12 +572,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
-   *
-   *
-   *
-   *
+   * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
    */
   public listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
@@ -622,9 +607,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *
-   *          <p>Lists all, or filtered by resource name, migration tasks associated with the user
+   * <p>Lists all, or filtered by resource name, migration tasks associated with the user
    *          account making this call. This API has the following traits:</p>
    *          <ul>
    *             <li>
@@ -638,10 +621,6 @@ export class MigrationHub extends MigrationHubClient {
    *                <p>Lists migration tasks in a paginated interface.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public listMigrationTasks(
     args: ListMigrationTasksCommandInput,
@@ -676,12 +655,7 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Lists progress update streams associated with the user account making this call.</p>
-   *
-   *
-   *
-   *
+   * <p>Lists progress update streams associated with the user account making this call.</p>
    */
   public listProgressUpdateStreams(
     args: ListProgressUpdateStreamsCommandInput,
@@ -716,15 +690,10 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Sets the migration state of an application. For a given application identified by the
+   * <p>Sets the migration state of an application. For a given application identified by the
    *          value passed to <code>ApplicationId</code>, its status is set or updated by passing one of
    *          three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS |
    *          COMPLETED</code>.</p>
-   *
-   *
-   *
-   *
    */
   public notifyApplicationState(
     args: NotifyApplicationStateCommandInput,
@@ -759,10 +728,8 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *
-   *          <p>Notifies Migration Hub of the current status, progress, or other detail regarding a migration
-   *          task. This API has the following traits:</p>
+   * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a
+   *          migration task. This API has the following traits:</p>
    *          <ul>
    *             <li>
    *                <p>Migration tools will call the <code>NotifyMigrationTaskState</code> API to share
@@ -779,10 +746,6 @@ export class MigrationHub extends MigrationHubClient {
    *                namespace for each migration tool.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public notifyMigrationTaskState(
     args: NotifyMigrationTaskStateCommandInput,
@@ -817,10 +780,9 @@ export class MigrationHub extends MigrationHubClient {
   }
 
   /**
-   *
-   *          <p>Provides identifying details of the resource being migrated so that it can be associated
-   *          in the Application Discovery Service repository. This association occurs asynchronously after
-   *             <code>PutResourceAttributes</code> returns.</p>
+   * <p>Provides identifying details of the resource being migrated so that it can be associated
+   *          in the Application Discovery Service repository. This association occurs asynchronously
+   *          after <code>PutResourceAttributes</code> returns.</p>
    *          <important>
    *             <ul>
    *                <li>
@@ -844,10 +806,6 @@ export class MigrationHub extends MigrationHubClient {
    *             association occurs or not. To confirm if an association was found based on the provided
    *             details, call <code>ListDiscoveredResources</code>.</p>
    *          </note>
-   *
-   *
-   *
-   *
    */
   public putResourceAttributes(
     args: PutResourceAttributesCommandInput,

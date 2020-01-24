@@ -360,6 +360,11 @@ import {
   DescribeUserProfileCommandOutput
 } from "./commands/DescribeUserProfileCommand";
 import {
+  DescribeWorkforceCommand,
+  DescribeWorkforceCommandInput,
+  DescribeWorkforceCommandOutput
+} from "./commands/DescribeWorkforceCommand";
+import {
   DescribeWorkteamCommand,
   DescribeWorkteamCommandInput,
   DescribeWorkteamCommandOutput
@@ -650,6 +655,11 @@ import {
   UpdateUserProfileCommandOutput
 } from "./commands/UpdateUserProfileCommand";
 import {
+  UpdateWorkforceCommand,
+  UpdateWorkforceCommandInput,
+  UpdateWorkforceCommandOutput
+} from "./commands/UpdateWorkforceCommand";
+import {
   UpdateWorkteamCommand,
   UpdateWorkteamCommandInput,
   UpdateWorkteamCommandOutput
@@ -657,14 +667,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Provides APIs for creating and managing Amazon SageMaker resources.</p>
- *
+ * <p>Provides APIs for creating and managing Amazon SageMaker resources.</p>
  */
 export class SageMaker extends SageMakerClient {
   /**
-   *
-   *         <p>Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You can add
+   * <p>Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You can add
    *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
    *             jobs, models, labeling jobs, work teams, endpoint configurations, and
    *             endpoints.</p>
@@ -681,7 +688,6 @@ export class SageMaker extends SageMakerClient {
    *                 job by specifying them in the <code>Tags</code> parameter of <a>CreateHyperParameterTuningJob</a>
    *             </p>
    *         </note>
-   *
    */
   public addTags(
     args: AddTagsCommandInput,
@@ -716,11 +722,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Associates a trial component with a trial. A trial component can be associated
+   * <p>Associates a trial component with a trial. A trial component can be associated
    *       with multiple trials. To disassociate a trial component from a trial, call the
    *       <a>DisassociateTrialComponent</a> API.</p>
-   *
    */
   public associateTrialComponent(
     args: AssociateTrialComponentCommandInput,
@@ -755,10 +759,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Create a machine learning algorithm that you can use in Amazon SageMaker and list in the AWS
+   * <p>Create a machine learning algorithm that you can use in Amazon SageMaker and list in the AWS
    *             Marketplace.</p>
-   *
    */
   public createAlgorithm(
     args: CreateAlgorithmCommandInput,
@@ -793,14 +795,12 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a running App for the specified UserProfile.  Supported Apps are JupyterServer and KernelGateway.
+   * <p>Creates a running App for the specified UserProfile.  Supported Apps are JupyterServer and KernelGateway.
    *      This operation is automatically invoked by Amazon SageMaker Amazon SageMaker Studio (Studio)
    *      upon access to the associated Studio Domain, and when new kernel configurations are selected by the user.
    *      A user may have multiple Apps active simultaneously.  Apps will automatically terminate and be deleted when stopped
    *      from within Studio, or when the DeleteApp API is manually called.
    *      UserProfiles are limited to 5 concurrently running Apps at a time.</p>
-   *
    */
   public createApp(
     args: CreateAppCommandInput,
@@ -835,9 +835,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates an AutoPilot job.</p>
-   *
+   * <p>Creates an AutoPilot job.</p>
    */
   public createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
@@ -872,15 +870,13 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the
+   * <p>Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the
    *             repository with notebook instances so that you can use Git source control for the
    *             notebooks you create. The Git repository is a resource in your Amazon SageMaker account, so it can
    *             be associated with more than one notebook instance, and it persists independently from
    *             the lifecycle of any notebook instances it is associated with.</p>
-   *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
-   *                 CodeCommit</a> or in any other Git repository.</p>
-   *
+   *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             other Git repository.</p>
    */
   public createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
@@ -915,8 +911,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
+   * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
    *             resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p>
    *         <p>If
    *             you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
@@ -950,7 +945,6 @@ export class SageMaker extends SageMakerClient {
    *         <p>To stop a model compilation job, use <a>StopCompilationJob</a>. To get
    *             information about a particular model compilation job, use <a>DescribeCompilationJob</a>. To get information about multiple model
    *             compilation jobs, use <a>ListCompilationJobs</a>.</p>
-   *
    */
   public createCompilationJob(
     args: CreateCompilationJobCommandInput,
@@ -985,15 +979,13 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a Domain for Amazon SageMaker Amazon SageMaker Studio (Studio), which can be accessed by end-users in a web browser.  A Domain
+   * <p>Creates a Domain for Amazon SageMaker Amazon SageMaker Studio (Studio), which can be accessed by end-users in a web browser.  A Domain
    *      has an associated directory, list of authorized users, and a variety of security, application, policies, and
    *      Amazon Virtual Private Cloud configurations.  An AWS account is limited to one Domain, per region.
    *      Users within a domain can share notebook files and other artifacts with each other.
    *      When a Domain is created, an Amazon Elastic File System (EFS) is also created for use by all of the users within the Domain.  Each
    *      user receives a private home directory within the EFS for notebooks, Git repositories, and data files.
    *      </p>
-   *
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -1028,8 +1020,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker
+   * <p>Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker
    *             uses the endpoint to provision resources and deploy models. You create the endpoint
    *             configuration with the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
    *             API. </p>
@@ -1054,9 +1045,9 @@ export class SageMaker extends SageMakerClient {
    *             Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you
    *             provided. AWS STS is activated in your IAM user account by default. If you previously
    *             deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For
-   *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and Deactivating AWS STS in an AWS Region</a> in the
-   *                 <i>AWS Identity and Access Management User Guide</i>.</p>
-   *
+   *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User
+   *                 Guide</i>.</p>
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -1091,8 +1082,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models.
+   * <p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models.
    *             In the configuration, you identify one or more models, created using the
    *                 <code>CreateModel</code> API, to deploy and the resources that you want Amazon SageMaker to
    *             provision. Then you call the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
@@ -1110,7 +1100,6 @@ export class SageMaker extends SageMakerClient {
    *             you want to host two models, A and B, and you assign traffic weight 2 for model A and 1
    *             for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to
    *             model B. </p>
-   *
    */
   public createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
@@ -1145,8 +1134,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates an Amazon SageMaker <i>experiment</i>. An experiment is a collection of
+   * <p>Creates an Amazon SageMaker <i>experiment</i>. An experiment is a collection of
    *       <i>trials</i> that are observed, compared and evaluated as a group. A trial is
    *       a set of steps, called <i>trial components</i>, that produce a machine learning
    *       model.</p>
@@ -1166,7 +1154,6 @@ export class SageMaker extends SageMakerClient {
    *       API. To get a list of all the trials associated with an experiment, call the
    *       <a>ListTrials</a> API. To create a trial call the
    *       <a>CreateTrial</a> API.</p>
-   *
    */
   public createExperiment(
     args: CreateExperimentCommandInput,
@@ -1201,9 +1188,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a flow definition.</p>
-   *
+   * <p>Creates a flow definition.</p>
    */
   public createFlowDefinition(
     args: CreateFlowDefinitionCommandInput,
@@ -1238,9 +1223,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
-   *
+   * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
    */
   public createHumanTaskUi(
     args: CreateHumanTaskUiCommandInput,
@@ -1275,13 +1258,11 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version
+   * <p>Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version
    *             of a model by running many training jobs on your dataset using the algorithm you choose
    *             and values for hyperparameters within ranges that you specify. It then chooses the
    *             hyperparameter values that result in a model that performs the best, as measured by an
    *             objective metric that you choose.</p>
-   *
    */
   public createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
@@ -1316,8 +1297,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates a job that uses workers to label the data objects in your input dataset. You
+   * <p>Creates a job that uses workers to label the data objects in your input dataset. You
    *             can use the labeled data to train machine learning models.</p>
    *         <p>You can select your workforce from one of three providers:</p>
    *         <ul>
@@ -1346,7 +1326,6 @@ export class SageMaker extends SageMakerClient {
    *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data.html">Using Input and Output Data</a>.</p>
    *         <p>The output can be used as the manifest file for another labeling job or as training
    *             data for your machine learning models.</p>
-   *
    */
   public createLabelingJob(
     args: CreateLabelingJobCommandInput,
@@ -1381,8 +1360,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates a model in Amazon SageMaker. In the request, you name the model and describe a primary
+   * <p>Creates a model in Amazon SageMaker. In the request, you name the model and describe a primary
    *             container. For the primary container,
    *             you specify the docker image containing inference code, artifacts (from prior training),
    *             and custom environment map that the inference code uses when you deploy the model for
@@ -1403,8 +1381,6 @@ export class SageMaker extends SageMakerClient {
    *             transform jobs. In addition, you also use the IAM role to manage permissions the
    *             inference code needs. For example, if the inference code access any other AWS resources,
    *             you grant necessary permissions via this role.</p>
-   *
-   *
    */
   public createModel(
     args: CreateModelCommandInput,
@@ -1439,8 +1415,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS
+   * <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS
    *             Marketplace. Buyers can subscribe to model packages listed on AWS Marketplace to create
    *             models in Amazon SageMaker.</p>
    *         <p>To create a model package by specifying a Docker container that contains your
@@ -1448,7 +1423,6 @@ export class SageMaker extends SageMakerClient {
    *                 <code>InferenceSpecification</code>. To create a model from an algorithm resource
    *             that you created or subscribed to in AWS Marketplace, provide a value for
    *                 <code>SourceAlgorithmSpecification</code>.</p>
-   *
    */
   public createModelPackage(
     args: CreateModelPackageCommandInput,
@@ -1483,10 +1457,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
+   * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
    *          captured for an Amazon SageMaker Endoint.</p>
-   *
    */
   public createMonitoringSchedule(
     args: CreateMonitoringScheduleCommandInput,
@@ -1521,8 +1493,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML)
+   * <p>Creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML)
    *             compute instance running on a Jupyter notebook. </p>
    *         <p>In a <code>CreateNotebookInstance</code> request, specify the type of ML compute
    *             instance that you want to run. Amazon SageMaker launches the instance, installs common libraries
@@ -1559,7 +1530,6 @@ export class SageMaker extends SageMakerClient {
    *             can use for model training, train a model, host models by creating Amazon SageMaker endpoints, and
    *             validate hosted models. </p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
-   *
    */
   public createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
@@ -1594,8 +1564,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates a lifecycle configuration that you can associate with a notebook instance. A
+   * <p>Creates a lifecycle configuration that you can associate with a notebook instance. A
    *                 <i>lifecycle configuration</i> is a collection of shell scripts that
    *             run when you create or start a notebook instance.</p>
    *         <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
@@ -1609,7 +1578,6 @@ export class SageMaker extends SageMakerClient {
    *             started.</p>
    *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
    *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
-   *
    */
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
@@ -1656,14 +1624,12 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser, the user will be
+   * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser, the user will be
    *        automatically signed in to Amazon SageMaker Amazon SageMaker Studio (Studio), and granted access to all of the Apps and files associated with that
    *        Amazon Elastic File System (EFS).
    *
    *        This operation can only be called when AuthMode equals IAM.
    *    </p>
-   *
    */
   public createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
@@ -1698,8 +1664,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
+   * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
    *             instance. In the Amazon SageMaker console, when you choose <code>Open</code> next to a notebook
    *             instance, Amazon SageMaker opens a new tab showing the Jupyter server home page from the notebook
    *             instance. The console uses this API to get the URL and show the page.</p>
@@ -1708,14 +1673,12 @@ export class SageMaker extends SageMakerClient {
    *             restrict access to this API and to the URL that it returns to a list of IP addresses
    *             that you specify. Use the <code>NotIpAddress</code> condition operator and the
    *                 <code>aws:SourceIP</code> condition context key to specify the list of IP addresses
-   *             that you want to have access to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter">Limit Access to a
-   *                 Notebook Instance by IP Address</a>.</p>
+   *             that you want to have access to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter">Limit Access to a Notebook Instance by IP Address</a>.</p>
    *         <note>
    *             <p>The URL that you get from a call to  is valid only for 5 minutes.
    *                 If you try to use the URL after the 5-minute limit expires, you are directed to the
    *                 AWS console sign-in page.</p>
    *         </note>
-   *
    */
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
@@ -1762,9 +1725,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates a processing job.</p>
-   *
+   * <p>Creates a processing job.</p>
    */
   public createProcessingJob(
     args: CreateProcessingJobCommandInput,
@@ -1799,8 +1760,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting
+   * <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting
    *             model artifacts to an Amazon S3 location that you specify. </p>
    *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the
    *             resulting model artifacts as part of the model. You can also use the artifacts in a
@@ -1843,10 +1803,10 @@ export class SageMaker extends SageMakerClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>EnableManagedSpotTraining</code> - Optimize the cost of training machine learning
-   *                     models by up to 80% by using Amazon EC2 Spot instances. For more information, see
-   *                     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed Spot Training</a>.
-   *                 </p>
+   *                   <code>EnableManagedSpotTraining</code> - Optimize the cost of training machine
+   *                     learning models by up to 80% by using Amazon EC2 Spot instances. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed Spot
+   *                         Training</a>. </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1858,14 +1818,13 @@ export class SageMaker extends SageMakerClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>StoppingCondition</code> - To help cap training costs, use <code>MaxRuntimeInSeconds</code>
-   *                     to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code>
-   *                     to specify how long you are willing to wait for a managed spot training job to complete.
-   *                     </p>
+   *                   <code>StoppingCondition</code> - To help cap training costs, use
+   *                         <code>MaxRuntimeInSeconds</code> to set a time limit for training. Use
+   *                         <code>MaxWaitTimeInSeconds</code> to specify how long you are willing to
+   *                     wait for a managed spot training job to complete. </p>
    *             </li>
    *          </ul>
    *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
-   *
    */
   public createTrainingJob(
     args: CreateTrainingJobCommandInput,
@@ -1900,8 +1859,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Starts a transform job. A transform job uses a trained model to get inferences on a
+   * <p>Starts a transform job. A transform job uses a trained model to get inferences on a
    *             dataset and saves these results to an Amazon S3 location that you specify.</p>
    *         <p>To perform batch transformations, you create a transform job and use the data that you
    *             have readily available.</p>
@@ -1934,9 +1892,8 @@ export class SageMaker extends SageMakerClient {
    *                     transform job.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about how batch transformation works, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch Transform</a>.</p>
-   *
+   *         <p>For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
+   *                 Transform</a>.</p>
    */
   public createTransformJob(
     args: CreateTransformJobCommandInput,
@@ -1971,9 +1928,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates an Amazon SageMaker <i>trial</i>. A trial is a set of steps called
+   * <p>Creates an Amazon SageMaker <i>trial</i>. A trial is a set of steps called
    *       <i>trial components</i> that produce a machine learning
    *       model. A trial is part of a single Amazon SageMaker <i>experiment</i>.</p>
    *          <p>When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK, all experiments, trials, and trial
@@ -1985,7 +1940,6 @@ export class SageMaker extends SageMakerClient {
    *       To view a trial's properties, call the <a>DescribeTrial</a> API.
    *       To create a trial component, call the
    *       <a>CreateTrialComponent</a> API.</p>
-   *
    */
   public createTrial(
     args: CreateTrialCommandInput,
@@ -2020,8 +1974,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a <i>trial component</i>, which is a stage of a machine learning
+   * <p>Creates a <i>trial component</i>, which is a stage of a machine learning
    *       <i>trial</i>. A trial is composed of one or more trial components. A trial
    *       component can be used in multiple trials.</p>
    *          <p>Trial components include pre-processing jobs, training jobs, and batch
@@ -2032,15 +1985,12 @@ export class SageMaker extends SageMakerClient {
    *          <p>You can add tags to a trial component and then use the <a>Search</a> API to search
    *       for the tags.</p>
    *          <note>
-   *             <p>You can create a trial component through a direct call to the
-   *         <code>CreateTrialComponent</code> API. However, you can't specify the <code>Source</code>
-   *         property of the component in the request, therefore, the component isn't associated with
-   *         an Amazon SageMaker job. You must
-   *         use Amazon SageMaker Studio, the Amazon SageMaker Python SDK, or the AWS SDK for Python (Boto) to create the component with a
-   *         valid <code>Source</code> property.</p>
+   *             <p>
+   *                <code>CreateTrialComponent</code> can only be invoked from within an Amazon SageMaker managed
+   *         environment. This includes Amazon SageMaker training jobs, processing jobs, transform jobs, and
+   *         Amazon SageMaker notebooks. A call to <code>CreateTrialComponent</code> from outside one of these
+   *         environments results in an error.</p>
    *          </note>
-   *
-   *
    */
   public createTrialComponent(
     args: CreateTrialComponentCommandInput,
@@ -2075,13 +2025,11 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Creates a new user profile.
+   * <p>Creates a new user profile.
    *      A user profile represents a single user within a Domain, and is the main way to reference a "person" for the purposes of sharing, reporting and other user-oriented features.
    *      This entity is created during on-boarding. If an administrator invites a person by email or imports them from SSO, a new UserProfile is automatically created.
    *      This entity is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
    *    </p>
-   *
    */
   public createUserProfile(
     args: CreateUserProfileCommandInput,
@@ -2116,13 +2064,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Creates a new work team for labeling your data. A work team is defined by one or more
+   * <p>Creates a new work team for labeling your data. A work team is defined by one or more
    *             Amazon Cognito user pools. You must first create the user pools before you can create a work
    *             team.</p>
    *         <p>You cannot create more than 25 work teams in an account and region.</p>
-   *
-   *
    */
   public createWorkteam(
     args: CreateWorkteamCommandInput,
@@ -2157,9 +2102,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Removes the specified algorithm from your account.</p>
-   *
+   * <p>Removes the specified algorithm from your account.</p>
    */
   public deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
@@ -2194,9 +2137,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Used to stop and delete an app.</p>
-   *
+   * <p>Used to stop and delete an app.</p>
    */
   public deleteApp(
     args: DeleteAppCommandInput,
@@ -2231,9 +2172,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified Git repository from your account.</p>
-   *
+   * <p>Deletes the specified Git repository from your account.</p>
    */
   public deleteCodeRepository(
     args: DeleteCodeRepositoryCommandInput,
@@ -2268,12 +2207,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Used to delete a domain.
+   * <p>Used to delete a domain.
    *      If you on-boarded with IAM mode, you will need to delete your domain to on-board again using SSO.
    *      Use with caution. All of the members of the domain will lose access to their EFS volume, including data, notebooks, and other artifacts.
    *    </p>
-   *
    */
   public deleteDomain(
     args: DeleteDomainCommandInput,
@@ -2308,12 +2245,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes an endpoint. Amazon SageMaker frees up all of the resources that were deployed when the
+   * <p>Deletes an endpoint. Amazon SageMaker frees up all of the resources that were deployed when the
    *             endpoint was created. </p>
    *         <p>Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
    *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
-   *
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -2348,11 +2283,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API
+   * <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API
    *             deletes only the specified configuration. It does not delete endpoints created using the
    *             configuration. </p>
-   *
    */
   public deleteEndpointConfig(
     args: DeleteEndpointConfigCommandInput,
@@ -2387,11 +2320,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes an Amazon SageMaker experiment. All trials associated with the experiment must be
+   * <p>Deletes an Amazon SageMaker experiment. All trials associated with the experiment must be
    *       deleted first. Use the <a>ListTrials</a> API to get a list of the
    *       trials associated with the experiment.</p>
-   *
    */
   public deleteExperiment(
     args: DeleteExperimentCommandInput,
@@ -2426,9 +2357,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified flow definition.</p>
-   *
+   * <p>Deletes the specified flow definition.</p>
    */
   public deleteFlowDefinition(
     args: DeleteFlowDefinitionCommandInput,
@@ -2463,12 +2392,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
+   * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
    *             was created in Amazon SageMaker when you called the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html">CreateModel</a> API. It does not
    *             delete model artifacts, inference code, or the IAM role that you specified when
    *             creating the model. </p>
-   *
    */
   public deleteModel(
     args: DeleteModelCommandInput,
@@ -2503,11 +2430,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes a model package.</p>
+   * <p>Deletes a model package.</p>
    *         <p>A model package is used to create Amazon SageMaker models or list on AWS Marketplace. Buyers can
    *             subscribe to model packages listed on AWS Marketplace to create models in Amazon SageMaker.</p>
-   *
    */
   public deleteModelPackage(
     args: DeleteModelPackageCommandInput,
@@ -2542,10 +2467,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
+   * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
    *          This does not delete the job execution history of the monitoring schedule. </p>
-   *
    */
   public deleteMonitoringSchedule(
     args: DeleteMonitoringScheduleCommandInput,
@@ -2580,15 +2503,13 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p> Deletes an Amazon SageMaker notebook instance. Before you can delete a notebook instance, you
+   * <p> Deletes an Amazon SageMaker notebook instance. Before you can delete a notebook instance, you
    *             must call the <code>StopNotebookInstance</code> API. </p>
    *         <important>
    *             <p>When you delete a notebook instance, you lose all of your data. Amazon SageMaker removes
    *                 the ML compute instance, and deletes the ML storage volume and the network interface
    *                 associated with the notebook instance. </p>
    *         </important>
-   *
    */
   public deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
@@ -2623,9 +2544,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes a notebook instance lifecycle configuration.</p>
-   *
+   * <p>Deletes a notebook instance lifecycle configuration.</p>
    */
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
@@ -2672,15 +2591,13 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified tags from an Amazon SageMaker resource.</p>
+   * <p>Deletes the specified tags from an Amazon SageMaker resource.</p>
    *         <p>To list a resource's tags, use the <code>ListTags</code> API. </p>
    *         <note>
    *             <p>When you call this API to delete tags from a hyperparameter tuning job, the
    *                 deleted tags are not removed from training jobs that the hyperparameter tuning job
    *                 launched before you called this API.</p>
    *         </note>
-   *
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -2715,11 +2632,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified trial. All trial components that make up the trial must be
+   * <p>Deletes the specified trial. All trial components that make up the trial must be
    *       deleted first. Use the <a>DescribeTrialComponent</a> API to get the list
    *       of trial components.</p>
-   *
    */
   public deleteTrial(
     args: DeleteTrialCommandInput,
@@ -2754,11 +2669,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified trial component. A trial component must be disassociated from all
+   * <p>Deletes the specified trial component. A trial component must be disassociated from all
    *       trials before the trial component can be deleted. To disassociate a trial component from a
    *       trial, call the <a>DisassociateTrialComponent</a> API.</p>
-   *
    */
   public deleteTrialComponent(
     args: DeleteTrialComponentCommandInput,
@@ -2793,9 +2706,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Deletes a user profile.</p>
-   *
+   * <p>Deletes a user profile.</p>
    */
   public deleteUserProfile(
     args: DeleteUserProfileCommandInput,
@@ -2830,9 +2741,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deletes an existing work team. This operation can't be undone.</p>
-   *
+   * <p>Deletes an existing work team. This operation can't be undone.</p>
    */
   public deleteWorkteam(
     args: DeleteWorkteamCommandInput,
@@ -2867,9 +2776,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns a description of the specified algorithm that is in your account.</p>
-   *
+   * <p>Returns a description of the specified algorithm that is in your account.</p>
    */
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
@@ -2904,9 +2811,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes the app.</p>
-   *
+   * <p>Describes the app.</p>
    */
   public describeApp(
     args: DescribeAppCommandInput,
@@ -2941,9 +2846,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns information about an Amazon SageMaker job.</p>
-   *
+   * <p>Returns information about an Amazon SageMaker job.</p>
    */
   public describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
@@ -2978,9 +2881,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets details about the specified Git repository.</p>
-   *
+   * <p>Gets details about the specified Git repository.</p>
    */
   public describeCodeRepository(
     args: DescribeCodeRepositoryCommandInput,
@@ -3015,11 +2916,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns information about a model compilation job.</p>
+   * <p>Returns information about a model compilation job.</p>
    *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
    *             information about multiple model compilation jobs, use <a>ListCompilationJobs</a>.</p>
-   *
    */
   public describeCompilationJob(
     args: DescribeCompilationJobCommandInput,
@@ -3054,9 +2953,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>The desciption of the domain.</p>
-   *
+   * <p>The desciption of the domain.</p>
    */
   public describeDomain(
     args: DescribeDomainCommandInput,
@@ -3091,9 +2988,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns the description of an endpoint.</p>
-   *
+   * <p>Returns the description of an endpoint.</p>
    */
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -3128,10 +3023,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns the description of an endpoint configuration created using the
+   * <p>Returns the description of an endpoint configuration created using the
    *                 <code>CreateEndpointConfig</code> API.</p>
-   *
    */
   public describeEndpointConfig(
     args: DescribeEndpointConfigCommandInput,
@@ -3166,9 +3059,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Provides a list of an experiment's properties.</p>
-   *
+   * <p>Provides a list of an experiment's properties.</p>
    */
   public describeExperiment(
     args: DescribeExperimentCommandInput,
@@ -3203,9 +3094,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the specified flow definition.</p>
-   *
+   * <p>Returns information about the specified flow definition.</p>
    */
   public describeFlowDefinition(
     args: DescribeFlowDefinitionCommandInput,
@@ -3240,9 +3129,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the requested human task user interface.</p>
-   *
+   * <p>Returns information about the requested human task user interface.</p>
    */
   public describeHumanTaskUi(
     args: DescribeHumanTaskUiCommandInput,
@@ -3277,10 +3164,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets
+   * <p>Gets
    *             a description of a hyperparameter tuning job.</p>
-   *
    */
   public describeHyperParameterTuningJob(
     args: DescribeHyperParameterTuningJobCommandInput,
@@ -3318,9 +3203,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a labeling job.</p>
-   *
+   * <p>Gets information about a labeling job.</p>
    */
   public describeLabelingJob(
     args: DescribeLabelingJobCommandInput,
@@ -3355,10 +3238,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Describes a model that you created using the <code>CreateModel</code>
+   * <p>Describes a model that you created using the <code>CreateModel</code>
    *             API.</p>
-   *
    */
   public describeModel(
     args: DescribeModelCommandInput,
@@ -3393,12 +3274,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns a description of the specified model package, which is used to create Amazon SageMaker
+   * <p>Returns a description of the specified model package, which is used to create Amazon SageMaker
    *             models or list them on AWS Marketplace.</p>
    *         <p>To create models in Amazon SageMaker, buyers can subscribe to model packages listed on AWS
    *             Marketplace.</p>
-   *
    */
   public describeModelPackage(
     args: DescribeModelPackageCommandInput,
@@ -3433,9 +3312,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes the schedule for a monitoring job.</p>
-   *
+   * <p>Describes the schedule for a monitoring job.</p>
    */
   public describeMonitoringSchedule(
     args: DescribeMonitoringScheduleCommandInput,
@@ -3470,9 +3347,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns information about a notebook instance.</p>
-   *
+   * <p>Returns information about a notebook instance.</p>
    */
   public describeNotebookInstance(
     args: DescribeNotebookInstanceCommandInput,
@@ -3507,11 +3382,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns a description of a notebook instance lifecycle configuration.</p>
+   * <p>Returns a description of a notebook instance lifecycle configuration.</p>
    *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
    *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
-   *
    */
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
@@ -3558,9 +3431,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns a description of a processing job.</p>
-   *
+   * <p>Returns a description of a processing job.</p>
    */
   public describeProcessingJob(
     args: DescribeProcessingJobCommandInput,
@@ -3595,10 +3466,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a work team provided by a vendor. It returns details about the
+   * <p>Gets information about a work team provided by a vendor. It returns details about the
    *             subscription with a vendor in the AWS Marketplace.</p>
-   *
    */
   public describeSubscribedWorkteam(
     args: DescribeSubscribedWorkteamCommandInput,
@@ -3633,9 +3502,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns information about a training job.</p>
-   *
+   * <p>Returns information about a training job.</p>
    */
   public describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
@@ -3670,9 +3537,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns information about a transform job.</p>
-   *
+   * <p>Returns information about a transform job.</p>
    */
   public describeTransformJob(
     args: DescribeTransformJobCommandInput,
@@ -3707,9 +3572,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Provides a list of a trial's properties.</p>
-   *
+   * <p>Provides a list of a trial's properties.</p>
    */
   public describeTrial(
     args: DescribeTrialCommandInput,
@@ -3744,9 +3607,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Provides a list of a trials component's properties.</p>
-   *
+   * <p>Provides a list of a trials component's properties.</p>
    */
   public describeTrialComponent(
     args: DescribeTrialComponentCommandInput,
@@ -3781,9 +3642,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Describes the user profile.</p>
-   *
+   * <p>Describes the user profile.</p>
    */
   public describeUserProfile(
     args: DescribeUserProfileCommandInput,
@@ -3818,11 +3677,49 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a specific work team. You can see information such as the
+   * <p>Lists private workforce information, including workforce name, Amazon Resource Name
+   *             (ARN), and, if applicable, allowed IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Allowable IP address
+   *             ranges are the IP addresses that workers can use to access tasks. </p>
+   *         <important>
+   *             <p>This operation applies only to private workforces.</p>
+   *         </important>
+   */
+  public describeWorkforce(
+    args: DescribeWorkforceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkforceCommandOutput>;
+  public describeWorkforce(
+    args: DescribeWorkforceCommandInput,
+    cb: (err: any, data?: DescribeWorkforceCommandOutput) => void
+  ): void;
+  public describeWorkforce(
+    args: DescribeWorkforceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkforceCommandOutput) => void
+  ): void;
+  public describeWorkforce(
+    args: DescribeWorkforceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeWorkforceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorkforceCommandOutput) => void
+  ): Promise<DescribeWorkforceCommandOutput> | void {
+    const command = new DescribeWorkforceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a specific work team. You can see information such as the
    *             create date, the last updated date, membership information, and the work team's Amazon
    *             Resource Name (ARN).</p>
-   *
    */
   public describeWorkteam(
     args: DescribeWorkteamCommandInput,
@@ -3857,12 +3754,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Disassociates a trial component from a trial. This doesn't effect other trials the
+   * <p>Disassociates a trial component from a trial. This doesn't effect other trials the
    *       component is associated with. Before you can delete a component, you must disassociate the
    *       component from all trials it is associated with. To associate a trial component with a trial,
    *       call the <a>AssociateTrialComponent</a> API.</p>
-   *
    */
   public disassociateTrialComponent(
     args: DisassociateTrialComponentCommandInput,
@@ -3897,12 +3792,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>An auto-complete API for the search functionality in the Amazon SageMaker console. It returns
-   *             suggestions of possible matches for the property name to use in <code>Search</code>
-   *             queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
-   *                 <code>Metrics</code>.</p>
-   *
+   * <p>An auto-complete API for the search functionality in the Amazon SageMaker console. It returns
+   *       suggestions of possible matches for the property name to use in <code>Search</code>
+   *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
+   *       <code>Metrics</code>.</p>
    */
   public getSearchSuggestions(
     args: GetSearchSuggestionsCommandInput,
@@ -3937,9 +3830,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists the machine learning algorithms that have been created.</p>
-   *
+   * <p>Lists the machine learning algorithms that have been created.</p>
    */
   public listAlgorithms(
     args: ListAlgorithmsCommandInput,
@@ -3974,9 +3865,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Lists apps.</p>
-   *
+   * <p>Lists apps.</p>
    */
   public listApps(
     args: ListAppsCommandInput,
@@ -4011,9 +3900,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Request a list of jobs.</p>
-   *
+   * <p>Request a list of jobs.</p>
    */
   public listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
@@ -4048,9 +3935,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>List the Candidates created for the job.</p>
-   *
+   * <p>List the Candidates created for the job.</p>
    */
   public listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
@@ -4085,9 +3970,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of the Git repositories in your account.</p>
-   *
+   * <p>Gets a list of the Git repositories in your account.</p>
    */
   public listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
@@ -4122,11 +4005,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists model compilation jobs that satisfy various filters.</p>
+   * <p>Lists model compilation jobs that satisfy various filters.</p>
    *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
    *             information about a particular model compilation job you have created, use <a>DescribeCompilationJob</a>.</p>
-   *
    */
   public listCompilationJobs(
     args: ListCompilationJobsCommandInput,
@@ -4161,9 +4042,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Lists the domains.</p>
-   *
+   * <p>Lists the domains.</p>
    */
   public listDomains(
     args: ListDomainsCommandInput,
@@ -4198,9 +4077,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists endpoint configurations.</p>
-   *
+   * <p>Lists endpoint configurations.</p>
    */
   public listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
@@ -4235,9 +4112,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists endpoints.</p>
-   *
+   * <p>Lists endpoints.</p>
    */
   public listEndpoints(
     args: ListEndpointsCommandInput,
@@ -4272,11 +4147,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Lists all the experiments in your account. The list can be filtered to show only
+   * <p>Lists all the experiments in your account. The list can be filtered to show only
    *       experiments that were created in a specific time range. The list can be sorted by experiment
    *       name or creation time.</p>
-   *
    */
   public listExperiments(
     args: ListExperimentsCommandInput,
@@ -4311,9 +4184,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the flow definitions in your account.</p>
-   *
+   * <p>Returns information about the flow definitions in your account.</p>
    */
   public listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
@@ -4348,9 +4219,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the human task user interfaces in your account.</p>
-   *
+   * <p>Returns information about the human task user interfaces in your account.</p>
    */
   public listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
@@ -4385,11 +4254,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of <a>HyperParameterTuningJobSummary</a> objects that
+   * <p>Gets a list of <a>HyperParameterTuningJobSummary</a> objects that
    *             describe
    *             the hyperparameter tuning jobs launched in your account.</p>
-   *
    */
   public listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
@@ -4424,9 +4291,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of labeling jobs.</p>
-   *
+   * <p>Gets a list of labeling jobs.</p>
    */
   public listLabelingJobs(
     args: ListLabelingJobsCommandInput,
@@ -4461,9 +4326,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of labeling jobs assigned to a specified work team.</p>
-   *
+   * <p>Gets a list of labeling jobs assigned to a specified work team.</p>
    */
   public listLabelingJobsForWorkteam(
     args: ListLabelingJobsForWorkteamCommandInput,
@@ -4498,9 +4361,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists the model packages that have been created.</p>
-   *
+   * <p>Lists the model packages that have been created.</p>
    */
   public listModelPackages(
     args: ListModelPackagesCommandInput,
@@ -4535,9 +4396,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists models created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html">CreateModel</a> API.</p>
-   *
+   * <p>Lists models created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html">CreateModel</a> API.</p>
    */
   public listModels(
     args: ListModelsCommandInput,
@@ -4572,9 +4431,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns list of all monitoring job executions.</p>
-   *
+   * <p>Returns list of all monitoring job executions.</p>
    */
   public listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
@@ -4609,9 +4466,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Returns list of all monitoring schedules.</p>
-   *
+   * <p>Returns list of all monitoring schedules.</p>
    */
   public listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
@@ -4646,9 +4501,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists notebook instance lifestyle configurations created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
-   *
+   * <p>Lists notebook instance lifestyle configurations created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
    */
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
@@ -4695,10 +4548,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of the Amazon SageMaker notebook instances in the requester's account in an AWS
+   * <p>Returns a list of the Amazon SageMaker notebook instances in the requester's account in an AWS
    *             Region. </p>
-   *
    */
   public listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
@@ -4733,9 +4584,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists processing jobs that satisfy various filters.</p>
-   *
+   * <p>Lists processing jobs that satisfy various filters.</p>
    */
   public listProcessingJobs(
     args: ListProcessingJobsCommandInput,
@@ -4770,11 +4619,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of the work teams that you are subscribed to in the AWS Marketplace. The
+   * <p>Gets a list of the work teams that you are subscribed to in the AWS Marketplace. The
    *             list may be empty if no work team satisfies the filter specified in the
    *                 <code>NameContains</code> parameter.</p>
-   *
    */
   public listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
@@ -4809,9 +4656,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Returns the tags for the specified Amazon SageMaker resource.</p>
-   *
+   * <p>Returns the tags for the specified Amazon SageMaker resource.</p>
    */
   public listTags(
     args: ListTagsCommandInput,
@@ -4846,9 +4691,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists training jobs.</p>
-   *
+   * <p>Lists training jobs.</p>
    */
   public listTrainingJobs(
     args: ListTrainingJobsCommandInput,
@@ -4883,10 +4726,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
+   * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
    *             jobs that a hyperparameter tuning job launched.</p>
-   *
    */
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
@@ -4933,9 +4774,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Lists transform jobs.</p>
-   *
+   * <p>Lists transform jobs.</p>
    */
   public listTransformJobs(
     args: ListTransformJobsCommandInput,
@@ -4970,11 +4809,26 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Lists the trial components in your account. You can filter the list to show only components
-   *       that were created in a specific time range. You can sort the list by trial component name
-   *       or creation time.</p>
-   *
+   * <p>Lists the trial components in your account. You can sort the list by trial component
+   *       name or creation time. You can filter the list to show only components that were created in
+   *       a specific time range. You can also filter on one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ExperimentName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SourceArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TrialName</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public listTrialComponents(
     args: ListTrialComponentsCommandInput,
@@ -5009,12 +4863,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Lists the trials in your account. Specify an experiment name to limit the list to the
+   * <p>Lists the trials in your account. Specify an experiment name to limit the list to the
    *       trials that are part of that experiment. The list can be filtered to show only trials
    *       that were created in a specific time range. The list can be sorted by trial name or creation
    *       time.</p>
-   *
    */
   public listTrials(
     args: ListTrialsCommandInput,
@@ -5049,9 +4901,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Lists user profiles.</p>
-   *
+   * <p>Lists user profiles.</p>
    */
   public listUserProfiles(
     args: ListUserProfilesCommandInput,
@@ -5086,11 +4936,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Gets a list of work teams that you have defined in a region. The list may be empty if
+   * <p>Gets a list of work teams that you have defined in a region. The list may be empty if
    *             no work team satisfies the filter specified in the <code>NameContains</code>
    *             parameter.</p>
-   *
    */
   public listWorkteams(
     args: ListWorkteamsCommandInput,
@@ -5125,9 +4973,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Renders the UI template so that you can preview the worker's experience. </p>
-   *
+   * <p>Renders the UI template so that you can preview the worker's experience. </p>
    */
   public renderUiTemplate(
     args: RenderUiTemplateCommandInput,
@@ -5162,13 +5008,11 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Finds Amazon SageMaker resources that match a search query. Matching resource objects are returned
-   *             as a list of <code>SearchResult</code> objects in the response. You can sort the search
-   *             results by any resource property in a ascending or descending order.</p>
-   *         <p>You can query against the following value types: numerical, text, Booleans, and
-   *             timestamps.</p>
-   *
+   * <p>Finds Amazon SageMaker resources that match a search query. Matching resource objects are returned
+   *       as a list of <code>SearchResult</code> objects in the response. You can sort the search
+   *       results by any resource property in a ascending or descending order.</p>
+   *          <p>You can query against the following value types: numeric, text, Boolean, and
+   *       timestamp.</p>
    */
   public search(
     args: SearchCommandInput,
@@ -5203,12 +5047,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Starts a previously stopped monitoring schedule.</p>
+   * <p>Starts a previously stopped monitoring schedule.</p>
    *          <note>
    *             <p>New monitoring schedules are immediately started after creation.</p>
    *          </note>
-   *
    */
   public startMonitoringSchedule(
     args: StartMonitoringScheduleCommandInput,
@@ -5243,12 +5085,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Launches an ML compute instance with the latest version of the libraries and
+   * <p>Launches an ML compute instance with the latest version of the libraries and
    *             attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the
    *             notebook instance status to <code>InService</code>. A notebook instance's status must be
    *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
-   *
    */
   public startNotebookInstance(
     args: StartNotebookInstanceCommandInput,
@@ -5283,9 +5123,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>A method for forcing the termination of a running job.</p>
-   *
+   * <p>A method for forcing the termination of a running job.</p>
    */
   public stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
@@ -5320,14 +5158,12 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Stops a model compilation job.</p>
+   * <p>Stops a model compilation job.</p>
    *         <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
    *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
    *         <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to
    *                 <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
    *         </p>
-   *
    */
   public stopCompilationJob(
     args: StopCompilationJobCommandInput,
@@ -5362,15 +5198,13 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Stops a running hyperparameter tuning job and all running training jobs that the
+   * <p>Stops a running hyperparameter tuning job and all running training jobs that the
    *             tuning job launched.</p>
    *         <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
    *             data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the
    *             tuning job moves to the <code>Stopped</code> state, it releases all
    *             reserved
    *             resources for the tuning job.</p>
-   *
    */
   public stopHyperParameterTuningJob(
     args: StopHyperParameterTuningJobCommandInput,
@@ -5405,10 +5239,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
+   * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
    *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
-   *
    */
   public stopLabelingJob(
     args: StopLabelingJobCommandInput,
@@ -5443,9 +5275,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Stops a previously started monitoring schedule.</p>
-   *
+   * <p>Stops a previously started monitoring schedule.</p>
    */
   public stopMonitoringSchedule(
     args: StopMonitoringScheduleCommandInput,
@@ -5480,8 +5310,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker
+   * <p>Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker
    *             disconnects the ML storage volume from it. Amazon SageMaker preserves the ML storage volume. Amazon SageMaker
    *             stops charging you for the ML compute instance when you call
    *                 <code>StopNotebookInstance</code>.</p>
@@ -5490,7 +5319,6 @@ export class SageMaker extends SageMakerClient {
    *                 <code>StartNotebookInstance</code> launches another ML compute instance, configures
    *             it, and attaches the preserved ML storage volume so you can continue your work.
    *         </p>
-   *
    */
   public stopNotebookInstance(
     args: StopNotebookInstanceCommandInput,
@@ -5525,9 +5353,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Stops a processing job.</p>
-   *
+   * <p>Stops a processing job.</p>
    */
   public stopProcessingJob(
     args: StopProcessingJobCommandInput,
@@ -5562,15 +5388,13 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the
+   * <p>Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the
    *                 <code>SIGTERM</code> signal, which delays job termination for 120 seconds.
    *             Algorithms might use this 120-second window to save the model artifacts, so the results
    *             of the training is not lost. </p>
    *         <p>When it receives a <code>StopTrainingJob</code> request, Amazon SageMaker changes the status of
    *             the job to <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the status to
    *                 <code>Stopped</code>.</p>
-   *
    */
   public stopTrainingJob(
     args: StopTrainingJobCommandInput,
@@ -5605,14 +5429,12 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Stops a transform job.</p>
+   * <p>Stops a transform job.</p>
    *         <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
    *             changes to <code>Stopping</code>. After Amazon SageMaker
    *             stops
    *             the job, the status is set to <code>Stopped</code>. When you stop a transform job before
    *             it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
-   *
    */
   public stopTransformJob(
     args: StopTransformJobCommandInput,
@@ -5647,9 +5469,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified Git repository with the specified values.</p>
-   *
+   * <p>Updates the specified Git repository with the specified values.</p>
    */
   public updateCodeRepository(
     args: UpdateCodeRepositoryCommandInput,
@@ -5684,9 +5504,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Updates a domain. Changes will impact all of the people in the domain.</p>
-   *
+   * <p>Updates a domain. Changes will impact all of the people in the domain.</p>
    */
   public updateDomain(
     args: UpdateDomainCommandInput,
@@ -5721,8 +5539,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
+   * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
    *             using newly created endpoint, and then deletes resources provisioned for the endpoint
    *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
    *         <p>When Amazon SageMaker receives the request, it sets the endpoint status to
@@ -5736,7 +5553,6 @@ export class SageMaker extends SageMakerClient {
    *                 operations are being performed on the endpoint. To update an endpoint, you must
    *                 create a new <code>EndpointConfig</code>.</p>
    *         </note>
-   *
    */
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
@@ -5771,14 +5587,12 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Updates variant weight of one or more variants associated with an existing
+   * <p>Updates variant weight of one or more variants associated with an existing
    *             endpoint, or capacity of one variant associated with an existing endpoint. When it
    *             receives the request, Amazon SageMaker sets the endpoint status to <code>Updating</code>. After
    *             updating the endpoint, it sets the status to <code>InService</code>. To check the status
    *             of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a> API.
    *         </p>
-   *
    */
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
@@ -5825,10 +5639,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Adds, updates, or removes the description of an experiment. Updates the
+   * <p>Adds, updates, or removes the description of an experiment. Updates the
    *      display name of an experiment.</p>
-   *
    */
   public updateExperiment(
     args: UpdateExperimentCommandInput,
@@ -5863,9 +5675,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Updates a previously created schedule.</p>
-   *
+   * <p>Updates a previously created schedule.</p>
    */
   public updateMonitoringSchedule(
     args: UpdateMonitoringScheduleCommandInput,
@@ -5900,11 +5710,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Updates a notebook instance. NotebookInstance updates include upgrading or
+   * <p>Updates a notebook instance. NotebookInstance updates include upgrading or
    *             downgrading the ML compute instance used for your notebook instance to accommodate
    *             changes in your workload requirements.</p>
-   *
    */
   public updateNotebookInstance(
     args: UpdateNotebookInstanceCommandInput,
@@ -5939,9 +5747,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Updates a notebook instance lifecycle configuration created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
-   *
+   * <p>Updates a notebook instance lifecycle configuration created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
    */
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
@@ -5988,9 +5794,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Updates the display name of a trial.</p>
-   *
+   * <p>Updates the display name of a trial.</p>
    */
   public updateTrial(
     args: UpdateTrialCommandInput,
@@ -6025,10 +5829,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Updates one or more properties of a trial component.</p>
-   *
-   *
+   * <p>Updates one or more properties of a trial component.</p>
    */
   public updateTrialComponent(
     args: UpdateTrialComponentCommandInput,
@@ -6063,9 +5864,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *          <p>Updates a user profile.</p>
-   *
+   * <p>Updates a user profile.</p>
    */
   public updateUserProfile(
     args: UpdateUserProfileCommandInput,
@@ -6100,9 +5899,53 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   *
-   *         <p>Updates an existing work team with new member definitions or description.</p>
-   *
+   * <p>Restricts access to tasks assigned to workers in the specified workforce to those
+   *             within specific ranges of IP addresses. You specify allowed IP addresses by creating a
+   *             list of up to four <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.</p>
+   *         <p>By default, a workforce isn't restricted to specific IP addresses. If you specify a
+   *             range of IP addresses, workers who attempt to access tasks using any IP address outside
+   *             the specified range are denied access and get a <code>Not Found</code> error message on
+   *             the worker portal. After restricting access with this operation, you can see the allowed
+   *             IP values for a private workforce with the
+   *             operation.</p>
+   *         <important>
+   *             <p>This operation applies only to private workforces.</p>
+   *         </important>
+   */
+  public updateWorkforce(
+    args: UpdateWorkforceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkforceCommandOutput>;
+  public updateWorkforce(
+    args: UpdateWorkforceCommandInput,
+    cb: (err: any, data?: UpdateWorkforceCommandOutput) => void
+  ): void;
+  public updateWorkforce(
+    args: UpdateWorkforceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkforceCommandOutput) => void
+  ): void;
+  public updateWorkforce(
+    args: UpdateWorkforceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateWorkforceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateWorkforceCommandOutput) => void
+  ): Promise<UpdateWorkforceCommandOutput> | void {
+    const command = new UpdateWorkforceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing work team with new member definitions or description.</p>
    */
   public updateWorkteam(
     args: UpdateWorkteamCommandInput,

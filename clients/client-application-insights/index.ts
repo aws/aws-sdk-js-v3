@@ -16,6 +16,7 @@ export * from "./commands/DescribeProblemCommand";
 export * from "./commands/DescribeProblemObservationsCommand";
 export * from "./commands/ListApplicationsCommand";
 export * from "./commands/ListComponentsCommand";
+export * from "./commands/ListConfigurationHistoryCommand";
 export * from "./commands/ListLogPatternSetsCommand";
 export * from "./commands/ListLogPatternsCommand";
 export * from "./commands/ListProblemsCommand";

@@ -12,22 +12,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export class PersonalizeRuntime extends PersonalizeRuntimeClient {
   /**
-   *
-   *          <p>Re-ranks a list of recommended items for the given user.
-   *       The first item in the list is deemed the most likely item to be
-   *       of interest to the user.</p>
+   * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
+   *       deemed the most likely item to be of interest to the user.</p>
    *          <note>
-   *             <p>The solution backing the campaign must have been created using
-   *         a recipe of type PERSONALIZED_RANKING.</p>
+   *             <p>The solution backing the campaign must have been created using a recipe of type
+   *         PERSONALIZED_RANKING.</p>
    *          </note>
-   *
-   *
    */
   public getPersonalizedRanking(
     args: GetPersonalizedRankingCommandInput,
@@ -62,10 +56,8 @@ export class PersonalizeRuntime extends PersonalizeRuntimeClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of recommended items.
-   *       The required input depends on the recipe type used to create the solution backing the
-   *       campaign, as follows:</p>
+   * <p>Returns a list of recommended items. The required input depends on the recipe type used to
+   *       create the solution backing the campaign, as follows:</p>
    *          <ul>
    *             <li>
    *                <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p>
@@ -79,7 +71,6 @@ export class PersonalizeRuntime extends PersonalizeRuntimeClient {
    *             <p>Campaigns that are backed by a solution created using a recipe of type
    *         PERSONALIZED_RANKING use the  API.</p>
    *          </note>
-   *
    */
   public getRecommendations(
     args: GetRecommendationsCommandInput,

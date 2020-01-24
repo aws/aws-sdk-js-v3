@@ -287,6 +287,10 @@ import {
   DescribeUserProfileCommandOutput
 } from "../commands/DescribeUserProfileCommand";
 import {
+  DescribeWorkforceCommandInput,
+  DescribeWorkforceCommandOutput
+} from "../commands/DescribeWorkforceCommand";
+import {
   DescribeWorkteamCommandInput,
   DescribeWorkteamCommandOutput
 } from "../commands/DescribeWorkteamCommand";
@@ -519,6 +523,10 @@ import {
   UpdateUserProfileCommandOutput
 } from "../commands/UpdateUserProfileCommand";
 import {
+  UpdateWorkforceCommandInput,
+  UpdateWorkforceCommandOutput
+} from "../commands/UpdateWorkforceCommand";
+import {
   UpdateWorkteamCommandInput,
   UpdateWorkteamCommandOutput
 } from "../commands/UpdateWorkteamCommand";
@@ -702,6 +710,8 @@ import {
   DescribeTrialResponse,
   DescribeUserProfileRequest,
   DescribeUserProfileResponse,
+  DescribeWorkforceRequest,
+  DescribeWorkforceResponse,
   DescribeWorkteamRequest,
   DescribeWorkteamResponse,
   DesiredWeightAndCapacity,
@@ -898,6 +908,7 @@ import {
   ShuffleConfig,
   SourceAlgorithm,
   SourceAlgorithmSpecification,
+  SourceIpConfig,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StopAutoMLJobRequest,
@@ -969,12 +980,15 @@ import {
   UpdateTrialResponse,
   UpdateUserProfileRequest,
   UpdateUserProfileResponse,
+  UpdateWorkforceRequest,
+  UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
   UserContext,
   UserProfileDetails,
   UserSettings,
   VpcConfig,
+  Workforce,
   Workteam
 } from "../models/index";
 import {
@@ -2490,6 +2504,27 @@ export async function serializeAws_json1_1DescribeUserProfileCommand(
   });
 }
 
+export async function serializeAws_json1_1DescribeWorkforceCommand(
+  input: DescribeWorkforceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "SageMaker.DescribeWorkforce";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkforceRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeWorkforce",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1DescribeWorkteamCommand(
   input: DescribeWorkteamCommandInput,
   context: __SerdeContext
@@ -3697,6 +3732,27 @@ export async function serializeAws_json1_1UpdateUserProfileCommand(
     protocol: "https",
     method: "POST",
     path: "/UpdateUserProfile",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1UpdateWorkforceCommand(
+  input: UpdateWorkforceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "SageMaker.UpdateWorkforce";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateWorkforceRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UpdateWorkforce",
     headers: headers,
     body: body
   });
@@ -4925,6 +4981,13 @@ async function deserializeAws_json1_1CreatePresignedDomainUrlCommandError(
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+      response = await deserializeAws_json1_1ResourceNotFoundResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -7702,6 +7765,53 @@ async function deserializeAws_json1_1DescribeUserProfileCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1DescribeWorkforceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkforceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeWorkforceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeWorkforceResponse(data, context);
+  const response: DescribeWorkforceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeWorkforceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeWorkforceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkforceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.sagemaker.api#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1DescribeWorkteamCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -9250,6 +9360,13 @@ async function deserializeAws_json1_1ListTrialComponentsCommandError(
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+      response = await deserializeAws_json1_1ResourceNotFoundResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -9297,6 +9414,13 @@ async function deserializeAws_json1_1ListTrialsCommandError(
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker.api#ResourceNotFound":
+      response = await deserializeAws_json1_1ResourceNotFoundResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -10720,6 +10844,53 @@ async function deserializeAws_json1_1UpdateUserProfileCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1UpdateWorkforceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkforceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateWorkforceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateWorkforceResponse(data, context);
+  const response: UpdateWorkforceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateWorkforceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UpdateWorkforceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkforceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.sagemaker.api#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1UpdateWorkteamCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -11323,6 +11494,13 @@ const serializeAws_json1_1CheckpointConfig = (
     bodyParams["S3Uri"] = input.S3Uri;
   }
   return bodyParams;
+};
+
+const serializeAws_json1_1Cidrs = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_json1_1CognitoMemberDefinition = (
@@ -13173,6 +13351,17 @@ const serializeAws_json1_1DescribeUserProfileRequest = (
   }
   if (input.UserProfileName !== undefined) {
     bodyParams["UserProfileName"] = input.UserProfileName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeWorkforceRequest = (
+  input: DescribeWorkforceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.WorkforceName !== undefined) {
+    bodyParams["WorkforceName"] = input.WorkforceName;
   }
   return bodyParams;
 };
@@ -15114,6 +15303,9 @@ const serializeAws_json1_1ListTrialComponentsRequest = (
       input.CreatedBefore.getTime() / 1000
     );
   }
+  if (input.ExperimentName !== undefined) {
+    bodyParams["ExperimentName"] = input.ExperimentName;
+  }
   if (input.MaxResults !== undefined) {
     bodyParams["MaxResults"] = input.MaxResults;
   }
@@ -15128,6 +15320,9 @@ const serializeAws_json1_1ListTrialComponentsRequest = (
   }
   if (input.SourceArn !== undefined) {
     bodyParams["SourceArn"] = input.SourceArn;
+  }
+  if (input.TrialName !== undefined) {
+    bodyParams["TrialName"] = input.TrialName;
   }
   return bodyParams;
 };
@@ -16370,6 +16565,17 @@ const serializeAws_json1_1SourceAlgorithmSpecification = (
   return bodyParams;
 };
 
+const serializeAws_json1_1SourceIpConfig = (
+  input: SourceIpConfig,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Cidrs !== undefined) {
+    bodyParams["Cidrs"] = serializeAws_json1_1Cidrs(input.Cidrs, context);
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1StartMonitoringScheduleRequest = (
   input: StartMonitoringScheduleRequest,
   context: __SerdeContext
@@ -17243,6 +17449,23 @@ const serializeAws_json1_1UpdateUserProfileRequest = (
       input.UserSettings,
       context
     );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1UpdateWorkforceRequest = (
+  input: UpdateWorkforceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.SourceIpConfig !== undefined) {
+    bodyParams["SourceIpConfig"] = serializeAws_json1_1SourceIpConfig(
+      input.SourceIpConfig,
+      context
+    );
+  }
+  if (input.WorkforceName !== undefined) {
+    bodyParams["WorkforceName"] = input.WorkforceName;
   }
   return bodyParams;
 };
@@ -18280,6 +18503,13 @@ const deserializeAws_json1_1CheckpointConfig = (
     contents.S3Uri = output.S3Uri;
   }
   return contents;
+};
+
+const deserializeAws_json1_1Cidrs = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1CodeRepositorySummary = (
@@ -21346,6 +21576,23 @@ const deserializeAws_json1_1DescribeUserProfileResponse = (
   if (output.UserSettings !== undefined) {
     contents.UserSettings = deserializeAws_json1_1UserSettings(
       output.UserSettings,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeWorkforceResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeWorkforceResponse => {
+  let contents: any = {
+    __type: "DescribeWorkforceResponse",
+    Workforce: undefined
+  };
+  if (output.Workforce !== undefined) {
+    contents.Workforce = deserializeAws_json1_1Workforce(
+      output.Workforce,
       context
     );
   }
@@ -25759,6 +26006,20 @@ const deserializeAws_json1_1SourceAlgorithmSpecification = (
   return contents;
 };
 
+const deserializeAws_json1_1SourceIpConfig = (
+  output: any,
+  context: __SerdeContext
+): SourceIpConfig => {
+  let contents: any = {
+    __type: "SourceIpConfig",
+    Cidrs: undefined
+  };
+  if (output.Cidrs !== undefined) {
+    contents.Cidrs = deserializeAws_json1_1Cidrs(output.Cidrs, context);
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1StoppingCondition = (
   output: any,
   context: __SerdeContext
@@ -27346,6 +27607,23 @@ const deserializeAws_json1_1UpdateUserProfileResponse = (
   return contents;
 };
 
+const deserializeAws_json1_1UpdateWorkforceResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateWorkforceResponse => {
+  let contents: any = {
+    __type: "UpdateWorkforceResponse",
+    Workforce: undefined
+  };
+  if (output.Workforce !== undefined) {
+    contents.Workforce = deserializeAws_json1_1Workforce(
+      output.Workforce,
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1UpdateWorkteamResponse = (
   output: any,
   context: __SerdeContext
@@ -27507,6 +27785,39 @@ const deserializeAws_json1_1VpcSecurityGroupIds = (
   context: __SerdeContext
 ): Array<string> => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1Workforce = (
+  output: any,
+  context: __SerdeContext
+): Workforce => {
+  let contents: any = {
+    __type: "Workforce",
+    LastUpdatedDate: undefined,
+    SourceIpConfig: undefined,
+    WorkforceArn: undefined,
+    WorkforceName: undefined
+  };
+  if (output.LastUpdatedDate !== undefined) {
+    contents.LastUpdatedDate = new Date(
+      output.LastUpdatedDate % 1 != 0
+        ? Math.round(output.LastUpdatedDate * 1000)
+        : output.LastUpdatedDate
+    );
+  }
+  if (output.SourceIpConfig !== undefined) {
+    contents.SourceIpConfig = deserializeAws_json1_1SourceIpConfig(
+      output.SourceIpConfig,
+      context
+    );
+  }
+  if (output.WorkforceArn !== undefined) {
+    contents.WorkforceArn = output.WorkforceArn;
+  }
+  if (output.WorkforceName !== undefined) {
+    contents.WorkforceName = output.WorkforceName;
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1Workteam = (

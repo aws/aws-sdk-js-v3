@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   PurchaseReservedDBInstancesOfferingMessage,
-  ReservedDBInstance
+  PurchaseReservedDBInstancesOfferingResult
 } from "../models/index";
 import {
   deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PurchaseReservedDBInstancesOfferingCommandInput = PurchaseReservedDBInstancesOfferingMessage;
-export type PurchaseReservedDBInstancesOfferingCommandOutput = ReservedDBInstance;
+export type PurchaseReservedDBInstancesOfferingCommandOutput = PurchaseReservedDBInstancesOfferingResult;
 
 export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
   PurchaseReservedDBInstancesOfferingCommandInput,

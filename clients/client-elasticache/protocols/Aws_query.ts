@@ -197,6 +197,7 @@ import {
   AuthorizationAlreadyExistsFault,
   AuthorizationNotFoundFault,
   AuthorizeCacheSecurityGroupIngressMessage,
+  AuthorizeCacheSecurityGroupIngressResult,
   AvailabilityZone,
   BatchApplyUpdateActionMessage,
   BatchStopUpdateActionMessage,
@@ -236,20 +237,31 @@ import {
   CompleteMigrationResponse,
   ConfigureShard,
   CopySnapshotMessage,
+  CopySnapshotResult,
   CreateCacheClusterMessage,
+  CreateCacheClusterResult,
   CreateCacheParameterGroupMessage,
+  CreateCacheParameterGroupResult,
   CreateCacheSecurityGroupMessage,
+  CreateCacheSecurityGroupResult,
   CreateCacheSubnetGroupMessage,
+  CreateCacheSubnetGroupResult,
   CreateReplicationGroupMessage,
+  CreateReplicationGroupResult,
   CreateSnapshotMessage,
+  CreateSnapshotResult,
   CustomerNodeEndpoint,
   DecreaseReplicaCountMessage,
+  DecreaseReplicaCountResult,
   DeleteCacheClusterMessage,
+  DeleteCacheClusterResult,
   DeleteCacheParameterGroupMessage,
   DeleteCacheSecurityGroupMessage,
   DeleteCacheSubnetGroupMessage,
   DeleteReplicationGroupMessage,
+  DeleteReplicationGroupResult,
   DeleteSnapshotMessage,
+  DeleteSnapshotResult,
   DescribeCacheClustersMessage,
   DescribeCacheEngineVersionsMessage,
   DescribeCacheParameterGroupsMessage,
@@ -257,6 +269,7 @@ import {
   DescribeCacheSecurityGroupsMessage,
   DescribeCacheSubnetGroupsMessage,
   DescribeEngineDefaultParametersMessage,
+  DescribeEngineDefaultParametersResult,
   DescribeEventsMessage,
   DescribeReplicationGroupsMessage,
   DescribeReservedCacheNodesMessage,
@@ -271,6 +284,7 @@ import {
   Event,
   EventsMessage,
   IncreaseReplicaCountMessage,
+  IncreaseReplicaCountResult,
   InsufficientCacheClusterCapacityFault,
   InvalidARNFault,
   InvalidCacheClusterStateFault,
@@ -286,10 +300,14 @@ import {
   ListAllowedNodeTypeModificationsMessage,
   ListTagsForResourceMessage,
   ModifyCacheClusterMessage,
+  ModifyCacheClusterResult,
   ModifyCacheParameterGroupMessage,
   ModifyCacheSubnetGroupMessage,
+  ModifyCacheSubnetGroupResult,
   ModifyReplicationGroupMessage,
+  ModifyReplicationGroupResult,
   ModifyReplicationGroupShardConfigurationMessage,
+  ModifyReplicationGroupShardConfigurationResult,
   NoOperationFault,
   NodeGroup,
   NodeGroupConfiguration,
@@ -307,7 +325,9 @@ import {
   PendingModifiedValues,
   ProcessedUpdateAction,
   PurchaseReservedCacheNodesOfferingMessage,
+  PurchaseReservedCacheNodesOfferingResult,
   RebootCacheClusterMessage,
+  RebootCacheClusterResult,
   RecurringCharge,
   RemoveTagsFromResourceMessage,
   ReplicationGroup,
@@ -329,6 +349,7 @@ import {
   ReshardingConfiguration,
   ReshardingStatus,
   RevokeCacheSecurityGroupIngressMessage,
+  RevokeCacheSecurityGroupIngressResult,
   SecurityGroupMembership,
   ServiceLinkedRoleNotFoundFault,
   ServiceUpdate,
@@ -351,6 +372,7 @@ import {
   TagQuotaPerResourceExceeded,
   TestFailoverMessage,
   TestFailoverNotAvailableFault,
+  TestFailoverResult,
   TimeRangeFilter,
   UnprocessedUpdateAction,
   UpdateAction,
@@ -1659,13 +1681,13 @@ export async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressComm
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheSecurityGroup(
+  contents = deserializeAws_queryAuthorizeCacheSecurityGroupIngressResult(
     data.AuthorizeCacheSecurityGroupIngressResult,
     context
   );
   const response: AuthorizeCacheSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheSecurityGroup",
+    __type: "AuthorizeCacheSecurityGroupIngressResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -1941,10 +1963,13 @@ export async function deserializeAws_queryCopySnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(data.CopySnapshotResult, context);
+  contents = deserializeAws_queryCopySnapshotResult(
+    data.CopySnapshotResult,
+    context
+  );
   const response: CopySnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "CopySnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2028,13 +2053,13 @@ export async function deserializeAws_queryCreateCacheClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheCluster(
+  contents = deserializeAws_queryCreateCacheClusterResult(
     data.CreateCacheClusterResult,
     context
   );
   const response: CreateCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheCluster",
+    __type: "CreateCacheClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2177,13 +2202,13 @@ export async function deserializeAws_queryCreateCacheParameterGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheParameterGroup(
+  contents = deserializeAws_queryCreateCacheParameterGroupResult(
     data.CreateCacheParameterGroupResult,
     context
   );
   const response: CreateCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheParameterGroup",
+    __type: "CreateCacheParameterGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2263,13 +2288,13 @@ export async function deserializeAws_queryCreateCacheSecurityGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheSecurityGroup(
+  contents = deserializeAws_queryCreateCacheSecurityGroupResult(
     data.CreateCacheSecurityGroupResult,
     context
   );
   const response: CreateCacheSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheSecurityGroup",
+    __type: "CreateCacheSecurityGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2342,13 +2367,13 @@ export async function deserializeAws_queryCreateCacheSubnetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheSubnetGroup(
+  contents = deserializeAws_queryCreateCacheSubnetGroupResult(
     data.CreateCacheSubnetGroupResult,
     context
   );
   const response: CreateCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheSubnetGroup",
+    __type: "CreateCacheSubnetGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2421,13 +2446,13 @@ export async function deserializeAws_queryCreateReplicationGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroup(
+  contents = deserializeAws_queryCreateReplicationGroupResult(
     data.CreateReplicationGroupResult,
     context
   );
   const response: CreateReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroup",
+    __type: "CreateReplicationGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2574,10 +2599,13 @@ export async function deserializeAws_queryCreateSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(data.CreateSnapshotResult, context);
+  contents = deserializeAws_queryCreateSnapshotResult(
+    data.CreateSnapshotResult,
+    context
+  );
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "CreateSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2685,13 +2713,13 @@ export async function deserializeAws_queryDecreaseReplicaCountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroup(
+  contents = deserializeAws_queryDecreaseReplicaCountResult(
     data.DecreaseReplicaCountResult,
     context
   );
   const response: DecreaseReplicaCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroup",
+    __type: "DecreaseReplicaCountResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2817,13 +2845,13 @@ export async function deserializeAws_queryDeleteCacheClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheCluster(
+  contents = deserializeAws_queryDeleteCacheClusterResult(
     data.DeleteCacheClusterResult,
     context
   );
   const response: DeleteCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheCluster",
+    __type: "DeleteCacheClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3116,13 +3144,13 @@ export async function deserializeAws_queryDeleteReplicationGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroup(
+  contents = deserializeAws_queryDeleteReplicationGroupResult(
     data.DeleteReplicationGroupResult,
     context
   );
   const response: DeleteReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroup",
+    __type: "DeleteReplicationGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3213,10 +3241,13 @@ export async function deserializeAws_queryDeleteSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(data.DeleteSnapshotResult, context);
+  contents = deserializeAws_queryDeleteSnapshotResult(
+    data.DeleteSnapshotResult,
+    context
+  );
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "DeleteSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3686,13 +3717,13 @@ export async function deserializeAws_queryDescribeEngineDefaultParametersCommand
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryEngineDefaults(
+  contents = deserializeAws_queryDescribeEngineDefaultParametersResult(
     data.DescribeEngineDefaultParametersResult,
     context
   );
   const response: DescribeEngineDefaultParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EngineDefaults",
+    __type: "DescribeEngineDefaultParametersResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4242,13 +4273,13 @@ export async function deserializeAws_queryIncreaseReplicaCountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroup(
+  contents = deserializeAws_queryIncreaseReplicaCountResult(
     data.IncreaseReplicaCountResult,
     context
   );
   const response: IncreaseReplicaCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroup",
+    __type: "IncreaseReplicaCountResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4522,13 +4553,13 @@ export async function deserializeAws_queryModifyCacheClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheCluster(
+  contents = deserializeAws_queryModifyCacheClusterResult(
     data.ModifyCacheClusterResult,
     context
   );
   const response: ModifyCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheCluster",
+    __type: "ModifyCacheClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4729,13 +4760,13 @@ export async function deserializeAws_queryModifyCacheSubnetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheSubnetGroup(
+  contents = deserializeAws_queryModifyCacheSubnetGroupResult(
     data.ModifyCacheSubnetGroupResult,
     context
   );
   const response: ModifyCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheSubnetGroup",
+    __type: "ModifyCacheSubnetGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4808,13 +4839,13 @@ export async function deserializeAws_queryModifyReplicationGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroup(
+  contents = deserializeAws_queryModifyReplicationGroupResult(
     data.ModifyReplicationGroupResult,
     context
   );
   const response: ModifyReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroup",
+    __type: "ModifyReplicationGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4957,13 +4988,13 @@ export async function deserializeAws_queryModifyReplicationGroupShardConfigurati
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroup(
+  contents = deserializeAws_queryModifyReplicationGroupShardConfigurationResult(
     data.ModifyReplicationGroupShardConfigurationResult,
     context
   );
   const response: ModifyReplicationGroupShardConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroup",
+    __type: "ModifyReplicationGroupShardConfigurationResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -5078,13 +5109,13 @@ export async function deserializeAws_queryPurchaseReservedCacheNodesOfferingComm
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReservedCacheNode(
+  contents = deserializeAws_queryPurchaseReservedCacheNodesOfferingResult(
     data.PurchaseReservedCacheNodesOfferingResult,
     context
   );
   const response: PurchaseReservedCacheNodesOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReservedCacheNode",
+    __type: "PurchaseReservedCacheNodesOfferingResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -5161,13 +5192,13 @@ export async function deserializeAws_queryRebootCacheClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheCluster(
+  contents = deserializeAws_queryRebootCacheClusterResult(
     data.RebootCacheClusterResult,
     context
   );
   const response: RebootCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheCluster",
+    __type: "RebootCacheClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -5384,13 +5415,13 @@ export async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommand
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheSecurityGroup(
+  contents = deserializeAws_queryRevokeCacheSecurityGroupIngressResult(
     data.RevokeCacheSecurityGroupIngressResult,
     context
   );
   const response: RevokeCacheSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CacheSecurityGroup",
+    __type: "RevokeCacheSecurityGroupIngressResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -5543,13 +5574,13 @@ export async function deserializeAws_queryTestFailoverCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroup(
+  contents = deserializeAws_queryTestFailoverResult(
     data.TestFailoverResult,
     context
   );
   const response: TestFailoverCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplicationGroup",
+    __type: "TestFailoverResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -9195,6 +9226,23 @@ const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
   return contents;
 };
 
+const deserializeAws_queryAuthorizeCacheSecurityGroupIngressResult = (
+  output: any,
+  context: __SerdeContext
+): AuthorizeCacheSecurityGroupIngressResult => {
+  let contents: any = {
+    __type: "AuthorizeCacheSecurityGroupIngressResult",
+    CacheSecurityGroup: undefined
+  };
+  if (output["CacheSecurityGroup"] !== undefined) {
+    contents.CacheSecurityGroup = deserializeAws_queryCacheSecurityGroup(
+      output["CacheSecurityGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryAvailabilityZone = (
   output: any,
   context: __SerdeContext
@@ -10045,6 +10093,210 @@ const deserializeAws_queryCompleteMigrationResponse = (
   return contents;
 };
 
+const deserializeAws_queryCopySnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): CopySnapshotResult => {
+  let contents: any = {
+    __type: "CopySnapshotResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateCacheClusterResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCacheClusterResult => {
+  let contents: any = {
+    __type: "CreateCacheClusterResult",
+    CacheCluster: undefined
+  };
+  if (output["CacheCluster"] !== undefined) {
+    contents.CacheCluster = deserializeAws_queryCacheCluster(
+      output["CacheCluster"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateCacheParameterGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCacheParameterGroupResult => {
+  let contents: any = {
+    __type: "CreateCacheParameterGroupResult",
+    CacheParameterGroup: undefined
+  };
+  if (output["CacheParameterGroup"] !== undefined) {
+    contents.CacheParameterGroup = deserializeAws_queryCacheParameterGroup(
+      output["CacheParameterGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateCacheSecurityGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCacheSecurityGroupResult => {
+  let contents: any = {
+    __type: "CreateCacheSecurityGroupResult",
+    CacheSecurityGroup: undefined
+  };
+  if (output["CacheSecurityGroup"] !== undefined) {
+    contents.CacheSecurityGroup = deserializeAws_queryCacheSecurityGroup(
+      output["CacheSecurityGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateCacheSubnetGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCacheSubnetGroupResult => {
+  let contents: any = {
+    __type: "CreateCacheSubnetGroupResult",
+    CacheSubnetGroup: undefined
+  };
+  if (output["CacheSubnetGroup"] !== undefined) {
+    contents.CacheSubnetGroup = deserializeAws_queryCacheSubnetGroup(
+      output["CacheSubnetGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateReplicationGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateReplicationGroupResult => {
+  let contents: any = {
+    __type: "CreateReplicationGroupResult",
+    ReplicationGroup: undefined
+  };
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(
+      output["ReplicationGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): CreateSnapshotResult => {
+  let contents: any = {
+    __type: "CreateSnapshotResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDecreaseReplicaCountResult = (
+  output: any,
+  context: __SerdeContext
+): DecreaseReplicaCountResult => {
+  let contents: any = {
+    __type: "DecreaseReplicaCountResult",
+    ReplicationGroup: undefined
+  };
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(
+      output["ReplicationGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDeleteCacheClusterResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteCacheClusterResult => {
+  let contents: any = {
+    __type: "DeleteCacheClusterResult",
+    CacheCluster: undefined
+  };
+  if (output["CacheCluster"] !== undefined) {
+    contents.CacheCluster = deserializeAws_queryCacheCluster(
+      output["CacheCluster"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDeleteReplicationGroupResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteReplicationGroupResult => {
+  let contents: any = {
+    __type: "DeleteReplicationGroupResult",
+    ReplicationGroup: undefined
+  };
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(
+      output["ReplicationGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDeleteSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteSnapshotResult => {
+  let contents: any = {
+    __type: "DeleteSnapshotResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeEngineDefaultParametersResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeEngineDefaultParametersResult => {
+  let contents: any = {
+    __type: "DescribeEngineDefaultParametersResult",
+    EngineDefaults: undefined
+  };
+  if (output["EngineDefaults"] !== undefined) {
+    contents.EngineDefaults = deserializeAws_queryEngineDefaults(
+      output["EngineDefaults"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeSnapshotsListMessage = (
   output: any,
   context: __SerdeContext
@@ -10231,6 +10483,91 @@ const deserializeAws_queryEventsMessage = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryIncreaseReplicaCountResult = (
+  output: any,
+  context: __SerdeContext
+): IncreaseReplicaCountResult => {
+  let contents: any = {
+    __type: "IncreaseReplicaCountResult",
+    ReplicationGroup: undefined
+  };
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(
+      output["ReplicationGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyCacheClusterResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyCacheClusterResult => {
+  let contents: any = {
+    __type: "ModifyCacheClusterResult",
+    CacheCluster: undefined
+  };
+  if (output["CacheCluster"] !== undefined) {
+    contents.CacheCluster = deserializeAws_queryCacheCluster(
+      output["CacheCluster"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyCacheSubnetGroupResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyCacheSubnetGroupResult => {
+  let contents: any = {
+    __type: "ModifyCacheSubnetGroupResult",
+    CacheSubnetGroup: undefined
+  };
+  if (output["CacheSubnetGroup"] !== undefined) {
+    contents.CacheSubnetGroup = deserializeAws_queryCacheSubnetGroup(
+      output["CacheSubnetGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyReplicationGroupResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyReplicationGroupResult => {
+  let contents: any = {
+    __type: "ModifyReplicationGroupResult",
+    ReplicationGroup: undefined
+  };
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(
+      output["ReplicationGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyReplicationGroupShardConfigurationResult => {
+  let contents: any = {
+    __type: "ModifyReplicationGroupShardConfigurationResult",
+    ReplicationGroup: undefined
+  };
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(
+      output["ReplicationGroup"],
+      context
+    );
   }
   return contents;
 };
@@ -10682,6 +11019,40 @@ const deserializeAws_queryProcessedUpdateActionList = (
   );
 };
 
+const deserializeAws_queryPurchaseReservedCacheNodesOfferingResult = (
+  output: any,
+  context: __SerdeContext
+): PurchaseReservedCacheNodesOfferingResult => {
+  let contents: any = {
+    __type: "PurchaseReservedCacheNodesOfferingResult",
+    ReservedCacheNode: undefined
+  };
+  if (output["ReservedCacheNode"] !== undefined) {
+    contents.ReservedCacheNode = deserializeAws_queryReservedCacheNode(
+      output["ReservedCacheNode"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryRebootCacheClusterResult = (
+  output: any,
+  context: __SerdeContext
+): RebootCacheClusterResult => {
+  let contents: any = {
+    __type: "RebootCacheClusterResult",
+    CacheCluster: undefined
+  };
+  if (output["CacheCluster"] !== undefined) {
+    contents.CacheCluster = deserializeAws_queryCacheCluster(
+      output["CacheCluster"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryRecurringCharge = (
   output: any,
   context: __SerdeContext
@@ -11111,6 +11482,23 @@ const deserializeAws_queryReshardingStatus = (
   return contents;
 };
 
+const deserializeAws_queryRevokeCacheSecurityGroupIngressResult = (
+  output: any,
+  context: __SerdeContext
+): RevokeCacheSecurityGroupIngressResult => {
+  let contents: any = {
+    __type: "RevokeCacheSecurityGroupIngressResult",
+    CacheSecurityGroup: undefined
+  };
+  if (output["CacheSecurityGroup"] !== undefined) {
+    contents.CacheSecurityGroup = deserializeAws_queryCacheSecurityGroup(
+      output["CacheSecurityGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_querySecurityGroupMembership = (
   output: any,
   context: __SerdeContext
@@ -11475,6 +11863,23 @@ const deserializeAws_queryTagListMessage = (
         ? output["TagList"]["Tag"]
         : [output["TagList"]["Tag"]];
     contents.TagList = deserializeAws_queryTagList(wrappedItem, context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryTestFailoverResult = (
+  output: any,
+  context: __SerdeContext
+): TestFailoverResult => {
+  let contents: any = {
+    __type: "TestFailoverResult",
+    ReplicationGroup: undefined
+  };
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(
+      output["ReplicationGroup"],
+      context
+    );
   }
   return contents;
 };

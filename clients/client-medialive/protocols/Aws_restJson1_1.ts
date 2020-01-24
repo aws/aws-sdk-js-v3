@@ -220,6 +220,7 @@ import {
   EncoderSettings,
   FecOutputSettings,
   FixedModeScheduleActionStartSettings,
+  Fmp4HlsSettings,
   FollowModeScheduleActionStartSettings,
   ForbiddenException,
   FrameCaptureGroupSettings,
@@ -237,6 +238,7 @@ import {
   HlsBasicPutSettings,
   HlsCdnSettings,
   HlsGroupSettings,
+  HlsId3SegmentTaggingScheduleActionSettings,
   HlsInputSettings,
   HlsMediaStoreSettings,
   HlsOutputSettings,
@@ -289,7 +291,6 @@ import {
   MultiplexSettingsSummary,
   MultiplexStatmuxVideoSettings,
   MultiplexSummary,
-  MultiplexValidationError,
   MultiplexVideoSettings,
   NetworkInputSettings,
   NielsenConfiguration,
@@ -346,6 +347,7 @@ import {
   UdpGroupSettings,
   UdpOutputSettings,
   UnprocessableEntityException,
+  ValidationError,
   VideoCodecSettings,
   VideoDescription,
   VideoSelector,
@@ -7021,7 +7023,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
     contents.Message = data.message;
   }
   if (data.validationErrors !== undefined) {
-    contents.ValidationErrors = deserializeAws_restJson1_1__listOfMultiplexValidationError(
+    contents.ValidationErrors = deserializeAws_restJson1_1__listOfValidationError(
       data.validationErrors,
       context
     );
@@ -7317,6 +7319,9 @@ const serializeAws_restJson1_1AudioOnlyHlsSettings = (
   }
   if (input.AudioTrackType !== undefined) {
     bodyParams["audioTrackType"] = input.AudioTrackType;
+  }
+  if (input.SegmentType !== undefined) {
+    bodyParams["segmentType"] = input.SegmentType;
   }
   return bodyParams;
 };
@@ -8119,6 +8124,17 @@ const serializeAws_restJson1_1FixedModeScheduleActionStartSettings = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1Fmp4HlsSettings = (
+  input: Fmp4HlsSettings,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AudioRenditionSets !== undefined) {
+    bodyParams["audioRenditionSets"] = input.AudioRenditionSets;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1FollowModeScheduleActionStartSettings = (
   input: FollowModeScheduleActionStartSettings,
   context: __SerdeContext
@@ -8165,6 +8181,9 @@ const serializeAws_restJson1_1FrameCaptureSettings = (
   let bodyParams: any = {};
   if (input.CaptureInterval !== undefined) {
     bodyParams["captureInterval"] = input.CaptureInterval;
+  }
+  if (input.CaptureIntervalUnits !== undefined) {
+    bodyParams["captureIntervalUnits"] = input.CaptureIntervalUnits;
   }
   return bodyParams;
 };
@@ -8598,8 +8617,14 @@ const serializeAws_restJson1_1HlsGroupSettings = (
   if (input.BaseUrlContent !== undefined) {
     bodyParams["baseUrlContent"] = input.BaseUrlContent;
   }
+  if (input.BaseUrlContent1 !== undefined) {
+    bodyParams["baseUrlContent1"] = input.BaseUrlContent1;
+  }
   if (input.BaseUrlManifest !== undefined) {
     bodyParams["baseUrlManifest"] = input.BaseUrlManifest;
+  }
+  if (input.BaseUrlManifest1 !== undefined) {
+    bodyParams["baseUrlManifest1"] = input.BaseUrlManifest1;
   }
   if (input.CaptionLanguageMappings !== undefined) {
     bodyParams[
@@ -8638,6 +8663,9 @@ const serializeAws_restJson1_1HlsGroupSettings = (
       input.HlsCdnSettings,
       context
     );
+  }
+  if (input.HlsId3SegmentTagging !== undefined) {
+    bodyParams["hlsId3SegmentTagging"] = input.HlsId3SegmentTagging;
   }
   if (input.IFrameOnlyPlaylists !== undefined) {
     bodyParams["iFrameOnlyPlaylists"] = input.IFrameOnlyPlaylists;
@@ -8722,6 +8750,17 @@ const serializeAws_restJson1_1HlsGroupSettings = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1HlsId3SegmentTaggingScheduleActionSettings = (
+  input: HlsId3SegmentTaggingScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Tag !== undefined) {
+    bodyParams["tag"] = input.Tag;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1HlsInputSettings = (
   input: HlsInputSettings,
   context: __SerdeContext
@@ -8770,6 +8809,9 @@ const serializeAws_restJson1_1HlsOutputSettings = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.H265PackagingType !== undefined) {
+    bodyParams["h265PackagingType"] = input.H265PackagingType;
+  }
   if (input.HlsSettings !== undefined) {
     bodyParams["hlsSettings"] = serializeAws_restJson1_1HlsSettings(
       input.HlsSettings,
@@ -8795,6 +8837,12 @@ const serializeAws_restJson1_1HlsSettings = (
       "audioOnlyHlsSettings"
     ] = serializeAws_restJson1_1AudioOnlyHlsSettings(
       input.AudioOnlyHlsSettings,
+      context
+    );
+  }
+  if (input.Fmp4HlsSettings !== undefined) {
+    bodyParams["fmp4HlsSettings"] = serializeAws_restJson1_1Fmp4HlsSettings(
+      input.Fmp4HlsSettings,
       context
     );
   }
@@ -10066,6 +10114,14 @@ const serializeAws_restJson1_1ScheduleActionSettings = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.HlsId3SegmentTaggingSettings !== undefined) {
+    bodyParams[
+      "hlsId3SegmentTaggingSettings"
+    ] = serializeAws_restJson1_1HlsId3SegmentTaggingScheduleActionSettings(
+      input.HlsId3SegmentTaggingSettings,
+      context
+    );
+  }
   if (input.HlsTimedMetadataSettings !== undefined) {
     bodyParams[
       "hlsTimedMetadataSettings"
@@ -11299,7 +11355,8 @@ const deserializeAws_restJson1_1AudioOnlyHlsSettings = (
     __type: "AudioOnlyHlsSettings",
     AudioGroupId: undefined,
     AudioOnlyImage: undefined,
-    AudioTrackType: undefined
+    AudioTrackType: undefined,
+    SegmentType: undefined
   };
   if (output.audioGroupId !== undefined) {
     contents.AudioGroupId = output.audioGroupId;
@@ -11312,6 +11369,9 @@ const deserializeAws_restJson1_1AudioOnlyHlsSettings = (
   }
   if (output.audioTrackType !== undefined) {
     contents.AudioTrackType = output.audioTrackType;
+  }
+  if (output.segmentType !== undefined) {
+    contents.SegmentType = output.segmentType;
   }
   return contents;
 };
@@ -12409,6 +12469,20 @@ const deserializeAws_restJson1_1FixedModeScheduleActionStartSettings = (
   return contents;
 };
 
+const deserializeAws_restJson1_1Fmp4HlsSettings = (
+  output: any,
+  context: __SerdeContext
+): Fmp4HlsSettings => {
+  let contents: any = {
+    __type: "Fmp4HlsSettings",
+    AudioRenditionSets: undefined
+  };
+  if (output.audioRenditionSets !== undefined) {
+    contents.AudioRenditionSets = output.audioRenditionSets;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1FollowModeScheduleActionStartSettings = (
   output: any,
   context: __SerdeContext
@@ -12464,10 +12538,14 @@ const deserializeAws_restJson1_1FrameCaptureSettings = (
 ): FrameCaptureSettings => {
   let contents: any = {
     __type: "FrameCaptureSettings",
-    CaptureInterval: undefined
+    CaptureInterval: undefined,
+    CaptureIntervalUnits: undefined
   };
   if (output.captureInterval !== undefined) {
     contents.CaptureInterval = output.captureInterval;
+  }
+  if (output.captureIntervalUnits !== undefined) {
+    contents.CaptureIntervalUnits = output.captureIntervalUnits;
   }
   return contents;
 };
@@ -12996,7 +13074,9 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
     __type: "HlsGroupSettings",
     AdMarkers: undefined,
     BaseUrlContent: undefined,
+    BaseUrlContent1: undefined,
     BaseUrlManifest: undefined,
+    BaseUrlManifest1: undefined,
     CaptionLanguageMappings: undefined,
     CaptionLanguageSetting: undefined,
     ClientCache: undefined,
@@ -13006,6 +13086,7 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
     DirectoryStructure: undefined,
     EncryptionType: undefined,
     HlsCdnSettings: undefined,
+    HlsId3SegmentTagging: undefined,
     IFrameOnlyPlaylists: undefined,
     IndexNSegments: undefined,
     InputLossAction: undefined,
@@ -13041,8 +13122,14 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
   if (output.baseUrlContent !== undefined) {
     contents.BaseUrlContent = output.baseUrlContent;
   }
+  if (output.baseUrlContent1 !== undefined) {
+    contents.BaseUrlContent1 = output.baseUrlContent1;
+  }
   if (output.baseUrlManifest !== undefined) {
     contents.BaseUrlManifest = output.baseUrlManifest;
+  }
+  if (output.baseUrlManifest1 !== undefined) {
+    contents.BaseUrlManifest1 = output.baseUrlManifest1;
   }
   if (output.captionLanguageMappings !== undefined) {
     contents.CaptionLanguageMappings = deserializeAws_restJson1_1__listOfCaptionLanguageMapping(
@@ -13079,6 +13166,9 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
       output.hlsCdnSettings,
       context
     );
+  }
+  if (output.hlsId3SegmentTagging !== undefined) {
+    contents.HlsId3SegmentTagging = output.hlsId3SegmentTagging;
   }
   if (output.iFrameOnlyPlaylists !== undefined) {
     contents.IFrameOnlyPlaylists = output.iFrameOnlyPlaylists;
@@ -13161,6 +13251,20 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
   return contents;
 };
 
+const deserializeAws_restJson1_1HlsId3SegmentTaggingScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): HlsId3SegmentTaggingScheduleActionSettings => {
+  let contents: any = {
+    __type: "HlsId3SegmentTaggingScheduleActionSettings",
+    Tag: undefined
+  };
+  if (output.tag !== undefined) {
+    contents.Tag = output.tag;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1HlsInputSettings = (
   output: any,
   context: __SerdeContext
@@ -13223,10 +13327,14 @@ const deserializeAws_restJson1_1HlsOutputSettings = (
 ): HlsOutputSettings => {
   let contents: any = {
     __type: "HlsOutputSettings",
+    H265PackagingType: undefined,
     HlsSettings: undefined,
     NameModifier: undefined,
     SegmentModifier: undefined
   };
+  if (output.h265PackagingType !== undefined) {
+    contents.H265PackagingType = output.h265PackagingType;
+  }
   if (output.hlsSettings !== undefined) {
     contents.HlsSettings = deserializeAws_restJson1_1HlsSettings(
       output.hlsSettings,
@@ -13249,11 +13357,18 @@ const deserializeAws_restJson1_1HlsSettings = (
   let contents: any = {
     __type: "HlsSettings",
     AudioOnlyHlsSettings: undefined,
+    Fmp4HlsSettings: undefined,
     StandardHlsSettings: undefined
   };
   if (output.audioOnlyHlsSettings !== undefined) {
     contents.AudioOnlyHlsSettings = deserializeAws_restJson1_1AudioOnlyHlsSettings(
       output.audioOnlyHlsSettings,
+      context
+    );
+  }
+  if (output.fmp4HlsSettings !== undefined) {
+    contents.Fmp4HlsSettings = deserializeAws_restJson1_1Fmp4HlsSettings(
+      output.fmp4HlsSettings,
       context
     );
   }
@@ -14661,24 +14776,6 @@ const deserializeAws_restJson1_1MultiplexSummary = (
   return contents;
 };
 
-const deserializeAws_restJson1_1MultiplexValidationError = (
-  output: any,
-  context: __SerdeContext
-): MultiplexValidationError => {
-  let contents: any = {
-    __type: "MultiplexValidationError",
-    ElementPath: undefined,
-    ErrorMessage: undefined
-  };
-  if (output.elementPath !== undefined) {
-    contents.ElementPath = output.elementPath;
-  }
-  if (output.errorMessage !== undefined) {
-    contents.ErrorMessage = output.errorMessage;
-  }
-  return contents;
-};
-
 const deserializeAws_restJson1_1MultiplexVideoSettings = (
   output: any,
   context: __SerdeContext
@@ -15412,6 +15509,7 @@ const deserializeAws_restJson1_1ScheduleActionSettings = (
 ): ScheduleActionSettings => {
   let contents: any = {
     __type: "ScheduleActionSettings",
+    HlsId3SegmentTaggingSettings: undefined,
     HlsTimedMetadataSettings: undefined,
     InputSwitchSettings: undefined,
     PauseStateSettings: undefined,
@@ -15421,6 +15519,12 @@ const deserializeAws_restJson1_1ScheduleActionSettings = (
     StaticImageActivateSettings: undefined,
     StaticImageDeactivateSettings: undefined
   };
+  if (output.hlsId3SegmentTaggingSettings !== undefined) {
+    contents.HlsId3SegmentTaggingSettings = deserializeAws_restJson1_1HlsId3SegmentTaggingScheduleActionSettings(
+      output.hlsId3SegmentTaggingSettings,
+      context
+    );
+  }
   if (output.hlsTimedMetadataSettings !== undefined) {
     contents.HlsTimedMetadataSettings = deserializeAws_restJson1_1HlsTimedMetadataScheduleActionSettings(
       output.hlsTimedMetadataSettings,
@@ -16061,6 +16165,24 @@ const deserializeAws_restJson1_1UdpOutputSettings = (
   return contents;
 };
 
+const deserializeAws_restJson1_1ValidationError = (
+  output: any,
+  context: __SerdeContext
+): ValidationError => {
+  let contents: any = {
+    __type: "ValidationError",
+    ElementPath: undefined,
+    ErrorMessage: undefined
+  };
+  if (output.elementPath !== undefined) {
+    contents.ElementPath = output.elementPath;
+  }
+  if (output.errorMessage !== undefined) {
+    contents.ErrorMessage = output.errorMessage;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1VideoCodecSettings = (
   output: any,
   context: __SerdeContext
@@ -16410,15 +16532,6 @@ const deserializeAws_restJson1_1__listOfMultiplexSummary = (
   );
 };
 
-const deserializeAws_restJson1_1__listOfMultiplexValidationError = (
-  output: any,
-  context: __SerdeContext
-): Array<MultiplexValidationError> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1MultiplexValidationError(entry, context)
-  );
-};
-
 const deserializeAws_restJson1_1__listOfOffering = (
   output: any,
   context: __SerdeContext
@@ -16506,6 +16619,15 @@ const deserializeAws_restJson1_1__listOfScte35Descriptor = (
 ): Array<Scte35Descriptor> => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Scte35Descriptor(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1__listOfValidationError = (
+  output: any,
+  context: __SerdeContext
+): Array<ValidationError> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1ValidationError(entry, context)
   );
 };
 

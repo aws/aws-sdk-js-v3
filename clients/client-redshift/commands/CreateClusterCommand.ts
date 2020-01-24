@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, CreateClusterMessage } from "../models/index";
+import { CreateClusterMessage, CreateClusterResult } from "../models/index";
 import {
   deserializeAws_queryCreateClusterCommand,
   serializeAws_queryCreateClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClusterCommandInput = CreateClusterMessage;
-export type CreateClusterCommandOutput = Cluster;
+export type CreateClusterCommandOutput = CreateClusterResult;
 
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

@@ -63,6 +63,10 @@ import {
   ListComponentsCommandOutput
 } from "../commands/ListComponentsCommand";
 import {
+  ListConfigurationHistoryCommandInput,
+  ListConfigurationHistoryCommandOutput
+} from "../commands/ListConfigurationHistoryCommand";
+import {
   ListLogPatternSetsCommandInput,
   ListLogPatternSetsCommandOutput
 } from "../commands/ListLogPatternSetsCommand";
@@ -106,6 +110,7 @@ import {
   ApplicationComponent,
   ApplicationInfo,
   BadRequestException,
+  ConfigurationEvent,
   CreateApplicationRequest,
   CreateApplicationResponse,
   CreateComponentRequest,
@@ -140,6 +145,8 @@ import {
   ListApplicationsResponse,
   ListComponentsRequest,
   ListComponentsResponse,
+  ListConfigurationHistoryRequest,
+  ListConfigurationHistoryResponse,
   ListLogPatternSetsRequest,
   ListLogPatternSetsResponse,
   ListLogPatternsRequest,
@@ -520,6 +527,27 @@ export async function serializeAws_json1_1ListComponentsCommand(
     protocol: "https",
     method: "POST",
     path: "/ListComponents",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListConfigurationHistoryCommand(
+  input: ListConfigurationHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListConfigurationHistory";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListConfigurationHistoryRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListConfigurationHistory",
     headers: headers,
     body: body
   });
@@ -1884,6 +1912,80 @@ async function deserializeAws_json1_1ListComponentsCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1ListConfigurationHistoryCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationHistoryCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListConfigurationHistoryCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListConfigurationHistoryResponse(
+    data,
+    context
+  );
+  const response: ListConfigurationHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListConfigurationHistoryResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListConfigurationHistoryCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationHistoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.ec2windowsbarley#InternalServerException":
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ec2windowsbarley#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1ListLogPatternSetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -2951,6 +3053,32 @@ const serializeAws_json1_1ListComponentsRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1ListConfigurationHistoryRequest = (
+  input: ListConfigurationHistoryRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.EndTime !== undefined) {
+    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
+  }
+  if (input.EventStatus !== undefined) {
+    bodyParams["EventStatus"] = input.EventStatus;
+  }
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceGroupName !== undefined) {
+    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
+  }
+  if (input.StartTime !== undefined) {
+    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1ListLogPatternSetsRequest = (
   input: ListLogPatternSetsRequest,
   context: __SerdeContext
@@ -3262,6 +3390,53 @@ const deserializeAws_json1_1BadRequestException = (
   return contents;
 };
 
+const deserializeAws_json1_1ConfigurationEvent = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationEvent => {
+  let contents: any = {
+    __type: "ConfigurationEvent",
+    EventDetail: undefined,
+    EventResourceName: undefined,
+    EventResourceType: undefined,
+    EventStatus: undefined,
+    EventTime: undefined,
+    MonitoredResourceARN: undefined
+  };
+  if (output.EventDetail !== undefined) {
+    contents.EventDetail = output.EventDetail;
+  }
+  if (output.EventResourceName !== undefined) {
+    contents.EventResourceName = output.EventResourceName;
+  }
+  if (output.EventResourceType !== undefined) {
+    contents.EventResourceType = output.EventResourceType;
+  }
+  if (output.EventStatus !== undefined) {
+    contents.EventStatus = output.EventStatus;
+  }
+  if (output.EventTime !== undefined) {
+    contents.EventTime = new Date(
+      output.EventTime % 1 != 0
+        ? Math.round(output.EventTime * 1000)
+        : output.EventTime
+    );
+  }
+  if (output.MonitoredResourceARN !== undefined) {
+    contents.MonitoredResourceARN = output.MonitoredResourceARN;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigurationEventList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConfigurationEvent> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfigurationEvent(entry, context)
+  );
+};
+
 const deserializeAws_json1_1CreateApplicationResponse = (
   output: any,
   context: __SerdeContext
@@ -3544,6 +3719,27 @@ const deserializeAws_json1_1ListComponentsResponse = (
   if (output.ApplicationComponentList !== undefined) {
     contents.ApplicationComponentList = deserializeAws_json1_1ApplicationComponentList(
       output.ApplicationComponentList,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListConfigurationHistoryResponse = (
+  output: any,
+  context: __SerdeContext
+): ListConfigurationHistoryResponse => {
+  let contents: any = {
+    __type: "ListConfigurationHistoryResponse",
+    EventList: undefined,
+    NextToken: undefined
+  };
+  if (output.EventList !== undefined) {
+    contents.EventList = deserializeAws_json1_1ConfigurationEventList(
+      output.EventList,
       context
     );
   }

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { CopyDBParameterGroupMessage, DBParameterGroup } from "../models/index";
+import {
+  CopyDBParameterGroupMessage,
+  CopyDBParameterGroupResult
+} from "../models/index";
 import {
   deserializeAws_queryCopyDBParameterGroupCommand,
   serializeAws_queryCopyDBParameterGroupCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyDBParameterGroupCommandInput = CopyDBParameterGroupMessage;
-export type CopyDBParameterGroupCommandOutput = DBParameterGroup;
+export type CopyDBParameterGroupCommandOutput = CopyDBParameterGroupResult;
 
 export class CopyDBParameterGroupCommand extends $Command<
   CopyDBParameterGroupCommandInput,

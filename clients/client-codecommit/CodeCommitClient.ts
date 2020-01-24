@@ -446,8 +446,7 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>AWS CodeCommit</fullname>
+ * <fullname>AWS CodeCommit</fullname>
  *         <p>This is the <i>AWS CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
  *             AWS CodeCommit API along with usage examples.</p>
  *         <p>You can use the AWS CodeCommit API to work with the following objects:</p>
@@ -836,7 +835,6 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<
  *
  *
  *         <p>For information about how to use AWS CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
- *
  */
 export class CodeCommitClient extends __Client<
   __HttpHandlerOptions,

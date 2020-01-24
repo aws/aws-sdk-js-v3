@@ -42,21 +42,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon Data Lifecycle Manager</fullname>
- *          <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle
- *       policies, which are used to automate operations on the specified resources.</p>
- *          <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with
- *       Amazon EBS, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html">Automating the Amazon EBS Snapshot
- *         Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *
+ * <fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class DLM extends DLMClient {
   /**
-   *
-   *          <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can create up
-   *       to 100 lifecycle policies.</p>
-   *
+   * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.</p>
    */
   public createLifecyclePolicy(
     args: CreateLifecyclePolicyCommandInput,
@@ -91,10 +81,7 @@ export class DLM extends DLMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified lifecycle policy and halts the automated operations that the policy
-   *       specified.</p>
-   *
+   * <p>Deletes the specified lifecycle policy and halts the automated operations that the policy specified.</p>
    */
   public deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
@@ -129,10 +116,7 @@ export class DLM extends DLMClient {
   }
 
   /**
-   *
-   *          <p>Gets summary information about all or the specified data lifecycle policies.</p>
-   *          <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
-   *
+   * <p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
    */
   public getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
@@ -167,9 +151,7 @@ export class DLM extends DLMClient {
   }
 
   /**
-   *
-   *          <p>Gets detailed information about the specified lifecycle policy.</p>
-   *
+   * <p>Gets detailed information about the specified lifecycle policy.</p>
    */
   public getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
@@ -204,9 +186,7 @@ export class DLM extends DLMClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags for the specified resource.</p>
-   *
+   * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -241,9 +221,7 @@ export class DLM extends DLMClient {
   }
 
   /**
-   *
-   *          <p>Adds the specified tags to the specified resource.</p>
-   *
+   * <p>Adds the specified tags to the specified resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -278,9 +256,7 @@ export class DLM extends DLMClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the specified resource.</p>
-   *
+   * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -315,9 +291,7 @@ export class DLM extends DLMClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified lifecycle policy.</p>
-   *
+   * <p>Updates the specified lifecycle policy.</p>
    */
   public updateLifecyclePolicy(
     args: UpdateLifecyclePolicyCommandInput,

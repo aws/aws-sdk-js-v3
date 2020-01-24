@@ -299,6 +299,10 @@ import {
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListTemplateVersionsCommandInput,
+  ListTemplateVersionsCommandOutput
+} from "../commands/ListTemplateVersionsCommand";
+import {
   ListTemplatesCommandInput,
   ListTemplatesCommandOutput
 } from "../commands/ListTemplatesCommand";
@@ -410,6 +414,10 @@ import {
   UpdateSmsTemplateCommandInput,
   UpdateSmsTemplateCommandOutput
 } from "../commands/UpdateSmsTemplateCommand";
+import {
+  UpdateTemplateActiveVersionCommandInput,
+  UpdateTemplateActiveVersionCommandOutput
+} from "../commands/UpdateTemplateActiveVersionCommand";
 import {
   UpdateVoiceChannelCommandInput,
   UpdateVoiceChannelCommandOutput
@@ -568,8 +576,11 @@ import {
   StartCondition,
   TagsModel,
   Template,
+  TemplateActiveVersionRequest,
   TemplateConfiguration,
   TemplateResponse,
+  TemplateVersionResponse,
+  TemplateVersionsResponse,
   TemplatesResponse,
   TooManyRequestsException,
   TreatmentResource,
@@ -1209,12 +1220,17 @@ export async function serializeAws_restJson1_1DeleteEmailTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -1362,12 +1378,17 @@ export async function serializeAws_restJson1_1DeletePushTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -1452,12 +1473,17 @@ export async function serializeAws_restJson1_1DeleteSmsTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -1542,12 +1568,17 @@ export async function serializeAws_restJson1_1DeleteVoiceTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -2179,12 +2210,17 @@ export async function serializeAws_restJson1_1GetEmailTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -2637,12 +2673,17 @@ export async function serializeAws_restJson1_1GetPushTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -2942,12 +2983,17 @@ export async function serializeAws_restJson1_1GetSmsTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -3032,12 +3078,17 @@ export async function serializeAws_restJson1_1GetVoiceTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -3100,6 +3151,52 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath
+  });
+}
+
+export async function serializeAws_restJson1_1ListTemplateVersionsCommand(
+  input: ListTemplateVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/v1/templates/{TemplateName}/{TemplateType}/versions";
+  if (input.TemplateName !== undefined) {
+    const labelValue: any = input.TemplateName.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: TemplateName."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{TemplateName}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateName.");
+  }
+  if (input.TemplateType !== undefined) {
+    const labelValue: any = input.TemplateType.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: TemplateType."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{TemplateType}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateType.");
+  }
+  const query: any = {};
+  if (input.NextToken !== undefined) {
+    query["next-token"] = input.NextToken.toString();
+  }
+  if (input.PageSize !== undefined) {
+    query["page-size"] = input.PageSize.toString();
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -3746,6 +3843,13 @@ export async function serializeAws_restJson1_1UpdateEmailTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.CreateNewVersion !== undefined) {
+    query["create-new-version"] = input.CreateNewVersion.toString();
+  }
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   let body: any = {};
   if (input.EmailTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1EmailTemplateRequest(
@@ -3759,6 +3863,7 @@ export async function serializeAws_restJson1_1UpdateEmailTemplateCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
+    query: query,
     body: body
   });
 }
@@ -3983,6 +4088,13 @@ export async function serializeAws_restJson1_1UpdatePushTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.CreateNewVersion !== undefined) {
+    query["create-new-version"] = input.CreateNewVersion.toString();
+  }
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   let body: any = {};
   if (input.PushNotificationTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1PushNotificationTemplateRequest(
@@ -3996,6 +4108,7 @@ export async function serializeAws_restJson1_1UpdatePushTemplateCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
+    query: query,
     body: body
   });
 }
@@ -4097,10 +4210,65 @@ export async function serializeAws_restJson1_1UpdateSmsTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.CreateNewVersion !== undefined) {
+    query["create-new-version"] = input.CreateNewVersion.toString();
+  }
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   let body: any = {};
   if (input.SMSTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1SMSTemplateRequest(
       input.SMSTemplateRequest,
+      context
+    );
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "PUT",
+    headers: headers,
+    path: resolvedPath,
+    query: query,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1UpdateTemplateActiveVersionCommand(
+  input: UpdateTemplateActiveVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath =
+    "/v1/templates/{TemplateName}/{TemplateType}/active-version";
+  if (input.TemplateName !== undefined) {
+    const labelValue: any = input.TemplateName.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: TemplateName."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{TemplateName}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateName.");
+  }
+  if (input.TemplateType !== undefined) {
+    const labelValue: any = input.TemplateType.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: TemplateType."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{TemplateType}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateType.");
+  }
+  let body: any = {};
+  if (input.TemplateActiveVersionRequest !== undefined) {
+    body = serializeAws_restJson1_1TemplateActiveVersionRequest(
+      input.TemplateActiveVersionRequest,
       context
     );
   }
@@ -4167,6 +4335,13 @@ export async function serializeAws_restJson1_1UpdateVoiceTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateName.");
   }
+  const query: any = {};
+  if (input.CreateNewVersion !== undefined) {
+    query["create-new-version"] = input.CreateNewVersion.toString();
+  }
+  if (input.Version !== undefined) {
+    query["version"] = input.Version.toString();
+  }
   let body: any = {};
   if (input.VoiceTemplateRequest !== undefined) {
     body = serializeAws_restJson1_1VoiceTemplateRequest(
@@ -4180,6 +4355,7 @@ export async function serializeAws_restJson1_1UpdateVoiceTemplateCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
+    query: query,
     body: body
   });
 }
@@ -10774,6 +10950,96 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1ListTemplateVersionsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateVersionsCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1ListTemplateVersionsCommandError(
+      output,
+      context
+    );
+  }
+  const contents: ListTemplateVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTemplateVersionsResponse",
+    TemplateVersionsResponse: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.TemplateVersionsResponse = deserializeAws_restJson1_1TemplateVersionsResponse(
+    data,
+    context
+  );
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateVersionsCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.pinpoint#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1ListTemplatesCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -13150,6 +13416,93 @@ async function deserializeAws_restJson1_1UpdateSmsTemplateCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1UpdateTemplateActiveVersionCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTemplateActiveVersionCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UpdateTemplateActiveVersionCommandError(
+      output,
+      context
+    );
+  }
+  const contents: UpdateTemplateActiveVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateTemplateActiveVersionResponse",
+    MessageBody: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.MessageBody = deserializeAws_restJson1_1MessageBody(data, context);
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UpdateTemplateActiveVersionCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTemplateActiveVersionCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.pinpoint#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1UpdateVoiceChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -14346,6 +14699,9 @@ const serializeAws_restJson1_1EmailMessageActivity = (
   }
   if (input.TemplateName !== undefined) {
     bodyParams["TemplateName"] = input.TemplateName;
+  }
+  if (input.TemplateVersion !== undefined) {
+    bodyParams["TemplateVersion"] = input.TemplateVersion;
   }
   return bodyParams;
 };
@@ -16042,6 +16398,20 @@ const serializeAws_restJson1_1Template = (
   let bodyParams: any = {};
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
+  }
+  if (input.Version !== undefined) {
+    bodyParams["Version"] = input.Version;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1TemplateActiveVersionRequest = (
+  input: TemplateActiveVersionRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Version !== undefined) {
+    bodyParams["Version"] = input.Version;
   }
   return bodyParams;
 };
@@ -17755,7 +18125,8 @@ const deserializeAws_restJson1_1EmailMessageActivity = (
     __type: "EmailMessageActivity",
     MessageConfig: undefined,
     NextActivity: undefined,
-    TemplateName: undefined
+    TemplateName: undefined,
+    TemplateVersion: undefined
   };
   if (output.MessageConfig !== undefined) {
     contents.MessageConfig = deserializeAws_restJson1_1JourneyEmailMessage(
@@ -17768,6 +18139,9 @@ const deserializeAws_restJson1_1EmailMessageActivity = (
   }
   if (output.TemplateName !== undefined) {
     contents.TemplateName = output.TemplateName;
+  }
+  if (output.TemplateVersion !== undefined) {
+    contents.TemplateVersion = output.TemplateVersion;
   }
   return contents;
 };
@@ -17788,6 +18162,7 @@ const deserializeAws_restJson1_1EmailTemplateResponse = (
     TemplateName: undefined,
     TemplateType: undefined,
     TextPart: undefined,
+    Version: undefined,
     tags: undefined
   };
   if (output.Arn !== undefined) {
@@ -17819,6 +18194,9 @@ const deserializeAws_restJson1_1EmailTemplateResponse = (
   }
   if (output.TextPart !== undefined) {
     contents.TextPart = output.TextPart;
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1MapOf__string(
@@ -19009,6 +19387,15 @@ const deserializeAws_restJson1_1ListOfTemplateResponse = (
   );
 };
 
+const deserializeAws_restJson1_1ListOfTemplateVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): Array<TemplateVersionResponse> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1TemplateVersionResponse(entry, context)
+  );
+};
+
 const deserializeAws_restJson1_1ListOfTreatmentResource = (
   output: any,
   context: __SerdeContext
@@ -19543,6 +19930,7 @@ const deserializeAws_restJson1_1PushNotificationTemplateResponse = (
     TemplateDescription: undefined,
     TemplateName: undefined,
     TemplateType: undefined,
+    Version: undefined,
     tags: undefined
   };
   if (output.ADM !== undefined) {
@@ -19595,6 +19983,9 @@ const deserializeAws_restJson1_1PushNotificationTemplateResponse = (
   }
   if (output.TemplateType !== undefined) {
     contents.TemplateType = output.TemplateType;
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1MapOf__string(
@@ -19803,6 +20194,7 @@ const deserializeAws_restJson1_1SMSTemplateResponse = (
     TemplateDescription: undefined,
     TemplateName: undefined,
     TemplateType: undefined,
+    Version: undefined,
     tags: undefined
   };
   if (output.Arn !== undefined) {
@@ -19828,6 +20220,9 @@ const deserializeAws_restJson1_1SMSTemplateResponse = (
   }
   if (output.TemplateType !== undefined) {
     contents.TemplateType = output.TemplateType;
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1MapOf__string(
@@ -20361,10 +20756,14 @@ const deserializeAws_restJson1_1Template = (
 ): Template => {
   let contents: any = {
     __type: "Template",
-    Name: undefined
+    Name: undefined,
+    Version: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
   }
   return contents;
 };
@@ -20420,6 +20819,7 @@ const deserializeAws_restJson1_1TemplateResponse = (
     TemplateDescription: undefined,
     TemplateName: undefined,
     TemplateType: undefined,
+    Version: undefined,
     tags: undefined
   };
   if (output.Arn !== undefined) {
@@ -20443,11 +20843,81 @@ const deserializeAws_restJson1_1TemplateResponse = (
   if (output.TemplateType !== undefined) {
     contents.TemplateType = output.TemplateType;
   }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
+  }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1MapOf__string(
       output.tags,
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1TemplateVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): TemplateVersionResponse => {
+  let contents: any = {
+    __type: "TemplateVersionResponse",
+    CreationDate: undefined,
+    DefaultSubstitutions: undefined,
+    LastModifiedDate: undefined,
+    TemplateDescription: undefined,
+    TemplateName: undefined,
+    TemplateType: undefined,
+    Version: undefined
+  };
+  if (output.CreationDate !== undefined) {
+    contents.CreationDate = output.CreationDate;
+  }
+  if (output.DefaultSubstitutions !== undefined) {
+    contents.DefaultSubstitutions = output.DefaultSubstitutions;
+  }
+  if (output.LastModifiedDate !== undefined) {
+    contents.LastModifiedDate = output.LastModifiedDate;
+  }
+  if (output.TemplateDescription !== undefined) {
+    contents.TemplateDescription = output.TemplateDescription;
+  }
+  if (output.TemplateName !== undefined) {
+    contents.TemplateName = output.TemplateName;
+  }
+  if (output.TemplateType !== undefined) {
+    contents.TemplateType = output.TemplateType;
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1TemplateVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): TemplateVersionsResponse => {
+  let contents: any = {
+    __type: "TemplateVersionsResponse",
+    Item: undefined,
+    Message: undefined,
+    NextToken: undefined,
+    RequestID: undefined
+  };
+  if (output.Item !== undefined) {
+    contents.Item = deserializeAws_restJson1_1ListOfTemplateVersionResponse(
+      output.Item,
+      context
+    );
+  }
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.RequestID !== undefined) {
+    contents.RequestID = output.RequestID;
   }
   return contents;
 };
@@ -20592,6 +21062,7 @@ const deserializeAws_restJson1_1VoiceTemplateResponse = (
     TemplateDescription: undefined,
     TemplateName: undefined,
     TemplateType: undefined,
+    Version: undefined,
     VoiceId: undefined,
     tags: undefined
   };
@@ -20621,6 +21092,9 @@ const deserializeAws_restJson1_1VoiceTemplateResponse = (
   }
   if (output.TemplateType !== undefined) {
     contents.TemplateType = output.TemplateType;
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
   }
   if (output.VoiceId !== undefined) {
     contents.VoiceId = output.VoiceId;

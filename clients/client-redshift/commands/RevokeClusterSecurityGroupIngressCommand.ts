@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  ClusterSecurityGroup,
-  RevokeClusterSecurityGroupIngressMessage
+  RevokeClusterSecurityGroupIngressMessage,
+  RevokeClusterSecurityGroupIngressResult
 } from "../models/index";
 import {
   deserializeAws_queryRevokeClusterSecurityGroupIngressCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeClusterSecurityGroupIngressCommandInput = RevokeClusterSecurityGroupIngressMessage;
-export type RevokeClusterSecurityGroupIngressCommandOutput = ClusterSecurityGroup;
+export type RevokeClusterSecurityGroupIngressCommandOutput = RevokeClusterSecurityGroupIngressResult;
 
 export class RevokeClusterSecurityGroupIngressCommand extends $Command<
   RevokeClusterSecurityGroupIngressCommandInput,

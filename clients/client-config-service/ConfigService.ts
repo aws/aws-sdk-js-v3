@@ -392,8 +392,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <fullname>AWS Config</fullname>
+ * <fullname>AWS Config</fullname>
  *
  * 		       <p>AWS Config provides a way to keep track of the configurations
  * 			of all the AWS resources associated with your AWS account. You can
@@ -417,29 +416,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 			as well as how to work with AWS Management Console, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html">What Is AWS
  * 				Config</a> in the <i>AWS Config Developer
  * 				Guide</i>.</p>
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
  */
 export class ConfigService extends ConfigServiceClient {
   /**
-   *
-   * 		       <p>Returns the current configuration items for resources that are present in your AWS Config aggregator. The operation also returns a list of resources that are not processed in the current request.
+   * <p>Returns the current configuration items for resources that are present in your AWS Config aggregator. The operation also returns a list of resources that are not processed in the current request.
    * 			If there are no unprocessed resources, the operation returns an empty <code>unprocessedResourceIdentifiers</code> list. </p>
    *
    * 		       <note>
@@ -452,7 +432,6 @@ export class ConfigService extends ConfigServiceClient {
    *                </li>
    *             </ul>
    *          </note>
-   *
    */
   public batchGetAggregateResourceConfig(
     args: BatchGetAggregateResourceConfigCommandInput,
@@ -490,8 +469,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the current configuration for one or more requested
+   * <p>Returns the current configuration for one or more requested
    * 			resources. The operation also returns a list of resources that are
    * 			not processed in the current request. If there are no unprocessed
    * 			resources, the operation returns an empty unprocessedResourceKeys
@@ -510,7 +488,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				           </li>
    *             </ul>
    * 		       </note>
-   *
    */
   public batchGetResourceConfig(
     args: BatchGetResourceConfigCommandInput,
@@ -545,10 +522,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the authorization granted to the specified
+   * <p>Deletes the authorization granted to the specified
    * 			configuration aggregator account in a specified region.</p>
-   *
    */
   public deleteAggregationAuthorization(
     args: DeleteAggregationAuthorizationCommandInput,
@@ -586,8 +561,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the specified AWS Config rule and all of its evaluation
+   * <p>Deletes the specified AWS Config rule and all of its evaluation
    * 			results.</p>
    * 		       <p>AWS Config sets the state of a rule to <code>DELETING</code>
    * 			until the deletion is complete. You cannot update a rule while it is
@@ -596,7 +570,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			receive a <code>ResourceInUseException</code>.</p>
    * 		       <p>You can check the state of a rule by using the
    * 				<code>DescribeConfigRules</code> request.</p>
-   *
    */
   public deleteConfigRule(
     args: DeleteConfigRuleCommandInput,
@@ -631,10 +604,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the specified configuration aggregator and the
+   * <p>Deletes the specified configuration aggregator and the
    * 			aggregated data associated with the aggregator.</p>
-   *
    */
   public deleteConfigurationAggregator(
     args: DeleteConfigurationAggregatorCommandInput,
@@ -669,8 +640,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the configuration recorder.</p>
+   * <p>Deletes the configuration recorder.</p>
    * 		       <p>After the configuration recorder is deleted, AWS Config will
    * 			not record resource configuration changes until you create a new
    * 			configuration recorder.</p>
@@ -680,7 +650,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				<code>GetResourceConfigHistory</code> action, but you will not
    * 			be able to access this information in the AWS Config console until
    * 			you create a new configuration recorder.</p>
-   *
    */
   public deleteConfigurationRecorder(
     args: DeleteConfigurationRecorderCommandInput,
@@ -715,10 +684,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that conformance pack.</p>
+   * <p>Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that conformance pack.</p>
    * 		       <p>AWS Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete. You cannot update a conformance pack while it is in this state.</p>
-   *
    */
   public deleteConformancePack(
     args: DeleteConformancePackCommandInput,
@@ -753,11 +720,9 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the delivery channel.</p>
+   * <p>Deletes the delivery channel.</p>
    * 		       <p>Before you can delete the delivery channel, you must stop the
    * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
-   *
    */
   public deleteDeliveryChannel(
     args: DeleteDeliveryChannelCommandInput,
@@ -792,13 +757,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the evaluation results for the specified AWS Config
+   * <p>Deletes the evaluation results for the specified AWS Config
    * 			rule. You can specify one AWS Config rule per request. After you
    * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
    * 			your AWS resources against the rule.</p>
-   *
-   *
    */
   public deleteEvaluationResults(
     args: DeleteEvaluationResultsCommandInput,
@@ -833,11 +795,9 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. Only a master account can delete an organization config rule.</p>
+   * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. Only a master account can delete an organization config rule.</p>
    * 		       <p>AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
    * 			You cannot update a rule while it is in this state.</p>
-   *
    */
   public deleteOrganizationConfigRule(
     args: DeleteOrganizationConfigRuleCommandInput,
@@ -872,12 +832,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from all member accounts in that organization.
+   * <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from all member accounts in that organization.
    * 			Only a master account can delete an organization conformance pack.</p>
    * 			      <p>AWS Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
    * 				You cannot update a conformance pack while it is in this state. </p>
-   *
    */
   public deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
@@ -924,10 +882,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes pending authorization requests for a specified
+   * <p>Deletes pending authorization requests for a specified
    * 			aggregator account in a specified region.</p>
-   *
    */
   public deletePendingAggregationRequest(
     args: DeletePendingAggregationRequestCommandInput,
@@ -965,9 +921,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the remediation configuration.</p>
-   *
+   * <p>Deletes the remediation configuration.</p>
    */
   public deleteRemediationConfiguration(
     args: DeleteRemediationConfigurationCommandInput,
@@ -1005,9 +959,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
-   *
+   * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
    */
   public deleteRemediationExceptions(
     args: DeleteRemediationExceptionsCommandInput,
@@ -1042,10 +994,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Records the configuration state for a custom resource that has been deleted.  This API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve the ConfigurationItems recorded for this resource in your AWS Config History.
+   * <p>Records the configuration state for a custom resource that has been deleted.  This API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve the ConfigurationItems recorded for this resource in your AWS Config History.
    * 			 </p>
-   *
    */
   public deleteResourceConfig(
     args: DeleteResourceConfigCommandInput,
@@ -1080,9 +1030,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the retention configuration.</p>
-   *
+   * <p>Deletes the retention configuration.</p>
    */
   public deleteRetentionConfiguration(
     args: DeleteRetentionConfigurationCommandInput,
@@ -1117,8 +1065,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Schedules delivery of a configuration snapshot to the Amazon S3
+   * <p>Schedules delivery of a configuration snapshot to the Amazon S3
    * 			bucket in the specified delivery channel. After the delivery has
    * 			started, AWS Config sends the following notifications using an
    * 			Amazon SNS topic that you have specified.</p>
@@ -1135,8 +1082,6 @@ export class ConfigService extends ConfigServiceClient {
    * 					failed.</p>
    * 			         </li>
    *          </ul>
-   *
-   *
    */
   public deliverConfigSnapshot(
     args: DeliverConfigSnapshotCommandInput,
@@ -1171,8 +1116,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of compliant and noncompliant rules with the
+   * <p>Returns a list of compliant and noncompliant rules with the
    * 			number of resources for compliant and noncompliant rules.
    * 			</p>
    * 		       <note>
@@ -1180,7 +1124,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				have a <code>nextToken</code>, the results are displayed on the next
    * 				page.</p>
    * 		       </note>
-   *
    */
   public describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
@@ -1227,10 +1170,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of authorizations granted to various aggregator
+   * <p>Returns a list of authorizations granted to various aggregator
    * 			accounts and regions.</p>
-   *
    */
   public describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
@@ -1277,8 +1218,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Indicates whether the specified AWS Config rules are compliant.
+   * <p>Indicates whether the specified AWS Config rules are compliant.
    * 			If a rule is noncompliant, this action returns the number of AWS
    * 			resources that do not comply with the rule.</p>
    * 		       <p>A rule is compliant if all of the evaluated resources comply
@@ -1311,7 +1251,6 @@ export class ConfigService extends ConfigServiceClient {
    * 					the rule's scope.</p>
    * 			         </li>
    *          </ul>
-   *
    */
   public describeComplianceByConfigRule(
     args: DescribeComplianceByConfigRuleCommandInput,
@@ -1349,8 +1288,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Indicates whether the specified AWS resources are compliant. If
+   * <p>Indicates whether the specified AWS resources are compliant. If
    * 			a resource is noncompliant, this action returns the number of AWS
    * 			Config rules that the resource does not comply with.</p>
    * 		       <p>A resource is compliant if it complies with all the AWS Config
@@ -1384,7 +1322,6 @@ export class ConfigService extends ConfigServiceClient {
    * 					the rule's scope.</p>
    * 			         </li>
    *          </ul>
-   *
    */
   public describeComplianceByResource(
     args: DescribeComplianceByResourceCommandInput,
@@ -1419,12 +1356,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns status information for each of your AWS managed Config
+   * <p>Returns status information for each of your AWS managed Config
    * 			rules. The status includes information such as the last time AWS
    * 			Config invoked the rule, the last time AWS Config failed to invoke
    * 			the rule, and the related error for the last failure.</p>
-   *
    */
   public describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
@@ -1471,9 +1406,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns details about your AWS Config rules.</p>
-   *
+   * <p>Returns details about your AWS Config rules.</p>
    */
   public describeConfigRules(
     args: DescribeConfigRulesCommandInput,
@@ -1508,10 +1441,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns status information for sources within an aggregator.
+   * <p>Returns status information for sources within an aggregator.
    * 			The status includes information about the last time AWS Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
-   *
    */
   public describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
@@ -1560,12 +1491,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the details of one or more configuration aggregators.
+   * <p>Returns the details of one or more configuration aggregators.
    * 			If the configuration aggregator is not specified, this action
    * 			returns the details for all the configuration aggregators associated
    * 			with the account. </p>
-   *
    */
   public describeConfigurationAggregators(
     args: DescribeConfigurationAggregatorsCommandInput,
@@ -1606,8 +1535,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the current status of the specified configuration
+   * <p>Returns the current status of the specified configuration
    * 			recorder. If a configuration recorder is not specified, this action
    * 			returns the status of all configuration recorders associated with
    * 			the account.</p>
@@ -1615,7 +1543,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			         <p>Currently, you can specify only one configuration recorder
    * 				per region in your account.</p>
    * 		       </note>
-   *
    */
   public describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
@@ -1662,8 +1589,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the details for the specified configuration recorders.
+   * <p>Returns the details for the specified configuration recorders.
    * 			If the configuration recorder is not specified, this action returns
    * 			the details for all configuration recorders associated with the
    * 			account.</p>
@@ -1671,8 +1597,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			         <p>Currently, you can specify only one configuration recorder
    * 				per region in your account.</p>
    * 		       </note>
-   *
-   *
    */
   public describeConfigurationRecorders(
     args: DescribeConfigurationRecordersCommandInput,
@@ -1710,12 +1634,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns compliance details for each rule in that conformance pack.</p>
+   * <p>Returns compliance details for each rule in that conformance pack.</p>
    * 		       <note>
    *             <p>You must provide exact rule names.</p>
    *          </note>
-   *
    */
   public describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
@@ -1762,12 +1684,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Provides one or more conformance packs deployment status.</p>
+   * <p>Provides one or more conformance packs deployment status.</p>
    * 		       <note>
    *             <p>If there are no conformance packs then you will see an empty result.</p>
    *          </note>
-   *
    */
   public describeConformancePackStatus(
     args: DescribeConformancePackStatusCommandInput,
@@ -1802,9 +1722,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of one or more conformance packs.</p>
-   *
+   * <p>Returns a list of one or more conformance packs.</p>
    */
   public describeConformancePacks(
     args: DescribeConformancePacksCommandInput,
@@ -1839,8 +1757,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the current status of the specified delivery channel.
+   * <p>Returns the current status of the specified delivery channel.
    * 			If a delivery channel is not specified, this action returns the
    * 			current status of all delivery channels associated with the
    * 			account.</p>
@@ -1848,7 +1765,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			         <p>Currently, you can specify only one delivery channel per
    * 				region in your account.</p>
    * 		       </note>
-   *
    */
   public describeDeliveryChannelStatus(
     args: DescribeDeliveryChannelStatusCommandInput,
@@ -1883,15 +1799,13 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns details about the specified delivery channel. If a
+   * <p>Returns details about the specified delivery channel. If a
    * 			delivery channel is not specified, this action returns the details
    * 			of all delivery channels associated with the account.</p>
    * 		       <note>
    * 			         <p>Currently, you can specify only one delivery channel per
    * 				region in your account.</p>
    * 		       </note>
-   *
    */
   public describeDeliveryChannels(
     args: DescribeDeliveryChannelsCommandInput,
@@ -1926,8 +1840,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Provides organization config rule deployment status for an organization.</p>
+   * <p>Provides organization config rule deployment status for an organization.</p>
    * 		       <note>
    *             <p>The status is not considered successful until organization config rule is successfully deployed in all the member accounts with an exception of excluded accounts.</p>
    * 			         <p>When you specify the limit and the next token, you receive a paginated response.
@@ -1935,7 +1848,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			It is only applicable, when you request all the organization config rules.</p>
    * 			         <p>Only a master account can call this API.</p>
    *          </note>
-   *
    */
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
@@ -1982,15 +1894,13 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of organization config rules.</p>
+   * <p>Returns a list of organization config rules.</p>
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response.
    * 			Limit and next token are not applicable if you specify organization config rule names.
    * 			It is only applicable, when you request all the organization config rules.</p>
    * 			         <p>Only a master account can call this API.</p>
    *          </note>
-   *
    */
   public describeOrganizationConfigRules(
     args: DescribeOrganizationConfigRulesCommandInput,
@@ -2028,8 +1938,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Provides organization conformance pack deployment status for an organization.</p>
+   * <p>Provides organization conformance pack deployment status for an organization.</p>
    * 		       <note>
    * 			         <p>The status is not considered successful until organization conformance pack is successfully
    * 				deployed in all the member accounts with an exception of excluded accounts.</p>
@@ -2038,7 +1947,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				They are only applicable, when you request all the organization conformance packs.</p>
    * 			         <p>Only a master account can call this API.</p>
    *          </note>
-   *
    */
   public describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
@@ -2087,15 +1995,13 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of organization conformance packs.</p>
+   * <p>Returns a list of organization conformance packs.</p>
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
    * 			         <p>Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,
    * 			when you request all the organization conformance packs. </p>
    * 			         <p>Only a master account can call this API.</p>
    *          </note>
-   *
    */
   public describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
@@ -2142,9 +2048,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of all pending aggregation requests.</p>
-   *
+   * <p>Returns a list of all pending aggregation requests.</p>
    */
   public describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
@@ -2191,9 +2095,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the details of one or more remediation configurations.</p>
-   *
+   * <p>Returns the details of one or more remediation configurations.</p>
    */
   public describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
@@ -2240,14 +2142,12 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
+   * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
    * 			When you specify the limit and the next token, you receive a paginated response. </p>
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
    * 			         <p>Limit and next token are not applicable if you request resources in batch. It is only applicable, when you request all resources.</p>
    *          </note>
-   *
    */
   public describeRemediationExceptions(
     args: DescribeRemediationExceptionsCommandInput,
@@ -2282,10 +2182,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed.
+   * <p>Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed.
    * 			When you specify the limit and the next token, you receive a paginated response.</p>
-   *
    */
   public describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
@@ -2332,8 +2230,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the details of one or more retention configurations. If
+   * <p>Returns the details of one or more retention configurations. If
    * 			the retention configuration name is not specified, this action
    * 			returns the details for all the retention configurations for that
    * 			account.</p>
@@ -2341,7 +2238,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			         <p>Currently, AWS Config supports only one retention
    * 				configuration per region in your account.</p>
    * 		       </note>
-   *
    */
   public describeRetentionConfigurations(
     args: DescribeRetentionConfigurationsCommandInput,
@@ -2379,8 +2275,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the evaluation results for the specified AWS Config
+   * <p>Returns the evaluation results for the specified AWS Config
    * 			rule for a specific resource in a rule. The results indicate which
    * 			AWS resources were evaluated by the rule, when each resource was
    * 			last evaluated, and whether each resource complies with the rule. </p>
@@ -2389,7 +2284,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				have a <code>nextToken</code>, the results are displayed on the next
    * 				page.</p>
    * 		       </note>
-   *
    */
   public getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
@@ -2436,15 +2330,13 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the number of compliant and noncompliant rules for one
+   * <p>Returns the number of compliant and noncompliant rules for one
    * 			or more accounts and regions in an aggregator.</p>
    * 		       <note>
    * 			         <p>The results can return an empty result page, but if you
    * 				have a nextToken, the results are displayed on the next
    * 				page.</p>
    * 		       </note>
-   *
    */
   public getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
@@ -2491,11 +2383,9 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the resource counts across accounts and regions that are present in your AWS Config aggregator. You can request the resource counts by providing filters and GroupByKey.</p>
+   * <p>Returns the resource counts across accounts and regions that are present in your AWS Config aggregator. You can request the resource counts by providing filters and GroupByKey.</p>
    * 		       <p>For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the count of resources in account ID 12345678910 and region us-east-1.
    * 			If the input contains ACCOUNT_ID as a GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.</p>
-   *
    */
   public getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
@@ -2542,9 +2432,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
-   *
+   * <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
    */
   public getAggregateResourceConfig(
     args: GetAggregateResourceConfigCommandInput,
@@ -2579,12 +2467,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the evaluation results for the specified AWS Config
+   * <p>Returns the evaluation results for the specified AWS Config
    * 			rule. The results indicate which AWS resources were evaluated by the
    * 			rule, when each resource was last evaluated, and whether each
    * 			resource complies with the rule.</p>
-   *
    */
   public getComplianceDetailsByConfigRule(
     args: GetComplianceDetailsByConfigRuleCommandInput,
@@ -2625,12 +2511,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the evaluation results for the specified AWS resource.
+   * <p>Returns the evaluation results for the specified AWS resource.
    * 			The results indicate which AWS Config rules were used to evaluate
    * 			the resource, when each rule was last used, and whether the resource
    * 			complies with each rule.</p>
-   *
    */
   public getComplianceDetailsByResource(
     args: GetComplianceDetailsByResourceCommandInput,
@@ -2668,10 +2552,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the number of AWS Config rules that are compliant and
+   * <p>Returns the number of AWS Config rules that are compliant and
    * 			noncompliant, up to a maximum of 25 for each.</p>
-   *
    */
   public getComplianceSummaryByConfigRule(
     args: GetComplianceSummaryByConfigRuleCommandInput,
@@ -2712,12 +2594,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the number of resources that are compliant and the
+   * <p>Returns the number of resources that are compliant and the
    * 			number that are noncompliant. You can specify one or more resource
    * 			types to get these numbers for each resource type. The maximum
    * 			number returned is 100.</p>
-   *
    */
   public getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
@@ -2764,9 +2644,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns compliance details of a conformance pack for all AWS resources that are monitered by conformance pack.</p>
-   *
+   * <p>Returns compliance details of a conformance pack for all AWS resources that are monitered by conformance pack.</p>
    */
   public getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
@@ -2813,9 +2691,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
-   *
+   * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
    */
   public getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
@@ -2862,8 +2738,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the resource types, the number of each resource type,
+   * <p>Returns the resource types, the number of each resource type,
    * 			and the total number of resources that AWS Config is recording in
    * 			this region for your AWS account. </p>
    * 		       <p class="title">
@@ -2927,8 +2802,6 @@ export class ConfigService extends ConfigServiceClient {
    * 					<a>GetDiscoveredResourceCounts</a> action.
    * 			</p>
    * 		       </note>
-   *
-   *
    */
   public getDiscoveredResourceCounts(
     args: GetDiscoveredResourceCountsCommandInput,
@@ -2963,12 +2836,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns detailed status for each member account within an organization for a given organization config rule.</p>
+   * <p>Returns detailed status for each member account within an organization for a given organization config rule.</p>
    * 		       <note>
    *             <p>Only a master account can call this API.</p>
    *          </note>
-   *
    */
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
@@ -3015,10 +2886,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
+   * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
    * 		       <p>Only a master account can call this API.</p>
-   *
    */
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
@@ -3067,8 +2936,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of configuration items for the specified
+   * <p>Returns a list of configuration items for the specified
    * 			resource. The list contains details about each state of the resource
    * 			during the specified time interval. If you specified a retention
    * 			period to retain your <code>ConfigurationItems</code> between a
@@ -3088,7 +2956,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				you can make another call, using the
    * 				<code>nextToken</code>.</p>
    * 		       </note>
-   *
    */
   public getResourceConfigHistory(
     args: GetResourceConfigHistoryCommandInput,
@@ -3123,12 +2990,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.
+   * <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.
    * 			A resource identifier includes the resource type, ID, (if available) the custom resource name, source account, and source region.
    * 			You can narrow the results to include only resources that have specific resource IDs, or a resource name, or source account ID, or source region.</p>
    * 			      <p>For example, if the input consists of accountID 12345678910 and the region is us-east-1 for resource type <code>AWS::EC2::Instance</code> then the API returns all the EC2 instance identifiers of accountID 12345678910 and region us-east-1.</p>
-   *
    */
   public listAggregateDiscoveredResources(
     args: ListAggregateDiscoveredResourcesCommandInput,
@@ -3169,8 +3034,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Accepts a resource type and returns a list of resource
+   * <p>Accepts a resource type and returns a list of resource
    * 			identifiers for the resources of that type. A resource identifier
    * 			includes the resource type, ID, and (if available) the custom
    * 			resource name. The results consist of resources that AWS Config has
@@ -3187,7 +3051,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				<code>nextToken</code> string. To get the next page of results,
    * 			run the request again and specify the string for the
    * 				<code>nextToken</code> parameter.</p>
-   *
    */
   public listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
@@ -3222,9 +3085,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 	        <p>List the tags for AWS Config resource.</p>
-   *
+   * <p>List the tags for AWS Config resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3259,11 +3120,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Authorizes the aggregator account and region to collect data
+   * <p>Authorizes the aggregator account and region to collect data
    * 			from the source account and region. </p>
-   *
-   *
    */
   public putAggregationAuthorization(
     args: PutAggregationAuthorizationCommandInput,
@@ -3298,8 +3156,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Adds or updates an AWS Config rule for evaluating whether your
+   * <p>Adds or updates an AWS Config rule for evaluating whether your
    * 			AWS resources comply with your desired configurations.</p>
    * 		       <p>You can use this action for custom AWS Config rules and AWS
    * 			managed Config rules. A custom AWS Config rule is a rule that you
@@ -3335,7 +3192,6 @@ export class ConfigService extends ConfigServiceClient {
    * 		       <p>For more information about developing and using AWS Config
    * 			rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating AWS Resource Configurations with AWS Config</a>
    * 			in the <i>AWS Config Developer Guide</i>.</p>
-   *
    */
   public putConfigRule(
     args: PutConfigRuleCommandInput,
@@ -3370,8 +3226,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Creates and updates the configuration aggregator with the
+   * <p>Creates and updates the configuration aggregator with the
    * 			selected source accounts and regions. The source account can be
    * 			individual account(s) or an organization.</p>
    * 		       <note>
@@ -3383,7 +3238,6 @@ export class ConfigService extends ConfigServiceClient {
    * 					<code>EnableAwsServiceAccess</code> API to enable
    * 				integration between AWS Config and AWS Organizations. </p>
    * 		       </note>
-   *
    */
   public putConfigurationAggregator(
     args: PutConfigurationAggregatorCommandInput,
@@ -3418,8 +3272,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a new configuration recorder to record the selected
+   * <p>Creates a new configuration recorder to record the selected
    * 			resource configurations.</p>
    * 		       <p>You can use this action to change the role <code>roleARN</code>
    * 			or the <code>recordingGroup</code> of an existing recorder. To
@@ -3433,7 +3286,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				specified, the default is to record all supported resource
    * 				types.</p>
    * 		       </note>
-   *
    */
   public putConfigurationRecorder(
     args: PutConfigurationRecorderCommandInput,
@@ -3468,15 +3320,13 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Creates or updates a conformance pack. A conformance pack is a collection of AWS Config rules that can be easily deployed in an account and a region and across AWS Organization.</p>
+   * <p>Creates or updates a conformance pack. A conformance pack is a collection of AWS Config rules that can be easily deployed in an account and a region and across AWS Organization.</p>
    * 		       <p>This API creates a service linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
    * 		The service linked role is created only when the role does not exist in your account. AWS Config verifies the existence of role with <code>GetRole</code> action.</p>
    * 		       <note>
    *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
    * 			If you provide both AWS Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
    *          </note>
-   *
    */
   public putConformancePack(
     args: PutConformancePackCommandInput,
@@ -3511,8 +3361,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a delivery channel object to deliver configuration
+   * <p>Creates a delivery channel object to deliver configuration
    * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
    * 		       <p>Before you can create a delivery channel, you must create a
    * 			configuration recorder.</p>
@@ -3529,7 +3378,6 @@ export class ConfigService extends ConfigServiceClient {
    *
    *
    * 		       </note>
-   *
    */
   public putDeliveryChannel(
     args: PutDeliveryChannelCommandInput,
@@ -3564,11 +3412,9 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Used by an AWS Lambda function to deliver evaluation results to
+   * <p>Used by an AWS Lambda function to deliver evaluation results to
    * 			AWS Config. This action is required in every AWS Lambda function
    * 			that is invoked by an AWS Config rule.</p>
-   *
    */
   public putEvaluations(
     args: PutEvaluationsCommandInput,
@@ -3603,8 +3449,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Adds or updates organization config rule for your entire organization evaluating whether your AWS resources comply with your desired configurations. Only a master account can create or update an organization config rule.</p>
+   * <p>Adds or updates organization config rule for your entire organization evaluating whether your AWS resources comply with your desired configurations. Only a master account can create or update an organization config rule.</p>
    * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code>
    * 			in the master account of your organization. The service linked role is created only when the role does not exist in the master account. AWS Config verifies the existence of role with <code>GetRole</code> action.</p>
    * 		       <p>You can use this action to create both custom AWS Config rules and AWS managed Config rules.
@@ -3616,8 +3461,6 @@ export class ConfigService extends ConfigServiceClient {
    * 		       <note>
    *             <p>Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.</p>
    *          </note>
-   *
-   *
    */
   public putOrganizationConfigRule(
     args: PutOrganizationConfigRuleCommandInput,
@@ -3652,8 +3495,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deploys conformance packs across member accounts in an AWS Organization.</p>
+   * <p>Deploys conformance packs across member accounts in an AWS Organization.</p>
    * 		       <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
    * 			through the <code>EnableAWSServiceAccess</code> action and creates a
    * 			service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master account of your organization.
@@ -3666,7 +3508,6 @@ export class ConfigService extends ConfigServiceClient {
    * 				You cannot update a conformance pack while it is in this state.</p>
    * 			         <p>You can create 6 conformance packs with 25 AWS Config rules in each pack.</p>
    *          </note>
-   *
    */
   public putOrganizationConformancePack(
     args: PutOrganizationConformancePackCommandInput,
@@ -3704,10 +3545,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Adds or updates the remediation configuration with a specific AWS Config rule with the selected target or action. The API creates the <code>RemediationConfiguration</code> object for the AWS Config rule.
+   * <p>Adds or updates the remediation configuration with a specific AWS Config rule with the selected target or action. The API creates the <code>RemediationConfiguration</code> object for the AWS Config rule.
    * 		The AWS Config rule must already exist for you to add a remediation configuration. The target (SSM document) must exist and have permissions to use the target. </p>
-   *
    */
   public putRemediationConfigurations(
     args: PutRemediationConfigurationsCommandInput,
@@ -3742,10 +3581,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
+   * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
    * 			This API adds a new exception or updates an exisiting exception for a specific resource with a specific AWS Config rule. </p>
-   *
    */
   public putRemediationExceptions(
     args: PutRemediationExceptionsCommandInput,
@@ -3780,8 +3617,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Records the configuration state for the resource provided in the request.
+   * <p>Records the configuration state for the resource provided in the request.
    *
    * 			The configuration state of a resource is represented in AWS Config as Configuration Items.
    * 			Once this API records the configuration item, you can retrieve the list of configuration items for the custom resource type using existing AWS Config APIs. </p>
@@ -3790,7 +3626,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			         <p>When you call this API, AWS Config only stores configuration state of the resource provided in the request. This API does not change or remediate the configuration of the resource.
    * 				</p>
    *          </note>
-   *
    */
   public putResourceConfig(
     args: PutResourceConfigCommandInput,
@@ -3825,8 +3660,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Creates and updates the retention configuration with details
+   * <p>Creates and updates the retention configuration with details
    * 			about retention period (number of days) that AWS Config stores your
    * 			historical information. The API creates the
    * 				<code>RetentionConfiguration</code> object and names the object
@@ -3837,7 +3671,6 @@ export class ConfigService extends ConfigServiceClient {
    * 			         <p>Currently, AWS Config supports only one retention
    * 				configuration per region in your account.</p>
    * 		       </note>
-   *
    */
   public putRetentionConfiguration(
     args: PutRetentionConfigurationCommandInput,
@@ -3872,13 +3705,11 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>
+   * <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>
    * 		       <p>For more information about query components, see the
    * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
    *                <b>Query Components</b>
    *             </a> section in the AWS Config Developer Guide.</p>
-   *
    */
   public selectResourceConfig(
     args: SelectResourceConfigCommandInput,
@@ -3913,8 +3744,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Runs an on-demand evaluation for the specified AWS Config rules
+   * <p>Runs an on-demand evaluation for the specified AWS Config rules
    * 			against the last known configuration state of the resources. Use
    * 				<code>StartConfigRulesEvaluation</code> when you want to test
    * 			that a rule you updated is working as expected.
@@ -3962,7 +3792,6 @@ export class ConfigService extends ConfigServiceClient {
    * 					every 24 hours.</p>
    * 			         </li>
    *          </ol>
-   *
    */
   public startConfigRulesEvaluation(
     args: StartConfigRulesEvaluationCommandInput,
@@ -3997,12 +3826,10 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Starts recording configurations of the AWS resources you have
+   * <p>Starts recording configurations of the AWS resources you have
    * 			selected to record in your AWS account.</p>
    * 		       <p>You must have created at least one delivery channel to
    * 			successfully start the configuration recorder.</p>
-   *
    */
   public startConfigurationRecorder(
     args: StartConfigurationRecorderCommandInput,
@@ -4037,10 +3864,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Runs an on-demand remediation for the specified AWS Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.</p>
+   * <p>Runs an on-demand remediation for the specified AWS Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.</p>
    * 			      <p>You can specify up to 100 resource keys per request. An existing StartRemediationExecution call for the specified resource keys must complete before you can call the API again.</p>
-   *
    */
   public startRemediationExecution(
     args: StartRemediationExecutionCommandInput,
@@ -4075,9 +3900,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Stops recording configurations of the AWS resources you have selected to record in your AWS account.</p>
-   *
+   * <p>Stops recording configurations of the AWS resources you have selected to record in your AWS account.</p>
    */
   public stopConfigurationRecorder(
     args: StopConfigurationRecorderCommandInput,
@@ -4112,10 +3935,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed.
+   * <p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed.
    * 			When a resource is deleted, the tags associated with that resource are deleted as well.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -4150,9 +3971,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes specified tags from a resource.</p>
-   *
+   * <p>Deletes specified tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

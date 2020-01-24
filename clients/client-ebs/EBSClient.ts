@@ -176,8 +176,7 @@ export type EBSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS
+ * <p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS
  *             snapshots, and identify the difference between two snapshots. You can view the details
  *             of blocks in an EBS snapshot, compare the block difference between two snapshots, and
  *             directly access the data in a snapshot. If you’re an independent software vendor (ISV)
@@ -194,7 +193,6 @@ export type EBSClientResolvedConfig = __SmithyResolvedConfiguration<
  *             endpoints for the EBS direct APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ebs_region">AWS
  *                 Service Endpoints</a> in the <i>AWS General
  *             Reference</i>.</p>
- *
  */
 export class EBSClient extends __Client<
   __HttpHandlerOptions,

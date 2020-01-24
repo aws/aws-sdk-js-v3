@@ -357,8 +357,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>Amazon Simple Email Service</fullname>
+ * <fullname>Amazon Simple Email Service</fullname>
  *         <p> This document contains reference information for the <a href="https://aws.amazon.com/ses/">Amazon Simple Email Service</a> (Amazon SES) API, version
  *             2010-12-01. This document is best used in conjunction with the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer
  *                 Guide</a>. </p>
@@ -367,18 +366,15 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                     Amazon SES</a> in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer
  *                 Guide</a>.</p>
  *         </note>
- *
  */
 export class SES extends SESClient {
   /**
-   *
-   *         <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
+   * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
    *             configurations are copied to the new receipt rule set and are completely independent of
    *             the source rule set.</p>
    *         <p>For information about setting up rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public cloneReceiptRuleSet(
     args: CloneReceiptRuleSetCommandInput,
@@ -413,13 +409,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates a configuration set.</p>
+   * <p>Creates a configuration set.</p>
    *         <p>Configuration sets enable you to publish email sending events. For information about
    *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
@@ -454,8 +448,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates a configuration set event destination.</p>
+   * <p>Creates a configuration set event destination.</p>
    *         <note>
    *             <p>When you create or update an event destination, you must provide one, and only
    *                 one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p>
@@ -465,7 +458,6 @@ export class SES extends SESClient {
    *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
@@ -512,13 +504,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates an association between a configuration set and a custom domain for open and
+   * <p>Creates an association between a configuration set and a custom domain for open and
    *             click event tracking. </p>
    *         <p>By default, images and links used for tracking open and click events are hosted on
    *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
    *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
-   *
    */
   public createConfigurationSetTrackingOptions(
     args: CreateConfigurationSetTrackingOptionsCommandInput,
@@ -565,12 +555,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates a new custom verification email template.</p>
+   * <p>Creates a new custom verification email template.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
@@ -617,11 +605,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates a new IP address filter.</p>
+   * <p>Creates a new IP address filter.</p>
    *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public createReceiptFilter(
     args: CreateReceiptFilterCommandInput,
@@ -656,12 +642,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates a receipt rule.</p>
+   * <p>Creates a receipt rule.</p>
    *         <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public createReceiptRule(
     args: CreateReceiptRuleCommandInput,
@@ -696,12 +680,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates an empty receipt rule set.</p>
+   * <p>Creates an empty receipt rule set.</p>
    *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public createReceiptRuleSet(
     args: CreateReceiptRuleSetCommandInput,
@@ -736,12 +718,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates an email template. Email templates enable you to send personalized email to
+   * <p>Creates an email template. Email templates enable you to send personalized email to
    *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public createTemplate(
     args: CreateTemplateCommandInput,
@@ -776,11 +756,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes a configuration set. Configuration sets enable you to publish email sending
+   * <p>Deletes a configuration set. Configuration sets enable you to publish email sending
    *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
@@ -815,12 +793,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes a configuration set event destination. Configuration set event destinations
+   * <p>Deletes a configuration set event destination. Configuration set event destinations
    *             are associated with configuration sets, which enable you to publish email sending
    *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
@@ -867,8 +843,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes an association between a configuration set and a custom domain for open and
+   * <p>Deletes an association between a configuration set and a custom domain for open and
    *             click event tracking.</p>
    *         <p>By default, images and links used for tracking open and click events are hosted on
    *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
@@ -878,7 +853,6 @@ export class SES extends SESClient {
    *                 configuration set to capture open and click events using the standard,
    *                 Amazon SES-operated domains.</p>
    *         </note>
-   *
    */
   public deleteConfigurationSetTrackingOptions(
     args: DeleteConfigurationSetTrackingOptionsCommandInput,
@@ -925,12 +899,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes an existing custom verification email template. </p>
+   * <p>Deletes an existing custom verification email template. </p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
@@ -977,11 +949,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified identity (an email address or a domain) from the list of
+   * <p>Deletes the specified identity (an email address or a domain) from the list of
    *             verified identities.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteIdentity(
     args: DeleteIdentityCommandInput,
@@ -1016,8 +986,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified sending authorization policy for the given identity (an email
+   * <p>Deletes the specified sending authorization policy for the given identity (an email
    *             address or a domain). This API returns successfully even if a policy with the specified
    *             name does not exist.</p>
    *         <note>
@@ -1029,7 +998,6 @@ export class SES extends SESClient {
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteIdentityPolicy(
     args: DeleteIdentityPolicyCommandInput,
@@ -1064,12 +1032,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified IP address filter.</p>
+   * <p>Deletes the specified IP address filter.</p>
    *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteReceiptFilter(
     args: DeleteReceiptFilterCommandInput,
@@ -1104,12 +1070,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified receipt rule.</p>
+   * <p>Deletes the specified receipt rule.</p>
    *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteReceiptRule(
     args: DeleteReceiptRuleCommandInput,
@@ -1144,15 +1108,13 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified receipt rule set and all of the receipt rules it
+   * <p>Deletes the specified receipt rule set and all of the receipt rules it
    *             contains.</p>
    *         <note>
    *             <p>The currently active rule set cannot be deleted.</p>
    *         </note>
    *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteReceiptRuleSet(
     args: DeleteReceiptRuleSetCommandInput,
@@ -1187,10 +1149,8 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deletes an email template.</p>
+   * <p>Deletes an email template.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public deleteTemplate(
     args: DeleteTemplateCommandInput,
@@ -1225,10 +1185,8 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
+   * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
    *             and domains.</p>
-   *
    */
   public deleteVerifiedEmailAddress(
     args: DeleteVerifiedEmailAddressCommandInput,
@@ -1263,13 +1221,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the metadata and receipt rules for the receipt rule set that is currently
+   * <p>Returns the metadata and receipt rules for the receipt rule set that is currently
    *             active.</p>
    *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public describeActiveReceiptRuleSet(
     args: DescribeActiveReceiptRuleSetCommandInput,
@@ -1304,12 +1260,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the details of the specified configuration set. For information about using
+   * <p>Returns the details of the specified configuration set. For information about using
    *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public describeConfigurationSet(
     args: DescribeConfigurationSetCommandInput,
@@ -1344,12 +1298,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the details of the specified receipt rule.</p>
+   * <p>Returns the details of the specified receipt rule.</p>
    *         <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public describeReceiptRule(
     args: DescribeReceiptRuleCommandInput,
@@ -1384,11 +1336,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the details of the specified receipt rule set.</p>
+   * <p>Returns the details of the specified receipt rule set.</p>
    *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public describeReceiptRuleSet(
     args: DescribeReceiptRuleSetCommandInput,
@@ -1423,10 +1373,8 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the email sending status of the Amazon SES account for the current region.</p>
+   * <p>Returns the email sending status of the Amazon SES account for the current region.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public getAccountSendingEnabled(
     args: GetAccountSendingEnabledCommandInput,
@@ -1461,13 +1409,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the custom email verification template for the template name you
+   * <p>Returns the custom email verification template for the template name you
    *             specify.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
@@ -1514,8 +1460,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the current status of Easy DKIM signing for an entity. For domain name
+   * <p>Returns the current status of Easy DKIM signing for an entity. For domain name
    *             identities, this operation also returns the DKIM tokens that are required for Easy DKIM
    *             signing, and whether Amazon SES has successfully verified that these tokens have been
    *             published.</p>
@@ -1538,7 +1483,6 @@ export class SES extends SESClient {
    *         <p>This operation is throttled at one request per second and can only get DKIM attributes
    *             for up to 100 identities at a time.</p>
    *         <p>For more information about creating DNS records using DKIM tokens, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
-   *
    */
   public getIdentityDkimAttributes(
     args: GetIdentityDkimAttributesCommandInput,
@@ -1573,12 +1517,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
+   * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
    *             domains).</p>
    *         <p>This operation is throttled at one request per second and can only get custom MAIL
    *             FROM attributes for up to 100 identities at a time.</p>
-   *
    */
   public getIdentityMailFromDomainAttributes(
     args: GetIdentityMailFromDomainAttributesCommandInput,
@@ -1625,14 +1567,12 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Given a list of verified identities (email addresses and/or domains), returns a
+   * <p>Given a list of verified identities (email addresses and/or domains), returns a
    *             structure describing identity notification attributes.</p>
    *         <p>This operation is throttled at one request per second and can only get notification
    *             attributes for up to 100 identities at a time.</p>
    *         <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
    *                 Developer Guide</a>.</p>
-   *
    */
   public getIdentityNotificationAttributes(
     args: GetIdentityNotificationAttributesCommandInput,
@@ -1679,8 +1619,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns the requested sending authorization policies for the given identity (an email
+   * <p>Returns the requested sending authorization policies for the given identity (an email
    *             address or a domain). The policies are returned as a map of policy names to policy
    *             contents. You can retrieve a maximum of 20 policies at a time.</p>
    *         <note>
@@ -1692,7 +1631,6 @@ export class SES extends SESClient {
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public getIdentityPolicies(
     args: GetIdentityPoliciesCommandInput,
@@ -1727,8 +1665,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Given a list of identities (email addresses and/or domains), returns the verification
+   * <p>Given a list of identities (email addresses and/or domains), returns the verification
    *             status and (for domain identities) the verification token for each identity.</p>
    *         <p>The verification status of an email address is "Pending" until the email address owner
    *             clicks the link within the verification email that Amazon SES sent to that address. If the
@@ -1744,7 +1681,6 @@ export class SES extends SESClient {
    *             process from the beginning.</p>
    *         <p>This operation is throttled at one request per second and can only get verification
    *             attributes for up to 100 identities at a time.</p>
-   *
    */
   public getIdentityVerificationAttributes(
     args: GetIdentityVerificationAttributesCommandInput,
@@ -1791,10 +1727,8 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Provides the sending limits for the Amazon SES account. </p>
+   * <p>Provides the sending limits for the Amazon SES account. </p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public getSendQuota(
     args: GetSendQuotaCommandInput,
@@ -1829,12 +1763,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Provides sending statistics for the current AWS Region. The result is a list of data
+   * <p>Provides sending statistics for the current AWS Region. The result is a list of data
    *             points, representing the last two weeks of sending activity. Each data point in the list
    *             contains statistics for a 15-minute period of time.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public getSendStatistics(
     args: GetSendStatisticsCommandInput,
@@ -1869,11 +1801,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Displays the template object (which includes the Subject line, HTML part and text
+   * <p>Displays the template object (which includes the Subject line, HTML part and text
    *             part) for the template you specify.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public getTemplate(
     args: GetTemplateCommandInput,
@@ -1908,8 +1838,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Provides a list of the configuration sets associated with your Amazon SES account in the
+   * <p>Provides a list of the configuration sets associated with your Amazon SES account in the
    *             current AWS Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
    *                 Guide.</i>
    *          </p>
@@ -1919,7 +1848,6 @@ export class SES extends SESClient {
    *             You can then execute the <code>ListConfigurationSets</code> operation again, passing the
    *                 <code>NextToken</code> parameter and the value of the NextToken element to retrieve
    *             additional results.</p>
-   *
    */
   public listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
@@ -1954,13 +1882,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Lists the existing custom verification email templates for your account in the current
+   * <p>Lists the existing custom verification email templates for your account in the current
    *             AWS Region.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
@@ -2007,11 +1933,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns a list containing all of the identities (email addresses and domains) for your
+   * <p>Returns a list containing all of the identities (email addresses and domains) for your
    *             AWS account in the current AWS Region, regardless of verification status.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public listIdentities(
     args: ListIdentitiesCommandInput,
@@ -2046,8 +1970,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of sending authorization policies that are attached to the given
+   * <p>Returns a list of sending authorization policies that are attached to the given
    *             identity (an email address or a domain). This API returns only a list. If you want the
    *             actual policy content, you can use <code>GetIdentityPolicies</code>.</p>
    *         <note>
@@ -2059,7 +1982,6 @@ export class SES extends SESClient {
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public listIdentityPolicies(
     args: ListIdentityPoliciesCommandInput,
@@ -2094,13 +2016,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Lists the IP address filters associated with your AWS account in the current AWS
+   * <p>Lists the IP address filters associated with your AWS account in the current AWS
    *             Region.</p>
    *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public listReceiptFilters(
     args: ListReceiptFiltersCommandInput,
@@ -2135,14 +2055,12 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Lists the receipt rule sets that exist under your AWS account in the current AWS
+   * <p>Lists the receipt rule sets that exist under your AWS account in the current AWS
    *             Region. If there are additional receipt rule sets to be retrieved, you will receive a
    *                 <code>NextToken</code> that you can provide to the next call to
    *                 <code>ListReceiptRuleSets</code> to retrieve the additional entries.</p>
    *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public listReceiptRuleSets(
     args: ListReceiptRuleSetsCommandInput,
@@ -2177,11 +2095,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Lists the email templates present in your Amazon SES account in the current AWS
+   * <p>Lists the email templates present in your Amazon SES account in the current AWS
    *             Region.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public listTemplates(
     args: ListTemplatesCommandInput,
@@ -2216,10 +2132,8 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+   * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
    *             and domains associated with your account.</p>
-   *
    */
   public listVerifiedEmailAddresses(
     args: ListVerifiedEmailAddressesCommandInput,
@@ -2254,9 +2168,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Adds or updates the delivery options for a configuration set.</p>
-   *
+   * <p>Adds or updates the delivery options for a configuration set.</p>
    */
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
@@ -2303,8 +2215,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Adds or updates a sending authorization policy for the specified identity (an email
+   * <p>Adds or updates a sending authorization policy for the specified identity (an email
    *             address or a domain).</p>
    *         <note>
    *             <p>This API is for the identity owner only. If you have not verified the identity,
@@ -2315,7 +2226,6 @@ export class SES extends SESClient {
    *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public putIdentityPolicy(
     args: PutIdentityPolicyCommandInput,
@@ -2350,8 +2260,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Reorders the receipt rules within a receipt rule set.</p>
+   * <p>Reorders the receipt rules within a receipt rule set.</p>
    *         <note>
    *             <p>All of the rules in the rule set must be represented in this request. That is,
    *                 this API will return an error if the reorder request doesn't explicitly position all
@@ -2359,7 +2268,6 @@ export class SES extends SESClient {
    *         </note>
    *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public reorderReceiptRuleSet(
     args: ReorderReceiptRuleSetCommandInput,
@@ -2394,8 +2302,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Generates and sends a bounce message to the sender of an email you received through
+   * <p>Generates and sends a bounce message to the sender of an email you received through
    *             Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
    *         <note>
    *             <p>You cannot use this API to send generic bounces for mail that was not received by
@@ -2404,7 +2311,6 @@ export class SES extends SESClient {
    *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public sendBounce(
     args: SendBounceCommandInput,
@@ -2439,8 +2345,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Composes an email message to multiple destinations. The message body is created using
+   * <p>Composes an email message to multiple destinations. The message body is created using
    *             an email template.</p>
    *         <p>In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your
    *             call to the API must meet the following requirements:</p>
@@ -2483,7 +2388,6 @@ export class SES extends SESClient {
    *                     limited by your account's maximum sending rate.</p>
    *             </li>
    *          </ul>
-   *
    */
   public sendBulkTemplatedEmail(
     args: SendBulkTemplatedEmailCommandInput,
@@ -2518,8 +2422,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Adds an email address to the list of identities for your Amazon SES account in the current
+   * <p>Adds an email address to the list of identities for your Amazon SES account in the current
    *             AWS Region and attempts to verify it. As a result of executing this operation, a
    *             customized verification email is sent to the specified address.</p>
    *         <p>To use this operation, you must first create a custom verification email template. For
@@ -2528,7 +2431,6 @@ export class SES extends SESClient {
    *                 Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public sendCustomVerificationEmail(
     args: SendCustomVerificationEmailCommandInput,
@@ -2563,8 +2465,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Composes an email message and immediately queues it for sending. In order to send
+   * <p>Composes an email message and immediately queues it for sending. In order to send
    *             email using the <code>SendEmail</code> operation, your message must meet the following
    *             requirements:</p>
    *
@@ -2609,7 +2510,6 @@ export class SES extends SESClient {
    *                     Sending Limits</a> in the <i>Amazon SES Developer Guide.</i>
    *             </p>
    *         </important>
-   *
    */
   public sendEmail(
     args: SendEmailCommandInput,
@@ -2644,8 +2544,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Composes an email message and immediately queues it for sending.</p>
+   * <p>Composes an email message and immediately queues it for sending.</p>
    *
    *         <p>This operation is more flexible than the <code>SendEmail</code> API operation. When
    *             you use the <code>SendRawEmail</code> operation, you can specify the headers of the
@@ -2754,7 +2653,6 @@ export class SES extends SESClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public sendRawEmail(
     args: SendRawEmailCommandInput,
@@ -2789,8 +2687,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Composes an email message using an email template and immediately queues it for
+   * <p>Composes an email message using an email template and immediately queues it for
    *             sending.</p>
    *         <p>In order to send email using the <code>SendTemplatedEmail</code> operation, your call
    *             to the API must meet the following requirements:</p>
@@ -2840,7 +2737,6 @@ export class SES extends SESClient {
    *                     Personalized Email Using the Amazon SES API</a> in the <i>Amazon Simple Email Service
    *                     Developer Guide</i>.</p>
    *         </important>
-   *
    */
   public sendTemplatedEmail(
     args: SendTemplatedEmailCommandInput,
@@ -2875,15 +2771,13 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Sets the specified receipt rule set as the active receipt rule set.</p>
+   * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
    *         <note>
    *             <p>To disable your email-receiving through Amazon SES completely, you can call this API
    *                 with RuleSetName set to null.</p>
    *         </note>
    *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public setActiveReceiptRuleSet(
     args: SetActiveReceiptRuleSetCommandInput,
@@ -2918,8 +2812,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM
+   * <p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM
    *             signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends
    *             from addresses on that domain. If Easy DKIM signing is enabled for an email address,
    *             then Amazon SES uses DKIM to sign all email it sends from that address.</p>
@@ -2932,7 +2825,6 @@ export class SES extends SESClient {
    *             verification process for the identity, even if the verification process isn't complete. </p>
    *         <p>You can execute this operation no more than once per second.</p>
    *         <p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
-   *
    */
   public setIdentityDkimEnabled(
     args: SetIdentityDkimEnabledCommandInput,
@@ -2967,8 +2859,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
+   * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
    *             forwards bounce and complaint notifications as email. Feedback forwarding can only be
    *             disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and
    *             complaints.</p>
@@ -2979,7 +2870,6 @@ export class SES extends SESClient {
    *         <p>You can execute this operation no more than once per second.</p>
    *         <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
    *                 Developer Guide</a>.</p>
-   *
    */
   public setIdentityFeedbackForwardingEnabled(
     args: SetIdentityFeedbackForwardingEnabledCommandInput,
@@ -3026,14 +2916,12 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
+   * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
    *             original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
    *             type.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    *         <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
    *                 Developer Guide</a>.</p>
-   *
    */
   public setIdentityHeadersInNotificationsEnabled(
     args: SetIdentityHeadersInNotificationsEnabledCommandInput,
@@ -3080,8 +2968,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
+   * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
    *             email address or a domain).</p>
    *         <important>
    *             <p>To send emails using the specified MAIL FROM domain, you must add an MX record to
@@ -3091,7 +2978,6 @@ export class SES extends SESClient {
    *                 Guide</a>.</p>
    *         </important>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public setIdentityMailFromDomain(
     args: SetIdentityMailFromDomainCommandInput,
@@ -3126,8 +3012,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
+   * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
    *             this operation, you specify a verified identity, such as an email address or domain.
    *             When you send an email that uses the chosen identity in the Source field, Amazon SES sends
    *             notifications to the topic you specified. You can send bounce, complaint, or delivery
@@ -3136,7 +3021,6 @@ export class SES extends SESClient {
    *         <p>You can execute this operation no more than once per second.</p>
    *         <p>For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer
    *             Guide</a>.</p>
-   *
    */
   public setIdentityNotificationTopic(
     args: SetIdentityNotificationTopicCommandInput,
@@ -3171,12 +3055,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Sets the position of the specified receipt rule in the receipt rule set.</p>
+   * <p>Sets the position of the specified receipt rule in the receipt rule set.</p>
    *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public setReceiptRulePosition(
     args: SetReceiptRulePositionCommandInput,
@@ -3211,11 +3093,9 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Creates a preview of the MIME content of an email when provided with a template and a
+   * <p>Creates a preview of the MIME content of an email when provided with a template and a
    *             set of replacement data.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public testRenderTemplate(
     args: TestRenderTemplateCommandInput,
@@ -3250,14 +3130,12 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Enables or disables email sending across your entire Amazon SES account in the current
+   * <p>Enables or disables email sending across your entire Amazon SES account in the current
    *             AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
    *             temporarily pause email sending across your Amazon SES account in a given AWS Region when
    *             reputation metrics (such as your bounce or complaint rates) reach certain
    *             thresholds.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public updateAccountSendingEnabled(
     args: UpdateAccountSendingEnabledCommandInput,
@@ -3292,8 +3170,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Updates the event destination of a configuration set. Event destinations are
+   * <p>Updates the event destination of a configuration set. Event destinations are
    *             associated with configuration sets, which enable you to publish email sending events to
    *             Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets,
    *             see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES
@@ -3305,7 +3182,6 @@ export class SES extends SESClient {
    *                 (Amazon SNS).</p>
    *         </note>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
@@ -3352,13 +3228,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Enables or disables the publishing of reputation metrics for emails sent using a
+   * <p>Enables or disables the publishing of reputation metrics for emails sent using a
    *             specific configuration set in a given AWS Region. Reputation metrics include bounce
    *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
    *             create alarms when bounce or complaint rates exceed certain thresholds.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public updateConfigurationSetReputationMetricsEnabled(
     args: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
@@ -3409,14 +3283,12 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Enables or disables email sending for messages sent using a specific configuration set
+   * <p>Enables or disables email sending for messages sent using a specific configuration set
    *             in a given AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms
    *             to temporarily pause email sending for a configuration set when the reputation metrics
    *             for that configuration set (such as your bounce on complaint rate) exceed certain
    *             thresholds.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public updateConfigurationSetSendingEnabled(
     args: UpdateConfigurationSetSendingEnabledCommandInput,
@@ -3463,13 +3335,11 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Modifies an association between a configuration set and a custom domain for open and
+   * <p>Modifies an association between a configuration set and a custom domain for open and
    *             click event tracking. </p>
    *         <p>By default, images and links used for tracking open and click events are hosted on
    *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
    *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
-   *
    */
   public updateConfigurationSetTrackingOptions(
     args: UpdateConfigurationSetTrackingOptionsCommandInput,
@@ -3516,12 +3386,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Updates an existing custom verification email template.</p>
+   * <p>Updates an existing custom verification email template.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
@@ -3568,12 +3436,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Updates a receipt rule.</p>
+   * <p>Updates a receipt rule.</p>
    *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
    *                 Developer Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public updateReceiptRule(
     args: UpdateReceiptRuleCommandInput,
@@ -3608,12 +3474,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Updates an email template. Email templates enable you to send personalized email to
+   * <p>Updates an email template. Email templates enable you to send personalized email to
    *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
    *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public updateTemplate(
     args: UpdateTemplateCommandInput,
@@ -3648,8 +3512,7 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Returns a set of DKIM tokens for a domain identity.</p>
+   * <p>Returns a set of DKIM tokens for a domain identity.</p>
    *         <important>
    *             <p>When you execute the <code>VerifyDomainDkim</code> operation, the domain that you
    *                 specify is added to the list of identities that are associated with your account.
@@ -3688,7 +3551,6 @@ export class SES extends SESClient {
    *                 <i>example.com</i> with your domain. Repeat this process for each
    *             token that's generated by this operation.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public verifyDomainDkim(
     args: VerifyDomainDkimCommandInput,
@@ -3723,15 +3585,13 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Adds a domain to the list of identities for your Amazon SES account in the current AWS
+   * <p>Adds a domain to the list of identities for your Amazon SES account in the current AWS
    *             Region and attempts to verify it. For more information about verifying domains, see
    *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email
    *                 Addresses and Domains</a> in the <i>Amazon SES Developer
    *             Guide.</i>
    *          </p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public verifyDomainIdentity(
     args: VerifyDomainIdentityCommandInput,
@@ -3766,10 +3626,8 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
+   * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
    *             address.</p>
-   *
    */
   public verifyEmailAddress(
     args: VerifyEmailAddressCommandInput,
@@ -3804,12 +3662,10 @@ export class SES extends SESClient {
   }
 
   /**
-   *
-   *         <p>Adds an email address to the list of identities for your Amazon SES account in the current
+   * <p>Adds an email address to the list of identities for your Amazon SES account in the current
    *             AWS region and attempts to verify it. As a result of executing this operation, a
    *             verification email is sent to the specified address.</p>
    *         <p>You can execute this operation no more than once per second.</p>
-   *
    */
   public verifyEmailIdentity(
     args: VerifyEmailIdentityCommandInput,

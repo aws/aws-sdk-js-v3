@@ -383,8 +383,7 @@ export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS OpsWorks</fullname>
+ * <fullname>AWS OpsWorks</fullname>
  *          <p>Welcome to the <i>AWS OpsWorks Stacks API Reference</i>. This guide provides descriptions, syntax, and
  *       usage examples for AWS OpsWorks Stacks actions and data types, including common parameters and error
  *       codes. </p>
@@ -499,7 +498,6 @@ export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<
  *          <note>
  *             <p>You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.</p>
  *          </note>
- *
  */
 export class OpsWorksClient extends __Client<
   __HttpHandlerOptions,

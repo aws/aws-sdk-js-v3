@@ -17,8 +17,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The AWS Migration Hub home region APIs are available specifically for working with your
+ * <p>The AWS Migration Hub home region APIs are available specifically for working with your
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>
  *
@@ -41,13 +40,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <note>
  *             <p>The Migration Hub Home Region APIs do not support AWS Organizations.</p>
  *          </note>
- *
  */
 export class MigrationHubConfig extends MigrationHubConfigClient {
   /**
-   *
-   *          <p>This API sets up the home region for the calling account only.</p>
-   *
+   * <p>This API sets up the home region for the calling account only.</p>
    */
   public createHomeRegionControl(
     args: CreateHomeRegionControlCommandInput,
@@ -82,10 +78,8 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   }
 
   /**
-   *
-   *          <p>This API permits filtering on the <code>ControlId</code>, <code>HomeRegion</code>, and
+   * <p>This API permits filtering on the <code>ControlId</code>, <code>HomeRegion</code>, and
    *         <code>RegionControlScope</code> fields.</p>
-   *
    */
   public describeHomeRegionControls(
     args: DescribeHomeRegionControlsCommandInput,
@@ -120,13 +114,11 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   }
 
   /**
-   *
-   *          <p>Returns the calling account’s home region, if configured. This API is used by other AWS
+   * <p>Returns the calling account’s home region, if configured. This API is used by other AWS
    *       services to determine the regional endpoint for calling AWS Application Discovery Service and
    *       Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any
    *       other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's
    *       Migration Hub home region.</p>
-   *
    */
   public getHomeRegion(
     args: GetHomeRegionCommandInput,

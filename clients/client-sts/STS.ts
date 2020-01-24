@@ -42,8 +42,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Security Token Service</fullname>
+ * <fullname>AWS Security Token Service</fullname>
  *          <p>The AWS Security Token Service (STS) is a web service that enables you to request
  *       temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or
  *       for users that you authenticate (federated users). This guide provides descriptions of the STS
@@ -112,12 +111,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>To learn more about CloudTrail, including how to turn it on and find your log files, see
  *       the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User
  *         Guide</a>.</p>
- *
  */
 export class STS extends STSClient {
   /**
-   *
-   *          <p>Returns a set of temporary security credentials that you can use to access AWS
+   * <p>Returns a set of temporary security credentials that you can use to access AWS
    *          resources that you might not normally have access to. These temporary credentials consist
    *          of an access key ID, a secret access key, and a security token. Typically, you use
    *             <code>AssumeRole</code> within your account or for cross-account access. For a
@@ -226,13 +223,6 @@ export class STS extends STSClient {
    *             <code>SerialNumber</code> value identifies the user's hardware or virtual MFA device.
    *          The <code>TokenCode</code> is the time-based one-time password (TOTP) that the MFA device
    *          produces. </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public assumeRole(
     args: AssumeRoleCommandInput,
@@ -267,8 +257,7 @@ export class STS extends STSClient {
   }
 
   /**
-   *
-   *          <p>Returns a set of temporary security credentials for users who have been authenticated
+   * <p>Returns a set of temporary security credentials for users who have been authenticated
    *          via a SAML authentication response. This operation provides a mechanism for tying an
    *          enterprise identity store or directory to role-based AWS access without user-specific
    *          credentials or configuration. For a comparison of <code>AssumeRoleWithSAML</code> with the
@@ -389,11 +378,6 @@ export class STS extends STSClient {
    *                   <i>IAM User Guide</i>. </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
    */
   public assumeRoleWithSAML(
     args: AssumeRoleWithSAMLCommandInput,
@@ -428,8 +412,7 @@ export class STS extends STSClient {
   }
 
   /**
-   *
-   *          <p>Returns a set of temporary security credentials for users who have been authenticated in
+   * <p>Returns a set of temporary security credentials for users who have been authenticated in
    *          a mobile or web application with a web identity provider. Example providers include Amazon Cognito,
    *          Login with Amazon, Facebook, Google, or any OpenID Connect-compatible identity
    *          provider.</p>
@@ -566,8 +549,6 @@ export class STS extends STSClient {
    *                to content in Amazon S3. </p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public assumeRoleWithWebIdentity(
     args: AssumeRoleWithWebIdentityCommandInput,
@@ -602,8 +583,7 @@ export class STS extends STSClient {
   }
 
   /**
-   *
-   *          <p>Decodes additional information about the authorization status of a request from an
+   * <p>Decodes additional information about the authorization status of a request from an
    *          encoded message returned in response to an AWS request.</p>
    *          <p>For example, if a user is not authorized to perform an operation that he or she has
    *          requested, the request returns a <code>Client.UnauthorizedOperation</code> response (an
@@ -639,8 +619,6 @@ export class STS extends STSClient {
    *                <p>The values of condition keys in the context of the user's request.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public decodeAuthorizationMessage(
     args: DecodeAuthorizationMessageCommandInput,
@@ -675,8 +653,7 @@ export class STS extends STSClient {
   }
 
   /**
-   *
-   *          <p>Returns the account identifier for the specified access key ID.</p>
+   * <p>Returns the account identifier for the specified access key ID.</p>
    *          <p>Access keys consist of two parts: an access key ID (for example,
    *             <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
    *             <code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code>). For more information about
@@ -694,8 +671,6 @@ export class STS extends STSClient {
    *          <p>This operation does not indicate the state of the access key. The key might be active,
    *          inactive, or deleted. Active keys might not have permissions to perform an operation.
    *          Providing a deleted access key might return an error that the key doesn't exist.</p>
-   *
-   *
    */
   public getAccessKeyInfo(
     args: GetAccessKeyInfoCommandInput,
@@ -730,8 +705,7 @@ export class STS extends STSClient {
   }
 
   /**
-   *
-   *          <p>Returns details about the IAM user or role whose credentials are used to call the
+   * <p>Returns details about the IAM user or role whose credentials are used to call the
    *          operation.</p>
    *          <note>
    *             <p>No permissions are required to perform this operation. If an administrator adds a
@@ -741,8 +715,6 @@ export class STS extends STSClient {
    *             or role is denied access. To view an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the
    *                <i>IAM User Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public getCallerIdentity(
     args: GetCallerIdentityCommandInput,
@@ -777,8 +749,7 @@ export class STS extends STSClient {
   }
 
   /**
-   *
-   *          <p>Returns a set of temporary security credentials (consisting of an access key ID, a
+   * <p>Returns a set of temporary security credentials (consisting of an access key ID, a
    *          secret access key, and a security token) for a federated user. A typical use is in a proxy
    *          application that gets temporary security credentials on behalf of distributed applications
    *          inside a corporate network. You must call the <code>GetFederationToken</code> operation
@@ -857,8 +828,6 @@ export class STS extends STSClient {
    *             <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
    *          and <code>department</code> are not saved as separate tags, and the session tag passed in
    *          the request takes precedence over the user tag.</p>
-   *
-   *
    */
   public getFederationToken(
     args: GetFederationTokenCommandInput,
@@ -893,8 +862,7 @@ export class STS extends STSClient {
   }
 
   /**
-   *
-   *          <p>Returns a set of temporary credentials for an AWS account or IAM user. The
+   * <p>Returns a set of temporary credentials for an AWS account or IAM user. The
    *          credentials consist of an access key ID, a secret access key, and a security token.
    *          Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect
    *          programmatic calls to specific AWS API operations like Amazon EC2 <code>StopInstances</code>.
@@ -946,8 +914,6 @@ export class STS extends STSClient {
    *          credentials, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
    *             Credentials for Users in Untrusted Environments</a> in the
    *             <i>IAM User Guide</i>. </p>
-   *
-   *
    */
   public getSessionToken(
     args: GetSessionTokenCommandInput,

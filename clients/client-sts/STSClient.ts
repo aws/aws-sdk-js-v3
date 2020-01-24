@@ -196,8 +196,7 @@ export type STSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Security Token Service</fullname>
+ * <fullname>AWS Security Token Service</fullname>
  *          <p>The AWS Security Token Service (STS) is a web service that enables you to request
  *       temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or
  *       for users that you authenticate (federated users). This guide provides descriptions of the STS
@@ -266,7 +265,6 @@ export type STSClientResolvedConfig = __SmithyResolvedConfiguration<
  *          <p>To learn more about CloudTrail, including how to turn it on and find your log files, see
  *       the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User
  *         Guide</a>.</p>
- *
  */
 export class STSClient extends __Client<
   __HttpHandlerOptions,

@@ -272,6 +272,7 @@ import {
   DocumentClassifierInputDataConfig,
   DocumentClassifierOutputDataConfig,
   DocumentClassifierProperties,
+  DocumentLabel,
   DominantLanguage,
   DominantLanguageDetectionJobFilter,
   DominantLanguageDetectionJobProperties,
@@ -6087,6 +6088,9 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
+  if (input.Mode !== undefined) {
+    bodyParams["Mode"] = input.Mode;
+  }
   if (input.OutputDataConfig !== undefined) {
     bodyParams[
       "OutputDataConfig"
@@ -6422,6 +6426,9 @@ const serializeAws_json1_1DocumentClassifierInputDataConfig = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.LabelDelimiter !== undefined) {
+    bodyParams["LabelDelimiter"] = input.LabelDelimiter;
+  }
   if (input.S3Uri !== undefined) {
     bodyParams["S3Uri"] = input.S3Uri;
   }
@@ -7615,6 +7622,10 @@ const deserializeAws_json1_1ClassifierEvaluationMetrics = (
     __type: "ClassifierEvaluationMetrics",
     Accuracy: undefined,
     F1Score: undefined,
+    HammingLoss: undefined,
+    MicroF1Score: undefined,
+    MicroPrecision: undefined,
+    MicroRecall: undefined,
     Precision: undefined,
     Recall: undefined
   };
@@ -7623,6 +7634,18 @@ const deserializeAws_json1_1ClassifierEvaluationMetrics = (
   }
   if (output.F1Score !== undefined) {
     contents.F1Score = output.F1Score;
+  }
+  if (output.HammingLoss !== undefined) {
+    contents.HammingLoss = output.HammingLoss;
+  }
+  if (output.MicroF1Score !== undefined) {
+    contents.MicroF1Score = output.MicroF1Score;
+  }
+  if (output.MicroPrecision !== undefined) {
+    contents.MicroPrecision = output.MicroPrecision;
+  }
+  if (output.MicroRecall !== undefined) {
+    contents.MicroRecall = output.MicroRecall;
   }
   if (output.Precision !== undefined) {
     contents.Precision = output.Precision;
@@ -7668,11 +7691,18 @@ const deserializeAws_json1_1ClassifyDocumentResponse = (
 ): ClassifyDocumentResponse => {
   let contents: any = {
     __type: "ClassifyDocumentResponse",
-    Classes: undefined
+    Classes: undefined,
+    Labels: undefined
   };
   if (output.Classes !== undefined) {
     contents.Classes = deserializeAws_json1_1ListOfClasses(
       output.Classes,
+      context
+    );
+  }
+  if (output.Labels !== undefined) {
+    contents.Labels = deserializeAws_json1_1ListOfLabels(
+      output.Labels,
       context
     );
   }
@@ -8115,8 +8145,12 @@ const deserializeAws_json1_1DocumentClassifierInputDataConfig = (
 ): DocumentClassifierInputDataConfig => {
   let contents: any = {
     __type: "DocumentClassifierInputDataConfig",
+    LabelDelimiter: undefined,
     S3Uri: undefined
   };
+  if (output.LabelDelimiter !== undefined) {
+    contents.LabelDelimiter = output.LabelDelimiter;
+  }
   if (output.S3Uri !== undefined) {
     contents.S3Uri = output.S3Uri;
   }
@@ -8154,6 +8188,7 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
     InputDataConfig: undefined,
     LanguageCode: undefined,
     Message: undefined,
+    Mode: undefined,
     OutputDataConfig: undefined,
     Status: undefined,
     SubmitTime: undefined,
@@ -8192,6 +8227,9 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
   }
   if (output.Message !== undefined) {
     contents.Message = output.Message;
+  }
+  if (output.Mode !== undefined) {
+    contents.Mode = output.Mode;
   }
   if (output.OutputDataConfig !== undefined) {
     contents.OutputDataConfig = deserializeAws_json1_1DocumentClassifierOutputDataConfig(
@@ -8242,6 +8280,24 @@ const deserializeAws_json1_1DocumentClassifierPropertiesList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentClassifierProperties(entry, context)
   );
+};
+
+const deserializeAws_json1_1DocumentLabel = (
+  output: any,
+  context: __SerdeContext
+): DocumentLabel => {
+  let contents: any = {
+    __type: "DocumentLabel",
+    Name: undefined,
+    Score: undefined
+  };
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1DominantLanguage = (
@@ -9254,6 +9310,15 @@ const deserializeAws_json1_1ListOfKeyPhrases = (
 ): Array<KeyPhrase> => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyPhrase(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ListOfLabels = (
+  output: any,
+  context: __SerdeContext
+): Array<DocumentLabel> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DocumentLabel(entry, context)
   );
 };
 

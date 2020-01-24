@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { CacheCluster, CreateCacheClusterMessage } from "../models/index";
+import {
+  CreateCacheClusterMessage,
+  CreateCacheClusterResult
+} from "../models/index";
 import {
   deserializeAws_queryCreateCacheClusterCommand,
   serializeAws_queryCreateCacheClusterCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCacheClusterCommandInput = CreateCacheClusterMessage;
-export type CreateCacheClusterCommandOutput = CacheCluster;
+export type CreateCacheClusterCommandOutput = CreateCacheClusterResult;
 
 export class CreateCacheClusterCommand extends $Command<
   CreateCacheClusterCommandInput,

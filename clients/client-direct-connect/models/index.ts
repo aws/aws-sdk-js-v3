@@ -4,31 +4,23 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   __type?: "AcceptDirectConnectGatewayAssociationProposalRequest";
   /**
-   *
-   *          <p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>
-   *
+   * <p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>
    */
   associatedGatewayOwnerAccount: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   *
-   *          <p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
+   * <p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
    *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
-   *
    */
   overrideAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The ID of the request proposal.</p>
-   *
+   * <p>The ID of the request proposal.</p>
    */
   proposalId: string | undefined;
 }
@@ -48,9 +40,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalResult
   extends $MetadataBearer {
   __type?: "AcceptDirectConnectGatewayAssociationProposalResult";
   /**
-   *
-   *          <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
-   *
+   * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
@@ -74,40 +64,30 @@ export enum AddressFamily {
 export interface AllocateConnectionOnInterconnectRequest {
   __type?: "AllocateConnectionOnInterconnectRequest";
   /**
-   *
-   *          <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
+   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
    *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners
    *       who have met specific requirements
    *     are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>
-   *
    */
   bandwidth: string | undefined;
 
   /**
-   *
-   *          <p>The name of the provisioned connection.</p>
-   *
+   * <p>The name of the provisioned connection.</p>
    */
   connectionName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the interconnect on which the connection will be provisioned.</p>
-   *
+   * <p>The ID of the interconnect on which the connection will be provisioned.</p>
    */
   interconnectId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the AWS account of the customer for whom the connection will be provisioned.</p>
-   *
+   * <p>The ID of the AWS account of the customer for whom the connection will be provisioned.</p>
    */
   ownerAccount: string | undefined;
 
   /**
-   *
-   *          <p>The dedicated VLAN provisioned to the connection.</p>
-   *
+   * <p>The dedicated VLAN provisioned to the connection.</p>
    */
   vlan: number | undefined;
 }
@@ -121,44 +101,32 @@ export namespace AllocateConnectionOnInterconnectRequest {
 export interface AllocateHostedConnectionRequest {
   __type?: "AllocateHostedConnectionRequest";
   /**
-   *
-   *          <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
-   *
+   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
    */
   bandwidth: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the interconnect or LAG.</p>
-   *
+   * <p>The ID of the interconnect or LAG.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>The name of the hosted connection.</p>
-   *
+   * <p>The name of the hosted connection.</p>
    */
   connectionName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the AWS account ID of the customer for the connection.</p>
-   *
+   * <p>The ID of the AWS account ID of the customer for the connection.</p>
    */
   ownerAccount: string | undefined;
 
   /**
-   *
-   *          <p>The tags associated with the connection.</p>
-   *
+   * <p>The tags associated with the connection.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The dedicated VLAN provisioned to the hosted connection.</p>
-   *
+   * <p>The dedicated VLAN provisioned to the hosted connection.</p>
    */
   vlan: number | undefined;
 }
@@ -172,25 +140,19 @@ export namespace AllocateHostedConnectionRequest {
 export interface AllocatePrivateVirtualInterfaceRequest {
   __type?: "AllocatePrivateVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the connection on which the private virtual interface is provisioned.</p>
-   *
+   * <p>The ID of the connection on which the private virtual interface is provisioned.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>Information about the private virtual interface.</p>
-   *
+   * <p>Information about the private virtual interface.</p>
    */
   newPrivateVirtualInterfaceAllocation:
     | NewPrivateVirtualInterfaceAllocation
     | undefined;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the virtual private interface.</p>
-   *
+   * <p>The ID of the AWS account that owns the virtual private interface.</p>
    */
   ownerAccount: string | undefined;
 }
@@ -204,25 +166,19 @@ export namespace AllocatePrivateVirtualInterfaceRequest {
 export interface AllocatePublicVirtualInterfaceRequest {
   __type?: "AllocatePublicVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the connection on which the public virtual interface is provisioned.</p>
-   *
+   * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>Information about the public virtual interface.</p>
-   *
+   * <p>Information about the public virtual interface.</p>
    */
   newPublicVirtualInterfaceAllocation:
     | NewPublicVirtualInterfaceAllocation
     | undefined;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the public virtual interface.</p>
-   *
+   * <p>The ID of the AWS account that owns the public virtual interface.</p>
    */
   ownerAccount: string | undefined;
 }
@@ -236,25 +192,19 @@ export namespace AllocatePublicVirtualInterfaceRequest {
 export interface AllocateTransitVirtualInterfaceRequest {
   __type?: "AllocateTransitVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
-   *
+   * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>Information about the transit virtual interface.</p>
-   *
+   * <p>Information about the transit virtual interface.</p>
    */
   newTransitVirtualInterfaceAllocation:
     | NewTransitVirtualInterfaceAllocation
     | undefined;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the transit virtual interface.</p>
-   *
+   * <p>The ID of the AWS account that owns the transit virtual interface.</p>
    */
   ownerAccount: string | undefined;
 }
@@ -268,9 +218,7 @@ export namespace AllocateTransitVirtualInterfaceRequest {
 export interface AllocateTransitVirtualInterfaceResult extends $MetadataBearer {
   __type?: "AllocateTransitVirtualInterfaceResult";
   /**
-   *
-   *          <p>Information about a virtual interface.</p>
-   *
+   * <p>Information about a virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
 }
@@ -284,16 +232,12 @@ export namespace AllocateTransitVirtualInterfaceResult {
 export interface AssociateConnectionWithLagRequest {
   __type?: "AssociateConnectionWithLagRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the LAG with which to associate the connection.</p>
-   *
+   * <p>The ID of the LAG with which to associate the connection.</p>
    */
   lagId: string | undefined;
 }
@@ -307,16 +251,12 @@ export namespace AssociateConnectionWithLagRequest {
 export interface AssociateHostedConnectionRequest {
   __type?: "AssociateHostedConnectionRequest";
   /**
-   *
-   *          <p>The ID of the hosted connection.</p>
-   *
+   * <p>The ID of the hosted connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the interconnect or the LAG.</p>
-   *
+   * <p>The ID of the interconnect or the LAG.</p>
    */
   parentConnectionId: string | undefined;
 }
@@ -330,16 +270,12 @@ export namespace AssociateHostedConnectionRequest {
 export interface AssociateVirtualInterfaceRequest {
   __type?: "AssociateVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the LAG or connection.</p>
-   *
+   * <p>The ID of the LAG or connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
 }
@@ -351,37 +287,27 @@ export namespace AssociateVirtualInterfaceRequest {
 }
 
 /**
- *
- *          <p>Information about the associated gateway.</p>
- *
+ * <p>Information about the associated gateway.</p>
  */
 export interface AssociatedGateway {
   __type?: "AssociatedGateway";
   /**
-   *
-   *          <p>The ID of the associated gateway.</p>
-   *
+   * <p>The ID of the associated gateway.</p>
    */
   id?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
-   *
+   * <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
    */
   ownerAccount?: string;
 
   /**
-   *
-   *          <p>The Region where the associated gateway is located.</p>
-   *
+   * <p>The Region where the associated gateway is located.</p>
    */
   region?: string;
 
   /**
-   *
-   *          <p>The type of associated gateway.</p>
-   *
+   * <p>The type of associated gateway.</p>
    */
   type?: GatewayType | string;
 }
@@ -393,57 +319,42 @@ export namespace AssociatedGateway {
 }
 
 /**
- *
- *          <p>Information about a BGP peer.</p>
- *
+ * <p>Information about a BGP peer.</p>
  */
 export interface BGPPeer {
   __type?: "BGPPeer";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    */
   asn?: number;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
-   *
+   * <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
    */
   awsDeviceV2?: string;
 
   /**
-   *
-   *          <p>The ID of the BGP peer.</p>
-   *
+   * <p>The ID of the BGP peer.</p>
    */
   bgpPeerId?: string;
 
   /**
-   *
-   *          <p>The state of the BGP peer. The following are the possible values:</p>
+   * <p>The state of the BGP peer. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -466,13 +377,11 @@ export interface BGPPeer {
    *                   <code>deleted</code>:  The BGP peer is deleted and cannot be established.</p>
    *             </li>
    *          </ul>
-   *
    */
   bgpPeerState?: BGPPeerState | string;
 
   /**
-   *
-   *          <p>The status of the BGP peer. The following are the possible values:</p>
+   * <p>The status of the BGP peer. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -488,14 +397,11 @@ export interface BGPPeer {
    *                   <code>unknown</code>: The BGP peer status is not available.</p>
    *             </li>
    *          </ul>
-   *
    */
   bgpStatus?: BGPStatus | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 }
@@ -523,9 +429,7 @@ export enum BGPStatus {
 export interface ConfirmConnectionRequest {
   __type?: "ConfirmConnectionRequest";
   /**
-   *
-   *          <p>The ID of the hosted connection.</p>
-   *
+   * <p>The ID of the hosted connection.</p>
    */
   connectionId: string | undefined;
 }
@@ -539,8 +443,7 @@ export namespace ConfirmConnectionRequest {
 export interface ConfirmConnectionResponse extends $MetadataBearer {
   __type?: "ConfirmConnectionResponse";
   /**
-   *
-   *          <p>The state of the connection. The following are the possible values:</p>
+   * <p>The state of the connection. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -579,8 +482,6 @@ export interface ConfirmConnectionResponse extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the connection is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   connectionState?: ConnectionState | string;
 }
@@ -594,23 +495,17 @@ export namespace ConfirmConnectionResponse {
 export interface ConfirmPrivateVirtualInterfaceRequest {
   __type?: "ConfirmPrivateVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
 }
@@ -625,8 +520,7 @@ export interface ConfirmPrivateVirtualInterfaceResponse
   extends $MetadataBearer {
   __type?: "ConfirmPrivateVirtualInterfaceResponse";
   /**
-   *
-   *          <p>The state of the virtual interface. The following are the possible values:</p>
+   * <p>The state of the virtual interface. The following are the possible values:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -665,8 +559,6 @@ export interface ConfirmPrivateVirtualInterfaceResponse
    *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
@@ -680,9 +572,7 @@ export namespace ConfirmPrivateVirtualInterfaceResponse {
 export interface ConfirmPublicVirtualInterfaceRequest {
   __type?: "ConfirmPublicVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
 }
@@ -696,8 +586,7 @@ export namespace ConfirmPublicVirtualInterfaceRequest {
 export interface ConfirmPublicVirtualInterfaceResponse extends $MetadataBearer {
   __type?: "ConfirmPublicVirtualInterfaceResponse";
   /**
-   *
-   *          <p>The state of the virtual interface. The following are the possible values:</p>
+   * <p>The state of the virtual interface. The following are the possible values:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -736,8 +625,6 @@ export interface ConfirmPublicVirtualInterfaceResponse extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
@@ -751,16 +638,12 @@ export namespace ConfirmPublicVirtualInterfaceResponse {
 export interface ConfirmTransitVirtualInterfaceRequest {
   __type?: "ConfirmTransitVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
 }
@@ -775,8 +658,7 @@ export interface ConfirmTransitVirtualInterfaceResponse
   extends $MetadataBearer {
   __type?: "ConfirmTransitVirtualInterfaceResponse";
   /**
-   *
-   *          <p>The state of the virtual interface. The following are the possible values:</p>
+   * <p>The state of the virtual interface. The following are the possible values:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -815,8 +697,6 @@ export interface ConfirmTransitVirtualInterfaceResponse
    *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
@@ -828,50 +708,37 @@ export namespace ConfirmTransitVirtualInterfaceResponse {
 }
 
 /**
- *
- *          <p>Information about an AWS Direct Connect connection.</p>
- *
+ * <p>Information about an AWS Direct Connect connection.</p>
  */
 export interface Connection extends $MetadataBearer {
   __type?: "Connection";
   /**
-   *
-   *          <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   *
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
   awsDevice?: string;
 
   /**
-   *
-   *          <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   *
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
   awsDeviceV2?: string;
 
   /**
-   *
-   *          <p>The bandwidth of the connection.</p>
-   *
+   * <p>The bandwidth of the connection.</p>
    */
   bandwidth?: string;
 
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId?: string;
 
   /**
-   *
-   *          <p>The name of the connection.</p>
-   *
+   * <p>The name of the connection.</p>
    */
   connectionName?: string;
 
   /**
-   *
-   *          <p>The state of the connection. The following are the possible values:</p>
+   * <p>The state of the connection. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -910,85 +777,61 @@ export interface Connection extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the connection is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   connectionState?: ConnectionState | string;
 
   /**
-   *
-   *          <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
-   *
+   * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
    */
   hasLogicalRedundancy?: HasLogicalRedundancy | string;
 
   /**
-   *
-   *          <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   *
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId?: string;
 
   /**
-   *
-   *          <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
-   *
+   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
    */
   loaIssueTime?: Date;
 
   /**
-   *
-   *          <p>The location of the connection.</p>
-   *
+   * <p>The location of the connection.</p>
    */
   location?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the connection.</p>
-   *
+   * <p>The ID of the AWS account that owns the connection.</p>
    */
   ownerAccount?: string;
 
   /**
-   *
-   *          <p>The name of the AWS Direct Connect service provider associated with the connection.</p>
-   *
+   * <p>The name of the AWS Direct Connect service provider associated with the connection.</p>
    */
   partnerName?: string;
 
   /**
-   *
-   *          <p>The name of the service provider associated with the connection.</p>
-   *
+   * <p>The name of the service provider associated with the connection.</p>
    */
   providerName?: string;
 
   /**
-   *
-   *          <p>The AWS Region where the connection is located.</p>
-   *
+   * <p>The AWS Region where the connection is located.</p>
    */
   region?: string;
 
   /**
-   *
-   *          <p>The tags associated with the connection.</p>
-   *
+   * <p>The tags associated with the connection.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan?: number;
 }
@@ -1013,9 +856,7 @@ export type ConnectionState =
 export interface Connections extends $MetadataBearer {
   __type?: "Connections";
   /**
-   *
-   *          <p>The connections.</p>
-   *
+   * <p>The connections.</p>
    */
   connections?: Array<Connection>;
 }
@@ -1029,16 +870,12 @@ export namespace Connections {
 export interface CreateBGPPeerRequest {
   __type?: "CreateBGPPeerRequest";
   /**
-   *
-   *          <p>Information about the BGP peer.</p>
-   *
+   * <p>Information about the BGP peer.</p>
    */
   newBGPPeer?: NewBGPPeer;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
 }
@@ -1052,9 +889,7 @@ export namespace CreateBGPPeerRequest {
 export interface CreateBGPPeerResponse extends $MetadataBearer {
   __type?: "CreateBGPPeerResponse";
   /**
-   *
-   *          <p>The virtual interface.</p>
-   *
+   * <p>The virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
 }
@@ -1068,44 +903,32 @@ export namespace CreateBGPPeerResponse {
 export interface CreateConnectionRequest {
   __type?: "CreateConnectionRequest";
   /**
-   *
-   *          <p>The bandwidth of the connection.</p>
-   *
+   * <p>The bandwidth of the connection.</p>
    */
   bandwidth: string | undefined;
 
   /**
-   *
-   *          <p>The name of the connection.</p>
-   *
+   * <p>The name of the connection.</p>
    */
   connectionName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId?: string;
 
   /**
-   *
-   *          <p>The location of the connection.</p>
-   *
+   * <p>The location of the connection.</p>
    */
   location: string | undefined;
 
   /**
-   *
-   *          <p>The name of the service provider associated with the requested connection.</p>
-   *
+   * <p>The name of the service provider associated with the requested connection.</p>
    */
   providerName?: string;
 
   /**
-   *
-   *          <p>The tags to associate with the lag.</p>
-   *
+   * <p>The tags to associate with the lag.</p>
    */
   tags?: Array<Tag>;
 }
@@ -1119,37 +942,27 @@ export namespace CreateConnectionRequest {
 export interface CreateDirectConnectGatewayAssociationProposalRequest {
   __type?: "CreateDirectConnectGatewayAssociationProposalRequest";
   /**
-   *
-   *          <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
-   *
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
   addAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
    */
   directConnectGatewayOwnerAccount: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway or transit gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway or transit gateway.</p>
    */
   gatewayId: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
-   *
+   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
   removeAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 }
@@ -1169,9 +982,7 @@ export interface CreateDirectConnectGatewayAssociationProposalResult
   extends $MetadataBearer {
   __type?: "CreateDirectConnectGatewayAssociationProposalResult";
   /**
-   *
-   *          <p>Information about the Direct Connect gateway proposal.</p>
-   *
+   * <p>Information about the Direct Connect gateway proposal.</p>
    */
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal;
 }
@@ -1190,32 +1001,24 @@ export namespace CreateDirectConnectGatewayAssociationProposalResult {
 export interface CreateDirectConnectGatewayAssociationRequest {
   __type?: "CreateDirectConnectGatewayAssociationRequest";
   /**
-   *
-   *          <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>
    *          <p>This parameter is required when you create an association to a transit gateway.</p>
    *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
-   *
    */
   addAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway or transit gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway or transit gateway.</p>
    */
   gatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
 }
@@ -1232,9 +1035,7 @@ export interface CreateDirectConnectGatewayAssociationResult
   extends $MetadataBearer {
   __type?: "CreateDirectConnectGatewayAssociationResult";
   /**
-   *
-   *          <p>The association to be created.</p>
-   *
+   * <p>The association to be created.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
@@ -1250,18 +1051,14 @@ export namespace CreateDirectConnectGatewayAssociationResult {
 export interface CreateDirectConnectGatewayRequest {
   __type?: "CreateDirectConnectGatewayRequest";
   /**
-   *
-   *          <p>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured
+   * <p>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured
    *       on the Amazon side of the connection. The ASN must be in the private range of 64,512 to
    *       65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.</p>
-   *
    */
   amazonSideAsn?: number;
 
   /**
-   *
-   *          <p>The name of the Direct Connect gateway.</p>
-   *
+   * <p>The name of the Direct Connect gateway.</p>
    */
   directConnectGatewayName: string | undefined;
 }
@@ -1275,9 +1072,7 @@ export namespace CreateDirectConnectGatewayRequest {
 export interface CreateDirectConnectGatewayResult extends $MetadataBearer {
   __type?: "CreateDirectConnectGatewayResult";
   /**
-   *
-   *          <p>The Direct Connect gateway.</p>
-   *
+   * <p>The Direct Connect gateway.</p>
    */
   directConnectGateway?: DirectConnectGateway;
 }
@@ -1291,44 +1086,32 @@ export namespace CreateDirectConnectGatewayResult {
 export interface CreateInterconnectRequest {
   __type?: "CreateInterconnectRequest";
   /**
-   *
-   *          <p>The port bandwidth, in Gbps. The possible values are 1 and 10.</p>
-   *
+   * <p>The port bandwidth, in Gbps. The possible values are 1 and 10.</p>
    */
   bandwidth: string | undefined;
 
   /**
-   *
-   *          <p>The name of the interconnect.</p>
-   *
+   * <p>The name of the interconnect.</p>
    */
   interconnectName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId?: string;
 
   /**
-   *
-   *          <p>The location of the interconnect.</p>
-   *
+   * <p>The location of the interconnect.</p>
    */
   location: string | undefined;
 
   /**
-   *
-   *          <p>The name of the service provider associated with the interconnect.</p>
-   *
+   * <p>The name of the service provider associated with the interconnect.</p>
    */
   providerName?: string;
 
   /**
-   *
-   *          <p>The tags to associate with the interconnect.</p>
-   *
+   * <p>The tags to associate with the interconnect.</p>
    */
   tags?: Array<Tag>;
 }
@@ -1342,58 +1125,42 @@ export namespace CreateInterconnectRequest {
 export interface CreateLagRequest {
   __type?: "CreateLagRequest";
   /**
-   *
-   *          <p>The tags to associate with the automtically created LAGs.</p>
-   *
+   * <p>The tags to associate with the automtically created LAGs.</p>
    */
   childConnectionTags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The ID of an existing connection to migrate to the LAG.</p>
-   *
+   * <p>The ID of an existing connection to migrate to the LAG.</p>
    */
   connectionId?: string;
 
   /**
-   *
-   *          <p>The bandwidth of the individual physical connections bundled by the LAG. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. </p>
-   *
+   * <p>The bandwidth of the individual physical connections bundled by the LAG. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. </p>
    */
   connectionsBandwidth: string | undefined;
 
   /**
-   *
-   *          <p>The name of the LAG.</p>
-   *
+   * <p>The name of the LAG.</p>
    */
   lagName: string | undefined;
 
   /**
-   *
-   *          <p>The location for the LAG.</p>
-   *
+   * <p>The location for the LAG.</p>
    */
   location: string | undefined;
 
   /**
-   *
-   *          <p>The number of physical connections initially provisioned and bundled by the LAG.</p>
-   *
+   * <p>The number of physical connections initially provisioned and bundled by the LAG.</p>
    */
   numberOfConnections: number | undefined;
 
   /**
-   *
-   *          <p>The name of the service provider associated with the LAG.</p>
-   *
+   * <p>The name of the service provider associated with the LAG.</p>
    */
   providerName?: string;
 
   /**
-   *
-   *          <p>The tags to associate with the LAG.</p>
-   *
+   * <p>The tags to associate with the LAG.</p>
    */
   tags?: Array<Tag>;
 }
@@ -1407,16 +1174,12 @@ export namespace CreateLagRequest {
 export interface CreatePrivateVirtualInterfaceRequest {
   __type?: "CreatePrivateVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>Information about the private virtual interface.</p>
-   *
+   * <p>Information about the private virtual interface.</p>
    */
   newPrivateVirtualInterface: NewPrivateVirtualInterface | undefined;
 }
@@ -1430,16 +1193,12 @@ export namespace CreatePrivateVirtualInterfaceRequest {
 export interface CreatePublicVirtualInterfaceRequest {
   __type?: "CreatePublicVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>Information about the public virtual interface.</p>
-   *
+   * <p>Information about the public virtual interface.</p>
    */
   newPublicVirtualInterface: NewPublicVirtualInterface | undefined;
 }
@@ -1453,16 +1212,12 @@ export namespace CreatePublicVirtualInterfaceRequest {
 export interface CreateTransitVirtualInterfaceRequest {
   __type?: "CreateTransitVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>Information about the transit virtual interface.</p>
-   *
+   * <p>Information about the transit virtual interface.</p>
    */
   newTransitVirtualInterface: NewTransitVirtualInterface | undefined;
 }
@@ -1476,9 +1231,7 @@ export namespace CreateTransitVirtualInterfaceRequest {
 export interface CreateTransitVirtualInterfaceResult extends $MetadataBearer {
   __type?: "CreateTransitVirtualInterfaceResult";
   /**
-   *
-   *          <p>Information about a virtual interface.</p>
-   *
+   * <p>Information about a virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
 }
@@ -1492,30 +1245,22 @@ export namespace CreateTransitVirtualInterfaceResult {
 export interface DeleteBGPPeerRequest {
   __type?: "DeleteBGPPeerRequest";
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    */
   asn?: number;
 
   /**
-   *
-   *          <p>The ID of the BGP peer.</p>
-   *
+   * <p>The ID of the BGP peer.</p>
    */
   bgpPeerId?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
 }
@@ -1529,9 +1274,7 @@ export namespace DeleteBGPPeerRequest {
 export interface DeleteBGPPeerResponse extends $MetadataBearer {
   __type?: "DeleteBGPPeerResponse";
   /**
-   *
-   *          <p>The virtual interface.</p>
-   *
+   * <p>The virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
 }
@@ -1545,9 +1288,7 @@ export namespace DeleteBGPPeerResponse {
 export interface DeleteConnectionRequest {
   __type?: "DeleteConnectionRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
 }
@@ -1561,9 +1302,7 @@ export namespace DeleteConnectionRequest {
 export interface DeleteDirectConnectGatewayAssociationProposalRequest {
   __type?: "DeleteDirectConnectGatewayAssociationProposalRequest";
   /**
-   *
-   *          <p>The ID of the proposal.</p>
-   *
+   * <p>The ID of the proposal.</p>
    */
   proposalId: string | undefined;
 }
@@ -1583,9 +1322,7 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult
   extends $MetadataBearer {
   __type?: "DeleteDirectConnectGatewayAssociationProposalResult";
   /**
-   *
-   *          <p>The ID of the associated gateway.</p>
-   *
+   * <p>The ID of the associated gateway.</p>
    */
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal;
 }
@@ -1604,23 +1341,17 @@ export namespace DeleteDirectConnectGatewayAssociationProposalResult {
 export interface DeleteDirectConnectGatewayAssociationRequest {
   __type?: "DeleteDirectConnectGatewayAssociationRequest";
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway association.</p>
-   *
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
   associationId?: string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
 }
@@ -1637,9 +1368,7 @@ export interface DeleteDirectConnectGatewayAssociationResult
   extends $MetadataBearer {
   __type?: "DeleteDirectConnectGatewayAssociationResult";
   /**
-   *
-   *          <p>Information about the deleted association.</p>
-   *
+   * <p>Information about the deleted association.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
@@ -1655,9 +1384,7 @@ export namespace DeleteDirectConnectGatewayAssociationResult {
 export interface DeleteDirectConnectGatewayRequest {
   __type?: "DeleteDirectConnectGatewayRequest";
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId: string | undefined;
 }
@@ -1671,9 +1398,7 @@ export namespace DeleteDirectConnectGatewayRequest {
 export interface DeleteDirectConnectGatewayResult extends $MetadataBearer {
   __type?: "DeleteDirectConnectGatewayResult";
   /**
-   *
-   *          <p>The Direct Connect gateway.</p>
-   *
+   * <p>The Direct Connect gateway.</p>
    */
   directConnectGateway?: DirectConnectGateway;
 }
@@ -1687,9 +1412,7 @@ export namespace DeleteDirectConnectGatewayResult {
 export interface DeleteInterconnectRequest {
   __type?: "DeleteInterconnectRequest";
   /**
-   *
-   *          <p>The ID of the interconnect.</p>
-   *
+   * <p>The ID of the interconnect.</p>
    */
   interconnectId: string | undefined;
 }
@@ -1703,8 +1426,7 @@ export namespace DeleteInterconnectRequest {
 export interface DeleteInterconnectResponse extends $MetadataBearer {
   __type?: "DeleteInterconnectResponse";
   /**
-   *
-   *          <p>The state of the interconnect. The following are the possible values:</p>
+   * <p>The state of the interconnect. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1736,8 +1458,6 @@ export interface DeleteInterconnectResponse extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the interconnect is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   interconnectState?: InterconnectState | string;
 }
@@ -1751,9 +1471,7 @@ export namespace DeleteInterconnectResponse {
 export interface DeleteLagRequest {
   __type?: "DeleteLagRequest";
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId: string | undefined;
 }
@@ -1767,9 +1485,7 @@ export namespace DeleteLagRequest {
 export interface DeleteVirtualInterfaceRequest {
   __type?: "DeleteVirtualInterfaceRequest";
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
 }
@@ -1783,8 +1499,7 @@ export namespace DeleteVirtualInterfaceRequest {
 export interface DeleteVirtualInterfaceResponse extends $MetadataBearer {
   __type?: "DeleteVirtualInterfaceResponse";
   /**
-   *
-   *          <p>The state of the virtual interface. The following are the possible values:</p>
+   * <p>The state of the virtual interface. The following are the possible values:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -1823,8 +1538,6 @@ export interface DeleteVirtualInterfaceResponse extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
@@ -1838,24 +1551,18 @@ export namespace DeleteVirtualInterfaceResponse {
 export interface DescribeConnectionLoaRequest {
   __type?: "DescribeConnectionLoaRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
-   *
+   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
   loaContentType?: LoaContentType | string;
 
   /**
-   *
-   *          <p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter,
+   * <p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter,
    *       the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
-   *
    */
   providerName?: string;
 }
@@ -1869,9 +1576,7 @@ export namespace DescribeConnectionLoaRequest {
 export interface DescribeConnectionLoaResponse extends $MetadataBearer {
   __type?: "DescribeConnectionLoaResponse";
   /**
-   *
-   *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
-   *
+   * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
    */
   loa?: Loa;
 }
@@ -1885,9 +1590,7 @@ export namespace DescribeConnectionLoaResponse {
 export interface DescribeConnectionsOnInterconnectRequest {
   __type?: "DescribeConnectionsOnInterconnectRequest";
   /**
-   *
-   *          <p>The ID of the interconnect.</p>
-   *
+   * <p>The ID of the interconnect.</p>
    */
   interconnectId: string | undefined;
 }
@@ -1901,9 +1604,7 @@ export namespace DescribeConnectionsOnInterconnectRequest {
 export interface DescribeConnectionsRequest {
   __type?: "DescribeConnectionsRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId?: string;
 }
@@ -1917,40 +1618,30 @@ export namespace DescribeConnectionsRequest {
 export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   __type?: "DescribeDirectConnectGatewayAssociationProposalsRequest";
   /**
-   *
-   *          <p>The ID of the associated gateway.</p>
-   *
+   * <p>The ID of the associated gateway.</p>
    */
   associatedGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The ID of the proposal.</p>
-   *
+   * <p>The ID of the proposal.</p>
    */
   proposalId?: string;
 }
@@ -1970,18 +1661,14 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult
   extends $MetadataBearer {
   __type?: "DescribeDirectConnectGatewayAssociationProposalsResult";
   /**
-   *
-   *          <p>Describes the Direct Connect gateway association proposals.</p>
-   *
+   * <p>Describes the Direct Connect gateway association proposals.</p>
    */
   directConnectGatewayAssociationProposals?: Array<
     DirectConnectGatewayAssociationProposal
   >;
 
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
 }
@@ -2000,47 +1687,35 @@ export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
 export interface DescribeDirectConnectGatewayAssociationsRequest {
   __type?: "DescribeDirectConnectGatewayAssociationsRequest";
   /**
-   *
-   *          <p>The ID of the associated gateway.</p>
-   *
+   * <p>The ID of the associated gateway.</p>
    */
   associatedGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway association.</p>
-   *
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
   associationId?: string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token provided in the previous call to retrieve the next page.</p>
-   *
+   * <p>The token provided in the previous call to retrieve the next page.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
 }
@@ -2057,16 +1732,12 @@ export interface DescribeDirectConnectGatewayAssociationsResult
   extends $MetadataBearer {
   __type?: "DescribeDirectConnectGatewayAssociationsResult";
   /**
-   *
-   *          <p>Information about the associations.</p>
-   *
+   * <p>Information about the associations.</p>
    */
   directConnectGatewayAssociations?: Array<DirectConnectGatewayAssociation>;
 
   /**
-   *
-   *          <p>The token to retrieve the next page.</p>
-   *
+   * <p>The token to retrieve the next page.</p>
    */
   nextToken?: string;
 }
@@ -2082,33 +1753,25 @@ export namespace DescribeDirectConnectGatewayAssociationsResult {
 export interface DescribeDirectConnectGatewayAttachmentsRequest {
   __type?: "DescribeDirectConnectGatewayAttachmentsRequest";
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token provided in the previous call to retrieve the next page.</p>
-   *
+   * <p>The token provided in the previous call to retrieve the next page.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
 }
@@ -2125,16 +1788,12 @@ export interface DescribeDirectConnectGatewayAttachmentsResult
   extends $MetadataBearer {
   __type?: "DescribeDirectConnectGatewayAttachmentsResult";
   /**
-   *
-   *          <p>The attachments.</p>
-   *
+   * <p>The attachments.</p>
    */
   directConnectGatewayAttachments?: Array<DirectConnectGatewayAttachment>;
 
   /**
-   *
-   *          <p>The token to retrieve the next page.</p>
-   *
+   * <p>The token to retrieve the next page.</p>
    */
   nextToken?: string;
 }
@@ -2150,26 +1809,20 @@ export namespace DescribeDirectConnectGatewayAttachmentsResult {
 export interface DescribeDirectConnectGatewaysRequest {
   __type?: "DescribeDirectConnectGatewaysRequest";
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call.
+   * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token provided in the previous call to retrieve the next page.</p>
-   *
+   * <p>The token provided in the previous call to retrieve the next page.</p>
    */
   nextToken?: string;
 }
@@ -2183,16 +1836,12 @@ export namespace DescribeDirectConnectGatewaysRequest {
 export interface DescribeDirectConnectGatewaysResult extends $MetadataBearer {
   __type?: "DescribeDirectConnectGatewaysResult";
   /**
-   *
-   *          <p>The Direct Connect gateways.</p>
-   *
+   * <p>The Direct Connect gateways.</p>
    */
   directConnectGateways?: Array<DirectConnectGateway>;
 
   /**
-   *
-   *          <p>The token to retrieve the next page.</p>
-   *
+   * <p>The token to retrieve the next page.</p>
    */
   nextToken?: string;
 }
@@ -2206,9 +1855,7 @@ export namespace DescribeDirectConnectGatewaysResult {
 export interface DescribeHostedConnectionsRequest {
   __type?: "DescribeHostedConnectionsRequest";
   /**
-   *
-   *          <p>The ID of the interconnect or LAG.</p>
-   *
+   * <p>The ID of the interconnect or LAG.</p>
    */
   connectionId: string | undefined;
 }
@@ -2222,23 +1869,17 @@ export namespace DescribeHostedConnectionsRequest {
 export interface DescribeInterconnectLoaRequest {
   __type?: "DescribeInterconnectLoaRequest";
   /**
-   *
-   *          <p>The ID of the interconnect.</p>
-   *
+   * <p>The ID of the interconnect.</p>
    */
   interconnectId: string | undefined;
 
   /**
-   *
-   *          <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
-   *
+   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
   loaContentType?: LoaContentType | string;
 
   /**
-   *
-   *          <p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
-   *
+   * <p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
    */
   providerName?: string;
 }
@@ -2252,9 +1893,7 @@ export namespace DescribeInterconnectLoaRequest {
 export interface DescribeInterconnectLoaResponse extends $MetadataBearer {
   __type?: "DescribeInterconnectLoaResponse";
   /**
-   *
-   *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
-   *
+   * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
    */
   loa?: Loa;
 }
@@ -2268,9 +1907,7 @@ export namespace DescribeInterconnectLoaResponse {
 export interface DescribeInterconnectsRequest {
   __type?: "DescribeInterconnectsRequest";
   /**
-   *
-   *          <p>The ID of the interconnect.</p>
-   *
+   * <p>The ID of the interconnect.</p>
    */
   interconnectId?: string;
 }
@@ -2284,9 +1921,7 @@ export namespace DescribeInterconnectsRequest {
 export interface DescribeLagsRequest {
   __type?: "DescribeLagsRequest";
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId?: string;
 }
@@ -2300,24 +1935,18 @@ export namespace DescribeLagsRequest {
 export interface DescribeLoaRequest {
   __type?: "DescribeLoaRequest";
   /**
-   *
-   *          <p>The ID of a connection, LAG, or interconnect.</p>
-   *
+   * <p>The ID of a connection, LAG, or interconnect.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
-   *
+   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
   loaContentType?: LoaContentType | string;
 
   /**
-   *
-   *          <p>The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
+   * <p>The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
    *       LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
-   *
    */
   providerName?: string;
 }
@@ -2331,9 +1960,7 @@ export namespace DescribeLoaRequest {
 export interface DescribeTagsRequest {
   __type?: "DescribeTagsRequest";
   /**
-   *
-   *          <p>The Amazon Resource Names (ARNs) of the resources.</p>
-   *
+   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
   resourceArns: Array<string> | undefined;
 }
@@ -2347,9 +1974,7 @@ export namespace DescribeTagsRequest {
 export interface DescribeTagsResponse extends $MetadataBearer {
   __type?: "DescribeTagsResponse";
   /**
-   *
-   *          <p>Information about the tags.</p>
-   *
+   * <p>Information about the tags.</p>
    */
   resourceTags?: Array<ResourceTag>;
 }
@@ -2363,16 +1988,12 @@ export namespace DescribeTagsResponse {
 export interface DescribeVirtualInterfacesRequest {
   __type?: "DescribeVirtualInterfacesRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
 }
@@ -2384,9 +2005,7 @@ export namespace DescribeVirtualInterfacesRequest {
 }
 
 /**
- *
- *          <p>One or more parameters are not valid.</p>
- *
+ * <p>One or more parameters are not valid.</p>
  */
 export interface DirectConnectClientException
   extends _smithy.SmithyException,
@@ -2404,36 +2023,27 @@ export namespace DirectConnectClientException {
 }
 
 /**
- *
- *          <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
- *
+ * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
  */
 export interface DirectConnectGateway {
   __type?: "DirectConnectGateway";
   /**
-   *
-   *          <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
-   *
+   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
    */
   amazonSideAsn?: number;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The name of the Direct Connect gateway.</p>
-   *
+   * <p>The name of the Direct Connect gateway.</p>
    */
   directConnectGatewayName?: string;
 
   /**
-   *
-   *          <p>The state of the Direct Connect gateway. The following are the possible values:</p>
+   * <p>The state of the Direct Connect gateway. The following are the possible values:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -2452,22 +2062,16 @@ export interface DirectConnectGateway {
    *                   <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   directConnectGatewayState?: DirectConnectGatewayState | string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
    */
   ownerAccount?: string;
 
   /**
-   *
-   *          <p>The error message if the state of an object failed to advance.</p>
-   *
+   * <p>The error message if the state of an object failed to advance.</p>
    */
   stateChangeError?: string;
 }
@@ -2479,36 +2083,27 @@ export namespace DirectConnectGateway {
 }
 
 /**
- *
- *          <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
- *
+ * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
  */
 export interface DirectConnectGatewayAssociation {
   __type?: "DirectConnectGatewayAssociation";
   /**
-   *
-   *          <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
-   *
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
   allowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>Information about the associated gateway.</p>
-   *
+   * <p>Information about the associated gateway.</p>
    */
   associatedGateway?: AssociatedGateway;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway association.</p>
-   *
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
   associationId?: string;
 
   /**
-   *
-   *          <p>The state of the association. The following are the possible values:</p>
+   * <p>The state of the association. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2527,49 +2122,36 @@ export interface DirectConnectGatewayAssociation {
    *                   <code>disassociated</code>: The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.</p>
    *             </li>
    *          </ul>
-   *
    */
   associationState?: DirectConnectGatewayAssociationState | string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the associated gateway.</p>
-   *
+   * <p>The ID of the AWS account that owns the associated gateway.</p>
    */
   directConnectGatewayOwnerAccount?: string;
 
   /**
-   *
-   *          <p>The error message if the state of an object failed to advance.</p>
-   *
+   * <p>The error message if the state of an object failed to advance.</p>
    */
   stateChangeError?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
-   *
+   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
    */
   virtualGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the virtual private gateway.</p>
-   *
+   * <p>The ID of the AWS account that owns the virtual private gateway.</p>
    */
   virtualGatewayOwnerAccount?: string;
 
   /**
-   *
-   *          <p>The AWS Region where the virtual private gateway is located.</p>
-   *
+   * <p>The AWS Region where the virtual private gateway is located.</p>
    */
   virtualGatewayRegion?: string;
 }
@@ -2581,50 +2163,37 @@ export namespace DirectConnectGatewayAssociation {
 }
 
 /**
- *
- *          <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
- *
+ * <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
  */
 export interface DirectConnectGatewayAssociationProposal {
   __type?: "DirectConnectGatewayAssociationProposal";
   /**
-   *
-   *          <p>Information about the associated gateway.</p>
-   *
+   * <p>Information about the associated gateway.</p>
    */
   associatedGateway?: AssociatedGateway;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
    */
   directConnectGatewayOwnerAccount?: string;
 
   /**
-   *
-   *          <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
-   *
+   * <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
    */
   existingAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The ID of the association proposal.</p>
-   *
+   * <p>The ID of the association proposal.</p>
    */
   proposalId?: string;
 
   /**
-   *
-   *          <p>The state of the proposal. The following are possible values:</p>
+   * <p>The state of the proposal. The following are possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2639,14 +2208,11 @@ export interface DirectConnectGatewayAssociationProposal {
    *                   <code>requested</code>: The proposal has been requested. The Direct Connect gateway association cannot be used in this state.</p>
    *             </li>
    *          </ul>
-   *
    */
   proposalState?: DirectConnectGatewayAssociationProposalState | string;
 
   /**
-   *
-   *          <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
-   *
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
   requestedAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 }
@@ -2670,15 +2236,12 @@ export type DirectConnectGatewayAssociationState =
   | "updating";
 
 /**
- *
- *          <p>Information about an attachment between a Direct Connect gateway and a virtual interface.</p>
- *
+ * <p>Information about an attachment between a Direct Connect gateway and a virtual interface.</p>
  */
 export interface DirectConnectGatewayAttachment {
   __type?: "DirectConnectGatewayAttachment";
   /**
-   *
-   *          <p>The state of the attachment. The following are the possible values:</p>
+   * <p>The state of the attachment. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2697,49 +2260,36 @@ export interface DirectConnectGatewayAttachment {
    *                   <code>detached</code>: The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.</p>
    *             </li>
    *          </ul>
-   *
    */
   attachmentState?: DirectConnectGatewayAttachmentState | string;
 
   /**
-   *
-   *          <p>The type of attachment.</p>
-   *
+   * <p>The type of attachment.</p>
    */
   attachmentType?: DirectConnectGatewayAttachmentType | string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The error message if the state of an object failed to advance.</p>
-   *
+   * <p>The error message if the state of an object failed to advance.</p>
    */
   stateChangeError?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the virtual interface.</p>
-   *
+   * <p>The ID of the AWS account that owns the virtual interface.</p>
    */
   virtualInterfaceOwnerAccount?: string;
 
   /**
-   *
-   *          <p>The AWS Region where the virtual interface is located.</p>
-   *
+   * <p>The AWS Region where the virtual interface is located.</p>
    */
   virtualInterfaceRegion?: string;
 }
@@ -2767,9 +2317,7 @@ export type DirectConnectGatewayState =
   | "pending";
 
 /**
- *
- *          <p>A server-side error occurred.</p>
- *
+ * <p>A server-side error occurred.</p>
  */
 export interface DirectConnectServerException
   extends _smithy.SmithyException,
@@ -2789,16 +2337,12 @@ export namespace DirectConnectServerException {
 export interface DisassociateConnectionFromLagRequest {
   __type?: "DisassociateConnectionFromLagRequest";
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId: string | undefined;
 }
@@ -2810,9 +2354,7 @@ export namespace DisassociateConnectionFromLagRequest {
 }
 
 /**
- *
- *          <p>A tag key was specified more than once.</p>
- *
+ * <p>A tag key was specified more than once.</p>
  */
 export interface DuplicateTagKeysException
   extends _smithy.SmithyException,
@@ -2841,57 +2383,42 @@ export enum HasLogicalRedundancy {
 }
 
 /**
- *
- *          <p>Information about an interconnect.</p>
- *
+ * <p>Information about an interconnect.</p>
  */
 export interface Interconnect extends $MetadataBearer {
   __type?: "Interconnect";
   /**
-   *
-   *          <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   *
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
   awsDevice?: string;
 
   /**
-   *
-   *          <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   *
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
   awsDeviceV2?: string;
 
   /**
-   *
-   *          <p>The bandwidth of the connection.</p>
-   *
+   * <p>The bandwidth of the connection.</p>
    */
   bandwidth?: string;
 
   /**
-   *
-   *          <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
-   *
+   * <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
    */
   hasLogicalRedundancy?: HasLogicalRedundancy | string;
 
   /**
-   *
-   *          <p>The ID of the interconnect.</p>
-   *
+   * <p>The ID of the interconnect.</p>
    */
   interconnectId?: string;
 
   /**
-   *
-   *          <p>The name of the interconnect.</p>
-   *
+   * <p>The name of the interconnect.</p>
    */
   interconnectName?: string;
 
   /**
-   *
-   *          <p>The state of the interconnect. The following are the possible values:</p>
+   * <p>The state of the interconnect. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2923,57 +2450,41 @@ export interface Interconnect extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the interconnect is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   interconnectState?: InterconnectState | string;
 
   /**
-   *
-   *          <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   *
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId?: string;
 
   /**
-   *
-   *          <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
-   *
+   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
    */
   loaIssueTime?: Date;
 
   /**
-   *
-   *          <p>The location of the connection.</p>
-   *
+   * <p>The location of the connection.</p>
    */
   location?: string;
 
   /**
-   *
-   *          <p>The name of the service provider associated with the interconnect.</p>
-   *
+   * <p>The name of the service provider associated with the interconnect.</p>
    */
   providerName?: string;
 
   /**
-   *
-   *          <p>The AWS Region where the connection is located.</p>
-   *
+   * <p>The AWS Region where the connection is located.</p>
    */
   region?: string;
 
   /**
-   *
-   *          <p>The tags associated with the interconnect.</p>
-   *
+   * <p>The tags associated with the interconnect.</p>
    */
   tags?: Array<Tag>;
 }
@@ -2996,9 +2507,7 @@ export type InterconnectState =
 export interface Interconnects extends $MetadataBearer {
   __type?: "Interconnects";
   /**
-   *
-   *          <p>The interconnects.</p>
-   *
+   * <p>The interconnects.</p>
    */
   interconnects?: Array<Interconnect>;
 }
@@ -3010,79 +2519,58 @@ export namespace Interconnects {
 }
 
 /**
- *
- *          <p>Information about a link aggregation group (LAG).</p>
- *
+ * <p>Information about a link aggregation group (LAG).</p>
  */
 export interface Lag extends $MetadataBearer {
   __type?: "Lag";
   /**
-   *
-   *          <p>Indicates whether the LAG can host other connections.</p>
-   *
+   * <p>Indicates whether the LAG can host other connections.</p>
    */
   allowsHostedConnections?: boolean;
 
   /**
-   *
-   *          <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
-   *
+   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
    */
   awsDevice?: string;
 
   /**
-   *
-   *          <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
-   *
+   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
    */
   awsDeviceV2?: string;
 
   /**
-   *
-   *          <p>The connections bundled by the LAG.</p>
-   *
+   * <p>The connections bundled by the LAG.</p>
    */
   connections?: Array<Connection>;
 
   /**
-   *
-   *          <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
+   * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
    *       values are 1Gbps and 10Gbps. </p>
-   *
    */
   connectionsBandwidth?: string;
 
   /**
-   *
-   *          <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
-   *
+   * <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
    */
   hasLogicalRedundancy?: HasLogicalRedundancy | string;
 
   /**
-   *
-   *          <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   *
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId?: string;
 
   /**
-   *
-   *          <p>The name of the LAG.</p>
-   *
+   * <p>The name of the LAG.</p>
    */
   lagName?: string;
 
   /**
-   *
-   *          <p>The state of the LAG. The following are the possible values:</p>
+   * <p>The state of the LAG. The following are the possible values:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -3114,57 +2602,41 @@ export interface Lag extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the LAG is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   lagState?: LagState | string;
 
   /**
-   *
-   *          <p>The location of the LAG.</p>
-   *
+   * <p>The location of the LAG.</p>
    */
   location?: string;
 
   /**
-   *
-   *          <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
-   *
+   * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
    */
   minimumLinks?: number;
 
   /**
-   *
-   *          <p>The number of physical connections bundled by the LAG, up to a maximum of 10.</p>
-   *
+   * <p>The number of physical connections bundled by the LAG, up to a maximum of 10.</p>
    */
   numberOfConnections?: number;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the LAG.</p>
-   *
+   * <p>The ID of the AWS account that owns the LAG.</p>
    */
   ownerAccount?: string;
 
   /**
-   *
-   *          <p>The name of the service provider associated with the LAG.</p>
-   *
+   * <p>The name of the service provider associated with the LAG.</p>
    */
   providerName?: string;
 
   /**
-   *
-   *          <p>The AWS Region where the connection is located.</p>
-   *
+   * <p>The AWS Region where the connection is located.</p>
    */
   region?: string;
 
   /**
-   *
-   *          <p>The tags associated with the LAG.</p>
-   *
+   * <p>The tags associated with the LAG.</p>
    */
   tags?: Array<Tag>;
 }
@@ -3187,9 +2659,7 @@ export type LagState =
 export interface Lags extends $MetadataBearer {
   __type?: "Lags";
   /**
-   *
-   *          <p>The LAGs.</p>
-   *
+   * <p>The LAGs.</p>
    */
   lags?: Array<Lag>;
 }
@@ -3201,23 +2671,17 @@ export namespace Lags {
 }
 
 /**
- *
- *          <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
- *
+ * <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
  */
 export interface Loa extends $MetadataBearer {
   __type?: "Loa";
   /**
-   *
-   *          <p>The binary contents of the LOA-CFA document.</p>
-   *
+   * <p>The binary contents of the LOA-CFA document.</p>
    */
   loaContent?: Uint8Array;
 
   /**
-   *
-   *          <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
-   *
+   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
   loaContentType?: LoaContentType | string;
 }
@@ -3233,44 +2697,32 @@ export enum LoaContentType {
 }
 
 /**
- *
- *          <p>Information about an AWS Direct Connect location.</p>
- *
+ * <p>Information about an AWS Direct Connect location.</p>
  */
 export interface Location {
   __type?: "Location";
   /**
-   *
-   *          <p>The available port speeds for the location.</p>
-   *
+   * <p>The available port speeds for the location.</p>
    */
   availablePortSpeeds?: Array<string>;
 
   /**
-   *
-   *          <p>The name of the service provider for the location.</p>
-   *
+   * <p>The name of the service provider for the location.</p>
    */
   availableProviders?: Array<string>;
 
   /**
-   *
-   *          <p>The code for the location.</p>
-   *
+   * <p>The code for the location.</p>
    */
   locationCode?: string;
 
   /**
-   *
-   *          <p>The name of the location. This includes the name of the colocation partner and the physical site of the building.</p>
-   *
+   * <p>The name of the location. This includes the name of the colocation partner and the physical site of the building.</p>
    */
   locationName?: string;
 
   /**
-   *
-   *          <p>The AWS Region for the location.</p>
-   *
+   * <p>The AWS Region for the location.</p>
    */
   region?: string;
 }
@@ -3284,9 +2736,7 @@ export namespace Location {
 export interface Locations extends $MetadataBearer {
   __type?: "Locations";
   /**
-   *
-   *          <p>The locations.</p>
-   *
+   * <p>The locations.</p>
    */
   locations?: Array<Location>;
 }
@@ -3298,44 +2748,32 @@ export namespace Locations {
 }
 
 /**
- *
- *          <p>Information about a new BGP peer.</p>
- *
+ * <p>Information about a new BGP peer.</p>
  */
 export interface NewBGPPeer {
   __type?: "NewBGPPeer";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    */
   asn?: number;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 }
@@ -3347,87 +2785,63 @@ export namespace NewBGPPeer {
 }
 
 /**
- *
- *          <p>Information about a private virtual interface.</p>
- *
+ * <p>Information about a private virtual interface.</p>
  */
 export interface NewPrivateVirtualInterface {
   __type?: "NewPrivateVirtualInterface";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
-   *
    */
   asn: number | undefined;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   *
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
   mtu?: number;
 
   /**
-   *
-   *          <p>The tags associated with the private virtual interface.</p>
-   *
+   * <p>The tags associated with the private virtual interface.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
 
   /**
-   *
-   *          <p>The name of the virtual interface assigned by the customer network.</p>
-   *
+   * <p>The name of the virtual interface assigned by the customer network.</p>
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan: number | undefined;
 }
@@ -3439,73 +2853,53 @@ export namespace NewPrivateVirtualInterface {
 }
 
 /**
- *
- *          <p>Information about a private virtual interface to be provisioned on a connection.</p>
- *
+ * <p>Information about a private virtual interface to be provisioned on a connection.</p>
  */
 export interface NewPrivateVirtualInterfaceAllocation {
   __type?: "NewPrivateVirtualInterfaceAllocation";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
-   *
    */
   asn: number | undefined;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   *
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
   mtu?: number;
 
   /**
-   *
-   *          <p>The tags associated with the private virtual interface.</p>
-   *
+   * <p>The tags associated with the private virtual interface.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The name of the virtual interface assigned by the customer network.</p>
-   *
+   * <p>The name of the virtual interface assigned by the customer network.</p>
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan: number | undefined;
 }
@@ -3517,73 +2911,53 @@ export namespace NewPrivateVirtualInterfaceAllocation {
 }
 
 /**
- *
- *          <p>Information about a public virtual interface.</p>
- *
+ * <p>Information about a public virtual interface.</p>
  */
 export interface NewPublicVirtualInterface {
   __type?: "NewPublicVirtualInterface";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
-   *
    */
   asn: number | undefined;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
-   *
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
   routeFilterPrefixes?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The tags associated with the public virtual interface.</p>
-   *
+   * <p>The tags associated with the public virtual interface.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The name of the virtual interface assigned by the customer network.</p>
-   *
+   * <p>The name of the virtual interface assigned by the customer network.</p>
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan: number | undefined;
 }
@@ -3595,73 +2969,53 @@ export namespace NewPublicVirtualInterface {
 }
 
 /**
- *
- *          <p>Information about a public virtual interface to be provisioned on a connection.</p>
- *
+ * <p>Information about a public virtual interface to be provisioned on a connection.</p>
  */
 export interface NewPublicVirtualInterfaceAllocation {
   __type?: "NewPublicVirtualInterfaceAllocation";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
-   *
    */
   asn: number | undefined;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
-   *
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
   routeFilterPrefixes?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The tags associated with the public virtual interface.</p>
-   *
+   * <p>The tags associated with the public virtual interface.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The name of the virtual interface assigned by the customer network.</p>
-   *
+   * <p>The name of the virtual interface assigned by the customer network.</p>
    */
   virtualInterfaceName: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan: number | undefined;
 }
@@ -3673,80 +3027,58 @@ export namespace NewPublicVirtualInterfaceAllocation {
 }
 
 /**
- *
- *          <p>Information about a transit virtual interface.</p>
- *
+ * <p>Information about a transit virtual interface.</p>
  */
 export interface NewTransitVirtualInterface {
   __type?: "NewTransitVirtualInterface";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
-   *
    */
   asn?: number;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   *
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
   mtu?: number;
 
   /**
-   *
-   *          <p>The tags associated with the transitive virtual interface.</p>
-   *
+   * <p>The tags associated with the transitive virtual interface.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The name of the virtual interface assigned by the customer network.</p>
-   *
+   * <p>The name of the virtual interface assigned by the customer network.</p>
    */
   virtualInterfaceName?: string;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan?: number;
 }
@@ -3758,73 +3090,53 @@ export namespace NewTransitVirtualInterface {
 }
 
 /**
- *
- *          <p>Information about a transit virtual interface to be provisioned on a connection.</p>
- *
+ * <p>Information about a transit virtual interface to be provisioned on a connection.</p>
  */
 export interface NewTransitVirtualInterfaceAllocation {
   __type?: "NewTransitVirtualInterfaceAllocation";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
-   *
    */
   asn?: number;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. </p>
-   *
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. </p>
    */
   mtu?: number;
 
   /**
-   *
-   *          <p>The tags associated with the transitive virtual interface.</p>
-   *
+   * <p>The tags associated with the transitive virtual interface.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The name of the virtual interface assigned by the customer network.</p>
-   *
+   * <p>The name of the virtual interface assigned by the customer network.</p>
    */
   virtualInterfaceName?: string;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan?: number;
 }
@@ -3836,23 +3148,17 @@ export namespace NewTransitVirtualInterfaceAllocation {
 }
 
 /**
- *
- *          <p>Information about a tag associated with an AWS Direct Connect resource.</p>
- *
+ * <p>Information about a tag associated with an AWS Direct Connect resource.</p>
  */
 export interface ResourceTag {
   __type?: "ResourceTag";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn?: string;
 
   /**
-   *
-   *          <p>The tags.</p>
-   *
+   * <p>The tags.</p>
    */
   tags?: Array<Tag>;
 }
@@ -3864,17 +3170,13 @@ export namespace ResourceTag {
 }
 
 /**
- *
- *          <p>Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP)
+ * <p>Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP)
  *         over a public virtual interface.</p>
- *
  */
 export interface RouteFilterPrefix {
   __type?: "RouteFilterPrefix";
   /**
-   *
-   *          <p>The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.</p>
-   *
+   * <p>The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.</p>
    */
   cidr?: string;
 }
@@ -3886,23 +3188,17 @@ export namespace RouteFilterPrefix {
 }
 
 /**
- *
- *          <p>Information about a tag.</p>
- *
+ * <p>Information about a tag.</p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *          <p>The key.</p>
-   *
+   * <p>The key.</p>
    */
   key: string | undefined;
 
   /**
-   *
-   *          <p>The value.</p>
-   *
+   * <p>The value.</p>
    */
   value?: string;
 }
@@ -3916,16 +3212,12 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *          <p>The tags to add.</p>
-   *
+   * <p>The tags to add.</p>
    */
   tags: Array<Tag> | undefined;
 }
@@ -3947,9 +3239,7 @@ export namespace TagResourceResponse {
 }
 
 /**
- *
- *          <p>You have reached the limit on the number of tags that can be assigned.</p>
- *
+ * <p>You have reached the limit on the number of tags that can be assigned.</p>
  */
 export interface TooManyTagsException
   extends _smithy.SmithyException,
@@ -3969,16 +3259,12 @@ export namespace TooManyTagsException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *          <p>The tag keys of the tags to remove.</p>
-   *
+   * <p>The tag keys of the tags to remove.</p>
    */
   tagKeys: Array<string> | undefined;
 }
@@ -4002,23 +3288,17 @@ export namespace UntagResourceResponse {
 export interface UpdateDirectConnectGatewayAssociationRequest {
   __type?: "UpdateDirectConnectGatewayAssociationRequest";
   /**
-   *
-   *          <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
-   *
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
   addAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway association.</p>
-   *
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
   associationId?: string;
 
   /**
-   *
-   *          <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
-   *
+   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
   removeAllowedPrefixesToDirectConnectGateway?: Array<RouteFilterPrefix>;
 }
@@ -4035,9 +3315,7 @@ export interface UpdateDirectConnectGatewayAssociationResult
   extends $MetadataBearer {
   __type?: "UpdateDirectConnectGatewayAssociationResult";
   /**
-   *
-   *          <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
-   *
+   * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
@@ -4053,23 +3331,17 @@ export namespace UpdateDirectConnectGatewayAssociationResult {
 export interface UpdateLagRequest {
   __type?: "UpdateLagRequest";
   /**
-   *
-   *          <p>The ID of the LAG.</p>
-   *
+   * <p>The ID of the LAG.</p>
    */
   lagId: string | undefined;
 
   /**
-   *
-   *          <p>The name of the LAG.</p>
-   *
+   * <p>The name of the LAG.</p>
    */
   lagName?: string;
 
   /**
-   *
-   *          <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
-   *
+   * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
    */
   minimumLinks?: number;
 }
@@ -4083,16 +3355,12 @@ export namespace UpdateLagRequest {
 export interface UpdateVirtualInterfaceAttributesRequest {
   __type?: "UpdateVirtualInterfaceAttributesRequest";
   /**
-   *
-   *          <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   *
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
   mtu?: number;
 
   /**
-   *
-   *          <p>The ID of the virtual private interface.</p>
-   *
+   * <p>The ID of the virtual private interface.</p>
    */
   virtualInterfaceId: string | undefined;
 }
@@ -4104,22 +3372,17 @@ export namespace UpdateVirtualInterfaceAttributesRequest {
 }
 
 /**
- *
- *          <p>Information about a virtual private gateway for a private virtual interface.</p>
- *
+ * <p>Information about a virtual private gateway for a private virtual interface.</p>
  */
 export interface VirtualGateway {
   __type?: "VirtualGateway";
   /**
-   *
-   *          <p>The ID of the virtual private gateway.</p>
-   *
+   * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
 
   /**
-   *
-   *          <p>The state of the virtual private gateway. The following are the possible values:</p>
+   * <p>The state of the virtual private gateway. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4138,7 +3401,6 @@ export interface VirtualGateway {
    *                   <code>deleted</code>: The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.</p>
    *             </li>
    *          </ul>
-   *
    */
   virtualGatewayState?: string;
 }
@@ -4152,9 +3414,7 @@ export namespace VirtualGateway {
 export interface VirtualGateways extends $MetadataBearer {
   __type?: "VirtualGateways";
   /**
-   *
-   *          <p>The virtual private gateways.</p>
-   *
+   * <p>The virtual private gateways.</p>
    */
   virtualGateways?: Array<VirtualGateway>;
 }
@@ -4166,164 +3426,119 @@ export namespace VirtualGateways {
 }
 
 /**
- *
- *          <p>Information about a virtual interface.</p>
- *
+ * <p>Information about a virtual interface.</p>
  */
 export interface VirtualInterface extends $MetadataBearer {
   __type?: "VirtualInterface";
   /**
-   *
-   *          <p>The address family for the BGP peer.</p>
-   *
+   * <p>The address family for the BGP peer.</p>
    */
   addressFamily?: AddressFamily | string;
 
   /**
-   *
-   *          <p>The IP address assigned to the Amazon interface.</p>
-   *
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
 
   /**
-   *
-   *          <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
-   *
+   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
    */
   amazonSideAsn?: number;
 
   /**
-   *
-   *          <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
-   *
    */
   asn?: number;
 
   /**
-   *
-   *          <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   *
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
 
   /**
-   *
-   *          <p>The
+   * <p>The
    *       Direct Connect endpoint on which the virtual interface terminates.</p>
-   *
    */
   awsDeviceV2?: string;
 
   /**
-   *
-   *          <p>The BGP peers configured on this virtual interface.</p>
-   *
+   * <p>The BGP peers configured on this virtual interface.</p>
    */
   bgpPeers?: Array<BGPPeer>;
 
   /**
-   *
-   *          <p>The ID of the connection.</p>
-   *
+   * <p>The ID of the connection.</p>
    */
   connectionId?: string;
 
   /**
-   *
-   *          <p>The IP address assigned to the customer interface.</p>
-   *
+   * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
-   *
-   *          <p>The customer router configuration.</p>
-   *
+   * <p>The customer router configuration.</p>
    */
   customerRouterConfig?: string;
 
   /**
-   *
-   *          <p>The ID of the Direct Connect gateway.</p>
-   *
+   * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
 
   /**
-   *
-   *          <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   *
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
    */
   jumboFrameCapable?: boolean;
 
   /**
-   *
-   *          <p>The location of the connection.</p>
-   *
+   * <p>The location of the connection.</p>
    */
   location?: string;
 
   /**
-   *
-   *          <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   *
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
   mtu?: number;
 
   /**
-   *
-   *          <p>The ID of the AWS account that owns the virtual interface.</p>
-   *
+   * <p>The ID of the AWS account that owns the virtual interface.</p>
    */
   ownerAccount?: string;
 
   /**
-   *
-   *          <p>The AWS Region where the virtual interface is located.</p>
-   *
+   * <p>The AWS Region where the virtual interface is located.</p>
    */
   region?: string;
 
   /**
-   *
-   *          <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
-   *
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
   routeFilterPrefixes?: Array<RouteFilterPrefix>;
 
   /**
-   *
-   *          <p>The tags associated with the virtual interface.</p>
-   *
+   * <p>The tags associated with the virtual interface.</p>
    */
   tags?: Array<Tag>;
 
   /**
-   *
-   *          <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
-   *
+   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
    */
   virtualGatewayId?: string;
 
   /**
-   *
-   *          <p>The ID of the virtual interface.</p>
-   *
+   * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
 
   /**
-   *
-   *          <p>The name of the virtual interface assigned by the customer network.</p>
-   *
+   * <p>The name of the virtual interface assigned by the customer network.</p>
    */
   virtualInterfaceName?: string;
 
   /**
-   *
-   *          <p>The state of the virtual interface. The following are the possible values:</p>
+   * <p>The state of the virtual interface. The following are the possible values:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -4362,22 +3577,16 @@ export interface VirtualInterface extends $MetadataBearer {
    *                   <code>unknown</code>: The state of the virtual interface is not available.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   virtualInterfaceState?: VirtualInterfaceState | string;
 
   /**
-   *
-   *          <p>The type of virtual interface. The possible values are <code>private</code> and <code>public</code>.</p>
-   *
+   * <p>The type of virtual interface. The possible values are <code>private</code> and <code>public</code>.</p>
    */
   virtualInterfaceType?: string;
 
   /**
-   *
-   *          <p>The ID of the VLAN.</p>
-   *
+   * <p>The ID of the VLAN.</p>
    */
   vlan?: number;
 }
@@ -4402,9 +3611,7 @@ export type VirtualInterfaceState =
 export interface VirtualInterfaces extends $MetadataBearer {
   __type?: "VirtualInterfaces";
   /**
-   *
-   *          <p>The virtual interfaces</p>
-   *
+   * <p>The virtual interfaces</p>
    */
   virtualInterfaces?: Array<VirtualInterface>;
 }

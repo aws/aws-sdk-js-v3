@@ -7,8 +7,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Marketplace Entitlement Service</fullname>
+ * <fullname>AWS Marketplace Entitlement Service</fullname>
  *          <p>This reference provides descriptions of the AWS Marketplace Entitlement Service
  *    API.</p>
  *          <p>AWS Marketplace Entitlement Service is used to determine the entitlement of a customer to
@@ -25,14 +24,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *      product.</p>
  *             </li>
  *          </ul>
- *
  */
 export class MarketplaceEntitlementService extends MarketplaceEntitlementServiceClient {
   /**
-   *
-   *          <p>GetEntitlements retrieves entitlement values for a given product. The results can be
+   * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
    *       filtered based on customer identifier or product dimensions.</p>
-   *
    */
   public getEntitlements(
     args: GetEntitlementsCommandInput,

@@ -197,17 +197,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon Personalize is a machine learning service that makes it easy to add individualized
+ * <p>Amazon Personalize is a machine learning service that makes it easy to add individualized
  *       recommendations to customers.</p>
- *
  */
 export class Personalize extends PersonalizeClient {
   /**
-   *
-   *          <p>Creates a batch inference job. The operation can handle up to 50 million records and the
+   * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
    *       input file must be in JSON format. For more information, see <a>recommendations-batch</a>.</p>
-   *
    */
   public createBatchInferenceJob(
     args: CreateBatchInferenceJobCommandInput,
@@ -242,8 +238,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Creates a campaign by deploying a solution version. When a client calls the
+   * <p>Creates a campaign by deploying a solution version. When a client calls the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
    *       and
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html">GetPersonalizedRanking</a>
@@ -307,7 +302,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createCampaign(
     args: CreateCampaignCommandInput,
@@ -342,8 +336,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Creates an empty dataset and adds it to the specified dataset group. Use
+   * <p>Creates an empty dataset and adds it to the specified dataset group. Use
    *       <a>CreateDatasetImportJob</a> to import your training data to a dataset.</p>
    *          <p>There are three types of datasets:</p>
    *          <ul>
@@ -395,7 +388,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createDataset(
     args: CreateDatasetCommandInput,
@@ -430,8 +422,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Creates an empty dataset group. A dataset group contains related datasets that supply
+   * <p>Creates an empty dataset group. A dataset group contains related datasets that supply
    *       data for training a model. A dataset group can contain at most three datasets,
    *       one for each type of dataset:</p>
    *          <ul>
@@ -507,7 +498,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
@@ -542,8 +532,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Creates a job that imports training data from your data source (an Amazon S3 bucket)
+   * <p>Creates a job that imports training data from your data source (an Amazon S3 bucket)
    *       to an Amazon Personalize dataset. To allow Amazon Personalize to import the training data,
    *       you must specify an AWS Identity and Access Management (IAM) role that has permission to read from the data source.</p>
    *          <important>
@@ -583,7 +572,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
@@ -618,8 +606,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Creates an event tracker that you use when sending event data to the specified dataset
+   * <p>Creates an event tracker that you use when sending event data to the specified dataset
    *       group using the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
    *          <p>When Amazon Personalize creates an event tracker, it also
@@ -667,7 +654,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createEventTracker(
     args: CreateEventTrackerCommandInput,
@@ -702,8 +688,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
+   * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
    *       must be in Avro JSON format.</p>
    *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
    *       type and has a set of required field and keywords.
@@ -729,7 +714,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createSchema(
     args: CreateSchemaCommandInput,
@@ -764,8 +748,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Creates the configuration for training a model. A trained model is known as
+   * <p>Creates the configuration for training a model. A trained model is known as
    *       a solution. After the configuration is created, you train the model (create a solution)
    *       by calling the <a>CreateSolutionVersion</a> operation. Every time you call
    *       <code>CreateSolutionVersion</code>, a new version of the solution is created.</p>
@@ -834,7 +817,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createSolution(
     args: CreateSolutionCommandInput,
@@ -869,8 +851,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Trains or retrains an active solution. A solution is created using the <a>CreateSolution</a> operation and must be in the ACTIVE state before calling
+   * <p>Trains or retrains an active solution. A solution is created using the <a>CreateSolution</a> operation and must be in the ACTIVE state before calling
    *         <code>CreateSolutionVersion</code>. A new version of the solution is created every time you
    *       call this operation.</p>
    *          <p>
@@ -923,7 +904,6 @@ export class Personalize extends PersonalizeClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   public createSolutionVersion(
     args: CreateSolutionVersionCommandInput,
@@ -958,15 +938,12 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *
-   *          <p>Removes a campaign by deleting the solution deployment. The solution that
+   * <p>Removes a campaign by deleting the solution deployment. The solution that
    *       the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no
    *       longer be specified in a
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
    *       request.
    *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
-   *
    */
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
@@ -1001,12 +978,10 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Deletes a dataset. You can't delete a dataset if an associated
+   * <p>Deletes a dataset. You can't delete a dataset if an associated
    *       <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the
    *       CREATE PENDING or IN PROGRESS state. For more information on datasets, see
    *       <a>CreateDataset</a>.</p>
-   *
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -1041,8 +1016,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Deletes a dataset group. Before you delete a dataset group, you must delete
+   * <p>Deletes a dataset group. Before you delete a dataset group, you must delete
    *       the following:</p>
    *          <ul>
    *             <li>
@@ -1055,8 +1029,6 @@ export class Personalize extends PersonalizeClient {
    *                <p>All datasets in the dataset group.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
@@ -1091,11 +1063,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Deletes the event tracker. Does not delete the event-interactions dataset from
+   * <p>Deletes the event tracker. Does not delete the event-interactions dataset from
    *         the associated dataset group. For more
    *         information on event trackers, see <a>CreateEventTracker</a>.</p>
-   *
    */
   public deleteEventTracker(
     args: DeleteEventTrackerCommandInput,
@@ -1130,11 +1100,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Deletes a schema. Before deleting a schema, you must delete all
+   * <p>Deletes a schema. Before deleting a schema, you must delete all
    *       datasets referencing the schema. For more information on schemas, see
    *       <a>CreateSchema</a>.</p>
-   *
    */
   public deleteSchema(
     args: DeleteSchemaCommandInput,
@@ -1169,15 +1137,13 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
+   * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
    *       Before deleting a solution, you must delete all campaigns based on
    *       the solution. To determine what campaigns are using the solution, call
    *       <a>ListCampaigns</a> and supply the Amazon Resource Name (ARN) of the solution.
    *       You can't delete a solution if an associated <code>SolutionVersion</code> is in the
    *       CREATE PENDING or IN PROGRESS state.
    *       For more information on solutions, see <a>CreateSolution</a>.</p>
-   *
    */
   public deleteSolution(
     args: DeleteSolutionCommandInput,
@@ -1212,9 +1178,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes the given algorithm.</p>
-   *
+   * <p>Describes the given algorithm.</p>
    */
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
@@ -1249,11 +1213,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
+   * <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
    *       status, input and output configurations, and the ARN of the solution version used to generate
    *       the recommendations.</p>
-   *
    */
   public describeBatchInferenceJob(
     args: DescribeBatchInferenceJobCommandInput,
@@ -1288,8 +1250,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes the given campaign, including its status.</p>
+   * <p>Describes the given campaign, including its status.</p>
    *          <p>A campaign can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -1302,7 +1263,6 @@ export class Personalize extends PersonalizeClient {
    *          <p>When the <code>status</code> is <code>CREATE FAILED</code>, the response includes the
    *       <code>failureReason</code> key, which describes why.</p>
    *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
-   *
    */
   public describeCampaign(
     args: DescribeCampaignCommandInput,
@@ -1337,10 +1297,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes the given dataset. For more information on datasets, see
+   * <p>Describes the given dataset. For more information on datasets, see
    *       <a>CreateDataset</a>.</p>
-   *
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -1375,10 +1333,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes the given dataset group. For more information on dataset groups, see
+   * <p>Describes the given dataset group. For more information on dataset groups, see
    *       <a>CreateDatasetGroup</a>.</p>
-   *
    */
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
@@ -1413,10 +1369,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes the dataset import job created by <a>CreateDatasetImportJob</a>,
+   * <p>Describes the dataset import job created by <a>CreateDatasetImportJob</a>,
    *       including the import job status.</p>
-   *
    */
   public describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
@@ -1451,12 +1405,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes an event tracker. The response includes the <code>trackingId</code> and
+   * <p>Describes an event tracker. The response includes the <code>trackingId</code> and
    *       <code>status</code> of the event tracker.
    *       For more information on event trackers, see <a>CreateEventTracker</a>.</p>
-   *
-   *
    */
   public describeEventTracker(
     args: DescribeEventTrackerCommandInput,
@@ -1491,9 +1442,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes the given feature transformation.</p>
-   *
+   * <p>Describes the given feature transformation.</p>
    */
   public describeFeatureTransformation(
     args: DescribeFeatureTransformationCommandInput,
@@ -1528,8 +1477,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes a recipe.</p>
+   * <p>Describes a recipe.</p>
    *          <p>A recipe contains three items:</p>
    *          <ul>
    *             <li>
@@ -1548,7 +1496,6 @@ export class Personalize extends PersonalizeClient {
    *       in the specified recipe and a training dataset. The solution, when deployed as a campaign,
    *       can provide recommendations using the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a> API.</p>
-   *
    */
   public describeRecipe(
     args: DescribeRecipeCommandInput,
@@ -1583,10 +1530,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes a schema. For more information on schemas, see
+   * <p>Describes a schema. For more information on schemas, see
    *       <a>CreateSchema</a>.</p>
-   *
    */
   public describeSchema(
     args: DescribeSchemaCommandInput,
@@ -1621,10 +1566,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes a solution.
+   * <p>Describes a solution.
    *       For more information on solutions, see <a>CreateSolution</a>.</p>
-   *
    */
   public describeSolution(
     args: DescribeSolutionCommandInput,
@@ -1659,9 +1602,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Describes a specific version of a solution. For more information on solutions, see <a>CreateSolution</a>.</p>
-   *
+   * <p>Describes a specific version of a solution. For more information on solutions, see <a>CreateSolution</a>.</p>
    */
   public describeSolutionVersion(
     args: DescribeSolutionVersionCommandInput,
@@ -1696,9 +1637,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Gets the metrics for the specified solution version.</p>
-   *
+   * <p>Gets the metrics for the specified solution version.</p>
    */
   public getSolutionMetrics(
     args: GetSolutionMetricsCommandInput,
@@ -1733,10 +1672,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the batch inference jobs that have been performed off of a solution
+   * <p>Gets a list of the batch inference jobs that have been performed off of a solution
    *       version.</p>
-   *
    */
   public listBatchInferenceJobs(
     args: ListBatchInferenceJobsCommandInput,
@@ -1771,12 +1708,10 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of campaigns that use the given solution.
+   * <p>Returns a list of campaigns that use the given solution.
    *       When a solution is not specified, all the campaigns associated with the account are listed.
    *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
    *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
-   *
    */
   public listCampaigns(
     args: ListCampaignsCommandInput,
@@ -1811,11 +1746,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of dataset groups. The response provides the properties for each dataset
+   * <p>Returns a list of dataset groups. The response provides the properties for each dataset
    *       group, including the Amazon Resource Name (ARN). For more information on dataset groups, see
    *       <a>CreateDatasetGroup</a>.</p>
-   *
    */
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
@@ -1850,13 +1783,11 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of dataset import jobs that use the given dataset.
+   * <p>Returns a list of dataset import jobs that use the given dataset.
    *       When a dataset is not specified, all the dataset import jobs associated with the account are listed.
    *       The response provides the properties for each dataset import job, including the Amazon Resource Name (ARN).
    *       For more information on dataset import jobs, see <a>CreateDatasetImportJob</a>.
    *       For more information on datasets, see <a>CreateDataset</a>.</p>
-   *
    */
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
@@ -1891,12 +1822,10 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns the list of datasets contained in the given dataset group. The response
+   * <p>Returns the list of datasets contained in the given dataset group. The response
    *       provides the properties for each dataset, including
    *       the Amazon Resource Name (ARN). For more information on datasets,
    *       see <a>CreateDataset</a>.</p>
-   *
    */
   public listDatasets(
     args: ListDatasetsCommandInput,
@@ -1931,12 +1860,10 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns the list of event trackers associated with the account.
+   * <p>Returns the list of event trackers associated with the account.
    *       The response provides the properties for each event tracker, including the Amazon Resource
    *       Name (ARN) and tracking ID. For more
    *       information on event trackers, see <a>CreateEventTracker</a>.</p>
-   *
    */
   public listEventTrackers(
     args: ListEventTrackersCommandInput,
@@ -1971,11 +1898,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of available recipes. The response provides the properties
+   * <p>Returns a list of available recipes. The response provides the properties
    *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
-   *
-   *
    */
   public listRecipes(
     args: ListRecipesCommandInput,
@@ -2010,11 +1934,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns the list of schemas associated with the account. The response provides the
+   * <p>Returns the list of schemas associated with the account. The response provides the
    *       properties for each schema, including the Amazon Resource Name (ARN).
    *       For more information on schemas, see <a>CreateSchema</a>.</p>
-   *
    */
   public listSchemas(
     args: ListSchemasCommandInput,
@@ -2049,12 +1971,10 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of solution versions for the given solution. When a solution is not
+   * <p>Returns a list of solution versions for the given solution. When a solution is not
    *       specified, all the solution versions associated with the account are listed. The response
    *       provides the properties for each solution version, including the Amazon Resource Name (ARN).
    *       For more information on solutions, see <a>CreateSolution</a>.</p>
-   *
    */
   public listSolutionVersions(
     args: ListSolutionVersionsCommandInput,
@@ -2089,12 +2009,10 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of solutions that use the given dataset group.
+   * <p>Returns a list of solutions that use the given dataset group.
    *       When a dataset group is not specified, all the solutions associated with the account are listed.
    *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
    *       For more information on solutions, see <a>CreateSolution</a>.</p>
-   *
    */
   public listSolutions(
     args: ListSolutionsCommandInput,
@@ -2129,8 +2047,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   *
-   *          <p>Updates a campaign by either deploying a new solution or changing the value of the
+   * <p>Updates a campaign by either deploying a new solution or changing the value of the
    *       campaign's <code>minProvisionedTPS</code> parameter.</p>
    *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
    *       Check the campaign status using the <a>DescribeCampaign</a> API.</p>
@@ -2139,7 +2056,6 @@ export class Personalize extends PersonalizeClient {
    *         updated campaign is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
    *          </note>
    *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
-   *
    */
   public updateCampaign(
     args: UpdateCampaignCommandInput,

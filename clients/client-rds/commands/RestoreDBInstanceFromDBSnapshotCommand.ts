@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RDSClient";
 import {
-  DBInstance,
-  RestoreDBInstanceFromDBSnapshotMessage
+  RestoreDBInstanceFromDBSnapshotMessage,
+  RestoreDBInstanceFromDBSnapshotResult
 } from "../models/index";
 import {
   deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBInstanceFromDBSnapshotCommandInput = RestoreDBInstanceFromDBSnapshotMessage;
-export type RestoreDBInstanceFromDBSnapshotCommandOutput = DBInstance;
+export type RestoreDBInstanceFromDBSnapshotCommandOutput = RestoreDBInstanceFromDBSnapshotResult;
 
 export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
   RestoreDBInstanceFromDBSnapshotCommandInput,

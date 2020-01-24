@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, EnableSnapshotCopyMessage } from "../models/index";
+import {
+  EnableSnapshotCopyMessage,
+  EnableSnapshotCopyResult
+} from "../models/index";
 import {
   deserializeAws_queryEnableSnapshotCopyCommand,
   serializeAws_queryEnableSnapshotCopyCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EnableSnapshotCopyCommandInput = EnableSnapshotCopyMessage;
-export type EnableSnapshotCopyCommandOutput = Cluster;
+export type EnableSnapshotCopyCommandOutput = EnableSnapshotCopyResult;
 
 export class EnableSnapshotCopyCommand extends $Command<
   EnableSnapshotCopyCommandInput,

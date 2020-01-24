@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, DeleteClusterMessage } from "../models/index";
+import { DeleteClusterMessage, DeleteClusterResult } from "../models/index";
 import {
   deserializeAws_queryDeleteClusterCommand,
   serializeAws_queryDeleteClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteClusterCommandInput = DeleteClusterMessage;
-export type DeleteClusterCommandOutput = Cluster;
+export type DeleteClusterCommandOutput = DeleteClusterResult;
 
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

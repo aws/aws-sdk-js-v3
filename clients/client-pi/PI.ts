@@ -12,8 +12,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS Performance Insights enables you to monitor and explore different dimensions of
+ * <p>AWS Performance Insights enables you to monitor and explore different dimensions of
  *       database load based on data captured from a running RDS instance. The guide provides detailed
  *       information about Performance Insights data types, parameters and errors. For more information
  *       about Performance Insights capabilities see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon RDS Performance
@@ -27,16 +26,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       dimension of the data provides DB load data for each time point in the queried time range, and
  *       each time point decomposes overall load in relation to the requested dimensions, such as SQL,
  *       Wait-event, User or Host, measured at that time point.</p>
- *
- *
  */
 export class PI extends PIClient {
   /**
-   *
-   *          <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a
+   * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a
    *       metric.</p>
-   *
-   *
    */
   public describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
@@ -71,12 +65,9 @@ export class PI extends PIClient {
   }
 
   /**
-   *
-   *          <p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide
+   * <p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide
    *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
    *       each group.</p>
-   *
-   *
    */
   public getResourceMetrics(
     args: GetResourceMetricsCommandInput,

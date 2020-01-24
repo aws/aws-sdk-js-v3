@@ -656,10 +656,8 @@ export type GlueClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Glue</fullname>
+ * <fullname>AWS Glue</fullname>
  *          <p>Defines the public endpoint for the AWS Glue service.</p>
- *
  */
 export class GlueClient extends __Client<
   __HttpHandlerOptions,

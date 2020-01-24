@@ -176,8 +176,7 @@ export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client
+ * <p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client
  *       (such as AWS CLI or a native application) to register with AWS SSO. The service also
  *       enables the client to fetch the user’s access token upon successful authentication and
  *       authorization with AWS SSO. This service conforms with the OAuth 2.0 based implementation of
@@ -195,7 +194,6 @@ export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<
  *         convenient way to create programmatic access to AWS SSO and other AWS services. For more
  *         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
- *
  */
 export class SSOOIDCClient extends __Client<
   __HttpHandlerOptions,

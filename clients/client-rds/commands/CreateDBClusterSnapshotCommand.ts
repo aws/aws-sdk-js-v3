@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   CreateDBClusterSnapshotMessage,
-  DBClusterSnapshot
+  CreateDBClusterSnapshotResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateDBClusterSnapshotCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBClusterSnapshotCommandInput = CreateDBClusterSnapshotMessage;
-export type CreateDBClusterSnapshotCommandOutput = DBClusterSnapshot;
+export type CreateDBClusterSnapshotCommandOutput = CreateDBClusterSnapshotResult;
 
 export class CreateDBClusterSnapshotCommand extends $Command<
   CreateDBClusterSnapshotCommandInput,

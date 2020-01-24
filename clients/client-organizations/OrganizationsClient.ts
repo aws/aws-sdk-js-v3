@@ -325,9 +325,7 @@ export type OrganizationsClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Organizations</fullname>
- *
+ * <fullname>AWS Organizations</fullname>
  */
 export class OrganizationsClient extends __Client<
   __HttpHandlerOptions,

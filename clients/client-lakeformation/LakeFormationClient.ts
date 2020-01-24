@@ -216,10 +216,8 @@ export type LakeFormationClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Lake Formation</fullname>
+ * <fullname>AWS Lake Formation</fullname>
  *          <p>Defines the public endpoint for the AWS Lake Formation service.</p>
- *
  */
 export class LakeFormationClient extends __Client<
   __HttpHandlerOptions,

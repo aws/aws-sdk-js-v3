@@ -92,8 +92,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS CodeStar</fullname>
+ * <fullname>AWS CodeStar</fullname>
  *          <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the
  *       operations and data types for the AWS CodeStar API along with usage examples.</p>
  *          <p>You can use the AWS CodeStar API to work with:</p>
@@ -183,14 +182,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                   <code>UpdateUserProfile</code>, which updates the profile for a user.</p>
  *             </li>
  *          </ul>
- *
  */
 export class CodeStar extends CodeStarClient {
   /**
-   *
-   *          <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
-   *
-   *
+   * <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
    */
   public associateTeamMember(
     args: AssociateTeamMemberCommandInput,
@@ -225,11 +220,9 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Creates a project, including project resources. This action creates a project based on
+   * <p>Creates a project, including project resources. This action creates a project based on
    *       a submitted project request. A set of source code files and a toolchain template file
    *       can be included with the project request. If these are not provided, an empty project is created.</p>
-   *
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -264,14 +257,10 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Creates a profile for a user that includes user preferences, such as the display name
+   * <p>Creates a profile for a user that includes user preferences, such as the display name
    *       and email address assocciated with the user, in AWS CodeStar. The user profile is not
    *       project-specific. Information in the user profile is displayed wherever the user's information
    *       appears to other users in AWS CodeStar.</p>
-   *
-   *
-   *
    */
   public createUserProfile(
     args: CreateUserProfileCommandInput,
@@ -306,12 +295,8 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Deletes a project, including project resources. Does not delete users associated with
+   * <p>Deletes a project, including project resources. Does not delete users associated with
    *       the project, but does delete the IAM roles that allowed access to the project.</p>
-   *
-   *
-   *
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -346,12 +331,9 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with
+   * <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with
    *       that profile, such as display name and email address. It does not delete the history of that
    *       user, for example the history of commits made by that user.</p>
-   *
-   *
    */
   public deleteUserProfile(
     args: DeleteUserProfileCommandInput,
@@ -386,10 +368,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Describes a project and its resources.</p>
-   *
-   *
+   * <p>Describes a project and its resources.</p>
    */
   public describeProject(
     args: DescribeProjectCommandInput,
@@ -424,10 +403,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>
-   *
-   *
+   * <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>
    */
   public describeUserProfile(
     args: DescribeUserProfileCommandInput,
@@ -462,14 +438,10 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Removes a user from a project. Removing a user from a project also removes the IAM
+   * <p>Removes a user from a project. Removing a user from a project also removes the IAM
    *       policies from that user that allowed access to the project and its resources. Disassociating a
    *       team member does not remove that user's profile from AWS CodeStar. It does not remove the user from
    *       IAM.</p>
-   *
-   *
-   *
    */
   public disassociateTeamMember(
     args: DisassociateTeamMemberCommandInput,
@@ -504,11 +476,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>
-   *
-   *
-   *
+   * <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -543,11 +511,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Lists resources associated with a project in AWS CodeStar.</p>
-   *
-   *
-   *
+   * <p>Lists resources associated with a project in AWS CodeStar.</p>
    */
   public listResources(
     args: ListResourcesCommandInput,
@@ -582,9 +546,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Gets the tags for a project.</p>
-   *
+   * <p>Gets the tags for a project.</p>
    */
   public listTagsForProject(
     args: ListTagsForProjectCommandInput,
@@ -619,11 +581,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Lists all team members associated with a project.</p>
-   *
-   *
-   *
+   * <p>Lists all team members associated with a project.</p>
    */
   public listTeamMembers(
     args: ListTeamMembersCommandInput,
@@ -658,10 +616,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>
-   *
-   *
+   * <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>
    */
   public listUserProfiles(
     args: ListUserProfilesCommandInput,
@@ -696,9 +651,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Adds tags to a project.</p>
-   *
+   * <p>Adds tags to a project.</p>
    */
   public tagProject(
     args: TagProjectCommandInput,
@@ -733,9 +686,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Removes tags from a project.</p>
-   *
+   * <p>Removes tags from a project.</p>
    */
   public untagProject(
     args: UntagProjectCommandInput,
@@ -770,11 +721,7 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Updates a project in AWS CodeStar.</p>
-   *
-   *
-   *
+   * <p>Updates a project in AWS CodeStar.</p>
    */
   public updateProject(
     args: UpdateProjectCommandInput,
@@ -809,13 +756,9 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a
+   * <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a
    *       team member's role in the project, or change whether they have remote access to project
    *       resources.</p>
-   *
-   *
-   *
    */
   public updateTeamMember(
     args: UpdateTeamMemberCommandInput,
@@ -850,12 +793,9 @@ export class CodeStar extends CodeStarClient {
   }
 
   /**
-   *
-   *          <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.
+   * <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.
    *       Information in the user profile is displayed wherever the user's information appears to other
    *       users in AWS CodeStar. </p>
-   *
-   *
    */
   public updateUserProfile(
     args: UpdateUserProfileCommandInput,

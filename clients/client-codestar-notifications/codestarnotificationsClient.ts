@@ -216,8 +216,7 @@ export type codestarnotificationsClientResolvedConfig = __SmithyResolvedConfigur
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
+ * <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
  *       operations and data types for the AWS CodeStar Notifications API. You can use the AWS CodeStar Notifications API
  *       to work with the following objects:</p>
  *
@@ -301,7 +300,6 @@ export type codestarnotificationsClientResolvedConfig = __SmithyResolvedConfigur
  *
  *          <p> For information about how to use AWS CodeStar Notifications, see link in the CodeStarNotifications User Guide.
  *     </p>
- *
  */
 export class codestarnotificationsClient extends __Client<
   __HttpHandlerOptions,
