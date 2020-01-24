@@ -43,6 +43,18 @@ import {
   ListProjectsCommandOutput
 } from "../commands/ListProjectsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "../commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "../commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "../commands/UntagResourceCommand";
+import {
   UpdatePlacementCommandInput,
   UpdatePlacementCommandOutput
 } from "../commands/UpdatePlacementCommand";
@@ -194,6 +206,9 @@ export async function serializeAws_restJson1_1CreateProjectCommand(
   }
   if (input.projectName !== undefined) {
     bodyParams["projectName"] = input.projectName;
+  }
+  if (input.tags !== undefined) {
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -480,6 +495,99 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
     ...context.endpoint,
     protocol: "https",
     method: "GET",
+    headers: headers,
+    path: resolvedPath,
+    query: query
+  });
+}
+
+export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: any = input.resourceArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath
+  });
+}
+
+export async function serializeAws_restJson1_1TagResourceCommand(
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: any = input.resourceArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.tags !== undefined) {
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1UntagResourceCommand(
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: any = input.resourceArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  const query: any = {};
+  if (input.tagKeys !== undefined) {
+    query["tagKeys"] = input.tagKeys;
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "DELETE",
     headers: headers,
     path: resolvedPath,
     query: query
@@ -1334,6 +1442,194 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    tags: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.tags !== undefined) {
+    contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot1click.projects#InternalFailureException":
+      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot1click.projects#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.iot1click.projects#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1TagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1TagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot1click.projects#InternalFailureException":
+      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot1click.projects#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.iot1click.projects#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1UntagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UntagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot1click.projects#InternalFailureException":
+      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot1click.projects#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.iot1click.projects#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1UpdatePlacementCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -1669,6 +1965,17 @@ const serializeAws_restJson1_1PlacementTemplate = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1TagMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  let mapParams: any = {};
+  Object.keys(input).forEach(key => {
+    mapParams[key] = input[key];
+  });
+  return mapParams;
+};
+
 const deserializeAws_restJson1_1DefaultPlacementAttributeMap = (
   output: any,
   context: __SerdeContext
@@ -1862,12 +2169,17 @@ const deserializeAws_restJson1_1ProjectDescription = (
 ): ProjectDescription => {
   let contents: any = {
     __type: "ProjectDescription",
+    arn: undefined,
     createdDate: undefined,
     description: undefined,
     placementTemplate: undefined,
     projectName: undefined,
+    tags: undefined,
     updatedDate: undefined
   };
+  if (output.arn !== undefined) {
+    contents.arn = output.arn;
+  }
   if (output.createdDate !== undefined) {
     contents.createdDate = new Date(
       output.createdDate % 1 != 0
@@ -1887,6 +2199,9 @@ const deserializeAws_restJson1_1ProjectDescription = (
   if (output.projectName !== undefined) {
     contents.projectName = output.projectName;
   }
+  if (output.tags !== undefined) {
+    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
+  }
   if (output.updatedDate !== undefined) {
     contents.updatedDate = new Date(
       output.updatedDate % 1 != 0
@@ -1903,10 +2218,15 @@ const deserializeAws_restJson1_1ProjectSummary = (
 ): ProjectSummary => {
   let contents: any = {
     __type: "ProjectSummary",
+    arn: undefined,
     createdDate: undefined,
     projectName: undefined,
+    tags: undefined,
     updatedDate: undefined
   };
+  if (output.arn !== undefined) {
+    contents.arn = output.arn;
+  }
   if (output.createdDate !== undefined) {
     contents.createdDate = new Date(
       output.createdDate % 1 != 0
@@ -1916,6 +2236,9 @@ const deserializeAws_restJson1_1ProjectSummary = (
   }
   if (output.projectName !== undefined) {
     contents.projectName = output.projectName;
+  }
+  if (output.tags !== undefined) {
+    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   if (output.updatedDate !== undefined) {
     contents.updatedDate = new Date(
@@ -1934,6 +2257,17 @@ const deserializeAws_restJson1_1ProjectSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProjectSummary(entry, context)
   );
+};
+
+const deserializeAws_restJson1_1TagMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  let mapParams: any = {};
+  Object.keys(output).forEach(key => {
+    mapParams[key] = output[key];
+  });
+  return mapParams;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

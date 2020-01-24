@@ -92,9 +92,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *
- *          <fullname>AWS Secrets Manager API Reference</fullname>
+ * <fullname>AWS Secrets Manager API Reference</fullname>
  *          <p>AWS Secrets Manager is a web service that enables you to store, manage, and retrieve,
  *       secrets.</p>
  *
@@ -160,13 +158,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         AWS Secrets Manager Events with AWS CloudTrail</a> in the <i>AWS Secrets Manager User Guide</i>.
  *       To learn more about CloudTrail, including how to turn it on and find your log files, see the
  *         <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p>
- *
- *
  */
 export class SecretsManager extends SecretsManagerClient {
   /**
-   *
-   *          <p>Disables automatic scheduled rotation and cancels the rotation of a secret if one is
+   * <p>Disables automatic scheduled rotation and cancels the rotation of a secret if one is
    *       currently in progress.</p>
    *          <p>To re-enable scheduled rotation, call <a>RotateSecret</a> with
    *         <code>AutomaticallyRotateAfterDays</code> set to a value greater than 0. This will
@@ -219,12 +214,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list all of the versions currently associated with a secret, use <a>ListSecretVersionIds</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
@@ -259,8 +248,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Creates a new secret. A secret in Secrets Manager consists of both the protected secret data and the
+   * <p>Creates a new secret. A secret in Secrets Manager consists of both the protected secret data and the
    *       important information needed to manage the secret.</p>
    *          <p>Secrets Manager stores the encrypted secret data in one of a collection of "versions"
    *       associated with the secret. Each version contains a copy of the encrypted secret data. Each
@@ -348,11 +336,6 @@ export class SecretsManager extends SecretsManagerClient {
    *           value.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
    */
   public createSecret(
     args: CreateSecretCommandInput,
@@ -387,8 +370,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Deletes the resource-based permission policy that's attached to the secret.</p>
+   * <p>Deletes the resource-based permission policy that's attached to the secret.</p>
    *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
@@ -412,10 +394,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -450,8 +428,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Deletes an entire secret and all of its versions. You can optionally include a recovery
+   * <p>Deletes an entire secret and all of its versions. You can optionally include a recovery
    *       window during which you can restore the secret. If you don't specify a recovery window value,
    *       the operation defaults to 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
    *       the secret that specifies the end of the recovery window. At the end of the recovery window,
@@ -497,12 +474,6 @@ export class SecretsManager extends SecretsManagerClient {
    *           use <a>RestoreSecret</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public deleteSecret(
     args: DeleteSecretCommandInput,
@@ -537,8 +508,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the details of a secret. It does not include the encrypted fields. Only those
+   * <p>Retrieves the details of a secret. It does not include the encrypted fields. Only those
    *       fields that are populated with a value are returned in the response. </p>
    *          <p>
    *             <b>Minimum permissions</b>
@@ -566,12 +536,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list all of the secrets in the AWS account, use <a>ListSecrets</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public describeSecret(
     args: DescribeSecretCommandInput,
@@ -606,8 +570,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Generates a random password of the specified complexity. This operation is intended for
+   * <p>Generates a random password of the specified complexity. This operation is intended for
    *       use in the Lambda rotation function. Per best practice, we recommend that you specify the
    *       maximum length and include every character type that the system you are generating a password
    *       for can support.</p>
@@ -620,12 +583,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>secretsmanager:GetRandomPassword</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public getRandomPassword(
     args: GetRandomPasswordCommandInput,
@@ -660,8 +617,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the JSON text of the resource-based policy document that's attached to the
+   * <p>Retrieves the JSON text of the resource-based policy document that's attached to the
    *       specified secret. The JSON request string input and response output are shown formatted
    *       with white space and line breaks for better readability. Submit your input as a single line
    *       JSON string.</p>
@@ -688,9 +644,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
    */
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -725,8 +678,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
+   * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
    *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
    *       content.</p>
    *          <p>
@@ -754,11 +706,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To retrieve the non-encrypted details for the secret, use <a>DescribeSecret</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
    */
   public getSecretValue(
     args: GetSecretValueCommandInput,
@@ -793,8 +740,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists all of the versions attached to the specified secret. The output does not include
+   * <p>Lists all of the versions attached to the specified secret. The output does not include
    *       the <code>SecretString</code> or <code>SecretBinary</code> fields. By default, the list
    *       includes only versions that have at least one staging label in <code>VersionStage</code>
    *       attached.</p>
@@ -823,12 +769,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list the secrets in an account, use <a>ListSecrets</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
@@ -863,8 +803,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Lists all of the secrets that are stored by Secrets Manager in the AWS account. To list the
+   * <p>Lists all of the secrets that are stored by Secrets Manager in the AWS account. To list the
    *       versions currently stored for a specific secret, use <a>ListSecretVersionIds</a>.
    *       The encrypted fields <code>SecretString</code> and <code>SecretBinary</code> are not included
    *       in the output. To get that information, call the <a>GetSecretValue</a>
@@ -894,11 +833,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
    */
   public listSecrets(
     args: ListSecretsCommandInput,
@@ -933,8 +867,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Attaches the contents of the specified resource-based permission policy to a secret. A
+   * <p>Attaches the contents of the specified resource-based permission policy to a secret. A
    *       resource-based policy is optional. Alternatively, you can use IAM identity-based policies
    *       that specify the secret's Amazon Resource Name (ARN) in the policy statement's
    *         <code>Resources</code> element. You can also use a combination of both identity-based and
@@ -966,9 +899,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1003,8 +933,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Stores a new encrypted secret value in the specified secret. To do this, the operation
+   * <p>Stores a new encrypted secret value in the specified secret. To do this, the operation
    *       creates a new version and attaches it to the secret. The version can contain a new
    *         <code>SecretString</code> value or a new <code>SecretBinary</code> value. You can also
    *       specify the staging labels that are initially attached to the new version.</p>
@@ -1094,11 +1023,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
    */
   public putSecretValue(
     args: PutSecretValueCommandInput,
@@ -1133,8 +1057,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
+   * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
    *       stamp. This makes the secret accessible to query once again.</p>
    *          <p>
    *             <b>Minimum permissions</b>
@@ -1153,13 +1076,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To delete a secret, use <a>DeleteSecret</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public restoreSecret(
     args: RestoreSecretCommandInput,
@@ -1194,8 +1110,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Configures and starts the asynchronous process of rotating this secret. If you include the
+   * <p>Configures and starts the asynchronous process of rotating this secret. If you include the
    *       configuration parameters, the operation sets those values for the secret and then immediately
    *       starts a rotation. If you do not include the configuration parameters, the operation starts a
    *       rotation with the values already stored in the secret. After the rotation completes, the
@@ -1257,13 +1172,6 @@ export class SecretsManager extends SecretsManagerClient {
    *             <a>UpdateSecretVersionStage</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public rotateSecret(
     args: RotateSecretCommandInput,
@@ -1298,8 +1206,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Attaches one or more tags, each consisting of a key name and a value, to the specified
+   * <p>Attaches one or more tags, each consisting of a key name and a value, to the specified
    *       secret. Tags are part of the secret's overall metadata, and are not associated with any
    *       specific version of the secret. This operation only appends tags to the existing list of tags.
    *       To remove tags, you must use <a>UntagResource</a>.</p>
@@ -1355,12 +1262,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To view the list of tags attached to a secret, use <a>DescribeSecret</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1395,8 +1296,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Removes one or more tags from the specified secret.</p>
+   * <p>Removes one or more tags from the specified secret.</p>
    *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no error
    *       is returned and the secret metadata is unchanged.</p>
    *          <important>
@@ -1425,13 +1325,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To view the list of tags attached to a secret, use <a>DescribeSecret</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1466,8 +1359,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Modifies many of the details of the specified secret. If you include a
+   * <p>Modifies many of the details of the specified secret. If you include a
    *         <code>ClientRequestToken</code> and <i>either</i>
    *             <code>SecretString</code> or <code>SecretBinary</code> then it also creates a new version
    *       attached to the secret.</p>
@@ -1552,12 +1444,6 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To list the versions contained in a secret, use <a>ListSecretVersionIds</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public updateSecret(
     args: UpdateSecretCommandInput,
@@ -1592,8 +1478,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   *
-   *          <p>Modifies the staging labels attached to a version of a secret. Staging labels are used to
+   * <p>Modifies the staging labels attached to a version of a secret. Staging labels are used to
    *       track a version as it progresses through the secret rotation process. You can attach a staging
    *       label to only one version of a secret at a time. If a staging label to be added is already
    *       attached to another version, then it is moved--removed from the other version first and
@@ -1630,11 +1515,6 @@ export class SecretsManager extends SecretsManagerClient {
    *             <code>SecretVersionsToStages</code> response value. </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
    */
   public updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,

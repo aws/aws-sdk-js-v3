@@ -75,6 +75,11 @@ import {
   ListSecurityProfilesCommandOutput
 } from "./commands/ListSecurityProfilesCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListUserHierarchyGroupsCommand,
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput
@@ -85,6 +90,11 @@ import {
   ListUsersCommandOutput
 } from "./commands/ListUsersCommand";
 import {
+  StartChatContactCommand,
+  StartChatContactCommandInput,
+  StartChatContactCommandOutput
+} from "./commands/StartChatContactCommand";
+import {
   StartOutboundVoiceContactCommand,
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput
@@ -94,6 +104,16 @@ import {
   StopContactCommandInput,
   StopContactCommandOutput
 } from "./commands/StopContactCommand";
+import {
+  TagResourceCommand,
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import {
   UpdateContactAttributesCommand,
   UpdateContactAttributesCommandInput,
@@ -127,21 +147,18 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a
+ * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a
  *    customer contact center and provide reliable customer engagement at any scale.</p>
- *          <p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact routing.
- *    You can also resolve customer issues more efficiently by putting customers in touch with the right agents.</p>
- *          <p>There are limits to the number of Amazon Connect resources that you can create and limits to the number
- *    of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Limits</a> in the
- *    <i>Amazon Connect Administrator Guide</i>.</p>
- *
+ *          <p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact
+ *    routing. You can also resolve customer issues more efficiently by putting customers in touch with
+ *    the right agents.</p>
+ *          <p>There are limits to the number of Amazon Connect resources that you can create and limits to the
+ *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
+ *     Service Limits</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 export class Connect extends ConnectClient {
   /**
-   *
-   *          <p>Creates a user account for the specified Amazon Connect instance.</p>
-   *
+   * <p>Creates a user account for the specified Amazon Connect instance.</p>
    */
   public createUser(
     args: CreateUserCommandInput,
@@ -176,9 +193,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Deletes a user account from the specified Amazon Connect instance.</p>
-   *
+   * <p>Deletes a user account from the specified Amazon Connect instance.</p>
    */
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -213,9 +228,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified user account.</p>
-   *
+   * <p>Describes the specified user account. You can find the instance ID in the console (it’s the
+   *    final part of the ARN). The console does not display the user IDs. Instead, list the users and
+   *    note the IDs provided in the output.</p>
    */
   public describeUser(
     args: DescribeUserCommandInput,
@@ -250,9 +265,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified hierarchy group.</p>
-   *
+   * <p>Describes the specified hierarchy group.</p>
    */
   public describeUserHierarchyGroup(
     args: DescribeUserHierarchyGroupCommandInput,
@@ -287,9 +300,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
-   *
+   * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
    */
   public describeUserHierarchyStructure(
     args: DescribeUserHierarchyStructureCommandInput,
@@ -327,9 +338,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the contact attributes for the specified contact.</p>
-   *
+   * <p>Retrieves the contact attributes for the specified contact.</p>
    */
   public getContactAttributes(
     args: GetContactAttributesCommandInput,
@@ -364,13 +373,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
+   * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html">Real-time Metrics Reports</a>
    *    in the <i>Amazon Connect Administrator Guide</i>.</p>
-   *
-   *
-   *
    */
   public getCurrentMetricData(
     args: GetCurrentMetricDataCommandInput,
@@ -405,9 +410,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a token for federation.</p>
-   *
+   * <p>Retrieves a token for federation.</p>
    */
   public getFederationToken(
     args: GetFederationTokenCommandInput,
@@ -442,13 +445,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Gets historical metric data from the specified Amazon Connect instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html">Historical Metrics Reports</a>
-   *    in the <i>Amazon Connect Administrator Guide</i>.</p>
-   *
-   *
-   *
+   * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html">Historical Metrics Reports</a> in
+   *    the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public getMetricData(
     args: GetMetricDataCommandInput,
@@ -483,9 +482,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
-   *
+   * <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
    */
   public listContactFlows(
     args: ListContactFlowsCommandInput,
@@ -520,9 +517,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
-   *
+   * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
    */
   public listHoursOfOperations(
     args: ListHoursOfOperationsCommandInput,
@@ -557,9 +552,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>
-   *
+   * <p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>
    */
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -594,9 +587,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides information about the queues for the specified Amazon Connect instance.</p>
-   *
+   * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
    */
   public listQueues(
     args: ListQueuesCommandInput,
@@ -631,9 +622,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides summary information about the routing profiles for the specified Amazon Connect instance.</p>
-   *
+   * <p>Provides summary information about the routing profiles for the specified Amazon Connect
+   *    instance.</p>
    */
   public listRoutingProfiles(
     args: ListRoutingProfilesCommandInput,
@@ -668,9 +658,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>
-   *
+   * <p>Provides summary information about the security profiles for the specified Amazon Connect
+   *    instance.</p>
    */
   public listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
@@ -705,9 +694,43 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>
-   *
+   * <p>Lists the tags for the specified resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
+   *    instance.</p>
    */
   public listUserHierarchyGroups(
     args: ListUserHierarchyGroupsCommandInput,
@@ -742,9 +765,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
-   *
+   * <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
    */
   public listUsers(
     args: ListUsersCommandInput,
@@ -779,12 +800,50 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides
+   *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *
-   *          <p>Initiates a contact flow to place an outbound call to a customer.</p>
+   *          <p>When a new chat contact is successfully created, clients need to subscribe to the
+   *    participant’s connection for the created chat within 5 minutes. This is achieved by invoking
+   *     <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+   */
+  public startChatContact(
+    args: StartChatContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartChatContactCommandOutput>;
+  public startChatContact(
+    args: StartChatContactCommandInput,
+    cb: (err: any, data?: StartChatContactCommandOutput) => void
+  ): void;
+  public startChatContact(
+    args: StartChatContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartChatContactCommandOutput) => void
+  ): void;
+  public startChatContact(
+    args: StartChatContactCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartChatContactCommandOutput) => void),
+    cb?: (err: any, data?: StartChatContactCommandOutput) => void
+  ): Promise<StartChatContactCommandOutput> | void {
+    const command = new StartChatContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Initiates a contact flow to place an outbound call to a customer.</p>
    *
-   *          <p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds,
-   *    it fails.</p>
-   *
+   *          <p>There is a 60 second dialing timeout for this operation. If the call is not connected after
+   *    60 seconds, it fails.</p>
    */
   public startOutboundVoiceContact(
     args: StartOutboundVoiceContactCommandInput,
@@ -819,9 +878,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Ends the specified contact.</p>
-   *
+   * <p>Ends the specified contact.</p>
    */
   public stopContact(
     args: StopContactCommandInput,
@@ -856,24 +913,93 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Creates or updates the contact attributes associated with the specified contact.</p>
-   *          <p>You can add or update attributes for both ongoing and completed contacts. For example,
-   *    you can update the customer's name or the reason the customer called while the call is active,
-   *    or add notes about steps that the agent took during the call that are displayed to the next
-   *    agent that takes the call. You can also update attributes for a contact using data from your
-   *    CRM application and save the data with the contact in Amazon Connect. You could also flag calls for
-   *    additional analysis, such as legal review or identifying abusive callers.</p>
+   * <p>Adds the specified tags to the specified resource.</p>
+   *          <p>The supported resource type is users.</p>
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified tags from the specified resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates the contact attributes associated with the specified contact.</p>
+   *          <p>You can add or update attributes for both ongoing and completed contacts. For example, you
+   *    can update the customer's name or the reason the customer called while the call is active, or add
+   *    notes about steps that the agent took during the call that are displayed to the next agent that
+   *    takes the call. You can also update attributes for a contact using data from your CRM application
+   *    and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis,
+   *    such as legal review or identifying abusive callers.</p>
    *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p>
    *
    *          <p>
-   *             <b>Important:</b>
-   *    You cannot use the operation to update attributes for contacts that occurred prior to the
-   *    release of the API, September 12, 2018. You can update attributes only for contacts that started
-   *    after the release of the API. If you attempt to update attributes for a contact that occurred
-   *    prior to the release of the API, a 400 error is returned. This applies also to queued callbacks
-   *    that were initiated prior to the release of the API but are still active in your instance.</p>
-   *
+   *             <b>Important:</b> You cannot use the operation to update
+   *    attributes for contacts that occurred prior to the release of the API, September 12, 2018. You
+   *    can update attributes only for contacts that started after the release of the API. If you attempt
+   *    to update attributes for a contact that occurred prior to the release of the API, a 400 error is
+   *    returned. This applies also to queued callbacks that were initiated prior to the release of the
+   *    API but are still active in your instance.</p>
    */
   public updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
@@ -908,9 +1034,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Assigns the specified hierarchy group to the specified user.</p>
-   *
+   * <p>Assigns the specified hierarchy group to the specified user.</p>
    */
   public updateUserHierarchy(
     args: UpdateUserHierarchyCommandInput,
@@ -945,9 +1069,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Updates the identity information for the specified user.</p>
-   *
+   * <p>Updates the identity information for the specified user.</p>
    */
   public updateUserIdentityInfo(
     args: UpdateUserIdentityInfoCommandInput,
@@ -982,9 +1104,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Updates the phone configuration settings for the specified user.</p>
-   *
+   * <p>Updates the phone configuration settings for the specified user.</p>
    */
   public updateUserPhoneConfig(
     args: UpdateUserPhoneConfigCommandInput,
@@ -1019,9 +1139,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Assigns the specified routing profile to the specified user.</p>
-   *
+   * <p>Assigns the specified routing profile to the specified user.</p>
    */
   public updateUserRoutingProfile(
     args: UpdateUserRoutingProfileCommandInput,
@@ -1056,9 +1174,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   *
-   *          <p>Assigns the specified security profiles to the specified user.</p>
-   *
+   * <p>Assigns the specified security profiles to the specified user.</p>
    */
   public updateUserSecurityProfiles(
     args: UpdateUserSecurityProfilesCommandInput,

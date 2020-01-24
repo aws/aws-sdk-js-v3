@@ -502,20 +502,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage
+ * <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage
  *             directories and users. You can authenticate a user to obtain tokens related to user
  *             identity and access policies.</p>
  *         <p>This API reference provides information about user pools in Amazon Cognito User
  *             Pools.</p>
  *         <p>For more information, see the Amazon Cognito Documentation.</p>
- *
  */
 export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
-   *
-   *         <p>Adds additional user attributes to the user pool schema.</p>
-   *
+   * <p>Adds additional user attributes to the user pool schema.</p>
    */
   public addCustomAttributes(
     args: AddCustomAttributesCommandInput,
@@ -550,10 +546,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Adds the specified user to the specified group.</p>
+   * <p>Adds the specified user to the specified group.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminAddUserToGroup(
     args: AdminAddUserToGroupCommandInput,
@@ -588,11 +582,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Confirms user registration as an admin without using a confirmation code. Works on
+   * <p>Confirms user registration as an admin without using a confirmation code. Works on
    *             any user.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminConfirmSignUp(
     args: AdminConfirmSignUpCommandInput,
@@ -627,8 +619,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates a new user in the specified user pool.</p>
+   * <p>Creates a new user in the specified user pool.</p>
    *         <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via
    *             email or phone (SMS).</p>
    *         <note>
@@ -641,7 +632,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
    *             they sign in and change their password.</p>
    *         <p>AdminCreateUser requires developer credentials.</p>
-   *
    */
   public adminCreateUser(
     args: AdminCreateUserCommandInput,
@@ -676,10 +666,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes a user as an administrator. Works on any user.</p>
+   * <p>Deletes a user as an administrator. Works on any user.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminDeleteUser(
     args: AdminDeleteUserCommandInput,
@@ -714,11 +702,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes the user attributes in a user pool as an administrator. Works on any
+   * <p>Deletes the user attributes in a user pool as an administrator. Works on any
    *             user.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminDeleteUserAttributes(
     args: AdminDeleteUserAttributesCommandInput,
@@ -753,8 +739,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Disables the user from signing in with the specified external (SAML or social)
+   * <p>Disables the user from signing in with the specified external (SAML or social)
    *             identity provider. If the user to disable is a Cognito User Pools native username +
    *             password user, they are not permitted to use their password to sign-in. If the user to
    *             disable is a linked external IdP user, any link between that user and an existing user
@@ -781,7 +766,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *                 <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and
    *                 <code>ProviderAttributeValue</code> must be the subject of the SAML
    *             assertion.</p>
-   *
    */
   public adminDisableProviderForUser(
     args: AdminDisableProviderForUserCommandInput,
@@ -816,10 +800,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Disables the specified user.</p>
+   * <p>Disables the specified user.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminDisableUser(
     args: AdminDisableUserCommandInput,
@@ -854,10 +836,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Enables the specified user as an administrator. Works on any user.</p>
+   * <p>Enables the specified user as an administrator. Works on any user.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminEnableUser(
     args: AdminEnableUserCommandInput,
@@ -892,10 +872,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Forgets the device, as an administrator.</p>
+   * <p>Forgets the device, as an administrator.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminForgetDevice(
     args: AdminForgetDeviceCommandInput,
@@ -930,10 +908,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the device, as an administrator.</p>
+   * <p>Gets the device, as an administrator.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminGetDevice(
     args: AdminGetDeviceCommandInput,
@@ -968,11 +944,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the specified user by user name in a user pool as an administrator. Works on any
+   * <p>Gets the specified user by user name in a user pool as an administrator. Works on any
    *             user.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminGetUser(
     args: AdminGetUserCommandInput,
@@ -1007,10 +981,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Initiates the authentication flow, as an administrator.</p>
+   * <p>Initiates the authentication flow, as an administrator.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminInitiateAuth(
     args: AdminInitiateAuthCommandInput,
@@ -1045,8 +1017,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an
+   * <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an
    *             identity from an external identity provider (<code>SourceUser</code>) based on a
    *             specified attribute name and value from the external identity provider. This allows you
    *             to create a link from the existing user account to an external federated user identity
@@ -1064,7 +1035,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *         <p>See also .</p>
    *         <p>This action is enabled only for admin access and requires developer
    *             credentials.</p>
-   *
    */
   public adminLinkProviderForUser(
     args: AdminLinkProviderForUserCommandInput,
@@ -1099,10 +1069,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists devices, as an administrator.</p>
+   * <p>Lists devices, as an administrator.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminListDevices(
     args: AdminListDevicesCommandInput,
@@ -1137,10 +1105,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the groups that the user belongs to.</p>
+   * <p>Lists the groups that the user belongs to.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminListGroupsForUser(
     args: AdminListGroupsForUserCommandInput,
@@ -1175,10 +1141,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists a history of user activity and any risks detected as part of Amazon Cognito
+   * <p>Lists a history of user activity and any risks detected as part of Amazon Cognito
    *             advanced security.</p>
-   *
    */
   public adminListUserAuthEvents(
     args: AdminListUserAuthEventsCommandInput,
@@ -1213,10 +1177,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Removes the specified user from the specified group.</p>
+   * <p>Removes the specified user from the specified group.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminRemoveUserFromGroup(
     args: AdminRemoveUserFromGroupCommandInput,
@@ -1251,8 +1213,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Resets the specified user's password in a user pool as an administrator. Works on any
+   * <p>Resets the specified user's password in a user pool as an administrator. Works on any
    *             user.</p>
    *         <p>When a developer calls this API, the current password is invalidated, so it must be
    *             changed. If a user tries to sign in after the API is called, the app will get a
@@ -1263,7 +1224,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             calling this API will also result in sending a message to the end user with the code to
    *             change their password.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminResetUserPassword(
     args: AdminResetUserPasswordCommandInput,
@@ -1298,10 +1258,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Responds to an authentication challenge, as an administrator.</p>
+   * <p>Responds to an authentication challenge, as an administrator.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminRespondToAuthChallenge(
     args: AdminRespondToAuthChallengeCommandInput,
@@ -1336,9 +1294,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *          <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
-   *
+   * <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
    */
   public adminSetUserMFAPreference(
     args: AdminSetUserMFAPreferenceCommandInput,
@@ -1373,8 +1329,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Sets the specified user's password in a user pool as an administrator. Works on any
+   * <p>Sets the specified user's password in a user pool as an administrator. Works on any
    *             user. </p>
    *         <p>The password can be temporary or permanent. If it is temporary, the user status will
    *             be placed into the <code>FORCE_CHANGE_PASSWORD</code> state. When the user next tries to
@@ -1384,7 +1339,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             by an administrator. </p>
    *         <p>Once the user has set a new password, or the password is permanent, the user status
    *             will be set to <code>Confirmed</code>.</p>
-   *
    */
   public adminSetUserPassword(
     args: AdminSetUserPasswordCommandInput,
@@ -1419,12 +1373,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             <i>This action is no longer supported.</i> You can use it to configure
    *             only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either
    *             type of MFA, use the <a>AdminSetUserMFAPreference</a> action instead.</p>
-   *
    */
   public adminSetUserSettings(
     args: AdminSetUserSettingsCommandInput,
@@ -1459,11 +1411,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Provides feedback for an authentication event as to whether it was from a valid user.
+   * <p>Provides feedback for an authentication event as to whether it was from a valid user.
    *             This feedback is used for improving the risk evaluation decision for the user pool as
    *             part of Amazon Cognito advanced security.</p>
-   *
    */
   public adminUpdateAuthEventFeedback(
     args: AdminUpdateAuthEventFeedbackCommandInput,
@@ -1498,10 +1448,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the device status as an administrator.</p>
+   * <p>Updates the device status as an administrator.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminUpdateDeviceStatus(
     args: AdminUpdateDeviceStatusCommandInput,
@@ -1536,15 +1484,13 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified user's attributes, including developer attributes, as an
+   * <p>Updates the specified user's attributes, including developer attributes, as an
    *             administrator. Works on any user.</p>
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    *         <p>In addition to updating user attributes, this API can also be used to mark phone
    *             and email as verified.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminUpdateUserAttributes(
     args: AdminUpdateUserAttributesCommandInput,
@@ -1579,10 +1525,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *          <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
+   * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public adminUserGlobalSignOut(
     args: AdminUserGlobalSignOutCommandInput,
@@ -1617,10 +1561,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Returns a unique generated shared secret key code for the user account. The request
+   * <p>Returns a unique generated shared secret key code for the user account. The request
    *             takes an access token or a session string, but not both.</p>
-   *
    */
   public associateSoftwareToken(
     args: AssociateSoftwareTokenCommandInput,
@@ -1655,9 +1597,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Changes the password for a specified user in a user pool.</p>
-   *
+   * <p>Changes the password for a specified user in a user pool.</p>
    */
   public changePassword(
     args: ChangePasswordCommandInput,
@@ -1692,10 +1632,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Confirms tracking of the device. This API call is the call that begins device
+   * <p>Confirms tracking of the device. This API call is the call that begins device
    *             tracking.</p>
-   *
    */
   public confirmDevice(
     args: ConfirmDeviceCommandInput,
@@ -1730,9 +1668,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>
-   *
+   * <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>
    */
   public confirmForgotPassword(
     args: ConfirmForgotPasswordCommandInput,
@@ -1767,10 +1703,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Confirms registration of a user and handles the existing alias from a previous
+   * <p>Confirms registration of a user and handles the existing alias from a previous
    *             user.</p>
-   *
    */
   public confirmSignUp(
     args: ConfirmSignUpCommandInput,
@@ -1805,10 +1739,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates a new group in the specified user pool.</p>
+   * <p>Creates a new group in the specified user pool.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public createGroup(
     args: CreateGroupCommandInput,
@@ -1843,9 +1775,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates an identity provider for a user pool.</p>
-   *
+   * <p>Creates an identity provider for a user pool.</p>
    */
   public createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
@@ -1880,9 +1810,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>
-   *
+   * <p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>
    */
   public createResourceServer(
     args: CreateResourceServerCommandInput,
@@ -1917,9 +1845,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates the user import job.</p>
-   *
+   * <p>Creates the user import job.</p>
    */
   public createUserImportJob(
     args: CreateUserImportJobCommandInput,
@@ -1954,10 +1880,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates a new Amazon Cognito user pool and sets the password policy for the
+   * <p>Creates a new Amazon Cognito user pool and sets the password policy for the
    *             pool.</p>
-   *
    */
   public createUserPool(
     args: CreateUserPoolCommandInput,
@@ -1992,9 +1916,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates the user pool client.</p>
-   *
+   * <p>Creates the user pool client.</p>
    */
   public createUserPoolClient(
     args: CreateUserPoolClientCommandInput,
@@ -2029,9 +1951,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Creates a new domain for a user pool.</p>
-   *
+   * <p>Creates a new domain for a user pool.</p>
    */
   public createUserPoolDomain(
     args: CreateUserPoolDomainCommandInput,
@@ -2066,10 +1986,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes a group. Currently only groups with no members can be deleted.</p>
+   * <p>Deletes a group. Currently only groups with no members can be deleted.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public deleteGroup(
     args: DeleteGroupCommandInput,
@@ -2104,9 +2022,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes an identity provider for a user pool.</p>
-   *
+   * <p>Deletes an identity provider for a user pool.</p>
    */
   public deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
@@ -2141,9 +2057,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes a resource server.</p>
-   *
+   * <p>Deletes a resource server.</p>
    */
   public deleteResourceServer(
     args: DeleteResourceServerCommandInput,
@@ -2178,9 +2092,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Allows a user to delete himself or herself.</p>
-   *
+   * <p>Allows a user to delete himself or herself.</p>
    */
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -2215,9 +2127,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes the attributes for a user.</p>
-   *
+   * <p>Deletes the attributes for a user.</p>
    */
   public deleteUserAttributes(
     args: DeleteUserAttributesCommandInput,
@@ -2252,9 +2162,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified Amazon Cognito user pool.</p>
-   *
+   * <p>Deletes the specified Amazon Cognito user pool.</p>
    */
   public deleteUserPool(
     args: DeleteUserPoolCommandInput,
@@ -2289,9 +2197,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Allows the developer to delete the user pool client.</p>
-   *
+   * <p>Allows the developer to delete the user pool client.</p>
    */
   public deleteUserPoolClient(
     args: DeleteUserPoolClientCommandInput,
@@ -2326,9 +2232,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Deletes a domain for a user pool.</p>
-   *
+   * <p>Deletes a domain for a user pool.</p>
    */
   public deleteUserPoolDomain(
     args: DeleteUserPoolDomainCommandInput,
@@ -2363,9 +2267,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a specific identity provider.</p>
-   *
+   * <p>Gets information about a specific identity provider.</p>
    */
   public describeIdentityProvider(
     args: DescribeIdentityProviderCommandInput,
@@ -2400,9 +2302,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Describes a resource server.</p>
-   *
+   * <p>Describes a resource server.</p>
    */
   public describeResourceServer(
     args: DescribeResourceServerCommandInput,
@@ -2437,9 +2337,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Describes the risk configuration.</p>
-   *
+   * <p>Describes the risk configuration.</p>
    */
   public describeRiskConfiguration(
     args: DescribeRiskConfigurationCommandInput,
@@ -2474,9 +2372,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Describes the user import job.</p>
-   *
+   * <p>Describes the user import job.</p>
    */
   public describeUserImportJob(
     args: DescribeUserImportJobCommandInput,
@@ -2511,9 +2407,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Returns the configuration information and metadata of the specified user pool.</p>
-   *
+   * <p>Returns the configuration information and metadata of the specified user pool.</p>
    */
   public describeUserPool(
     args: DescribeUserPoolCommandInput,
@@ -2548,10 +2442,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Client method for returning the configuration information and metadata of the
+   * <p>Client method for returning the configuration information and metadata of the
    *             specified user pool app client.</p>
-   *
    */
   public describeUserPoolClient(
     args: DescribeUserPoolClientCommandInput,
@@ -2586,9 +2478,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets information about a domain.</p>
-   *
+   * <p>Gets information about a domain.</p>
    */
   public describeUserPoolDomain(
     args: DescribeUserPoolDomainCommandInput,
@@ -2623,9 +2513,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Forgets the specified device.</p>
-   *
+   * <p>Forgets the specified device.</p>
    */
   public forgetDevice(
     args: ForgetDeviceCommandInput,
@@ -2660,15 +2548,13 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Calling this API causes a message to be sent to the end user with a confirmation code
+   * <p>Calling this API causes a message to be sent to the end user with a confirmation code
    *             that is required to change the user's password. For the <code>Username</code> parameter,
    *             you can use the username or user alias. If a verified phone number exists for the user,
    *             the confirmation code is sent to the phone number. Otherwise, if a verified email
    *             exists, the confirmation code is sent to the email. If neither a verified phone number
    *             nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use
    *             the confirmation code for resetting the password, call .</p>
-   *
    */
   public forgotPassword(
     args: ForgotPasswordCommandInput,
@@ -2703,10 +2589,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the header information for the .csv file to be used as input for the user import
+   * <p>Gets the header information for the .csv file to be used as input for the user import
    *             job.</p>
-   *
    */
   public getCSVHeader(
     args: GetCSVHeaderCommandInput,
@@ -2741,9 +2625,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the device.</p>
-   *
+   * <p>Gets the device.</p>
    */
   public getDevice(
     args: GetDeviceCommandInput,
@@ -2778,10 +2660,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets a group.</p>
+   * <p>Gets a group.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public getGroup(
     args: GetGroupCommandInput,
@@ -2816,9 +2696,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the specified identity provider.</p>
-   *
+   * <p>Gets the specified identity provider.</p>
    */
   public getIdentityProviderByIdentifier(
     args: GetIdentityProviderByIdentifierCommandInput,
@@ -2856,9 +2734,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>This method takes a user pool ID, and returns the signing certificate.</p>
-   *
+   * <p>This method takes a user pool ID, and returns the signing certificate.</p>
    */
   public getSigningCertificate(
     args: GetSigningCertificateCommandInput,
@@ -2893,12 +2769,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the UI Customization information for a particular app client's app UI, if there
+   * <p>Gets the UI Customization information for a particular app client's app UI, if there
    *             is something set. If nothing is set for the particular client, but there is an existing
    *             pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that
    *             is returned. If nothing is present, then an empty shape is returned.</p>
-   *
    */
   public getUICustomization(
     args: GetUICustomizationCommandInput,
@@ -2933,9 +2807,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the user attributes and metadata for a user.</p>
-   *
+   * <p>Gets the user attributes and metadata for a user.</p>
    */
   public getUser(
     args: GetUserCommandInput,
@@ -2970,9 +2842,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the user attribute verification code for the specified attribute name.</p>
-   *
+   * <p>Gets the user attribute verification code for the specified attribute name.</p>
    */
   public getUserAttributeVerificationCode(
     args: GetUserAttributeVerificationCodeCommandInput,
@@ -3013,9 +2883,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
-   *
+   * <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
    */
   public getUserPoolMfaConfig(
     args: GetUserPoolMfaConfigCommandInput,
@@ -3050,9 +2918,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *          <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
-   *
+   * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
    */
   public globalSignOut(
     args: GlobalSignOutCommandInput,
@@ -3087,9 +2953,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Initiates the authentication flow.</p>
-   *
+   * <p>Initiates the authentication flow.</p>
    */
   public initiateAuth(
     args: InitiateAuthCommandInput,
@@ -3124,9 +2988,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the devices.</p>
-   *
+   * <p>Lists the devices.</p>
    */
   public listDevices(
     args: ListDevicesCommandInput,
@@ -3161,10 +3023,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the groups associated with a user pool.</p>
+   * <p>Lists the groups associated with a user pool.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public listGroups(
     args: ListGroupsCommandInput,
@@ -3199,9 +3059,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists information about all identity providers for a user pool.</p>
-   *
+   * <p>Lists information about all identity providers for a user pool.</p>
    */
   public listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
@@ -3236,9 +3094,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the resource servers for a user pool.</p>
-   *
+   * <p>Lists the resource servers for a user pool.</p>
    */
   public listResourceServers(
     args: ListResourceServersCommandInput,
@@ -3273,12 +3129,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
+   * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
    *         <p>A tag is a label that you can apply to user pools to categorize and manage them in
    *             different ways, such as by purpose, owner, environment, or other criteria.</p>
    *         <p>You can use this action up to 10 times per second, per account.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3313,9 +3167,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the user import jobs.</p>
-   *
+   * <p>Lists the user import jobs.</p>
    */
   public listUserImportJobs(
     args: ListUserImportJobsCommandInput,
@@ -3350,9 +3202,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the clients that have been created for the specified user pool.</p>
-   *
+   * <p>Lists the clients that have been created for the specified user pool.</p>
    */
   public listUserPoolClients(
     args: ListUserPoolClientsCommandInput,
@@ -3387,9 +3237,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the user pools associated with an AWS account.</p>
-   *
+   * <p>Lists the user pools associated with an AWS account.</p>
    */
   public listUserPools(
     args: ListUserPoolsCommandInput,
@@ -3424,9 +3272,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the users in the Amazon Cognito user pool.</p>
-   *
+   * <p>Lists the users in the Amazon Cognito user pool.</p>
    */
   public listUsers(
     args: ListUsersCommandInput,
@@ -3461,10 +3307,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Lists the users in the specified group.</p>
+   * <p>Lists the users in the specified group.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *
    */
   public listUsersInGroup(
     args: ListUsersInGroupCommandInput,
@@ -3499,10 +3343,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Resends the confirmation (for confirmation of registration) to a specific user in the
+   * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
    *             user pool.</p>
-   *
    */
   public resendConfirmationCode(
     args: ResendConfirmationCodeCommandInput,
@@ -3537,9 +3379,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Responds to the authentication challenge.</p>
-   *
+   * <p>Responds to the authentication challenge.</p>
    */
   public respondToAuthChallenge(
     args: RespondToAuthChallengeCommandInput,
@@ -3574,14 +3414,12 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Configures actions on detected risks. To delete the risk configuration for
+   * <p>Configures actions on detected risks. To delete the risk configuration for
    *                 <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four
    *             configuration types.</p>
    *         <p>To enable Amazon Cognito advanced security features, update the user pool to include
    *             the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
    *         <p>See .</p>
-   *
    */
   public setRiskConfiguration(
     args: SetRiskConfigurationCommandInput,
@@ -3616,8 +3454,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Sets the UI customization information for a user pool's built-in app UI.</p>
+   * <p>Sets the UI customization information for a user pool's built-in app UI.</p>
    *         <p>You can specify app UI customization settings for a single client (with a specific
    *                 <code>clientId</code>) or for all clients (by setting the <code>clientId</code> to
    *                 <code>ALL</code>). If you specify <code>ALL</code>, the default configuration will
@@ -3629,7 +3466,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *                 there is no place to host the app's pages, and the service will throw an
    *                 error.</p>
    *         </note>
-   *
    */
   public setUICustomization(
     args: SetUICustomizationCommandInput,
@@ -3664,9 +3500,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *          <p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
-   *
+   * <p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
    */
   public setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,
@@ -3701,9 +3535,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *          <p>Set the user pool multi-factor authentication (MFA) configuration.</p>
-   *
+   * <p>Set the user pool multi-factor authentication (MFA) configuration.</p>
    */
   public setUserPoolMfaConfig(
     args: SetUserPoolMfaConfigCommandInput,
@@ -3738,12 +3570,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             <i>This action is no longer supported.</i> You can use it to configure
    *             only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either
    *             type of MFA, use the <a>SetUserMFAPreference</a> action instead.</p>
-   *
    */
   public setUserSettings(
     args: SetUserSettingsCommandInput,
@@ -3778,10 +3608,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Registers the user in the specified user pool and creates a user name, password, and
+   * <p>Registers the user in the specified user pool and creates a user name, password, and
    *             user attributes.</p>
-   *
    */
   public signUp(
     args: SignUpCommandInput,
@@ -3816,9 +3644,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Starts the user import.</p>
-   *
+   * <p>Starts the user import.</p>
    */
   public startUserImportJob(
     args: StartUserImportJobCommandInput,
@@ -3853,9 +3679,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Stops the user import job.</p>
-   *
+   * <p>Stops the user import job.</p>
    */
   public stopUserImportJob(
     args: StopUserImportJobCommandInput,
@@ -3890,8 +3714,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can
+   * <p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can
    *             use to categorize and manage user pools in different ways, such as by purpose, owner,
    *             environment, or other criteria.</p>
    *         <p>Each tag consists of a key and value, both of which you define. A key is a general
@@ -3905,7 +3728,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             for user pools based on specific tags or tag values.</p>
    *         <p>You can use this action up to 5 times per second, per account. A user pool can have as
    *             many as 50 tags.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -3940,10 +3762,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Removes the specified tags from an Amazon Cognito user pool. You can use this action
+   * <p>Removes the specified tags from an Amazon Cognito user pool. You can use this action
    *             up to 5 times per second, per account</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3978,11 +3798,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Provides the feedback for an authentication event whether it was from a valid user or
+   * <p>Provides the feedback for an authentication event whether it was from a valid user or
    *             not. This feedback is used for improving the risk evaluation decision for the user pool
    *             as part of Amazon Cognito advanced security.</p>
-   *
    */
   public updateAuthEventFeedback(
     args: UpdateAuthEventFeedbackCommandInput,
@@ -4017,9 +3835,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the device status.</p>
-   *
+   * <p>Updates the device status.</p>
    */
   public updateDeviceStatus(
     args: UpdateDeviceStatusCommandInput,
@@ -4054,13 +3870,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified group with the specified attributes.</p>
+   * <p>Updates the specified group with the specified attributes.</p>
    *         <p>Calling this action requires developer credentials.</p>
    *          <important>
    *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
    *          </important>
-   *
    */
   public updateGroup(
     args: UpdateGroupCommandInput,
@@ -4095,10 +3909,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates identity provider information for a user pool.</p>
-   *
-   *
+   * <p>Updates identity provider information for a user pool.</p>
    */
   public updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
@@ -4133,12 +3944,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
+   * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
    *          <important>
    *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
    *          </important>
-   *
    */
   public updateResourceServer(
     args: UpdateResourceServerCommandInput,
@@ -4173,9 +3982,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Allows a user to update a specific attribute (one at a time).</p>
-   *
+   * <p>Allows a user to update a specific attribute (one at a time).</p>
    */
   public updateUserAttributes(
     args: UpdateUserAttributesCommandInput,
@@ -4210,13 +4017,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified user pool with the specified attributes. You can get a list of the
+   * <p>Updates the specified user pool with the specified attributes. You can get a list of the
    *             current user pool settings with .</p>
    *          <important>
    *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
    *          </important>
-   *
    */
   public updateUserPool(
     args: UpdateUserPoolCommandInput,
@@ -4251,13 +4056,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified user pool app client with the specified attributes. You can get a
+   * <p>Updates the specified user pool app client with the specified attributes. You can get a
    *             list of the current user pool app client settings with .</p>
    *          <important>
    *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
    *          </important>
-   *
    */
   public updateUserPoolClient(
     args: UpdateUserPoolClientCommandInput,
@@ -4292,8 +4095,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user
+   * <p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user
    *             pool.</p>
    *         <p>You can use this operation to provide the Amazon Resource Name (ARN) of a new
    *             certificate to Amazon Cognito. You cannot use it to change the domain for a user
@@ -4314,7 +4116,6 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *         <p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your
    *             new certificate to your custom domain.</p>
    *         <p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
-   *
    */
   public updateUserPoolDomain(
     args: UpdateUserPoolDomainCommandInput,
@@ -4349,11 +4150,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Use this API to register a user's entered TOTP code and mark the user's software token
+   * <p>Use this API to register a user's entered TOTP code and mark the user's software token
    *             MFA status as "verified" if successful. The request takes an access token or a session
    *             string, but not both.</p>
-   *
    */
   public verifySoftwareToken(
     args: VerifySoftwareTokenCommandInput,
@@ -4388,9 +4187,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   *
-   *         <p>Verifies the specified user attributes in the user pool.</p>
-   *
+   * <p>Verifies the specified user attributes in the user pool.</p>
    */
   public verifyUserAttribute(
     args: VerifyUserAttributeCommandInput,

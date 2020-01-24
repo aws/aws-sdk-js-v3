@@ -300,8 +300,7 @@ export type ElasticLoadBalancingv2ClientResolvedConfig = __SmithyResolvedConfigu
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Elastic Load Balancing</fullname>
+ * <fullname>Elastic Load Balancing</fullname>
  *
  *          <p>A load balancer distributes incoming traffic across targets, such as your EC2
  *       instances. This enables you to increase the availability of your application. The load
@@ -330,8 +329,6 @@ export type ElasticLoadBalancingv2ClientResolvedConfig = __SmithyResolvedConfigu
  *
  *          <p>All Elastic Load Balancing operations are idempotent, which means that they complete at
  *       most one time. If you repeat an operation, it succeeds.</p>
- *
- *
  */
 export class ElasticLoadBalancingv2Client extends __Client<
   __HttpHandlerOptions,

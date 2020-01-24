@@ -311,8 +311,7 @@ export type ElasticBeanstalkClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Elastic Beanstalk</fullname>
+ * <fullname>AWS Elastic Beanstalk</fullname>
  *
  *
  *          <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
@@ -327,7 +326,6 @@ export type ElasticBeanstalkClientResolvedConfig = __SmithyResolvedConfiguration
  *          <p>For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to
  *         <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region">Regions and Endpoints</a> in the <i>Amazon Web Services
  *       Glossary</i>.</p>
- *
  */
 export class ElasticBeanstalkClient extends __Client<
   __HttpHandlerOptions,

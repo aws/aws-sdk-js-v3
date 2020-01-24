@@ -285,6 +285,11 @@ import {
   GetAutomationExecutionCommandOutput
 } from "./commands/GetAutomationExecutionCommand";
 import {
+  GetCalendarStateCommand,
+  GetCalendarStateCommandInput,
+  GetCalendarStateCommandOutput
+} from "./commands/GetCalendarStateCommand";
+import {
   GetCommandInvocationCommand,
   GetCommandInvocationCommandInput,
   GetCommandInvocationCommandOutput
@@ -607,8 +612,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Systems Manager</fullname>
+ * <fullname>AWS Systems Manager</fullname>
  *          <p>AWS Systems Manager is a collection of capabilities that helps you automate management tasks such as
  *    collecting system inventory, applying operating system (OS) patches, automating the creation of
  *    Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale.
@@ -621,12 +625,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *    the <i>AWS Systems Manager User Guide</i>.</p>
  *          <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information about how to use a Query API, see
  *     <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API Requests</a>. </p>
- *
  */
 export class SSM extends SSMClient {
   /**
-   *
-   *          <p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you
+   * <p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you
    *    can assign to your documents, managed instances, maintenance windows, Parameter Store parameters,
    *    and patch baselines. Tags enable you to categorize your resources in different ways, for example,
    *    by purpose, owner, or environment. Each tag consists of a key and an optional value, both of
@@ -642,7 +644,6 @@ export class SSM extends SSMClient {
    *    to Amazon EC2 and are interpreted strictly as a string of characters. </p>
    *          <p>For more information about tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your
    *     Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -677,10 +678,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
+   * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
    *    command will be terminated and the underlying process stopped.</p>
-   *
    */
   public cancelCommand(
     args: CancelCommandCommandInput,
@@ -715,11 +714,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
+   * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
    *    the window that have not already starting running. (Tasks already in progress will continue to
    *    completion.)</p>
-   *
    */
   public cancelMaintenanceWindowExecution(
     args: CancelMaintenanceWindowExecutionCommandInput,
@@ -760,12 +757,16 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these
-   *    resources using Run Command. An on-premises server or virtual machine that has been registered
-   *    with EC2 is called a managed instance. For more information about activations, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting Up AWS Systems Manager for Hybrid
-   *     Environments</a>.</p>
-   *
+   * <p>Generates an activation code and activation ID you can use to register your on-premises
+   *    server or virtual machine (VM) with Systems Manager. Registering these machines with Systems Manager makes it
+   *    possible to manage them using Systems Manager capabilities. You use the activation code and ID when
+   *    installing SSM Agent on machines in your hybrid environment. For more information about
+   *    requirements for managing on-premises instances and VMs using Systems Manager, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting Up AWS Systems Manager for Hybrid
+   *     Environments</a> in the <i>AWS Systems Manager User Guide</i>. </p>
+   *          <note>
+   *             <p>On-premises servers or VMs that are registered with Systems Manager and Amazon EC2 instances that you
+   *     manage with Systems Manager are all called <i>managed instances</i>.</p>
+   *          </note>
    */
   public createActivation(
     args: CreateActivationCommandInput,
@@ -800,15 +801,12 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>Associates the specified Systems Manager document with the specified instances or targets.</p>
+   * <p>Associates the specified Systems Manager document with the specified instances or targets.</p>
    *          <p>When you associate a document with one or more instances using instance IDs or tags,
    *    SSM Agent running on the instance processes the document and configures the instance as
    *    specified.</p>
    *          <p>If you associate a document with an instance that already has an associated document, the
    *    system returns the AssociationAlreadyExists exception.</p>
-   *
    */
   public createAssociation(
     args: CreateAssociationCommandInput,
@@ -843,14 +841,12 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Associates the specified Systems Manager document with the specified instances or targets.</p>
+   * <p>Associates the specified Systems Manager document with the specified instances or targets.</p>
    *          <p>When you associate a document with one or more instances using instance IDs or tags,
    *    SSM Agent running on the instance processes the document and configures the instance as
    *    specified.</p>
    *          <p>If you associate a document with an instance that already has an associated document, the
    *    system returns the AssociationAlreadyExists exception.</p>
-   *
    */
   public createAssociationBatch(
     args: CreateAssociationBatchCommandInput,
@@ -885,12 +881,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates a Systems Manager document.</p>
+   * <p>Creates a Systems Manager document.</p>
    *          <p>After you create a document, you can use CreateAssociation to associate it with one or more
    *    running instances.</p>
-   *
    */
   public createDocument(
     args: CreateDocumentCommandInput,
@@ -925,9 +918,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates a new maintenance window.</p>
+   * <p>Creates a new maintenance window.</p>
    *          <note>
    *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
    *     maintenance window based on the time it begins. No maintenance window tasks are permitted to
@@ -936,8 +927,6 @@ export class SSM extends SSMClient {
    *     value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start
    *     after 5 PM.</p>
    *          </note>
-   *
-   *
    */
   public createMaintenanceWindow(
     args: CreateMaintenanceWindowCommandInput,
@@ -972,15 +961,13 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Creates a new OpsItem. You must have permission in AWS Identity and Access Management (IAM)
+   * <p>Creates a new OpsItem. You must have permission in AWS Identity and Access Management (IAM)
    *    to create a new OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
    *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
-   *
    */
   public createOpsItem(
     args: CreateOpsItemCommandInput,
@@ -1015,15 +1002,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates a patch baseline.</p>
+   * <p>Creates a patch baseline.</p>
    *          <note>
    *             <p>For information about valid key and value pairs in <code>PatchFilters</code> for each
    *     supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.</p>
    *          </note>
-   *
-   *
    */
   public createPatchBaseline(
     args: CreatePatchBaselineCommandInput,
@@ -1058,9 +1041,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>A resource data sync helps you view data from multiple sources in a single location. Systems
+   * <p>A resource data sync helps you view data from multiple sources in a single location. Systems
    *    Manager offers two types of resource data sync: <code>SyncToDestination</code> and
    *     <code>SyncFromSource</code>.</p>
    *          <p>You can configure Systems Manager Inventory to use the <code>SyncToDestination</code> type to
@@ -1084,7 +1065,6 @@ export class SSM extends SSMClient {
    *     in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3
    *     bucket by creating a restrictive bucket policy. </p>
    *          </note>
-   *
    */
   public createResourceDataSync(
     args: CreateResourceDataSyncCommandInput,
@@ -1119,12 +1099,10 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Deletes an activation. You are not required to delete an activation. If you delete an
+   * <p>Deletes an activation. You are not required to delete an activation. If you delete an
    *    activation, you can no longer use it to register additional managed instances. Deleting an
    *    activation does not de-register managed instances. You must manually de-register managed
    *    instances.</p>
-   *
    */
   public deleteActivation(
     args: DeleteActivationCommandInput,
@@ -1159,13 +1137,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified Systems Manager document from the specified instance.</p>
+   * <p>Disassociates the specified Systems Manager document from the specified instance.</p>
    *          <p>When you disassociate a document from an instance, it does not change the configuration of
    *    the instance. To change the configuration state of an instance after you disassociate a document,
    *    you must create a new document with the desired configuration and associate it with the
    *    instance.</p>
-   *
    */
   public deleteAssociation(
     args: DeleteAssociationCommandInput,
@@ -1200,10 +1176,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Deletes the Systems Manager document and all instance associations to the document.</p>
+   * <p>Deletes the Systems Manager document and all instance associations to the document.</p>
    *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all instances that are associated with the document.</p>
-   *
    */
   public deleteDocument(
     args: DeleteDocumentCommandInput,
@@ -1238,11 +1212,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Delete a custom inventory type, or the data associated with a custom Inventory type.
+   * <p>Delete a custom inventory type, or the data associated with a custom Inventory type.
    *    Deleting a custom inventory type is also referred to as deleting a custom inventory
    *    schema.</p>
-   *
    */
   public deleteInventory(
     args: DeleteInventoryCommandInput,
@@ -1277,10 +1249,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Deletes a maintenance window.</p>
-   *
-   *
+   * <p>Deletes a maintenance window.</p>
    */
   public deleteMaintenanceWindow(
     args: DeleteMaintenanceWindowCommandInput,
@@ -1315,10 +1284,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Delete a parameter from the system.</p>
-   *
-   *
+   * <p>Delete a parameter from the system.</p>
    */
   public deleteParameter(
     args: DeleteParameterCommandInput,
@@ -1353,10 +1319,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Delete a list of parameters.</p>
-   *
-   *
+   * <p>Delete a list of parameters.</p>
    */
   public deleteParameters(
     args: DeleteParametersCommandInput,
@@ -1391,10 +1354,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Deletes a patch baseline.</p>
-   *
-   *
+   * <p>Deletes a patch baseline.</p>
    */
   public deletePatchBaseline(
     args: DeletePatchBaselineCommandInput,
@@ -1429,11 +1389,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to
+   * <p>Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to
    *    data on managed instances are no longer synced to or from the target. Deleting a sync
    *    configuration does not delete data.</p>
-   *
    */
   public deleteResourceDataSync(
     args: DeleteResourceDataSyncCommandInput,
@@ -1468,11 +1426,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Removes the server or virtual machine from the list of registered servers. You can
+   * <p>Removes the server or virtual machine from the list of registered servers. You can
    *    reregister the instance again at any time. If you don't plan to use Run Command on the server, we
    *    suggest uninstalling SSM Agent first.</p>
-   *
    */
   public deregisterManagedInstance(
     args: DeregisterManagedInstanceCommandInput,
@@ -1507,10 +1463,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Removes a patch group from a patch baseline.</p>
-   *
-   *
+   * <p>Removes a patch group from a patch baseline.</p>
    */
   public deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
@@ -1557,9 +1510,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Removes a target from a maintenance window.</p>
-   *
+   * <p>Removes a target from a maintenance window.</p>
    */
   public deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
@@ -1606,9 +1557,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Removes a task from a maintenance window.</p>
-   *
+   * <p>Removes a task from a maintenance window.</p>
    */
   public deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
@@ -1655,11 +1604,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Describes details about the activation, such as the date and time the activation was
+   * <p>Describes details about the activation, such as the date and time the activation was
    *    created, its expiration date, the IAM role assigned to the instances in the activation, and the
    *    number of instances registered by using this activation.</p>
-   *
    */
   public describeActivations(
     args: DescribeActivationsCommandInput,
@@ -1694,13 +1641,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Describes the association for the specified target or instance. If you created the
+   * <p>Describes the association for the specified target or instance. If you created the
    *    association by using the <code>Targets</code> parameter, then you must retrieve the association
    *    by using the association ID. If you created the association by specifying an instance ID and a
    *    Systems Manager document, then you retrieve the association by specifying the document name and the
    *    instance ID. </p>
-   *
    */
   public describeAssociation(
     args: DescribeAssociationCommandInput,
@@ -1735,10 +1680,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Use this API action to view information about a specific execution of a specific
+   * <p>Use this API action to view information about a specific execution of a specific
    *    association.</p>
-   *
    */
   public describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
@@ -1785,9 +1728,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Use this API action to view all executions for a specific association ID. </p>
-   *
+   * <p>Use this API action to view all executions for a specific association ID. </p>
    */
   public describeAssociationExecutions(
     args: DescribeAssociationExecutionsCommandInput,
@@ -1822,9 +1763,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Provides details about all active and terminated Automation executions.</p>
-   *
+   * <p>Provides details about all active and terminated Automation executions.</p>
    */
   public describeAutomationExecutions(
     args: DescribeAutomationExecutionsCommandInput,
@@ -1859,10 +1798,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Information about all active and terminated step executions in an Automation
+   * <p>Information about all active and terminated step executions in an Automation
    *    workflow.</p>
-   *
    */
   public describeAutomationStepExecutions(
     args: DescribeAutomationStepExecutionsCommandInput,
@@ -1903,10 +1840,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists all patches eligible to be included in a patch baseline.</p>
-   *
-   *
+   * <p>Lists all patches eligible to be included in a patch baseline.</p>
    */
   public describeAvailablePatches(
     args: DescribeAvailablePatchesCommandInput,
@@ -1941,9 +1875,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified Systems Manager document.</p>
-   *
+   * <p>Describes the specified Systems Manager document.</p>
    */
   public describeDocument(
     args: DescribeDocumentCommandInput,
@@ -1978,11 +1910,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Describes the permissions for a Systems Manager document. If you created the document, you are the
+   * <p>Describes the permissions for a Systems Manager document. If you created the document, you are the
    *    owner. If a document is shared, it can either be shared privately (by specifying a user's AWS
    *    account ID) or publicly (<i>All</i>). </p>
-   *
    */
   public describeDocumentPermission(
     args: DescribeDocumentPermissionCommandInput,
@@ -2017,9 +1947,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>All associations for the instance(s).</p>
-   *
+   * <p>All associations for the instance(s).</p>
    */
   public describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
@@ -2066,11 +1994,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the current effective patches (the patch and the approval state) for the specified
+   * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
    *    patch baseline. Note that this API applies only to Windows patch baselines.</p>
-   *
-   *
    */
   public describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
@@ -2117,9 +2042,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>The status of the associations for the instance(s).</p>
-   *
+   * <p>The status of the associations for the instance(s).</p>
    */
   public describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
@@ -2166,8 +2089,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Describes one or more of your instances. You can use this to get information about instances
+   * <p>Describes one or more of your instances. You can use this to get information about instances
    *    like the operating system platform, the SSM Agent version (Linux), status etc. If you specify one
    *    or more instance IDs, it returns information for those instances. If you do not specify instance
    *    IDs, it returns information for all your instances. If you specify an instance ID that is not
@@ -2177,7 +2099,6 @@ export class SSM extends SSMClient {
    *     role assigned to on-premises instances. This call does not return the IAM role for Amazon EC2
    *     instances.</p>
    *          </note>
-   *
    */
   public describeInstanceInformation(
     args: DescribeInstanceInformationCommandInput,
@@ -2212,10 +2133,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the high-level patch state of one or more instances.</p>
-   *
-   *
+   * <p>Retrieves the high-level patch state of one or more instances.</p>
    */
   public describeInstancePatchStates(
     args: DescribeInstancePatchStatesCommandInput,
@@ -2250,11 +2168,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the high-level patch state for the instances in the specified patch group.</p>
-   *
-   *
-   *
+   * <p>Retrieves the high-level patch state for the instances in the specified patch group.</p>
    */
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
@@ -2301,11 +2215,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the patches on the specified instance and their state relative
+   * <p>Retrieves information about the patches on the specified instance and their state relative
    *    to the patch baseline being used for the instance.</p>
-   *
-   *
    */
   public describeInstancePatches(
     args: DescribeInstancePatchesCommandInput,
@@ -2340,9 +2251,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Describes a specific delete inventory operation.</p>
-   *
+   * <p>Describes a specific delete inventory operation.</p>
    */
   public describeInventoryDeletions(
     args: DescribeInventoryDeletionsCommandInput,
@@ -2377,10 +2286,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the individual task executions (one per target) for a particular task run as part
+   * <p>Retrieves the individual task executions (one per target) for a particular task run as part
    *    of a maintenance window execution.</p>
-   *
    */
   public describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
@@ -2431,9 +2338,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>For a given maintenance window execution, lists the tasks that were run.</p>
-   *
+   * <p>For a given maintenance window execution, lists the tasks that were run.</p>
    */
   public describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
@@ -2480,12 +2385,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the executions of a maintenance window. This includes information about when the
+   * <p>Lists the executions of a maintenance window. This includes information about when the
    *    maintenance window was scheduled to be active, and information about tasks registered and run
    *    with the maintenance window.</p>
-   *
-   *
    */
   public describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
@@ -2532,9 +2434,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about upcoming executions of a maintenance window.</p>
-   *
+   * <p>Retrieves information about upcoming executions of a maintenance window.</p>
    */
   public describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
@@ -2581,9 +2481,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the targets registered with the maintenance window.</p>
-   *
+   * <p>Lists the targets registered with the maintenance window.</p>
    */
   public describeMaintenanceWindowTargets(
     args: DescribeMaintenanceWindowTargetsCommandInput,
@@ -2624,9 +2522,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the tasks in a maintenance window.</p>
-   *
+   * <p>Lists the tasks in a maintenance window.</p>
    */
   public describeMaintenanceWindowTasks(
     args: DescribeMaintenanceWindowTasksCommandInput,
@@ -2664,10 +2560,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the maintenance windows in an AWS account.</p>
-   *
-   *
+   * <p>Retrieves the maintenance windows in an AWS account.</p>
    */
   public describeMaintenanceWindows(
     args: DescribeMaintenanceWindowsCommandInput,
@@ -2702,10 +2595,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the maintenance window targets or tasks that an instance is
+   * <p>Retrieves information about the maintenance window targets or tasks that an instance is
    *    associated with.</p>
-   *
    */
   public describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
@@ -2752,15 +2643,13 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Query a set of OpsItems. You must have permission in AWS Identity and Access Management
+   * <p>Query a set of OpsItems. You must have permission in AWS Identity and Access Management
    *    (IAM) to query a list of OpsItems. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
    *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
-   *
    */
   public describeOpsItems(
     args: DescribeOpsItemsCommandInput,
@@ -2795,8 +2684,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Get information about a parameter.</p>
+   * <p>Get information about a parameter.</p>
    *          <note>
    *             <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
    *     in the request, the response includes information up to the limit specified. The number of items
@@ -2805,8 +2693,6 @@ export class SSM extends SSMClient {
    *     matching values up to that point and a <code>NextToken</code>. You can specify the
    *      <code>NextToken</code> in a subsequent call to get the next set of results.</p>
    *          </note>
-   *
-   *
    */
   public describeParameters(
     args: DescribeParametersCommandInput,
@@ -2841,10 +2727,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the patch baselines in your AWS account.</p>
-   *
-   *
+   * <p>Lists the patch baselines in your AWS account.</p>
    */
   public describePatchBaselines(
     args: DescribePatchBaselinesCommandInput,
@@ -2879,11 +2762,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Returns high-level aggregated patch compliance state for a patch group.</p>
-   *
-   *
-   *
+   * <p>Returns high-level aggregated patch compliance state for a patch group.</p>
    */
   public describePatchGroupState(
     args: DescribePatchGroupStateCommandInput,
@@ -2918,10 +2797,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists all patch groups that have been registered with patch baselines.</p>
-   *
-   *
+   * <p>Lists all patch groups that have been registered with patch baselines.</p>
    */
   public describePatchGroups(
     args: DescribePatchGroupsCommandInput,
@@ -2956,8 +2832,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the properties of available patches organized by product, product family,
+   * <p>Lists the properties of available patches organized by product, product family,
    *    classification, severity, and other properties of available patches. You can use the reported
    *    properties in the filters you specify in requests for actions such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
    *          <p>The following section lists the properties that can be used in filters for each major
@@ -2992,8 +2867,6 @@ export class SSM extends SSMClient {
    *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
    *             </dd>
    *          </dl>
-   *
-   *
    */
   public describePatchProperties(
     args: DescribePatchPropertiesCommandInput,
@@ -3028,10 +2901,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
+   * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
    *    sessions from the past 30 days.</p>
-   *
    */
   public describeSessions(
     args: DescribeSessionsCommandInput,
@@ -3066,9 +2937,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Get detailed information about a particular Automation execution.</p>
-   *
+   * <p>Get detailed information about a particular Automation execution.</p>
    */
   public getAutomationExecution(
     args: GetAutomationExecutionCommandInput,
@@ -3103,9 +2972,47 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed information about command execution for an invocation or plugin. </p>
-   *
+   * <p>Gets the state of the AWS Systems Manager Change Calendar at an optional, specified time. If you
+   *    specify a time, <code>GetCalendarState</code> returns the state of the calendar at a specific
+   *    time, and returns the next time that the Change Calendar state will transition. If you do not
+   *    specify a time, <code>GetCalendarState</code> assumes the current time. Change Calendar entries
+   *    have two possible states: <code>OPEN</code> or <code>CLOSED</code>. For more information about
+   *    Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   */
+  public getCalendarState(
+    args: GetCalendarStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCalendarStateCommandOutput>;
+  public getCalendarState(
+    args: GetCalendarStateCommandInput,
+    cb: (err: any, data?: GetCalendarStateCommandOutput) => void
+  ): void;
+  public getCalendarState(
+    args: GetCalendarStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCalendarStateCommandOutput) => void
+  ): void;
+  public getCalendarState(
+    args: GetCalendarStateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCalendarStateCommandOutput) => void),
+    cb?: (err: any, data?: GetCalendarStateCommandOutput) => void
+  ): Promise<GetCalendarStateCommandOutput> | void {
+    const command = new GetCalendarStateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns detailed information about command execution for an invocation or plugin. </p>
    */
   public getCommandInvocation(
     args: GetCommandInvocationCommandInput,
@@ -3140,10 +3047,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the Session Manager connection status for an instance to determine whether it is connected
+   * <p>Retrieves the Session Manager connection status for an instance to determine whether it is connected
    *    and ready to receive Session Manager connections.</p>
-   *
    */
   public getConnectionStatus(
     args: GetConnectionStatusCommandInput,
@@ -3178,14 +3083,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default
+   * <p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default
    *    patch baselines. For example, you can create a default patch baseline for each operating
    *    system.</p>
    *          <p>If you do not specify an operating system value, the default patch baseline for Windows is
    *    returned.</p>
-   *
-   *
    */
   public getDefaultPatchBaseline(
     args: GetDefaultPatchBaselineCommandInput,
@@ -3220,10 +3122,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the current snapshot for the patch baseline the instance uses. This API is
+   * <p>Retrieves the current snapshot for the patch baseline the instance uses. This API is
    *    primarily used by the AWS-RunPatchBaseline Systems Manager document. </p>
-   *
    */
   public getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
@@ -3270,9 +3170,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Gets the contents of the specified Systems Manager document.</p>
-   *
+   * <p>Gets the contents of the specified Systems Manager document.</p>
    */
   public getDocument(
     args: GetDocumentCommandInput,
@@ -3307,9 +3205,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Query inventory information.</p>
-   *
+   * <p>Query inventory information.</p>
    */
   public getInventory(
     args: GetInventoryCommandInput,
@@ -3344,10 +3240,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Return a list of inventory type names for the account, or return a list of attribute names
+   * <p>Return a list of inventory type names for the account, or return a list of attribute names
    *    for a specific Inventory item type. </p>
-   *
    */
   public getInventorySchema(
     args: GetInventorySchemaCommandInput,
@@ -3382,10 +3276,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a maintenance window.</p>
-   *
-   *
+   * <p>Retrieves a maintenance window.</p>
    */
   public getMaintenanceWindow(
     args: GetMaintenanceWindowCommandInput,
@@ -3420,10 +3311,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves details about a specific a maintenance window execution.</p>
-   *
-   *
+   * <p>Retrieves details about a specific a maintenance window execution.</p>
    */
   public getMaintenanceWindowExecution(
     args: GetMaintenanceWindowExecutionCommandInput,
@@ -3458,10 +3346,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the details about a specific task run as part of a maintenance window
+   * <p>Retrieves the details about a specific task run as part of a maintenance window
    *    execution.</p>
-   *
    */
   public getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
@@ -3508,9 +3394,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a specific task running on a specific target.</p>
-   *
+   * <p>Retrieves information about a specific task running on a specific target.</p>
    */
   public getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
@@ -3559,9 +3443,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the tasks in a maintenance window.</p>
-   *
+   * <p>Lists the tasks in a maintenance window.</p>
    */
   public getMaintenanceWindowTask(
     args: GetMaintenanceWindowTaskCommandInput,
@@ -3596,8 +3478,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Get information about an OpsItem by using the ID. You must have permission in AWS Identity
+   * <p>Get information about an OpsItem by using the ID. You must have permission in AWS Identity
    *    and Access Management (IAM) to view information about an OpsItem. For more information, see
    *     <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a>
    *    in the <i>AWS Systems Manager User Guide</i>.</p>
@@ -3605,7 +3486,6 @@ export class SSM extends SSMClient {
    *    operational issues impacting the performance and health of their AWS resources. For more
    *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
-   *
    */
   public getOpsItem(
     args: GetOpsItemCommandInput,
@@ -3640,9 +3520,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>View a summary of OpsItems based on specified filters and aggregators.</p>
-   *
+   * <p>View a summary of OpsItems based on specified filters and aggregators.</p>
    */
   public getOpsSummary(
     args: GetOpsSummaryCommandInput,
@@ -3677,11 +3555,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Get information about a parameter by using the parameter name. Don't confuse this API action
+   * <p>Get information about a parameter by using the parameter name. Don't confuse this API action
    *    with the <a>GetParameters</a> API action.</p>
-   *
-   *
    */
   public getParameter(
     args: GetParameterCommandInput,
@@ -3716,10 +3591,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Query a list of all parameters used by the AWS account.</p>
-   *
-   *
+   * <p>Query a list of all parameters used by the AWS account.</p>
    */
   public getParameterHistory(
     args: GetParameterHistoryCommandInput,
@@ -3754,10 +3626,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a> API action.</p>
-   *
-   *
+   * <p>Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a> API action.</p>
    */
   public getParameters(
     args: GetParametersCommandInput,
@@ -3792,8 +3661,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
+   * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
    *          <note>
    *             <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
    *     in the request, the response includes information up to the limit specified. The number of items
@@ -3802,8 +3670,6 @@ export class SSM extends SSMClient {
    *     matching values up to that point and a <code>NextToken</code>. You can specify the
    *      <code>NextToken</code> in a subsequent call to get the next set of results.</p>
    *          </note>
-   *
-   *
    */
   public getParametersByPath(
     args: GetParametersByPathCommandInput,
@@ -3838,10 +3704,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a patch baseline.</p>
-   *
-   *
+   * <p>Retrieves information about a patch baseline.</p>
    */
   public getPatchBaseline(
     args: GetPatchBaselineCommandInput,
@@ -3876,10 +3739,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
-   *
-   *
+   * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
    */
   public getPatchBaselineForPatchGroup(
     args: GetPatchBaselineForPatchGroupCommandInput,
@@ -3914,9 +3774,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>
+   * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
    *    AWS service charges money to the account based on feature or service usage, then the AWS service
@@ -3930,7 +3788,6 @@ export class SSM extends SSMClient {
    *    the original value defined by the AWS service team.</p>
    *
    *          <p>Query the current service setting for the account. </p>
-   *
    */
   public getServiceSetting(
     args: GetServiceSettingCommandInput,
@@ -3965,8 +3822,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>A parameter label is a user-defined alias to help you manage different versions of a
+   * <p>A parameter label is a user-defined alias to help you manage different versions of a
    *    parameter. When you modify a parameter, Systems Manager automatically saves a new version and
    *    increments the version number by one. A label can help you remember the purpose of a parameter
    *    when there are multiple versions. </p>
@@ -4003,7 +3859,6 @@ export class SSM extends SSMClient {
    *      displays it in the list of InvalidLabels.</p>
    *             </li>
    *          </ul>
-   *
    */
   public labelParameterVersion(
     args: LabelParameterVersionCommandInput,
@@ -4038,9 +3893,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Retrieves all versions of an association for a specific association ID.</p>
-   *
+   * <p>Retrieves all versions of an association for a specific association ID.</p>
    */
   public listAssociationVersions(
     args: ListAssociationVersionsCommandInput,
@@ -4075,9 +3928,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the associations for the specified Systems Manager document or instance.</p>
-   *
+   * <p>Returns all State Manager associations in the current AWS account and Region. You can limit
+   *    the results to a specific State Manager association document or instance by specifying a
+   *    filter.</p>
    */
   public listAssociations(
     args: ListAssociationsCommandInput,
@@ -4112,12 +3965,10 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>An invocation is copy of a command sent to a specific instance. A command can apply to one
+   * <p>An invocation is copy of a command sent to a specific instance. A command can apply to one
    *    or more instances. A command invocation applies to one instance. For example, if a user runs
    *    SendCommand against three instances, then a command invocation is created for each requested
    *    instance ID. ListCommandInvocations provide status about command execution.</p>
-   *
    */
   public listCommandInvocations(
     args: ListCommandInvocationsCommandInput,
@@ -4152,9 +4003,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists the commands requested by users of the AWS account.</p>
-   *
+   * <p>Lists the commands requested by users of the AWS account.</p>
    */
   public listCommands(
     args: ListCommandsCommandInput,
@@ -4189,11 +4038,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>For a specified resource ID, this API action returns a list of compliance statuses for
+   * <p>For a specified resource ID, this API action returns a list of compliance statuses for
    *    different resource types. Currently, you can only specify one resource ID per call. List results
    *    depend on the criteria specified in the filter. </p>
-   *
    */
   public listComplianceItems(
     args: ListComplianceItemsCommandInput,
@@ -4228,11 +4075,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
+   * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
    *    example, this call can return State Manager associations, patches, or custom compliance types
    *    according to the filter criteria that you specify. </p>
-   *
    */
   public listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
@@ -4267,9 +4112,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>List all versions for a document.</p>
-   *
+   * <p>List all versions for a document.</p>
    */
   public listDocumentVersions(
     args: ListDocumentVersionsCommandInput,
@@ -4304,9 +4147,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Describes one or more of your Systems Manager documents.</p>
-   *
+   * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can
+   *    limit the results of this request by using a filter.</p>
    */
   public listDocuments(
     args: ListDocumentsCommandInput,
@@ -4341,9 +4183,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>A list of inventory items returned by the request.</p>
-   *
+   * <p>A list of inventory items returned by the request.</p>
    */
   public listInventoryEntries(
     args: ListInventoryEntriesCommandInput,
@@ -4378,11 +4218,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Returns a resource-level summary count. The summary includes information about compliant and
+   * <p>Returns a resource-level summary count. The summary includes information about compliant and
    *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
    *    criteria you specify.</p>
-   *
    */
   public listResourceComplianceSummaries(
     args: ListResourceComplianceSummariesCommandInput,
@@ -4420,8 +4258,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Lists your resource data sync configurations. Includes information about the last time a
+   * <p>Lists your resource data sync configurations. Includes information about the last time a
    *    sync attempted to start, the last sync status, and the last time a sync successfully
    *    completed.</p>
    *          <p>The number of sync configurations might be too large to return using a single call to
@@ -4430,7 +4267,6 @@ export class SSM extends SSMClient {
    *    configurations to list, check the value of <code>NextToken</code> in the output. If there are
    *    more sync configurations to list, you can request them by specifying the <code>NextToken</code>
    *    returned in the call to the parameter of a subsequent call. </p>
-   *
    */
   public listResourceDataSync(
     args: ListResourceDataSyncCommandInput,
@@ -4465,9 +4301,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the tags assigned to the specified resource.</p>
-   *
+   * <p>Returns a list of the tags assigned to the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -4502,11 +4336,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Shares a Systems Manager document publicly or privately. If you share a document privately, you must
+   * <p>Shares a Systems Manager document publicly or privately. If you share a document privately, you must
    *    specify the AWS user account IDs for those people who can use the document. If you share a
    *    document publicly, you must specify <i>All</i> as the account ID.</p>
-   *
    */
   public modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
@@ -4541,8 +4373,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Registers a compliance type and other compliance details on a designated resource. This
+   * <p>Registers a compliance type and other compliance details on a designated resource. This
    *    action lets you register custom compliance details with a resource. This call overwrites existing
    *    compliance information on the resource, so you must provide a full list of compliance items each
    *    time that you send the request.</p>
@@ -4598,7 +4429,6 @@ export class SSM extends SSMClient {
    *      the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p>
    *             </li>
    *          </ul>
-   *
    */
   public putComplianceItems(
     args: PutComplianceItemsCommandInput,
@@ -4633,10 +4463,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Bulk update custom inventory items on one more instance. The request adds an inventory item,
+   * <p>Bulk update custom inventory items on one more instance. The request adds an inventory item,
    *    if it doesn't already exist, or updates an inventory item, if it does exist.</p>
-   *
    */
   public putInventory(
     args: PutInventoryCommandInput,
@@ -4671,11 +4499,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>Add a parameter to the system.</p>
-   *
-   *
+   * <p>Add a parameter to the system.</p>
    */
   public putParameter(
     args: PutParameterCommandInput,
@@ -4710,14 +4534,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Defines the default patch baseline for the relevant operating system.</p>
+   * <p>Defines the default patch baseline for the relevant operating system.</p>
    *          <p>To reset the AWS predefined patch baseline as the default, specify the full patch baseline
    *    ARN as the baseline ID value. For example, for CentOS, specify
    *     <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed</code> instead of
    *     <code>pb-0574b43a65ea646ed</code>.</p>
-   *
-   *
    */
   public registerDefaultPatchBaseline(
     args: RegisterDefaultPatchBaselineCommandInput,
@@ -4752,10 +4573,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Registers a patch baseline for a patch group.</p>
-   *
-   *
+   * <p>Registers a patch baseline for a patch group.</p>
    */
   public registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
@@ -4802,9 +4620,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Registers a target with a maintenance window.</p>
-   *
+   * <p>Registers a target with a maintenance window.</p>
    */
   public registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
@@ -4851,9 +4667,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Adds a new task to a maintenance window.</p>
-   *
+   * <p>Adds a new task to a maintenance window.</p>
    */
   public registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
@@ -4900,9 +4714,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Removes tag keys from the specified resource.</p>
-   *
+   * <p>Removes tag keys from the specified resource.</p>
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -4937,9 +4749,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>
+   * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
    *    AWS service charges money to the account based on feature or service usage, then the AWS service
@@ -4954,7 +4764,6 @@ export class SSM extends SSMClient {
    *
    *          <p>Reset the service setting for the account to the default value as provisioned by the AWS
    *    service team. </p>
-   *
    */
   public resetServiceSetting(
     args: ResetServiceSettingCommandInput,
@@ -4989,14 +4798,12 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Reconnects a session to an instance after it has been disconnected. Connections can be
+   * <p>Reconnects a session to an instance after it has been disconnected. Connections can be
    *    resumed for disconnected sessions, but not terminated sessions.</p>
    *          <note>
    *             <p>This command is primarily for use by client machines to automatically reconnect during
    *     intermittent network issues. It is not intended for any other use.</p>
    *          </note>
-   *
    */
   public resumeSession(
     args: ResumeSessionCommandInput,
@@ -5031,10 +4838,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Sends a signal to an Automation execution to change the current behavior or status of the
+   * <p>Sends a signal to an Automation execution to change the current behavior or status of the
    *    execution. </p>
-   *
    */
   public sendAutomationSignal(
     args: SendAutomationSignalCommandInput,
@@ -5069,9 +4874,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Runs commands on one or more managed instances.</p>
-   *
+   * <p>Runs commands on one or more managed instances.</p>
    */
   public sendCommand(
     args: SendCommandCommandInput,
@@ -5106,10 +4909,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Use this API action to run an association immediately and only one time. This action can be
+   * <p>Use this API action to run an association immediately and only one time. This action can be
    *    helpful when troubleshooting associations.</p>
-   *
    */
   public startAssociationsOnce(
     args: StartAssociationsOnceCommandInput,
@@ -5144,9 +4945,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Initiates execution of an Automation document.</p>
-   *
+   * <p>Initiates execution of an Automation document.</p>
    */
   public startAutomationExecution(
     args: StartAutomationExecutionCommandInput,
@@ -5181,8 +4980,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a
+   * <p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a
    *    URL and token that can be used to open a WebSocket connection for sending input and receiving
    *    outputs.</p>
    *          <note>
@@ -5192,7 +4990,6 @@ export class SSM extends SSMClient {
    *             <p>AWS Tools for PowerShell usage: Start-SSMSession is not currently supported by AWS Tools
    *     for PowerShell on Windows local machines.</p>
    *          </note>
-   *
    */
   public startSession(
     args: StartSessionCommandInput,
@@ -5227,9 +5024,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Stop an Automation that is currently running.</p>
-   *
+   * <p>Stop an Automation that is currently running.</p>
    */
   public stopAutomationExecution(
     args: StopAutomationExecutionCommandInput,
@@ -5264,10 +5059,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Permanently ends a session and closes the data connection between the Session Manager client and
+   * <p>Permanently ends a session and closes the data connection between the Session Manager client and
    *    SSM Agent on the instance. A terminated session cannot be resumed.</p>
-   *
    */
   public terminateSession(
     args: TerminateSessionCommandInput,
@@ -5302,8 +5095,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Updates an association. You can update the association name and version, the document
+   * <p>Updates an association. You can update the association name and version, the document
    *    version, schedule, parameters, and Amazon S3 output. </p>
    *          <p>In order to call this API action, your IAM user account, group, or role must be configured
    *    with permission to call the <a>DescribeAssociation</a> API action. If you don't have
@@ -5316,7 +5108,6 @@ export class SSM extends SSMClient {
    *             <p>When you update an association, the association immediately runs against the specified
    *     targets.</p>
    *          </important>
-   *
    */
   public updateAssociation(
     args: UpdateAssociationCommandInput,
@@ -5351,9 +5142,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Updates the status of the Systems Manager document associated with the specified instance.</p>
-   *
+   * <p>Updates the status of the Systems Manager document associated with the specified instance.</p>
    */
   public updateAssociationStatus(
     args: UpdateAssociationStatusCommandInput,
@@ -5388,9 +5177,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Updates one or more values for an SSM document.</p>
-   *
+   * <p>Updates one or more values for an SSM document.</p>
    */
   public updateDocument(
     args: UpdateDocumentCommandInput,
@@ -5425,9 +5212,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Set the default version of a document. </p>
-   *
+   * <p>Set the default version of a document. </p>
    */
   public updateDocumentDefaultVersion(
     args: UpdateDocumentDefaultVersionCommandInput,
@@ -5462,8 +5247,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
+   * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
    *          <note>
    *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
    *     maintenance window based on the time it begins. No maintenance window tasks are permitted to
@@ -5472,8 +5256,6 @@ export class SSM extends SSMClient {
    *     value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start
    *     after 5 PM.</p>
    *          </note>
-   *
-   *
    */
   public updateMaintenanceWindow(
     args: UpdateMaintenanceWindowCommandInput,
@@ -5508,8 +5290,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Modifies the target of an existing maintenance window. You
+   * <p>Modifies the target of an existing maintenance window. You
    *    can change the following:</p>
    *
    *          <ul>
@@ -5536,8 +5317,6 @@ export class SSM extends SSMClient {
    *          <note>
    *             <p>If a parameter is null, then the corresponding field is not modified.</p>
    *          </note>
-   *
-   *
    */
   public updateMaintenanceWindowTarget(
     args: UpdateMaintenanceWindowTargetCommandInput,
@@ -5572,8 +5351,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
+   * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
    *    can change the following values:</p>
    *          <ul>
    *             <li>
@@ -5599,7 +5377,6 @@ export class SSM extends SSMClient {
    *          <p>If a parameter is null, then the corresponding field is not modified. Also, if you set
    *    Replace to true, then all fields required by the <a>RegisterTaskWithMaintenanceWindow</a> action are required for this request. Optional
    *    fields that aren't specified are set to null.</p>
-   *
    */
   public updateMaintenanceWindowTask(
     args: UpdateMaintenanceWindowTaskCommandInput,
@@ -5634,10 +5411,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Assigns or changes an Amazon Identity and Access Management (IAM) role for the managed
+   * <p>Assigns or changes an Amazon Identity and Access Management (IAM) role for the managed
    *    instance.</p>
-   *
    */
   public updateManagedInstanceRole(
     args: UpdateManagedInstanceRoleCommandInput,
@@ -5672,15 +5447,13 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Edit or change an OpsItem. You must have permission in AWS Identity and Access Management
+   * <p>Edit or change an OpsItem. You must have permission in AWS Identity and Access Management
    *    (IAM) to update an OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
    *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
-   *
    */
   public updateOpsItem(
     args: UpdateOpsItemCommandInput,
@@ -5715,15 +5488,12 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing patch baseline. Fields not specified in the request are left
+   * <p>Modifies an existing patch baseline. Fields not specified in the request are left
    *    unchanged.</p>
    *          <note>
    *             <p>For information about valid key and value pairs in <code>PatchFilters</code> for each
    *     supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.</p>
    *          </note>
-   *
-   *
    */
   public updatePatchBaseline(
     args: UpdatePatchBaselineCommandInput,
@@ -5758,13 +5528,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *          <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
+   * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
    *    change the account options for that sync. For example, if you create a sync in the us-east-2
    *    (Ohio) Region and you choose the Include only the current account option, you can't edit that
    *    sync later and choose the Include all accounts from my AWS Organizations configuration option.
    *    Instead, you must delete the first resource data sync, and create a new one.</p>
-   *
    */
   public updateResourceDataSync(
     args: UpdateResourceDataSyncCommandInput,
@@ -5799,9 +5567,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   *
-   *
-   *          <p>
+   * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
    *    AWS service charges money to the account based on feature or service usage, then the AWS service
@@ -5815,7 +5581,6 @@ export class SSM extends SSMClient {
    *    original value defined by the AWS service team.</p>
    *
    *          <p>Update the service setting for the account. </p>
-   *
    */
   public updateServiceSetting(
     args: UpdateServiceSettingCommandInput,

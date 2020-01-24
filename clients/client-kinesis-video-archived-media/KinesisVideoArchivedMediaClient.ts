@@ -180,9 +180,7 @@ export type KinesisVideoArchivedMediaClientResolvedConfig = __SmithyResolvedConf
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p></p>
- *
+ * <p></p>
  */
 export class KinesisVideoArchivedMediaClient extends __Client<
   __HttpHandlerOptions,

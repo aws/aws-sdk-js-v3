@@ -27,8 +27,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of
+ * <p>Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of
  *       operations (API). Your conversational bot uses the runtime API to understand user utterances
  *       (user input text or voice). For example, suppose a user says "I want pizza", your bot sends
  *       this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is
@@ -37,14 +36,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       pizza size and crust type), and then performs fulfillment activity (that you configured when
  *       you created the bot). You use the build-time API to create and manage your Amazon Lex bot. For
  *       a list of build-time operations, see the build-time API, . </p>
- *
- *
  */
 export class LexRuntimeService extends LexRuntimeServiceClient {
   /**
-   *
-   *          <p>Removes session information for a specified bot, alias, and user ID. </p>
-   *
+   * <p>Removes session information for a specified bot, alias, and user ID. </p>
    */
   public deleteSession(
     args: DeleteSessionCommandInput,
@@ -79,9 +74,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns session information for a specified bot, alias, and user ID.</p>
-   *
+   * <p>Returns session information for a specified bot, alias, and user ID.</p>
    */
   public getSession(
     args: GetSessionCommandInput,
@@ -116,9 +109,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
-   *
-   *
-   *          <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to send text and audio
+   * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to send text and audio
    *       requests to Amazon Lex at runtime. Amazon Lex interprets the user input using the machine learning model
    *       that it built for the bot. </p>
    *          <p>The <code>PostContent</code> operation supports audio input at 8kHz and 16kHz. You can use
@@ -186,9 +177,6 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
    *          </ul>
    *          <p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>.
    *       For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
-   *
-   *
-   *
    */
   public postContent(
     args: PostContentCommandInput,
@@ -223,8 +211,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
-   *
-   *          <p>Sends user input to Amazon Lex. Client applications can use this API to send requests to
+   * <p>Sends user input to Amazon Lex. Client applications can use this API to send requests to
    *       Amazon Lex at runtime. Amazon Lex then interprets the user input using the machine learning model it
    *       built for the bot. </p>
    *          <p> In response, Amazon Lex returns the next <code>message</code> to convey to the user an
@@ -292,7 +279,6 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
    *
    *          <p> In addition, Amazon Lex also returns your application-specific
    *         <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
-   *
    */
   public postText(
     args: PostTextCommandInput,
@@ -327,11 +313,9 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a new session or modifies an existing session with an Amazon Lex bot. Use this
+   * <p>Creates a new session or modifies an existing session with an Amazon Lex bot. Use this
    *       operation to enable your application to set the state of the bot.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing Sessions</a>.</p>
-   *
    */
   public putSession(
     args: PutSessionCommandInput,

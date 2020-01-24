@@ -234,9 +234,7 @@ export type kendraClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Amazon Kendra is a service for indexing large document sets.</p>
- *
+ * <p>Amazon Kendra is a service for indexing large document sets.</p>
  */
 export class kendraClient extends __Client<
   __HttpHandlerOptions,

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { GlobalCluster, RemoveFromGlobalClusterMessage } from "../models/index";
+import {
+  RemoveFromGlobalClusterMessage,
+  RemoveFromGlobalClusterResult
+} from "../models/index";
 import {
   deserializeAws_queryRemoveFromGlobalClusterCommand,
   serializeAws_queryRemoveFromGlobalClusterCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveFromGlobalClusterCommandInput = RemoveFromGlobalClusterMessage;
-export type RemoveFromGlobalClusterCommandOutput = GlobalCluster;
+export type RemoveFromGlobalClusterCommandOutput = RemoveFromGlobalClusterResult;
 
 export class RemoveFromGlobalClusterCommand extends $Command<
   RemoveFromGlobalClusterCommandInput,

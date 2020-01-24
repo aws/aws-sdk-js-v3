@@ -1,22 +1,40 @@
 import {
+  CreateSignalingChannelInput,
+  CreateSignalingChannelOutput,
   CreateStreamInput,
   CreateStreamOutput,
+  DeleteSignalingChannelInput,
+  DeleteSignalingChannelOutput,
   DeleteStreamInput,
   DeleteStreamOutput,
+  DescribeSignalingChannelInput,
+  DescribeSignalingChannelOutput,
   DescribeStreamInput,
   DescribeStreamOutput,
   GetDataEndpointInput,
   GetDataEndpointOutput,
+  GetSignalingChannelEndpointInput,
+  GetSignalingChannelEndpointOutput,
+  ListSignalingChannelsInput,
+  ListSignalingChannelsOutput,
   ListStreamsInput,
   ListStreamsOutput,
+  ListTagsForResourceInput,
+  ListTagsForResourceOutput,
   ListTagsForStreamInput,
   ListTagsForStreamOutput,
+  TagResourceInput,
+  TagResourceOutput,
   TagStreamInput,
   TagStreamOutput,
+  UntagResourceInput,
+  UntagResourceOutput,
   UntagStreamInput,
   UntagStreamOutput,
   UpdateDataRetentionInput,
   UpdateDataRetentionOutput,
+  UpdateSignalingChannelInput,
+  UpdateSignalingChannelOutput,
   UpdateStreamInput,
   UpdateStreamOutput
 } from "./models/index";
@@ -73,27 +91,45 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateSignalingChannelInput
   | CreateStreamInput
+  | DeleteSignalingChannelInput
   | DeleteStreamInput
+  | DescribeSignalingChannelInput
   | DescribeStreamInput
   | GetDataEndpointInput
+  | GetSignalingChannelEndpointInput
+  | ListSignalingChannelsInput
   | ListStreamsInput
+  | ListTagsForResourceInput
   | ListTagsForStreamInput
+  | TagResourceInput
   | TagStreamInput
+  | UntagResourceInput
   | UntagStreamInput
   | UpdateDataRetentionInput
+  | UpdateSignalingChannelInput
   | UpdateStreamInput;
 
 export type ServiceOutputTypes =
+  | CreateSignalingChannelOutput
   | CreateStreamOutput
+  | DeleteSignalingChannelOutput
   | DeleteStreamOutput
+  | DescribeSignalingChannelOutput
   | DescribeStreamOutput
   | GetDataEndpointOutput
+  | GetSignalingChannelEndpointOutput
+  | ListSignalingChannelsOutput
   | ListStreamsOutput
+  | ListTagsForResourceOutput
   | ListTagsForStreamOutput
+  | TagResourceOutput
   | TagStreamOutput
+  | UntagResourceOutput
   | UntagStreamOutput
   | UpdateDataRetentionOutput
+  | UpdateSignalingChannelOutput
   | UpdateStreamOutput;
 
 export interface ClientDefaults
@@ -204,9 +240,7 @@ export type KinesisVideoClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export class KinesisVideoClient extends __Client<
   __HttpHandlerOptions,

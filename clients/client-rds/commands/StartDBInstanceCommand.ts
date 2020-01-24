@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBInstance, StartDBInstanceMessage } from "../models/index";
+import { StartDBInstanceMessage, StartDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryStartDBInstanceCommand,
   serializeAws_queryStartDBInstanceCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDBInstanceCommandInput = StartDBInstanceMessage;
-export type StartDBInstanceCommandOutput = DBInstance;
+export type StartDBInstanceCommandOutput = StartDBInstanceResult;
 
 export class StartDBInstanceCommand extends $Command<
   StartDBInstanceCommandInput,

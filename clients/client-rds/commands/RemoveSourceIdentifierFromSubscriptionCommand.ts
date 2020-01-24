@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RDSClient";
 import {
-  EventSubscription,
-  RemoveSourceIdentifierFromSubscriptionMessage
+  RemoveSourceIdentifierFromSubscriptionMessage,
+  RemoveSourceIdentifierFromSubscriptionResult
 } from "../models/index";
 import {
   deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveSourceIdentifierFromSubscriptionCommandInput = RemoveSourceIdentifierFromSubscriptionMessage;
-export type RemoveSourceIdentifierFromSubscriptionCommandOutput = EventSubscription;
+export type RemoveSourceIdentifierFromSubscriptionCommandOutput = RemoveSourceIdentifierFromSubscriptionResult;
 
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
   RemoveSourceIdentifierFromSubscriptionCommandInput,

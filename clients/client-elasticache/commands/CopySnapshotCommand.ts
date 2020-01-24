@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { CopySnapshotMessage, Snapshot } from "../models/index";
+import { CopySnapshotMessage, CopySnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCopySnapshotCommand,
   serializeAws_queryCopySnapshotCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopySnapshotCommandInput = CopySnapshotMessage;
-export type CopySnapshotCommandOutput = Snapshot;
+export type CopySnapshotCommandOutput = CopySnapshotResult;
 
 export class CopySnapshotCommand extends $Command<
   CopySnapshotCommandInput,

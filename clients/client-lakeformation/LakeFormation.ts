@@ -67,16 +67,12 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Lake Formation</fullname>
+ * <fullname>AWS Lake Formation</fullname>
  *          <p>Defines the public endpoint for the AWS Lake Formation service.</p>
- *
  */
 export class LakeFormation extends LakeFormationClient {
   /**
-   *
-   *          <p>Batch operation to grant permissions to the principal.</p>
-   *
+   * <p>Batch operation to grant permissions to the principal.</p>
    */
   public batchGrantPermissions(
     args: BatchGrantPermissionsCommandInput,
@@ -111,9 +107,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Batch operation to revoke permissions from the principal.</p>
-   *
+   * <p>Batch operation to revoke permissions from the principal.</p>
    */
   public batchRevokePermissions(
     args: BatchRevokePermissionsCommandInput,
@@ -148,11 +142,9 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Deregisters the resource as managed by the Data Catalog.</p>
+   * <p>Deregisters the resource as managed by the Data Catalog.</p>
    *
    *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
-   *
    */
   public deregisterResource(
     args: DeregisterResourceCommandInput,
@@ -187,9 +179,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the current data access role for the given resource registered in AWS Lake Formation.</p>
-   *
+   * <p>Retrieves the current data access role for the given resource registered in AWS Lake Formation.</p>
    */
   public describeResource(
     args: DescribeResourceCommandInput,
@@ -224,9 +214,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>The AWS Lake Formation principal.</p>
-   *
+   * <p>The AWS Lake Formation principal.</p>
    */
   public getDataLakeSettings(
     args: GetDataLakeSettingsCommandInput,
@@ -261,9 +249,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Returns the permissions for a specified table or database resource located at a path in Amazon S3.</p>
-   *
+   * <p>Returns the permissions for a specified table or database resource located at a path in Amazon S3.</p>
    */
   public getEffectivePermissionsForPath(
     args: GetEffectivePermissionsForPathCommandInput,
@@ -301,10 +287,8 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
+   * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
    * 	        <p>For information about permissions, see <a href="https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
-   *
    */
   public grantPermissions(
     args: GrantPermissionsCommandInput,
@@ -339,11 +323,9 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
+   * <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
    * 	        <p>This operation returns only those permissions that have been explicitly granted.</p>
    * 	        <p>For information about permissions, see <a href="https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
-   *
    */
   public listPermissions(
     args: ListPermissionsCommandInput,
@@ -378,9 +360,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Lists the resources registered to be managed by the Data Catalog.</p>
-   *
+   * <p>Lists the resources registered to be managed by the Data Catalog.</p>
    */
   public listResources(
     args: ListResourcesCommandInput,
@@ -415,9 +395,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>The AWS Lake Formation principal.</p>
-   *
+   * <p>The AWS Lake Formation principal.</p>
    */
   public putDataLakeSettings(
     args: PutDataLakeSettingsCommandInput,
@@ -452,11 +430,9 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Registers the resource as managed by the Data Catalog.</p>
+   * <p>Registers the resource as managed by the Data Catalog.</p>
    *
    * 	        <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
-   *
    */
   public registerResource(
     args: RegisterResourceCommandInput,
@@ -491,9 +467,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
-   *
+   * <p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
    */
   public revokePermissions(
     args: RevokePermissionsCommandInput,
@@ -528,9 +502,7 @@ export class LakeFormation extends LakeFormationClient {
   }
 
   /**
-   *
-   *          <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>
-   *
+   * <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>
    */
   public updateResource(
     args: UpdateResourceCommandInput,

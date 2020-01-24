@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DocDBClient";
-import { DBCluster, ModifyDBClusterMessage } from "../models/index";
+import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryModifyDBClusterCommand,
   serializeAws_queryModifyDBClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBClusterCommandInput = ModifyDBClusterMessage;
-export type ModifyDBClusterCommandOutput = DBCluster;
+export type ModifyDBClusterCommandOutput = ModifyDBClusterResult;
 
 export class ModifyDBClusterCommand extends $Command<
   ModifyDBClusterCommandInput,

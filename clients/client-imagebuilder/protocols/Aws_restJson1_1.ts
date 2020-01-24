@@ -1638,56 +1638,56 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -1700,7 +1700,7 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1749,70 +1749,70 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidVersionNumberException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidVersionNumberException":
+    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
       response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -1825,7 +1825,7 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1874,70 +1874,70 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -1950,7 +1950,7 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1996,56 +1996,56 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2058,7 +2058,7 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2107,63 +2107,63 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2176,7 +2176,7 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2225,70 +2225,70 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidVersionNumberException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidVersionNumberException":
+    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
       response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2301,7 +2301,7 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2351,63 +2351,63 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2420,7 +2420,7 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2465,49 +2465,49 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceDependencyException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2520,7 +2520,7 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2565,49 +2565,49 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceDependencyException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2620,7 +2620,7 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2662,49 +2662,49 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceDependencyException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2717,7 +2717,7 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2762,49 +2762,49 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceDependencyException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2817,7 +2817,7 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2862,49 +2862,49 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceDependencyException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -2917,7 +2917,7 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2963,49 +2963,49 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceDependencyException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
       response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3018,7 +3018,7 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3063,42 +3063,42 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3111,7 +3111,7 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3156,42 +3156,42 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3204,7 +3204,7 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3252,42 +3252,42 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3300,7 +3300,7 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3342,42 +3342,42 @@ async function deserializeAws_restJson1_1GetImageCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3390,7 +3390,7 @@ async function deserializeAws_restJson1_1GetImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3438,42 +3438,42 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3486,7 +3486,7 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3531,42 +3531,42 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3579,7 +3579,7 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3627,42 +3627,42 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3675,7 +3675,7 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3720,42 +3720,42 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3768,7 +3768,7 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3816,42 +3816,42 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3864,7 +3864,7 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3913,70 +3913,70 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidVersionNumberException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidVersionNumberException":
+    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
       response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -3989,7 +3989,7 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4041,49 +4041,49 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4096,7 +4096,7 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4148,49 +4148,49 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4203,7 +4203,7 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4255,49 +4255,49 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4310,7 +4310,7 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4362,49 +4362,49 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4417,7 +4417,7 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4469,56 +4469,56 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4531,7 +4531,7 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4583,49 +4583,49 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4638,7 +4638,7 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4690,49 +4690,49 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4745,7 +4745,7 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4794,49 +4794,49 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4849,7 +4849,7 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4901,49 +4901,49 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidPaginationTokenException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
       response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -4956,7 +4956,7 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4997,21 +4997,21 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   }
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
+    case "com.amazonaws.imagebuilder#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
@@ -5024,7 +5024,7 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5069,56 +5069,56 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterValueException":
+    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -5131,7 +5131,7 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5176,56 +5176,56 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterValueException":
+    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -5238,7 +5238,7 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5283,56 +5283,56 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidParameterValueException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterValueException":
+    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -5345,7 +5345,7 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5394,63 +5394,63 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -5463,7 +5463,7 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5496,21 +5496,21 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   }
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
+    case "com.amazonaws.imagebuilder#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
@@ -5523,7 +5523,7 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5556,21 +5556,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   }
   switch (errorCode) {
     case "InvalidParameterException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
+    case "com.amazonaws.imagebuilder#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
@@ -5583,7 +5583,7 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5632,63 +5632,63 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidParameterCombinationException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
       response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -5701,7 +5701,7 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5750,56 +5750,56 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -5812,7 +5812,7 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5862,56 +5862,56 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
-    case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
       response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ClientException":
-    case "com.amazonaws.services.imagebuilder.generated#ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
       response = await deserializeAws_restJson1_1ClientExceptionResponse(
         output,
         context
       );
       break;
     case "ForbiddenException":
-    case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
         output,
         context
       );
       break;
     case "IdempotentParameterMismatchException":
-    case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceInUseException":
-    case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
         output,
         context
       );
       break;
     case "ServiceUnavailableException":
-    case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
         output,
         context
@@ -5924,7 +5924,7 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
+        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;

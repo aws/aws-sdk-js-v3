@@ -2,35 +2,27 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Information about agents or connectors that were instructed to start collecting data.
+ * <p>Information about agents or connectors that were instructed to start collecting data.
  *       Information includes the agent/connector ID, a description of the operation, and whether the
  *       agent/connector configuration was updated.</p>
- *
  */
 export interface AgentConfigurationStatus {
   __type?: "AgentConfigurationStatus";
   /**
-   *
-   *          <p>The agent/connector ID.</p>
-   *
+   * <p>The agent/connector ID.</p>
    */
   agentId?: string;
 
   /**
-   *
-   *          <p>A description of the operation performed.</p>
-   *
+   * <p>A description of the operation performed.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>Information about the status of the <code>StartDataCollection</code> and
+   * <p>Information about the status of the <code>StartDataCollection</code> and
    *         <code>StopDataCollection</code> operations. The system has recorded the data collection
    *       operation. The agent/connector receives this command the next time it polls for a new command.
    *     </p>
-   *
    */
   operationSucceeded?: boolean;
 }
@@ -42,83 +34,61 @@ export namespace AgentConfigurationStatus {
 }
 
 /**
- *
- *          <p>Information about agents or connectors associated with the user’s AWS account.
+ * <p>Information about agents or connectors associated with the user’s AWS account.
  *       Information includes agent or connector IDs, IP addresses, media access control (MAC)
  *       addresses, agent or connector health, hostname where the agent or connector resides, and agent
  *       version for each agent.</p>
- *
  */
 export interface AgentInfo {
   __type?: "AgentInfo";
   /**
-   *
-   *          <p>The agent or connector ID.</p>
-   *
+   * <p>The agent or connector ID.</p>
    */
   agentId?: string;
 
   /**
-   *
-   *          <p>Network details about the host where the agent or connector resides.</p>
-   *
+   * <p>Network details about the host where the agent or connector resides.</p>
    */
   agentNetworkInfoList?: Array<AgentNetworkInfo>;
 
   /**
-   *
-   *          <p>Type of agent.</p>
-   *
+   * <p>Type of agent.</p>
    */
   agentType?: string;
 
   /**
-   *
-   *          <p>Status of the collection process for an agent or connector.</p>
-   *
+   * <p>Status of the collection process for an agent or connector.</p>
    */
   collectionStatus?: string;
 
   /**
-   *
-   *          <p>The ID of the connector.</p>
-   *
+   * <p>The ID of the connector.</p>
    */
   connectorId?: string;
 
   /**
-   *
-   *          <p>The health of the agent or connector.</p>
-   *
+   * <p>The health of the agent or connector.</p>
    */
   health?: AgentStatus | string;
 
   /**
-   *
-   *          <p>The name of the host where the agent or connector resides. The host can be a server or
+   * <p>The name of the host where the agent or connector resides. The host can be a server or
    *       virtual machine.</p>
-   *
    */
   hostName?: string;
 
   /**
-   *
-   *          <p>Time since agent or connector health was reported.</p>
-   *
+   * <p>Time since agent or connector health was reported.</p>
    */
   lastHealthPingTime?: string;
 
   /**
-   *
-   *          <p>Agent's first registration timestamp in UTC.</p>
-   *
+   * <p>Agent's first registration timestamp in UTC.</p>
    */
   registeredTime?: string;
 
   /**
-   *
-   *          <p>The agent or connector version.</p>
-   *
+   * <p>The agent or connector version.</p>
    */
   version?: string;
 }
@@ -130,23 +100,17 @@ export namespace AgentInfo {
 }
 
 /**
- *
- *          <p>Network details about the host where the agent/connector resides.</p>
- *
+ * <p>Network details about the host where the agent/connector resides.</p>
  */
 export interface AgentNetworkInfo {
   __type?: "AgentNetworkInfo";
   /**
-   *
-   *          <p>The IP address for the host where the agent/connector resides.</p>
-   *
+   * <p>The IP address for the host where the agent/connector resides.</p>
    */
   ipAddress?: string;
 
   /**
-   *
-   *          <p>The MAC address for the host where the agent/connector resides.</p>
-   *
+   * <p>The MAC address for the host where the agent/connector resides.</p>
    */
   macAddress?: string;
 }
@@ -169,16 +133,12 @@ export enum AgentStatus {
 export interface AssociateConfigurationItemsToApplicationRequest {
   __type?: "AssociateConfigurationItemsToApplicationRequest";
   /**
-   *
-   *          <p>The configuration ID of an application with which items are to be associated.</p>
-   *
+   * <p>The configuration ID of an application with which items are to be associated.</p>
    */
   applicationConfigurationId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of each configuration item to be associated with an application.</p>
-   *
+   * <p>The ID of each configuration item to be associated with an application.</p>
    */
   configurationIds: Array<string> | undefined;
 }
@@ -205,10 +165,8 @@ export namespace AssociateConfigurationItemsToApplicationResponse {
 }
 
 /**
- *
- *          <p>The AWS user account does not have permission to perform the action. Check the IAM
+ * <p>The AWS user account does not have permission to perform the action. Check the IAM
  *       policy associated with this account.</p>
- *
  */
 export interface AuthorizationErrorException
   extends _smithy.SmithyException,
@@ -226,31 +184,23 @@ export namespace AuthorizationErrorException {
 }
 
 /**
- *
- *          <p>Error messages returned for each import task that you deleted as a response for this
+ * <p>Error messages returned for each import task that you deleted as a response for this
  *       command.</p>
- *
  */
 export interface BatchDeleteImportDataError {
   __type?: "BatchDeleteImportDataError";
   /**
-   *
-   *          <p>The type of error that occurred for a specific import task.</p>
-   *
+   * <p>The type of error that occurred for a specific import task.</p>
    */
   errorCode?: BatchDeleteImportDataErrorCode | string;
 
   /**
-   *
-   *          <p>The description of the error that occurred for a specific import task.</p>
-   *
+   * <p>The description of the error that occurred for a specific import task.</p>
    */
   errorDescription?: string;
 
   /**
-   *
-   *          <p>The unique import ID associated with the error that occurred.</p>
-   *
+   * <p>The unique import ID associated with the error that occurred.</p>
    */
   importTaskId?: string;
 }
@@ -270,9 +220,7 @@ export enum BatchDeleteImportDataErrorCode {
 export interface BatchDeleteImportDataRequest {
   __type?: "BatchDeleteImportDataRequest";
   /**
-   *
-   *          <p>The IDs for the import tasks that you want to delete.</p>
-   *
+   * <p>The IDs for the import tasks that you want to delete.</p>
    */
   importTaskIds: Array<string> | undefined;
 }
@@ -286,10 +234,8 @@ export namespace BatchDeleteImportDataRequest {
 export interface BatchDeleteImportDataResponse extends $MetadataBearer {
   __type?: "BatchDeleteImportDataResponse";
   /**
-   *
-   *          <p>Error messages returned for each import task that you deleted as a response for this
+   * <p>Error messages returned for each import task that you deleted as a response for this
    *       command.</p>
-   *
    */
   errors?: Array<BatchDeleteImportDataError>;
 }
@@ -308,49 +254,37 @@ export enum ConfigurationItemType {
 }
 
 /**
- *
- *          <p>Tags for a configuration item. Tags are metadata that help you categorize IT
+ * <p>Tags for a configuration item. Tags are metadata that help you categorize IT
  *       assets.</p>
- *
  */
 export interface ConfigurationTag {
   __type?: "ConfigurationTag";
   /**
-   *
-   *          <p>The configuration ID for the item to tag. You can specify a list of keys and
+   * <p>The configuration ID for the item to tag. You can specify a list of keys and
    *       values.</p>
-   *
    */
   configurationId?: string;
 
   /**
-   *
-   *          <p>A type of IT asset to tag.</p>
-   *
+   * <p>A type of IT asset to tag.</p>
    */
   configurationType?: ConfigurationItemType | string;
 
   /**
-   *
-   *          <p>A type of tag on which to filter. For example,
+   * <p>A type of tag on which to filter. For example,
    *       <i>serverType</i>.</p>
-   *
    */
   key?: string;
 
   /**
-   *
-   *          <p>The time the configuration tag was created in Coordinated Universal Time
+   * <p>The time the configuration tag was created in Coordinated Universal Time
    *       (UTC).</p>
-   *
    */
   timeOfCreation?: Date;
 
   /**
-   *
-   *          <p>A value on which to filter. For example <i>key = serverType</i> and
+   * <p>A value on which to filter. For example <i>key = serverType</i> and
    *         <i>value = web server</i>.</p>
-   *
    */
   value?: string;
 }
@@ -362,9 +296,7 @@ export namespace ConfigurationTag {
 }
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export interface ConflictErrorException
   extends _smithy.SmithyException,
@@ -382,37 +314,28 @@ export namespace ConflictErrorException {
 }
 
 /**
- *
- *          <p>A list of continuous export descriptions.</p>
- *
+ * <p>A list of continuous export descriptions.</p>
  */
 export interface ContinuousExportDescription {
   __type?: "ContinuousExportDescription";
   /**
-   *
-   *          <p>The type of data collector used to gather this data (currently only offered for
+   * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
-   *
    */
   dataSource?: DataSource | string;
 
   /**
-   *
-   *          <p>The unique ID assigned to this export.</p>
-   *
+   * <p>The unique ID assigned to this export.</p>
    */
   exportId?: string;
 
   /**
-   *
-   *          <p>The name of the s3 bucket where the export data parquet files are stored.</p>
-   *
+   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
    */
   s3Bucket?: string;
 
   /**
-   *
-   *          <p>An object which describes how the data is stored.</p>
+   * <p>An object which describes how the data is stored.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -420,20 +343,16 @@ export interface ContinuousExportDescription {
    *           schema.</p>
    *             </li>
    *          </ul>
-   *
    */
   schemaStorageConfig?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The timestamp representing when the continuous export was started.</p>
-   *
+   * <p>The timestamp representing when the continuous export was started.</p>
    */
   startTime?: Date;
 
   /**
-   *
-   *          <p>Describes the status of the export. Can be one of the following values:</p>
+   * <p>Describes the status of the export. Can be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>START_IN_PROGRESS - setting up resources to start continuous export.</p>
@@ -461,13 +380,11 @@ export interface ContinuousExportDescription {
    *           to the customer bucket.</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: ContinuousExportStatus | string;
 
   /**
-   *
-   *          <p>Contains information about any errors that have occurred. This data type can have the
+   * <p>Contains information about any errors that have occurred. This data type can have the
    *       following values:</p>
    *
    *          <ul>
@@ -510,15 +427,11 @@ export interface ContinuousExportDescription {
    *           must sign up before you can use Amazon S3. You can sign up at the following URL: <a href="https://aws.amazon.com/s3">https://aws.amazon.com/s3</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   statusDetail?: string;
 
   /**
-   *
-   *          <p>The timestamp that represents when this continuous export was stopped.</p>
-   *
+   * <p>The timestamp that represents when this continuous export was stopped.</p>
    */
   stopTime?: Date;
 }
@@ -542,16 +455,12 @@ export enum ContinuousExportStatus {
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
   /**
-   *
-   *          <p>Description of the application to be created.</p>
-   *
+   * <p>Description of the application to be created.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>Name of the application to be created.</p>
-   *
+   * <p>Name of the application to be created.</p>
    */
   name: string | undefined;
 }
@@ -565,9 +474,7 @@ export namespace CreateApplicationRequest {
 export interface CreateApplicationResponse extends $MetadataBearer {
   __type?: "CreateApplicationResponse";
   /**
-   *
-   *          <p>Configuration ID of an application to be created.</p>
-   *
+   * <p>Configuration ID of an application to be created.</p>
    */
   configurationId?: string;
 }
@@ -581,21 +488,17 @@ export namespace CreateApplicationResponse {
 export interface CreateTagsRequest {
   __type?: "CreateTagsRequest";
   /**
-   *
-   *          <p>A list of configuration items that you want to tag.</p>
-   *
+   * <p>A list of configuration items that you want to tag.</p>
    */
   configurationIds: Array<string> | undefined;
 
   /**
-   *
-   *          <p>Tags that you want to associate with one or more configuration items. Specify the tags
+   * <p>Tags that you want to associate with one or more configuration items. Specify the tags
    *       that you want to create in a <i>key</i>-<i>value</i> format. For
    *       example:</p>
    *          <p>
    *             <code>{"key": "serverType", "value": "webServer"}</code>
    *          </p>
-   *
    */
   tags: Array<Tag> | undefined;
 }
@@ -617,58 +520,42 @@ export namespace CreateTagsResponse {
 }
 
 /**
- *
- *          <p>Inventory data for installed discovery agents.</p>
- *
+ * <p>Inventory data for installed discovery agents.</p>
  */
 export interface CustomerAgentInfo {
   __type?: "CustomerAgentInfo";
   /**
-   *
-   *          <p>Number of active discovery agents.</p>
-   *
+   * <p>Number of active discovery agents.</p>
    */
   activeAgents: number | undefined;
 
   /**
-   *
-   *          <p>Number of blacklisted discovery agents.</p>
-   *
+   * <p>Number of blacklisted discovery agents.</p>
    */
   blackListedAgents: number | undefined;
 
   /**
-   *
-   *          <p>Number of healthy discovery agents</p>
-   *
+   * <p>Number of healthy discovery agents</p>
    */
   healthyAgents: number | undefined;
 
   /**
-   *
-   *          <p>Number of discovery agents with status SHUTDOWN.</p>
-   *
+   * <p>Number of discovery agents with status SHUTDOWN.</p>
    */
   shutdownAgents: number | undefined;
 
   /**
-   *
-   *          <p>Total number of discovery agents.</p>
-   *
+   * <p>Total number of discovery agents.</p>
    */
   totalAgents: number | undefined;
 
   /**
-   *
-   *          <p>Number of unhealthy discovery agents.</p>
-   *
+   * <p>Number of unhealthy discovery agents.</p>
    */
   unhealthyAgents: number | undefined;
 
   /**
-   *
-   *          <p>Number of unknown discovery agents.</p>
-   *
+   * <p>Number of unknown discovery agents.</p>
    */
   unknownAgents: number | undefined;
 }
@@ -680,58 +567,42 @@ export namespace CustomerAgentInfo {
 }
 
 /**
- *
- *          <p>Inventory data for installed discovery connectors.</p>
- *
+ * <p>Inventory data for installed discovery connectors.</p>
  */
 export interface CustomerConnectorInfo {
   __type?: "CustomerConnectorInfo";
   /**
-   *
-   *          <p>Number of active discovery connectors.</p>
-   *
+   * <p>Number of active discovery connectors.</p>
    */
   activeConnectors: number | undefined;
 
   /**
-   *
-   *          <p>Number of blacklisted discovery connectors.</p>
-   *
+   * <p>Number of blacklisted discovery connectors.</p>
    */
   blackListedConnectors: number | undefined;
 
   /**
-   *
-   *          <p>Number of healthy discovery connectors.</p>
-   *
+   * <p>Number of healthy discovery connectors.</p>
    */
   healthyConnectors: number | undefined;
 
   /**
-   *
-   *          <p>Number of discovery connectors with status SHUTDOWN,</p>
-   *
+   * <p>Number of discovery connectors with status SHUTDOWN,</p>
    */
   shutdownConnectors: number | undefined;
 
   /**
-   *
-   *          <p>Total number of discovery connectors.</p>
-   *
+   * <p>Total number of discovery connectors.</p>
    */
   totalConnectors: number | undefined;
 
   /**
-   *
-   *          <p>Number of unhealthy discovery connectors.</p>
-   *
+   * <p>Number of unhealthy discovery connectors.</p>
    */
   unhealthyConnectors: number | undefined;
 
   /**
-   *
-   *          <p>Number of unknown discovery connectors.</p>
-   *
+   * <p>Number of unknown discovery connectors.</p>
    */
   unknownConnectors: number | undefined;
 }
@@ -749,9 +620,7 @@ export enum DataSource {
 export interface DeleteApplicationsRequest {
   __type?: "DeleteApplicationsRequest";
   /**
-   *
-   *          <p>Configuration ID of an application to be deleted.</p>
-   *
+   * <p>Configuration ID of an application to be deleted.</p>
    */
   configurationIds: Array<string> | undefined;
 }
@@ -775,21 +644,17 @@ export namespace DeleteApplicationsResponse {
 export interface DeleteTagsRequest {
   __type?: "DeleteTagsRequest";
   /**
-   *
-   *          <p>A list of configuration items with tags that you want to delete.</p>
-   *
+   * <p>A list of configuration items with tags that you want to delete.</p>
    */
   configurationIds: Array<string> | undefined;
 
   /**
-   *
-   *          <p>Tags that you want to delete from one or more configuration items. Specify the tags
+   * <p>Tags that you want to delete from one or more configuration items. Specify the tags
    *       that you want to delete in a <i>key</i>-<i>value</i> format. For
    *       example:</p>
    *          <p>
    *             <code>{"key": "serverType", "value": "webServer"}</code>
    *          </p>
-   *
    */
   tags?: Array<Tag>;
 }
@@ -813,40 +678,32 @@ export namespace DeleteTagsResponse {
 export interface DescribeAgentsRequest {
   __type?: "DescribeAgentsRequest";
   /**
-   *
-   *          <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
+   * <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
    *       the system returns information about all agents/Connectors associated with your AWS user
    *       account.</p>
-   *
    */
   agentIds?: Array<string>;
 
   /**
-   *
-   *          <p>You can filter the request using various logical operators and a
+   * <p>You can filter the request using various logical operators and a
    *         <i>key</i>-<i>value</i> format. For example: </p>
    *          <p>
    *             <code>{"key": "collectionStatus", "value": "STARTED"}</code>
    *          </p>
-   *
    */
   filters?: Array<Filter>;
 
   /**
-   *
-   *          <p>The total number of agents/Connectors to return in a single page of output. The maximum
+   * <p>The total number of agents/Connectors to return in a single page of output. The maximum
    *       value is 100.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>Token to retrieve the next set of results. For example, if you previously specified 100
+   * <p>Token to retrieve the next set of results. For example, if you previously specified 100
    *       IDs for <code>DescribeAgentsRequest$agentIds</code> but set
    *         <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along
    *       with a token. Use that token in this query to get the next set of 10.</p>
-   *
    */
   nextToken?: string;
 }
@@ -860,22 +717,18 @@ export namespace DescribeAgentsRequest {
 export interface DescribeAgentsResponse extends $MetadataBearer {
   __type?: "DescribeAgentsResponse";
   /**
-   *
-   *          <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
+   * <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
    *       user account if you did not specify an agent/Connector ID. The output includes agent/Connector
    *       IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name
    *       where the agent/Connector resides, and the version number of each agent/Connector.</p>
-   *
    */
   agentsInfo?: Array<AgentInfo>;
 
   /**
-   *
-   *          <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
+   * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
    *         <code>DescribeAgentsRequest$agentIds</code> but set
    *         <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along
    *       with this token. Use this token in the next query to retrieve the next set of 10.</p>
-   *
    */
   nextToken?: string;
 }
@@ -889,9 +742,7 @@ export namespace DescribeAgentsResponse {
 export interface DescribeConfigurationsRequest {
   __type?: "DescribeConfigurationsRequest";
   /**
-   *
-   *          <p>One or more configuration IDs.</p>
-   *
+   * <p>One or more configuration IDs.</p>
    */
   configurationIds: Array<string> | undefined;
 }
@@ -905,9 +756,7 @@ export namespace DescribeConfigurationsRequest {
 export interface DescribeConfigurationsResponse extends $MetadataBearer {
   __type?: "DescribeConfigurationsResponse";
   /**
-   *
-   *          <p>A key in the response map. The value is an array of data.</p>
-   *
+   * <p>A key in the response map. The value is an array of data.</p>
    */
   configurations?: Array<{ [key: string]: string }>;
 }
@@ -921,24 +770,18 @@ export namespace DescribeConfigurationsResponse {
 export interface DescribeContinuousExportsRequest {
   __type?: "DescribeContinuousExportsRequest";
   /**
-   *
-   *          <p>The unique IDs assigned to the exports.</p>
-   *
+   * <p>The unique IDs assigned to the exports.</p>
    */
   exportIds?: Array<string>;
 
   /**
-   *
-   *          <p>A number between 1 and 100 specifying the maximum number of continuous export
+   * <p>A number between 1 and 100 specifying the maximum number of continuous export
    *       descriptions returned.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
-   *
+   * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
    */
   nextToken?: string;
 }
@@ -952,16 +795,12 @@ export namespace DescribeContinuousExportsRequest {
 export interface DescribeContinuousExportsResponse extends $MetadataBearer {
   __type?: "DescribeContinuousExportsResponse";
   /**
-   *
-   *          <p>A list of continuous export descriptions.</p>
-   *
+   * <p>A list of continuous export descriptions.</p>
    */
   descriptions?: Array<ContinuousExportDescription>;
 
   /**
-   *
-   *          <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
-   *
+   * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
    */
   nextToken?: string;
 }
@@ -975,24 +814,18 @@ export namespace DescribeContinuousExportsResponse {
 export interface DescribeExportConfigurationsRequest {
   __type?: "DescribeExportConfigurationsRequest";
   /**
-   *
-   *          <p>A list of continuous export IDs to search for.</p>
-   *
+   * <p>A list of continuous export IDs to search for.</p>
    */
   exportIds?: Array<string>;
 
   /**
-   *
-   *          <p>A number between 1 and 100 specifying the maximum number of continuous export
+   * <p>A number between 1 and 100 specifying the maximum number of continuous export
    *       descriptions returned.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token from the previous call to describe-export-tasks.</p>
-   *
+   * <p>The token from the previous call to describe-export-tasks.</p>
    */
   nextToken?: string;
 }
@@ -1006,16 +839,12 @@ export namespace DescribeExportConfigurationsRequest {
 export interface DescribeExportConfigurationsResponse extends $MetadataBearer {
   __type?: "DescribeExportConfigurationsResponse";
   /**
-   *
-   *          <p></p>
-   *
+   * <p></p>
    */
   exportsInfo?: Array<ExportInfo>;
 
   /**
-   *
-   *          <p>The token from the previous call to describe-export-tasks.</p>
-   *
+   * <p>The token from the previous call to describe-export-tasks.</p>
    */
   nextToken?: string;
 }
@@ -1029,15 +858,12 @@ export namespace DescribeExportConfigurationsResponse {
 export interface DescribeExportTasksRequest {
   __type?: "DescribeExportTasksRequest";
   /**
-   *
-   *          <p>One or more unique identifiers used to query the status of an export request.</p>
-   *
+   * <p>One or more unique identifiers used to query the status of an export request.</p>
    */
   exportIds?: Array<string>;
 
   /**
-   *
-   *          <p>One or more filters.</p>
+   * <p>One or more filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1045,28 +871,23 @@ export interface DescribeExportTasksRequest {
    *           exported</p>
    *             </li>
    *          </ul>
-   *
    */
   filters?: Array<ExportFilter>;
 
   /**
-   *
-   *          <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in
+   * <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in
    *       paginated output. When this parameter is used, <code>DescribeExportTasks</code> only returns
    *         <code>maxResults</code> results in a single page along with a <code>nextToken</code>
    *       response element.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The <code>nextToken</code> value returned from a previous paginated
+   * <p>The <code>nextToken</code> value returned from a previous paginated
    *         <code>DescribeExportTasks</code> request where <code>maxResults</code> was used and the
    *       results exceeded the value of that parameter. Pagination continues from the end of the
    *       previous results that returned the <code>nextToken</code> value. This value is null when there
    *       are no more results to return.</p>
-   *
    */
   nextToken?: string;
 }
@@ -1080,22 +901,18 @@ export namespace DescribeExportTasksRequest {
 export interface DescribeExportTasksResponse extends $MetadataBearer {
   __type?: "DescribeExportTasksResponse";
   /**
-   *
-   *          <p>Contains one or more sets of export request details. When the status of a request is
+   * <p>Contains one or more sets of export request details. When the status of a request is
    *         <code>SUCCEEDED</code>, the response includes a URL for an Amazon S3 bucket where you can
    *       view the data in a CSV file.</p>
-   *
    */
   exportsInfo?: Array<ExportInfo>;
 
   /**
-   *
-   *          <p>The <code>nextToken</code> value to include in a future
+   * <p>The <code>nextToken</code> value to include in a future
    *         <code>DescribeExportTasks</code> request. When the results of a
    *         <code>DescribeExportTasks</code> request exceed <code>maxResults</code>, this value can be
    *       used to retrieve the next page of results. This value is null when there are no more results
    *       to return.</p>
-   *
    */
   nextToken?: string;
 }
@@ -1109,25 +926,19 @@ export namespace DescribeExportTasksResponse {
 export interface DescribeImportTasksRequest {
   __type?: "DescribeImportTasksRequest";
   /**
-   *
-   *          <p>An array of name-value pairs that you provide to filter the results for the
+   * <p>An array of name-value pairs that you provide to filter the results for the
    *         <code>DescribeImportTask</code> request to a specific subset of results. Currently, wildcard
    *       values aren't supported for filters.</p>
-   *
    */
   filters?: Array<ImportTaskFilter>;
 
   /**
-   *
-   *          <p>The maximum number of results that you want this request to return, up to 100.</p>
-   *
+   * <p>The maximum number of results that you want this request to return, up to 100.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token to request a specific page of results.</p>
-   *
+   * <p>The token to request a specific page of results.</p>
    */
   nextToken?: string;
 }
@@ -1141,17 +952,13 @@ export namespace DescribeImportTasksRequest {
 export interface DescribeImportTasksResponse extends $MetadataBearer {
   __type?: "DescribeImportTasksResponse";
   /**
-   *
-   *          <p>The token to request the next page of results.</p>
-   *
+   * <p>The token to request the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>A returned array of import tasks that match any applied filters, up to the specified
+   * <p>A returned array of import tasks that match any applied filters, up to the specified
    *       number of maximum results.</p>
-   *
    */
   tasks?: Array<ImportTask>;
 }
@@ -1165,26 +972,20 @@ export namespace DescribeImportTasksResponse {
 export interface DescribeTagsRequest {
   __type?: "DescribeTagsRequest";
   /**
-   *
-   *          <p>You can filter the list using a <i>key</i>-<i>value</i>
+   * <p>You can filter the list using a <i>key</i>-<i>value</i>
    *       format. You can separate these items by using logical operators. Allowed filters include
    *         <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>. </p>
-   *
    */
   filters?: Array<TagFilter>;
 
   /**
-   *
-   *          <p>The total number of items to return in a single page of output. The maximum value is
+   * <p>The total number of items to return in a single page of output. The maximum value is
    *       100.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token to start the list. Use this token to get the next set of results.</p>
-   *
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   nextToken?: string;
 }
@@ -1198,17 +999,13 @@ export namespace DescribeTagsRequest {
 export interface DescribeTagsResponse extends $MetadataBearer {
   __type?: "DescribeTagsResponse";
   /**
-   *
-   *          <p>The call returns a token. Use this token to get the next set of results.</p>
-   *
+   * <p>The call returns a token. Use this token to get the next set of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Depending on the input, this is a list of configuration items tagged with a specific
+   * <p>Depending on the input, this is a list of configuration items tagged with a specific
    *       tag, or a list of tags for a specific configuration item.</p>
-   *
    */
   tags?: Array<ConfigurationTag>;
 }
@@ -1222,16 +1019,12 @@ export namespace DescribeTagsResponse {
 export interface DisassociateConfigurationItemsFromApplicationRequest {
   __type?: "DisassociateConfigurationItemsFromApplicationRequest";
   /**
-   *
-   *          <p>Configuration ID of an application from which each item is disassociated.</p>
-   *
+   * <p>Configuration ID of an application from which each item is disassociated.</p>
    */
   applicationConfigurationId: string | undefined;
 
   /**
-   *
-   *          <p>Configuration ID of each item to be disassociated from an application.</p>
-   *
+   * <p>Configuration ID of each item to be disassociated from an application.</p>
    */
   configurationIds: Array<string> | undefined;
 }
@@ -1266,9 +1059,7 @@ export namespace DisassociateConfigurationItemsFromApplicationResponse {
 export interface ExportConfigurationsResponse extends $MetadataBearer {
   __type?: "ExportConfigurationsResponse";
   /**
-   *
-   *          <p>A unique identifier that you can use to query the export status.</p>
-   *
+   * <p>A unique identifier that you can use to query the export status.</p>
    */
   exportId?: string;
 }
@@ -1285,35 +1076,27 @@ export enum ExportDataFormat {
 }
 
 /**
- *
- *          <p>Used to select which agent's data is to be exported. A single agent ID may be selected
+ * <p>Used to select which agent's data is to be exported. A single agent ID may be selected
  *       for export using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html">StartExportTask</a> action.</p>
- *
  */
 export interface ExportFilter {
   __type?: "ExportFilter";
   /**
-   *
-   *          <p>Supported condition: <code>EQUALS</code>
+   * <p>Supported condition: <code>EQUALS</code>
    *          </p>
-   *
    */
   condition: string | undefined;
 
   /**
-   *
-   *          <p>A single <code>ExportFilter</code> name. Supported filters:
+   * <p>A single <code>ExportFilter</code> name. Supported filters:
    *       <code>agentId</code>.</p>
-   *
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>A single <code>agentId</code> for a Discovery Agent. An <code>agentId</code> can be
+   * <p>A single <code>agentId</code> for a Discovery Agent. An <code>agentId</code> can be
    *       found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeAgents</a> action. Typically an ADS <code>agentId</code> is in the form
    *         <code>o-0123456789abcdef0</code>.</p>
-   *
    */
   values: Array<string> | undefined;
 }
@@ -1325,74 +1108,56 @@ export namespace ExportFilter {
 }
 
 /**
- *
- *          <p>Information regarding the export status of discovered data. The value is an array of
+ * <p>Information regarding the export status of discovered data. The value is an array of
  *       objects.</p>
- *
  */
 export interface ExportInfo {
   __type?: "ExportInfo";
   /**
-   *
-   *          <p>A URL for an Amazon S3 bucket where you can review the exported data. The URL is
+   * <p>A URL for an Amazon S3 bucket where you can review the exported data. The URL is
    *       displayed only if the export succeeded.</p>
-   *
    */
   configurationsDownloadUrl?: string;
 
   /**
-   *
-   *          <p>A unique identifier used to query an export.</p>
-   *
+   * <p>A unique identifier used to query an export.</p>
    */
   exportId: string | undefined;
 
   /**
-   *
-   *          <p>The time that the data export was initiated.</p>
-   *
+   * <p>The time that the data export was initiated.</p>
    */
   exportRequestTime: Date | undefined;
 
   /**
-   *
-   *          <p>The status of the data export job.</p>
-   *
+   * <p>The status of the data export job.</p>
    */
   exportStatus: ExportStatus | string | undefined;
 
   /**
-   *
-   *          <p>If true, the export of agent information exceeded the size limit for a single export
+   * <p>If true, the export of agent information exceeded the size limit for a single export
    *       and the exported data is incomplete for the requested time range. To address this, select a
    *       smaller time range for the export by using <code>startDate</code> and
    *       <code>endDate</code>.</p>
-   *
    */
   isTruncated?: boolean;
 
   /**
-   *
-   *          <p>The <code>endTime</code> used in the <code>StartExportTask</code> request. If no
+   * <p>The <code>endTime</code> used in the <code>StartExportTask</code> request. If no
    *         <code>endTime</code> was requested, this result does not appear in
    *       <code>ExportInfo</code>.</p>
-   *
    */
   requestedEndTime?: Date;
 
   /**
-   *
-   *          <p>The value of <code>startTime</code> parameter in the <code>StartExportTask</code>
+   * <p>The value of <code>startTime</code> parameter in the <code>StartExportTask</code>
    *       request. If no <code>startTime</code> was requested, this result does not appear in
    *         <code>ExportInfo</code>.</p>
-   *
    */
   requestedStartTime?: Date;
 
   /**
-   *
-   *          <p>A status message provided for API callers.</p>
-   *
+   * <p>A status message provided for API callers.</p>
    */
   statusMessage: string | undefined;
 }
@@ -1410,38 +1175,32 @@ export enum ExportStatus {
 }
 
 /**
- *
- *          <p>A filter that can use conditional operators.</p>
- *          <p>For more information about filters, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html">Querying Discovered Configuration Items</a>. </p>
- *
+ * <p>A filter that can use conditional operators.</p>
+ *          <p>For more information about filters, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html">Querying Discovered
+ *         Configuration Items</a> in the <i>AWS Application Discovery Service User
+ *         Guide</i>. </p>
  */
 export interface Filter {
   __type?: "Filter";
   /**
-   *
-   *          <p>A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS,
+   * <p>A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS,
    *       CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as
    *       though concatenated by <i>AND</i>. If you specify multiple values for a
    *       particular filter, the system differentiates the values using <i>OR</i>. Calling
    *       either <i>DescribeConfigurations</i> or <i>ListConfigurations</i>
    *       returns attributes of matching configuration items.</p>
-   *
    */
   condition: string | undefined;
 
   /**
-   *
-   *          <p>The name of the filter.</p>
-   *
+   * <p>The name of the filter.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>A string value on which to filter. For example, if you choose the
+   * <p>A string value on which to filter. For example, if you choose the
    *         <code>destinationServer.osVersion</code> filter name, you could specify <code>Ubuntu</code>
    *       for the value.</p>
-   *
    */
   values: Array<string> | undefined;
 }
@@ -1465,44 +1224,32 @@ export namespace GetDiscoverySummaryRequest {
 export interface GetDiscoverySummaryResponse extends $MetadataBearer {
   __type?: "GetDiscoverySummaryResponse";
   /**
-   *
-   *          <p>Details about discovered agents, including agent status and health.</p>
-   *
+   * <p>Details about discovered agents, including agent status and health.</p>
    */
   agentSummary?: CustomerAgentInfo;
 
   /**
-   *
-   *          <p>The number of applications discovered.</p>
-   *
+   * <p>The number of applications discovered.</p>
    */
   applications?: number;
 
   /**
-   *
-   *          <p>Details about discovered connectors, including connector status and health.</p>
-   *
+   * <p>Details about discovered connectors, including connector status and health.</p>
    */
   connectorSummary?: CustomerConnectorInfo;
 
   /**
-   *
-   *          <p>The number of servers discovered.</p>
-   *
+   * <p>The number of servers discovered.</p>
    */
   servers?: number;
 
   /**
-   *
-   *          <p>The number of servers mapped to applications.</p>
-   *
+   * <p>The number of servers mapped to applications.</p>
    */
   serversMappedToApplications?: number;
 
   /**
-   *
-   *          <p>The number of servers mapped to tags.</p>
-   *
+   * <p>The number of servers mapped to tags.</p>
    */
   serversMappedtoTags?: number;
 }
@@ -1514,9 +1261,7 @@ export namespace GetDiscoverySummaryResponse {
 }
 
 /**
- *
- *          <p>The home region is not set. Set the home region to continue.</p>
- *
+ * <p>The home region is not set. Set the home region to continue.</p>
  */
 export interface HomeRegionNotSetException
   extends _smithy.SmithyException,
@@ -1548,41 +1293,32 @@ export enum ImportStatus {
 }
 
 /**
- *
- *          <p>An array of information related to the import task request that includes status
+ * <p>An array of information related to the import task request that includes status
  *       information, times, IDs, the Amazon S3 Object URL for the import file, and more.</p>
- *
  */
 export interface ImportTask {
   __type?: "ImportTask";
   /**
-   *
-   *          <p>The total number of application records in the import file that failed to be
+   * <p>The total number of application records in the import file that failed to be
    *       imported.</p>
-   *
    */
   applicationImportFailure?: number;
 
   /**
-   *
-   *          <p>The total number of application records in the import file that were successfully
+   * <p>The total number of application records in the import file that were successfully
    *       imported.</p>
-   *
    */
   applicationImportSuccess?: number;
 
   /**
-   *
-   *          <p>A unique token used to prevent the same import request from occurring more than once. If
+   * <p>A unique token used to prevent the same import request from occurring more than once. If
    *       you didn't provide a token, a token was automatically generated when the import task request
    *       was sent.</p>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *          <p>A link to a compressed archive folder (in the ZIP format) that contains an error log and a
+   * <p>A link to a compressed archive folder (in the ZIP format) that contains an error log and a
    *       file of failed records. You can use these two files to quickly identify records that failed,
    *       why they failed, and correct those records. Afterward, you can upload the corrected file to
    *       your Amazon S3 bucket and create another import task request.</p>
@@ -1593,83 +1329,62 @@ export interface ImportTask {
    *          <p>If some records failed to be imported we recommend that you correct the records in the
    *       failed entries file and then imports that failed entries file. This prevents you from having
    *       to correct and update the larger original file and attempt importing it again.</p>
-   *
-   *
    */
   errorsAndFailedEntriesZip?: string;
 
   /**
-   *
-   *          <p>The time that the import task request finished, presented in the Unix time stamp
+   * <p>The time that the import task request finished, presented in the Unix time stamp
    *       format.</p>
-   *
    */
   importCompletionTime?: Date;
 
   /**
-   *
-   *          <p>The time that the import task request was deleted, presented in the Unix time stamp
+   * <p>The time that the import task request was deleted, presented in the Unix time stamp
    *       format.</p>
-   *
    */
   importDeletedTime?: Date;
 
   /**
-   *
-   *          <p>The time that the import task request was made, presented in the Unix time stamp
+   * <p>The time that the import task request was made, presented in the Unix time stamp
    *       format.</p>
-   *
    */
   importRequestTime?: Date;
 
   /**
-   *
-   *          <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
+   * <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
    *       unique within an AWS account.</p>
-   *
    */
   importTaskId?: string;
 
   /**
-   *
-   *          <p>The URL for your import file that you've uploaded to Amazon S3.</p>
-   *
-   *
+   * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
    */
   importUrl?: string;
 
   /**
-   *
-   *          <p>A descriptive name for an import task. You can use this name to filter future requests
+   * <p>A descriptive name for an import task. You can use this name to filter future requests
    *       related to this import task, such as identifying applications and servers that were included
    *       in this import task. We recommend that you use a meaningful name for each import task.</p>
-   *
    */
   name?: string;
 
   /**
-   *
-   *          <p>The total number of server records in the import file that failed to be imported.</p>
-   *
+   * <p>The total number of server records in the import file that failed to be imported.</p>
    */
   serverImportFailure?: number;
 
   /**
-   *
-   *          <p>The total number of server records in the import file that were successfully
+   * <p>The total number of server records in the import file that were successfully
    *       imported.</p>
-   *
    */
   serverImportSuccess?: number;
 
   /**
-   *
-   *          <p>The status of the import task. An import can have the status of
+   * <p>The status of the import task. An import can have the status of
    *         <code>IMPORT_COMPLETE</code> and still have some records fail to import from the overall
    *       request. More information can be found in the downloadable archive defined in the
    *         <code>errorsAndFailedEntriesZip</code> field, or in the Migration Hub management
    *       console.</p>
-   *
    */
   status?: ImportStatus | string;
 }
@@ -1681,29 +1396,23 @@ export namespace ImportTask {
 }
 
 /**
- *
- *          <p>A name-values pair of elements you can use to filter the results when querying your import
+ * <p>A name-values pair of elements you can use to filter the results when querying your import
  *       tasks. Currently, wildcards are not supported for filters.</p>
  *
  *          <note>
  *             <p>When filtering by import status, all other filter values are ignored.</p>
  *          </note>
- *
  */
 export interface ImportTaskFilter {
   __type?: "ImportTaskFilter";
   /**
-   *
-   *          <p>The name, status, or import task ID for a specific import task.</p>
-   *
+   * <p>The name, status, or import task ID for a specific import task.</p>
    */
   name?: ImportTaskFilterName | string;
 
   /**
-   *
-   *          <p>An array of strings that you can provide to match against a specific name, status, or
+   * <p>An array of strings that you can provide to match against a specific name, status, or
    *       import task ID to filter the results for your import task queries.</p>
-   *
    */
   values?: Array<string>;
 }
@@ -1721,9 +1430,7 @@ export enum ImportTaskFilterName {
 }
 
 /**
- *
- *          <p>One or more parameters are not valid. Verify the parameters and try again.</p>
- *
+ * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
  */
 export interface InvalidParameterException
   extends _smithy.SmithyException,
@@ -1741,10 +1448,8 @@ export namespace InvalidParameterException {
 }
 
 /**
- *
- *          <p>The value of one or more parameters are either invalid or out of range. Verify the
+ * <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
- *
  */
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
@@ -1764,47 +1469,39 @@ export namespace InvalidParameterValueException {
 export interface ListConfigurationsRequest {
   __type?: "ListConfigurationsRequest";
   /**
-   *
-   *          <p>A valid configuration identified by Application Discovery Service. </p>
-   *
+   * <p>A valid configuration identified by Application Discovery Service. </p>
    */
   configurationType: ConfigurationItemType | string | undefined;
 
   /**
-   *
-   *          <p>You can filter the request using various logical operators and a
+   * <p>You can filter the request using various logical operators and a
    *         <i>key</i>-<i>value</i> format. For example: </p>
    *          <p>
    *             <code>{"key": "serverType", "value": "webServer"}</code>
    *          </p>
    *          <p>For a complete list of filter options and guidance about using them with this action,
-   *       see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations">Querying Discovered Configuration Items</a>. </p>
-   *
+   *       see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
+   *         Service User Guide</i>.</p>
    */
   filters?: Array<Filter>;
 
   /**
-   *
-   *          <p>The total number of items to return. The maximum value is 100.</p>
-   *
+   * <p>The total number of items to return. The maximum value is 100.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>Token to retrieve the next set of results. For example, if a previous call to
+   * <p>Token to retrieve the next set of results. For example, if a previous call to
    *       ListConfigurations returned 100 items, but you set
    *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with a token. Use that token in this query to get the next set of 10.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Certain filter criteria return output that can be sorted in ascending or descending
-   *       order. For a list of output characteristics for each filter, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a>.</p>
-   *
+   * <p>Certain filter criteria return output that can be sorted in ascending or descending
+   *       order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
+   *         Service User Guide</i>.</p>
    */
   orderBy?: Array<OrderByElement>;
 }
@@ -1818,21 +1515,17 @@ export namespace ListConfigurationsRequest {
 export interface ListConfigurationsResponse extends $MetadataBearer {
   __type?: "ListConfigurationsResponse";
   /**
-   *
-   *          <p>Returns configuration details, including the configuration ID, attribute names, and
+   * <p>Returns configuration details, including the configuration ID, attribute names, and
    *       attribute values.</p>
-   *
    */
   configurations?: Array<{ [key: string]: string }>;
 
   /**
-   *
-   *          <p>Token to retrieve the next set of results. For example, if your call to
+   * <p>Token to retrieve the next set of results. For example, if your call to
    *       ListConfigurations returned 100 items, but you set
    *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with this token. Use this token in the next query to retrieve the next set of
    *       10.</p>
-   *
    */
   nextToken?: string;
 }
@@ -1846,41 +1539,31 @@ export namespace ListConfigurationsResponse {
 export interface ListServerNeighborsRequest {
   __type?: "ListServerNeighborsRequest";
   /**
-   *
-   *          <p>Configuration ID of the server for which neighbors are being listed.</p>
-   *
+   * <p>Configuration ID of the server for which neighbors are being listed.</p>
    */
   configurationId: string | undefined;
 
   /**
-   *
-   *          <p>Maximum number of results to return in a single page of output.</p>
-   *
+   * <p>Maximum number of results to return in a single page of output.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>List of configuration IDs to test for one-hop-away.</p>
-   *
+   * <p>List of configuration IDs to test for one-hop-away.</p>
    */
   neighborConfigurationIds?: Array<string>;
 
   /**
-   *
-   *          <p>Token to retrieve the next set of results. For example, if you previously specified 100
+   * <p>Token to retrieve the next set of results. For example, if you previously specified 100
    *       IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
    *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with a token. Use that token in this query to get the next set of 10.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Flag to indicate if port and protocol information is needed as part of the
+   * <p>Flag to indicate if port and protocol information is needed as part of the
    *       response.</p>
-   *
    */
   portInformationNeeded?: boolean;
 }
@@ -1894,27 +1577,21 @@ export namespace ListServerNeighborsRequest {
 export interface ListServerNeighborsResponse extends $MetadataBearer {
   __type?: "ListServerNeighborsResponse";
   /**
-   *
-   *          <p>Count of distinct servers that are one hop away from the given server.</p>
-   *
+   * <p>Count of distinct servers that are one hop away from the given server.</p>
    */
   knownDependencyCount?: number;
 
   /**
-   *
-   *          <p>List of distinct servers that are one hop away from the given server.</p>
-   *
+   * <p>List of distinct servers that are one hop away from the given server.</p>
    */
   neighbors: Array<NeighborConnectionDetail> | undefined;
 
   /**
-   *
-   *          <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
+   * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
    *         <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
    *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with this token. Use this token in the next query to retrieve the next set of
    *       10.</p>
-   *
    */
   nextToken?: string;
 }
@@ -1926,44 +1603,32 @@ export namespace ListServerNeighborsResponse {
 }
 
 /**
- *
- *          <p>Details about neighboring servers.</p>
- *
+ * <p>Details about neighboring servers.</p>
  */
 export interface NeighborConnectionDetail {
   __type?: "NeighborConnectionDetail";
   /**
-   *
-   *          <p>The number of open network connections with the neighboring server.</p>
-   *
+   * <p>The number of open network connections with the neighboring server.</p>
    */
   connectionsCount: number | undefined;
 
   /**
-   *
-   *          <p>The destination network port for the connection.</p>
-   *
+   * <p>The destination network port for the connection.</p>
    */
   destinationPort?: number;
 
   /**
-   *
-   *          <p>The ID of the server that accepted the network connection.</p>
-   *
+   * <p>The ID of the server that accepted the network connection.</p>
    */
   destinationServerId: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the server that opened the network connection.</p>
-   *
+   * <p>The ID of the server that opened the network connection.</p>
    */
   sourceServerId: string | undefined;
 
   /**
-   *
-   *          <p>The network protocol used for the connection.</p>
-   *
+   * <p>The network protocol used for the connection.</p>
    */
   transportProtocol?: string;
 }
@@ -1975,9 +1640,7 @@ export namespace NeighborConnectionDetail {
 }
 
 /**
- *
- *          <p>This operation is not permitted.</p>
- *
+ * <p>This operation is not permitted.</p>
  */
 export interface OperationNotPermittedException
   extends _smithy.SmithyException,
@@ -1995,23 +1658,17 @@ export namespace OperationNotPermittedException {
 }
 
 /**
- *
- *          <p>A field and direction for ordered output.</p>
- *
+ * <p>A field and direction for ordered output.</p>
  */
 export interface OrderByElement {
   __type?: "OrderByElement";
   /**
-   *
-   *          <p>The field on which to order.</p>
-   *
+   * <p>The field on which to order.</p>
    */
   fieldName: string | undefined;
 
   /**
-   *
-   *          <p>Ordering direction.</p>
-   *
+   * <p>Ordering direction.</p>
    */
   sortOrder?: OrderString | string;
 }
@@ -2023,13 +1680,11 @@ export namespace OrderByElement {
 }
 
 /**
- *
- *          <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
+ * <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
  *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
  *       same request token but have two different import URLs, you can encounter this issue. If the
  *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
  *       try again.</p>
- *
  */
 export interface ResourceInUseException
   extends _smithy.SmithyException,
@@ -2047,10 +1702,8 @@ export namespace ResourceInUseException {
 }
 
 /**
- *
- *          <p>The specified configuration ID was not located. Verify the configuration ID and try
+ * <p>The specified configuration ID was not located. Verify the configuration ID and try
  *       again.</p>
- *
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -2068,9 +1721,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- *
- *          <p>The server experienced an internal error. Try again.</p>
- *
+ * <p>The server experienced an internal error. Try again.</p>
  */
 export interface ServerInternalErrorException
   extends _smithy.SmithyException,
@@ -2100,30 +1751,23 @@ export namespace StartContinuousExportRequest {
 export interface StartContinuousExportResponse extends $MetadataBearer {
   __type?: "StartContinuousExportResponse";
   /**
-   *
-   *          <p>The type of data collector used to gather this data (currently only offered for
+   * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
-   *
    */
   dataSource?: DataSource | string;
 
   /**
-   *
-   *          <p>The unique ID assigned to this export.</p>
-   *
+   * <p>The unique ID assigned to this export.</p>
    */
   exportId?: string;
 
   /**
-   *
-   *          <p>The name of the s3 bucket where the export data parquet files are stored.</p>
-   *
+   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
    */
   s3Bucket?: string;
 
   /**
-   *
-   *          <p>A dictionary which describes how the data is stored.</p>
+   * <p>A dictionary which describes how the data is stored.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2131,14 +1775,11 @@ export interface StartContinuousExportResponse extends $MetadataBearer {
    *           schema.</p>
    *             </li>
    *          </ul>
-   *
    */
   schemaStorageConfig?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The timestamp representing when the continuous export was started.</p>
-   *
+   * <p>The timestamp representing when the continuous export was started.</p>
    */
   startTime?: Date;
 }
@@ -2152,15 +1793,13 @@ export namespace StartContinuousExportResponse {
 export interface StartDataCollectionByAgentIdsRequest {
   __type?: "StartDataCollectionByAgentIdsRequest";
   /**
-   *
-   *          <p>The IDs of the agents or connectors from which to start collecting data. If you send a
+   * <p>The IDs of the agents or connectors from which to start collecting data. If you send a
    *       request to an agent/connector ID that you do not have permission to contact, according to your
    *       AWS account, the service does not throw an exception. Instead, it returns the error in the
    *         <i>Description</i> field. If you send a request to multiple agents/connectors
    *       and you do not have permission to contact some of those agents/connectors, the system does not
    *       throw an exception. Instead, the system shows <code>Failed</code> in the
    *         <i>Description</i> field.</p>
-   *
    */
   agentIds: Array<string> | undefined;
 }
@@ -2174,11 +1813,9 @@ export namespace StartDataCollectionByAgentIdsRequest {
 export interface StartDataCollectionByAgentIdsResponse extends $MetadataBearer {
   __type?: "StartDataCollectionByAgentIdsResponse";
   /**
-   *
-   *          <p>Information about agents or the connector that were instructed to start collecting
+   * <p>Information about agents or the connector that were instructed to start collecting
    *       data. Information includes the agent/connector ID, a description of the operation performed,
    *       and whether the agent/connector configuration was updated.</p>
-   *
    */
   agentsConfigurationStatus?: Array<AgentConfigurationStatus>;
 }
@@ -2192,44 +1829,36 @@ export namespace StartDataCollectionByAgentIdsResponse {
 export interface StartExportTaskRequest {
   __type?: "StartExportTaskRequest";
   /**
-   *
-   *          <p>The end timestamp for exported data from the single Application Discovery Agent
+   * <p>The end timestamp for exported data from the single Application Discovery Agent
    *       selected in the filters. If no value is specified, exported data includes the most recent data
    *       collected by the agent.</p>
-   *
    */
   endTime?: Date;
 
   /**
-   *
-   *          <p>The file format for the returned export data. Default value is <code>CSV</code>.
+   * <p>The file format for the returned export data. Default value is <code>CSV</code>.
    *         <b>Note:</b>
    *             <i>The</i>
    *             <code>GRAPHML</code>
    *             <i>option has been deprecated.</i>
    *          </p>
-   *
    */
   exportDataFormat?: Array<ExportDataFormat | string>;
 
   /**
-   *
-   *          <p>If a filter is present, it selects the single <code>agentId</code> of the Application
+   * <p>If a filter is present, it selects the single <code>agentId</code> of the Application
    *       Discovery Agent for which data is exported. The <code>agentId</code> can be found in the
    *       results of the <code>DescribeAgents</code> API or CLI. If no filter is present,
    *         <code>startTime</code> and <code>endTime</code> are ignored and exported data includes both
    *       Agentless Discovery Connector data and summary data from Application Discovery agents.
    *     </p>
-   *
    */
   filters?: Array<ExportFilter>;
 
   /**
-   *
-   *          <p>The start timestamp for exported data from the single Application Discovery Agent
+   * <p>The start timestamp for exported data from the single Application Discovery Agent
    *       selected in the filters. If no value is specified, data is exported starting from the first
    *       data collected by the agent.</p>
-   *
    */
   startTime?: Date;
 }
@@ -2243,9 +1872,7 @@ export namespace StartExportTaskRequest {
 export interface StartExportTaskResponse extends $MetadataBearer {
   __type?: "StartExportTaskResponse";
   /**
-   *
-   *          <p>A unique identifier used to query the status of an export request.</p>
-   *
+   * <p>A unique identifier used to query the status of an export request.</p>
    */
   exportId?: string;
 }
@@ -2259,38 +1886,31 @@ export namespace StartExportTaskResponse {
 export interface StartImportTaskRequest {
   __type?: "StartImportTaskRequest";
   /**
-   *
-   *          <p>Optional. A unique token that you can provide to prevent the same import request from
+   * <p>Optional. A unique token that you can provide to prevent the same import request from
    *       occurring more than once. If you don't provide a token, a token is automatically
    *       generated.</p>
    *
    *          <p>Sending more than one <code>StartImportTask</code> request with the same client request
    *       token will return information about the original import task with that client request
    *       token.</p>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *          <p>The URL for your import file that you've uploaded to Amazon S3.</p>
+   * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
    *
    *          <note>
    *             <p>If you're using the AWS CLI, this URL is structured as follows:
    *           <code>s3://BucketName/ImportFileName.CSV</code>
    *             </p>
    *          </note>
-   *
-   *
    */
   importUrl: string | undefined;
 
   /**
-   *
-   *          <p>A descriptive name for this request. You can use this name to filter future requests
+   * <p>A descriptive name for this request. You can use this name to filter future requests
    *       related to this import task, such as identifying applications and servers that were included
    *       in this import task. We recommend that you use a meaningful name for each import task.</p>
-   *
    */
   name: string | undefined;
 }
@@ -2304,10 +1924,8 @@ export namespace StartImportTaskRequest {
 export interface StartImportTaskResponse extends $MetadataBearer {
   __type?: "StartImportTaskResponse";
   /**
-   *
-   *          <p>An array of information related to the import task request including status information,
+   * <p>An array of information related to the import task request including status information,
    *       times, IDs, the Amazon S3 Object URL for the import file, and more. </p>
-   *
    */
   task?: ImportTask;
 }
@@ -2321,9 +1939,7 @@ export namespace StartImportTaskResponse {
 export interface StopContinuousExportRequest {
   __type?: "StopContinuousExportRequest";
   /**
-   *
-   *          <p>The unique ID assigned to this export.</p>
-   *
+   * <p>The unique ID assigned to this export.</p>
    */
   exportId: string | undefined;
 }
@@ -2337,17 +1953,13 @@ export namespace StopContinuousExportRequest {
 export interface StopContinuousExportResponse extends $MetadataBearer {
   __type?: "StopContinuousExportResponse";
   /**
-   *
-   *          <p>Timestamp that represents when this continuous export started collecting
+   * <p>Timestamp that represents when this continuous export started collecting
    *       data.</p>
-   *
    */
   startTime?: Date;
 
   /**
-   *
-   *          <p>Timestamp that represents when this continuous export was stopped.</p>
-   *
+   * <p>Timestamp that represents when this continuous export was stopped.</p>
    */
   stopTime?: Date;
 }
@@ -2361,9 +1973,7 @@ export namespace StopContinuousExportResponse {
 export interface StopDataCollectionByAgentIdsRequest {
   __type?: "StopDataCollectionByAgentIdsRequest";
   /**
-   *
-   *          <p>The IDs of the agents or connectors from which to stop collecting data.</p>
-   *
+   * <p>The IDs of the agents or connectors from which to stop collecting data.</p>
    */
   agentIds: Array<string> | undefined;
 }
@@ -2377,11 +1987,9 @@ export namespace StopDataCollectionByAgentIdsRequest {
 export interface StopDataCollectionByAgentIdsResponse extends $MetadataBearer {
   __type?: "StopDataCollectionByAgentIdsResponse";
   /**
-   *
-   *          <p>Information about the agents or connector that were instructed to stop collecting data.
+   * <p>Information about the agents or connector that were instructed to stop collecting data.
    *       Information includes the agent/connector ID, a description of the operation performed, and
    *       whether the agent/connector configuration was updated.</p>
-   *
    */
   agentsConfigurationStatus?: Array<AgentConfigurationStatus>;
 }
@@ -2393,23 +2001,17 @@ export namespace StopDataCollectionByAgentIdsResponse {
 }
 
 /**
- *
- *          <p>Metadata that help you categorize IT assets.</p>
- *
+ * <p>Metadata that help you categorize IT assets.</p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *          <p>The type of tag on which to filter.</p>
-   *
+   * <p>The type of tag on which to filter.</p>
    */
   key: string | undefined;
 
   /**
-   *
-   *          <p>A value for a tag key on which to filter.</p>
-   *
+   * <p>A value for a tag key on which to filter.</p>
    */
   value: string | undefined;
 }
@@ -2421,24 +2023,18 @@ export namespace Tag {
 }
 
 /**
- *
- *          <p>The tag filter. Valid names are: <code>tagKey</code>, <code>tagValue</code>,
+ * <p>The tag filter. Valid names are: <code>tagKey</code>, <code>tagValue</code>,
  *         <code>configurationId</code>.</p>
- *
  */
 export interface TagFilter {
   __type?: "TagFilter";
   /**
-   *
-   *          <p>A name of the tag filter.</p>
-   *
+   * <p>A name of the tag filter.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>Values for the tag filter.</p>
-   *
+   * <p>Values for the tag filter.</p>
    */
   values: Array<string> | undefined;
 }
@@ -2452,23 +2048,17 @@ export namespace TagFilter {
 export interface UpdateApplicationRequest {
   __type?: "UpdateApplicationRequest";
   /**
-   *
-   *          <p>Configuration ID of the application to be updated.</p>
-   *
+   * <p>Configuration ID of the application to be updated.</p>
    */
   configurationId: string | undefined;
 
   /**
-   *
-   *          <p>New description of the application to be updated.</p>
-   *
+   * <p>New description of the application to be updated.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>New name of the application to be updated.</p>
-   *
+   * <p>New name of the application to be updated.</p>
    */
   name?: string;
 }

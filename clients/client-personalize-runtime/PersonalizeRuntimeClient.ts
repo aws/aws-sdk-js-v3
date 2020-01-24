@@ -172,9 +172,7 @@ export type PersonalizeRuntimeClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export class PersonalizeRuntimeClient extends __Client<
   __HttpHandlerOptions,

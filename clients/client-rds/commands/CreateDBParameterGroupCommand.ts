@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   CreateDBParameterGroupMessage,
-  DBParameterGroup
+  CreateDBParameterGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateDBParameterGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBParameterGroupCommandInput = CreateDBParameterGroupMessage;
-export type CreateDBParameterGroupCommandOutput = DBParameterGroup;
+export type CreateDBParameterGroupCommandOutput = CreateDBParameterGroupResult;
 
 export class CreateDBParameterGroupCommand extends $Command<
   CreateDBParameterGroupCommandInput,

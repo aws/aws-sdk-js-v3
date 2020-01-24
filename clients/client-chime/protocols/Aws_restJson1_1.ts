@@ -11,6 +11,10 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
 } from "../commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
 import {
+  AssociateSigninDelegateGroupsWithAccountCommandInput,
+  AssociateSigninDelegateGroupsWithAccountCommandOutput
+} from "../commands/AssociateSigninDelegateGroupsWithAccountCommand";
+import {
   BatchCreateAttendeeCommandInput,
   BatchCreateAttendeeCommandOutput
 } from "../commands/BatchCreateAttendeeCommand";
@@ -66,6 +70,10 @@ import {
   CreateRoomMembershipCommandInput,
   CreateRoomMembershipCommandOutput
 } from "../commands/CreateRoomMembershipCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "../commands/CreateUserCommand";
 import {
   CreateVoiceConnectorCommandInput,
   CreateVoiceConnectorCommandOutput
@@ -138,6 +146,10 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
 } from "../commands/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand";
+import {
+  DisassociateSigninDelegateGroupsFromAccountCommandInput,
+  DisassociateSigninDelegateGroupsFromAccountCommandOutput
+} from "../commands/DisassociateSigninDelegateGroupsFromAccountCommand";
 import {
   GetAccountCommandInput,
   GetAccountCommandOutput
@@ -366,6 +378,7 @@ import {
   AccessDeniedException,
   Account,
   AccountSettings,
+  AlexaForBusinessMetadata,
   Attendee,
   BadRequestException,
   Bot,
@@ -399,6 +412,7 @@ import {
   RoomMembership,
   ServiceFailureException,
   ServiceUnavailableException,
+  SigninDelegateGroup,
   StreamingConfiguration,
   TelephonySettings,
   Termination,
@@ -556,6 +570,47 @@ export async function serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConn
   }
   if (input.ForceAssociate !== undefined) {
     bodyParams["ForceAssociate"] = input.ForceAssociate;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    query: query,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1AssociateSigninDelegateGroupsWithAccountCommand(
+  input: AssociateSigninDelegateGroupsWithAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/accounts/{AccountId}";
+  if (input.AccountId !== undefined) {
+    const labelValue: any = input.AccountId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
+  }
+  const query: any = {
+    operation: "associate-signin-delegate-groups"
+  };
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.SigninDelegateGroups !== undefined) {
+    bodyParams[
+      "SigninDelegateGroups"
+    ] = serializeAws_restJson1_1SigninDelegateGroupList(
+      input.SigninDelegateGroups,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1070,6 +1125,48 @@ export async function serializeAws_restJson1_1CreateRoomMembershipCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1CreateUserCommand(
+  input: CreateUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/accounts/{AccountId}/users";
+  if (input.AccountId !== undefined) {
+    const labelValue: any = input.AccountId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
+  }
+  const query: any = {
+    operation: "create"
+  };
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.Email !== undefined) {
+    bodyParams["Email"] = input.Email;
+  }
+  if (input.UserType !== undefined) {
+    bodyParams["UserType"] = input.UserType;
+  }
+  if (input.Username !== undefined) {
+    bodyParams["Username"] = input.Username;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    query: query,
     body: body
   });
 }
@@ -1660,6 +1757,45 @@ export async function serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceC
       "E164PhoneNumbers"
     ] = serializeAws_restJson1_1E164PhoneNumberList(
       input.E164PhoneNumbers,
+      context
+    );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    query: query,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(
+  input: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/accounts/{AccountId}";
+  if (input.AccountId !== undefined) {
+    const labelValue: any = input.AccountId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AccountId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: AccountId.");
+  }
+  const query: any = {
+    operation: "disassociate-signin-delegate-groups"
+  };
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.GroupNames !== undefined) {
+    bodyParams["GroupNames"] = serializeAws_restJson1_1NonEmptyStringList(
+      input.GroupNames,
       context
     );
   }
@@ -2274,6 +2410,9 @@ export async function serializeAws_restJson1_1InviteUsersCommand(
       context
     );
   }
+  if (input.UserType !== undefined) {
+    bodyParams["UserType"] = input.UserType;
+  }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
     ...context.endpoint,
@@ -2569,6 +2708,9 @@ export async function serializeAws_restJson1_1ListUsersCommand(
   }
   if (input.UserEmail !== undefined) {
     query["user-email"] = input.UserEmail.toString();
+  }
+  if (input.UserType !== undefined) {
+    query["user-type"] = input.UserType.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3418,8 +3560,19 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.AlexaForBusinessMetadata !== undefined) {
+    bodyParams[
+      "AlexaForBusinessMetadata"
+    ] = serializeAws_restJson1_1AlexaForBusinessMetadata(
+      input.AlexaForBusinessMetadata,
+      context
+    );
+  }
   if (input.LicenseType !== undefined) {
     bodyParams["LicenseType"] = input.LicenseType;
+  }
+  if (input.UserType !== undefined) {
+    bodyParams["UserType"] = input.UserType;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -3869,6 +4022,97 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1AssociateSigninDelegateGroupsWithAccountCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1AssociateSigninDelegateGroupsWithAccountCommandError(
+      output,
+      context
+    );
+  }
+  const contents: AssociateSigninDelegateGroupsWithAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "AssociateSigninDelegateGroupsWithAccountResponse"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1AssociateSigninDelegateGroupsWithAccountCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
+      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
+      response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1BatchCreateAttendeeCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -4048,6 +4292,13 @@ async function deserializeAws_restJson1_1BatchCreateRoomMembershipCommandError(
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
         output,
         context
       );
@@ -4839,6 +5090,13 @@ async function deserializeAws_restJson1_1CreateBotCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -5131,6 +5389,13 @@ async function deserializeAws_restJson1_1CreateRoomCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -5233,6 +5498,113 @@ async function deserializeAws_restJson1_1CreateRoomMembershipCommandError(
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
+      response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1CreateUserCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserCommandOutput> {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1CreateUserCommandError(output, context);
+  }
+  const contents: CreateUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateUserResponse",
+    User: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.User !== undefined) {
+    contents.User = deserializeAws_restJson1_1User(data.User, context);
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1CreateUserCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ConflictException":
+    case "com.amazonaws.ucbuzzconsoleservice#ConflictException":
+      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
+      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
         output,
         context
       );
@@ -5974,6 +6346,13 @@ async function deserializeAws_restJson1_1DeleteRoomCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -6053,6 +6432,13 @@ async function deserializeAws_restJson1_1DeleteRoomMembershipCommandError(
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
         output,
         context
       );
@@ -6922,6 +7308,97 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DisassociateSigninDelegateGroupsFromAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DisassociateSigninDelegateGroupsFromAccountResponse"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
+      response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
+      response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1GetAccountCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -7270,6 +7747,13 @@ async function deserializeAws_restJson1_1GetBotCommandError(
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
         output,
         context
       );
@@ -7940,6 +8424,13 @@ async function deserializeAws_restJson1_1GetRoomCommandError(
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
         output,
         context
       );
@@ -9215,6 +9706,13 @@ async function deserializeAws_restJson1_1ListBotsCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -9596,6 +10094,13 @@ async function deserializeAws_restJson1_1ListRoomMembershipsCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -9682,6 +10187,13 @@ async function deserializeAws_restJson1_1ListRoomsCommandError(
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
         output,
         context
       );
@@ -10843,6 +11355,13 @@ async function deserializeAws_restJson1_1RegenerateSecurityTokenCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -11421,6 +11940,13 @@ async function deserializeAws_restJson1_1UpdateBotCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -11772,6 +12298,13 @@ async function deserializeAws_restJson1_1UpdateRoomCommandError(
         context
       );
       break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
@@ -11860,6 +12393,13 @@ async function deserializeAws_restJson1_1UpdateRoomMembershipCommandError(
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
+      response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
         output,
         context
       );
@@ -12530,6 +13070,20 @@ const serializeAws_restJson1_1AccountSettings = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1AlexaForBusinessMetadata = (
+  input: AlexaForBusinessMetadata,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AlexaForBusinessRoomArn !== undefined) {
+    bodyParams["AlexaForBusinessRoomArn"] = input.AlexaForBusinessRoomArn;
+  }
+  if (input.IsAlexaForBusinessEnabled !== undefined) {
+    bodyParams["IsAlexaForBusinessEnabled"] = input.IsAlexaForBusinessEnabled;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1BusinessCallingSettings = (
   input: BusinessCallingSettings,
   context: __SerdeContext
@@ -12709,6 +13263,26 @@ const serializeAws_restJson1_1SensitiveStringList = (
   return (input || []).map(entry => entry);
 };
 
+const serializeAws_restJson1_1SigninDelegateGroup = (
+  input: SigninDelegateGroup,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.GroupName !== undefined) {
+    bodyParams["GroupName"] = input.GroupName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1SigninDelegateGroupList = (
+  input: Array<SigninDelegateGroup>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1SigninDelegateGroup(entry, context)
+  );
+};
+
 const serializeAws_restJson1_1StreamingConfiguration = (
   input: StreamingConfiguration,
   context: __SerdeContext
@@ -12807,11 +13381,22 @@ const serializeAws_restJson1_1UpdateUserRequestItem = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.AlexaForBusinessMetadata !== undefined) {
+    bodyParams[
+      "AlexaForBusinessMetadata"
+    ] = serializeAws_restJson1_1AlexaForBusinessMetadata(
+      input.AlexaForBusinessMetadata,
+      context
+    );
+  }
   if (input.LicenseType !== undefined) {
     bodyParams["LicenseType"] = input.LicenseType;
   }
   if (input.UserId !== undefined) {
     bodyParams["UserId"] = input.UserId;
+  }
+  if (input.UserType !== undefined) {
+    bodyParams["UserType"] = input.UserType;
   }
   return bodyParams;
 };
@@ -12899,6 +13484,7 @@ const deserializeAws_restJson1_1Account = (
     CreatedTimestamp: undefined,
     DefaultLicense: undefined,
     Name: undefined,
+    SigninDelegateGroups: undefined,
     SupportedLicenses: undefined
   };
   if (output.AccountId !== undefined) {
@@ -12918,6 +13504,12 @@ const deserializeAws_restJson1_1Account = (
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
+  }
+  if (output.SigninDelegateGroups !== undefined) {
+    contents.SigninDelegateGroups = deserializeAws_restJson1_1SigninDelegateGroupList(
+      output.SigninDelegateGroups,
+      context
+    );
   }
   if (output.SupportedLicenses !== undefined) {
     contents.SupportedLicenses = deserializeAws_restJson1_1LicenseList(
@@ -12951,6 +13543,24 @@ const deserializeAws_restJson1_1AccountSettings = (
   }
   if (output.EnableDialOut !== undefined) {
     contents.EnableDialOut = output.EnableDialOut;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AlexaForBusinessMetadata = (
+  output: any,
+  context: __SerdeContext
+): AlexaForBusinessMetadata => {
+  let contents: any = {
+    __type: "AlexaForBusinessMetadata",
+    AlexaForBusinessRoomArn: undefined,
+    IsAlexaForBusinessEnabled: undefined
+  };
+  if (output.AlexaForBusinessRoomArn !== undefined) {
+    contents.AlexaForBusinessRoomArn = output.AlexaForBusinessRoomArn;
+  }
+  if (output.IsAlexaForBusinessEnabled !== undefined) {
+    contents.IsAlexaForBusinessEnabled = output.IsAlexaForBusinessEnabled;
   }
   return contents;
 };
@@ -13698,6 +14308,29 @@ const deserializeAws_restJson1_1SensitiveStringList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1_1SigninDelegateGroup = (
+  output: any,
+  context: __SerdeContext
+): SigninDelegateGroup => {
+  let contents: any = {
+    __type: "SigninDelegateGroup",
+    GroupName: undefined
+  };
+  if (output.GroupName !== undefined) {
+    contents.GroupName = output.GroupName;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1SigninDelegateGroupList = (
+  output: any,
+  context: __SerdeContext
+): Array<SigninDelegateGroup> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1SigninDelegateGroup(entry, context)
+  );
+};
+
 const deserializeAws_restJson1_1StreamingConfiguration = (
   output: any,
   context: __SerdeContext
@@ -13806,6 +14439,7 @@ const deserializeAws_restJson1_1User = (
   let contents: any = {
     __type: "User",
     AccountId: undefined,
+    AlexaForBusinessMetadata: undefined,
     DisplayName: undefined,
     InvitedOn: undefined,
     LicenseType: undefined,
@@ -13815,10 +14449,17 @@ const deserializeAws_restJson1_1User = (
     RegisteredOn: undefined,
     UserId: undefined,
     UserInvitationStatus: undefined,
-    UserRegistrationStatus: undefined
+    UserRegistrationStatus: undefined,
+    UserType: undefined
   };
   if (output.AccountId !== undefined) {
     contents.AccountId = output.AccountId;
+  }
+  if (output.AlexaForBusinessMetadata !== undefined) {
+    contents.AlexaForBusinessMetadata = deserializeAws_restJson1_1AlexaForBusinessMetadata(
+      output.AlexaForBusinessMetadata,
+      context
+    );
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -13849,6 +14490,9 @@ const deserializeAws_restJson1_1User = (
   }
   if (output.UserRegistrationStatus !== undefined) {
     contents.UserRegistrationStatus = output.UserRegistrationStatus;
+  }
+  if (output.UserType !== undefined) {
+    contents.UserType = output.UserType;
   }
   return contents;
 };

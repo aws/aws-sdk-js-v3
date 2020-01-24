@@ -180,8 +180,7 @@ export type SSOClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
+ * <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
  *       access to AWS SSO resources such as the user portal. Users can get AWS account applications
  *       and roles assigned to them and get federated into the application.</p>
  *
@@ -197,7 +196,6 @@ export type SSOClientResolvedConfig = __SmithyResolvedConfiguration<
  *         convenient way to create programmatic access to AWS SSO and other AWS services. For more
  *         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
- *
  */
 export class SSOClient extends __Client<
   __HttpHandlerOptions,

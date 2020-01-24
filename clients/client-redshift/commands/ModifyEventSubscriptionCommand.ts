@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  EventSubscription,
-  ModifyEventSubscriptionMessage
+  ModifyEventSubscriptionMessage,
+  ModifyEventSubscriptionResult
 } from "../models/index";
 import {
   deserializeAws_queryModifyEventSubscriptionCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
-export type ModifyEventSubscriptionCommandOutput = EventSubscription;
+export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult;
 
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,

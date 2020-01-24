@@ -5,7 +5,7 @@ import {
 } from "../RedshiftClient";
 import {
   CreateHsmClientCertificateMessage,
-  HsmClientCertificate
+  CreateHsmClientCertificateResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateHsmClientCertificateCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateHsmClientCertificateCommandInput = CreateHsmClientCertificateMessage;
-export type CreateHsmClientCertificateCommandOutput = HsmClientCertificate;
+export type CreateHsmClientCertificateCommandOutput = CreateHsmClientCertificateResult;
 
 export class CreateHsmClientCertificateCommand extends $Command<
   CreateHsmClientCertificateCommandInput,

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { CacheCluster, DeleteCacheClusterMessage } from "../models/index";
+import {
+  DeleteCacheClusterMessage,
+  DeleteCacheClusterResult
+} from "../models/index";
 import {
   deserializeAws_queryDeleteCacheClusterCommand,
   serializeAws_queryDeleteCacheClusterCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCacheClusterCommandInput = DeleteCacheClusterMessage;
-export type DeleteCacheClusterCommandOutput = CacheCluster;
+export type DeleteCacheClusterCommandOutput = DeleteCacheClusterResult;
 
 export class DeleteCacheClusterCommand extends $Command<
   DeleteCacheClusterCommandInput,

@@ -330,8 +330,7 @@ export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>AWS CodeDeploy</fullname>
+ * <fullname>AWS CodeDeploy</fullname>
  *         <p>AWS CodeDeploy is a deployment service that automates application deployments to
  *             Amazon EC2 instances, on-premises instances running in your own facility, serverless
  *             AWS Lambda functions, or applications in an Amazon ECS service.</p>
@@ -431,7 +430,6 @@ export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<
  *                 </p>
  *             </li>
  *          </ul>
- *
  */
 export class CodeDeployClient extends __Client<
   __HttpHandlerOptions,

@@ -252,8 +252,7 @@ export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- * 		       <p>Here's how you set up to query an Amazon Route 53 private hosted zone from your network:</p>
+ * <p>Here's how you set up to query an Amazon Route 53 private hosted zone from your network:</p>
  *
  * 		       <ol>
  *             <li>
@@ -296,8 +295,6 @@ export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<
  * 		       <p>
  *             <code>delete-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code>
  *          </p>
- *
- *
  */
 export class Route53ResolverClient extends __Client<
   __HttpHandlerOptions,

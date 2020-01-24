@@ -5,7 +5,7 @@ import {
 } from "../ElastiCacheClient";
 import {
   ModifyReplicationGroupMessage,
-  ReplicationGroup
+  ModifyReplicationGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryModifyReplicationGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyReplicationGroupCommandInput = ModifyReplicationGroupMessage;
-export type ModifyReplicationGroupCommandOutput = ReplicationGroup;
+export type ModifyReplicationGroupCommandOutput = ModifyReplicationGroupResult;
 
 export class ModifyReplicationGroupCommand extends $Command<
   ModifyReplicationGroupCommandInput,

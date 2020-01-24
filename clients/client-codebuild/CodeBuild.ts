@@ -55,6 +55,11 @@ import {
   DeleteReportGroupCommandOutput
 } from "./commands/DeleteReportGroupCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteSourceCredentialsCommand,
   DeleteSourceCredentialsCommandInput,
   DeleteSourceCredentialsCommandOutput
@@ -69,6 +74,11 @@ import {
   DescribeTestCasesCommandInput,
   DescribeTestCasesCommandOutput
 } from "./commands/DescribeTestCasesCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput
+} from "./commands/GetResourcePolicyCommand";
 import {
   ImportSourceCredentialsCommand,
   ImportSourceCredentialsCommandInput,
@@ -115,10 +125,25 @@ import {
   ListReportsForReportGroupCommandOutput
 } from "./commands/ListReportsForReportGroupCommand";
 import {
+  ListSharedProjectsCommand,
+  ListSharedProjectsCommandInput,
+  ListSharedProjectsCommandOutput
+} from "./commands/ListSharedProjectsCommand";
+import {
+  ListSharedReportGroupsCommand,
+  ListSharedReportGroupsCommandInput,
+  ListSharedReportGroupsCommandOutput
+} from "./commands/ListSharedReportGroupsCommand";
+import {
   ListSourceCredentialsCommand,
   ListSourceCredentialsCommandInput,
   ListSourceCredentialsCommandOutput
 } from "./commands/ListSourceCredentialsCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput
+} from "./commands/PutResourcePolicyCommand";
 import {
   StartBuildCommand,
   StartBuildCommandInput,
@@ -147,8 +172,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS CodeBuild</fullname>
+ * <fullname>AWS CodeBuild</fullname>
  *          <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
  *          runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need
  *          to provision, manage, and scale your own build servers. It provides prepackaged build
@@ -220,6 +244,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DeleteResourcePolicy</code>:  Deletes a resource policy that is identified by its resource ARN.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub Enterprise,
  *                or Bitbucket source credentials.</p>
  *             </li>
@@ -231,7 +260,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                <p>
- *                   <code>DescribeTestCases</code>:  Returns a list of details about test cases for a report.
+ *                   <code>DescribeTestCases</code>: Returns a list of details about test cases for a report.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>GetResourcePolicy</code>:  Gets a resource policy that is identified by its resource ARN.
  *             </p>
  *             </li>
  *             <li>
@@ -280,8 +314,21 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects shared with the current AWS account or user.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with report groups shared with the current AWS account or user</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>ListSourceCredentials</code>: Returns a list of <code>SourceCredentialsInfo</code> objects. Each <code>SourceCredentialsInfo</code> object includes
  *                the authentication type, token ARN, and type of source provider for one set of credentials.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PutResourcePolicy</code>:  Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object.
+ *             </p>
  *             </li>
  *             <li>
  *                <p>
@@ -305,13 +352,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                   <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p>
  *             </li>
  *          </ul>
- *
  */
 export class CodeBuild extends CodeBuildClient {
   /**
-   *
-   *          <p>Deletes one or more builds.</p>
-   *
+   * <p>Deletes one or more builds.</p>
    */
   public batchDeleteBuilds(
     args: BatchDeleteBuildsCommandInput,
@@ -346,9 +390,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Gets information about one or more builds.</p>
-   *
+   * <p>Gets information about one or more builds.</p>
    */
   public batchGetBuilds(
     args: BatchGetBuildsCommandInput,
@@ -383,9 +425,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Gets information about one or more build projects.</p>
-   *
+   * <p>Gets information about one or more build projects.</p>
    */
   public batchGetProjects(
     args: BatchGetProjectsCommandInput,
@@ -420,11 +460,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Returns an array of report groups.
    *       </p>
-   *
    */
   public batchGetReportGroups(
     args: BatchGetReportGroupsCommandInput,
@@ -459,11 +497,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Returns an array of reports.
    *       </p>
-   *
    */
   public batchGetReports(
     args: BatchGetReportsCommandInput,
@@ -498,9 +534,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Creates a build project.</p>
-   *
+   * <p>Creates a build project.</p>
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -535,11 +569,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Creates a report group. A report group contains a collection of reports.
    *       </p>
-   *
    */
   public createReportGroup(
     args: CreateReportGroupCommandInput,
@@ -574,8 +606,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
+   * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
    *          Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a code
    *          change is pushed to the repository.</p>
    *          <important>
@@ -587,7 +618,6 @@ export class CodeBuild extends CodeBuildClient {
    *             information, see step 5 in <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change a
    *                Build Project's Settings</a>.</p>
    *          </important>
-   *
    */
   public createWebhook(
     args: CreateWebhookCommandInput,
@@ -622,12 +652,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Deletes a build project. When you delete a project, its builds are not deleted.
    *       </p>
-   *
-   *
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -662,11 +689,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Deletes a report.
    *       </p>
-   *
    */
   public deleteReport(
     args: DeleteReportCommandInput,
@@ -701,14 +726,12 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             <code>DeleteReportGroup</code>: Deletes a report group. Before you delete a report group, you must
    *          delete its reports. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a> to
    *          get the reports in a report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html">DeleteReport</a> to delete the reports. If you call
    *          <code>DeleteReportGroup</code> for a report group that contains one or more reports, an exception is thrown.
    *       </p>
-   *
    */
   public deleteReportGroup(
     args: DeleteReportGroupCommandInput,
@@ -743,11 +766,46 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
+   *          Deletes a resource policy that is identified by its resource ARN.
+   *       </p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
    *          Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
    *       </p>
-   *
    */
   public deleteSourceCredentials(
     args: DeleteSourceCredentialsCommandInput,
@@ -782,11 +840,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
+   * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
    *          Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code change
    *          is pushed to the repository.</p>
-   *
    */
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
@@ -821,11 +877,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Returns a list of details about test cases for a report.
    *       </p>
-   *
    */
   public describeTestCases(
     args: DescribeTestCasesCommandInput,
@@ -860,12 +914,47 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
+   *          Gets a resource policy that is identified by its resource ARN.
+   *       </p>
+   */
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  public getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): Promise<GetResourcePolicyCommandOutput> | void {
+    const command = new GetResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
    *          Imports the source repository credentials for an AWS CodeBuild project that has its source code stored
    *          in a GitHub, GitHub Enterprise, or Bitbucket repository.
    *       </p>
-   *
    */
   public importSourceCredentials(
     args: ImportSourceCredentialsCommandInput,
@@ -900,9 +989,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Resets the cache for a project.</p>
-   *
+   * <p>Resets the cache for a project.</p>
    */
   public invalidateProjectCache(
     args: InvalidateProjectCacheCommandInput,
@@ -937,9 +1024,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of build IDs, with each build ID representing a single build.</p>
-   *
+   * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
    */
   public listBuilds(
     args: ListBuildsCommandInput,
@@ -974,10 +1059,8 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of build IDs for the specified build project, with each build ID
+   * <p>Gets a list of build IDs for the specified build project, with each build ID
    *          representing a single build.</p>
-   *
    */
   public listBuildsForProject(
     args: ListBuildsForProjectCommandInput,
@@ -1012,9 +1095,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Gets information about Docker images that are managed by AWS CodeBuild.</p>
-   *
+   * <p>Gets information about Docker images that are managed by AWS CodeBuild.</p>
    */
   public listCuratedEnvironmentImages(
     args: ListCuratedEnvironmentImagesCommandInput,
@@ -1049,10 +1130,8 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of build project names, with each build project name representing a single
+   * <p>Gets a list of build project names, with each build project name representing a single
    *          build project.</p>
-   *
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -1087,11 +1166,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Gets a list ARNs for the report groups in the current AWS account.
    *       </p>
-   *
    */
   public listReportGroups(
     args: ListReportGroupsCommandInput,
@@ -1126,11 +1203,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Returns a list of ARNs for the reports in the current AWS account.
    *       </p>
-   *
    */
   public listReports(
     args: ListReportsCommandInput,
@@ -1165,11 +1240,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
    *       </p>
-   *
    */
   public listReportsForReportGroup(
     args: ListReportsForReportGroupCommandInput,
@@ -1204,11 +1277,83 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
+   *          Gets a list of projects that are shared with other AWS accounts or users.
+   *       </p>
+   */
+  public listSharedProjects(
+    args: ListSharedProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSharedProjectsCommandOutput>;
+  public listSharedProjects(
+    args: ListSharedProjectsCommandInput,
+    cb: (err: any, data?: ListSharedProjectsCommandOutput) => void
+  ): void;
+  public listSharedProjects(
+    args: ListSharedProjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSharedProjectsCommandOutput) => void
+  ): void;
+  public listSharedProjects(
+    args: ListSharedProjectsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSharedProjectsCommandOutput) => void),
+    cb?: (err: any, data?: ListSharedProjectsCommandOutput) => void
+  ): Promise<ListSharedProjectsCommandOutput> | void {
+    const command = new ListSharedProjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Gets a list of report groups that are shared with other AWS accounts or users.
+   *       </p>
+   */
+  public listSharedReportGroups(
+    args: ListSharedReportGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSharedReportGroupsCommandOutput>;
+  public listSharedReportGroups(
+    args: ListSharedReportGroupsCommandInput,
+    cb: (err: any, data?: ListSharedReportGroupsCommandOutput) => void
+  ): void;
+  public listSharedReportGroups(
+    args: ListSharedReportGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSharedReportGroupsCommandOutput) => void
+  ): void;
+  public listSharedReportGroups(
+    args: ListSharedReportGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSharedReportGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListSharedReportGroupsCommandOutput) => void
+  ): Promise<ListSharedReportGroupsCommandOutput> | void {
+    const command = new ListSharedReportGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
    *          Returns a list of <code>SourceCredentialsInfo</code> objects.
    *       </p>
-   *
    */
   public listSourceCredentials(
     args: ListSourceCredentialsCommandInput,
@@ -1243,9 +1388,45 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Starts running a build.</p>
-   *
+   * <p>
+   *          Stores a resource policy for the ARN of a <code>Project</code> or
+   *          <code>ReportGroup</code> object.
+   *       </p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts running a build.</p>
    */
   public startBuild(
     args: StartBuildCommandInput,
@@ -1280,9 +1461,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Attempts to stop running a build.</p>
-   *
+   * <p>Attempts to stop running a build.</p>
    */
   public stopBuild(
     args: StopBuildCommandInput,
@@ -1317,9 +1496,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>Changes the settings of a build project.</p>
-   *
+   * <p>Changes the settings of a build project.</p>
    */
   public updateProject(
     args: UpdateProjectCommandInput,
@@ -1354,11 +1531,9 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *          Updates a report group.
    *       </p>
-   *
    */
   public updateReportGroup(
     args: UpdateReportGroupCommandInput,
@@ -1393,13 +1568,11 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   *
-   *          <p> Updates the webhook associated with an AWS CodeBuild build project. </p>
+   * <p> Updates the webhook associated with an AWS CodeBuild build project. </p>
    *          <note>
    *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
    *          </p>
    *          </note>
-   *
    */
   public updateWebhook(
     args: UpdateWebhookCommandInput,

@@ -22,15 +22,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p></p>
- *
+ * <p></p>
  */
 export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   /**
-   *
-   *
-   *         <p>Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You
+   * <p>Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You
    *             can then open the URL in a media player to view the stream contents.</p>
    *
    *         <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
@@ -201,8 +197,6 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
    *             </p>
    *         </important>
-   *
-   *
    */
   public getDASHStreamingSessionURL(
     args: GetDASHStreamingSessionURLCommandInput,
@@ -237,8 +231,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
-   *
-   *         <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL
+   * <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL
    *             in a browser or media player to view the stream contents.</p>
    *         <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
    *             optional, but you must specify either the <code>StreamName</code> or the
@@ -440,7 +433,6 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
    *             </p>
    *         </important>
-   *
    */
   public getHLSStreamingSessionURL(
     args: GetHLSStreamingSessionURLCommandInput,
@@ -475,8 +467,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
-   *
-   *         <p>Gets media for a list of fragments (specified by fragment number) from the archived
+   * <p>Gets media for a list of fragments (specified by fragment number) from the archived
    *             data in an Amazon Kinesis video stream.</p>
    *
    *         <note>
@@ -525,8 +516,6 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
    *             </p>
    *         </important>
-   *
-   *
    */
   public getMediaForFragmentList(
     args: GetMediaForFragmentListCommandInput,
@@ -561,8 +550,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of <a>Fragment</a> objects from the specified stream and
+   * <p>Returns a list of <a>Fragment</a> objects from the specified stream and
    *             timestamp range within the archived data.</p>
    *         <p>Listing fragments is eventually consistent. This means that even if the producer
    *             receives an acknowledgment that a fragment is persisted, the result might not be
@@ -599,8 +587,6 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
    *             </p>
    *         </important>
-   *
-   *
    */
   public listFragments(
     args: ListFragmentsCommandInput,

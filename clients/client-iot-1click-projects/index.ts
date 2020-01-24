@@ -11,5 +11,8 @@ export * from "./commands/DisassociateDeviceFromPlacementCommand";
 export * from "./commands/GetDevicesInPlacementCommand";
 export * from "./commands/ListPlacementsCommand";
 export * from "./commands/ListProjectsCommand";
+export * from "./commands/ListTagsForResourceCommand";
+export * from "./commands/TagResourceCommand";
+export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdatePlacementCommand";
 export * from "./commands/UpdateProjectCommand";

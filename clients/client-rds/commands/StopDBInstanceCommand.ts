@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBInstance, StopDBInstanceMessage } from "../models/index";
+import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryStopDBInstanceCommand,
   serializeAws_queryStopDBInstanceCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopDBInstanceCommandInput = StopDBInstanceMessage;
-export type StopDBInstanceCommandOutput = DBInstance;
+export type StopDBInstanceCommandOutput = StopDBInstanceResult;
 
 export class StopDBInstanceCommand extends $Command<
   StopDBInstanceCommandInput,

@@ -432,8 +432,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>Amazon Redshift</fullname>
+ * <fullname>Amazon Redshift</fullname>
  *         <p>
  *             <b>Overview</b>
  *         </p>
@@ -455,16 +454,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *         <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
  *             build, query, and maintain the databases that make up your data warehouse. </p>
- *
- *
  */
 export class Redshift extends RedshiftClient {
   /**
-   *
-   *         <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
+   * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
    *             configuration (term, payment type, or number of nodes) and no additional costs.
    *         </p>
-   *
    */
   public acceptReservedNodeExchange(
     args: AcceptReservedNodeExchangeCommandInput,
@@ -499,9 +494,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *
-   *         <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether
+   * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether
    *             the application accessing your cluster is running on the Internet or an Amazon EC2
    *             instance, you can authorize inbound access to either a Classless Interdomain Routing
    *             (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as
@@ -517,9 +510,6 @@ export class Redshift extends RedshiftClient {
    *             on these IP addresses or the EC2 instance are authorized to connect to the cluster. For
    *             information about managing security groups, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
    *                 Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
-   *
    */
   public authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
@@ -566,14 +556,12 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Authorizes the specified AWS customer account to restore the specified
+   * <p>Authorizes the specified AWS customer account to restore the specified
    *             snapshot.</p>
    *         <p>
    * For more information about working with snapshots, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
    */
   public authorizeSnapshotAccess(
     args: AuthorizeSnapshotAccessCommandInput,
@@ -608,11 +596,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes a set of cluster snapshots.</p>
-   *
-   *
-   *
+   * <p>Deletes a set of cluster snapshots.</p>
    */
   public batchDeleteClusterSnapshots(
     args: BatchDeleteClusterSnapshotsCommandInput,
@@ -647,9 +631,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies the settings for a list of snapshots.</p>
-   *
+   * <p>Modifies the settings for a set of cluster snapshots.</p>
    */
   public batchModifyClusterSnapshots(
     args: BatchModifyClusterSnapshotsCommandInput,
@@ -684,9 +666,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Cancels a resize operation.</p>
-   *
+   * <p>Cancels a resize operation for a cluster.</p>
    */
   public cancelResize(
     args: CancelResizeCommandInput,
@@ -721,8 +701,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Copies the specified automated cluster snapshot to a new manual cluster snapshot.
+   * <p>Copies the specified automated cluster snapshot to a new manual cluster snapshot.
    *             The source must be an automated snapshot and it must be in the available
    *             state.</p>
    *         <p>When you delete a cluster, Amazon Redshift deletes any automated snapshots of the
@@ -734,8 +713,6 @@ export class Redshift extends RedshiftClient {
    * For more information about working with snapshots, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
@@ -770,16 +747,13 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a new cluster.</p>
+   * <p>Creates a new cluster with the specified parameters.</p>
    *         <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
    *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
    *             Amazon Redshift uses when creating the cluster.
    * For more information about managing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public createCluster(
     args: CreateClusterCommandInput,
@@ -814,8 +788,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates an Amazon Redshift parameter group.</p>
+   * <p>Creates an Amazon Redshift parameter group.</p>
    *         <p>Creating parameter groups is independent of creating clusters. You can associate a
    *             cluster with a parameter group when you create the cluster. You can also associate an
    *             existing cluster with a parameter group after the cluster is created by using <a>ModifyCluster</a>. </p>
@@ -824,8 +797,6 @@ export class Redshift extends RedshiftClient {
    * For more information about parameters and parameter groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public createClusterParameterGroup(
     args: CreateClusterParameterGroupCommandInput,
@@ -860,15 +831,12 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a new Amazon Redshift security group. You use security groups to control access
+   * <p>Creates a new Amazon Redshift security group. You use security groups to control access
    *             to non-VPC clusters.</p>
    *         <p>
    * For information about managing security groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
    * <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public createClusterSecurityGroup(
     args: CreateClusterSecurityGroupCommandInput,
@@ -903,15 +871,12 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
+   * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
    *                 <code>available</code> state. </p>
    *         <p>
    * For more information about working with snapshots, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
@@ -946,17 +911,13 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more
+   * <p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more
    *             subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating
    *             Amazon Redshift subnet group.</p>
    *         <p>
    * For information about subnet groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift Cluster Subnet Groups</a> in the
    * <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
-   *
    */
   public createClusterSubnetGroup(
     args: CreateClusterSubnetGroupCommandInput,
@@ -991,8 +952,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN
+   * <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN
    *             (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console,
    *             the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you
    *             must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in
@@ -1010,7 +970,6 @@ export class Redshift extends RedshiftClient {
    *             AWS account. If you do not specify either the SourceType nor the SourceIdentifier, you
    *             will be notified of events generated from all Amazon Redshift sources belonging to your AWS
    *             account. You must specify a source type if you specify a source ID.</p>
-   *
    */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -1045,8 +1004,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to
+   * <p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to
    *             the client's HSM in order to store and retrieve the keys used to encrypt the cluster
    *             databases.</p>
    *         <p>The command returns a public key, which you must store in the HSM. In addition to
@@ -1054,8 +1012,6 @@ export class Redshift extends RedshiftClient {
    *             provides a cluster the information needed to store and use encryption keys in the HSM.
    *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
    *             in the Amazon Redshift Cluster Management Guide.</p>
-   *
-   *
    */
   public createHsmClientCertificate(
     args: CreateHsmClientCertificateCommandInput,
@@ -1090,16 +1046,13 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates an HSM configuration that contains the information required by an Amazon Redshift
+   * <p>Creates an HSM configuration that contains the information required by an Amazon Redshift
    *             cluster to store and use database encryption keys in a Hardware Security Module (HSM).
    *             After creating the HSM configuration, you can specify it as a parameter when creating a
    *             cluster. The cluster will then store its encryption keys in the HSM.</p>
    *         <p>In addition to creating an HSM configuration, you must also create an HSM client
    *             certificate. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
    *             in the Amazon Redshift Cluster Management Guide.</p>
-   *
-   *
    */
   public createHsmConfiguration(
     args: CreateHsmConfigurationCommandInput,
@@ -1134,11 +1087,9 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
+   * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
    *             For example, you can create a schedule of when to run the <code>ResizeCluster</code> API operation.
    *         </p>
-   *
    */
   public createScheduledAction(
     args: CreateScheduledActionCommandInput,
@@ -1173,8 +1124,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key
+   * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key
    *             (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a
    *             destination region.</p>
    *         <p>
@@ -1182,7 +1132,6 @@ export class Redshift extends RedshiftClient {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.
    * </p>
-   *
    */
   public createSnapshotCopyGrant(
     args: CreateSnapshotCopyGrantCommandInput,
@@ -1217,9 +1166,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a new snapshot schedule.</p>
-   *
+   * <p>Creates a snapshot schedule with the rate of every 12 hours.</p>
    */
   public createSnapshotSchedule(
     args: CreateSnapshotScheduleCommandInput,
@@ -1254,13 +1201,11 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Adds one or more tags to a specified resource.</p>
+   * <p>Adds tags to a cluster.</p>
    *         <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
    *             resource, you will receive an error and the attempt will fail.</p>
    *         <p>If you specify a key that already exists for the resource, the value for that key
    *             will be updated with the new value.</p>
-   *
    */
   public createTags(
     args: CreateTagsCommandInput,
@@ -1295,8 +1240,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes a previously provisioned cluster. A successful response from the web
+   * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web
    *             service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete
    *             operation cannot be canceled or reverted once submitted.
    * For more information about managing clusters, go to
@@ -1312,8 +1256,6 @@ export class Redshift extends RedshiftClient {
    * For more information about managing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public deleteCluster(
     args: DeleteClusterCommandInput,
@@ -1348,15 +1290,11 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes a specified Amazon Redshift parameter group.</p>
+   * <p>Deletes a specified Amazon Redshift parameter group.</p>
    *         <note>
    *             <p>You cannot delete a parameter group if it is associated with a
    *                 cluster.</p>
    *         </note>
-   *
-   *
-   *
    */
   public deleteClusterParameterGroup(
     args: DeleteClusterParameterGroupCommandInput,
@@ -1391,8 +1329,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes an Amazon Redshift security group.</p>
+   * <p>Deletes an Amazon Redshift security group.</p>
    *         <note>
    *             <p>You cannot delete a security group that is associated with any clusters. You
    *                 cannot delete the default security group.</p>
@@ -1401,8 +1338,6 @@ export class Redshift extends RedshiftClient {
    * For information about managing security groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
    * <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public deleteClusterSecurityGroup(
     args: DeleteClusterSecurityGroupCommandInput,
@@ -1437,16 +1372,13 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified manual snapshot. The snapshot must be in the
+   * <p>Deletes the specified manual snapshot. The snapshot must be in the
    *                 <code>available</code> state, with no other users authorized to access the snapshot. </p>
    *         <p>Unlike automated snapshots, manual snapshots are retained even after you delete
    *             your cluster. Amazon Redshift does not delete your manual snapshots. You must delete manual
    *             snapshot explicitly to avoid getting charged. If other accounts are authorized to access
    *             the snapshot, you must revoke all of the authorizations before you can delete the
    *             snapshot.</p>
-   *
-   *
    */
   public deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
@@ -1481,10 +1413,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified cluster subnet group.</p>
-   *
-   *
+   * <p>Deletes the specified cluster subnet group.</p>
    */
   public deleteClusterSubnetGroup(
     args: DeleteClusterSubnetGroupCommandInput,
@@ -1519,9 +1448,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes an Amazon Redshift event notification subscription.</p>
-   *
+   * <p>Deletes an Amazon Redshift event notification subscription.</p>
    */
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -1556,9 +1483,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified HSM client certificate.</p>
-   *
+   * <p>Deletes the specified HSM client certificate.</p>
    */
   public deleteHsmClientCertificate(
     args: DeleteHsmClientCertificateCommandInput,
@@ -1593,9 +1518,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified Amazon Redshift HSM configuration.</p>
-   *
+   * <p>Deletes the specified Amazon Redshift HSM configuration.</p>
    */
   public deleteHsmConfiguration(
     args: DeleteHsmConfigurationCommandInput,
@@ -1630,10 +1553,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes a scheduled action.
+   * <p>Deletes a scheduled action.
    *              </p>
-   *
    */
   public deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
@@ -1668,9 +1589,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified snapshot copy grant.</p>
-   *
+   * <p>Deletes the specified snapshot copy grant.</p>
    */
   public deleteSnapshotCopyGrant(
     args: DeleteSnapshotCopyGrantCommandInput,
@@ -1705,9 +1624,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes a snapshot schedule.</p>
-   *
+   * <p>Deletes a snapshot schedule.</p>
    */
   public deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
@@ -1742,10 +1659,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Deletes a tag or tags from a resource. You must provide the ARN of the resource
+   * <p>Deletes tags from a resource. You must provide the ARN of the resource
    *             from which you want to delete the tag or tags.</p>
-   *
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -1780,9 +1695,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of attributes attached to an account</p>
-   *
+   * <p>Returns a list of attributes attached to an account</p>
    */
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -1817,9 +1730,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
-   *
+   * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
    */
   public describeClusterDbRevisions(
     args: DescribeClusterDbRevisionsCommandInput,
@@ -1854,8 +1765,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
+   * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
    *             created and the default parameter group. For each parameter group, the response includes
    *             the parameter group name, description, and parameter group family name. You can
    *             optionally specify a name to retrieve the description of a specific parameter
@@ -1872,8 +1782,6 @@ export class Redshift extends RedshiftClient {
    *         <p>If both tag keys and values are omitted from the request, parameter groups are
    *             returned regardless of whether they have tag keys or values associated with
    *             them.</p>
-   *
-   *
    */
   public describeClusterParameterGroups(
     args: DescribeClusterParameterGroupsCommandInput,
@@ -1911,8 +1819,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a detailed list of parameters contained within the specified Amazon Redshift
+   * <p>Returns a detailed list of parameters contained within the specified Amazon Redshift
    *             parameter group. For each parameter the response includes information such as parameter
    *             name, description, data type, value, whether the parameter value is modifiable, and so
    *             on.</p>
@@ -1924,8 +1831,6 @@ export class Redshift extends RedshiftClient {
    * For more information about parameters and parameter groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public describeClusterParameters(
     args: DescribeClusterParametersCommandInput,
@@ -1960,8 +1865,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns information about Amazon Redshift security groups. If the name of a security
+   * <p>Returns information about Amazon Redshift security groups. If the name of a security
    *             group is specified, the response will contain only information about only that security
    *             group.</p>
    *         <p>
@@ -1976,8 +1880,6 @@ export class Redshift extends RedshiftClient {
    *         <p>If both tag keys and values are omitted from the request, security groups are
    *             returned regardless of whether they have tag keys or values associated with
    *             them.</p>
-   *
-   *
    */
   public describeClusterSecurityGroups(
     args: DescribeClusterSecurityGroupsCommandInput,
@@ -2012,8 +1914,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns one or more snapshot objects, which contain metadata about your cluster
+   * <p>Returns one or more snapshot objects, which contain metadata about your cluster
    *             snapshots. By default, this operation returns information about all snapshots of all
    *             clusters that are owned by you AWS customer account. No information is returned for
    *             snapshots owned by inactive AWS customer accounts.</p>
@@ -2026,8 +1927,6 @@ export class Redshift extends RedshiftClient {
    *             parameters.</p>
    *         <p>If both tag keys and values are omitted from the request, snapshots are returned
    *             regardless of whether they have tag keys or values associated with them.</p>
-   *
-   *
    */
   public describeClusterSnapshots(
     args: DescribeClusterSnapshotsCommandInput,
@@ -2062,8 +1961,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns one or more cluster subnet group objects, which contain metadata about your
+   * <p>Returns one or more cluster subnet group objects, which contain metadata about your
    *             cluster subnet groups. By default, this operation returns information about all cluster
    *             subnet groups that are defined in you AWS account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
@@ -2074,8 +1972,6 @@ export class Redshift extends RedshiftClient {
    *         <p>If both tag keys and values are omitted from the request, subnet groups are
    *             returned regardless of whether they have tag keys or values associated with
    *             them.</p>
-   *
-   *
    */
   public describeClusterSubnetGroups(
     args: DescribeClusterSubnetGroupsCommandInput,
@@ -2110,9 +2006,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of all the available maintenance tracks.</p>
-   *
+   * <p>Returns a list of all the available maintenance tracks.</p>
    */
   public describeClusterTracks(
     args: DescribeClusterTracksCommandInput,
@@ -2147,15 +2041,12 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
+   * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
    *             operation even before creating any clusters to learn more about the Amazon Redshift versions.
    *
    * For more information about managing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public describeClusterVersions(
     args: DescribeClusterVersionsCommandInput,
@@ -2190,8 +2081,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns properties of provisioned clusters including general cluster properties,
+   * <p>Returns properties of provisioned clusters including general cluster properties,
    *             cluster database properties, maintenance and backup properties, and security and access
    *             properties. This operation supports pagination.
    * For more information about managing clusters, go to
@@ -2204,8 +2094,6 @@ export class Redshift extends RedshiftClient {
    *             combination of those values are returned.</p>
    *         <p>If both tag keys and values are omitted from the request, clusters are returned
    *             regardless of whether they have tag keys or values associated with them.</p>
-   *
-   *
    */
   public describeClusters(
     args: DescribeClustersCommandInput,
@@ -2240,15 +2128,12 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of parameter settings for the specified parameter group
+   * <p>Returns a list of parameter settings for the specified parameter group
    *             family.</p>
    *         <p>
    * For more information about parameters and parameter groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public describeDefaultClusterParameters(
     args: DescribeDefaultClusterParametersCommandInput,
@@ -2289,12 +2174,9 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *
-   *         <p>Displays a list of event categories for all event source types, or for a specified
+   * <p>Displays a list of event categories for all event source types, or for a specified
    *             source type. For a list of the event categories and source types, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift Event
    *                 Notifications</a>.</p>
-   *
    */
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -2329,8 +2211,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Lists descriptions of all the Amazon Redshift event notification subscriptions for a
+   * <p>Lists descriptions of all the Amazon Redshift event notification subscriptions for a
    *             customer account. If you specify a subscription name, lists the description for that
    *             subscription.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
@@ -2341,7 +2222,6 @@ export class Redshift extends RedshiftClient {
    *         <p>If both tag keys and values are omitted from the request, subscriptions are
    *             returned regardless of whether they have tag keys or values associated with
    *             them.</p>
-   *
    */
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -2376,13 +2256,10 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns events related to clusters, security groups, snapshots, and parameter
+   * <p>Returns events related to clusters, security groups, snapshots, and parameter
    *             groups for the past 14 days. Events specific to a particular cluster, security group,
    *             snapshot or parameter group can be obtained by providing the name as a parameter. By
    *             default, the past hour of events are returned.</p>
-   *
-   *
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -2417,8 +2294,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the specified HSM client certificate. If no certificate
+   * <p>Returns information about the specified HSM client certificate. If no certificate
    *             ID is specified, returns information about all the HSM certificates owned by your AWS
    *             customer account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
@@ -2429,7 +2305,6 @@ export class Redshift extends RedshiftClient {
    *         <p>If both tag keys and values are omitted from the request, HSM client certificates
    *             are returned regardless of whether they have tag keys or values associated with
    *             them.</p>
-   *
    */
   public describeHsmClientCertificates(
     args: DescribeHsmClientCertificatesCommandInput,
@@ -2464,8 +2339,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the specified Amazon Redshift HSM configuration. If no
+   * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
    *             configuration ID is specified, returns information about all the HSM configurations
    *             owned by your AWS customer account.</p>
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
@@ -2476,7 +2350,6 @@ export class Redshift extends RedshiftClient {
    *         <p>If both tag keys and values are omitted from the request, HSM connections are
    *             returned regardless of whether they have tag keys or values associated with
    *             them.</p>
-   *
    */
   public describeHsmConfigurations(
     args: DescribeHsmConfigurationsCommandInput,
@@ -2511,10 +2384,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Describes whether information, such as queries and connection attempts, is being
+   * <p>Describes whether information, such as queries and connection attempts, is being
    *             logged for the specified Amazon Redshift cluster.</p>
-   *
    */
   public describeLoggingStatus(
     args: DescribeLoggingStatusCommandInput,
@@ -2549,10 +2420,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns properties of possible node configurations such as node type, number of nodes, and
+   * <p>Returns properties of possible node configurations such as node type, number of nodes, and
    *             disk usage for the specified action type.</p>
-   *
    */
   public describeNodeConfigurationOptions(
     args: DescribeNodeConfigurationOptionsCommandInput,
@@ -2593,8 +2462,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of orderable cluster options. Before you create a new cluster you
+   * <p>Returns a list of orderable cluster options. Before you create a new cluster you
    *             can use this operation to find what options are available, such as the EC2 Availability
    *             Zones (AZ) in the specific AWS Region that you can specify, and the node types you can
    *             request. The node types differ by available storage, memory, CPU and price. With the
@@ -2603,8 +2471,6 @@ export class Redshift extends RedshiftClient {
    * For more information about managing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public describeOrderableClusterOptions(
     args: DescribeOrderableClusterOptionsCommandInput,
@@ -2642,8 +2508,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of the available reserved node offerings by Amazon Redshift with their
+   * <p>Returns a list of the available reserved node offerings by Amazon Redshift with their
    *             descriptions including the node type, the fixed and recurring costs of reserving the
    *             node and duration the node will be reserved for you. These descriptions help you
    *             determine which reserve node offering you want to purchase. You then use the unique
@@ -2653,8 +2518,6 @@ export class Redshift extends RedshiftClient {
    * For more information about reserved node offerings, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public describeReservedNodeOfferings(
     args: DescribeReservedNodeOfferingsCommandInput,
@@ -2689,10 +2552,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns the descriptions of the reserved nodes.</p>
-   *
-   *
+   * <p>Returns the descriptions of the reserved nodes.</p>
    */
   public describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
@@ -2727,15 +2587,12 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the last resize operation for the specified cluster. If
+   * <p>Returns information about the last resize operation for the specified cluster. If
    *             no resize operation has ever been initiated for the specified cluster, a <code>HTTP
    *                 404</code> error is returned. If a resize operation was initiated and completed, the
    *             status of the resize remains as <code>SUCCEEDED</code> until the next resize. </p>
    *         <p>A resize operation can be requested using <a>ModifyCluster</a> and
    *             specifying a different number or type of nodes for the cluster. </p>
-   *
-   *
    */
   public describeResize(
     args: DescribeResizeCommandInput,
@@ -2770,10 +2627,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Describes properties of scheduled actions.
+   * <p>Describes properties of scheduled actions.
    *              </p>
-   *
    */
   public describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
@@ -2808,15 +2663,13 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of snapshot copy grants owned by the AWS account in the destination
+   * <p>Returns a list of snapshot copy grants owned by the AWS account in the destination
    *             region.</p>
    *         <p>
    * For more information about managing snapshot copy grants, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.
    * </p>
-   *
    */
   public describeSnapshotCopyGrants(
     args: DescribeSnapshotCopyGrantsCommandInput,
@@ -2851,9 +2704,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of snapshot schedules. </p>
-   *
+   * <p>Returns a list of snapshot schedules. </p>
    */
   public describeSnapshotSchedules(
     args: DescribeSnapshotSchedulesCommandInput,
@@ -2888,10 +2739,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns the total amount of snapshot usage and provisioned storage in
-   *             megabytes.</p>
-   *
+   * <p>Returns account level backups storage size and provisional storage.</p>
    */
   public describeStorage(
     args: DescribeStorageCommandInput,
@@ -2926,14 +2774,12 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value
+   * <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value
    *             for the <code>TableRestoreRequestId</code> parameter, then
    *                 <code>DescribeTableRestoreStatus</code> returns the status of all table restore
    *             requests ordered by the date and time of the request in ascending order. Otherwise
    *                 <code>DescribeTableRestoreStatus</code> returns the status of the table specified by
    *                 <code>TableRestoreRequestId</code>.</p>
-   *
    */
   public describeTableRestoreStatus(
     args: DescribeTableRestoreStatusCommandInput,
@@ -2968,8 +2814,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of tags. You can return tags from a specific resource by specifying
+   * <p>Returns a list of tags. You can return tags from a specific resource by specifying
    *             an ARN, or you can return all tags for a given type of resource, such as clusters,
    *             snapshots, and so on.</p>
    *         <p>The following are limitations for <code>DescribeTags</code>: </p>
@@ -2987,7 +2832,6 @@ export class Redshift extends RedshiftClient {
    *                     to return in a request.</p>
    *             </li>
    *          </ul>
-   *
    *         <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
    *             all resources that match any combination of the specified keys and values. For example,
    *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
@@ -2995,7 +2839,6 @@ export class Redshift extends RedshiftClient {
    *             combination of those values are returned.</p>
    *         <p>If both tag keys and values are omitted from the request, resources are returned
    *             regardless of whether they have tag keys or values associated with them.</p>
-   *
    */
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -3030,10 +2873,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Stops logging information, such as queries and connection attempts, for the
+   * <p>Stops logging information, such as queries and connection attempts, for the
    *             specified Amazon Redshift cluster.</p>
-   *
    */
   public disableLogging(
     args: DisableLoggingCommandInput,
@@ -3068,13 +2909,11 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Disables the automatic copying of snapshots from one region to another region for a
+   * <p>Disables the automatic copying of snapshots from one region to another region for a
    *             specified cluster.</p>
    *         <p>If your cluster and its snapshots are encrypted using a customer master key (CMK)
    *             from AWS KMS, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
    *             grants Amazon Redshift permission to the CMK in the destination region. </p>
-   *
    */
   public disableSnapshotCopy(
     args: DisableSnapshotCopyCommandInput,
@@ -3109,10 +2948,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Starts logging information, such as queries and connection attempts, for the
+   * <p>Starts logging information, such as queries and connection attempts, for the
    *             specified Amazon Redshift cluster.</p>
-   *
    */
   public enableLogging(
     args: EnableLoggingCommandInput,
@@ -3147,10 +2984,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Enables the automatic copy of snapshots from one region to another region for a
+   * <p>Enables the automatic copy of snapshots from one region to another region for a
    *             specified cluster.</p>
-   *
    */
   public enableSnapshotCopy(
     args: EnableSnapshotCopyCommandInput,
@@ -3185,8 +3020,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns a database user name and temporary password with temporary authorization to
+   * <p>Returns a database user name and temporary password with temporary authorization to
    *             log on to an Amazon Redshift database. The action returns the database user name
    *             prefixed with <code>IAM:</code> if <code>AutoCreate</code> is <code>False</code> or
    *                 <code>IAMA:</code> if <code>AutoCreate</code> is <code>True</code>. You can
@@ -3207,8 +3041,6 @@ export class Redshift extends RedshiftClient {
    *             privilege.</p>
    *         <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access
    *             to the resource <code>dbname</code> for the specified database name. </p>
-   *
-   *
    */
   public getClusterCredentials(
     args: GetClusterCredentialsCommandInput,
@@ -3243,10 +3075,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
+   * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
    *             and usage price of the given DC1 reserved node.</p>
-   *
    */
   public getReservedNodeExchangeOfferings(
     args: GetReservedNodeExchangeOfferingsCommandInput,
@@ -3287,20 +3117,15 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies the settings for a cluster. For example, you can add another security or
-   *             parameter group, update the preferred maintenance window, or change the master user
-   *             password. Resetting a cluster password or modifying the security groups associated with
-   *             a cluster do not need a reboot. However, modifying a parameter group requires a reboot
-   *             for parameters to take effect.
-   * For more information about managing clusters, go to
-   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
-   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   * <p>Modifies the settings for a cluster.</p>
    *         <p>You can also change node type and the number of nodes to scale up or down the
    *             cluster. When resizing a cluster, you must specify both the number of nodes and the node
    *             type even if one of the parameters does not change.</p>
-   *
-   *
+   * 		       <p>You can add another security or
+   *             parameter group, or change the master user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect.
+   * For more information about managing clusters, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
   public modifyCluster(
     args: ModifyClusterCommandInput,
@@ -3335,10 +3160,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies the database revision of a cluster. The database revision is a unique
+   * <p>Modifies the database revision of a cluster. The database revision is a unique
    *             revision of the database running in a cluster.</p>
-   *
    */
   public modifyClusterDbRevision(
     args: ModifyClusterDbRevisionCommandInput,
@@ -3373,12 +3196,9 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies the list of AWS Identity and Access Management (IAM) roles that can be
+   * <p>Modifies the list of AWS Identity and Access Management (IAM) roles that can be
    *             used by the cluster to access other AWS services.</p>
    *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
-   *
-   *
    */
   public modifyClusterIamRoles(
     args: ModifyClusterIamRolesCommandInput,
@@ -3413,10 +3233,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies the maintenance settings of a cluster. For example, you can defer a
-   *             maintenance window. You can also update or cancel a deferment. </p>
-   *
+   * <p>Modifies the maintenance settings of a cluster.</p>
    */
   public modifyClusterMaintenance(
     args: ModifyClusterMaintenanceCommandInput,
@@ -3451,14 +3268,11 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies the parameters of a parameter group.</p>
+   * <p>Modifies the parameters of a parameter group.</p>
    *         <p>
    * For more information about parameters and parameter groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public modifyClusterParameterGroup(
     args: ModifyClusterParameterGroupCommandInput,
@@ -3493,11 +3307,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *
-   *         <p>Modifies the settings for a snapshot.</p>
-   *
-   *
+   * <p>Modifies the settings for a snapshot.</p>
+   * 		       <p>This exanmple modifies the manual retention period setting for a cluster snapshot.</p>
    */
   public modifyClusterSnapshot(
     args: ModifyClusterSnapshotCommandInput,
@@ -3532,9 +3343,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies a snapshot schedule for a cluster.</p>
-   *
+   * <p>Modifies a snapshot schedule for a cluster.</p>
    */
   public modifyClusterSnapshotSchedule(
     args: ModifyClusterSnapshotScheduleCommandInput,
@@ -3569,10 +3378,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
+   * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
    *             operation replaces the existing list of subnets with the new list of subnets.</p>
-   *
    */
   public modifyClusterSubnetGroup(
     args: ModifyClusterSubnetGroupCommandInput,
@@ -3607,9 +3414,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies an existing Amazon Redshift event notification subscription.</p>
-   *
+   * <p>Modifies an existing Amazon Redshift event notification subscription.</p>
    */
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -3644,10 +3449,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modify a scheduled action.
+   * <p>Modifies a scheduled action.
    *             </p>
-   *
    */
   public modifyScheduledAction(
     args: ModifyScheduledActionCommandInput,
@@ -3682,17 +3485,13 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *
-   *         <p>Modifies the number of days to retain snapshots in the destination AWS Region after
+   * <p>Modifies the number of days to retain snapshots in the destination AWS Region after
    *             they are copied from the source AWS Region. By default, this operation only changes the
    *             retention period of copied automated snapshots. The retention periods for both new and
    *             existing copied automated snapshots are updated with the new retention period. You can
    *             set the manual option to change only the retention periods of copied manual snapshots.
    *             If you set this option, only newly copied manual snapshots have the new retention
    *             period. </p>
-   *
-   *
    */
   public modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
@@ -3739,10 +3538,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified
+   * <p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified
    *             asynchronously.</p>
-   *
    */
   public modifySnapshotSchedule(
     args: ModifySnapshotScheduleCommandInput,
@@ -3777,8 +3574,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
+   * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
    *             reserved node offerings. You can purchase one or more of the offerings. You can call the
    *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
    *             node offerings. You can call this API by providing a specific reserved node offering and
@@ -3787,8 +3583,6 @@ export class Redshift extends RedshiftClient {
    * For more information about reserved node offerings, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public purchaseReservedNodeOffering(
     args: PurchaseReservedNodeOfferingCommandInput,
@@ -3823,8 +3617,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Reboots a cluster. This action is taken as soon as possible. It results in a
+   * <p>Reboots a cluster. This action is taken as soon as possible. It results in a
    *             momentary outage to the cluster, during which the cluster status is set to
    *                 <code>rebooting</code>. A cluster event is created when the reboot is completed. Any
    *             pending cluster modifications (see <a>ModifyCluster</a>) are applied at this
@@ -3832,8 +3625,6 @@ export class Redshift extends RedshiftClient {
    * For more information about managing clusters, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
-   *
-   *
    */
   public rebootCluster(
     args: RebootClusterCommandInput,
@@ -3868,13 +3659,10 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Sets one or more parameters of the specified parameter group to their default
+   * <p>Sets one or more parameters of the specified parameter group to their default
    *             values and sets the source values of the parameters to "engine-default". To reset the
    *             entire parameter group specify the <i>ResetAllParameters</i> parameter.
    *             For parameter changes to take effect you must reboot any associated clusters. </p>
-   *
-   *
    */
   public resetClusterParameterGroup(
     args: ResetClusterParameterGroupCommandInput,
@@ -3909,8 +3697,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Changes the size of the cluster. You can change the cluster's type, or change the
+   * <p>Changes the size of the cluster. You can change the cluster's type, or change the
    *             number or type of nodes. The default behavior is to use the elastic resize method. With
    *             an elastic resize, your cluster is available for read and write operations more quickly
    *             than with the classic resize method. </p>
@@ -3931,6 +3718,9 @@ export class Redshift extends RedshiftClient {
    *                   <li>
    *                         <p>ds2.8xlarge</p>
    *                     </li>
+   *                   <li>
+   *                         <p>ra3.16xlarge</p>
+   *                     </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -3938,7 +3728,6 @@ export class Redshift extends RedshiftClient {
    *                     cluster.</p>
    *             </li>
    *          </ul>
-   *
    */
   public resizeCluster(
     args: ResizeClusterCommandInput,
@@ -3973,8 +3762,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
+   * <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
    *             cluster with the same configuration as the original cluster from which the snapshot was
    *             created, except that the new cluster is created with the default cluster security and
    *             parameter groups. After Amazon Redshift creates the cluster, you can use the <a>ModifyCluster</a> API to associate a different security group and different
@@ -3986,8 +3774,6 @@ export class Redshift extends RedshiftClient {
    * For more information about working with snapshots, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *
    */
   public restoreFromClusterSnapshot(
     args: RestoreFromClusterSnapshotCommandInput,
@@ -4022,8 +3808,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
+   * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
    *             create the new table within the Amazon Redshift cluster that the snapshot was taken
    *             from.</p>
    *         <p>You cannot use <code>RestoreTableFromClusterSnapshot</code> to restore a table with
@@ -4035,7 +3820,6 @@ export class Redshift extends RedshiftClient {
    *                 <code>NewTableName</code> parameter value in the call to
    *                 <code>RestoreTableFromClusterSnapshot</code>. This way, you can replace the original
    *             table with the table created from the snapshot.</p>
-   *
    */
   public restoreTableFromClusterSnapshot(
     args: RestoreTableFromClusterSnapshotCommandInput,
@@ -4073,15 +3857,11 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized
+   * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized
    *             IP range or Amazon EC2 security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>.
    * For information about managing security groups, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
    * <i>Amazon Redshift Cluster Management Guide</i>. </p>
-   *
-   *
-   *
    */
   public revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
@@ -4128,15 +3908,13 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Removes the ability of the specified AWS customer account to restore the specified
+   * <p>Removes the ability of the specified AWS customer account to restore the specified
    *             snapshot. If the account is currently restoring the snapshot, the restore will run to
    *             completion.</p>
    *         <p>
    * For more information about working with snapshots, go to
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
    */
   public revokeSnapshotAccess(
     args: RevokeSnapshotAccessCommandInput,
@@ -4171,9 +3949,7 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   *
-   *         <p>Rotates the encryption keys for a cluster.</p>
-   *
+   * <p>Rotates the encryption keys for a cluster.</p>
    */
   public rotateEncryptionKey(
     args: RotateEncryptionKeyCommandInput,

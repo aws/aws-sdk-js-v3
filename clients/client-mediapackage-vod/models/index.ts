@@ -89,7 +89,6 @@ export interface CmafPackage {
   /**
    * Duration (in seconds) of each fragment. Actual fragments will be
    * rounded to the nearest multiple of the source fragment duration.
-   *
    */
   SegmentDurationSeconds?: number;
 }
@@ -380,7 +379,6 @@ export interface DashPackage {
   /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
-   *
    */
   SegmentDurationSeconds?: number;
 }
@@ -676,7 +674,6 @@ export interface HlsEncryption {
   /**
    * A constant initialization vector for encryption (optional).
    * When not specified the initialization vector will be periodically rotated.
-   *
    */
   ConstantInitializationVector?: string;
 
@@ -709,7 +706,6 @@ export interface HlsManifest {
    * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
    * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
    * messages in the input source.
-   *
    */
   AdMarkers?: AdMarkers | string;
 
@@ -733,7 +729,6 @@ export interface HlsManifest {
    * ID3Timed Metadata messages will be generated. Note that irrespective
    * of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
    * it will be passed through to HLS output.
-   *
    */
   ProgramDateTimeIntervalSeconds?: number;
 
@@ -772,7 +767,6 @@ export interface HlsPackage {
   /**
    * Duration (in seconds) of each fragment. Actual fragments will be
    * rounded to the nearest multiple of the source fragment duration.
-   *
    */
   SegmentDurationSeconds?: number;
 
@@ -1119,7 +1113,6 @@ export interface SpekeKeyProvider {
   /**
    * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
    * MediaPackage will assume when accessing the key provider service.
-   *
    */
   RoleArn: string | undefined;
 

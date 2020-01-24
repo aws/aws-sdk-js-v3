@@ -3124,6 +3124,12 @@ const serializeAws_restJson1_1VpcConfigRequest = (
   if (input.endpointPublicAccess !== undefined) {
     bodyParams["endpointPublicAccess"] = input.endpointPublicAccess;
   }
+  if (input.publicAccessCidrs !== undefined) {
+    bodyParams["publicAccessCidrs"] = serializeAws_restJson1_1StringList(
+      input.publicAccessCidrs,
+      context
+    );
+  }
   if (input.securityGroupIds !== undefined) {
     bodyParams["securityGroupIds"] = serializeAws_restJson1_1StringList(
       input.securityGroupIds,
@@ -3814,6 +3820,7 @@ const deserializeAws_restJson1_1VpcConfigResponse = (
     clusterSecurityGroupId: undefined,
     endpointPrivateAccess: undefined,
     endpointPublicAccess: undefined,
+    publicAccessCidrs: undefined,
     securityGroupIds: undefined,
     subnetIds: undefined,
     vpcId: undefined
@@ -3826,6 +3833,12 @@ const deserializeAws_restJson1_1VpcConfigResponse = (
   }
   if (output.endpointPublicAccess !== undefined) {
     contents.endpointPublicAccess = output.endpointPublicAccess;
+  }
+  if (output.publicAccessCidrs !== undefined) {
+    contents.publicAccessCidrs = deserializeAws_restJson1_1StringList(
+      output.publicAccessCidrs,
+      context
+    );
   }
   if (output.securityGroupIds !== undefined) {
     contents.securityGroupIds = deserializeAws_restJson1_1StringList(

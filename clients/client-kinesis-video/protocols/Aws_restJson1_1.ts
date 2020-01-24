@@ -1,11 +1,23 @@
 import {
+  CreateSignalingChannelCommandInput,
+  CreateSignalingChannelCommandOutput
+} from "../commands/CreateSignalingChannelCommand";
+import {
   CreateStreamCommandInput,
   CreateStreamCommandOutput
 } from "../commands/CreateStreamCommand";
 import {
+  DeleteSignalingChannelCommandInput,
+  DeleteSignalingChannelCommandOutput
+} from "../commands/DeleteSignalingChannelCommand";
+import {
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput
 } from "../commands/DeleteStreamCommand";
+import {
+  DescribeSignalingChannelCommandInput,
+  DescribeSignalingChannelCommandOutput
+} from "../commands/DescribeSignalingChannelCommand";
 import {
   DescribeStreamCommandInput,
   DescribeStreamCommandOutput
@@ -15,17 +27,37 @@ import {
   GetDataEndpointCommandOutput
 } from "../commands/GetDataEndpointCommand";
 import {
+  GetSignalingChannelEndpointCommandInput,
+  GetSignalingChannelEndpointCommandOutput
+} from "../commands/GetSignalingChannelEndpointCommand";
+import {
+  ListSignalingChannelsCommandInput,
+  ListSignalingChannelsCommandOutput
+} from "../commands/ListSignalingChannelsCommand";
+import {
   ListStreamsCommandInput,
   ListStreamsCommandOutput
 } from "../commands/ListStreamsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "../commands/ListTagsForResourceCommand";
 import {
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput
 } from "../commands/ListTagsForStreamCommand";
 import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "../commands/TagResourceCommand";
+import {
   TagStreamCommandInput,
   TagStreamCommandOutput
 } from "../commands/TagStreamCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "../commands/UntagResourceCommand";
 import {
   UntagStreamCommandInput,
   UntagStreamCommandOutput
@@ -35,21 +67,34 @@ import {
   UpdateDataRetentionCommandOutput
 } from "../commands/UpdateDataRetentionCommand";
 import {
+  UpdateSignalingChannelCommandInput,
+  UpdateSignalingChannelCommandOutput
+} from "../commands/UpdateSignalingChannelCommand";
+import {
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput
 } from "../commands/UpdateStreamCommand";
 import {
+  AccessDeniedException,
+  AccountChannelLimitExceededException,
   AccountStreamLimitExceededException,
+  ChannelInfo,
+  ChannelNameCondition,
+  ChannelProtocol,
   ClientLimitExceededException,
   DeviceStreamLimitExceededException,
   InvalidArgumentException,
   InvalidDeviceException,
   InvalidResourceFormatException,
   NotAuthorizedException,
+  ResourceEndpointListItem,
   ResourceInUseException,
   ResourceNotFoundException,
+  SingleMasterChannelEndpointConfiguration,
+  SingleMasterConfiguration,
   StreamInfo,
   StreamNameCondition,
+  Tag,
   TagsPerResourceExceededLimitException,
   VersionMismatchException
 } from "../models/index";
@@ -64,6 +109,46 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+
+export async function serializeAws_restJson1_1CreateSignalingChannelCommand(
+  input: CreateSignalingChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/createSignalingChannel";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ChannelName !== undefined) {
+    bodyParams["ChannelName"] = input.ChannelName;
+  }
+  if (input.ChannelType !== undefined) {
+    bodyParams["ChannelType"] = input.ChannelType;
+  }
+  if (input.SingleMasterConfiguration !== undefined) {
+    bodyParams[
+      "SingleMasterConfiguration"
+    ] = serializeAws_restJson1_1SingleMasterConfiguration(
+      input.SingleMasterConfiguration,
+      context
+    );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_restJson1_1TagOnCreateList(
+      input.Tags,
+      context
+    );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
 
 export async function serializeAws_restJson1_1CreateStreamCommand(
   input: CreateStreamCommandInput,
@@ -106,6 +191,32 @@ export async function serializeAws_restJson1_1CreateStreamCommand(
   });
 }
 
+export async function serializeAws_restJson1_1DeleteSignalingChannelCommand(
+  input: DeleteSignalingChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/deleteSignalingChannel";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ChannelARN !== undefined) {
+    bodyParams["ChannelARN"] = input.ChannelARN;
+  }
+  if (input.CurrentVersion !== undefined) {
+    bodyParams["CurrentVersion"] = input.CurrentVersion;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
 export async function serializeAws_restJson1_1DeleteStreamCommand(
   input: DeleteStreamCommandInput,
   context: __SerdeContext
@@ -120,6 +231,32 @@ export async function serializeAws_restJson1_1DeleteStreamCommand(
   }
   if (input.StreamARN !== undefined) {
     bodyParams["StreamARN"] = input.StreamARN;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1DescribeSignalingChannelCommand(
+  input: DescribeSignalingChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/describeSignalingChannel";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ChannelARN !== undefined) {
+    bodyParams["ChannelARN"] = input.ChannelARN;
+  }
+  if (input.ChannelName !== undefined) {
+    bodyParams["ChannelName"] = input.ChannelName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -187,6 +324,71 @@ export async function serializeAws_restJson1_1GetDataEndpointCommand(
   });
 }
 
+export async function serializeAws_restJson1_1GetSignalingChannelEndpointCommand(
+  input: GetSignalingChannelEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/getSignalingChannelEndpoint";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ChannelARN !== undefined) {
+    bodyParams["ChannelARN"] = input.ChannelARN;
+  }
+  if (input.SingleMasterChannelEndpointConfiguration !== undefined) {
+    bodyParams[
+      "SingleMasterChannelEndpointConfiguration"
+    ] = serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration(
+      input.SingleMasterChannelEndpointConfiguration,
+      context
+    );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1ListSignalingChannelsCommand(
+  input: ListSignalingChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/listSignalingChannels";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ChannelNameCondition !== undefined) {
+    bodyParams[
+      "ChannelNameCondition"
+    ] = serializeAws_restJson1_1ChannelNameCondition(
+      input.ChannelNameCondition,
+      context
+    );
+  }
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
 export async function serializeAws_restJson1_1ListStreamsCommand(
   input: ListStreamsCommandInput,
   context: __SerdeContext
@@ -209,6 +411,32 @@ export async function serializeAws_restJson1_1ListStreamsCommand(
       input.StreamNameCondition,
       context
     );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/ListTagsForResource";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceARN !== undefined) {
+    bodyParams["ResourceARN"] = input.ResourceARN;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -250,6 +478,32 @@ export async function serializeAws_restJson1_1ListTagsForStreamCommand(
   });
 }
 
+export async function serializeAws_restJson1_1TagResourceCommand(
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/TagResource";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ResourceARN !== undefined) {
+    bodyParams["ResourceARN"] = input.ResourceARN;
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
 export async function serializeAws_restJson1_1TagStreamCommand(
   input: TagStreamCommandInput,
   context: __SerdeContext
@@ -268,6 +522,35 @@ export async function serializeAws_restJson1_1TagStreamCommand(
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_restJson1_1ResourceTags(
       input.Tags,
+      context
+    );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1UntagResourceCommand(
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/UntagResource";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ResourceARN !== undefined) {
+    bodyParams["ResourceARN"] = input.ResourceARN;
+  }
+  if (input.TagKeyList !== undefined) {
+    bodyParams["TagKeyList"] = serializeAws_restJson1_1TagKeyList(
+      input.TagKeyList,
       context
     );
   }
@@ -349,6 +632,40 @@ export async function serializeAws_restJson1_1UpdateDataRetentionCommand(
   });
 }
 
+export async function serializeAws_restJson1_1UpdateSignalingChannelCommand(
+  input: UpdateSignalingChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/updateSignalingChannel";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ChannelARN !== undefined) {
+    bodyParams["ChannelARN"] = input.ChannelARN;
+  }
+  if (input.CurrentVersion !== undefined) {
+    bodyParams["CurrentVersion"] = input.CurrentVersion;
+  }
+  if (input.SingleMasterConfiguration !== undefined) {
+    bodyParams[
+      "SingleMasterConfiguration"
+    ] = serializeAws_restJson1_1SingleMasterConfiguration(
+      input.SingleMasterConfiguration,
+      context
+    );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
 export async function serializeAws_restJson1_1UpdateStreamCommand(
   input: UpdateStreamCommandInput,
   context: __SerdeContext
@@ -382,6 +699,95 @@ export async function serializeAws_restJson1_1UpdateStreamCommand(
     path: resolvedPath,
     body: body
   });
+}
+
+export async function deserializeAws_restJson1_1CreateSignalingChannelCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSignalingChannelCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1CreateSignalingChannelCommandError(
+      output,
+      context
+    );
+  }
+  const contents: CreateSignalingChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateSignalingChannelOutput",
+    ChannelARN: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ChannelARN !== undefined) {
+    contents.ChannelARN = data.ChannelARN;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1CreateSignalingChannelCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSignalingChannelCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "AccountChannelLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#AccountChannelLimitExceededException":
+      response = await deserializeAws_restJson1_1AccountChannelLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazon.kinesis.video.v20170930#ResourceInUseException":
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "TagsPerResourceExceededLimitException":
+    case "com.amazon.kinesis.video.v20170930#TagsPerResourceExceededLimitException":
+      response = await deserializeAws_restJson1_1TagsPerResourceExceededLimitExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateStreamCommand(
@@ -477,6 +883,83 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1DeleteSignalingChannelCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSignalingChannelCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DeleteSignalingChannelCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DeleteSignalingChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteSignalingChannelOutput"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DeleteSignalingChannelCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSignalingChannelCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "VersionMismatchException":
+    case "com.amazon.kinesis.video.v20170930#VersionMismatchException":
+      response = await deserializeAws_restJson1_1VersionMismatchExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1DeleteStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -532,6 +1015,84 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "VersionMismatchException":
     case "com.amazon.kinesis.video.v20170930#VersionMismatchException":
       response = await deserializeAws_restJson1_1VersionMismatchExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1DescribeSignalingChannelCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSignalingChannelCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DescribeSignalingChannelCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DescribeSignalingChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeSignalingChannelOutput",
+    ChannelInfo: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ChannelInfo !== undefined) {
+    contents.ChannelInfo = deserializeAws_restJson1_1ChannelInfo(
+      data.ChannelInfo,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DescribeSignalingChannelCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSignalingChannelCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
@@ -704,6 +1265,166 @@ async function deserializeAws_restJson1_1GetDataEndpointCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1GetSignalingChannelEndpointCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSignalingChannelEndpointCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1GetSignalingChannelEndpointCommandError(
+      output,
+      context
+    );
+  }
+  const contents: GetSignalingChannelEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetSignalingChannelEndpointOutput",
+    ResourceEndpointList: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ResourceEndpointList !== undefined) {
+    contents.ResourceEndpointList = deserializeAws_restJson1_1ResourceEndpointList(
+      data.ResourceEndpointList,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1GetSignalingChannelEndpointCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSignalingChannelEndpointCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazon.kinesis.video.v20170930#ResourceInUseException":
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1ListSignalingChannelsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSignalingChannelsCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1ListSignalingChannelsCommandError(
+      output,
+      context
+    );
+  }
+  const contents: ListSignalingChannelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListSignalingChannelsOutput",
+    ChannelInfoList: undefined,
+    NextToken: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ChannelInfoList !== undefined) {
+    contents.ChannelInfoList = deserializeAws_restJson1_1ChannelInfoList(
+      data.ChannelInfoList,
+      context
+    );
+  }
+  if (data.NextToken !== undefined) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1ListSignalingChannelsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSignalingChannelsCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1ListStreamsCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -750,6 +1471,85 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceOutput",
+    NextToken: undefined,
+    Tags: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.Tags !== undefined) {
+    contents.Tags = deserializeAws_restJson1_1ResourceTags(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
@@ -855,6 +1655,80 @@ async function deserializeAws_restJson1_1ListTagsForStreamCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1TagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceOutput"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1TagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "TagsPerResourceExceededLimitException":
+    case "com.amazon.kinesis.video.v20170930#TagsPerResourceExceededLimitException":
+      response = await deserializeAws_restJson1_1TagsPerResourceExceededLimitExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1TagStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -917,6 +1791,73 @@ async function deserializeAws_restJson1_1TagStreamCommandError(
     case "TagsPerResourceExceededLimitException":
     case "com.amazon.kinesis.video.v20170930#TagsPerResourceExceededLimitException":
       response = await deserializeAws_restJson1_1TagsPerResourceExceededLimitExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1UntagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceOutput"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UntagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
@@ -1094,6 +2035,90 @@ async function deserializeAws_restJson1_1UpdateDataRetentionCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1UpdateSignalingChannelCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSignalingChannelCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UpdateSignalingChannelCommandError(
+      output,
+      context
+    );
+  }
+  const contents: UpdateSignalingChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateSignalingChannelOutput"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UpdateSignalingChannelCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSignalingChannelCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.kinesis.video.v20170930#AccessDeniedException":
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ClientLimitExceededException":
+    case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidArgumentException":
+    case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazon.kinesis.video.v20170930#ResourceInUseException":
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "VersionMismatchException":
+    case "com.amazon.kinesis.video.v20170930#VersionMismatchException":
+      response = await deserializeAws_restJson1_1VersionMismatchExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1UpdateStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -1174,6 +2199,42 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
   }
   return Promise.reject(Object.assign(new Error(), response));
 }
+
+const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    __type: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    Message: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Message !== undefined) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AccountChannelLimitExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AccountChannelLimitExceededException> => {
+  const contents: AccountChannelLimitExceededException = {
+    name: "AccountChannelLimitExceededException",
+    __type: "AccountChannelLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    Message: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Message !== undefined) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
 
 const deserializeAws_restJson1_1AccountStreamLimitExceededExceptionResponse = async (
   output: any,
@@ -1373,6 +2434,27 @@ const deserializeAws_restJson1_1VersionMismatchExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1_1ChannelNameCondition = (
+  input: ChannelNameCondition,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComparisonOperator !== undefined) {
+    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
+  }
+  if (input.ComparisonValue !== undefined) {
+    bodyParams["ComparisonValue"] = input.ComparisonValue;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1ListOfProtocols = (
+  input: Array<ChannelProtocol | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
 const serializeAws_restJson1_1ResourceTags = (
   input: { [key: string]: string },
   context: __SerdeContext
@@ -1382,6 +2464,34 @@ const serializeAws_restJson1_1ResourceTags = (
     mapParams[key] = input[key];
   });
   return mapParams;
+};
+
+const serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration = (
+  input: SingleMasterChannelEndpointConfiguration,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Protocols !== undefined) {
+    bodyParams["Protocols"] = serializeAws_restJson1_1ListOfProtocols(
+      input.Protocols,
+      context
+    );
+  }
+  if (input.Role !== undefined) {
+    bodyParams["Role"] = input.Role;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1SingleMasterConfiguration = (
+  input: SingleMasterConfiguration,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.MessageTtlSeconds !== undefined) {
+    bodyParams["MessageTtlSeconds"] = input.MessageTtlSeconds;
+  }
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1StreamNameCondition = (
@@ -1398,11 +2508,124 @@ const serializeAws_restJson1_1StreamNameCondition = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1Tag = (
+  input: Tag,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Key !== undefined) {
+    bodyParams["Key"] = input.Key;
+  }
+  if (input.Value !== undefined) {
+    bodyParams["Value"] = input.Value;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
   return (input || []).map(entry => entry);
+};
+
+const serializeAws_restJson1_1TagList = (
+  input: Array<Tag>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1Tag(entry, context)
+  );
+};
+
+const serializeAws_restJson1_1TagOnCreateList = (
+  input: Array<Tag>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1Tag(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1ChannelInfo = (
+  output: any,
+  context: __SerdeContext
+): ChannelInfo => {
+  let contents: any = {
+    __type: "ChannelInfo",
+    ChannelARN: undefined,
+    ChannelName: undefined,
+    ChannelStatus: undefined,
+    ChannelType: undefined,
+    CreationTime: undefined,
+    SingleMasterConfiguration: undefined,
+    Version: undefined
+  };
+  if (output.ChannelARN !== undefined) {
+    contents.ChannelARN = output.ChannelARN;
+  }
+  if (output.ChannelName !== undefined) {
+    contents.ChannelName = output.ChannelName;
+  }
+  if (output.ChannelStatus !== undefined) {
+    contents.ChannelStatus = output.ChannelStatus;
+  }
+  if (output.ChannelType !== undefined) {
+    contents.ChannelType = output.ChannelType;
+  }
+  if (output.CreationTime !== undefined) {
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
+  }
+  if (output.SingleMasterConfiguration !== undefined) {
+    contents.SingleMasterConfiguration = deserializeAws_restJson1_1SingleMasterConfiguration(
+      output.SingleMasterConfiguration,
+      context
+    );
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1ChannelInfoList = (
+  output: any,
+  context: __SerdeContext
+): Array<ChannelInfo> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1ChannelInfo(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1ResourceEndpointList = (
+  output: any,
+  context: __SerdeContext
+): Array<ResourceEndpointListItem> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1ResourceEndpointListItem(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1ResourceEndpointListItem = (
+  output: any,
+  context: __SerdeContext
+): ResourceEndpointListItem => {
+  let contents: any = {
+    __type: "ResourceEndpointListItem",
+    Protocol: undefined,
+    ResourceEndpoint: undefined
+  };
+  if (output.Protocol !== undefined) {
+    contents.Protocol = output.Protocol;
+  }
+  if (output.ResourceEndpoint !== undefined) {
+    contents.ResourceEndpoint = output.ResourceEndpoint;
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1ResourceTags = (
@@ -1414,6 +2637,20 @@ const deserializeAws_restJson1_1ResourceTags = (
     mapParams[key] = output[key];
   });
   return mapParams;
+};
+
+const deserializeAws_restJson1_1SingleMasterConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SingleMasterConfiguration => {
+  let contents: any = {
+    __type: "SingleMasterConfiguration",
+    MessageTtlSeconds: undefined
+  };
+  if (output.MessageTtlSeconds !== undefined) {
+    contents.MessageTtlSeconds = output.MessageTtlSeconds;
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1StreamInfo = (

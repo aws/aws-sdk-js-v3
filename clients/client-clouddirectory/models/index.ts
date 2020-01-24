@@ -2,9 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Access denied. Check your permissions.</p>
- *
+ * <p>Access denied. Check your permissions.</p>
  */
 export interface AccessDeniedException
   extends _smithy.SmithyException,
@@ -24,31 +22,23 @@ export namespace AccessDeniedException {
 export interface AddFacetToObjectRequest {
   __type?: "AddFacetToObjectRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where the object resides. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Attributes on the facet that you are adding to the object.</p>
-   *
+   * <p>Attributes on the facet that you are adding to the object.</p>
    */
   ObjectAttributeList?: Array<AttributeKeyAndValue>;
 
   /**
-   *
-   *          <p>A reference to the object you are adding the specified facet to.</p>
-   *
+   * <p>A reference to the object you are adding the specified facet to.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifiers for the facet that you are adding to the object. See <a>SchemaFacet</a> for details.</p>
-   *
+   * <p>Identifiers for the facet that you are adding to the object. See <a>SchemaFacet</a> for details.</p>
    */
   SchemaFacet: SchemaFacet | undefined;
 }
@@ -72,18 +62,14 @@ export namespace AddFacetToObjectResponse {
 export interface ApplySchemaRequest {
   __type?: "ApplySchemaRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       into which the schema is copied. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Published schema Amazon Resource Name (ARN) that needs to be copied. For more
+   * <p>Published schema Amazon Resource Name (ARN) that needs to be copied. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   PublishedSchemaArn: string | undefined;
 }
@@ -97,18 +83,14 @@ export namespace ApplySchemaRequest {
 export interface ApplySchemaResponse extends $MetadataBearer {
   __type?: "ApplySchemaResponse";
   /**
-   *
-   *          <p>The applied schema ARN that is associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on
+   * <p>The applied schema ARN that is associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on
    *       this directory. For more information, see <a>arns</a>.</p>
-   *
    */
   AppliedSchemaArn?: string;
 
   /**
-   *
-   *          <p>The ARN that is associated with the <a>Directory</a>. For more information,
+   * <p>The ARN that is associated with the <a>Directory</a>. For more information,
    *       see <a>arns</a>.</p>
-   *
    */
   DirectoryArn?: string;
 }
@@ -122,31 +104,23 @@ export namespace ApplySchemaResponse {
 export interface AttachObjectRequest {
   __type?: "AttachObjectRequest";
   /**
-   *
-   *          <p>The child object reference to be attached to the object.</p>
-   *
+   * <p>The child object reference to be attached to the object.</p>
    */
   ChildReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where both objects reside. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The link name with which the child object is attached to the parent.</p>
-   *
+   * <p>The link name with which the child object is attached to the parent.</p>
    */
   LinkName: string | undefined;
 
   /**
-   *
-   *          <p>The parent object reference.</p>
-   *
+   * <p>The parent object reference.</p>
    */
   ParentReference: ObjectReference | undefined;
 }
@@ -160,10 +134,8 @@ export namespace AttachObjectRequest {
 export interface AttachObjectResponse extends $MetadataBearer {
   __type?: "AttachObjectResponse";
   /**
-   *
-   *          <p>The attached <code>ObjectIdentifier</code>, which is the child
+   * <p>The attached <code>ObjectIdentifier</code>, which is the child
    *         <code>ObjectIdentifier</code>.</p>
-   *
    */
   AttachedObjectIdentifier?: string;
 }
@@ -177,25 +149,19 @@ export namespace AttachObjectResponse {
 export interface AttachPolicyRequest {
   __type?: "AttachPolicyRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where both objects reside. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The reference that identifies the object to which the policy will be
+   * <p>The reference that identifies the object to which the policy will be
    *       attached.</p>
-   *
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>The reference that is associated with the policy object.</p>
-   *
+   * <p>The reference that is associated with the policy object.</p>
    */
   PolicyReference: ObjectReference | undefined;
 }
@@ -219,24 +185,18 @@ export namespace AttachPolicyResponse {
 export interface AttachToIndexRequest {
   __type?: "AttachToIndexRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the directory where the object and index
+   * <p>The Amazon Resource Name (ARN) of the directory where the object and index
    *       exist.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>A reference to the index that you are attaching the object to.</p>
-   *
+   * <p>A reference to the index that you are attaching the object to.</p>
    */
   IndexReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>A reference to the object that you are attaching to the index.</p>
-   *
+   * <p>A reference to the object that you are attaching to the index.</p>
    */
   TargetReference: ObjectReference | undefined;
 }
@@ -250,9 +210,7 @@ export namespace AttachToIndexRequest {
 export interface AttachToIndexResponse extends $MetadataBearer {
   __type?: "AttachToIndexResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
    */
   AttachedObjectIdentifier?: string;
 }
@@ -266,38 +224,28 @@ export namespace AttachToIndexResponse {
 export interface AttachTypedLinkRequest {
   __type?: "AttachTypedLinkRequest";
   /**
-   *
-   *          <p>A set of attributes that are associated with the typed link.</p>
-   *
+   * <p>A set of attributes that are associated with the typed link.</p>
    */
   Attributes: Array<AttributeNameAndValue> | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the directory where you want to attach the typed
+   * <p>The Amazon Resource Name (ARN) of the directory where you want to attach the typed
    *       link.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Identifies the source object that the typed link will attach to.</p>
-   *
+   * <p>Identifies the source object that the typed link will attach to.</p>
    */
   SourceObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifies the target object that the typed link will attach to.</p>
-   *
+   * <p>Identifies the target object that the typed link will attach to.</p>
    */
   TargetObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifies the typed link facet that is associated with the typed link.</p>
-   *
+   * <p>Identifies the typed link facet that is associated with the typed link.</p>
    */
   TypedLinkFacet: TypedLinkSchemaAndFacetName | undefined;
 }
@@ -311,9 +259,7 @@ export namespace AttachTypedLinkRequest {
 export interface AttachTypedLinkResponse extends $MetadataBearer {
   __type?: "AttachTypedLinkResponse";
   /**
-   *
-   *          <p>Returns a typed link specifier as output.</p>
-   *
+   * <p>Returns a typed link specifier as output.</p>
    */
   TypedLinkSpecifier?: TypedLinkSpecifier;
 }
@@ -325,31 +271,23 @@ export namespace AttachTypedLinkResponse {
 }
 
 /**
- *
- *          <p>A unique identifier for an attribute.</p>
- *
+ * <p>A unique identifier for an attribute.</p>
  */
 export interface AttributeKey {
   __type?: "AttributeKey";
   /**
-   *
-   *          <p>The name of the facet that the attribute exists within.</p>
-   *
+   * <p>The name of the facet that the attribute exists within.</p>
    */
   FacetName: string | undefined;
 
   /**
-   *
-   *          <p>The name of the attribute.</p>
-   *
+   * <p>The name of the attribute.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the schema that contains the facet and
+   * <p>The Amazon Resource Name (ARN) of the schema that contains the facet and
    *       attribute.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -361,23 +299,17 @@ export namespace AttributeKey {
 }
 
 /**
- *
- *          <p>The combination of an attribute key and an attribute value.</p>
- *
+ * <p>The combination of an attribute key and an attribute value.</p>
  */
 export interface AttributeKeyAndValue {
   __type?: "AttributeKeyAndValue";
   /**
-   *
-   *          <p>The key of the attribute.</p>
-   *
+   * <p>The key of the attribute.</p>
    */
   Key: AttributeKey | undefined;
 
   /**
-   *
-   *          <p>The value of the attribute.</p>
-   *
+   * <p>The value of the attribute.</p>
    */
   Value: TypedAttributeValue | undefined;
 }
@@ -389,23 +321,17 @@ export namespace AttributeKeyAndValue {
 }
 
 /**
- *
- *          <p>Identifies the attribute name and value for a typed link.</p>
- *
+ * <p>Identifies the attribute name and value for a typed link.</p>
  */
 export interface AttributeNameAndValue {
   __type?: "AttributeNameAndValue";
   /**
-   *
-   *          <p>The attribute name of the typed link.</p>
-   *
+   * <p>The attribute name of the typed link.</p>
    */
   AttributeName: string | undefined;
 
   /**
-   *
-   *          <p>The value for the typed link.</p>
-   *
+   * <p>The value for the typed link.</p>
    */
   Value: TypedAttributeValue | undefined;
 }
@@ -417,30 +343,22 @@ export namespace AttributeNameAndValue {
 }
 
 /**
- *
- *          <p>Represents the output of a batch add facet to object operation.</p>
- *
+ * <p>Represents the output of a batch add facet to object operation.</p>
  */
 export interface BatchAddFacetToObject {
   __type?: "BatchAddFacetToObject";
   /**
-   *
-   *          <p>The attributes to set on the object.</p>
-   *
+   * <p>The attributes to set on the object.</p>
    */
   ObjectAttributeList: Array<AttributeKeyAndValue> | undefined;
 
   /**
-   *
-   *          <p>A reference to the object being mutated.</p>
-   *
+   * <p>A reference to the object being mutated.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Represents the facet being added to the object.</p>
-   *
+   * <p>Represents the facet being added to the object.</p>
    */
   SchemaFacet: SchemaFacet | undefined;
 }
@@ -452,9 +370,7 @@ export namespace BatchAddFacetToObject {
 }
 
 /**
- *
- *          <p>The result of a batch add facet to object operation.</p>
- *
+ * <p>The result of a batch add facet to object operation.</p>
  */
 export interface BatchAddFacetToObjectResponse {
   __type?: "BatchAddFacetToObjectResponse";
@@ -467,30 +383,22 @@ export namespace BatchAddFacetToObjectResponse {
 }
 
 /**
- *
- *          <p>Represents the output of an <a>AttachObject</a> operation.</p>
- *
+ * <p>Represents the output of an <a>AttachObject</a> operation.</p>
  */
 export interface BatchAttachObject {
   __type?: "BatchAttachObject";
   /**
-   *
-   *          <p>The child object reference that is to be attached to the object.</p>
-   *
+   * <p>The child object reference that is to be attached to the object.</p>
    */
   ChildReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>The name of the link.</p>
-   *
+   * <p>The name of the link.</p>
    */
   LinkName: string | undefined;
 
   /**
-   *
-   *          <p>The parent object reference.</p>
-   *
+   * <p>The parent object reference.</p>
    */
   ParentReference: ObjectReference | undefined;
 }
@@ -502,16 +410,12 @@ export namespace BatchAttachObject {
 }
 
 /**
- *
- *          <p>Represents the output batch <a>AttachObject</a> response operation.</p>
- *
+ * <p>Represents the output batch <a>AttachObject</a> response operation.</p>
  */
 export interface BatchAttachObjectResponse {
   __type?: "BatchAttachObjectResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the object that has been attached.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the object that has been attached.</p>
    */
   attachedObjectIdentifier?: string;
 }
@@ -523,24 +427,18 @@ export namespace BatchAttachObjectResponse {
 }
 
 /**
- *
- *          <p>Attaches a policy object to a regular object inside a <a>BatchRead</a> operation. For more information, see <a>AttachPolicy</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Attaches a policy object to a regular object inside a <a>BatchRead</a> operation. For more information, see <a>AttachPolicy</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchAttachPolicy {
   __type?: "BatchAttachPolicy";
   /**
-   *
-   *          <p>The reference that identifies the object to which the policy will be
+   * <p>The reference that identifies the object to which the policy will be
    *        attached.</p>
-   *
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>The reference that is associated with the policy object.</p>
-   *
+   * <p>The reference that is associated with the policy object.</p>
    */
   PolicyReference: ObjectReference | undefined;
 }
@@ -552,10 +450,8 @@ export namespace BatchAttachPolicy {
 }
 
 /**
- *
- *          <p>Represents the output of an <a>AttachPolicy</a> response
+ * <p>Represents the output of an <a>AttachPolicy</a> response
  *       operation.</p>
- *
  */
 export interface BatchAttachPolicyResponse {
   __type?: "BatchAttachPolicyResponse";
@@ -568,23 +464,17 @@ export namespace BatchAttachPolicyResponse {
 }
 
 /**
- *
- *          <p>Attaches the specified object to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>AttachToIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Attaches the specified object to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>AttachToIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchAttachToIndex {
   __type?: "BatchAttachToIndex";
   /**
-   *
-   *          <p>A reference to the index that you are attaching the object to.</p>
-   *
+   * <p>A reference to the index that you are attaching the object to.</p>
    */
   IndexReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>A reference to the object that you are attaching to the index.</p>
-   *
+   * <p>A reference to the object that you are attaching to the index.</p>
    */
   TargetReference: ObjectReference | undefined;
 }
@@ -596,16 +486,12 @@ export namespace BatchAttachToIndex {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>AttachToIndex</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>AttachToIndex</a> response operation.</p>
  */
 export interface BatchAttachToIndexResponse {
   __type?: "BatchAttachToIndexResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
    */
   AttachedObjectIdentifier?: string;
 }
@@ -617,37 +503,27 @@ export namespace BatchAttachToIndexResponse {
 }
 
 /**
- *
- *          <p>Attaches a typed link to a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>AttachTypedLink</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Attaches a typed link to a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>AttachTypedLink</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchAttachTypedLink {
   __type?: "BatchAttachTypedLink";
   /**
-   *
-   *          <p>A set of attributes that are associated with the typed link.</p>
-   *
+   * <p>A set of attributes that are associated with the typed link.</p>
    */
   Attributes: Array<AttributeNameAndValue> | undefined;
 
   /**
-   *
-   *          <p>Identifies the source object that the typed link will attach to.</p>
-   *
+   * <p>Identifies the source object that the typed link will attach to.</p>
    */
   SourceObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifies the target object that the typed link will attach to.</p>
-   *
+   * <p>Identifies the target object that the typed link will attach to.</p>
    */
   TargetObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifies the typed link facet that is associated with the typed link.</p>
-   *
+   * <p>Identifies the typed link facet that is associated with the typed link.</p>
    */
   TypedLinkFacet: TypedLinkSchemaAndFacetName | undefined;
 }
@@ -659,16 +535,12 @@ export namespace BatchAttachTypedLink {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>AttachTypedLink</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>AttachTypedLink</a> response operation.</p>
  */
 export interface BatchAttachTypedLinkResponse {
   __type?: "BatchAttachTypedLinkResponse";
   /**
-   *
-   *          <p>Returns a typed link specifier as output.</p>
-   *
+   * <p>Returns a typed link specifier as output.</p>
    */
   TypedLinkSpecifier?: TypedLinkSpecifier;
 }
@@ -680,46 +552,34 @@ export namespace BatchAttachTypedLinkResponse {
 }
 
 /**
- *
- *          <p>Creates an index object inside of a <a>BatchRead</a> operation. For more information, see <a>CreateIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Creates an index object inside of a <a>BatchRead</a> operation. For more information, see <a>CreateIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchCreateIndex {
   __type?: "BatchCreateIndex";
   /**
-   *
-   *          <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
-   *
+   * <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
    */
   BatchReferenceName?: string;
 
   /**
-   *
-   *          <p>Indicates whether the attribute that is being indexed has unique values or
+   * <p>Indicates whether the attribute that is being indexed has unique values or
    *        not.</p>
-   *
    */
   IsUnique: boolean | undefined;
 
   /**
-   *
-   *          <p>The name of the link between the parent object and the index object.</p>
-   *
+   * <p>The name of the link between the parent object and the index object.</p>
    */
   LinkName?: string;
 
   /**
-   *
-   *          <p>Specifies the attributes that should be indexed on. Currently only a single attribute
+   * <p>Specifies the attributes that should be indexed on. Currently only a single attribute
    *        is supported.</p>
-   *
    */
   OrderedIndexedAttributeList: Array<AttributeKey> | undefined;
 
   /**
-   *
-   *          <p>A reference to the parent object that contains the index object.</p>
-   *
+   * <p>A reference to the parent object that contains the index object.</p>
    */
   ParentReference?: ObjectReference;
 }
@@ -731,16 +591,12 @@ export namespace BatchCreateIndex {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>CreateIndex</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>CreateIndex</a> response operation.</p>
  */
 export interface BatchCreateIndexResponse {
   __type?: "BatchCreateIndexResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -752,46 +608,34 @@ export namespace BatchCreateIndexResponse {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>CreateObject</a> operation.</p>
- *
+ * <p>Represents the output of a <a>CreateObject</a> operation.</p>
  */
 export interface BatchCreateObject {
   __type?: "BatchCreateObject";
   /**
-   *
-   *          <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
-   *
+   * <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
    */
   BatchReferenceName?: string;
 
   /**
-   *
-   *          <p>The name of the link.</p>
-   *
+   * <p>The name of the link.</p>
    */
   LinkName?: string;
 
   /**
-   *
-   *          <p>An attribute map, which contains an attribute ARN as the key and attribute value as
+   * <p>An attribute map, which contains an attribute ARN as the key and attribute value as
    *       the map value.</p>
-   *
    */
   ObjectAttributeList: Array<AttributeKeyAndValue> | undefined;
 
   /**
-   *
-   *          <p>If specified, the parent reference to which this object will be attached.</p>
-   *
+   * <p>If specified, the parent reference to which this object will be attached.</p>
    */
   ParentReference?: ObjectReference;
 
   /**
-   *
-   *          <p>A list of <code>FacetArns</code> that will be associated with the object. For more
+   * <p>A list of <code>FacetArns</code> that will be associated with the object. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaFacet: Array<SchemaFacet> | undefined;
 }
@@ -803,16 +647,12 @@ export namespace BatchCreateObject {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>CreateObject</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>CreateObject</a> response operation.</p>
  */
 export interface BatchCreateObjectResponse {
   __type?: "BatchCreateObjectResponse";
   /**
-   *
-   *          <p>The ID that is associated with the object.</p>
-   *
+   * <p>The ID that is associated with the object.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -824,16 +664,12 @@ export namespace BatchCreateObjectResponse {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>DeleteObject</a> operation.</p>
- *
+ * <p>Represents the output of a <a>DeleteObject</a> operation.</p>
  */
 export interface BatchDeleteObject {
   __type?: "BatchDeleteObject";
   /**
-   *
-   *          <p>The reference that identifies the object.</p>
-   *
+   * <p>The reference that identifies the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -845,9 +681,7 @@ export namespace BatchDeleteObject {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>DeleteObject</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>DeleteObject</a> response operation.</p>
  */
 export interface BatchDeleteObjectResponse {
   __type?: "BatchDeleteObjectResponse";
@@ -860,23 +694,17 @@ export namespace BatchDeleteObjectResponse {
 }
 
 /**
- *
- *          <p>Detaches the specified object from the specified index inside a <a>BatchRead</a> operation. For more information, see <a>DetachFromIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Detaches the specified object from the specified index inside a <a>BatchRead</a> operation. For more information, see <a>DetachFromIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchDetachFromIndex {
   __type?: "BatchDetachFromIndex";
   /**
-   *
-   *          <p>A reference to the index object.</p>
-   *
+   * <p>A reference to the index object.</p>
    */
   IndexReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>A reference to the object being detached from the index.</p>
-   *
+   * <p>A reference to the object being detached from the index.</p>
    */
   TargetReference: ObjectReference | undefined;
 }
@@ -888,16 +716,12 @@ export namespace BatchDetachFromIndex {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>DetachFromIndex</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>DetachFromIndex</a> response operation.</p>
  */
 export interface BatchDetachFromIndexResponse {
   __type?: "BatchDetachFromIndexResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
    */
   DetachedObjectIdentifier?: string;
 }
@@ -909,31 +733,23 @@ export namespace BatchDetachFromIndexResponse {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>DetachObject</a> operation.</p>
- *
+ * <p>Represents the output of a <a>DetachObject</a> operation.</p>
  */
 export interface BatchDetachObject {
   __type?: "BatchDetachObject";
   /**
-   *
-   *          <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
-   *
+   * <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
    */
   BatchReferenceName?: string;
 
   /**
-   *
-   *          <p>The name of the link.</p>
-   *
+   * <p>The name of the link.</p>
    */
   LinkName: string | undefined;
 
   /**
-   *
-   *          <p>Parent reference from which the object with the specified link name is
+   * <p>Parent reference from which the object with the specified link name is
    *       detached.</p>
-   *
    */
   ParentReference: ObjectReference | undefined;
 }
@@ -945,16 +761,12 @@ export namespace BatchDetachObject {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>DetachObject</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>DetachObject</a> response operation.</p>
  */
 export interface BatchDetachObjectResponse {
   __type?: "BatchDetachObjectResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the detached object.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the detached object.</p>
    */
   detachedObjectIdentifier?: string;
 }
@@ -966,23 +778,17 @@ export namespace BatchDetachObjectResponse {
 }
 
 /**
- *
- *          <p>Detaches the specified policy from the specified directory inside a <a>BatchWrite</a> operation. For more information, see <a>DetachPolicy</a> and <a>BatchWriteRequest$Operations</a>.</p>
- *
+ * <p>Detaches the specified policy from the specified directory inside a <a>BatchWrite</a> operation. For more information, see <a>DetachPolicy</a> and <a>BatchWriteRequest$Operations</a>.</p>
  */
 export interface BatchDetachPolicy {
   __type?: "BatchDetachPolicy";
   /**
-   *
-   *          <p>Reference that identifies the object whose policy object will be detached.</p>
-   *
+   * <p>Reference that identifies the object whose policy object will be detached.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Reference that identifies the policy object.</p>
-   *
+   * <p>Reference that identifies the policy object.</p>
    */
   PolicyReference: ObjectReference | undefined;
 }
@@ -994,9 +800,7 @@ export namespace BatchDetachPolicy {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>DetachPolicy</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>DetachPolicy</a> response operation.</p>
  */
 export interface BatchDetachPolicyResponse {
   __type?: "BatchDetachPolicyResponse";
@@ -1009,16 +813,12 @@ export namespace BatchDetachPolicyResponse {
 }
 
 /**
- *
- *          <p>Detaches a typed link from a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>DetachTypedLink</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Detaches a typed link from a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>DetachTypedLink</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchDetachTypedLink {
   __type?: "BatchDetachTypedLink";
   /**
-   *
-   *          <p>Used to accept a typed link specifier as input.</p>
-   *
+   * <p>Used to accept a typed link specifier as input.</p>
    */
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
 }
@@ -1030,9 +830,7 @@ export namespace BatchDetachTypedLink {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>DetachTypedLink</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>DetachTypedLink</a> response operation.</p>
  */
 export interface BatchDetachTypedLinkResponse {
   __type?: "BatchDetachTypedLinkResponse";
@@ -1045,23 +843,17 @@ export namespace BatchDetachTypedLinkResponse {
 }
 
 /**
- *
- *          <p>Retrieves attributes that are associated with a typed link inside a <a>BatchRead</a> operation. For more information, see <a>GetLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Retrieves attributes that are associated with a typed link inside a <a>BatchRead</a> operation. For more information, see <a>GetLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchGetLinkAttributes {
   __type?: "BatchGetLinkAttributes";
   /**
-   *
-   *          <p>A list of attribute names whose values will be retrieved.</p>
-   *
+   * <p>A list of attribute names whose values will be retrieved.</p>
    */
   AttributeNames: Array<string> | undefined;
 
   /**
-   *
-   *          <p>Allows a typed link specifier to be accepted as input.</p>
-   *
+   * <p>Allows a typed link specifier to be accepted as input.</p>
    */
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
 }
@@ -1073,16 +865,12 @@ export namespace BatchGetLinkAttributes {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>GetLinkAttributes</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>GetLinkAttributes</a> response operation.</p>
  */
 export interface BatchGetLinkAttributesResponse {
   __type?: "BatchGetLinkAttributesResponse";
   /**
-   *
-   *          <p>The attributes that are associated with the typed link.</p>
-   *
+   * <p>The attributes that are associated with the typed link.</p>
    */
   Attributes?: Array<AttributeKeyAndValue>;
 }
@@ -1094,30 +882,22 @@ export namespace BatchGetLinkAttributesResponse {
 }
 
 /**
- *
- *          <p>Retrieves attributes within a facet that are associated with an object inside an <a>BatchRead</a> operation. For more information, see <a>GetObjectAttributes</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Retrieves attributes within a facet that are associated with an object inside an <a>BatchRead</a> operation. For more information, see <a>GetObjectAttributes</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchGetObjectAttributes {
   __type?: "BatchGetObjectAttributes";
   /**
-   *
-   *          <p>List of attribute names whose values will be retrieved.</p>
-   *
+   * <p>List of attribute names whose values will be retrieved.</p>
    */
   AttributeNames: Array<string> | undefined;
 
   /**
-   *
-   *          <p>Reference that identifies the object whose attributes will be retrieved.</p>
-   *
+   * <p>Reference that identifies the object whose attributes will be retrieved.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
-   *
+   * <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
    */
   SchemaFacet: SchemaFacet | undefined;
 }
@@ -1129,16 +909,12 @@ export namespace BatchGetObjectAttributes {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>GetObjectAttributes</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>GetObjectAttributes</a> response operation.</p>
  */
 export interface BatchGetObjectAttributesResponse {
   __type?: "BatchGetObjectAttributesResponse";
   /**
-   *
-   *          <p>The attribute values that are associated with an object.</p>
-   *
+   * <p>The attribute values that are associated with an object.</p>
    */
   Attributes?: Array<AttributeKeyAndValue>;
 }
@@ -1150,16 +926,12 @@ export namespace BatchGetObjectAttributesResponse {
 }
 
 /**
- *
- *          <p>Retrieves metadata about an object inside a <a>BatchRead</a> operation. For more information, see <a>GetObjectInformation</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Retrieves metadata about an object inside a <a>BatchRead</a> operation. For more information, see <a>GetObjectInformation</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchGetObjectInformation {
   __type?: "BatchGetObjectInformation";
   /**
-   *
-   *          <p>A reference to the object.</p>
-   *
+   * <p>A reference to the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1171,23 +943,17 @@ export namespace BatchGetObjectInformation {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>GetObjectInformation</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>GetObjectInformation</a> response operation.</p>
  */
 export interface BatchGetObjectInformationResponse {
   __type?: "BatchGetObjectInformationResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the specified object.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the specified object.</p>
    */
   ObjectIdentifier?: string;
 
   /**
-   *
-   *          <p>The facets attached to the specified object.</p>
-   *
+   * <p>The facets attached to the specified object.</p>
    */
   SchemaFacets?: Array<SchemaFacet>;
 }
@@ -1199,31 +965,22 @@ export namespace BatchGetObjectInformationResponse {
 }
 
 /**
- *
- *          <p>Lists indices attached to an object inside a <a>BatchRead</a> operation. For more information, see <a>ListAttachedIndices</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
- *
+ * <p>Lists indices attached to an object inside a <a>BatchRead</a> operation. For more information, see <a>ListAttachedIndices</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchListAttachedIndices {
   __type?: "BatchListAttachedIndices";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A reference to the object that has indices attached.</p>
-   *
+   * <p>A reference to the object that has indices attached.</p>
    */
   TargetReference: ObjectReference | undefined;
 }
@@ -1235,23 +992,17 @@ export namespace BatchListAttachedIndices {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListAttachedIndices</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListAttachedIndices</a> response operation.</p>
  */
 export interface BatchListAttachedIndicesResponse {
   __type?: "BatchListAttachedIndicesResponse";
   /**
-   *
-   *          <p>The indices attached to the specified object.</p>
-   *
+   * <p>The indices attached to the specified object.</p>
    */
   IndexAttachments?: Array<IndexAttachment>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -1263,47 +1014,35 @@ export namespace BatchListAttachedIndicesResponse {
 }
 
 /**
- *
- *          <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListIncomingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListIncomingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchListIncomingTypedLinks {
   __type?: "BatchListIncomingTypedLinks";
   /**
-   *
-   *          <p>Provides range filters for multiple attributes. When providing ranges to typed link
+   * <p>Provides range filters for multiple attributes. When providing ranges to typed link
    *        selection, any inexact ranges must be specified at the end. Any attributes that do not have a
    *        range specified are presumed to match the entire range.</p>
-   *
    */
   FilterAttributeRanges?: Array<TypedLinkAttributeRange>;
 
   /**
-   *
-   *          <p>Filters are interpreted in the order of the attributes on the typed link facet, not the
+   * <p>Filters are interpreted in the order of the attributes on the typed link facet, not the
    *        order in which they are supplied to any API calls.</p>
-   *
    */
   FilterTypedLink?: TypedLinkSchemaAndFacetName;
 
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object whose attributes will be listed.</p>
-   *
+   * <p>The reference that identifies the object whose attributes will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1315,23 +1054,17 @@ export namespace BatchListIncomingTypedLinks {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListIncomingTypedLinks</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListIncomingTypedLinks</a> response operation.</p>
  */
 export interface BatchListIncomingTypedLinksResponse {
   __type?: "BatchListIncomingTypedLinksResponse";
   /**
-   *
-   *          <p>Returns one or more typed link specifiers as output.</p>
-   *
+   * <p>Returns one or more typed link specifiers as output.</p>
    */
   LinkSpecifiers?: Array<TypedLinkSpecifier>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -1343,37 +1076,27 @@ export namespace BatchListIncomingTypedLinksResponse {
 }
 
 /**
- *
- *          <p>Lists objects attached to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>ListIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Lists objects attached to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>ListIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchListIndex {
   __type?: "BatchListIndex";
   /**
-   *
-   *          <p>The reference to the index to list.</p>
-   *
+   * <p>The reference to the index to list.</p>
    */
   IndexReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Specifies the ranges of indexed values that you want to query.</p>
-   *
+   * <p>Specifies the ranges of indexed values that you want to query.</p>
    */
   RangesOnIndexedValues?: Array<ObjectAttributeRange>;
 }
@@ -1385,23 +1108,17 @@ export namespace BatchListIndex {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListIndex</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListIndex</a> response operation.</p>
  */
 export interface BatchListIndexResponse {
   __type?: "BatchListIndexResponse";
   /**
-   *
-   *          <p>The objects and indexed values attached to the index.</p>
-   *
+   * <p>The objects and indexed values attached to the index.</p>
    */
   IndexAttachments?: Array<IndexAttachment>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -1413,39 +1130,29 @@ export namespace BatchListIndexResponse {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListObjectAttributes</a> operation.</p>
- *
+ * <p>Represents the output of a <a>ListObjectAttributes</a> operation.</p>
  */
 export interface BatchListObjectAttributes {
   __type?: "BatchListObjectAttributes";
   /**
-   *
-   *          <p>Used to filter the list of object attributes that are associated with a certain
+   * <p>Used to filter the list of object attributes that are associated with a certain
    *       facet.</p>
-   *
    */
   FacetFilter?: SchemaFacet;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Reference of the object whose attributes need to be listed.</p>
-   *
+   * <p>Reference of the object whose attributes need to be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1457,24 +1164,18 @@ export namespace BatchListObjectAttributes {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListObjectAttributes</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListObjectAttributes</a> response operation.</p>
  */
 export interface BatchListObjectAttributesResponse {
   __type?: "BatchListObjectAttributesResponse";
   /**
-   *
-   *          <p>The attributes map that is associated with the object. <code>AttributeArn</code> is the
+   * <p>The attributes map that is associated with the object. <code>AttributeArn</code> is the
    *       key; attribute value is the value.</p>
-   *
    */
   Attributes?: Array<AttributeKeyAndValue>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -1486,31 +1187,23 @@ export namespace BatchListObjectAttributesResponse {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListObjectChildren</a> operation.</p>
- *
+ * <p>Represents the output of a <a>ListObjectChildren</a> operation.</p>
  */
 export interface BatchListObjectChildren {
   __type?: "BatchListObjectChildren";
   /**
-   *
-   *          <p>Maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>Maximum number of items to be retrieved in a single call. This is an approximate
    *        number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Reference of the object for which child objects are being listed.</p>
-   *
+   * <p>Reference of the object for which child objects are being listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1522,24 +1215,18 @@ export namespace BatchListObjectChildren {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListObjectChildren</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListObjectChildren</a> response operation.</p>
  */
 export interface BatchListObjectChildrenResponse {
   __type?: "BatchListObjectChildrenResponse";
   /**
-   *
-   *          <p>The children structure, which is a map with the key as the <code>LinkName</code> and
+   * <p>The children structure, which is a map with the key as the <code>LinkName</code> and
    *         <code>ObjectIdentifier</code> as the value.</p>
-   *
    */
   Children?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -1551,30 +1238,22 @@ export namespace BatchListObjectChildrenResponse {
 }
 
 /**
- *
- *          <p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectParentPaths</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectParentPaths</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchListObjectParentPaths {
   __type?: "BatchListObjectParentPaths";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object whose attributes will be listed.</p>
-   *
+   * <p>The reference that identifies the object whose attributes will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1586,24 +1265,18 @@ export namespace BatchListObjectParentPaths {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListObjectParentPaths</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListObjectParentPaths</a> response operation.</p>
  */
 export interface BatchListObjectParentPathsResponse {
   __type?: "BatchListObjectParentPathsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the
+   * <p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the
    *        directory.</p>
-   *
    */
   PathToObjectIdentifiersList?: Array<PathToObjectIdentifiers>;
 }
@@ -1619,9 +1292,7 @@ export interface BatchListObjectParents {
   MaxResults?: number;
   NextToken?: string;
   /**
-   *
-   *          <p>The reference that identifies an object.</p>
-   *
+   * <p>The reference that identifies an object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1645,30 +1316,22 @@ export namespace BatchListObjectParentsResponse {
 }
 
 /**
- *
- *          <p>Returns policies attached to an object in pagination fashion inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectPolicies</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Returns policies attached to an object in pagination fashion inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectPolicies</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchListObjectPolicies {
   __type?: "BatchListObjectPolicies";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object whose attributes will be listed.</p>
-   *
+   * <p>The reference that identifies the object whose attributes will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1680,24 +1343,18 @@ export namespace BatchListObjectPolicies {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListObjectPolicies</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListObjectPolicies</a> response operation.</p>
  */
 export interface BatchListObjectPoliciesResponse {
   __type?: "BatchListObjectPoliciesResponse";
   /**
-   *
-   *          <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the
+   * <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the
    *        object.</p>
-   *
    */
   AttachedPolicyIds?: Array<string>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -1709,47 +1366,35 @@ export namespace BatchListObjectPoliciesResponse {
 }
 
 /**
- *
- *          <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListOutgoingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListOutgoingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchListOutgoingTypedLinks {
   __type?: "BatchListOutgoingTypedLinks";
   /**
-   *
-   *          <p>Provides range filters for multiple attributes. When providing ranges to typed link
+   * <p>Provides range filters for multiple attributes. When providing ranges to typed link
    *        selection, any inexact ranges must be specified at the end. Any attributes that do not have a
    *        range specified are presumed to match the entire range.</p>
-   *
    */
   FilterAttributeRanges?: Array<TypedLinkAttributeRange>;
 
   /**
-   *
-   *          <p>Filters are interpreted in the order of the attributes defined on the typed link facet,
+   * <p>Filters are interpreted in the order of the attributes defined on the typed link facet,
    *        not the order they are supplied to any API calls.</p>
-   *
    */
   FilterTypedLink?: TypedLinkSchemaAndFacetName;
 
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object whose attributes will be listed.</p>
-   *
+   * <p>The reference that identifies the object whose attributes will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1761,23 +1406,17 @@ export namespace BatchListOutgoingTypedLinks {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListOutgoingTypedLinks</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListOutgoingTypedLinks</a> response operation.</p>
  */
 export interface BatchListOutgoingTypedLinksResponse {
   __type?: "BatchListOutgoingTypedLinksResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns a typed link specifier as output.</p>
-   *
+   * <p>Returns a typed link specifier as output.</p>
    */
   TypedLinkSpecifiers?: Array<TypedLinkSpecifier>;
 }
@@ -1789,30 +1428,22 @@ export namespace BatchListOutgoingTypedLinksResponse {
 }
 
 /**
- *
- *          <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached inside a <a>BatchRead</a> operation. For more information, see <a>ListPolicyAttachments</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached inside a <a>BatchRead</a> operation. For more information, see <a>ListPolicyAttachments</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchListPolicyAttachments {
   __type?: "BatchListPolicyAttachments";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the policy object.</p>
-   *
+   * <p>The reference that identifies the policy object.</p>
    */
   PolicyReference: ObjectReference | undefined;
 }
@@ -1824,23 +1455,17 @@ export namespace BatchListPolicyAttachments {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>ListPolicyAttachments</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>ListPolicyAttachments</a> response operation.</p>
  */
 export interface BatchListPolicyAttachmentsResponse {
   __type?: "BatchListPolicyAttachmentsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
-   *
+   * <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
    */
   ObjectIdentifiers?: Array<string>;
 }
@@ -1852,30 +1477,22 @@ export namespace BatchListPolicyAttachmentsResponse {
 }
 
 /**
- *
- *          <p>Lists all policies from the root of the Directory to the object specified inside a <a>BatchRead</a> operation. For more information, see <a>LookupPolicy</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Lists all policies from the root of the Directory to the object specified inside a <a>BatchRead</a> operation. For more information, see <a>LookupPolicy</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchLookupPolicy {
   __type?: "BatchLookupPolicy";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Reference that identifies the object whose policies will be looked up.</p>
-   *
+   * <p>Reference that identifies the object whose policies will be looked up.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -1887,25 +1504,19 @@ export namespace BatchLookupPolicy {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>LookupPolicy</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>LookupPolicy</a> response operation.</p>
  */
 export interface BatchLookupPolicyResponse {
   __type?: "BatchLookupPolicyResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and
+   * <p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and
    *        <code>PolicyType</code>. For more
    *        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-   *
    */
   PolicyToPathList?: Array<PolicyToPath>;
 }
@@ -1917,24 +1528,18 @@ export namespace BatchLookupPolicyResponse {
 }
 
 /**
- *
- *          <p>The batch read exception structure, which contains the exception type and
+ * <p>The batch read exception structure, which contains the exception type and
  *       message.</p>
- *
  */
 export interface BatchReadException {
   __type?: "BatchReadException";
   /**
-   *
-   *          <p>An exception message that is associated with the failure.</p>
-   *
+   * <p>An exception message that is associated with the failure.</p>
    */
   Message?: string;
 
   /**
-   *
-   *          <p>A type of exception, such as <code>InvalidArnException</code>.</p>
-   *
+   * <p>A type of exception, such as <code>InvalidArnException</code>.</p>
    */
   Type?: BatchReadExceptionType | string;
 }
@@ -1962,112 +1567,84 @@ export enum BatchReadExceptionType {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>BatchRead</code> operation.</p>
- *
+ * <p>Represents the output of a <code>BatchRead</code> operation.</p>
  */
 export interface BatchReadOperation {
   __type?: "BatchReadOperation";
   /**
-   *
-   *          <p>Retrieves attributes that are associated with a typed link.</p>
-   *
+   * <p>Retrieves attributes that are associated with a typed link.</p>
    */
   GetLinkAttributes?: BatchGetLinkAttributes;
 
   /**
-   *
-   *          <p>Retrieves attributes within a facet that are associated with an object.</p>
-   *
+   * <p>Retrieves attributes within a facet that are associated with an object.</p>
    */
   GetObjectAttributes?: BatchGetObjectAttributes;
 
   /**
-   *
-   *          <p>Retrieves metadata about an object.</p>
-   *
+   * <p>Retrieves metadata about an object.</p>
    */
   GetObjectInformation?: BatchGetObjectInformation;
 
   /**
-   *
-   *          <p>Lists indices attached to an object.</p>
-   *
+   * <p>Lists indices attached to an object.</p>
    */
   ListAttachedIndices?: BatchListAttachedIndices;
 
   /**
-   *
-   *          <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
+   * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
    *        information for an object. It also supports filtering by typed link facet and identity
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
    */
   ListIncomingTypedLinks?: BatchListIncomingTypedLinks;
 
   /**
-   *
-   *          <p>Lists objects attached to the specified index.</p>
-   *
+   * <p>Lists objects attached to the specified index.</p>
    */
   ListIndex?: BatchListIndex;
 
   /**
-   *
-   *          <p>Lists all attributes that are associated with an object.</p>
-   *
+   * <p>Lists all attributes that are associated with an object.</p>
    */
   ListObjectAttributes?: BatchListObjectAttributes;
 
   /**
-   *
-   *          <p>Returns a paginated list of child objects that are associated with a given
+   * <p>Returns a paginated list of child objects that are associated with a given
    *       object.</p>
-   *
    */
   ListObjectChildren?: BatchListObjectChildren;
 
   /**
-   *
-   *          <p>Retrieves all available parent paths for any object type such as node, leaf node,
+   * <p>Retrieves all available parent paths for any object type such as node, leaf node,
    *        policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
-   *
    */
   ListObjectParentPaths?: BatchListObjectParentPaths;
 
   ListObjectParents?: BatchListObjectParents;
   /**
-   *
-   *          <p>Returns policies attached to an object in pagination fashion.</p>
-   *
+   * <p>Returns policies attached to an object in pagination fashion.</p>
    */
   ListObjectPolicies?: BatchListObjectPolicies;
 
   /**
-   *
-   *          <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
+   * <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
    *        information for an object. It also supports filtering by typed link facet and identity
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
    */
   ListOutgoingTypedLinks?: BatchListOutgoingTypedLinks;
 
   /**
-   *
-   *          <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
-   *
+   * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
    */
   ListPolicyAttachments?: BatchListPolicyAttachments;
 
   /**
-   *
-   *          <p>Lists all policies from the root of the <a>Directory</a> to the object
+   * <p>Lists all policies from the root of the <a>Directory</a> to the object
    *        specified. If there are no policies present, an empty list is returned. If policies are
    *        present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
    *        for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and
    *        <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more
    *        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-   *
    */
   LookupPolicy?: BatchLookupPolicy;
 }
@@ -2079,23 +1656,17 @@ export namespace BatchReadOperation {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>BatchRead</code> response operation.</p>
- *
+ * <p>Represents the output of a <code>BatchRead</code> response operation.</p>
  */
 export interface BatchReadOperationResponse {
   __type?: "BatchReadOperationResponse";
   /**
-   *
-   *          <p>Identifies which operation in a batch has failed.</p>
-   *
+   * <p>Identifies which operation in a batch has failed.</p>
    */
   ExceptionResponse?: BatchReadException;
 
   /**
-   *
-   *          <p>Identifies which operation in a batch has succeeded.</p>
-   *
+   * <p>Identifies which operation in a batch has succeeded.</p>
    */
   SuccessfulResponse?: BatchReadSuccessfulResponse;
 }
@@ -2109,25 +1680,19 @@ export namespace BatchReadOperationResponse {
 export interface BatchReadRequest {
   __type?: "BatchReadRequest";
   /**
-   *
-   *          <p>Represents the manner and timing in which the successful write or update of an object
+   * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
-   *
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
    *       For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>A list of operations that are part of the batch.</p>
-   *
+   * <p>A list of operations that are part of the batch.</p>
    */
   Operations: Array<BatchReadOperation> | undefined;
 }
@@ -2141,9 +1706,7 @@ export namespace BatchReadRequest {
 export interface BatchReadResponse extends $MetadataBearer {
   __type?: "BatchReadResponse";
   /**
-   *
-   *          <p>A list of all the responses for each batch read.</p>
-   *
+   * <p>A list of all the responses for each batch read.</p>
    */
   Responses?: Array<BatchReadOperationResponse>;
 }
@@ -2155,112 +1718,84 @@ export namespace BatchReadResponse {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>BatchRead</code> success response operation.</p>
- *
+ * <p>Represents the output of a <code>BatchRead</code> success response operation.</p>
  */
 export interface BatchReadSuccessfulResponse {
   __type?: "BatchReadSuccessfulResponse";
   /**
-   *
-   *          <p>The list of attributes to retrieve from the typed link.</p>
-   *
+   * <p>The list of attributes to retrieve from the typed link.</p>
    */
   GetLinkAttributes?: BatchGetLinkAttributesResponse;
 
   /**
-   *
-   *          <p>Retrieves attributes within a facet that are associated with an object.</p>
-   *
+   * <p>Retrieves attributes within a facet that are associated with an object.</p>
    */
   GetObjectAttributes?: BatchGetObjectAttributesResponse;
 
   /**
-   *
-   *          <p>Retrieves metadata about an object.</p>
-   *
+   * <p>Retrieves metadata about an object.</p>
    */
   GetObjectInformation?: BatchGetObjectInformationResponse;
 
   /**
-   *
-   *          <p>Lists indices attached to an object.</p>
-   *
+   * <p>Lists indices attached to an object.</p>
    */
   ListAttachedIndices?: BatchListAttachedIndicesResponse;
 
   /**
-   *
-   *          <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
+   * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
    *        information for an object. It also supports filtering by typed link facet and identity
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
    */
   ListIncomingTypedLinks?: BatchListIncomingTypedLinksResponse;
 
   /**
-   *
-   *          <p>Lists objects attached to the specified index.</p>
-   *
+   * <p>Lists objects attached to the specified index.</p>
    */
   ListIndex?: BatchListIndexResponse;
 
   /**
-   *
-   *          <p>Lists all attributes that are associated with an object.</p>
-   *
+   * <p>Lists all attributes that are associated with an object.</p>
    */
   ListObjectAttributes?: BatchListObjectAttributesResponse;
 
   /**
-   *
-   *          <p>Returns a paginated list of child objects that are associated with a given
+   * <p>Returns a paginated list of child objects that are associated with a given
    *       object.</p>
-   *
    */
   ListObjectChildren?: BatchListObjectChildrenResponse;
 
   /**
-   *
-   *          <p>Retrieves all available parent paths for any object type such as node, leaf node,
+   * <p>Retrieves all available parent paths for any object type such as node, leaf node,
    *        policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
-   *
    */
   ListObjectParentPaths?: BatchListObjectParentPathsResponse;
 
   ListObjectParents?: BatchListObjectParentsResponse;
   /**
-   *
-   *          <p>Returns policies attached to an object in pagination fashion.</p>
-   *
+   * <p>Returns policies attached to an object in pagination fashion.</p>
    */
   ListObjectPolicies?: BatchListObjectPoliciesResponse;
 
   /**
-   *
-   *          <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
+   * <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
    *        information for an object. It also supports filtering by typed link facet and identity
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
    */
   ListOutgoingTypedLinks?: BatchListOutgoingTypedLinksResponse;
 
   /**
-   *
-   *          <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
-   *
+   * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
    */
   ListPolicyAttachments?: BatchListPolicyAttachmentsResponse;
 
   /**
-   *
-   *          <p>Lists all policies from the root of the <a>Directory</a> to the object
+   * <p>Lists all policies from the root of the <a>Directory</a> to the object
    *        specified. If there are no policies present, an empty list is returned. If policies are
    *        present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
    *        for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and
    *        <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more
    *        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-   *
    */
   LookupPolicy?: BatchLookupPolicyResponse;
 }
@@ -2272,23 +1807,17 @@ export namespace BatchReadSuccessfulResponse {
 }
 
 /**
- *
- *          <p>A batch operation to remove a facet from an object.</p>
- *
+ * <p>A batch operation to remove a facet from an object.</p>
  */
 export interface BatchRemoveFacetFromObject {
   __type?: "BatchRemoveFacetFromObject";
   /**
-   *
-   *          <p>A reference to the object whose facet will be removed.</p>
-   *
+   * <p>A reference to the object whose facet will be removed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>The facet to remove from the object.</p>
-   *
+   * <p>The facet to remove from the object.</p>
    */
   SchemaFacet: SchemaFacet | undefined;
 }
@@ -2300,9 +1829,7 @@ export namespace BatchRemoveFacetFromObject {
 }
 
 /**
- *
- *          <p>An empty result that represents success.</p>
- *
+ * <p>An empty result that represents success.</p>
  */
 export interface BatchRemoveFacetFromObjectResponse {
   __type?: "BatchRemoveFacetFromObjectResponse";
@@ -2315,23 +1842,17 @@ export namespace BatchRemoveFacetFromObjectResponse {
 }
 
 /**
- *
- *          <p>Updates a given typed link’s attributes inside a <a>BatchRead</a> operation. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>. For more information, see <a>UpdateLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.</p>
- *
+ * <p>Updates a given typed link’s attributes inside a <a>BatchRead</a> operation. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>. For more information, see <a>UpdateLinkAttributes</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
 export interface BatchUpdateLinkAttributes {
   __type?: "BatchUpdateLinkAttributes";
   /**
-   *
-   *          <p>The attributes update structure.</p>
-   *
+   * <p>The attributes update structure.</p>
    */
   AttributeUpdates: Array<LinkAttributeUpdate> | undefined;
 
   /**
-   *
-   *          <p>Allows a typed link specifier to be accepted as input.</p>
-   *
+   * <p>Allows a typed link specifier to be accepted as input.</p>
    */
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
 }
@@ -2343,9 +1864,7 @@ export namespace BatchUpdateLinkAttributes {
 }
 
 /**
- *
- *          <p>Represents the output of a <a>UpdateLinkAttributes</a> response operation.</p>
- *
+ * <p>Represents the output of a <a>UpdateLinkAttributes</a> response operation.</p>
  */
 export interface BatchUpdateLinkAttributesResponse {
   __type?: "BatchUpdateLinkAttributesResponse";
@@ -2358,23 +1877,17 @@ export namespace BatchUpdateLinkAttributesResponse {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>BatchUpdate</code> operation. </p>
- *
+ * <p>Represents the output of a <code>BatchUpdate</code> operation. </p>
  */
 export interface BatchUpdateObjectAttributes {
   __type?: "BatchUpdateObjectAttributes";
   /**
-   *
-   *          <p>Attributes update structure.</p>
-   *
+   * <p>Attributes update structure.</p>
    */
   AttributeUpdates: Array<ObjectAttributeUpdate> | undefined;
 
   /**
-   *
-   *          <p>Reference that identifies the object.</p>
-   *
+   * <p>Reference that identifies the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -2386,16 +1899,12 @@ export namespace BatchUpdateObjectAttributes {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>BatchUpdate</code> response operation.</p>
- *
+ * <p>Represents the output of a <code>BatchUpdate</code> response operation.</p>
  */
 export interface BatchUpdateObjectAttributesResponse {
   __type?: "BatchUpdateObjectAttributesResponse";
   /**
-   *
-   *          <p>ID that is associated with the object.</p>
-   *
+   * <p>ID that is associated with the object.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -2407,9 +1916,7 @@ export namespace BatchUpdateObjectAttributesResponse {
 }
 
 /**
- *
- *          <p>A <code>BatchWrite</code> exception has occurred.</p>
- *
+ * <p>A <code>BatchWrite</code> exception has occurred.</p>
  */
 export interface BatchWriteException
   extends _smithy.SmithyException,
@@ -2450,115 +1957,83 @@ export enum BatchWriteExceptionType {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>BatchWrite</code> operation. </p>
- *
+ * <p>Represents the output of a <code>BatchWrite</code> operation. </p>
  */
 export interface BatchWriteOperation {
   __type?: "BatchWriteOperation";
   /**
-   *
-   *          <p>A batch operation that adds a facet to an object.</p>
-   *
+   * <p>A batch operation that adds a facet to an object.</p>
    */
   AddFacetToObject?: BatchAddFacetToObject;
 
   /**
-   *
-   *          <p>Attaches an object to a <a>Directory</a>.</p>
-   *
+   * <p>Attaches an object to a <a>Directory</a>.</p>
    */
   AttachObject?: BatchAttachObject;
 
   /**
-   *
-   *          <p>Attaches a policy object to a regular object. An object can have a limited number of attached
+   * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
    *        policies.</p>
-   *
    */
   AttachPolicy?: BatchAttachPolicy;
 
   /**
-   *
-   *          <p>Attaches the specified object to the specified index.</p>
-   *
+   * <p>Attaches the specified object to the specified index.</p>
    */
   AttachToIndex?: BatchAttachToIndex;
 
   /**
-   *
-   *          <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
+   * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   AttachTypedLink?: BatchAttachTypedLink;
 
   /**
-   *
-   *          <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
-   *
+   * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
    */
   CreateIndex?: BatchCreateIndex;
 
   /**
-   *
-   *          <p>Creates an object.</p>
-   *
+   * <p>Creates an object.</p>
    */
   CreateObject?: BatchCreateObject;
 
   /**
-   *
-   *          <p>Deletes an object in a <a>Directory</a>.</p>
-   *
+   * <p>Deletes an object in a <a>Directory</a>.</p>
    */
   DeleteObject?: BatchDeleteObject;
 
   /**
-   *
-   *          <p>Detaches the specified object from the specified index.</p>
-   *
+   * <p>Detaches the specified object from the specified index.</p>
    */
   DetachFromIndex?: BatchDetachFromIndex;
 
   /**
-   *
-   *          <p>Detaches an object from a <a>Directory</a>.</p>
-   *
+   * <p>Detaches an object from a <a>Directory</a>.</p>
    */
   DetachObject?: BatchDetachObject;
 
   /**
-   *
-   *          <p>Detaches a policy from a <a>Directory</a>.</p>
-   *
+   * <p>Detaches a policy from a <a>Directory</a>.</p>
    */
   DetachPolicy?: BatchDetachPolicy;
 
   /**
-   *
-   *          <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
+   * <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   DetachTypedLink?: BatchDetachTypedLink;
 
   /**
-   *
-   *          <p>A batch operation that removes a facet from an object.</p>
-   *
+   * <p>A batch operation that removes a facet from an object.</p>
    */
   RemoveFacetFromObject?: BatchRemoveFacetFromObject;
 
   /**
-   *
-   *          <p>Updates a given object's attributes.</p>
-   *
+   * <p>Updates a given object's attributes.</p>
    */
   UpdateLinkAttributes?: BatchUpdateLinkAttributes;
 
   /**
-   *
-   *          <p>Updates a given object's attributes.</p>
-   *
+   * <p>Updates a given object's attributes.</p>
    */
   UpdateObjectAttributes?: BatchUpdateObjectAttributes;
 }
@@ -2570,115 +2045,83 @@ export namespace BatchWriteOperation {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>BatchWrite</code> response operation.</p>
- *
+ * <p>Represents the output of a <code>BatchWrite</code> response operation.</p>
  */
 export interface BatchWriteOperationResponse {
   __type?: "BatchWriteOperationResponse";
   /**
-   *
-   *          <p>The result of an add facet to object batch operation.</p>
-   *
+   * <p>The result of an add facet to object batch operation.</p>
    */
   AddFacetToObject?: BatchAddFacetToObjectResponse;
 
   /**
-   *
-   *          <p>Attaches an object to a <a>Directory</a>.</p>
-   *
+   * <p>Attaches an object to a <a>Directory</a>.</p>
    */
   AttachObject?: BatchAttachObjectResponse;
 
   /**
-   *
-   *          <p>Attaches a policy object to a regular object. An object can have a limited number of attached
+   * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
    *        policies.</p>
-   *
    */
   AttachPolicy?: BatchAttachPolicyResponse;
 
   /**
-   *
-   *          <p>Attaches the specified object to the specified index.</p>
-   *
+   * <p>Attaches the specified object to the specified index.</p>
    */
   AttachToIndex?: BatchAttachToIndexResponse;
 
   /**
-   *
-   *          <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
+   * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   AttachTypedLink?: BatchAttachTypedLinkResponse;
 
   /**
-   *
-   *          <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
-   *
+   * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
    */
   CreateIndex?: BatchCreateIndexResponse;
 
   /**
-   *
-   *          <p>Creates an object in a <a>Directory</a>.</p>
-   *
+   * <p>Creates an object in a <a>Directory</a>.</p>
    */
   CreateObject?: BatchCreateObjectResponse;
 
   /**
-   *
-   *          <p>Deletes an object in a <a>Directory</a>.</p>
-   *
+   * <p>Deletes an object in a <a>Directory</a>.</p>
    */
   DeleteObject?: BatchDeleteObjectResponse;
 
   /**
-   *
-   *          <p>Detaches the specified object from the specified index.</p>
-   *
+   * <p>Detaches the specified object from the specified index.</p>
    */
   DetachFromIndex?: BatchDetachFromIndexResponse;
 
   /**
-   *
-   *          <p>Detaches an object from a <a>Directory</a>.</p>
-   *
+   * <p>Detaches an object from a <a>Directory</a>.</p>
    */
   DetachObject?: BatchDetachObjectResponse;
 
   /**
-   *
-   *          <p>Detaches a policy from a <a>Directory</a>.</p>
-   *
+   * <p>Detaches a policy from a <a>Directory</a>.</p>
    */
   DetachPolicy?: BatchDetachPolicyResponse;
 
   /**
-   *
-   *          <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
+   * <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   DetachTypedLink?: BatchDetachTypedLinkResponse;
 
   /**
-   *
-   *          <p>The result of a batch remove facet from object operation.</p>
-   *
+   * <p>The result of a batch remove facet from object operation.</p>
    */
   RemoveFacetFromObject?: BatchRemoveFacetFromObjectResponse;
 
   /**
-   *
-   *          <p>Represents the output of a <code>BatchWrite</code> response operation.</p>
-   *
+   * <p>Represents the output of a <code>BatchWrite</code> response operation.</p>
    */
   UpdateLinkAttributes?: BatchUpdateLinkAttributesResponse;
 
   /**
-   *
-   *          <p>Updates a given object’s attributes.</p>
-   *
+   * <p>Updates a given object’s attributes.</p>
    */
   UpdateObjectAttributes?: BatchUpdateObjectAttributesResponse;
 }
@@ -2692,17 +2135,13 @@ export namespace BatchWriteOperationResponse {
 export interface BatchWriteRequest {
   __type?: "BatchWriteRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
    *       For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>A list of operations that are part of the batch.</p>
-   *
+   * <p>A list of operations that are part of the batch.</p>
    */
   Operations: Array<BatchWriteOperation> | undefined;
 }
@@ -2716,9 +2155,7 @@ export namespace BatchWriteRequest {
 export interface BatchWriteResponse extends $MetadataBearer {
   __type?: "BatchWriteResponse";
   /**
-   *
-   *          <p>A list of all the responses for each batch write.</p>
-   *
+   * <p>A list of all the responses for each batch write.</p>
    */
   Responses?: Array<BatchWriteOperationResponse>;
 }
@@ -2730,9 +2167,7 @@ export namespace BatchWriteResponse {
 }
 
 /**
- *
- *          <p>Cannot list the parents of a <a>Directory</a> root.</p>
- *
+ * <p>Cannot list the parents of a <a>Directory</a> root.</p>
  */
 export interface CannotListParentOfRootException
   extends _smithy.SmithyException,
@@ -2757,18 +2192,14 @@ export enum ConsistencyLevel {
 export interface CreateDirectoryRequest {
   __type?: "CreateDirectoryRequest";
   /**
-   *
-   *          <p>The name of the <a>Directory</a>. Should be unique per account, per
+   * <p>The name of the <a>Directory</a>. Should be unique per account, per
    *       region.</p>
-   *
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the published schema that will be copied into the
+   * <p>The Amazon Resource Name (ARN) of the published schema that will be copied into the
    *       data <a>Directory</a>. For more information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -2782,33 +2213,25 @@ export namespace CreateDirectoryRequest {
 export interface CreateDirectoryResponse extends $MetadataBearer {
   __type?: "CreateDirectoryResponse";
   /**
-   *
-   *          <p>The ARN of the published schema in the <a>Directory</a>. Once a published
+   * <p>The ARN of the published schema in the <a>Directory</a>. Once a published
    *       schema is copied into the directory, it has its own ARN, which is referred to applied schema
    *       ARN. For more information, see <a>arns</a>.</p>
-   *
    */
   AppliedSchemaArn: string | undefined;
 
   /**
-   *
-   *          <p>The ARN that is associated with the <a>Directory</a>. For more information,
+   * <p>The ARN that is associated with the <a>Directory</a>. For more information,
    *       see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The name of the <a>Directory</a>.</p>
-   *
+   * <p>The name of the <a>Directory</a>.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The root object node of the created directory.</p>
-   *
+   * <p>The root object node of the created directory.</p>
    */
   ObjectIdentifier: string | undefined;
 }
@@ -2822,29 +2245,22 @@ export namespace CreateDirectoryResponse {
 export interface CreateFacetRequest {
   __type?: "CreateFacetRequest";
   /**
-   *
-   *          <p>The attributes that are associated with the <a>Facet</a>.</p>
-   *
+   * <p>The attributes that are associated with the <a>Facet</a>.</p>
    */
   Attributes?: Array<FacetAttribute>;
 
   /**
-   *
-   *          <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
-   *
+   * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    */
   FacetStyle?: FacetStyle | string;
 
   /**
-   *
-   *          <p>The name of the <a>Facet</a>, which is unique for a given schema.</p>
-   *
+   * <p>The name of the <a>Facet</a>, which is unique for a given schema.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>Specifies whether a given object created from this facet is of type node, leaf node,
+   * <p>Specifies whether a given object created from this facet is of type node, leaf node,
    *       policy or index.</p>
    *          <ul>
    *             <li>
@@ -2867,15 +2283,12 @@ export interface CreateFacetRequest {
    *                <p>Index: Can be created with the Index API.</p>
    *             </li>
    *          </ul>
-   *
    */
   ObjectType?: ObjectType | string;
 
   /**
-   *
-   *          <p>The schema ARN in which the new <a>Facet</a> will be created. For more
+   * <p>The schema ARN in which the new <a>Facet</a> will be created. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -2899,39 +2312,29 @@ export namespace CreateFacetResponse {
 export interface CreateIndexRequest {
   __type?: "CreateIndexRequest";
   /**
-   *
-   *          <p>The ARN of the directory where the index should be created.</p>
-   *
+   * <p>The ARN of the directory where the index should be created.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Indicates whether the attribute that is being indexed has unique values or
+   * <p>Indicates whether the attribute that is being indexed has unique values or
    *       not.</p>
-   *
    */
   IsUnique: boolean | undefined;
 
   /**
-   *
-   *          <p>The name of the link between the parent object and the index object.</p>
-   *
+   * <p>The name of the link between the parent object and the index object.</p>
    */
   LinkName?: string;
 
   /**
-   *
-   *          <p>Specifies the attributes that should be indexed on. Currently only a single attribute
+   * <p>Specifies the attributes that should be indexed on. Currently only a single attribute
    *       is supported.</p>
-   *
    */
   OrderedIndexedAttributeList: Array<AttributeKey> | undefined;
 
   /**
-   *
-   *          <p>A reference to the parent object that contains the index object.</p>
-   *
+   * <p>A reference to the parent object that contains the index object.</p>
    */
   ParentReference?: ObjectReference;
 }
@@ -2945,9 +2348,7 @@ export namespace CreateIndexRequest {
 export interface CreateIndexResponse extends $MetadataBearer {
   __type?: "CreateIndexResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -2961,39 +2362,29 @@ export namespace CreateIndexResponse {
 export interface CreateObjectRequest {
   __type?: "CreateObjectRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       in which the object will be created. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The name of link that is used to attach this object to a parent.</p>
-   *
+   * <p>The name of link that is used to attach this object to a parent.</p>
    */
   LinkName?: string;
 
   /**
-   *
-   *          <p>The attribute map whose attribute ARN contains the key and attribute value as the map
+   * <p>The attribute map whose attribute ARN contains the key and attribute value as the map
    *       value.</p>
-   *
    */
   ObjectAttributeList?: Array<AttributeKeyAndValue>;
 
   /**
-   *
-   *          <p>If specified, the parent reference to which this object will be attached.</p>
-   *
+   * <p>If specified, the parent reference to which this object will be attached.</p>
    */
   ParentReference?: ObjectReference;
 
   /**
-   *
-   *          <p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p>
-   *
+   * <p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p>
    */
   SchemaFacets: Array<SchemaFacet> | undefined;
 }
@@ -3007,9 +2398,7 @@ export namespace CreateObjectRequest {
 export interface CreateObjectResponse extends $MetadataBearer {
   __type?: "CreateObjectResponse";
   /**
-   *
-   *          <p>The identifier that is associated with the object.</p>
-   *
+   * <p>The identifier that is associated with the object.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -3023,10 +2412,8 @@ export namespace CreateObjectResponse {
 export interface CreateSchemaRequest {
   __type?: "CreateSchemaRequest";
   /**
-   *
-   *          <p>The name that is associated with the schema. This is unique to each account and in each
+   * <p>The name that is associated with the schema. This is unique to each account and in each
    *       region.</p>
-   *
    */
   Name: string | undefined;
 }
@@ -3040,10 +2427,8 @@ export namespace CreateSchemaRequest {
 export interface CreateSchemaResponse extends $MetadataBearer {
   __type?: "CreateSchemaResponse";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn?: string;
 }
@@ -3057,19 +2442,15 @@ export namespace CreateSchemaResponse {
 export interface CreateTypedLinkFacetRequest {
   __type?: "CreateTypedLinkFacetRequest";
   /**
-   *
-   *          <p>
+   * <p>
    *             <a>Facet</a> structure that is associated with the typed link
    *       facet.</p>
-   *
    */
   Facet: TypedLinkFacet | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -3093,9 +2474,7 @@ export namespace CreateTypedLinkFacetResponse {
 export interface DeleteDirectoryRequest {
   __type?: "DeleteDirectoryRequest";
   /**
-   *
-   *          <p>The ARN of the directory to delete.</p>
-   *
+   * <p>The ARN of the directory to delete.</p>
    */
   DirectoryArn: string | undefined;
 }
@@ -3109,9 +2488,7 @@ export namespace DeleteDirectoryRequest {
 export interface DeleteDirectoryResponse extends $MetadataBearer {
   __type?: "DeleteDirectoryResponse";
   /**
-   *
-   *          <p>The ARN of the deleted directory.</p>
-   *
+   * <p>The ARN of the deleted directory.</p>
    */
   DirectoryArn: string | undefined;
 }
@@ -3125,17 +2502,13 @@ export namespace DeleteDirectoryResponse {
 export interface DeleteFacetRequest {
   __type?: "DeleteFacetRequest";
   /**
-   *
-   *          <p>The name of the facet to delete.</p>
-   *
+   * <p>The name of the facet to delete.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
    *       For more information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -3159,17 +2532,13 @@ export namespace DeleteFacetResponse {
 export interface DeleteObjectRequest {
   __type?: "DeleteObjectRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where the object resides. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>A reference that identifies the object.</p>
-   *
+   * <p>A reference that identifies the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -3193,10 +2562,8 @@ export namespace DeleteObjectResponse {
 export interface DeleteSchemaRequest {
   __type?: "DeleteSchemaRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the development schema. For more information, see
+   * <p>The Amazon Resource Name (ARN) of the development schema. For more information, see
    *         <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -3210,10 +2577,8 @@ export namespace DeleteSchemaRequest {
 export interface DeleteSchemaResponse extends $MetadataBearer {
   __type?: "DeleteSchemaResponse";
   /**
-   *
-   *          <p>The input ARN that is returned as part of the response. For more information, see
+   * <p>The input ARN that is returned as part of the response. For more information, see
    *         <a>arns</a>.</p>
-   *
    */
   SchemaArn?: string;
 }
@@ -3227,17 +2592,13 @@ export namespace DeleteSchemaResponse {
 export interface DeleteTypedLinkFacetRequest {
   __type?: "DeleteTypedLinkFacetRequest";
   /**
-   *
-   *          <p>The unique name of the typed link facet.</p>
-   *
+   * <p>The unique name of the typed link facet.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -3261,24 +2622,18 @@ export namespace DeleteTypedLinkFacetResponse {
 export interface DetachFromIndexRequest {
   __type?: "DetachFromIndexRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the directory the index and object exist
+   * <p>The Amazon Resource Name (ARN) of the directory the index and object exist
    *       in.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>A reference to the index object.</p>
-   *
+   * <p>A reference to the index object.</p>
    */
   IndexReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>A reference to the object being detached from the index.</p>
-   *
+   * <p>A reference to the object being detached from the index.</p>
    */
   TargetReference: ObjectReference | undefined;
 }
@@ -3292,9 +2647,7 @@ export namespace DetachFromIndexRequest {
 export interface DetachFromIndexResponse extends $MetadataBearer {
   __type?: "DetachFromIndexResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
    */
   DetachedObjectIdentifier?: string;
 }
@@ -3308,25 +2661,19 @@ export namespace DetachFromIndexResponse {
 export interface DetachObjectRequest {
   __type?: "DetachObjectRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where objects reside. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The link name associated with the object that needs to be detached.</p>
-   *
+   * <p>The link name associated with the object that needs to be detached.</p>
    */
   LinkName: string | undefined;
 
   /**
-   *
-   *          <p>The parent reference from which the object with the specified link name is
+   * <p>The parent reference from which the object with the specified link name is
    *       detached.</p>
-   *
    */
   ParentReference: ObjectReference | undefined;
 }
@@ -3340,9 +2687,7 @@ export namespace DetachObjectRequest {
 export interface DetachObjectResponse extends $MetadataBearer {
   __type?: "DetachObjectResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> that was detached from the object.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> that was detached from the object.</p>
    */
   DetachedObjectIdentifier?: string;
 }
@@ -3356,24 +2701,18 @@ export namespace DetachObjectResponse {
 export interface DetachPolicyRequest {
   __type?: "DetachPolicyRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where both objects reside. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Reference that identifies the object whose policy object will be detached.</p>
-   *
+   * <p>Reference that identifies the object whose policy object will be detached.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Reference that identifies the policy object.</p>
-   *
+   * <p>Reference that identifies the policy object.</p>
    */
   PolicyReference: ObjectReference | undefined;
 }
@@ -3397,17 +2736,13 @@ export namespace DetachPolicyResponse {
 export interface DetachTypedLinkRequest {
   __type?: "DetachTypedLinkRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the directory where you want to detach the typed
+   * <p>The Amazon Resource Name (ARN) of the directory where you want to detach the typed
    *       link.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Used to accept a typed link specifier as input.</p>
-   *
+   * <p>Used to accept a typed link specifier as input.</p>
    */
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
 }
@@ -3419,38 +2754,28 @@ export namespace DetachTypedLinkRequest {
 }
 
 /**
- *
- *          <p>Directory structure that includes the directory name and directory ARN.</p>
- *
+ * <p>Directory structure that includes the directory name and directory ARN.</p>
  */
 export interface Directory {
   __type?: "Directory";
   /**
-   *
-   *          <p>The date and time when the directory was created.</p>
-   *
+   * <p>The date and time when the directory was created.</p>
    */
   CreationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the directory. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the directory. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn?: string;
 
   /**
-   *
-   *          <p>The name of the directory.</p>
-   *
+   * <p>The name of the directory.</p>
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>.</p>
-   *
+   * <p>The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>.</p>
    */
   State?: DirectoryState | string;
 }
@@ -3462,10 +2787,8 @@ export namespace Directory {
 }
 
 /**
- *
- *          <p>Indicates that a <a>Directory</a> could not be created due to a naming
+ * <p>Indicates that a <a>Directory</a> could not be created due to a naming
  *       conflict. Choose a different name and try again.</p>
- *
  */
 export interface DirectoryAlreadyExistsException
   extends _smithy.SmithyException,
@@ -3483,10 +2806,8 @@ export namespace DirectoryAlreadyExistsException {
 }
 
 /**
- *
- *          <p>A directory that has been deleted and to which access has been attempted. Note: The
+ * <p>A directory that has been deleted and to which access has been attempted. Note: The
  *       requested resource will eventually cease to exist.</p>
- *
  */
 export interface DirectoryDeletedException
   extends _smithy.SmithyException,
@@ -3504,9 +2825,7 @@ export namespace DirectoryDeletedException {
 }
 
 /**
- *
- *          <p>An operation can only operate on a disabled directory.</p>
- *
+ * <p>An operation can only operate on a disabled directory.</p>
  */
 export interface DirectoryNotDisabledException
   extends _smithy.SmithyException,
@@ -3524,9 +2843,7 @@ export namespace DirectoryNotDisabledException {
 }
 
 /**
- *
- *          <p>Operations are only permitted on enabled directories.</p>
- *
+ * <p>Operations are only permitted on enabled directories.</p>
  */
 export interface DirectoryNotEnabledException
   extends _smithy.SmithyException,
@@ -3552,9 +2869,7 @@ export enum DirectoryState {
 export interface DisableDirectoryRequest {
   __type?: "DisableDirectoryRequest";
   /**
-   *
-   *          <p>The ARN of the directory to disable.</p>
-   *
+   * <p>The ARN of the directory to disable.</p>
    */
   DirectoryArn: string | undefined;
 }
@@ -3568,9 +2883,7 @@ export namespace DisableDirectoryRequest {
 export interface DisableDirectoryResponse extends $MetadataBearer {
   __type?: "DisableDirectoryResponse";
   /**
-   *
-   *          <p>The ARN of the directory that has been disabled.</p>
-   *
+   * <p>The ARN of the directory that has been disabled.</p>
    */
   DirectoryArn: string | undefined;
 }
@@ -3584,9 +2897,7 @@ export namespace DisableDirectoryResponse {
 export interface EnableDirectoryRequest {
   __type?: "EnableDirectoryRequest";
   /**
-   *
-   *          <p>The ARN of the directory to enable.</p>
-   *
+   * <p>The ARN of the directory to enable.</p>
    */
   DirectoryArn: string | undefined;
 }
@@ -3600,9 +2911,7 @@ export namespace EnableDirectoryRequest {
 export interface EnableDirectoryResponse extends $MetadataBearer {
   __type?: "EnableDirectoryResponse";
   /**
-   *
-   *          <p>The ARN of the enabled directory.</p>
-   *
+   * <p>The ARN of the enabled directory.</p>
    */
   DirectoryArn: string | undefined;
 }
@@ -3614,32 +2923,24 @@ export namespace EnableDirectoryResponse {
 }
 
 /**
- *
- *          <p>A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <code>
+ * <p>A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <code>
  *                <a>Rule</a>s</code>, and
  *       <code>ObjectTypes</code>. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_whatarefacets.html">Facets</a> for more information.</p>
- *
  */
 export interface Facet {
   __type?: "Facet";
   /**
-   *
-   *          <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
-   *
+   * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    */
   FacetStyle?: FacetStyle | string;
 
   /**
-   *
-   *          <p>The name of the <a>Facet</a>.</p>
-   *
+   * <p>The name of the <a>Facet</a>.</p>
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
-   *
+   * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    */
   ObjectType?: ObjectType | string;
 }
@@ -3651,9 +2952,7 @@ export namespace Facet {
 }
 
 /**
- *
- *          <p>A facet with the same name already exists.</p>
- *
+ * <p>A facet with the same name already exists.</p>
  */
 export interface FacetAlreadyExistsException
   extends _smithy.SmithyException,
@@ -3671,38 +2970,28 @@ export namespace FacetAlreadyExistsException {
 }
 
 /**
- *
- *          <p>An attribute that is associated with the <a>Facet</a>.</p>
- *
+ * <p>An attribute that is associated with the <a>Facet</a>.</p>
  */
 export interface FacetAttribute {
   __type?: "FacetAttribute";
   /**
-   *
-   *          <p>A facet attribute consists of either a definition or a reference. This structure
+   * <p>A facet attribute consists of either a definition or a reference. This structure
    *       contains the attribute definition. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-   *
    */
   AttributeDefinition?: FacetAttributeDefinition;
 
   /**
-   *
-   *          <p>An attribute reference that is associated with the attribute. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-   *
+   * <p>An attribute reference that is associated with the attribute. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
    */
   AttributeReference?: FacetAttributeReference;
 
   /**
-   *
-   *          <p>The name of the facet attribute.</p>
-   *
+   * <p>The name of the facet attribute.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The required behavior of the <code>FacetAttribute</code>.</p>
-   *
+   * <p>The required behavior of the <code>FacetAttribute</code>.</p>
    */
   RequiredBehavior?: RequiredAttributeBehavior | string;
 }
@@ -3714,37 +3003,27 @@ export namespace FacetAttribute {
 }
 
 /**
- *
- *          <p>A facet attribute definition. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
- *
+ * <p>A facet attribute definition. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
  */
 export interface FacetAttributeDefinition {
   __type?: "FacetAttributeDefinition";
   /**
-   *
-   *          <p>The default value of the attribute (if configured).</p>
-   *
+   * <p>The default value of the attribute (if configured).</p>
    */
   DefaultValue?: TypedAttributeValue;
 
   /**
-   *
-   *          <p>Whether the attribute is mutable or not.</p>
-   *
+   * <p>Whether the attribute is mutable or not.</p>
    */
   IsImmutable?: boolean;
 
   /**
-   *
-   *          <p>Validation rules attached to the attribute definition.</p>
-   *
+   * <p>Validation rules attached to the attribute definition.</p>
    */
   Rules?: { [key: string]: Rule };
 
   /**
-   *
-   *          <p>The type of the attribute.</p>
-   *
+   * <p>The type of the attribute.</p>
    */
   Type: FacetAttributeType | string | undefined;
 }
@@ -3756,24 +3035,18 @@ export namespace FacetAttributeDefinition {
 }
 
 /**
- *
- *          <p>The facet attribute reference that specifies the attribute definition that contains the
+ * <p>The facet attribute reference that specifies the attribute definition that contains the
  *       attribute facet name and attribute name.</p>
- *
  */
 export interface FacetAttributeReference {
   __type?: "FacetAttributeReference";
   /**
-   *
-   *          <p>The target attribute name that is associated with the facet reference. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-   *
+   * <p>The target attribute name that is associated with the facet reference. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
    */
   TargetAttributeName: string | undefined;
 
   /**
-   *
-   *          <p>The target facet name that is associated with the facet reference. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
-   *
+   * <p>The target facet name that is associated with the facet reference. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
    */
   TargetFacetName: string | undefined;
 }
@@ -3794,23 +3067,17 @@ export enum FacetAttributeType {
 }
 
 /**
- *
- *          <p>A structure that contains information used to update an attribute.</p>
- *
+ * <p>A structure that contains information used to update an attribute.</p>
  */
 export interface FacetAttributeUpdate {
   __type?: "FacetAttributeUpdate";
   /**
-   *
-   *          <p>The action to perform when updating the attribute.</p>
-   *
+   * <p>The action to perform when updating the attribute.</p>
    */
   Action?: UpdateActionType | string;
 
   /**
-   *
-   *          <p>The attribute to update.</p>
-   *
+   * <p>The attribute to update.</p>
    */
   Attribute?: FacetAttribute;
 }
@@ -3822,10 +3089,8 @@ export namespace FacetAttributeUpdate {
 }
 
 /**
- *
- *          <p>Occurs when deleting a facet that contains an attribute that is a target to an
+ * <p>Occurs when deleting a facet that contains an attribute that is a target to an
  *       attribute reference in a different facet.</p>
- *
  */
 export interface FacetInUseException
   extends _smithy.SmithyException,
@@ -3843,9 +3108,7 @@ export namespace FacetInUseException {
 }
 
 /**
- *
- *          <p>The specified <a>Facet</a> could not be found.</p>
- *
+ * <p>The specified <a>Facet</a> could not be found.</p>
  */
 export interface FacetNotFoundException
   extends _smithy.SmithyException,
@@ -3868,10 +3131,8 @@ export enum FacetStyle {
 }
 
 /**
- *
- *          <p>The <a>Facet</a> that you provided was not well formed or could not be
+ * <p>The <a>Facet</a> that you provided was not well formed or could not be
  *       validated with the schema.</p>
- *
  */
 export interface FacetValidationException
   extends _smithy.SmithyException,
@@ -3891,9 +3152,7 @@ export namespace FacetValidationException {
 export interface GetAppliedSchemaVersionRequest {
   __type?: "GetAppliedSchemaVersionRequest";
   /**
-   *
-   *          <p>The ARN of the applied schema.</p>
-   *
+   * <p>The ARN of the applied schema.</p>
    */
   SchemaArn: string | undefined;
 }
@@ -3907,9 +3166,7 @@ export namespace GetAppliedSchemaVersionRequest {
 export interface GetAppliedSchemaVersionResponse extends $MetadataBearer {
   __type?: "GetAppliedSchemaVersionResponse";
   /**
-   *
-   *          <p>Current applied schema ARN, including the minor version in use if one was provided.</p>
-   *
+   * <p>Current applied schema ARN, including the minor version in use if one was provided.</p>
    */
   AppliedSchemaArn?: string;
 }
@@ -3923,9 +3180,7 @@ export namespace GetAppliedSchemaVersionResponse {
 export interface GetDirectoryRequest {
   __type?: "GetDirectoryRequest";
   /**
-   *
-   *          <p>The ARN of the directory.</p>
-   *
+   * <p>The ARN of the directory.</p>
    */
   DirectoryArn: string | undefined;
 }
@@ -3939,9 +3194,7 @@ export namespace GetDirectoryRequest {
 export interface GetDirectoryResponse extends $MetadataBearer {
   __type?: "GetDirectoryResponse";
   /**
-   *
-   *          <p>Metadata about the directory.</p>
-   *
+   * <p>Metadata about the directory.</p>
    */
   Directory: Directory | undefined;
 }
@@ -3955,17 +3208,13 @@ export namespace GetDirectoryResponse {
 export interface GetFacetRequest {
   __type?: "GetFacetRequest";
   /**
-   *
-   *          <p>The name of the facet to retrieve.</p>
-   *
+   * <p>The name of the facet to retrieve.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
    *       For more information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -3979,9 +3228,7 @@ export namespace GetFacetRequest {
 export interface GetFacetResponse extends $MetadataBearer {
   __type?: "GetFacetResponse";
   /**
-   *
-   *          <p>The <a>Facet</a> structure that is associated with the facet.</p>
-   *
+   * <p>The <a>Facet</a> structure that is associated with the facet.</p>
    */
   Facet?: Facet;
 }
@@ -3995,30 +3242,22 @@ export namespace GetFacetResponse {
 export interface GetLinkAttributesRequest {
   __type?: "GetLinkAttributesRequest";
   /**
-   *
-   *          <p>A list of attribute names whose values will be retrieved.</p>
-   *
+   * <p>A list of attribute names whose values will be retrieved.</p>
    */
   AttributeNames: Array<string> | undefined;
 
   /**
-   *
-   *          <p>The consistency level at which to retrieve the attributes on a typed link.</p>
-   *
+   * <p>The consistency level at which to retrieve the attributes on a typed link.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Allows a typed link specifier to be accepted as input.</p>
-   *
+   * <p>Allows a typed link specifier to be accepted as input.</p>
    */
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
 }
@@ -4032,9 +3271,7 @@ export namespace GetLinkAttributesRequest {
 export interface GetLinkAttributesResponse extends $MetadataBearer {
   __type?: "GetLinkAttributesResponse";
   /**
-   *
-   *          <p>The attributes that are associated with the typed link.</p>
-   *
+   * <p>The attributes that are associated with the typed link.</p>
    */
   Attributes?: Array<AttributeKeyAndValue>;
 }
@@ -4048,37 +3285,27 @@ export namespace GetLinkAttributesResponse {
 export interface GetObjectAttributesRequest {
   __type?: "GetObjectAttributesRequest";
   /**
-   *
-   *          <p>List of attribute names whose values will be retrieved.</p>
-   *
+   * <p>List of attribute names whose values will be retrieved.</p>
    */
   AttributeNames: Array<string> | undefined;
 
   /**
-   *
-   *          <p>The consistency level at which to retrieve the attributes on an object.</p>
-   *
+   * <p>The consistency level at which to retrieve the attributes on an object.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Reference that identifies the object whose attributes will be retrieved.</p>
-   *
+   * <p>Reference that identifies the object whose attributes will be retrieved.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
-   *
+   * <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
    */
   SchemaFacet: SchemaFacet | undefined;
 }
@@ -4092,9 +3319,7 @@ export namespace GetObjectAttributesRequest {
 export interface GetObjectAttributesResponse extends $MetadataBearer {
   __type?: "GetObjectAttributesResponse";
   /**
-   *
-   *          <p>The attributes that are associated with the object.</p>
-   *
+   * <p>The attributes that are associated with the object.</p>
    */
   Attributes?: Array<AttributeKeyAndValue>;
 }
@@ -4108,23 +3333,17 @@ export namespace GetObjectAttributesResponse {
 export interface GetObjectInformationRequest {
   __type?: "GetObjectInformationRequest";
   /**
-   *
-   *          <p>The consistency level at which to retrieve the object information.</p>
-   *
+   * <p>The consistency level at which to retrieve the object information.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The ARN of the directory being retrieved.</p>
-   *
+   * <p>The ARN of the directory being retrieved.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>A reference to the object.</p>
-   *
+   * <p>A reference to the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -4138,16 +3357,12 @@ export namespace GetObjectInformationRequest {
 export interface GetObjectInformationResponse extends $MetadataBearer {
   __type?: "GetObjectInformationResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the specified object.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the specified object.</p>
    */
   ObjectIdentifier?: string;
 
   /**
-   *
-   *          <p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p>
-   *
+   * <p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p>
    */
   SchemaFacets?: Array<SchemaFacet>;
 }
@@ -4161,9 +3376,7 @@ export namespace GetObjectInformationResponse {
 export interface GetSchemaAsJsonRequest {
   __type?: "GetSchemaAsJsonRequest";
   /**
-   *
-   *          <p>The ARN of the schema to retrieve.</p>
-   *
+   * <p>The ARN of the schema to retrieve.</p>
    */
   SchemaArn: string | undefined;
 }
@@ -4177,16 +3390,12 @@ export namespace GetSchemaAsJsonRequest {
 export interface GetSchemaAsJsonResponse extends $MetadataBearer {
   __type?: "GetSchemaAsJsonResponse";
   /**
-   *
-   *          <p>The JSON representation of the schema document.</p>
-   *
+   * <p>The JSON representation of the schema document.</p>
    */
   Document?: string;
 
   /**
-   *
-   *          <p>The name of the retrieved schema.</p>
-   *
+   * <p>The name of the retrieved schema.</p>
    */
   Name?: string;
 }
@@ -4200,17 +3409,13 @@ export namespace GetSchemaAsJsonResponse {
 export interface GetTypedLinkFacetInformationRequest {
   __type?: "GetTypedLinkFacetInformationRequest";
   /**
-   *
-   *          <p>The unique name of the typed link facet.</p>
-   *
+   * <p>The unique name of the typed link facet.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -4224,14 +3429,12 @@ export namespace GetTypedLinkFacetInformationRequest {
 export interface GetTypedLinkFacetInformationResponse extends $MetadataBearer {
   __type?: "GetTypedLinkFacetInformationResponse";
   /**
-   *
-   *          <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed
+   * <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed
    *       links considers the order that the attributes are defined on the typed link facet. When
    *       providing ranges to typed link selection, any inexact ranges must be specified at the end. Any
    *       attributes that do not have a range specified are presumed to match the entire range. Filters
    *       are interpreted in the order of the attributes on the typed link facet, not the order in which
    *       they are supplied to any API calls. For more information about identity attributes, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
    */
   IdentityAttributeOrder?: Array<string>;
 }
@@ -4243,9 +3446,7 @@ export namespace GetTypedLinkFacetInformationResponse {
 }
 
 /**
- *
- *          <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
- *
+ * <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
  */
 export interface IncompatibleSchemaException
   extends _smithy.SmithyException,
@@ -4263,23 +3464,17 @@ export namespace IncompatibleSchemaException {
 }
 
 /**
- *
- *          <p>Represents an index and an attached object.</p>
- *
+ * <p>Represents an index and an attached object.</p>
  */
 export interface IndexAttachment {
   __type?: "IndexAttachment";
   /**
-   *
-   *          <p>The indexed attribute values.</p>
-   *
+   * <p>The indexed attribute values.</p>
    */
   IndexedAttributes?: Array<AttributeKeyAndValue>;
 
   /**
-   *
-   *          <p>In response to <a>ListIndex</a>, the <code>ObjectIdentifier</code> of the object attached to the index. In response to <a>ListAttachedIndices</a>, the <code>ObjectIdentifier</code> of the index attached to the object. This field will always contain the <code>ObjectIdentifier</code> of the object on the opposite side of the attachment specified in the query.</p>
-   *
+   * <p>In response to <a>ListIndex</a>, the <code>ObjectIdentifier</code> of the object attached to the index. In response to <a>ListAttachedIndices</a>, the <code>ObjectIdentifier</code> of the index attached to the object. This field will always contain the <code>ObjectIdentifier</code> of the object on the opposite side of the attachment specified in the query.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -4291,9 +3486,7 @@ export namespace IndexAttachment {
 }
 
 /**
- *
- *          <p>An object has been attempted to be attached to an object that does not have the appropriate attribute value.</p>
- *
+ * <p>An object has been attempted to be attached to an object that does not have the appropriate attribute value.</p>
  */
 export interface IndexedAttributeMissingException
   extends _smithy.SmithyException,
@@ -4311,9 +3504,7 @@ export namespace IndexedAttributeMissingException {
 }
 
 /**
- *
- *          <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
- *
+ * <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
  */
 export interface InternalServiceException
   extends _smithy.SmithyException,
@@ -4331,9 +3522,7 @@ export namespace InternalServiceException {
 }
 
 /**
- *
- *          <p>Indicates that the provided ARN value is not valid.</p>
- *
+ * <p>Indicates that the provided ARN value is not valid.</p>
  */
 export interface InvalidArnException
   extends _smithy.SmithyException,
@@ -4351,10 +3540,8 @@ export namespace InvalidArnException {
 }
 
 /**
- *
- *          <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes
+ * <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes
  *       with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
- *
  */
 export interface InvalidAttachmentException
   extends _smithy.SmithyException,
@@ -4372,10 +3559,8 @@ export namespace InvalidAttachmentException {
 }
 
 /**
- *
- *          <p>An attempt to modify a <a>Facet</a> resulted in an invalid schema
+ * <p>An attempt to modify a <a>Facet</a> resulted in an invalid schema
  *       exception.</p>
- *
  */
 export interface InvalidFacetUpdateException
   extends _smithy.SmithyException,
@@ -4393,9 +3578,7 @@ export namespace InvalidFacetUpdateException {
 }
 
 /**
- *
- *          <p>Indicates that the <code>NextToken</code> value is not valid.</p>
- *
+ * <p>Indicates that the <code>NextToken</code> value is not valid.</p>
  */
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
@@ -4413,9 +3596,7 @@ export namespace InvalidNextTokenException {
 }
 
 /**
- *
- *          <p>Occurs when any of the rule parameter keys or values are invalid.</p>
- *
+ * <p>Occurs when any of the rule parameter keys or values are invalid.</p>
  */
 export interface InvalidRuleException
   extends _smithy.SmithyException,
@@ -4433,9 +3614,7 @@ export namespace InvalidRuleException {
 }
 
 /**
- *
- *          <p>Indicates that the provided <code>SchemaDoc</code> value is not valid.</p>
- *
+ * <p>Indicates that the provided <code>SchemaDoc</code> value is not valid.</p>
  */
 export interface InvalidSchemaDocException
   extends _smithy.SmithyException,
@@ -4453,9 +3632,7 @@ export namespace InvalidSchemaDocException {
 }
 
 /**
- *
- *          <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
- *
+ * <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
  */
 export interface InvalidTaggingRequestException
   extends _smithy.SmithyException,
@@ -4473,9 +3650,7 @@ export namespace InvalidTaggingRequestException {
 }
 
 /**
- *
- *          <p>Indicates that limits are exceeded. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Limits</a> for more information.</p>
- *
+ * <p>Indicates that limits are exceeded. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Limits</a> for more information.</p>
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -4493,24 +3668,17 @@ export namespace LimitExceededException {
 }
 
 /**
- *
- *          <p>The action to take on a typed link attribute value. Updates are only supported for attributes which don’t contribute to link identity.</p>
- *
- *
+ * <p>The action to take on a typed link attribute value. Updates are only supported for attributes which don’t contribute to link identity.</p>
  */
 export interface LinkAttributeAction {
   __type?: "LinkAttributeAction";
   /**
-   *
-   *          <p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>
-   *
+   * <p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>
    */
   AttributeActionType?: UpdateActionType | string;
 
   /**
-   *
-   *          <p>The value that you want to update to.</p>
-   *
+   * <p>The value that you want to update to.</p>
    */
   AttributeUpdateValue?: TypedAttributeValue;
 }
@@ -4522,23 +3690,17 @@ export namespace LinkAttributeAction {
 }
 
 /**
- *
- *          <p>Structure that contains attribute update information.</p>
- *
+ * <p>Structure that contains attribute update information.</p>
  */
 export interface LinkAttributeUpdate {
   __type?: "LinkAttributeUpdate";
   /**
-   *
-   *          <p>The action to perform as part of the attribute update.</p>
-   *
+   * <p>The action to perform as part of the attribute update.</p>
    */
   AttributeAction?: LinkAttributeAction;
 
   /**
-   *
-   *          <p>The key of the attribute being updated.</p>
-   *
+   * <p>The key of the attribute being updated.</p>
    */
   AttributeKey?: AttributeKey;
 }
@@ -4550,10 +3712,8 @@ export namespace LinkAttributeUpdate {
 }
 
 /**
- *
- *          <p>Indicates that a link could not be created due to a naming conflict. Choose a different
+ * <p>Indicates that a link could not be created due to a naming conflict. Choose a different
  *       name and then try again.</p>
- *
  */
 export interface LinkNameAlreadyInUseException
   extends _smithy.SmithyException,
@@ -4573,30 +3733,22 @@ export namespace LinkNameAlreadyInUseException {
 export interface ListAppliedSchemaArnsRequest {
   __type?: "ListAppliedSchemaArnsRequest";
   /**
-   *
-   *          <p>The ARN of the directory you are listing.</p>
-   *
+   * <p>The ARN of the directory you are listing.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
-   *
+   * <p>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
    */
   SchemaArn?: string;
 }
@@ -4610,16 +3762,12 @@ export namespace ListAppliedSchemaArnsRequest {
 export interface ListAppliedSchemaArnsResponse extends $MetadataBearer {
   __type?: "ListAppliedSchemaArnsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The ARNs of schemas that are applied to the directory.</p>
-   *
+   * <p>The ARNs of schemas that are applied to the directory.</p>
    */
   SchemaArns?: Array<string>;
 }
@@ -4633,37 +3781,27 @@ export namespace ListAppliedSchemaArnsResponse {
 export interface ListAttachedIndicesRequest {
   __type?: "ListAttachedIndicesRequest";
   /**
-   *
-   *          <p>The consistency level to use for this operation.</p>
-   *
+   * <p>The consistency level to use for this operation.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The ARN of the directory.</p>
-   *
+   * <p>The ARN of the directory.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A reference to the object that has indices attached.</p>
-   *
+   * <p>A reference to the object that has indices attached.</p>
    */
   TargetReference: ObjectReference | undefined;
 }
@@ -4677,16 +3815,12 @@ export namespace ListAttachedIndicesRequest {
 export interface ListAttachedIndicesResponse extends $MetadataBearer {
   __type?: "ListAttachedIndicesResponse";
   /**
-   *
-   *          <p>The indices attached to the specified object.</p>
-   *
+   * <p>The indices attached to the specified object.</p>
    */
   IndexAttachments?: Array<IndexAttachment>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -4700,16 +3834,12 @@ export namespace ListAttachedIndicesResponse {
 export interface ListDevelopmentSchemaArnsRequest {
   __type?: "ListDevelopmentSchemaArnsRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -4723,16 +3853,12 @@ export namespace ListDevelopmentSchemaArnsRequest {
 export interface ListDevelopmentSchemaArnsResponse extends $MetadataBearer {
   __type?: "ListDevelopmentSchemaArnsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The ARNs of retrieved development schemas.</p>
-   *
+   * <p>The ARNs of retrieved development schemas.</p>
    */
   SchemaArns?: Array<string>;
 }
@@ -4746,24 +3872,18 @@ export namespace ListDevelopmentSchemaArnsResponse {
 export interface ListDirectoriesRequest {
   __type?: "ListDirectoriesRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The state of the directories in the list. Can be either Enabled, Disabled, or
+   * <p>The state of the directories in the list. Can be either Enabled, Disabled, or
    *       Deleted.</p>
-   *
    */
   state?: DirectoryState | string;
 }
@@ -4777,17 +3897,13 @@ export namespace ListDirectoriesRequest {
 export interface ListDirectoriesResponse extends $MetadataBearer {
   __type?: "ListDirectoriesResponse";
   /**
-   *
-   *          <p>Lists all directories that are associated with your account in pagination
+   * <p>Lists all directories that are associated with your account in pagination
    *       fashion.</p>
-   *
    */
   Directories: Array<Directory> | undefined;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -4801,30 +3917,22 @@ export namespace ListDirectoriesResponse {
 export interface ListFacetAttributesRequest {
   __type?: "ListFacetAttributesRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The name of the facet whose attributes will be retrieved.</p>
-   *
+   * <p>The name of the facet whose attributes will be retrieved.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The ARN of the schema where the facet resides.</p>
-   *
+   * <p>The ARN of the schema where the facet resides.</p>
    */
   SchemaArn: string | undefined;
 }
@@ -4838,16 +3946,12 @@ export namespace ListFacetAttributesRequest {
 export interface ListFacetAttributesResponse extends $MetadataBearer {
   __type?: "ListFacetAttributesResponse";
   /**
-   *
-   *          <p>The attributes attached to the facet.</p>
-   *
+   * <p>The attributes attached to the facet.</p>
    */
   Attributes?: Array<FacetAttribute>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -4861,23 +3965,17 @@ export namespace ListFacetAttributesResponse {
 export interface ListFacetNamesRequest {
   __type?: "ListFacetNamesRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>
    */
   SchemaArn: string | undefined;
 }
@@ -4891,16 +3989,12 @@ export namespace ListFacetNamesRequest {
 export interface ListFacetNamesResponse extends $MetadataBearer {
   __type?: "ListFacetNamesResponse";
   /**
-   *
-   *          <p>The names of facets that exist within the schema.</p>
-   *
+   * <p>The names of facets that exist within the schema.</p>
    */
   FacetNames?: Array<string>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -4914,55 +4008,41 @@ export namespace ListFacetNamesResponse {
 export interface ListIncomingTypedLinksRequest {
   __type?: "ListIncomingTypedLinksRequest";
   /**
-   *
-   *          <p>The consistency level to execute the request at.</p>
-   *
+   * <p>The consistency level to execute the request at.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed
+   * <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed
    *       links.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Provides range filters for multiple attributes. When providing ranges to typed link
+   * <p>Provides range filters for multiple attributes. When providing ranges to typed link
    *       selection, any inexact ranges must be specified at the end. Any attributes that do not have a
    *       range specified are presumed to match the entire range.</p>
-   *
    */
   FilterAttributeRanges?: Array<TypedLinkAttributeRange>;
 
   /**
-   *
-   *          <p>Filters are interpreted in the order of the attributes on the typed link facet, not the
+   * <p>Filters are interpreted in the order of the attributes on the typed link facet, not the
    *       order in which they are supplied to any API calls.</p>
-   *
    */
   FilterTypedLink?: TypedLinkSchemaAndFacetName;
 
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Reference that identifies the object whose attributes will be listed.</p>
-   *
+   * <p>Reference that identifies the object whose attributes will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -4976,16 +4056,12 @@ export namespace ListIncomingTypedLinksRequest {
 export interface ListIncomingTypedLinksResponse extends $MetadataBearer {
   __type?: "ListIncomingTypedLinksResponse";
   /**
-   *
-   *          <p>Returns one or more typed link specifiers as output.</p>
-   *
+   * <p>Returns one or more typed link specifiers as output.</p>
    */
   LinkSpecifiers?: Array<TypedLinkSpecifier>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -4999,44 +4075,32 @@ export namespace ListIncomingTypedLinksResponse {
 export interface ListIndexRequest {
   __type?: "ListIndexRequest";
   /**
-   *
-   *          <p>The consistency level to execute the request at.</p>
-   *
+   * <p>The consistency level to execute the request at.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The ARN of the directory that the index exists in.</p>
-   *
+   * <p>The ARN of the directory that the index exists in.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The reference to the index to list.</p>
-   *
+   * <p>The reference to the index to list.</p>
    */
   IndexReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <a href="http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.</p>
-   *
+   * <p>The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <a href="http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Specifies the ranges of indexed values that you want to query.</p>
-   *
+   * <p>Specifies the ranges of indexed values that you want to query.</p>
    */
   RangesOnIndexedValues?: Array<ObjectAttributeRange>;
 }
@@ -5050,16 +4114,12 @@ export namespace ListIndexRequest {
 export interface ListIndexResponse extends $MetadataBearer {
   __type?: "ListIndexResponse";
   /**
-   *
-   *          <p>The objects and indexed values attached to the index.</p>
-   *
+   * <p>The objects and indexed values attached to the index.</p>
    */
   IndexAttachments?: Array<IndexAttachment>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -5073,23 +4133,17 @@ export namespace ListIndexResponse {
 export interface ListManagedSchemaArnsRequest {
   __type?: "ListManagedSchemaArnsRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.</p>
-   *
+   * <p>The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.</p>
    */
   SchemaArn?: string;
 }
@@ -5103,16 +4157,12 @@ export namespace ListManagedSchemaArnsRequest {
 export interface ListManagedSchemaArnsResponse extends $MetadataBearer {
   __type?: "ListManagedSchemaArnsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The ARNs for all AWS managed schemas.</p>
-   *
+   * <p>The ARNs for all AWS managed schemas.</p>
    */
   SchemaArns?: Array<string>;
 }
@@ -5126,48 +4176,36 @@ export namespace ListManagedSchemaArnsResponse {
 export interface ListObjectAttributesRequest {
   __type?: "ListObjectAttributesRequest";
   /**
-   *
-   *          <p>Represents the manner and timing in which the successful write or update of an object
+   * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
-   *
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where the object resides. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Used to filter the list of object attributes that are associated with a certain
+   * <p>Used to filter the list of object attributes that are associated with a certain
    *       facet.</p>
-   *
    */
   FacetFilter?: SchemaFacet;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object whose attributes will be listed.</p>
-   *
+   * <p>The reference that identifies the object whose attributes will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -5181,17 +4219,13 @@ export namespace ListObjectAttributesRequest {
 export interface ListObjectAttributesResponse extends $MetadataBearer {
   __type?: "ListObjectAttributesResponse";
   /**
-   *
-   *          <p>Attributes map that is associated with the object. <code>AttributeArn</code> is the
+   * <p>Attributes map that is associated with the object. <code>AttributeArn</code> is the
    *       key, and attribute value is the value.</p>
-   *
    */
   Attributes?: Array<AttributeKeyAndValue>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -5205,41 +4239,31 @@ export namespace ListObjectAttributesResponse {
 export interface ListObjectChildrenRequest {
   __type?: "ListObjectChildrenRequest";
   /**
-   *
-   *          <p>Represents the manner and timing in which the successful write or update of an object
+   * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
-   *
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where the object resides. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object for which child objects are being
+   * <p>The reference that identifies the object for which child objects are being
    *       listed.</p>
-   *
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -5253,17 +4277,13 @@ export namespace ListObjectChildrenRequest {
 export interface ListObjectChildrenResponse extends $MetadataBearer {
   __type?: "ListObjectChildrenResponse";
   /**
-   *
-   *          <p>Children structure, which is a map with key as the <code>LinkName</code> and
+   * <p>Children structure, which is a map with key as the <code>LinkName</code> and
    *         <code>ObjectIdentifier</code> as the value.</p>
-   *
    */
   Children?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -5277,31 +4297,23 @@ export namespace ListObjectChildrenResponse {
 export interface ListObjectParentPathsRequest {
   __type?: "ListObjectParentPathsRequest";
   /**
-   *
-   *          <p>The ARN of the directory to which the parent path applies.</p>
-   *
+   * <p>The ARN of the directory to which the parent path applies.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object whose parent paths are listed.</p>
-   *
+   * <p>The reference that identifies the object whose parent paths are listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -5315,17 +4327,13 @@ export namespace ListObjectParentPathsRequest {
 export interface ListObjectParentPathsResponse extends $MetadataBearer {
   __type?: "ListObjectParentPathsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the
+   * <p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the
    *       directory.</p>
-   *
    */
   PathToObjectIdentifiersList?: Array<PathToObjectIdentifiers>;
 }
@@ -5339,48 +4347,36 @@ export namespace ListObjectParentPathsResponse {
 export interface ListObjectParentsRequest {
   __type?: "ListObjectParentsRequest";
   /**
-   *
-   *          <p>Represents the manner and timing in which the successful write or update of an object
+   * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
-   *
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where the object resides. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>
-   *
+   * <p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>
    */
   IncludeAllLinksToEachParent?: boolean;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the object for which parent objects are being
+   * <p>The reference that identifies the object for which parent objects are being
    *       listed.</p>
-   *
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -5394,24 +4390,18 @@ export namespace ListObjectParentsRequest {
 export interface ListObjectParentsResponse extends $MetadataBearer {
   __type?: "ListObjectParentsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns a list of parent reference and LinkName Tuples.</p>
-   *
+   * <p>Returns a list of parent reference and LinkName Tuples.</p>
    */
   ParentLinks?: Array<ObjectIdentifierAndLinkNameTuple>;
 
   /**
-   *
-   *          <p>The parent structure, which is a map with key as the <code>ObjectIdentifier</code> and
+   * <p>The parent structure, which is a map with key as the <code>ObjectIdentifier</code> and
    *       LinkName as the value.</p>
-   *
    */
   Parents?: { [key: string]: string };
 }
@@ -5425,40 +4415,30 @@ export namespace ListObjectParentsResponse {
 export interface ListObjectPoliciesRequest {
   __type?: "ListObjectPoliciesRequest";
   /**
-   *
-   *          <p>Represents the manner and timing in which the successful write or update of an object
+   * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
-   *
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where objects reside. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Reference that identifies the object for which policies will be listed.</p>
-   *
+   * <p>Reference that identifies the object for which policies will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -5472,17 +4452,13 @@ export namespace ListObjectPoliciesRequest {
 export interface ListObjectPoliciesResponse extends $MetadataBearer {
   __type?: "ListObjectPoliciesResponse";
   /**
-   *
-   *          <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the
+   * <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the
    *       object.</p>
-   *
    */
   AttachedPolicyIds?: Array<string>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -5496,55 +4472,41 @@ export namespace ListObjectPoliciesResponse {
 export interface ListOutgoingTypedLinksRequest {
   __type?: "ListOutgoingTypedLinksRequest";
   /**
-   *
-   *          <p>The consistency level to execute the request at.</p>
-   *
+   * <p>The consistency level to execute the request at.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed
+   * <p>The Amazon Resource Name (ARN) of the directory where you want to list the typed
    *       links.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Provides range filters for multiple attributes. When providing ranges to typed link
+   * <p>Provides range filters for multiple attributes. When providing ranges to typed link
    *       selection, any inexact ranges must be specified at the end. Any attributes that do not have a
    *       range specified are presumed to match the entire range.</p>
-   *
    */
   FilterAttributeRanges?: Array<TypedLinkAttributeRange>;
 
   /**
-   *
-   *          <p>Filters are interpreted in the order of the attributes defined on the typed link facet,
+   * <p>Filters are interpreted in the order of the attributes defined on the typed link facet,
    *       not the order they are supplied to any API calls.</p>
-   *
    */
   FilterTypedLink?: TypedLinkSchemaAndFacetName;
 
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A reference that identifies the object whose attributes will be listed.</p>
-   *
+   * <p>A reference that identifies the object whose attributes will be listed.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -5558,16 +4520,12 @@ export namespace ListOutgoingTypedLinksRequest {
 export interface ListOutgoingTypedLinksResponse extends $MetadataBearer {
   __type?: "ListOutgoingTypedLinksResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns a typed link specifier as output.</p>
-   *
+   * <p>Returns a typed link specifier as output.</p>
    */
   TypedLinkSpecifiers?: Array<TypedLinkSpecifier>;
 }
@@ -5581,40 +4539,30 @@ export namespace ListOutgoingTypedLinksResponse {
 export interface ListPolicyAttachmentsRequest {
   __type?: "ListPolicyAttachmentsRequest";
   /**
-   *
-   *          <p>Represents the manner and timing in which the successful write or update of an object
+   * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
-   *
    */
   ConsistencyLevel?: ConsistencyLevel | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where objects reside. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The reference that identifies the policy object.</p>
-   *
+   * <p>The reference that identifies the policy object.</p>
    */
   PolicyReference: ObjectReference | undefined;
 }
@@ -5628,16 +4576,12 @@ export namespace ListPolicyAttachmentsRequest {
 export interface ListPolicyAttachmentsResponse extends $MetadataBearer {
   __type?: "ListPolicyAttachmentsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
-   *
+   * <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
    */
   ObjectIdentifiers?: Array<string>;
 }
@@ -5651,23 +4595,17 @@ export namespace ListPolicyAttachmentsResponse {
 export interface ListPublishedSchemaArnsRequest {
   __type?: "ListPublishedSchemaArnsRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The response for <code>ListPublishedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
-   *
+   * <p>The response for <code>ListPublishedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
    */
   SchemaArn?: string;
 }
@@ -5681,16 +4619,12 @@ export namespace ListPublishedSchemaArnsRequest {
 export interface ListPublishedSchemaArnsResponse extends $MetadataBearer {
   __type?: "ListPublishedSchemaArnsResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The ARNs of published schemas.</p>
-   *
+   * <p>The ARNs of published schemas.</p>
    */
   SchemaArns?: Array<string>;
 }
@@ -5704,26 +4638,20 @@ export namespace ListPublishedSchemaArnsResponse {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   *
-   *          <p>The <code>MaxResults</code> parameter sets the maximum number of results returned in a
+   * <p>The <code>MaxResults</code> parameter sets the maximum number of results returned in a
    *       single page. This is for future use and is not supported currently.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token. This is for future use. Currently pagination is not supported for
+   * <p>The pagination token. This is for future use. Currently pagination is not supported for
    *       tagging.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
+   * <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
    *       directories.</p>
-   *
    */
   ResourceArn: string | undefined;
 }
@@ -5737,16 +4665,12 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse extends $MetadataBearer {
   __type?: "ListTagsForResourceResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-   *
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of tag key value pairs that are associated with the response.</p>
-   *
+   * <p>A list of tag key value pairs that are associated with the response.</p>
    */
   Tags?: Array<Tag>;
 }
@@ -5760,31 +4684,23 @@ export namespace ListTagsForResourceResponse {
 export interface ListTypedLinkFacetAttributesRequest {
   __type?: "ListTypedLinkFacetAttributesRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The unique name of the typed link facet.</p>
-   *
+   * <p>The unique name of the typed link facet.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -5798,16 +4714,12 @@ export namespace ListTypedLinkFacetAttributesRequest {
 export interface ListTypedLinkFacetAttributesResponse extends $MetadataBearer {
   __type?: "ListTypedLinkFacetAttributesResponse";
   /**
-   *
-   *          <p>An ordered set of attributes associate with the typed link.</p>
-   *
+   * <p>An ordered set of attributes associate with the typed link.</p>
    */
   Attributes?: Array<TypedLinkAttributeDefinition>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -5821,24 +4733,18 @@ export namespace ListTypedLinkFacetAttributesResponse {
 export interface ListTypedLinkFacetNamesRequest {
   __type?: "ListTypedLinkFacetNamesRequest";
   /**
-   *
-   *          <p>The maximum number of results to retrieve.</p>
-   *
+   * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -5852,16 +4758,12 @@ export namespace ListTypedLinkFacetNamesRequest {
 export interface ListTypedLinkFacetNamesResponse extends $MetadataBearer {
   __type?: "ListTypedLinkFacetNamesResponse";
   /**
-   *
-   *          <p>The names of typed link facets that exist within the schema.</p>
-   *
+   * <p>The names of typed link facets that exist within the schema.</p>
    */
   FacetNames?: Array<string>;
 
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 }
@@ -5875,32 +4777,24 @@ export namespace ListTypedLinkFacetNamesResponse {
 export interface LookupPolicyRequest {
   __type?: "LookupPolicyRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
    *       For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The maximum number of items to be retrieved in a single call. This is an approximate
+   * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The token to request the next page of results.</p>
-   *
+   * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Reference that identifies the object whose policies will be looked up.</p>
-   *
+   * <p>Reference that identifies the object whose policies will be looked up.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -5914,18 +4808,14 @@ export namespace LookupPolicyRequest {
 export interface LookupPolicyResponse extends $MetadataBearer {
   __type?: "LookupPolicyResponse";
   /**
-   *
-   *          <p>The pagination token.</p>
-   *
+   * <p>The pagination token.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and
+   * <p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and
    *       <code>PolicyType</code>. For more
    *       information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-   *
    */
   PolicyToPathList?: Array<PolicyToPath>;
 }
@@ -5937,9 +4827,7 @@ export namespace LookupPolicyResponse {
 }
 
 /**
- *
- *          <p>Indicates that the requested operation can only operate on index objects.</p>
- *
+ * <p>Indicates that the requested operation can only operate on index objects.</p>
  */
 export interface NotIndexException
   extends _smithy.SmithyException,
@@ -5957,10 +4845,8 @@ export namespace NotIndexException {
 }
 
 /**
- *
- *          <p>Occurs when any invalid operations are performed on an object that is not a node, such
+ * <p>Occurs when any invalid operations are performed on an object that is not a node, such
  *       as calling <code>ListObjectChildren</code> for a leaf node object.</p>
- *
  */
 export interface NotNodeException
   extends _smithy.SmithyException,
@@ -5978,9 +4864,7 @@ export namespace NotNodeException {
 }
 
 /**
- *
- *          <p>Indicates that the requested operation can only operate on policy objects.</p>
- *
+ * <p>Indicates that the requested operation can only operate on policy objects.</p>
  */
 export interface NotPolicyException
   extends _smithy.SmithyException,
@@ -5998,9 +4882,7 @@ export namespace NotPolicyException {
 }
 
 /**
- *
- *          <p>Indicates that the object is not attached to the index.</p>
- *
+ * <p>Indicates that the object is not attached to the index.</p>
  */
 export interface ObjectAlreadyDetachedException
   extends _smithy.SmithyException,
@@ -6018,23 +4900,17 @@ export namespace ObjectAlreadyDetachedException {
 }
 
 /**
- *
- *          <p>The action to take on the object attribute.</p>
- *
+ * <p>The action to take on the object attribute.</p>
  */
 export interface ObjectAttributeAction {
   __type?: "ObjectAttributeAction";
   /**
-   *
-   *          <p>A type that can be either <code>Update</code> or <code>Delete</code>.</p>
-   *
+   * <p>A type that can be either <code>Update</code> or <code>Delete</code>.</p>
    */
   ObjectAttributeActionType?: UpdateActionType | string;
 
   /**
-   *
-   *          <p>The value that you want to update to.</p>
-   *
+   * <p>The value that you want to update to.</p>
    */
   ObjectAttributeUpdateValue?: TypedAttributeValue;
 }
@@ -6046,23 +4922,17 @@ export namespace ObjectAttributeAction {
 }
 
 /**
- *
- *          <p>A range of attributes.</p>
- *
+ * <p>A range of attributes.</p>
  */
 export interface ObjectAttributeRange {
   __type?: "ObjectAttributeRange";
   /**
-   *
-   *          <p>The key of the attribute that the attribute range covers.</p>
-   *
+   * <p>The key of the attribute that the attribute range covers.</p>
    */
   AttributeKey?: AttributeKey;
 
   /**
-   *
-   *          <p>The range of attribute values being selected.</p>
-   *
+   * <p>The range of attribute values being selected.</p>
    */
   Range?: TypedAttributeValueRange;
 }
@@ -6074,23 +4944,17 @@ export namespace ObjectAttributeRange {
 }
 
 /**
- *
- *          <p>Structure that contains attribute update information.</p>
- *
+ * <p>Structure that contains attribute update information.</p>
  */
 export interface ObjectAttributeUpdate {
   __type?: "ObjectAttributeUpdate";
   /**
-   *
-   *          <p>The action to perform as part of the attribute update.</p>
-   *
+   * <p>The action to perform as part of the attribute update.</p>
    */
   ObjectAttributeAction?: ObjectAttributeAction;
 
   /**
-   *
-   *          <p>The key of the attribute being updated.</p>
-   *
+   * <p>The key of the attribute being updated.</p>
    */
   ObjectAttributeKey?: AttributeKey;
 }
@@ -6102,23 +4966,17 @@ export namespace ObjectAttributeUpdate {
 }
 
 /**
- *
- *          <p>A pair of ObjectIdentifier and LinkName.</p>
- *
+ * <p>A pair of ObjectIdentifier and LinkName.</p>
  */
 export interface ObjectIdentifierAndLinkNameTuple {
   __type?: "ObjectIdentifierAndLinkNameTuple";
   /**
-   *
-   *          <p>The name of the link between the parent and the child object.</p>
-   *
+   * <p>The name of the link between the parent and the child object.</p>
    */
   LinkName?: string;
 
   /**
-   *
-   *          <p>The ID that is associated with the object.</p>
-   *
+   * <p>The ID that is associated with the object.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -6130,10 +4988,8 @@ export namespace ObjectIdentifierAndLinkNameTuple {
 }
 
 /**
- *
- *          <p>Indicates that the requested operation cannot be completed because the object has not
+ * <p>Indicates that the requested operation cannot be completed because the object has not
  *       been detached from the tree.</p>
- *
  */
 export interface ObjectNotDetachedException
   extends _smithy.SmithyException,
@@ -6151,15 +5007,12 @@ export namespace ObjectNotDetachedException {
 }
 
 /**
- *
- *          <p>The reference that identifies an object.</p>
- *
+ * <p>The reference that identifies an object.</p>
  */
 export interface ObjectReference {
   __type?: "ObjectReference";
   /**
-   *
-   *          <p>A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access Objects</a>. You can identify an object in one of the following ways:</p>
+   * <p>A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access Objects</a>. You can identify an object in one of the following ways:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6174,7 +5027,6 @@ export interface ObjectReference {
    *                   <i>#SomeBatchReference</i> - Identifies the object in a batch call</p>
    *             </li>
    *          </ul>
-   *
    */
   Selector?: string;
 }
@@ -6193,25 +5045,19 @@ export enum ObjectType {
 }
 
 /**
- *
- *          <p>Returns the path to the <code>ObjectIdentifiers</code> that is associated with the
+ * <p>Returns the path to the <code>ObjectIdentifiers</code> that is associated with the
  *       directory.</p>
- *
  */
 export interface PathToObjectIdentifiers {
   __type?: "PathToObjectIdentifiers";
   /**
-   *
-   *          <p>Lists <code>ObjectIdentifiers</code> starting from directory root to the object in the
+   * <p>Lists <code>ObjectIdentifiers</code> starting from directory root to the object in the
    *       request.</p>
-   *
    */
   ObjectIdentifiers?: Array<string>;
 
   /**
-   *
-   *          <p>The path that is used to identify the object starting from directory root.</p>
-   *
+   * <p>The path that is used to identify the object starting from directory root.</p>
    */
   Path?: string;
 }
@@ -6223,33 +5069,25 @@ export namespace PathToObjectIdentifiers {
 }
 
 /**
- *
- *          <p>Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is
+ * <p>Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is
  *       attached. For more
  *       information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
- *
  */
 export interface PolicyAttachment {
   __type?: "PolicyAttachment";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> that is associated with
+   * <p>The <code>ObjectIdentifier</code> that is associated with
    *       <code>PolicyAttachment</code>.</p>
-   *
    */
   ObjectIdentifier?: string;
 
   /**
-   *
-   *          <p>The ID of <code>PolicyAttachment</code>.</p>
-   *
+   * <p>The ID of <code>PolicyAttachment</code>.</p>
    */
   PolicyId?: string;
 
   /**
-   *
-   *          <p>The type of policy that can be associated with <code>PolicyAttachment</code>.</p>
-   *
+   * <p>The type of policy that can be associated with <code>PolicyAttachment</code>.</p>
    */
   PolicyType?: string;
 }
@@ -6261,25 +5099,19 @@ export namespace PolicyAttachment {
 }
 
 /**
- *
- *          <p>Used when a regular object exists in a <a>Directory</a> and you want to find
+ * <p>Used when a regular object exists in a <a>Directory</a> and you want to find
  *       all of the policies that are associated with that object and the parent to that
  *       object.</p>
- *
  */
 export interface PolicyToPath {
   __type?: "PolicyToPath";
   /**
-   *
-   *          <p>The path that is referenced from the root.</p>
-   *
+   * <p>The path that is referenced from the root.</p>
    */
   Path?: string;
 
   /**
-   *
-   *          <p>List of policy objects.</p>
-   *
+   * <p>List of policy objects.</p>
    */
   Policies?: Array<PolicyAttachment>;
 }
@@ -6293,32 +5125,24 @@ export namespace PolicyToPath {
 export interface PublishSchemaRequest {
   __type?: "PublishSchemaRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the development schema. For
+   * <p>The Amazon Resource Name (ARN) that is associated with the development schema. For
    *       more information, see <a>arns</a>.</p>
-   *
    */
   DevelopmentSchemaArn: string | undefined;
 
   /**
-   *
-   *          <p>The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.</p>
-   *
+   * <p>The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.</p>
    */
   MinorVersion?: string;
 
   /**
-   *
-   *          <p>The new name under which the schema will be published. If this is not provided, the
+   * <p>The new name under which the schema will be published. If this is not provided, the
    *       development schema is considered.</p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The major version under which the schema will be published. Schemas have both a major and minor version associated with them.</p>
-   *
+   * <p>The major version under which the schema will be published. Schemas have both a major and minor version associated with them.</p>
    */
   Version: string | undefined;
 }
@@ -6332,9 +5156,7 @@ export namespace PublishSchemaRequest {
 export interface PublishSchemaResponse extends $MetadataBearer {
   __type?: "PublishSchemaResponse";
   /**
-   *
-   *          <p>The ARN that is associated with the published schema. For more information, see <a>arns</a>.</p>
-   *
+   * <p>The ARN that is associated with the published schema. For more information, see <a>arns</a>.</p>
    */
   PublishedSchemaArn?: string;
 }
@@ -6348,16 +5170,12 @@ export namespace PublishSchemaResponse {
 export interface PutSchemaFromJsonRequest {
   __type?: "PutSchemaFromJsonRequest";
   /**
-   *
-   *          <p>The replacement JSON schema.</p>
-   *
+   * <p>The replacement JSON schema.</p>
    */
   Document: string | undefined;
 
   /**
-   *
-   *          <p>The ARN of the schema to update.</p>
-   *
+   * <p>The ARN of the schema to update.</p>
    */
   SchemaArn: string | undefined;
 }
@@ -6371,9 +5189,7 @@ export namespace PutSchemaFromJsonRequest {
 export interface PutSchemaFromJsonResponse extends $MetadataBearer {
   __type?: "PutSchemaFromJsonResponse";
   /**
-   *
-   *          <p>The ARN of the schema to update.</p>
-   *
+   * <p>The ARN of the schema to update.</p>
    */
   Arn?: string;
 }
@@ -6395,23 +5211,17 @@ export enum RangeMode {
 export interface RemoveFacetFromObjectRequest {
   __type?: "RemoveFacetFromObjectRequest";
   /**
-   *
-   *          <p>The ARN of the directory in which the object resides.</p>
-   *
+   * <p>The ARN of the directory in which the object resides.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>A reference to the object to remove the facet from.</p>
-   *
+   * <p>A reference to the object to remove the facet from.</p>
    */
   ObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>The facet to remove. See <a>SchemaFacet</a> for details.</p>
-   *
+   * <p>The facet to remove. See <a>SchemaFacet</a> for details.</p>
    */
   SchemaFacet: SchemaFacet | undefined;
 }
@@ -6438,9 +5248,7 @@ export enum RequiredAttributeBehavior {
 }
 
 /**
- *
- *          <p>The specified resource could not be found.</p>
- *
+ * <p>The specified resource could not be found.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -6458,9 +5266,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- *
- *          <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
- *
+ * <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  */
 export interface RetryableConflictException
   extends _smithy.SmithyException,
@@ -6478,24 +5284,18 @@ export namespace RetryableConflictException {
 }
 
 /**
- *
- *          <p>Contains an Amazon Resource Name (ARN) and parameters that are associated with the
+ * <p>Contains an Amazon Resource Name (ARN) and parameters that are associated with the
  *       rule.</p>
- *
  */
 export interface Rule {
   __type?: "Rule";
   /**
-   *
-   *          <p>The minimum and maximum parameters that are associated with the rule.</p>
-   *
+   * <p>The minimum and maximum parameters that are associated with the rule.</p>
    */
   Parameters?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The type of attribute validation rule.</p>
-   *
+   * <p>The type of attribute validation rule.</p>
    */
   Type?: RuleType | string;
 }
@@ -6514,10 +5314,8 @@ export enum RuleType {
 }
 
 /**
- *
- *          <p>Indicates that a schema could not be created due to a naming conflict. Please select a
+ * <p>Indicates that a schema could not be created due to a naming conflict. Please select a
  *       different name and then try again.</p>
- *
  */
 export interface SchemaAlreadyExistsException
   extends _smithy.SmithyException,
@@ -6535,9 +5333,7 @@ export namespace SchemaAlreadyExistsException {
 }
 
 /**
- *
- *          <p>Indicates that a schema is already published.</p>
- *
+ * <p>Indicates that a schema is already published.</p>
  */
 export interface SchemaAlreadyPublishedException
   extends _smithy.SmithyException,
@@ -6555,23 +5351,17 @@ export namespace SchemaAlreadyPublishedException {
 }
 
 /**
- *
- *          <p>A facet.</p>
- *
+ * <p>A facet.</p>
  */
 export interface SchemaFacet {
   __type?: "SchemaFacet";
   /**
-   *
-   *          <p>The name of the facet.</p>
-   *
+   * <p>The name of the facet.</p>
    */
   FacetName?: string;
 
   /**
-   *
-   *          <p>The ARN of the schema that contains the facet with no minor component. See <a>arns</a> and <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html">In-Place Schema Upgrade</a> for a description of when to provide minor versions.</p>
-   *
+   * <p>The ARN of the schema that contains the facet with no minor component. See <a>arns</a> and <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html">In-Place Schema Upgrade</a> for a description of when to provide minor versions.</p>
    */
   SchemaArn?: string;
 }
@@ -6583,10 +5373,8 @@ export namespace SchemaFacet {
 }
 
 /**
- *
- *          <p>The object could not be deleted because links still exist. Remove the links and then
+ * <p>The object could not be deleted because links still exist. Remove the links and then
  *       try the operation again.</p>
- *
  */
 export interface StillContainsLinksException
   extends _smithy.SmithyException,
@@ -6604,23 +5392,17 @@ export namespace StillContainsLinksException {
 }
 
 /**
- *
- *          <p>The tag structure that contains a tag key and value.</p>
- *
+ * <p>The tag structure that contains a tag key and value.</p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *          <p>The key that is associated with the tag.</p>
-   *
+   * <p>The key that is associated with the tag.</p>
    */
   Key?: string;
 
   /**
-   *
-   *          <p>The value that is associated with the tag.</p>
-   *
+   * <p>The value that is associated with the tag.</p>
    */
   Value?: string;
 }
@@ -6634,17 +5416,13 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
+   * <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
    *       directories.</p>
-   *
    */
   ResourceArn: string | undefined;
 
   /**
-   *
-   *          <p>A list of tag key-value pairs.</p>
-   *
+   * <p>A list of tag key-value pairs.</p>
    */
   Tags: Array<Tag> | undefined;
 }
@@ -6666,46 +5444,34 @@ export namespace TagResourceResponse {
 }
 
 /**
- *
- *          <p>Represents the data for a typed attribute. You can set one, and only one, of the
+ * <p>Represents the data for a typed attribute. You can set one, and only one, of the
  *       elements. Each attribute in an item is a name-value pair. Attributes have a single
  *       value.</p>
- *
  */
 export interface TypedAttributeValue {
   __type?: "TypedAttributeValue";
   /**
-   *
-   *          <p>A binary data value.</p>
-   *
+   * <p>A binary data value.</p>
    */
   BinaryValue?: Uint8Array;
 
   /**
-   *
-   *          <p>A Boolean data value.</p>
-   *
+   * <p>A Boolean data value.</p>
    */
   BooleanValue?: boolean;
 
   /**
-   *
-   *          <p>A date and time value.</p>
-   *
+   * <p>A date and time value.</p>
    */
   DatetimeValue?: Date;
 
   /**
-   *
-   *          <p>A number data value.</p>
-   *
+   * <p>A number data value.</p>
    */
   NumberValue?: string;
 
   /**
-   *
-   *          <p>A string data value.</p>
-   *
+   * <p>A string data value.</p>
    */
   StringValue?: string;
 }
@@ -6717,37 +5483,27 @@ export namespace TypedAttributeValue {
 }
 
 /**
- *
- *          <p>A range of attribute values. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_range_filters.html">Range Filters</a>.</p>
- *
+ * <p>A range of attribute values. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_range_filters.html">Range Filters</a>.</p>
  */
 export interface TypedAttributeValueRange {
   __type?: "TypedAttributeValueRange";
   /**
-   *
-   *          <p>The inclusive or exclusive range end.</p>
-   *
+   * <p>The inclusive or exclusive range end.</p>
    */
   EndMode: RangeMode | string | undefined;
 
   /**
-   *
-   *          <p>The attribute value to terminate the range at.</p>
-   *
+   * <p>The attribute value to terminate the range at.</p>
    */
   EndValue?: TypedAttributeValue;
 
   /**
-   *
-   *          <p>The inclusive or exclusive range start.</p>
-   *
+   * <p>The inclusive or exclusive range start.</p>
    */
   StartMode: RangeMode | string | undefined;
 
   /**
-   *
-   *          <p>The value to start the range at.</p>
-   *
+   * <p>The value to start the range at.</p>
    */
   StartValue?: TypedAttributeValue;
 }
@@ -6759,51 +5515,37 @@ export namespace TypedAttributeValueRange {
 }
 
 /**
- *
- *          <p>A typed link attribute definition.</p>
- *
+ * <p>A typed link attribute definition.</p>
  */
 export interface TypedLinkAttributeDefinition {
   __type?: "TypedLinkAttributeDefinition";
   /**
-   *
-   *          <p>The default value of the attribute (if configured).</p>
-   *
+   * <p>The default value of the attribute (if configured).</p>
    */
   DefaultValue?: TypedAttributeValue;
 
   /**
-   *
-   *          <p>Whether the attribute is mutable or not.</p>
-   *
+   * <p>Whether the attribute is mutable or not.</p>
    */
   IsImmutable?: boolean;
 
   /**
-   *
-   *          <p>The unique name of the typed link attribute.</p>
-   *
+   * <p>The unique name of the typed link attribute.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>
-   *
+   * <p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>
    */
   RequiredBehavior: RequiredAttributeBehavior | string | undefined;
 
   /**
-   *
-   *          <p>Validation rules that are attached to the attribute definition.</p>
-   *
+   * <p>Validation rules that are attached to the attribute definition.</p>
    */
   Rules?: { [key: string]: Rule };
 
   /**
-   *
-   *          <p>The type of the attribute.</p>
-   *
+   * <p>The type of the attribute.</p>
    */
   Type: FacetAttributeType | string | undefined;
 }
@@ -6815,23 +5557,17 @@ export namespace TypedLinkAttributeDefinition {
 }
 
 /**
- *
- *          <p>Identifies the range of attributes that are used by a specified filter.</p>
- *
+ * <p>Identifies the range of attributes that are used by a specified filter.</p>
  */
 export interface TypedLinkAttributeRange {
   __type?: "TypedLinkAttributeRange";
   /**
-   *
-   *          <p>The unique name of the typed link attribute.</p>
-   *
+   * <p>The unique name of the typed link attribute.</p>
    */
   AttributeName?: string;
 
   /**
-   *
-   *          <p>The range of attribute values that are being selected.</p>
-   *
+   * <p>The range of attribute values that are being selected.</p>
    */
   Range: TypedAttributeValueRange | undefined;
 }
@@ -6843,31 +5579,23 @@ export namespace TypedLinkAttributeRange {
 }
 
 /**
- *
- *          <p>Defines the typed links structure and its attributes. To create a typed link facet, use
+ * <p>Defines the typed links structure and its attributes. To create a typed link facet, use
  *       the <a>CreateTypedLinkFacet</a> API.</p>
- *
  */
 export interface TypedLinkFacet {
   __type?: "TypedLinkFacet";
   /**
-   *
-   *          <p>A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.</p>
-   *
+   * <p>A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.</p>
    */
   Attributes: Array<TypedLinkAttributeDefinition> | undefined;
 
   /**
-   *
-   *          <p>The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypedLinks</a> for details.</p>
-   *
+   * <p>The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypedLinks</a> for details.</p>
    */
   IdentityAttributeOrder: Array<string> | undefined;
 
   /**
-   *
-   *          <p>The unique name of the typed link facet.</p>
-   *
+   * <p>The unique name of the typed link facet.</p>
    */
   Name: string | undefined;
 }
@@ -6879,23 +5607,17 @@ export namespace TypedLinkFacet {
 }
 
 /**
- *
- *          <p>A typed link facet attribute update.</p>
- *
+ * <p>A typed link facet attribute update.</p>
  */
 export interface TypedLinkFacetAttributeUpdate {
   __type?: "TypedLinkFacetAttributeUpdate";
   /**
-   *
-   *          <p>The action to perform when updating the attribute.</p>
-   *
+   * <p>The action to perform when updating the attribute.</p>
    */
   Action: UpdateActionType | string | undefined;
 
   /**
-   *
-   *          <p>The attribute to update.</p>
-   *
+   * <p>The attribute to update.</p>
    */
   Attribute: TypedLinkAttributeDefinition | undefined;
 }
@@ -6907,25 +5629,19 @@ export namespace TypedLinkFacetAttributeUpdate {
 }
 
 /**
- *
- *          <p>Identifies the schema Amazon Resource Name (ARN) and facet name for the typed
+ * <p>Identifies the schema Amazon Resource Name (ARN) and facet name for the typed
  *       link.</p>
- *
  */
 export interface TypedLinkSchemaAndFacetName {
   __type?: "TypedLinkSchemaAndFacetName";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 
   /**
-   *
-   *          <p>The unique name of the typed link facet.</p>
-   *
+   * <p>The unique name of the typed link facet.</p>
    */
   TypedLinkName: string | undefined;
 }
@@ -6937,41 +5653,31 @@ export namespace TypedLinkSchemaAndFacetName {
 }
 
 /**
- *
- *          <p>Contains all the information that is used to uniquely identify a typed link. The
+ * <p>Contains all the information that is used to uniquely identify a typed link. The
  *       parameters discussed in this topic are used to uniquely specify the typed link being operated
  *       on. The <a>AttachTypedLink</a> API returns a typed link specifier while the <a>DetachTypedLink</a> API accepts one as input. Similarly, the <a>ListIncomingTypedLinks</a> and <a>ListOutgoingTypedLinks</a> API
  *       operations provide typed link specifiers as output. You can also construct a typed link
  *       specifier from scratch.</p>
- *
  */
 export interface TypedLinkSpecifier {
   __type?: "TypedLinkSpecifier";
   /**
-   *
-   *          <p>Identifies the attribute value to update.</p>
-   *
+   * <p>Identifies the attribute value to update.</p>
    */
   IdentityAttributeValues: Array<AttributeNameAndValue> | undefined;
 
   /**
-   *
-   *          <p>Identifies the source object that the typed link will attach to.</p>
-   *
+   * <p>Identifies the source object that the typed link will attach to.</p>
    */
   SourceObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifies the target object that the typed link will attach to.</p>
-   *
+   * <p>Identifies the target object that the typed link will attach to.</p>
    */
   TargetObjectReference: ObjectReference | undefined;
 
   /**
-   *
-   *          <p>Identifies the typed link facet that is associated with the typed link.</p>
-   *
+   * <p>Identifies the typed link facet that is associated with the typed link.</p>
    */
   TypedLinkFacet: TypedLinkSchemaAndFacetName | undefined;
 }
@@ -6983,9 +5689,7 @@ export namespace TypedLinkSpecifier {
 }
 
 /**
- *
- *          <p>Indicates that the requested index type is not supported.</p>
- *
+ * <p>Indicates that the requested index type is not supported.</p>
  */
 export interface UnsupportedIndexTypeException
   extends _smithy.SmithyException,
@@ -7005,17 +5709,13 @@ export namespace UnsupportedIndexTypeException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
+   * <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
    *       directories.</p>
-   *
    */
   ResourceArn: string | undefined;
 
   /**
-   *
-   *          <p>Keys of the tag that need to be removed from the resource.</p>
-   *
+   * <p>Keys of the tag that need to be removed from the resource.</p>
    */
   TagKeys: Array<string> | undefined;
 }
@@ -7044,33 +5744,25 @@ export enum UpdateActionType {
 export interface UpdateFacetRequest {
   __type?: "UpdateFacetRequest";
   /**
-   *
-   *          <p>List of attributes that need to be updated in a given schema <a>Facet</a>.
+   * <p>List of attributes that need to be updated in a given schema <a>Facet</a>.
    *       Each attribute is followed by <code>AttributeAction</code>, which specifies the type of update
    *       operation to perform. </p>
-   *
    */
   AttributeUpdates?: Array<FacetAttributeUpdate>;
 
   /**
-   *
-   *          <p>The name of the facet.</p>
-   *
+   * <p>The name of the facet.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
-   *
+   * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    */
   ObjectType?: ObjectType | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
    *       For more information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -7094,23 +5786,17 @@ export namespace UpdateFacetResponse {
 export interface UpdateLinkAttributesRequest {
   __type?: "UpdateLinkAttributesRequest";
   /**
-   *
-   *          <p>The attributes update structure.</p>
-   *
+   * <p>The attributes update structure.</p>
    */
   AttributeUpdates: Array<LinkAttributeUpdate> | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Allows a typed link specifier to be accepted as input.</p>
-   *
+   * <p>Allows a typed link specifier to be accepted as input.</p>
    */
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
 }
@@ -7134,24 +5820,18 @@ export namespace UpdateLinkAttributesResponse {
 export interface UpdateObjectAttributesRequest {
   __type?: "UpdateObjectAttributesRequest";
   /**
-   *
-   *          <p>The attributes update structure.</p>
-   *
+   * <p>The attributes update structure.</p>
    */
   AttributeUpdates: Array<ObjectAttributeUpdate> | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+   * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
    *       where the object resides. For more information, see <a>arns</a>.</p>
-   *
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>The reference that identifies the object.</p>
-   *
+   * <p>The reference that identifies the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
 }
@@ -7165,9 +5845,7 @@ export namespace UpdateObjectAttributesRequest {
 export interface UpdateObjectAttributesResponse extends $MetadataBearer {
   __type?: "UpdateObjectAttributesResponse";
   /**
-   *
-   *          <p>The <code>ObjectIdentifier</code> of the updated object.</p>
-   *
+   * <p>The <code>ObjectIdentifier</code> of the updated object.</p>
    */
   ObjectIdentifier?: string;
 }
@@ -7181,17 +5859,13 @@ export namespace UpdateObjectAttributesResponse {
 export interface UpdateSchemaRequest {
   __type?: "UpdateSchemaRequest";
   /**
-   *
-   *          <p>The name of the schema.</p>
-   *
+   * <p>The name of the schema.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the development schema. For more information, see
+   * <p>The Amazon Resource Name (ARN) of the development schema. For more information, see
    *         <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -7205,9 +5879,7 @@ export namespace UpdateSchemaRequest {
 export interface UpdateSchemaResponse extends $MetadataBearer {
   __type?: "UpdateSchemaResponse";
   /**
-   *
-   *          <p>The ARN that is associated with the updated schema. For more information, see <a>arns</a>.</p>
-   *
+   * <p>The ARN that is associated with the updated schema. For more information, see <a>arns</a>.</p>
    */
   SchemaArn?: string;
 }
@@ -7221,36 +5893,28 @@ export namespace UpdateSchemaResponse {
 export interface UpdateTypedLinkFacetRequest {
   __type?: "UpdateTypedLinkFacetRequest";
   /**
-   *
-   *          <p>Attributes update structure.</p>
-   *
+   * <p>Attributes update structure.</p>
    */
   AttributeUpdates: Array<TypedLinkFacetAttributeUpdate> | undefined;
 
   /**
-   *
-   *          <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed
+   * <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed
    *       links considers the order that the attributes are defined on the typed link facet.  When
    *       providing ranges to a typed link selection, any inexact ranges must be specified at the end.
    *       Any attributes that do not have a range specified are presumed to match the entire range.
    *       Filters are interpreted in the order of the attributes on the typed link facet, not the order
    *       in which they are supplied to any API calls. For more information about identity attributes, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
-   *
    */
   IdentityAttributeOrder: Array<string> | undefined;
 
   /**
-   *
-   *          <p>The unique name of the typed link facet.</p>
-   *
+   * <p>The unique name of the typed link facet.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+   * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
-   *
    */
   SchemaArn: string | undefined;
 }
@@ -7274,23 +5938,17 @@ export namespace UpdateTypedLinkFacetResponse {
 export interface UpgradeAppliedSchemaRequest {
   __type?: "UpgradeAppliedSchemaRequest";
   /**
-   *
-   *          <p>The ARN for the directory to which the upgraded schema will be applied.</p>
-   *
+   * <p>The ARN for the directory to which the upgraded schema will be applied.</p>
    */
   DirectoryArn: string | undefined;
 
   /**
-   *
-   *          <p>Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.</p>
-   *
+   * <p>Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.</p>
    */
   DryRun?: boolean;
 
   /**
-   *
-   *          <p>The revision of the published schema to upgrade the directory to.</p>
-   *
+   * <p>The revision of the published schema to upgrade the directory to.</p>
    */
   PublishedSchemaArn: string | undefined;
 }
@@ -7304,16 +5962,12 @@ export namespace UpgradeAppliedSchemaRequest {
 export interface UpgradeAppliedSchemaResponse extends $MetadataBearer {
   __type?: "UpgradeAppliedSchemaResponse";
   /**
-   *
-   *          <p>The ARN of the directory that is returned as part of the response.</p>
-   *
+   * <p>The ARN of the directory that is returned as part of the response.</p>
    */
   DirectoryArn?: string;
 
   /**
-   *
-   *          <p>The ARN of the upgraded schema that is returned as part of the response.</p>
-   *
+   * <p>The ARN of the upgraded schema that is returned as part of the response.</p>
    */
   UpgradedSchemaArn?: string;
 }
@@ -7327,30 +5981,22 @@ export namespace UpgradeAppliedSchemaResponse {
 export interface UpgradePublishedSchemaRequest {
   __type?: "UpgradePublishedSchemaRequest";
   /**
-   *
-   *          <p>The ARN of the development schema with the changes used for the upgrade.</p>
-   *
+   * <p>The ARN of the development schema with the changes used for the upgrade.</p>
    */
   DevelopmentSchemaArn: string | undefined;
 
   /**
-   *
-   *          <p>Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.</p>
-   *
+   * <p>Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.</p>
    */
   DryRun?: boolean;
 
   /**
-   *
-   *          <p>Identifies the minor version of the published schema that will be created. This parameter is NOT optional.</p>
-   *
+   * <p>Identifies the minor version of the published schema that will be created. This parameter is NOT optional.</p>
    */
   MinorVersion: string | undefined;
 
   /**
-   *
-   *          <p>The ARN of the published schema to be upgraded.</p>
-   *
+   * <p>The ARN of the published schema to be upgraded.</p>
    */
   PublishedSchemaArn: string | undefined;
 }
@@ -7364,9 +6010,7 @@ export namespace UpgradePublishedSchemaRequest {
 export interface UpgradePublishedSchemaResponse extends $MetadataBearer {
   __type?: "UpgradePublishedSchemaResponse";
   /**
-   *
-   *          <p>The ARN of the upgraded schema that is returned as part of the response.</p>
-   *
+   * <p>The ARN of the upgraded schema that is returned as part of the response.</p>
    */
   UpgradedSchemaArn?: string;
 }
@@ -7378,10 +6022,8 @@ export namespace UpgradePublishedSchemaResponse {
 }
 
 /**
- *
- *          <p>Indicates that your request is malformed in some manner. See the exception
+ * <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
- *
  */
 export interface ValidationException
   extends _smithy.SmithyException,

@@ -228,8 +228,7 @@ export type GlobalAcceleratorClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig;
 
 /**
- *
- * 		       <fullname>AWS Global Accelerator</fullname>
+ * <fullname>AWS Global Accelerator</fullname>
  * 		       <p>This is the <i>AWS Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
  * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>. </p>
  * 		       <p>AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for
@@ -299,8 +298,6 @@ export type GlobalAcceleratorClientResolvedConfig = __SmithyResolvedConfiguratio
  * 						for example, to do performance testing within a Region.</p>
  * 				        </dd>
  *          </dl>
- *
- *
  */
 export class GlobalAcceleratorClient extends __Client<
   __HttpHandlerOptions,

@@ -71,6 +71,7 @@ import {
   UpdateUserCommandOutput
 } from "../commands/UpdateUserCommand";
 import {
+  ConflictException,
   CreateServerRequest,
   CreateServerResponse,
   CreateUserRequest,
@@ -1756,6 +1757,13 @@ async function deserializeAws_json1_1UpdateServerCommandError(
         context
       );
       break;
+    case "ConflictException":
+    case "com.amazonaws.necco.coral#ConflictException":
+      response = await deserializeAws_json1_1ConflictExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = await deserializeAws_json1_1InternalServiceErrorResponse(
@@ -1907,6 +1915,25 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(
+    body,
+    context
+  );
+  const contents: ConflictException = {
+    name: "ConflictException",
+    __type: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InternalServiceErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2019,6 +2046,13 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
     ...deserialized
   };
   return contents;
+};
+
+const serializeAws_json1_1AddressAllocationIds = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_json1_1CreateServerRequest = (
@@ -2170,8 +2204,25 @@ const serializeAws_json1_1EndpointDetails = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.AddressAllocationIds !== undefined) {
+    bodyParams[
+      "AddressAllocationIds"
+    ] = serializeAws_json1_1AddressAllocationIds(
+      input.AddressAllocationIds,
+      context
+    );
+  }
+  if (input.SubnetIds !== undefined) {
+    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIds(
+      input.SubnetIds,
+      context
+    );
+  }
   if (input.VpcEndpointId !== undefined) {
     bodyParams["VpcEndpointId"] = input.VpcEndpointId;
+  }
+  if (input.VpcId !== undefined) {
+    bodyParams["VpcId"] = input.VpcId;
   }
   return bodyParams;
 };
@@ -2298,6 +2349,13 @@ const serializeAws_json1_1StopServerRequest = (
     bodyParams["ServerId"] = input.ServerId;
   }
   return bodyParams;
+};
+
+const serializeAws_json1_1SubnetIds = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2444,6 +2502,27 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   let contents: any = {
     __type: "ServiceUnavailableException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AddressAllocationIds = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ConflictException = (
+  output: any,
+  context: __SerdeContext
+): ConflictException => {
+  let contents: any = {
+    __type: "ConflictException",
     Message: undefined
   };
   if (output.Message !== undefined) {
@@ -2637,10 +2716,28 @@ const deserializeAws_json1_1EndpointDetails = (
 ): EndpointDetails => {
   let contents: any = {
     __type: "EndpointDetails",
-    VpcEndpointId: undefined
+    AddressAllocationIds: undefined,
+    SubnetIds: undefined,
+    VpcEndpointId: undefined,
+    VpcId: undefined
   };
+  if (output.AddressAllocationIds !== undefined) {
+    contents.AddressAllocationIds = deserializeAws_json1_1AddressAllocationIds(
+      output.AddressAllocationIds,
+      context
+    );
+  }
+  if (output.SubnetIds !== undefined) {
+    contents.SubnetIds = deserializeAws_json1_1SubnetIds(
+      output.SubnetIds,
+      context
+    );
+  }
   if (output.VpcEndpointId !== undefined) {
     contents.VpcEndpointId = output.VpcEndpointId;
+  }
+  if (output.VpcId !== undefined) {
+    contents.VpcId = output.VpcId;
   }
   return contents;
 };
@@ -2986,6 +3083,13 @@ const deserializeAws_json1_1SshPublicKeys = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SshPublicKey(entry, context)
   );
+};
+
+const deserializeAws_json1_1SubnetIds = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Tag = (

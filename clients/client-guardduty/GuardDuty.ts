@@ -252,8 +252,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
+ * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses
  *       threat intelligence feeds, such as lists of malicious IPs and domains, and machine learning to
  *       identify unexpected and potentially unauthorized and malicious activity within your AWS
@@ -266,13 +265,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       status of your AWS environment by producing security findings that you can view in the
  *       GuardDuty console or through Amazon CloudWatch events. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
  *         GuardDuty User Guide</a>. </p>
- *
  */
 export class GuardDuty extends GuardDutyClient {
   /**
-   *
-   *          <p>Accepts the invitation to be monitored by a master GuardDuty account.</p>
-   *
+   * <p>Accepts the invitation to be monitored by a master GuardDuty account.</p>
    */
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
@@ -307,13 +303,11 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Archives GuardDuty findings specified by the list of finding IDs.</p>
+   * <p>Archives GuardDuty findings specified by the list of finding IDs.</p>
    *          <note>
    *             <p>Only the master account can archive findings. Member accounts do not have permission to
    *         archive findings from their accounts.</p>
    *          </note>
-   *
    */
   public archiveFindings(
     args: ArchiveFindingsCommandInput,
@@ -348,11 +342,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
+   * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
    *       GuardDuty service. To start using GuardDuty, you must create a detector in each region that
    *       you enable the service. You can have only one detector per account per region.</p>
-   *
    */
   public createDetector(
     args: CreateDetectorCommandInput,
@@ -387,9 +379,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Creates a filter using the specified finding criteria.</p>
-   *
+   * <p>Creates a filter using the specified finding criteria.</p>
    */
   public createFilter(
     args: CreateFilterCommandInput,
@@ -424,12 +414,10 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Creates a new IPSet, called Trusted IP list in the consoler user interface. An IPSet is a
+   * <p>Creates a new IPSet, called Trusted IP list in the consoler user interface. An IPSet is a
    *       list IP addresses trusted for secure communication with AWS infrastructure and applications.
    *       GuardDuty does not generate findings for IP addresses included in IPSets. Only users from the
    *       master account can use this operation.</p>
-   *
    */
   public createIPSet(
     args: CreateIPSetCommandInput,
@@ -464,11 +452,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Creates member accounts of the current AWS account by specifying a list of AWS account
+   * <p>Creates member accounts of the current AWS account by specifying a list of AWS account
    *       IDs. The current AWS account can then invite these members to manage GuardDuty in their
    *       accounts.</p>
-   *
    */
   public createMembers(
     args: CreateMembersCommandInput,
@@ -503,9 +489,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Creates a publishing destination to send findings to. The resource to send findings to must exist before you use this operation.</p>
-   *
+   * <p>Creates a publishing destination to send findings to. The resource to send findings to must exist before you use this operation.</p>
    */
   public createPublishingDestination(
     args: CreatePublishingDestinationCommandInput,
@@ -540,11 +524,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Generates example findings of types specified by the list of finding types. If 'NULL' is
+   * <p>Generates example findings of types specified by the list of finding types. If 'NULL' is
    *       specified for <code>findingTypes</code>, the API generates example findings of all supported
    *       finding types.</p>
-   *
    */
   public createSampleFindings(
     args: CreateSampleFindingsCommandInput,
@@ -579,11 +561,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Create a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
+   * <p>Create a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
    *       GuardDuty generates findings based on ThreatIntelSets. Only users of the master account can
    *       use this operation.</p>
-   *
    */
   public createThreatIntelSet(
     args: CreateThreatIntelSetCommandInput,
@@ -618,10 +598,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Declines invitations sent to the current member account by AWS account specified by their
+   * <p>Declines invitations sent to the current member account by AWS account specified by their
    *       account IDs.</p>
-   *
    */
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
@@ -656,9 +634,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Deletes a Amazon GuardDuty detector specified by the detector ID.</p>
-   *
+   * <p>Deletes a Amazon GuardDuty detector specified by the detector ID.</p>
    */
   public deleteDetector(
     args: DeleteDetectorCommandInput,
@@ -693,9 +669,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Deletes the filter specified by the filter name.</p>
-   *
+   * <p>Deletes the filter specified by the filter name.</p>
    */
   public deleteFilter(
     args: DeleteFilterCommandInput,
@@ -730,9 +704,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called Trusted IP lists in the console user interface.</p>
-   *
+   * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called Trusted IP lists in the console user interface.</p>
    */
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
@@ -767,10 +739,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Deletes invitations sent to the current member account by AWS accounts specified by their
+   * <p>Deletes invitations sent to the current member account by AWS accounts specified by their
    *       account IDs.</p>
-   *
    */
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
@@ -805,10 +775,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Deletes GuardDuty member accounts (to the current GuardDuty master account) specified by
+   * <p>Deletes GuardDuty member accounts (to the current GuardDuty master account) specified by
    *       the account IDs.</p>
-   *
    */
   public deleteMembers(
     args: DeleteMembersCommandInput,
@@ -843,9 +811,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
-   *
+   * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
    */
   public deletePublishingDestination(
     args: DeletePublishingDestinationCommandInput,
@@ -880,9 +846,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Deletes ThreatIntelSet specified by the ThreatIntelSet ID.</p>
-   *
+   * <p>Deletes ThreatIntelSet specified by the ThreatIntelSet ID.</p>
    */
   public deleteThreatIntelSet(
     args: DeleteThreatIntelSetCommandInput,
@@ -917,10 +881,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the publishing destination specified by the provided
+   * <p>Returns information about the publishing destination specified by the provided
    *       <code>destinationId</code>.</p>
-   *
    */
   public describePublishingDestination(
     args: DescribePublishingDestinationCommandInput,
@@ -955,9 +917,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the current GuardDuty member account from its master account.</p>
-   *
+   * <p>Disassociates the current GuardDuty member account from its master account.</p>
    */
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
@@ -992,10 +952,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Disassociates GuardDuty member accounts (to the current GuardDuty master account)
+   * <p>Disassociates GuardDuty member accounts (to the current GuardDuty master account)
    *       specified by the account IDs.</p>
-   *
    */
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
@@ -1030,9 +988,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
-   *
+   * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
    */
   public getDetector(
     args: GetDetectorCommandInput,
@@ -1067,9 +1023,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Returns the details of the filter specified by the filter name.</p>
-   *
+   * <p>Returns the details of the filter specified by the filter name.</p>
    */
   public getFilter(
     args: GetFilterCommandInput,
@@ -1104,9 +1058,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
-   *
+   * <p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
    */
   public getFindings(
     args: GetFindingsCommandInput,
@@ -1141,9 +1093,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists Amazon GuardDuty findings' statistics for the specified detector ID.</p>
-   *
+   * <p>Lists Amazon GuardDuty findings' statistics for the specified detector ID.</p>
    */
   public getFindingsStatistics(
     args: GetFindingsStatisticsCommandInput,
@@ -1178,9 +1128,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
-   *
+   * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
    */
   public getIPSet(
     args: GetIPSetCommandInput,
@@ -1215,10 +1163,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Returns the count of all GuardDuty membership invitations that were sent to the current
+   * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
    *       member account except the currently accepted invitation.</p>
-   *
    */
   public getInvitationsCount(
     args: GetInvitationsCountCommandInput,
@@ -1253,10 +1199,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Provides the details for the GuardDuty master account associated with the current
+   * <p>Provides the details for the GuardDuty master account associated with the current
    *       GuardDuty member account.</p>
-   *
    */
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
@@ -1291,10 +1235,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified by
+   * <p>Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified by
    *       the account IDs.</p>
-   *
    */
   public getMembers(
     args: GetMembersCommandInput,
@@ -1329,9 +1271,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
-   *
+   * <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
    */
   public getThreatIntelSet(
     args: GetThreatIntelSetCommandInput,
@@ -1366,11 +1306,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Invites other AWS accounts (created as members of the current AWS account by
+   * <p>Invites other AWS accounts (created as members of the current AWS account by
    *       CreateMembers) to enable GuardDuty and allow the current AWS account to view and manage these
    *       accounts' GuardDuty findings on their behalf as the master account.</p>
-   *
    */
   public inviteMembers(
     args: InviteMembersCommandInput,
@@ -1405,9 +1343,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists detectorIds of all the existing Amazon GuardDuty detector resources.</p>
-   *
+   * <p>Lists detectorIds of all the existing Amazon GuardDuty detector resources.</p>
    */
   public listDetectors(
     args: ListDetectorsCommandInput,
@@ -1442,9 +1378,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Returns a paginated list of the current filters.</p>
-   *
+   * <p>Returns a paginated list of the current filters.</p>
    */
   public listFilters(
     args: ListFiltersCommandInput,
@@ -1479,9 +1413,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists Amazon GuardDuty findings for the specified detector ID.</p>
-   *
+   * <p>Lists Amazon GuardDuty findings for the specified detector ID.</p>
    */
   public listFindings(
     args: ListFindingsCommandInput,
@@ -1516,10 +1448,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation
+   * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation
    *       from a member account, the IPSets returned are the IPSets from the associated master account.</p>
-   *
    */
   public listIPSets(
     args: ListIPSetsCommandInput,
@@ -1554,10 +1484,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists all GuardDuty membership invitations that were sent to the current AWS
+   * <p>Lists all GuardDuty membership invitations that were sent to the current AWS
    *       account.</p>
-   *
    */
   public listInvitations(
     args: ListInvitationsCommandInput,
@@ -1592,9 +1520,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists details about all member accounts for the current GuardDuty master account.</p>
-   *
+   * <p>Lists details about all member accounts for the current GuardDuty master account.</p>
    */
   public listMembers(
     args: ListMembersCommandInput,
@@ -1629,10 +1555,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of publishing destinations associated with the specified
+   * <p>Returns a list of publishing destinations associated with the specified
    *       <code>dectectorId</code>.</p>
-   *
    */
   public listPublishingDestinations(
     args: ListPublishingDestinationsCommandInput,
@@ -1667,11 +1591,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
+   * <p>Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
    *       IP sets, and Threat Intel sets, with a limit of 50 tags per resource. When invoked, this
    *       operation returns all assigned tags for a given resource..</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1706,10 +1628,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the
+   * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the
    *       master account are returned.</p>
-   *
    */
   public listThreatIntelSets(
     args: ListThreatIntelSetsCommandInput,
@@ -1744,10 +1664,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the
+   * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the
    *       <code>StopMonitoringMembers</code> operation.</p>
-   *
    */
   public startMonitoringMembers(
     args: StartMonitoringMembersCommandInput,
@@ -1782,9 +1700,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Stops GuardDuty monitoring for the specified member accounnts. Use the <code>StartMonitoringMembers</code> to restart monitoring for those accounts.</p>
-   *
+   * <p>Stops GuardDuty monitoring for the specified member accounnts. Use the <code>StartMonitoringMembers</code> to restart monitoring for those accounts.</p>
    */
   public stopMonitoringMembers(
     args: StopMonitoringMembersCommandInput,
@@ -1819,9 +1735,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Adds tags to a resource.</p>
-   *
+   * <p>Adds tags to a resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1856,9 +1770,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
-   *
+   * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
    */
   public unarchiveFindings(
     args: UnarchiveFindingsCommandInput,
@@ -1893,9 +1805,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Removes tags from a resource.</p>
-   *
+   * <p>Removes tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1930,9 +1840,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
-   *
+   * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
    */
   public updateDetector(
     args: UpdateDetectorCommandInput,
@@ -1967,9 +1875,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Updates the filter specified by the filter name.</p>
-   *
+   * <p>Updates the filter specified by the filter name.</p>
    */
   public updateFilter(
     args: UpdateFilterCommandInput,
@@ -2004,9 +1910,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Marks the specified GuardDuty findings as useful or not useful.</p>
-   *
+   * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
    */
   public updateFindingsFeedback(
     args: UpdateFindingsFeedbackCommandInput,
@@ -2041,9 +1945,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Updates the IPSet specified by the IPSet ID.</p>
-   *
+   * <p>Updates the IPSet specified by the IPSet ID.</p>
    */
   public updateIPSet(
     args: UpdateIPSetCommandInput,
@@ -2078,10 +1980,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Updates information about the publishing destination specified by the
+   * <p>Updates information about the publishing destination specified by the
    *       <code>destinationId</code>.</p>
-   *
    */
   public updatePublishingDestination(
     args: UpdatePublishingDestinationCommandInput,
@@ -2116,9 +2016,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   *
-   *          <p>Updates the ThreatIntelSet specified by ThreatIntelSet ID.</p>
-   *
+   * <p>Updates the ThreatIntelSet specified by ThreatIntelSet ID.</p>
    */
   public updateThreatIntelSet(
     args: UpdateThreatIntelSetCommandInput,

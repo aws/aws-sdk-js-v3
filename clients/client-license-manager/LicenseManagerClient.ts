@@ -228,11 +228,9 @@ export type LicenseManagerClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname> AWS License Manager </fullname>
+ * <fullname> AWS License Manager </fullname>
  *          <p>AWS License Manager makes it easier to manage licenses from software vendors across multiple
  *          AWS accounts and on-premises servers.</p>
- *
  */
 export class LicenseManagerClient extends __Client<
   __HttpHandlerOptions,

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { AuthorizeSnapshotAccessMessage, Snapshot } from "../models/index";
+import {
+  AuthorizeSnapshotAccessMessage,
+  AuthorizeSnapshotAccessResult
+} from "../models/index";
 import {
   deserializeAws_queryAuthorizeSnapshotAccessCommand,
   serializeAws_queryAuthorizeSnapshotAccessCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AuthorizeSnapshotAccessCommandInput = AuthorizeSnapshotAccessMessage;
-export type AuthorizeSnapshotAccessCommandOutput = Snapshot;
+export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult;
 
 export class AuthorizeSnapshotAccessCommand extends $Command<
   AuthorizeSnapshotAccessCommandInput,

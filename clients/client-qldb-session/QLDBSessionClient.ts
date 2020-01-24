@@ -163,9 +163,7 @@ export type QLDBSessionClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>The transactional data APIs for Amazon QLDB</p>
- *
+ * <p>The transactional data APIs for Amazon QLDB</p>
  */
 export class QLDBSessionClient extends __Client<
   __HttpHandlerOptions,

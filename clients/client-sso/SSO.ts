@@ -22,8 +22,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
+ * <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
  *       access to AWS SSO resources such as the user portal. Users can get AWS account applications
  *       and roles assigned to them and get federated into the application.</p>
  *
@@ -39,14 +38,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         convenient way to create programmatic access to AWS SSO and other AWS services. For more
  *         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
- *
  */
 export class SSO extends SSOClient {
   /**
-   *
-   *          <p>Returns the STS short-term credentials for a given role name that is assigned to the
+   * <p>Returns the STS short-term credentials for a given role name that is assigned to the
    *       user.</p>
-   *
    */
   public getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
@@ -81,9 +77,7 @@ export class SSO extends SSOClient {
   }
 
   /**
-   *
-   *          <p>Lists all roles that are assigned to the user for a given AWS account.</p>
-   *
+   * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
    */
   public listAccountRoles(
     args: ListAccountRolesCommandInput,
@@ -118,11 +112,9 @@ export class SSO extends SSOClient {
   }
 
   /**
-   *
-   *          <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
+   * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
    *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>AWS SSO User Guide</i>. This operation
    *       returns a paginated response.</p>
-   *
    */
   public listAccounts(
     args: ListAccountsCommandInput,
@@ -157,9 +149,7 @@ export class SSO extends SSOClient {
   }
 
   /**
-   *
-   *          <p>Removes the client- and server-side session that is associated with the user.</p>
-   *
+   * <p>Removes the client- and server-side session that is associated with the user.</p>
    */
   public logout(
     args: LogoutCommandInput,

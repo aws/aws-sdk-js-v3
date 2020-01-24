@@ -102,8 +102,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS CloudHSM Service</fullname>
+ * <fullname>AWS CloudHSM Service</fullname>
  *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -114,12 +113,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
- *
  */
 export class CloudHSM extends CloudHSMClient {
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -132,7 +129,6 @@ export class CloudHSM extends CloudHSMClient {
    *          <p>Adds or overwrites one or more tags for the specified AWS CloudHSM resource.</p>
    *          <p>Each tag consists of a key and a value. Tag keys must be unique to each
    *       resource.</p>
-   *
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -167,8 +163,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -180,7 +175,6 @@ export class CloudHSM extends CloudHSMClient {
    *       Reference</a>.</p>
    *          <p>Creates a high-availability partition group. A high-availability partition group is a
    *       group of partitions that spans multiple physical HSMs.</p>
-   *
    */
   public createHapg(
     args: CreateHapgCommandInput,
@@ -215,8 +209,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -236,7 +229,6 @@ export class CloudHSM extends CloudHSMClient {
    *         status of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be
    *         initialized when the status changes to <code>RUNNING</code>.</p>
    *          </important>
-   *
    */
   public createHsm(
     args: CreateHsmCommandInput,
@@ -271,8 +263,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -283,7 +274,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Creates an HSM client.</p>
-   *
    */
   public createLunaClient(
     args: CreateLunaClientCommandInput,
@@ -318,8 +308,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -330,7 +319,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Deletes a high-availability partition group.</p>
-   *
    */
   public deleteHapg(
     args: DeleteHapgCommandInput,
@@ -365,8 +353,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -378,7 +365,6 @@ export class CloudHSM extends CloudHSMClient {
    *       Reference</a>.</p>
    *          <p>Deletes an HSM. After completion, this operation cannot be undone and your key material
    *       cannot be recovered.</p>
-   *
    */
   public deleteHsm(
     args: DeleteHsmCommandInput,
@@ -413,8 +399,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -425,7 +410,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Deletes a client.</p>
-   *
    */
   public deleteLunaClient(
     args: DeleteLunaClientCommandInput,
@@ -460,8 +444,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -472,7 +455,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Retrieves information about a high-availability partition group.</p>
-   *
    */
   public describeHapg(
     args: DescribeHapgCommandInput,
@@ -507,8 +489,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -520,7 +501,6 @@ export class CloudHSM extends CloudHSMClient {
    *       Reference</a>.</p>
    *          <p>Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
    *       number.</p>
-   *
    */
   public describeHsm(
     args: DescribeHsmCommandInput,
@@ -555,8 +535,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -567,7 +546,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Retrieves information about an HSM client.</p>
-   *
    */
   public describeLunaClient(
     args: DescribeLunaClientCommandInput,
@@ -602,8 +580,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -615,7 +592,6 @@ export class CloudHSM extends CloudHSMClient {
    *       Reference</a>.</p>
    *          <p>Gets the configuration files necessary to connect to all high availability partition
    *       groups the client is associated with.</p>
-   *
    */
   public getConfig(
     args: GetConfigCommandInput,
@@ -650,8 +626,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -662,7 +637,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>
-   *
    */
   public listAvailableZones(
     args: ListAvailableZonesCommandInput,
@@ -697,8 +671,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -713,7 +686,6 @@ export class CloudHSM extends CloudHSMClient {
    *       If more results are available, the <code>NextToken</code> member of the response contains a
    *       token that you pass in the next call to <code>ListHapgs</code> to retrieve the next set of
    *       items.</p>
-   *
    */
   public listHapgs(
     args: ListHapgsCommandInput,
@@ -748,8 +720,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -765,7 +736,6 @@ export class CloudHSM extends CloudHSMClient {
    *       If more results are available, the <code>NextToken</code> member of the response contains a
    *       token that you pass in the next call to <code>ListHsms</code> to retrieve the next set of
    *       items.</p>
-   *
    */
   public listHsms(
     args: ListHsmsCommandInput,
@@ -800,8 +770,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -816,7 +785,6 @@ export class CloudHSM extends CloudHSMClient {
    *       If more results are available, the <code>NextToken</code> member of the response contains a
    *       token that you pass in the next call to <code>ListLunaClients</code> to retrieve the next set
    *       of items.</p>
-   *
    */
   public listLunaClients(
     args: ListLunaClientsCommandInput,
@@ -851,8 +819,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -863,7 +830,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Returns a list of all tags for the specified AWS CloudHSM resource.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -898,8 +864,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -910,7 +875,6 @@ export class CloudHSM extends CloudHSMClient {
    *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
    *       Reference</a>.</p>
    *          <p>Modifies an existing high-availability partition group.</p>
-   *
    */
   public modifyHapg(
     args: ModifyHapgCommandInput,
@@ -945,8 +909,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -963,7 +926,6 @@ export class CloudHSM extends CloudHSMClient {
    *         that your AWS CloudHSM service is configured for high availability, and consider executing this
    *         operation during a maintenance window.</p>
    *          </important>
-   *
    */
   public modifyHsm(
     args: ModifyHsmCommandInput,
@@ -998,8 +960,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -1012,7 +973,6 @@ export class CloudHSM extends CloudHSMClient {
    *          <p>Modifies the certificate used by the client.</p>
    *          <p>This action can potentially start a workflow to install the new certificate on the
    *       client's HSMs.</p>
-   *
    */
   public modifyLunaClient(
     args: ModifyLunaClientCommandInput,
@@ -1047,8 +1007,7 @@ export class CloudHSM extends CloudHSMClient {
   }
 
   /**
-   *
-   *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
+   * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
    *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
    *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
    *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
@@ -1061,7 +1020,6 @@ export class CloudHSM extends CloudHSMClient {
    *          <p>Removes one or more tags from the specified AWS CloudHSM resource.</p>
    *          <p>To remove a tag, specify only the tag key to remove (not the value). To overwrite the
    *       value for an existing tag, use <a>AddTagsToResource</a>.</p>
-   *
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,

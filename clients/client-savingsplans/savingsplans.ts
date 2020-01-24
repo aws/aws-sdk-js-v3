@@ -42,18 +42,14 @@ import { savingsplansClient } from "./savingsplansClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Savings Plans are a pricing model that offer significant savings on AWS usage (for
+ * <p>Savings Plans are a pricing model that offer significant savings on AWS usage (for
  *         example, on Amazon EC2 instances). You commit to a consistent amount of usage, in USD
  *         per hour, for a term of 1 or 3 years, and receive a lower price for that usage. For
  *         more information, see the <a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/">AWS Savings Plans User Guide</a>.</p>
- *
  */
 export class savingsplans extends savingsplansClient {
   /**
-   *
-   *          <p>Describes the specified Savings Plans offering rates.</p>
-   *
+   * <p>Describes the specified Savings Plans offering rates.</p>
    */
   public describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
@@ -100,9 +96,7 @@ export class savingsplans extends savingsplansClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified Savings Plans offerings.</p>
-   *
+   * <p>Describes the specified Savings Plans offerings.</p>
    */
   public describeSavingsPlansOfferings(
     args: DescribeSavingsPlansOfferingsCommandInput,
@@ -137,9 +131,7 @@ export class savingsplans extends savingsplansClient {
   }
 
   /**
-   *
-   *          <p>Creates a Savings Plan.</p>
-   *
+   * <p>Creates a Savings Plan.</p>
    */
   public createSavingsPlan(
     args: CreateSavingsPlanCommandInput,
@@ -174,9 +166,7 @@ export class savingsplans extends savingsplansClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified Savings Plans rates.</p>
-   *
+   * <p>Describes the specified Savings Plans rates.</p>
    */
   public describeSavingsPlanRates(
     args: DescribeSavingsPlanRatesCommandInput,
@@ -211,9 +201,7 @@ export class savingsplans extends savingsplansClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified Savings Plans.</p>
-   *
+   * <p>Describes the specified Savings Plans.</p>
    */
   public describeSavingsPlans(
     args: DescribeSavingsPlansCommandInput,
@@ -248,9 +236,7 @@ export class savingsplans extends savingsplansClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags for the specified resource.</p>
-   *
+   * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -285,9 +271,7 @@ export class savingsplans extends savingsplansClient {
   }
 
   /**
-   *
-   *          <p>Adds the specified tags to the specified resource.</p>
-   *
+   * <p>Adds the specified tags to the specified resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -322,9 +306,7 @@ export class savingsplans extends savingsplansClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified tags from the specified resource.</p>
-   *
+   * <p>Removes the specified tags from the specified resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

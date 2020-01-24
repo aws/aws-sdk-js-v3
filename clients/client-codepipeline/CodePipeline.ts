@@ -165,6 +165,11 @@ import {
   StartPipelineExecutionCommandOutput
 } from "./commands/StartPipelineExecutionCommand";
 import {
+  StopPipelineExecutionCommand,
+  StopPipelineExecutionCommandInput,
+  StopPipelineExecutionCommandOutput
+} from "./commands/StopPipelineExecutionCommand";
+import {
   TagResourceCommand,
   TagResourceCommandInput,
   TagResourceCommandOutput
@@ -182,17 +187,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>AWS CodePipeline</fullname>
+ * <fullname>AWS CodePipeline</fullname>
  *         <p>
  *             <b>Overview</b>
  *         </p>
- *
  *         <p>This is the AWS CodePipeline API Reference. This guide provides descriptions of the
- *             actions and data types for AWS CodePipeline. Some functionality for your pipeline can only be
- *            configured through the API. For more information, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS
+ *             actions and data types for AWS CodePipeline. Some functionality for your pipeline can
+ *             only be configured through the API. For more information, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">AWS
  *                 CodePipeline User Guide</a>.</p>
- *
  *         <p>You can use the AWS CodePipeline API to work with pipelines, stages, actions, and
  *             transitions.</p>
  *         <p>
@@ -245,8 +247,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                 <p>
- *                     <a>StartPipelineExecution</a>, which runs the most recent
- *                     revision of an artifact through the pipeline.</p>
+ *                     <a>StartPipelineExecution</a>, which runs the most recent revision of
+ *                     an artifact through the pipeline.</p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                     <a>StopPipelineExecution</a>, which stops the specified pipeline
+ *                     execution from continuing through the pipeline.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -254,17 +261,15 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                     to the structure of the pipeline.</p>
  *             </li>
  *          </ul>
- *
  *         <p>Pipelines include <i>stages</i>. Each stage contains one or more
- *             actions that must complete before the next stage begins. A stage results in success
- *             or failure. If a stage fails, the pipeline stops at that stage and remains
- *             stopped until either a new version of an artifact appears in the source location, or a
- *             user takes action to rerun the most recent artifact through the pipeline. You can call
- *                 <a>GetPipelineState</a>, which displays the status of a pipeline,
- *             including the status of stages in the pipeline, or <a>GetPipeline</a>, which
- *             returns the entire structure of the pipeline, including the stages of that pipeline. For
- *             more information about the structure of stages and actions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">AWS
- *                 CodePipeline Pipeline Structure Reference</a>.</p>
+ *             actions that must complete before the next stage begins. A stage results in success or
+ *             failure. If a stage fails, the pipeline stops at that stage and remains stopped until
+ *             either a new version of an artifact appears in the source location, or a user takes
+ *             action to rerun the most recent artifact through the pipeline. You can call <a>GetPipelineState</a>, which displays the status of a pipeline, including the
+ *             status of stages in the pipeline, or <a>GetPipeline</a>, which returns the
+ *             entire structure of the pipeline, including the stages of that pipeline. For more
+ *             information about the structure of stages and actions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html">AWS CodePipeline
+ *                 Pipeline Structure Reference</a>.</p>
  *         <p>Pipeline stages include <i>actions</i> that are categorized into
  *             categories such as source or build actions performed in a stage of a pipeline. For
  *             example, you can use a source action to import artifacts into a pipeline from a source
@@ -308,14 +313,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                     between stages in a pipeline. </p>
  *             </li>
  *          </ul>
- *
- *
  *         <p>
  *             <b>Using the API to integrate with AWS CodePipeline</b>
  *         </p>
- *
  *         <p>For third-party integrators or developers who want to create their own integrations
- *             with AWS CodePipeline, the expected sequence varies from the standard API user. To integrate with AWS CodePipeline, developers need to work with the following
+ *             with AWS CodePipeline, the expected sequence varies from the standard API user. To
+ *             integrate with AWS CodePipeline, developers need to work with the following
  *             items:</p>
  *         <p>
  *             <b>Jobs</b>, which are instances of an action. For
@@ -339,7 +342,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             <li>
  *                 <p>
  *                     <a>PutJobFailureResult</a>, which provides details of a job failure.
- *                     </p>
+ *                 </p>
  *             </li>
  *             <li>
  *                 <p>
@@ -347,7 +350,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                     success.</p>
  *             </li>
  *          </ul>
- *
  *         <p>
  *             <b>Third party jobs</b>, which are instances of an action
  *             created by a partner action and integrated into AWS CodePipeline. Partner actions are
@@ -380,16 +382,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                     success.</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class CodePipeline extends CodePipelineClient {
   /**
-   *
-   *         <p>Returns information about a specified job and whether that job has been received by
+   * <p>Returns information about a specified job and whether that job has been received by
    *             the job worker. Used for custom actions only.</p>
-   *
-   *
    */
   public acknowledgeJob(
     args: AcknowledgeJobCommandInput,
@@ -424,10 +421,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Confirms a job worker has received the specified job. Used for partner
-   *             actions only.</p>
-   *
+   * <p>Confirms a job worker has received the specified job. Used for partner actions
+   *             only.</p>
    */
   public acknowledgeThirdPartyJob(
     args: AcknowledgeThirdPartyJobCommandInput,
@@ -462,11 +457,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Creates a new custom action that can be used in all pipelines associated with the
+   * <p>Creates a new custom action that can be used in all pipelines associated with the
    *             AWS account. Only used for custom actions.</p>
-   *
-   *
    */
   public createCustomActionType(
     args: CreateCustomActionTypeCommandInput,
@@ -501,16 +493,13 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Creates a pipeline.</p>
+   * <p>Creates a pipeline.</p>
    *         <note>
    *             <p>In the pipeline structure, you must include either <code>artifactStore</code>
    *                 or <code>artifactStores</code> in your pipeline, but you cannot use both. If you
    *                 create a cross-region action in your pipeline, you must use
    *                     <code>artifactStores</code>.</p>
    *         </note>
-   *
-   *
    */
   public createPipeline(
     args: CreatePipelineCommandInput,
@@ -545,10 +534,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Marks a custom action as deleted. <code>PollForJobs</code> for the custom action
-   *             fails after the action is marked for deletion. Used for custom
-   *             actions only.</p>
+   * <p>Marks a custom action as deleted. <code>PollForJobs</code> for the custom action
+   *             fails after the action is marked for deletion. Used for custom actions only.</p>
    *         <important>
    *             <p>To re-create a custom action after it has been deleted you must use a string in
    *                 the version field that has never been used before. This string can be an incremented
@@ -556,8 +543,6 @@ export class CodePipeline extends CodePipelineClient {
    *                 that is identical to the deleted action, including the original string in the
    *                 version field.</p>
    *         </important>
-   *
-   *
    */
   public deleteCustomActionType(
     args: DeleteCustomActionTypeCommandInput,
@@ -592,10 +577,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified pipeline.</p>
-   *
-   *
+   * <p>Deletes the specified pipeline.</p>
    */
   public deletePipeline(
     args: DeletePipelineCommandInput,
@@ -630,13 +612,11 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Deletes a previously created webhook by name. Deleting the webhook stops AWS
+   * <p>Deletes a previously created webhook by name. Deleting the webhook stops AWS
    *             CodePipeline from starting a pipeline every time an external event occurs. The API
    *             returns successfully when trying to delete a webhook that is already deleted. If a
    *             deleted webhook is re-created by calling PutWebhook with the same name, it will have a
    *             different URL.</p>
-   *
    */
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
@@ -671,11 +651,9 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Removes the connection between the webhook that was created by CodePipeline and the
+   * <p>Removes the connection between the webhook that was created by CodePipeline and the
    *             external tool with events to be detected. Currently supported only for webhooks that
    *             target an action type of GitHub.</p>
-   *
    */
   public deregisterWebhookWithThirdParty(
     args: DeregisterWebhookWithThirdPartyCommandInput,
@@ -713,11 +691,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
+   * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
    *             pipeline.</p>
-   *
-   *
    */
   public disableStageTransition(
     args: DisableStageTransitionCommandInput,
@@ -752,10 +727,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
-   *
-   *
+   * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
    */
   public enableStageTransition(
     args: EnableStageTransitionCommandInput,
@@ -790,16 +762,13 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Returns information about a job. Used for custom actions only.</p>
+   * <p>Returns information about a job. Used for custom actions only.</p>
    *         <important>
    *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
-   *                 Amazon S3 bucket used to store artifacts for the pipeline, if the action requires
-   *                 access to that Amazon S3 bucket for input or output artifacts. This
-   *                 API also returns any secret values defined for the action.</p>
+   *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
+   *                 that S3 bucket for input or output artifacts. This API also returns any secret
+   *                 values defined for the action.</p>
    *         </important>
-   *
-   *
    */
   public getJobDetails(
     args: GetJobDetailsCommandInput,
@@ -834,12 +803,9 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Returns the metadata, structure, stages, and actions of a pipeline. Can be used to
+   * <p>Returns the metadata, structure, stages, and actions of a pipeline. Can be used to
    *             return the entire structure of a pipeline in JSON format, which can then be modified and
    *             used to update the pipeline structure with <a>UpdatePipeline</a>.</p>
-   *
-   *
    */
   public getPipeline(
     args: GetPipelineCommandInput,
@@ -874,12 +840,9 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Returns information about an execution of a pipeline, including details about
+   * <p>Returns information about an execution of a pipeline, including details about
    *             artifacts, the pipeline execution ID, and the name, version, and status of the
    *             pipeline.</p>
-   *
-   *
    */
   public getPipelineExecution(
     args: GetPipelineExecutionCommandInput,
@@ -914,16 +877,13 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Returns information about the state of a pipeline, including the stages and
+   * <p>Returns information about the state of a pipeline, including the stages and
    *             actions.</p>
    *         <note>
    *             <p>Values returned in the <code>revisionId</code> and <code>revisionUrl</code>
    *                 fields indicate the source revision information, such as the commit ID, for the
    *                 current state.</p>
    *         </note>
-   *
-   *
    */
   public getPipelineState(
     args: GetPipelineStateCommandInput,
@@ -958,16 +918,14 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Requests the details of a job for a third party action. Used for partner
-   *             actions only.</p>
+   * <p>Requests the details of a job for a third party action. Used for partner actions
+   *             only.</p>
    *         <important>
    *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
-   *                 Amazon S3 bucket used to store artifacts for the pipeline, if the action requires
-   *                 access to that Amazon S3 bucket for input or output artifacts. This
-   *                 API also returns any secret values defined for the action.</p>
+   *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
+   *                 that S3 bucket for input or output artifacts. This API also returns any secret
+   *                 values defined for the action.</p>
    *         </important>
-   *
    */
   public getThirdPartyJobDetails(
     args: GetThirdPartyJobDetailsCommandInput,
@@ -1002,9 +960,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Lists the action executions that have occurred in a pipeline.</p>
-   *
+   * <p>Lists the action executions that have occurred in a pipeline.</p>
    */
   public listActionExecutions(
     args: ListActionExecutionsCommandInput,
@@ -1039,11 +995,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Gets a summary of all AWS CodePipeline action types associated with your
+   * <p>Gets a summary of all AWS CodePipeline action types associated with your
    *             account.</p>
-   *
-   *
    */
   public listActionTypes(
     args: ListActionTypesCommandInput,
@@ -1078,9 +1031,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Gets a summary of the most recent executions for a pipeline.</p>
-   *
+   * <p>Gets a summary of the most recent executions for a pipeline.</p>
    */
   public listPipelineExecutions(
     args: ListPipelineExecutionsCommandInput,
@@ -1115,10 +1066,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Gets a summary of all of the pipelines associated with your account.</p>
-   *
-   *
+   * <p>Gets a summary of all of the pipelines associated with your account.</p>
    */
   public listPipelines(
     args: ListPipelinesCommandInput,
@@ -1153,10 +1101,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Gets the set of key-value pairs (metadata) that are used to manage the
+   * <p>Gets the set of key-value pairs (metadata) that are used to manage the
    *             resource.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1191,11 +1137,9 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
-   *             lists all webhooks and includes the webhook URL and ARN and the configuration for
-   *             each webhook.</p>
-   *
+   * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
+   *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
+   *             webhook.</p>
    */
   public listWebhooks(
     args: ListWebhooksCommandInput,
@@ -1230,19 +1174,16 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Returns information about any jobs for AWS CodePipeline to act on.
+   * <p>Returns information about any jobs for AWS CodePipeline to act on.
    *                 <code>PollForJobs</code> is valid only for action types with "Custom" in the owner
    *             field. If the action type contains "AWS" or "ThirdParty" in the owner field, the
    *                 <code>PollForJobs</code> action returns an error.</p>
    *         <important>
    *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
-   *                 Amazon S3 bucket used to store artifacts for the pipeline, if the action requires
-   *                 access to that Amazon S3 bucket for input or output artifacts. This
-   *                 API also returns any secret values defined for the action.</p>
+   *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
+   *                 that S3 bucket for input or output artifacts. This API also returns any secret
+   *                 values defined for the action.</p>
    *         </important>
-   *
-   *
    */
   public pollForJobs(
     args: PollForJobsCommandInput,
@@ -1277,15 +1218,13 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Determines whether there are any third party jobs for a job worker to act on.
-   *             Used for partner actions only.</p>
+   * <p>Determines whether there are any third party jobs for a job worker to act on. Used
+   *             for partner actions only.</p>
    *         <important>
    *             <p>When this API is called, AWS CodePipeline returns temporary credentials for the
-   *                 Amazon S3 bucket used to store artifacts for the pipeline, if the action requires
-   *                 access to that Amazon S3 bucket for input or output artifacts.</p>
+   *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
+   *                 that S3 bucket for input or output artifacts.</p>
    *         </important>
-   *
    */
   public pollForThirdPartyJobs(
     args: PollForThirdPartyJobsCommandInput,
@@ -1320,10 +1259,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
-   *
-   *
+   * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
    */
   public putActionRevision(
     args: PutActionRevisionCommandInput,
@@ -1358,11 +1294,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
+   * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
    *             responses include Approved and Rejected.</p>
-   *
-   *
    */
   public putApprovalResult(
     args: PutApprovalResultCommandInput,
@@ -1397,10 +1330,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Represents the failure of a job as returned to the pipeline by a job worker.
-   *             Used for custom actions only.</p>
-   *
+   * <p>Represents the failure of a job as returned to the pipeline by a job worker. Used
+   *             for custom actions only.</p>
    */
   public putJobFailureResult(
     args: PutJobFailureResultCommandInput,
@@ -1435,10 +1366,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Represents the success of a job as returned to the pipeline by a job worker.
-   *             Used for custom actions only.</p>
-   *
+   * <p>Represents the success of a job as returned to the pipeline by a job worker. Used
+   *             for custom actions only.</p>
    */
   public putJobSuccessResult(
     args: PutJobSuccessResultCommandInput,
@@ -1473,10 +1402,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Represents the failure of a third party job as returned to the pipeline by a job
+   * <p>Represents the failure of a third party job as returned to the pipeline by a job
    *             worker. Used for partner actions only.</p>
-   *
    */
   public putThirdPartyJobFailureResult(
     args: PutThirdPartyJobFailureResultCommandInput,
@@ -1511,10 +1438,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Represents the success of a third party job as returned to the pipeline by a job
+   * <p>Represents the success of a third party job as returned to the pipeline by a job
    *             worker. Used for partner actions only.</p>
-   *
    */
   public putThirdPartyJobSuccessResult(
     args: PutThirdPartyJobSuccessResultCommandInput,
@@ -1549,15 +1474,13 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Defines a webhook and returns a unique webhook URL generated by CodePipeline. This
+   * <p>Defines a webhook and returns a unique webhook URL generated by CodePipeline. This
    *             URL can be supplied to third party source hosting providers to call every time there's a
    *             code change. When CodePipeline receives a POST request on this URL, the pipeline defined
    *             in the webhook is started as long as the POST request satisfied the authentication and
    *             filtering requirements supplied when defining the webhook. RegisterWebhookWithThirdParty
    *             and DeregisterWebhookWithThirdParty APIs can be used to automatically configure
    *             supported third parties to call the generated webhook URL.</p>
-   *
    */
   public putWebhook(
     args: PutWebhookCommandInput,
@@ -1592,10 +1515,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Configures a connection between the webhook that was created and the external tool
+   * <p>Configures a connection between the webhook that was created and the external tool
    *             with events to be detected.</p>
-   *
    */
   public registerWebhookWithThirdParty(
     args: RegisterWebhookWithThirdPartyCommandInput,
@@ -1630,14 +1551,10 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Resumes the pipeline execution by retrying the last failed actions in a
-   *             stage. You can
-   *             retry a stage immediately if any of the actions in the stage fail. When you retry, all
-   *             actions that are still in progress continue working, and failed actions are triggered
-   *             again.</p>
-   *
-   *
+   * <p>Resumes the pipeline execution by retrying the last failed actions in a stage. You
+   *             can retry a stage immediately if any of the actions in the stage fail. When you retry,
+   *             all actions that are still in progress continue working, and failed actions are
+   *             triggered again.</p>
    */
   public retryStageExecution(
     args: RetryStageExecutionCommandInput,
@@ -1672,11 +1589,8 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Starts the specified pipeline. Specifically, it begins processing the latest commit
+   * <p>Starts the specified pipeline. Specifically, it begins processing the latest commit
    *             to the source location specified as part of the pipeline.</p>
-   *
-   *
    */
   public startPipelineExecution(
     args: StartPipelineExecutionCommandInput,
@@ -1711,10 +1625,48 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
+   * <p>Stops the specified pipeline execution. You choose to either stop the pipeline
+   *             execution by completing in-progress actions without starting subsequent actions, or by
+   *             abandoning in-progress actions. While completing or abandoning in-progress actions, the
+   *             pipeline execution is in a <code>Stopping</code> state. After all in-progress actions
+   *             are completed or abandoned, the pipeline execution is in a <code>Stopped</code>
+   *             state.</p>
+   */
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopPipelineExecutionCommandOutput>;
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    cb: (err: any, data?: StopPipelineExecutionCommandOutput) => void
+  ): void;
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopPipelineExecutionCommandOutput) => void
+  ): void;
+  public stopPipelineExecution(
+    args: StopPipelineExecutionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopPipelineExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StopPipelineExecutionCommandOutput) => void
+  ): Promise<StopPipelineExecutionCommandOutput> | void {
+    const command = new StopPipelineExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
    *             to manage a resource. </p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1749,9 +1701,7 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Removes tags from an AWS resource.</p>
-   *
+   * <p>Removes tags from an AWS resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1786,13 +1736,10 @@ export class CodePipeline extends CodePipelineClient {
   }
 
   /**
-   *
-   *         <p>Updates a specified pipeline with edits or changes to its structure. Use a JSON
-   *             file with the pipeline structure and <code>UpdatePipeline</code> to
-   *             provide the full structure of the pipeline. Updating the pipeline increases the version
-   *             number of the pipeline by 1.</p>
-   *
-   *
+   * <p>Updates a specified pipeline with edits or changes to its structure. Use a JSON
+   *             file with the pipeline structure and <code>UpdatePipeline</code> to provide the full
+   *             structure of the pipeline. Updating the pipeline increases the version number of the
+   *             pipeline by 1.</p>
    */
   public updatePipeline(
     args: UpdatePipelineCommandInput,

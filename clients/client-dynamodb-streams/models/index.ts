@@ -2,31 +2,23 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Represents the input of a <code>DescribeStream</code> operation.</p>
- *
+ * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamInput {
   __type?: "DescribeStreamInput";
   /**
-   *
-   *          <p>The shard ID of the first item that this operation will evaluate. Use the value that was
+   * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
    *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
-   *
    */
   ExclusiveStartShardId?: string;
 
   /**
-   *
-   *          <p>The maximum number of shard objects to return. The upper limit is 100.</p>
-   *
+   * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
    */
   Limit?: number;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) for the stream.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn: string | undefined;
 }
@@ -38,16 +30,12 @@ export namespace DescribeStreamInput {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>DescribeStream</code> operation.</p>
- *
+ * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamOutput extends $MetadataBearer {
   __type?: "DescribeStreamOutput";
   /**
-   *
-   *          <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
-   *
+   * <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
    */
   StreamDescription?: StreamDescription;
 }
@@ -59,11 +47,9 @@ export namespace DescribeStreamOutput {
 }
 
 /**
- *
- *          <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard
+ * <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard
  *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
  *       action.</p>
- *
  */
 export interface ExpiredIteratorException
   extends _smithy.SmithyException,
@@ -72,9 +58,7 @@ export interface ExpiredIteratorException
   name: "ExpiredIteratorException";
   $fault: "client";
   /**
-   *
-   *          <p>The provided iterator exceeds the maximum age allowed.</p>
-   *
+   * <p>The provided iterator exceeds the maximum age allowed.</p>
    */
   message?: string;
 }
@@ -86,23 +70,17 @@ export namespace ExpiredIteratorException {
 }
 
 /**
- *
- *          <p>Represents the input of a <code>GetRecords</code> operation.</p>
- *
+ * <p>Represents the input of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsInput {
   __type?: "GetRecordsInput";
   /**
-   *
-   *          <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
-   *
+   * <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
    */
   Limit?: number;
 
   /**
-   *
-   *          <p>A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.</p>
-   *
+   * <p>A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.</p>
    */
   ShardIterator: string | undefined;
 }
@@ -114,25 +92,19 @@ export namespace GetRecordsInput {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>GetRecords</code> operation.</p>
- *
+ * <p>Represents the output of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsOutput extends $MetadataBearer {
   __type?: "GetRecordsOutput";
   /**
-   *
-   *          <p>The next position in the shard from which to start sequentially reading stream records. If
+   * <p>The next position in the shard from which to start sequentially reading stream records. If
    *       set to <code>null</code>, the shard has been closed and the requested iterator will not return
    *       any more data.</p>
-   *
    */
   NextShardIterator?: string;
 
   /**
-   *
-   *          <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
-   *
+   * <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
    */
   Records?: Array<_Record>;
 }
@@ -144,29 +116,22 @@ export namespace GetRecordsOutput {
 }
 
 /**
- *
- *          <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
- *
+ * <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorInput {
   __type?: "GetShardIteratorInput";
   /**
-   *
-   *          <p>The sequence number of a stream record in the shard from which to start reading.</p>
-   *
+   * <p>The sequence number of a stream record in the shard from which to start reading.</p>
    */
   SequenceNumber?: string;
 
   /**
-   *
-   *          <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
-   *
+   * <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
    */
   ShardId: string | undefined;
 
   /**
-   *
-   *          <p>Determines how the shard iterator is used to start reading stream records from the shard:</p>
+   * <p>Determines how the shard iterator is used to start reading stream records from the shard:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -191,14 +156,11 @@ export interface GetShardIteratorInput {
    *           shard, so that you always read the most recent data in the shard.</p>
    *             </li>
    *          </ul>
-   *
    */
   ShardIteratorType: ShardIteratorType | string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) for the stream.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn: string | undefined;
 }
@@ -210,16 +172,12 @@ export namespace GetShardIteratorInput {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
- *
+ * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorOutput extends $MetadataBearer {
   __type?: "GetShardIteratorOutput";
   /**
-   *
-   *          <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
-   *
+   * <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
    */
   ShardIterator?: string;
 }
@@ -231,24 +189,18 @@ export namespace GetShardIteratorOutput {
 }
 
 /**
- *
- *          <p>Contains details about the type of identity that made the request.</p>
- *
+ * <p>Contains details about the type of identity that made the request.</p>
  */
 export interface Identity {
   __type?: "Identity";
   /**
-   *
-   *          <p>A unique identifier for the entity that made the call. For Time To Live, the
+   * <p>A unique identifier for the entity that made the call. For Time To Live, the
    *       principalId is "dynamodb.amazonaws.com".</p>
-   *
    */
   PrincipalId?: string;
 
   /**
-   *
-   *          <p>The type of the identity. For Time To Live, the type is "Service".</p>
-   *
+   * <p>The type of the identity. For Time To Live, the type is "Service".</p>
    */
   Type?: string;
 }
@@ -260,32 +212,24 @@ export namespace Identity {
 }
 
 /**
- *
- *          <p>Represents the input of a <code>ListStreams</code> operation.</p>
- *
+ * <p>Represents the input of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsInput {
   __type?: "ListStreamsInput";
   /**
-   *
-   *          <p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the
+   * <p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the
    *       value that was returned for <code>LastEvaluatedStreamArn</code> in the previous operation.
    *     </p>
-   *
    */
   ExclusiveStartStreamArn?: string;
 
   /**
-   *
-   *          <p>The maximum number of streams to return. The upper limit is 100.</p>
-   *
+   * <p>The maximum number of streams to return. The upper limit is 100.</p>
    */
   Limit?: number;
 
   /**
-   *
-   *          <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
-   *
+   * <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
    */
   TableName?: string;
 }
@@ -297,28 +241,22 @@ export namespace ListStreamsInput {
 }
 
 /**
- *
- *          <p>Represents the output of a <code>ListStreams</code> operation.</p>
- *
+ * <p>Represents the output of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsOutput extends $MetadataBearer {
   __type?: "ListStreamsOutput";
   /**
-   *
-   *          <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
+   * <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedStreamArn</code> is empty, then the "last page" of results has been
    *       processed and there is no more data to be retrieved.</p>
    *          <p>If <code>LastEvaluatedStreamArn</code> is not empty, it does not necessarily mean that there
    *       is more data in the result set. The only way to know when you have reached the end of the
    *       result set is when <code>LastEvaluatedStreamArn</code> is empty.</p>
-   *
    */
   LastEvaluatedStreamArn?: string;
 
   /**
-   *
-   *          <p>A list of stream descriptors associated with the current account and endpoint.</p>
-   *
+   * <p>A list of stream descriptors associated with the current account and endpoint.</p>
    */
   Streams?: Array<_Stream>;
 }
@@ -332,36 +270,27 @@ export namespace ListStreamsOutput {
 export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
 
 /**
- *
- *          <p>A description of a unique event within a stream.</p>
- *
+ * <p>A description of a unique event within a stream.</p>
  */
 export interface _Record {
   __type?: "Record";
   /**
-   *
-   *          <p>The region in which the <code>GetRecords</code> request was received.</p>
-   *
+   * <p>The region in which the <code>GetRecords</code> request was received.</p>
    */
   awsRegion?: string;
 
   /**
-   *
-   *          <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
-   *
+   * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
    */
   dynamodb?: StreamRecord;
 
   /**
-   *
-   *          <p>A globally unique identifier for the event that was recorded in this stream record.</p>
-   *
+   * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
    */
   eventID?: string;
 
   /**
-   *
-   *          <p>The type of data modification that was performed on the DynamoDB table:</p>
+   * <p>The type of data modification that was performed on the DynamoDB table:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -376,30 +305,24 @@ export interface _Record {
    *                   <code>REMOVE</code> - the item was deleted from the table</p>
    *             </li>
    *          </ul>
-   *
    */
   eventName?: OperationType | string;
 
   /**
-   *
-   *          <p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
-   *
+   * <p>The AWS service from which the stream record originated.  For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
    */
   eventSource?: string;
 
   /**
-   *
-   *          <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
+   * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
    *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
    *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
    *       only increase as the low-level DynamoDB Streams API evolves.</p>
-   *
    */
   eventVersion?: string;
 
   /**
-   *
-   *          <p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>
+   * <p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>
    *          <ul>
    *             <li>
    *                <p>Records[].userIdentity.type</p>
@@ -410,7 +333,6 @@ export interface _Record {
    *                <p>"dynamodb.amazonaws.com"</p>
    *             </li>
    *          </ul>
-   *
    */
   userIdentity?: Identity;
 }
@@ -422,23 +344,17 @@ export namespace _Record {
 }
 
 /**
- *
- *          <p>The beginning and ending sequence numbers for the stream records contained within a shard.</p>
- *
+ * <p>The beginning and ending sequence numbers for the stream records contained within a shard.</p>
  */
 export interface SequenceNumberRange {
   __type?: "SequenceNumberRange";
   /**
-   *
-   *          <p>The last sequence number.</p>
-   *
+   * <p>The last sequence number.</p>
    */
   EndingSequenceNumber?: string;
 
   /**
-   *
-   *          <p>The first sequence number.</p>
-   *
+   * <p>The first sequence number.</p>
    */
   StartingSequenceNumber?: string;
 }
@@ -450,30 +366,22 @@ export namespace SequenceNumberRange {
 }
 
 /**
- *
- *          <p>A uniquely identified group of stream records within a stream.</p>
- *
+ * <p>A uniquely identified group of stream records within a stream.</p>
  */
 export interface Shard {
   __type?: "Shard";
   /**
-   *
-   *          <p>The shard ID of the current shard's parent.</p>
-   *
+   * <p>The shard ID of the current shard's parent.</p>
    */
   ParentShardId?: string;
 
   /**
-   *
-   *          <p>The range of possible sequence numbers for the shard.</p>
-   *
+   * <p>The range of possible sequence numbers for the shard.</p>
    */
   SequenceNumberRange?: SequenceNumberRange;
 
   /**
-   *
-   *          <p>The system-generated identifier for this shard.</p>
-   *
+   * <p>The system-generated identifier for this shard.</p>
    */
   ShardId?: string;
 }
@@ -491,22 +399,17 @@ export type ShardIteratorType =
   | "TRIM_HORIZON";
 
 /**
- *
- *          <p>Represents all of the data describing a particular stream.</p>
- *
+ * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface _Stream {
   __type?: "Stream";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) for the stream.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn?: string;
 
   /**
-   *
-   *          <p>A timestamp, in ISO 8601 format, for this stream.</p>
+   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
    *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
    *       possible that a stream from another table might have the same timestamp. However, the
    *       combination of the following three elements is guaranteed to be unique:</p>
@@ -522,14 +425,11 @@ export interface _Stream {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   StreamLabel?: string;
 
   /**
-   *
-   *          <p>The DynamoDB table with which the stream is associated.</p>
-   *
+   * <p>The DynamoDB table with which the stream is associated.</p>
    */
   TableName?: string;
 }
@@ -541,55 +441,42 @@ export namespace _Stream {
 }
 
 /**
- *
- *          <p>Represents all of the data describing a particular stream.</p>
- *
+ * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface StreamDescription {
   __type?: "StreamDescription";
   /**
-   *
-   *          <p>The date and time when the request to create this stream was issued.</p>
-   *
+   * <p>The date and time when the request to create this stream was issued.</p>
    */
   CreationRequestDateTime?: Date;
 
   /**
-   *
-   *          <p>The key attribute(s) of the stream's DynamoDB table.</p>
-   *
+   * <p>The key attribute(s) of the stream's DynamoDB table.</p>
    */
   KeySchema?: Array<KeySchemaElement>;
 
   /**
-   *
-   *          <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
+   * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedShardId</code> is empty, then the "last page" of results has been
    *       processed and there is currently no more data to be retrieved.</p>
    *          <p>If <code>LastEvaluatedShardId</code> is not empty, it does not necessarily mean that there is
    *       more data in the result set. The only way to know when you have reached the end of the result
    *       set is when <code>LastEvaluatedShardId</code> is empty.</p>
-   *
    */
   LastEvaluatedShardId?: string;
 
   /**
-   *
-   *          <p>The shards that comprise the stream.</p>
-   *
+   * <p>The shards that comprise the stream.</p>
    */
   Shards?: Array<Shard>;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) for the stream.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn?: string;
 
   /**
-   *
-   *          <p>A timestamp, in ISO 8601 format, for this stream.</p>
+   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
    *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
    *       possible that a stream from another table might have the same timestamp. However, the
    *       combination of the following three elements is guaranteed to be unique:</p>
@@ -605,13 +492,11 @@ export interface StreamDescription {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   StreamLabel?: string;
 
   /**
-   *
-   *          <p>Indicates the current status of the stream:</p>
+   * <p>Indicates the current status of the stream:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -630,13 +515,11 @@ export interface StreamDescription {
    *                   <code>DISABLED</code> - the stream is disabled.</p>
    *             </li>
    *          </ul>
-   *
    */
   StreamStatus?: StreamStatus | string;
 
   /**
-   *
-   *          <p>Indicates the format of the records within this stream:</p>
+   * <p>Indicates the format of the records within this stream:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -655,14 +538,11 @@ export interface StreamDescription {
    *                   <code>NEW_AND_OLD_IMAGES</code> - both the new and the old images of the items from the table.</p>
    *             </li>
    *          </ul>
-   *
    */
   StreamViewType?: StreamViewType | string;
 
   /**
-   *
-   *          <p>The DynamoDB table with which the stream is associated.</p>
-   *
+   * <p>The DynamoDB table with which the stream is associated.</p>
    */
   TableName?: string;
 }
@@ -674,57 +554,42 @@ export namespace StreamDescription {
 }
 
 /**
- *
- *          <p>A description of a single data modification that was performed on an item in a DynamoDB table.</p>
- *
+ * <p>A description of a single data modification that was performed on an item in a DynamoDB table.</p>
  */
 export interface StreamRecord {
   __type?: "StreamRecord";
   /**
-   *
-   *          <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-   *
+   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   ApproximateCreationDateTime?: Date;
 
   /**
-   *
-   *          <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
-   *
+   * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
    */
   Keys?: { [key: string]: AttributeValue };
 
   /**
-   *
-   *          <p>The item in the DynamoDB table as it appeared after it was modified.</p>
-   *
+   * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
    */
   NewImage?: { [key: string]: AttributeValue };
 
   /**
-   *
-   *          <p>The item in the DynamoDB table as it appeared before it was modified.</p>
-   *
+   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
    */
   OldImage?: { [key: string]: AttributeValue };
 
   /**
-   *
-   *          <p>The sequence number of the stream record.</p>
-   *
+   * <p>The sequence number of the stream record.</p>
    */
   SequenceNumber?: string;
 
   /**
-   *
-   *          <p>The size of the stream record, in bytes.</p>
-   *
+   * <p>The size of the stream record, in bytes.</p>
    */
   SizeBytes?: number;
 
   /**
-   *
-   *          <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
+   * <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -743,7 +608,6 @@ export interface StreamRecord {
    *                   <code>NEW_AND_OLD_IMAGES</code> - both the new and the old item images of the item.</p>
    *             </li>
    *          </ul>
-   *
    */
   StreamViewType?: StreamViewType | string;
 }
@@ -757,8 +621,7 @@ export namespace StreamRecord {
 export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
 
 /**
- *
- *          <p>The operation attempted to read past the oldest stream record in a shard.</p>
+ * <p>The operation attempted to read past the oldest stream record in a shard.</p>
  *          <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p>
  *          <ul>
  *             <li>
@@ -770,7 +633,6 @@ export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
  *         the iterator to access a record that no longer exists.</p>
  *             </li>
  *          </ul>
- *
  */
 export interface TrimmedDataAccessException
   extends _smithy.SmithyException,
@@ -779,9 +641,7 @@ export interface TrimmedDataAccessException
   name: "TrimmedDataAccessException";
   $fault: "client";
   /**
-   *
-   *          <p>"The data you are trying to access has been trimmed.</p>
-   *
+   * <p>"The data you are trying to access has been trimmed.</p>
    */
   message?: string;
 }
@@ -793,80 +653,58 @@ export namespace TrimmedDataAccessException {
 }
 
 /**
- *
- *          <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
+ * <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
  *          <p>Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.</p>
- *
  */
 export interface AttributeValue {
   __type?: "AttributeValue";
   /**
-   *
-   *          <p>A Binary data type.</p>
-   *
+   * <p>A Binary data type.</p>
    */
   B?: Uint8Array;
 
   /**
-   *
-   *          <p>A Boolean data type.</p>
-   *
+   * <p>A Boolean data type.</p>
    */
   BOOL?: boolean;
 
   /**
-   *
-   *          <p>A Binary Set data type.</p>
-   *
+   * <p>A Binary Set data type.</p>
    */
   BS?: Array<Uint8Array>;
 
   /**
-   *
-   *          <p>A List data type.</p>
-   *
+   * <p>A List data type.</p>
    */
   L?: Array<AttributeValue>;
 
   /**
-   *
-   *          <p>A Map data type.</p>
-   *
+   * <p>A Map data type.</p>
    */
   M?: { [key: string]: AttributeValue };
 
   /**
-   *
-   *          <p>A Number data type.</p>
-   *
+   * <p>A Number data type.</p>
    */
   N?: string;
 
   /**
-   *
-   *          <p>A Number Set data type.</p>
-   *
+   * <p>A Number Set data type.</p>
    */
   NS?: Array<string>;
 
   /**
-   *
-   *          <p>A Null data type.</p>
-   *
+   * <p>A Null data type.</p>
    */
   NULL?: boolean;
 
   /**
-   *
-   *          <p>A String data type.</p>
-   *
+   * <p>A String data type.</p>
    */
   S?: string;
 
   /**
-   *
-   *          <p>A String Set data type.</p>
-   *
+   * <p>A String Set data type.</p>
    */
   SS?: Array<string>;
 }
@@ -878,9 +716,7 @@ export namespace AttributeValue {
 }
 
 /**
- *
- *          <p>An error occurred on the server side.</p>
- *
+ * <p>An error occurred on the server side.</p>
  */
 export interface InternalServerError
   extends _smithy.SmithyException,
@@ -889,9 +725,7 @@ export interface InternalServerError
   name: "InternalServerError";
   $fault: "server";
   /**
-   *
-   *          <p>The server encountered an internal error trying to fulfill the request.</p>
-   *
+   * <p>The server encountered an internal error trying to fulfill the request.</p>
    */
   message?: string;
 }
@@ -903,8 +737,7 @@ export namespace InternalServerError {
 }
 
 /**
- *
- *          <p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes
+ * <p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes
  *       that make up the primary key of a table, or the key attributes of an index.</p>
  *          <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a
  *       simple primary key (partition key)  would be represented by one <code>KeySchemaElement</code>. A composite primary key (partition key and sort key) would require one <code>KeySchemaElement</code> for the partition key, and another
@@ -917,21 +750,16 @@ export namespace InternalServerError {
  *         The term "range attribute" derives from the way DynamoDB stores items with the same
  *         partition key physically close together, in sorted order by the sort key value.</p>
  *          </note>
- *
  */
 export interface KeySchemaElement {
   __type?: "KeySchemaElement";
   /**
-   *
-   *          <p>The name of a key attribute.</p>
-   *
+   * <p>The name of a key attribute.</p>
    */
   AttributeName: string | undefined;
 
   /**
-   *
-   *          <p>The attribute data, consisting of the data type and the attribute value itself.</p>
-   *
+   * <p>The attribute data, consisting of the data type and the attribute value itself.</p>
    */
   KeyType: KeyType | string | undefined;
 }
@@ -945,13 +773,11 @@ export namespace KeySchemaElement {
 export type KeyType = "HASH" | "RANGE";
 
 /**
- *
- *          <p>Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that
+ * <p>Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that
  *       receive this exception. Your request is eventually successful, unless your retry queue is too
  *       large to finish. Reduce the frequency of requests and use exponential backoff. For more
  *       information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries">Error Retries and Exponential
  *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
- *
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -960,9 +786,7 @@ export interface LimitExceededException
   name: "LimitExceededException";
   $fault: "client";
   /**
-   *
-   *          <p>Too many operations for a given subscriber.</p>
-   *
+   * <p>Too many operations for a given subscriber.</p>
    */
   message?: string;
 }
@@ -974,9 +798,7 @@ export namespace LimitExceededException {
 }
 
 /**
- *
- *          <p>The operation tried to access a nonexistent stream.</p>
- *
+ * <p>The operation tried to access a nonexistent stream.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -985,9 +807,7 @@ export interface ResourceNotFoundException
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   *
-   *          <p>The resource which is being requested does not exist.</p>
-   *
+   * <p>The resource which is being requested does not exist.</p>
    */
   message?: string;
 }

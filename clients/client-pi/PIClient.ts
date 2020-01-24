@@ -172,8 +172,7 @@ export type PIClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>AWS Performance Insights enables you to monitor and explore different dimensions of
+ * <p>AWS Performance Insights enables you to monitor and explore different dimensions of
  *       database load based on data captured from a running RDS instance. The guide provides detailed
  *       information about Performance Insights data types, parameters and errors. For more information
  *       about Performance Insights capabilities see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon RDS Performance
@@ -187,8 +186,6 @@ export type PIClientResolvedConfig = __SmithyResolvedConfiguration<
  *       dimension of the data provides DB load data for each time point in the queried time range, and
  *       each time point decomposes overall load in relation to the requested dimensions, such as SQL,
  *       Wait-event, User or Host, measured at that time point.</p>
- *
- *
  */
 export class PIClient extends __Client<
   __HttpHandlerOptions,

@@ -5,7 +5,7 @@ import {
 } from "../ApiGatewayV2Client";
 import {
   CreateIntegrationRequest,
-  CreateIntegrationResponseShape
+  CreateIntegrationResult
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateIntegrationCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateIntegrationCommandInput = CreateIntegrationRequest;
-export type CreateIntegrationCommandOutput = CreateIntegrationResponseShape;
+export type CreateIntegrationCommandOutput = CreateIntegrationResult;
 
 export class CreateIntegrationCommand extends $Command<
   CreateIntegrationCommandInput,

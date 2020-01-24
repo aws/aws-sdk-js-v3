@@ -12,18 +12,19 @@ import {
   CreateIntegrationRequest,
   CreateIntegrationResponseRequest,
   CreateIntegrationResponseResponse,
-  CreateIntegrationResponseShape,
+  CreateIntegrationResult,
   CreateModelRequest,
   CreateModelResponse,
   CreateRouteRequest,
   CreateRouteResponseRequest,
   CreateRouteResponseResponse,
-  CreateRouteResponseShape,
+  CreateRouteResult,
   CreateStageRequest,
   CreateStageResponse,
   DeleteApiMappingRequest,
   DeleteApiRequest,
   DeleteAuthorizerRequest,
+  DeleteCorsConfigurationRequest,
   DeleteDeploymentRequest,
   DeleteDomainNameRequest,
   DeleteIntegrationRequest,
@@ -31,6 +32,7 @@ import {
   DeleteModelRequest,
   DeleteRouteRequest,
   DeleteRouteResponseRequest,
+  DeleteRouteSettingsRequest,
   DeleteStageRequest,
   GetApiMappingRequest,
   GetApiMappingResponse,
@@ -55,9 +57,9 @@ import {
   GetIntegrationRequest,
   GetIntegrationResponseRequest,
   GetIntegrationResponseResponse,
-  GetIntegrationResponseShape,
   GetIntegrationResponsesRequest,
   GetIntegrationResponsesResponse,
+  GetIntegrationResult,
   GetIntegrationsRequest,
   GetIntegrationsResponse,
   GetModelRequest,
@@ -69,15 +71,24 @@ import {
   GetRouteRequest,
   GetRouteResponseRequest,
   GetRouteResponseResponse,
-  GetRouteResponseShape,
   GetRouteResponsesRequest,
   GetRouteResponsesResponse,
+  GetRouteResult,
   GetRoutesRequest,
   GetRoutesResponse,
   GetStageRequest,
   GetStageResponse,
   GetStagesRequest,
   GetStagesResponse,
+  GetTagsRequest,
+  GetTagsResponse,
+  ImportApiRequest,
+  ImportApiResponse,
+  ReimportApiRequest,
+  ReimportApiResponse,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
   UpdateApiMappingRequest,
   UpdateApiMappingResponse,
   UpdateApiRequest,
@@ -91,13 +102,13 @@ import {
   UpdateIntegrationRequest,
   UpdateIntegrationResponseRequest,
   UpdateIntegrationResponseResponse,
-  UpdateIntegrationResponseShape,
+  UpdateIntegrationResult,
   UpdateModelRequest,
   UpdateModelResponse,
   UpdateRouteRequest,
   UpdateRouteResponseRequest,
   UpdateRouteResponseResponse,
-  UpdateRouteResponseShape,
+  UpdateRouteResult,
   UpdateStageRequest,
   UpdateStageResponse
 } from "./models/index";
@@ -169,6 +180,7 @@ export type ServiceInputTypes =
   | DeleteApiMappingRequest
   | DeleteApiRequest
   | DeleteAuthorizerRequest
+  | DeleteCorsConfigurationRequest
   | DeleteDeploymentRequest
   | DeleteDomainNameRequest
   | DeleteIntegrationRequest
@@ -176,6 +188,7 @@ export type ServiceInputTypes =
   | DeleteModelRequest
   | DeleteRouteRequest
   | DeleteRouteResponseRequest
+  | DeleteRouteSettingsRequest
   | DeleteStageRequest
   | GetApiMappingRequest
   | GetApiMappingsRequest
@@ -200,6 +213,11 @@ export type ServiceInputTypes =
   | GetRoutesRequest
   | GetStageRequest
   | GetStagesRequest
+  | GetTagsRequest
+  | ImportApiRequest
+  | ReimportApiRequest
+  | TagResourceRequest
+  | UntagResourceRequest
   | UpdateApiMappingRequest
   | UpdateApiRequest
   | UpdateAuthorizerRequest
@@ -220,10 +238,10 @@ export type ServiceOutputTypes =
   | CreateDeploymentResponse
   | CreateDomainNameResponse
   | CreateIntegrationResponseResponse
-  | CreateIntegrationResponseShape
+  | CreateIntegrationResult
   | CreateModelResponse
   | CreateRouteResponseResponse
-  | CreateRouteResponseShape
+  | CreateRouteResult
   | CreateStageResponse
   | GetApiMappingResponse
   | GetApiMappingsResponse
@@ -236,28 +254,32 @@ export type ServiceOutputTypes =
   | GetDomainNameResponse
   | GetDomainNamesResponse
   | GetIntegrationResponseResponse
-  | GetIntegrationResponseShape
   | GetIntegrationResponsesResponse
+  | GetIntegrationResult
   | GetIntegrationsResponse
   | GetModelResponse
   | GetModelTemplateResponse
   | GetModelsResponse
   | GetRouteResponseResponse
-  | GetRouteResponseShape
   | GetRouteResponsesResponse
+  | GetRouteResult
   | GetRoutesResponse
   | GetStageResponse
   | GetStagesResponse
+  | GetTagsResponse
+  | ImportApiResponse
+  | ReimportApiResponse
+  | TagResourceResponse
   | UpdateApiMappingResponse
   | UpdateApiResponse
   | UpdateAuthorizerResponse
   | UpdateDeploymentResponse
   | UpdateDomainNameResponse
   | UpdateIntegrationResponseResponse
-  | UpdateIntegrationResponseShape
+  | UpdateIntegrationResult
   | UpdateModelResponse
   | UpdateRouteResponseResponse
-  | UpdateRouteResponseShape
+  | UpdateRouteResult
   | UpdateStageResponse;
 
 export interface ClientDefaults

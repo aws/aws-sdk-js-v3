@@ -75,6 +75,11 @@ import {
   DescribeProductsCommandOutput
 } from "./commands/DescribeProductsCommand";
 import {
+  DescribeStandardsControlsCommand,
+  DescribeStandardsControlsCommandInput,
+  DescribeStandardsControlsCommandOutput
+} from "./commands/DescribeStandardsControlsCommand";
+import {
   DisableImportFindingsForProductCommand,
   DisableImportFindingsForProductCommandInput,
   DisableImportFindingsForProductCommandOutput
@@ -189,11 +194,15 @@ import {
   UpdateInsightCommandInput,
   UpdateInsightCommandOutput
 } from "./commands/UpdateInsightCommand";
+import {
+  UpdateStandardsControlCommand,
+  UpdateStandardsControlCommandInput,
+  UpdateStandardsControlCommandOutput
+} from "./commands/UpdateStandardsControlCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Security Hub provides you with a comprehensive view of the security state of your AWS
+ * <p>Security Hub provides you with a comprehensive view of the security state of your AWS
  *          environment and resources. It also provides you with the compliance status of your
  *          environment based on CIS AWS Foundations compliance checks. Security Hub collects security data
  *          from AWS accounts, services, and integrated third-party products and helps you analyze
@@ -210,17 +219,27 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          to Security Hub, the association of the member account with the master account is created only in
  *          the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that
  *          the invite was sent from.</p>
- *
- *
+ *          <p>The following throttling limits apply to using Security Hub API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>GetFindings</code> - RateLimit of 3 requests per second, and a BurstLimit of 6 requests per second.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UpdateFindings</code> - RateLimit of 1 request per second, and a BurstLimit of 5 requests per second.</p>
+ *             </li>
+ *             <li>
+ *                <p>All other operations - RateLimit of 10 request per second, and a BurstLimit of 30 requests per second.</p>
+ *             </li>
+ *          </ul>
  */
 export class SecurityHub extends SecurityHubClient {
   /**
-   *
-   *          <p>Accepts the invitation to be a member account and be monitored by the Security Hub master
+   * <p>Accepts the invitation to be a member account and be monitored by the Security Hub master
    *          account that the invitation was sent from. When the member account accepts the invitation,
    *          permission is granted to the master account to view findings generated in the member
    *          account.</p>
-   *
    */
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
@@ -255,10 +274,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.
+   * <p>Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.
    *          For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Standards Supported in AWS Security Hub</a>.</p>
-   *
    */
   public batchDisableStandards(
     args: BatchDisableStandardsCommandInput,
@@ -293,10 +310,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Enables the standards specified by the provided <code>standardsArn</code>. In this
+   * <p>Enables the standards specified by the provided <code>standardsArn</code>. In this
    *          release, only CIS AWS Foundations standards are supported. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Standards Supported in AWS Security Hub</a>.</p>
-   *
    */
   public batchEnableStandards(
     args: BatchEnableStandardsCommandInput,
@@ -331,12 +346,10 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Imports security findings generated from an integrated third-party product into Security Hub.
+   * <p>Imports security findings generated from an integrated third-party product into Security Hub.
    *          This action is requested by the integrated product to import its findings into Security Hub. The
    *          maximum allowed size for a finding is 240 Kb. An error is returned for any finding larger
    *          than 240 Kb.</p>
-   *
    */
   public batchImportFindings(
     args: BatchImportFindingsCommandInput,
@@ -371,10 +384,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Creates a custom action target in Security Hub. You can use custom actions on findings and insights in
+   * <p>Creates a custom action target in Security Hub. You can use custom actions on findings and insights in
    *          Security Hub to trigger target actions in Amazon CloudWatch Events.</p>
-   *
    */
   public createActionTarget(
     args: CreateActionTargetCommandInput,
@@ -409,11 +420,9 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
+   * <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
    *          to a security issue that requires attention or remediation. Use the
    *             <code>GroupByAttribute</code> to group the related findings in the insight.</p>
-   *
    */
   public createInsight(
     args: CreateInsightCommandInput,
@@ -448,8 +457,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Creates a member association in Security Hub between the specified accounts and the account
+   * <p>Creates a member association in Security Hub between the specified accounts and the account
    *          used to make the request, which is the master account. To successfully create a member, you
    *          must use this action from an account that already has Security Hub enabled. You can use the <a>EnableSecurityHub</a> to enable Security Hub.</p>
    *          <p>After you use <code>CreateMembers</code> to create member account associations in Security Hub,
@@ -461,7 +469,6 @@ export class SecurityHub extends SecurityHubClient {
    *          and master accounts.</p>
    *          <p>You can remove the association between the master and member accounts by using the <a>DisassociateFromMasterAccount</a> or <a>DisassociateMembers</a>
    *          operation.</p>
-   *
    */
   public createMembers(
     args: CreateMembersCommandInput,
@@ -496,9 +503,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Declines invitations to become a member account.</p>
-   *
+   * <p>Declines invitations to become a member account.</p>
    */
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
@@ -533,10 +538,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Deletes a custom action target from Security Hub. Deleting a custom action target doesn't affect any findings
+   * <p>Deletes a custom action target from Security Hub. Deleting a custom action target doesn't affect any findings
    *          or insights that were already sent to Amazon CloudWatch Events using the custom action.</p>
-   *
    */
   public deleteActionTarget(
     args: DeleteActionTargetCommandInput,
@@ -571,9 +574,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
-   *
+   * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
    */
   public deleteInsight(
     args: DeleteInsightCommandInput,
@@ -608,9 +609,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Deletes invitations received by the AWS account to become a member account.</p>
-   *
+   * <p>Deletes invitations received by the AWS account to become a member account.</p>
    */
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
@@ -645,9 +644,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified member accounts from Security Hub.</p>
-   *
+   * <p>Deletes the specified member accounts from Security Hub.</p>
    */
   public deleteMembers(
     args: DeleteMembersCommandInput,
@@ -682,9 +679,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the custom action targets in Security Hub in your account.</p>
-   *
+   * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
    */
   public describeActionTargets(
     args: DescribeActionTargetsCommandInput,
@@ -719,10 +714,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns details about the Hub resource in your account, including the
+   * <p>Returns details about the Hub resource in your account, including the
    *             <code>HubArn</code> and the time when you enabled Security Hub.</p>
-   *
    */
   public describeHub(
     args: DescribeHubCommandInput,
@@ -757,10 +750,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the products available that you can subscribe to and integrate
+   * <p>Returns information about the products available that you can subscribe to and integrate
    *          with Security Hub to consolidate findings.</p>
-   *
    */
   public describeProducts(
     args: DescribeProductsCommandInput,
@@ -795,10 +786,45 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Disables the integration of the specified product with Security Hub. Findings from that product
+   * <p>Returns a list of compliance standards controls.</p>
+   *          <p>For each control, the results include information about whether it is currently enabled,
+   *          the severity, and a link to remediation information.</p>
+   */
+  public describeStandardsControls(
+    args: DescribeStandardsControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStandardsControlsCommandOutput>;
+  public describeStandardsControls(
+    args: DescribeStandardsControlsCommandInput,
+    cb: (err: any, data?: DescribeStandardsControlsCommandOutput) => void
+  ): void;
+  public describeStandardsControls(
+    args: DescribeStandardsControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStandardsControlsCommandOutput) => void
+  ): void;
+  public describeStandardsControls(
+    args: DescribeStandardsControlsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStandardsControlsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStandardsControlsCommandOutput) => void
+  ): Promise<DescribeStandardsControlsCommandOutput> | void {
+    const command = new DescribeStandardsControlsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables the integration of the specified product with Security Hub. Findings from that product
    *          are no longer sent to Security Hub after the integration is disabled.</p>
-   *
    */
   public disableImportFindingsForProduct(
     args: DisableImportFindingsForProductCommandInput,
@@ -836,8 +862,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all
+   * <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all
    *          Regions, you must submit one request per Region where you have enabled Security Hub. When you
    *          disable Security Hub for a master account, it doesn't disable Security Hub for any associated member
    *          accounts.</p>
@@ -845,7 +870,6 @@ export class SecurityHub extends SecurityHubClient {
    *          settings are deleted after 90 days and can't be recovered. Any standards that were enabled
    *          are disabled, and your master and member account associations are removed. If you want to
    *          save your existing findings, you must export them before you disable Security Hub.</p>
-   *
    */
   public disableSecurityHub(
     args: DisableSecurityHubCommandInput,
@@ -880,10 +904,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the current Security Hub member account from the associated master
+   * <p>Disassociates the current Security Hub member account from the associated master
    *          account.</p>
-   *
    */
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
@@ -918,9 +940,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified member accounts from the associated master account.</p>
-   *
+   * <p>Disassociates the specified member accounts from the associated master account.</p>
    */
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
@@ -955,11 +975,9 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Enables the integration of a partner product with Security Hub. Integrated products send findings to Security Hub. When you enable a product
+   * <p>Enables the integration of a partner product with Security Hub. Integrated products send findings to Security Hub. When you enable a product
    *          integration, a permission policy that grants permission for the product to send findings to Security Hub is
    *          applied.</p>
-   *
    */
   public enableImportFindingsForProduct(
     args: EnableImportFindingsForProductCommandInput,
@@ -997,11 +1015,9 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Enables Security Hub for your account in the current Region or the Region you specify in the request. When you enable Security Hub,
+   * <p>Enables Security Hub for your account in the current Region or the Region you specify in the request. Enabling Security Hub also enables the CIS AWS Foundations standard. When you enable Security Hub,
    *          you grant to Security Hub the permissions necessary to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and
    *          Amazon Macie. To learn more, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">Setting Up AWS Security Hub</a>.</p>
-   *
    */
   public enableSecurityHub(
     args: EnableSecurityHubCommandInput,
@@ -1036,9 +1052,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the standards that are currently enabled.</p>
-   *
+   * <p>Returns a list of the standards that are currently enabled.</p>
    */
   public getEnabledStandards(
     args: GetEnabledStandardsCommandInput,
@@ -1073,9 +1087,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of findings that match the specified criteria.</p>
-   *
+   * <p>Returns a list of findings that match the specified criteria.</p>
    */
   public getFindings(
     args: GetFindingsCommandInput,
@@ -1110,9 +1122,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Lists the results of the Security Hub insight that the insight ARN specifies.</p>
-   *
+   * <p>Lists the results of the Security Hub insight that the insight ARN specifies.</p>
    */
   public getInsightResults(
     args: GetInsightResultsCommandInput,
@@ -1147,9 +1157,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Lists and describes insights that insight ARNs specify.</p>
-   *
+   * <p>Lists and describes insights that insight ARNs specify.</p>
    */
   public getInsights(
     args: GetInsightsCommandInput,
@@ -1184,10 +1192,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns the count of all Security Hub membership invitations that were sent to the
+   * <p>Returns the count of all Security Hub membership invitations that were sent to the
    *          current member account, not including the currently accepted invitation. </p>
-   *
    */
   public getInvitationsCount(
     args: GetInvitationsCountCommandInput,
@@ -1222,10 +1228,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Provides the details for the Security Hub master account to the current member account.
+   * <p>Provides the details for the Security Hub master account to the current member account.
    *       </p>
-   *
    */
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
@@ -1260,10 +1264,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns the details on the Security Hub member accounts that the account IDs
+   * <p>Returns the details on the Security Hub member accounts that the account IDs
    *          specify.</p>
-   *
    */
   public getMembers(
     args: GetMembersCommandInput,
@@ -1298,14 +1300,12 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Invites other AWS accounts to become member accounts for the Security Hub master account that
+   * <p>Invites other AWS accounts to become member accounts for the Security Hub master account that
    *          the invitation is sent from. Before you can use this action to invite a member, you must
    *          first create the member account in Security Hub by using the <a>CreateMembers</a>
    *          action. When the account owner accepts the invitation to become a member account and
    *          enables Security Hub, the master account can view the findings generated from member
    *          account.</p>
-   *
    */
   public inviteMembers(
     args: InviteMembersCommandInput,
@@ -1340,10 +1340,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Lists all findings-generating solutions (products) whose findings you have subscribed to
+   * <p>Lists all findings-generating solutions (products) whose findings you have subscribed to
    *          receive in Security Hub.</p>
-   *
    */
   public listEnabledProductsForImport(
     args: ListEnabledProductsForImportCommandInput,
@@ -1378,10 +1376,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Lists all Security Hub membership invitations that were sent to the current AWS account.
+   * <p>Lists all Security Hub membership invitations that were sent to the current AWS account.
    *       </p>
-   *
    */
   public listInvitations(
     args: ListInvitationsCommandInput,
@@ -1416,10 +1412,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Lists details about all member accounts for the current Security Hub master
+   * <p>Lists details about all member accounts for the current Security Hub master
    *          account.</p>
-   *
    */
   public listMembers(
     args: ListMembersCommandInput,
@@ -1454,9 +1448,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of tags associated with a resource.</p>
-   *
+   * <p>Returns a list of tags associated with a resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1491,9 +1483,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more tags to a resource.</p>
-   *
+   * <p>Adds one or more tags to a resource.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1528,9 +1518,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Removes one or more tags from a resource.</p>
-   *
+   * <p>Removes one or more tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1565,9 +1553,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Updates the name and description of a custom action target in Security Hub.</p>
-   *
+   * <p>Updates the name and description of a custom action target in Security Hub.</p>
    */
   public updateActionTarget(
     args: UpdateActionTargetCommandInput,
@@ -1602,11 +1588,9 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Updates the <code>Note</code> and <code>RecordState</code> of the Security
+   * <p>Updates the <code>Note</code> and <code>RecordState</code> of the Security
    *          Hub-aggregated findings that the filter attributes specify. Any member account that can
    *          view the finding also sees the update to the finding.</p>
-   *
    */
   public updateFindings(
     args: UpdateFindingsCommandInput,
@@ -1641,9 +1625,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   *
-   *          <p>Updates the Security Hub insight that the insight ARN specifies.</p>
-   *
+   * <p>Updates the Security Hub insight that the insight ARN specifies.</p>
    */
   public updateInsight(
     args: UpdateInsightCommandInput,
@@ -1666,6 +1648,42 @@ export class SecurityHub extends SecurityHubClient {
     cb?: (err: any, data?: UpdateInsightCommandOutput) => void
   ): Promise<UpdateInsightCommandOutput> | void {
     const command = new UpdateInsightCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Used to control whether an individual compliance standard control is enabled or
+   *          disabled.</p>
+   */
+  public updateStandardsControl(
+    args: UpdateStandardsControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStandardsControlCommandOutput>;
+  public updateStandardsControl(
+    args: UpdateStandardsControlCommandInput,
+    cb: (err: any, data?: UpdateStandardsControlCommandOutput) => void
+  ): void;
+  public updateStandardsControl(
+    args: UpdateStandardsControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStandardsControlCommandOutput) => void
+  ): void;
+  public updateStandardsControl(
+    args: UpdateStandardsControlCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateStandardsControlCommandOutput) => void),
+    cb?: (err: any, data?: UpdateStandardsControlCommandOutput) => void
+  ): Promise<UpdateStandardsControlCommandOutput> | void {
+    const command = new UpdateStandardsControlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

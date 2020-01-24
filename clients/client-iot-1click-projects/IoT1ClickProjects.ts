@@ -55,6 +55,21 @@ import {
   ListProjectsCommandOutput
 } from "./commands/ListProjectsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommand,
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
   UpdatePlacementCommand,
   UpdatePlacementCommandInput,
   UpdatePlacementCommandOutput
@@ -67,15 +82,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The AWS IoT 1-Click Project API Reference</p>
- *
+ * <p>The AWS IoT 1-Click Projects API Reference</p>
  */
 export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   /**
-   *
-   *          <p>Associates a physical device with a placement.</p>
-   *
+   * <p>Associates a physical device with a placement.</p>
    */
   public associateDeviceWithPlacement(
     args: AssociateDeviceWithPlacementCommandInput,
@@ -110,9 +121,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Creates an empty placement.</p>
-   *
+   * <p>Creates an empty placement.</p>
    */
   public createPlacement(
     args: CreatePlacementCommandInput,
@@ -147,10 +156,8 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Creates an empty project with a placement template. A project contains zero or more
-   *          placements that adhere to the placement template defined in the project.</p>
-   *
+   * <p>Creates an empty project with a placement template. A project contains zero or more
+   *       placements that adhere to the placement template defined in the project.</p>
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -185,13 +192,11 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Deletes a placement. To delete a placement, it must not have any devices associated with
-   *          it.</p>
+   * <p>Deletes a placement. To delete a placement, it must not have any devices associated with
+   *       it.</p>
    *          <note>
    *             <p>When you delete a placement, all associated data becomes irretrievable.</p>
    *          </note>
-   *
    */
   public deletePlacement(
     args: DeletePlacementCommandInput,
@@ -226,14 +231,11 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Deletes a project. To delete a project, it must not have any placements associated with
-   *          it.</p>
+   * <p>Deletes a project. To delete a project, it must not have any placements associated with
+   *       it.</p>
    *          <note>
-   *             <p>When you delete a project, all associated data becomes
-   *             irretrievable.</p>
+   *             <p>When you delete a project, all associated data becomes irretrievable.</p>
    *          </note>
-   *
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -268,9 +270,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Describes a placement in a project.</p>
-   *
+   * <p>Describes a placement in a project.</p>
    */
   public describePlacement(
     args: DescribePlacementCommandInput,
@@ -305,9 +305,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Returns an object describing a project.</p>
-   *
+   * <p>Returns an object describing a project.</p>
    */
   public describeProject(
     args: DescribeProjectCommandInput,
@@ -342,9 +340,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Removes a physical device from a placement.</p>
-   *
+   * <p>Removes a physical device from a placement.</p>
    */
   public disassociateDeviceFromPlacement(
     args: DisassociateDeviceFromPlacementCommandInput,
@@ -382,9 +378,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Returns an object enumerating the devices in a placement.</p>
-   *
+   * <p>Returns an object enumerating the devices in a placement.</p>
    */
   public getDevicesInPlacement(
     args: GetDevicesInPlacementCommandInput,
@@ -419,9 +413,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Lists the placement(s) of a project.</p>
-   *
+   * <p>Lists the placement(s) of a project.</p>
    */
   public listPlacements(
     args: ListPlacementsCommandInput,
@@ -456,9 +448,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
-   *
+   * <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -493,10 +483,115 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Updates a placement with the given attributes. To clear an attribute, pass an empty
-   *          value (i.e., "").</p>
-   *
+   * <p>Lists the tags (metadata key/value pairs) which you have assigned to the resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or modifies tags for a resource. Tags are key/value pairs (metadata) that can be
+   *       used to manage a resource. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
+   *         Strategies</a>.</p>
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes one or more tags (metadata key/value pairs) from a resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value
+   *       (i.e., "").</p>
    */
   public updatePlacement(
     args: UpdatePlacementCommandInput,
@@ -531,12 +626,10 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   }
 
   /**
-   *
-   *          <p>Updates a project associated with your AWS account and region. With the exception of
-   *          device template names, you can pass just the values that need to be updated because the
-   *          update request will change only the values that are provided. To clear a value, pass the
-   *          empty string (i.e., <code>""</code>).</p>
-   *
+   * <p>Updates a project associated with your AWS account and region. With the exception of
+   *       device template names, you can pass just the values that need to be updated because the update
+   *       request will change only the values that are provided. To clear a value, pass the empty string
+   *       (i.e., <code>""</code>).</p>
    */
   public updateProject(
     args: UpdateProjectCommandInput,

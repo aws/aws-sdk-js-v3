@@ -8,23 +8,17 @@ export enum AdjustmentType {
 }
 
 /**
- *
- *          <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
- *
+ * <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
  */
 export interface Alarm {
   __type?: "Alarm";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the alarm.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
    */
   AlarmARN: string | undefined;
 
   /**
-   *
-   *          <p>The name of the alarm.</p>
-   *
+   * <p>The name of the alarm.</p>
    */
   AlarmName: string | undefined;
 }
@@ -36,10 +30,8 @@ export namespace Alarm {
 }
 
 /**
- *
- *          <p>Concurrent updates caused an exception, for example, if you request an update to an
+ * <p>Concurrent updates caused an exception, for example, if you request an update to an
  *          Application Auto Scaling resource that already has a pending update.</p>
- *
  */
 export interface ConcurrentUpdateException
   extends _smithy.SmithyException,
@@ -57,8 +49,7 @@ export namespace ConcurrentUpdateException {
 }
 
 /**
- *
- *          <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
+ * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *          with Application Auto Scaling.</p>
  *          <p>To create your customized metric specification:</p>
  *          <ul>
@@ -76,44 +67,33 @@ export namespace ConcurrentUpdateException {
  *          </ul>
  *          <p>For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
  *             Concepts</a>. </p>
- *
  */
 export interface CustomizedMetricSpecification {
   __type?: "CustomizedMetricSpecification";
   /**
-   *
-   *          <p>The dimensions of the metric. </p>
+   * <p>The dimensions of the metric. </p>
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your scaling policy.</p>
-   *
    */
   Dimensions?: Array<MetricDimension>;
 
   /**
-   *
-   *          <p>The name of the metric. </p>
-   *
+   * <p>The name of the metric. </p>
    */
   MetricName: string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the metric.</p>
-   *
+   * <p>The namespace of the metric.</p>
    */
   Namespace: string | undefined;
 
   /**
-   *
-   *          <p>The statistic of the metric.</p>
-   *
+   * <p>The statistic of the metric.</p>
    */
   Statistic: MetricStatistic | string | undefined;
 
   /**
-   *
-   *          <p>The unit of the metric.</p>
-   *
+   * <p>The unit of the metric.</p>
    */
   Unit?: string;
 }
@@ -127,15 +107,12 @@ export namespace CustomizedMetricSpecification {
 export interface DeleteScalingPolicyRequest {
   __type?: "DeleteScalingPolicyRequest";
   /**
-   *
-   *          <p>The name of the scaling policy.</p>
-   *
+   * <p>The name of the scaling policy.</p>
    */
   PolicyName: string | undefined;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scalable target.
+   * <p>The identifier of the resource associated with the scalable target.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -183,13 +160,11 @@ export interface DeleteScalingPolicyRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -244,16 +219,13 @@ export interface DeleteScalingPolicyRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 }
@@ -277,8 +249,7 @@ export namespace DeleteScalingPolicyResponse {
 export interface DeleteScheduledActionRequest {
   __type?: "DeleteScheduledActionRequest";
   /**
-   *
-   *          <p>The identifier of the resource associated with the scheduled action.
+   * <p>The identifier of the resource associated with the scheduled action.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -326,13 +297,11 @@ export interface DeleteScheduledActionRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -387,23 +356,18 @@ export interface DeleteScheduledActionRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The name of the scheduled action.</p>
-   *
+   * <p>The name of the scheduled action.</p>
    */
   ScheduledActionName: string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 }
@@ -427,8 +391,7 @@ export namespace DeleteScheduledActionResponse {
 export interface DeregisterScalableTargetRequest {
   __type?: "DeregisterScalableTargetRequest";
   /**
-   *
-   *          <p>The identifier of the resource associated with the scalable target.
+   * <p>The identifier of the resource associated with the scalable target.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -476,13 +439,11 @@ export interface DeregisterScalableTargetRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension associated with the scalable target.
+   * <p>The scalable dimension associated with the scalable target.
    *          This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -538,16 +499,13 @@ export interface DeregisterScalableTargetRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 }
@@ -571,28 +529,23 @@ export namespace DeregisterScalableTargetResponse {
 export interface DescribeScalableTargetsRequest {
   __type?: "DescribeScalableTargetsRequest";
   /**
-   *
-   *          <p>The maximum number of scalable targets. This value can be between 1 and
+   * <p>The maximum number of scalable targets. This value can be between 1 and
    *          50. The default value is 50.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
    *          at a time, along with a <code>NextToken</code> value. To get the next set of results,
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 50 results and a
    *             <code>NextToken</code> value, if applicable.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
+   * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scalable target.
+   * <p>The identifier of the resource associated with the scalable target.
    *          This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -640,13 +593,11 @@ export interface DescribeScalableTargetsRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceIds?: Array<string>;
 
   /**
-   *
-   *          <p>The scalable dimension associated with the scalable target.
+   * <p>The scalable dimension associated with the scalable target.
    *          This string consists of the service namespace, resource type, and scaling property. If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -702,16 +653,13 @@ export interface DescribeScalableTargetsRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension?: ScalableDimension | string;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 }
@@ -725,17 +673,13 @@ export namespace DescribeScalableTargetsRequest {
 export interface DescribeScalableTargetsResponse extends $MetadataBearer {
   __type?: "DescribeScalableTargetsResponse";
   /**
-   *
-   *          <p>The token required to get the next set of results. This value is <code>null</code> if
+   * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The scalable targets that match the request parameters.</p>
-   *
+   * <p>The scalable targets that match the request parameters.</p>
    */
   ScalableTargets?: Array<ScalableTarget>;
 }
@@ -749,28 +693,23 @@ export namespace DescribeScalableTargetsResponse {
 export interface DescribeScalingActivitiesRequest {
   __type?: "DescribeScalingActivitiesRequest";
   /**
-   *
-   *          <p>The maximum number of scalable targets. This value can be between 1 and
+   * <p>The maximum number of scalable targets. This value can be between 1 and
    *          50. The default value is 50.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
    *          at a time, along with a <code>NextToken</code> value. To get the next set of results,
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 50 results and a
    *             <code>NextToken</code> value, if applicable.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
+   * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scaling activity.
+   * <p>The identifier of the resource associated with the scaling activity.
    *          This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -818,13 +757,11 @@ export interface DescribeScalingActivitiesRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId?: string;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
    *          If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -880,16 +817,13 @@ export interface DescribeScalingActivitiesRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension?: ScalableDimension | string;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 }
@@ -903,17 +837,13 @@ export namespace DescribeScalingActivitiesRequest {
 export interface DescribeScalingActivitiesResponse extends $MetadataBearer {
   __type?: "DescribeScalingActivitiesResponse";
   /**
-   *
-   *          <p>The token required to get the next set of results. This value is <code>null</code> if
+   * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of scaling activity objects.</p>
-   *
+   * <p>A list of scaling activity objects.</p>
    */
   ScalingActivities?: Array<ScalingActivity>;
 }
@@ -927,35 +857,28 @@ export namespace DescribeScalingActivitiesResponse {
 export interface DescribeScalingPoliciesRequest {
   __type?: "DescribeScalingPoliciesRequest";
   /**
-   *
-   *          <p>The maximum number of scalable targets. This value can be between 1 and
+   * <p>The maximum number of scalable targets. This value can be between 1 and
    *          50. The default value is 50.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
    *          at a time, along with a <code>NextToken</code> value. To get the next set of results,
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 50 results and a
    *             <code>NextToken</code> value, if applicable.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
+   * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The names of the scaling policies to describe.</p>
-   *
+   * <p>The names of the scaling policies to describe.</p>
    */
   PolicyNames?: Array<string>;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scaling policy.
+   * <p>The identifier of the resource associated with the scaling policy.
    *          This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -1003,13 +926,11 @@ export interface DescribeScalingPoliciesRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId?: string;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
    *          If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -1065,16 +986,13 @@ export interface DescribeScalingPoliciesRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension?: ScalableDimension | string;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 }
@@ -1088,17 +1006,13 @@ export namespace DescribeScalingPoliciesRequest {
 export interface DescribeScalingPoliciesResponse extends $MetadataBearer {
   __type?: "DescribeScalingPoliciesResponse";
   /**
-   *
-   *          <p>The token required to get the next set of results. This value is <code>null</code> if
+   * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Information about the scaling policies.</p>
-   *
+   * <p>Information about the scaling policies.</p>
    */
   ScalingPolicies?: Array<ScalingPolicy>;
 }
@@ -1112,28 +1026,23 @@ export namespace DescribeScalingPoliciesResponse {
 export interface DescribeScheduledActionsRequest {
   __type?: "DescribeScheduledActionsRequest";
   /**
-   *
-   *          <p>The maximum number of scheduled action results. This value can be between
+   * <p>The maximum number of scheduled action results. This value can be between
    *          1 and 50. The default value is 50.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
    *          at a time, along with a <code>NextToken</code> value. To get the next set of results,
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 50 results and a
    *             <code>NextToken</code> value, if applicable.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
+   * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scheduled action.
+   * <p>The identifier of the resource associated with the scheduled action.
    *          This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -1181,13 +1090,11 @@ export interface DescribeScheduledActionsRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId?: string;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
    *          If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
    *             <li>
@@ -1243,23 +1150,18 @@ export interface DescribeScheduledActionsRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension?: ScalableDimension | string;
 
   /**
-   *
-   *          <p>The names of the scheduled actions to describe.</p>
-   *
+   * <p>The names of the scheduled actions to describe.</p>
    */
   ScheduledActionNames?: Array<string>;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 }
@@ -1273,17 +1175,13 @@ export namespace DescribeScheduledActionsRequest {
 export interface DescribeScheduledActionsResponse extends $MetadataBearer {
   __type?: "DescribeScheduledActionsResponse";
   /**
-   *
-   *          <p>The token required to get the next set of results. This value is <code>null</code> if
+   * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Information about the scheduled actions.</p>
-   *
+   * <p>Information about the scheduled actions.</p>
    */
   ScheduledActions?: Array<ScheduledAction>;
 }
@@ -1295,12 +1193,10 @@ export namespace DescribeScheduledActionsResponse {
 }
 
 /**
- *
- *          <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
+ * <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
  *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
  *          for example, if the role ARN specified for a scalable target does not have permission to
  *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
- *
  */
 export interface FailedResourceAccessException
   extends _smithy.SmithyException,
@@ -1318,9 +1214,7 @@ export namespace FailedResourceAccessException {
 }
 
 /**
- *
- *          <p>The service encountered an internal error.</p>
- *
+ * <p>The service encountered an internal error.</p>
  */
 export interface InternalServiceException
   extends _smithy.SmithyException,
@@ -1338,9 +1232,7 @@ export namespace InternalServiceException {
 }
 
 /**
- *
- *          <p>The next token supplied was invalid.</p>
- *
+ * <p>The next token supplied was invalid.</p>
  */
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
@@ -1358,9 +1250,7 @@ export namespace InvalidNextTokenException {
 }
 
 /**
- *
- *          <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
- *
+ * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -1384,23 +1274,17 @@ export enum MetricAggregationType {
 }
 
 /**
- *
- *          <p>Describes the dimension names and values associated with a metric.</p>
- *
+ * <p>Describes the dimension names and values associated with a metric.</p>
  */
 export interface MetricDimension {
   __type?: "MetricDimension";
   /**
-   *
-   *          <p>The name of the dimension.</p>
-   *
+   * <p>The name of the dimension.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The value of the dimension.</p>
-   *
+   * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
 }
@@ -1437,13 +1321,11 @@ export enum MetricType {
 }
 
 /**
- *
- *          <p>The specified object could not be found. For any operation that depends on the existence
+ * <p>The specified object could not be found. For any operation that depends on the existence
  *          of a scalable target, this exception is thrown if the scalable target with the specified
  *          service namespace, resource ID, and scalable dimension does not exist. For any operation
  *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
  *          found.</p>
- *
  */
 export interface ObjectNotFoundException
   extends _smithy.SmithyException,
@@ -1466,24 +1348,19 @@ export enum PolicyType {
 }
 
 /**
- *
- *          <p>Represents a predefined metric for a target tracking scaling policy to use with
+ * <p>Represents a predefined metric for a target tracking scaling policy to use with
  *          Application Auto Scaling.</p>
- *
  */
 export interface PredefinedMetricSpecification {
   __type?: "PredefinedMetricSpecification";
   /**
-   *
-   *          <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
+   * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Spot Fleet requests and ECS services.</p>
-   *
    */
   PredefinedMetricType: MetricType | string | undefined;
 
   /**
-   *
-   *          <p>Identifies the resource associated with the metric type. You can't specify a resource
+   * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
    *          group attached to the Spot Fleet request or ECS service.</p>
    *
@@ -1500,7 +1377,6 @@ export interface PredefinedMetricSpecification {
    *                of the target group ARN.</p>
    *             </li>
    *          </ul>
-   *
    */
   ResourceLabel?: string;
 }
@@ -1514,28 +1390,23 @@ export namespace PredefinedMetricSpecification {
 export interface PutScalingPolicyRequest {
   __type?: "PutScalingPolicyRequest";
   /**
-   *
-   *          <p>The name of the scaling policy.</p>
-   *
+   * <p>The name of the scaling policy.</p>
    */
   PolicyName: string | undefined;
 
   /**
-   *
-   *          <p>The policy type. This parameter is required if you are creating a scaling policy.</p>
+   * <p>The policy type. This parameter is required if you are creating a scaling policy.</p>
    *          <p>The following policy types are supported: </p>
    *          <p>
    *             <code>TargetTrackingScaling</code>—Not supported for Amazon EMR</p>
    *          <p>
    *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, or AWS Lambda</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
-   *
    */
   PolicyType?: PolicyType | string;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scaling policy.
+   * <p>The identifier of the resource associated with the scaling policy.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -1583,13 +1454,11 @@ export interface PutScalingPolicyRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1644,35 +1513,28 @@ export interface PutScalingPolicyRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   *
-   *          <p>A step scaling policy.</p>
+   * <p>A step scaling policy.</p>
    *          <p>This parameter is required if you are creating a policy and the policy type is
    *             <code>StepScaling</code>.</p>
-   *
    */
   StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
 
   /**
-   *
-   *          <p>A target tracking scaling policy. Includes support for predefined or customized
+   * <p>A target tracking scaling policy. Includes support for predefined or customized
    *          metrics.</p>
    *          <p>This parameter is required if you are creating a policy and the policy type is
    *             <code>TargetTrackingScaling</code>.</p>
-   *
    */
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
 }
@@ -1686,16 +1548,12 @@ export namespace PutScalingPolicyRequest {
 export interface PutScalingPolicyResponse extends $MetadataBearer {
   __type?: "PutScalingPolicyResponse";
   /**
-   *
-   *          <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
-   *
+   * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
    */
   Alarms?: Array<Alarm>;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
    */
   PolicyARN: string | undefined;
 }
@@ -1709,15 +1567,12 @@ export namespace PutScalingPolicyResponse {
 export interface PutScheduledActionRequest {
   __type?: "PutScheduledActionRequest";
   /**
-   *
-   *          <p>The date and time for the scheduled action to end.</p>
-   *
+   * <p>The date and time for the scheduled action to end.</p>
    */
   EndTime?: Date;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scheduled action.
+   * <p>The identifier of the resource associated with the scheduled action.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -1765,13 +1620,11 @@ export interface PutScheduledActionRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1826,23 +1679,19 @@ export interface PutScheduledActionRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The new minimum and maximum capacity. You can set both values or just one. During the
+   * <p>The new minimum and maximum capacity. You can set both values or just one. During the
    *          scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out
    *          to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling
    *          scales in to the maximum capacity.</p>
-   *
    */
   ScalableTargetAction?: ScalableTargetAction;
 
   /**
-   *
-   *          <p>The schedule for this action. The following formats are supported:</p>
+   * <p>The schedule for this action. The following formats are supported:</p>
    *          <ul>
    *             <li>
    *                <p>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</p>
@@ -1859,30 +1708,23 @@ export interface PutScheduledActionRequest {
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
    *          <p>For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
-   *
    */
   Schedule?: string;
 
   /**
-   *
-   *          <p>The name of the scheduled action.</p>
-   *
+   * <p>The name of the scheduled action.</p>
    */
   ScheduledActionName: string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   *
-   *          <p>The date and time for the scheduled action to start.</p>
-   *
+   * <p>The date and time for the scheduled action to start.</p>
    */
   StartTime?: Date;
 }
@@ -1906,24 +1748,19 @@ export namespace PutScheduledActionResponse {
 export interface RegisterScalableTargetRequest {
   __type?: "RegisterScalableTargetRequest";
   /**
-   *
-   *          <p>The maximum value to scale to in response to a scale-out event. <code>MaxCapacity</code>
+   * <p>The maximum value to scale to in response to a scale-out event. <code>MaxCapacity</code>
    *          is required to register a scalable target.</p>
-   *
    */
   MaxCapacity?: number;
 
   /**
-   *
-   *          <p>The minimum value to scale to in response to a scale-in event. <code>MinCapacity</code>
+   * <p>The minimum value to scale to in response to a scale-in event. <code>MinCapacity</code>
    *          is required to register a scalable target.</p>
-   *
    */
   MinCapacity?: number;
 
   /**
-   *
-   *          <p>The identifier of the resource that is associated with the scalable target.
+   * <p>The identifier of the resource that is associated with the scalable target.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -1971,23 +1808,19 @@ export interface RegisterScalableTargetRequest {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>Application Auto Scaling creates a service-linked role that grants it permissions to modify the scalable
+   * <p>Application Auto Scaling creates a service-linked role that grants it permissions to modify the scalable
    *          target on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html">Service-Linked Roles for Application Auto Scaling</a>.</p>
    *          <p>For Amazon EMR, this parameter is required, and it must specify the ARN of an IAM role that
    *          allows Application Auto Scaling to modify the scalable target on your behalf.</p>
-   *
    */
   RoleARN?: string;
 
   /**
-   *
-   *          <p>The scalable dimension associated with the scalable target.
+   * <p>The scalable dimension associated with the scalable target.
    *          This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -2043,24 +1876,20 @@ export interface RegisterScalableTargetRequest {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
    *
    *       </p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   *
-   *          <p>An embedded object that contains attributes and attribute values that are used to
+   * <p>An embedded object that contains attributes and attribute values that are used to
    *          suspend and resume automatic scaling. Setting the value of an attribute to
    *             <code>true</code> suspends the specified scaling activities. Setting it to
    *             <code>false</code> (default) resumes the specified scaling activities. </p>
@@ -2083,7 +1912,6 @@ export interface RegisterScalableTargetRequest {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html">Suspending and Resuming Scaling</a> in the <i>Application Auto Scaling User
    *          Guide</i>.</p>
-   *
    */
   SuspendedState?: SuspendedState;
 }
@@ -2121,36 +1949,27 @@ export enum ScalableDimension {
 }
 
 /**
- *
- *          <p>Represents a scalable target.</p>
- *
+ * <p>Represents a scalable target.</p>
  */
 export interface ScalableTarget {
   __type?: "ScalableTarget";
   /**
-   *
-   *          <p>The Unix timestamp for when the scalable target was created.</p>
-   *
+   * <p>The Unix timestamp for when the scalable target was created.</p>
    */
   CreationTime: Date | undefined;
 
   /**
-   *
-   *          <p>The maximum value to scale to in response to a scale-out event.</p>
-   *
+   * <p>The maximum value to scale to in response to a scale-out event.</p>
    */
   MaxCapacity: number | undefined;
 
   /**
-   *
-   *          <p>The minimum value to scale to in response to a scale-in event.</p>
-   *
+   * <p>The minimum value to scale to in response to a scale-in event.</p>
    */
   MinCapacity: number | undefined;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scalable target.
+   * <p>The identifier of the resource associated with the scalable target.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -2198,21 +2017,17 @@ export interface ScalableTarget {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your
+   * <p>The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your
    *          behalf.</p>
-   *
    */
   RoleARN: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension associated with the scalable target.
+   * <p>The scalable dimension associated with the scalable target.
    *          This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -2268,24 +2083,19 @@ export interface ScalableTarget {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   *
-   *          <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
+   * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
    *       </p>
-   *
    */
   SuspendedState?: SuspendedState;
 }
@@ -2297,23 +2107,17 @@ export namespace ScalableTarget {
 }
 
 /**
- *
- *          <p>Represents the minimum and maximum capacity for a scheduled action.</p>
- *
+ * <p>Represents the minimum and maximum capacity for a scheduled action.</p>
  */
 export interface ScalableTargetAction {
   __type?: "ScalableTargetAction";
   /**
-   *
-   *          <p>The maximum capacity.</p>
-   *
+   * <p>The maximum capacity.</p>
    */
   MaxCapacity?: number;
 
   /**
-   *
-   *          <p>The minimum capacity.</p>
-   *
+   * <p>The minimum capacity.</p>
    */
   MinCapacity?: number;
 }
@@ -2325,50 +2129,37 @@ export namespace ScalableTargetAction {
 }
 
 /**
- *
- *          <p>Represents a scaling activity.</p>
- *
+ * <p>Represents a scaling activity.</p>
  */
 export interface ScalingActivity {
   __type?: "ScalingActivity";
   /**
-   *
-   *          <p>The unique identifier of the scaling activity.</p>
-   *
+   * <p>The unique identifier of the scaling activity.</p>
    */
   ActivityId: string | undefined;
 
   /**
-   *
-   *          <p>A simple description of what caused the scaling activity to happen.</p>
-   *
+   * <p>A simple description of what caused the scaling activity to happen.</p>
    */
   Cause: string | undefined;
 
   /**
-   *
-   *          <p>A simple description of what action the scaling activity intends to accomplish.</p>
-   *
+   * <p>A simple description of what action the scaling activity intends to accomplish.</p>
    */
   Description: string | undefined;
 
   /**
-   *
-   *          <p>The details about the scaling activity.</p>
-   *
+   * <p>The details about the scaling activity.</p>
    */
   Details?: string;
 
   /**
-   *
-   *          <p>The Unix timestamp for when the scaling activity ended.</p>
-   *
+   * <p>The Unix timestamp for when the scaling activity ended.</p>
    */
   EndTime?: Date;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scaling activity.
+   * <p>The identifier of the resource associated with the scaling activity.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -2416,13 +2207,11 @@ export interface ScalingActivity {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2477,37 +2266,28 @@ export interface ScalingActivity {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   *
-   *          <p>The Unix timestamp for when the scaling activity began.</p>
-   *
+   * <p>The Unix timestamp for when the scaling activity began.</p>
    */
   StartTime: Date | undefined;
 
   /**
-   *
-   *          <p>Indicates the status of the scaling activity.</p>
-   *
+   * <p>Indicates the status of the scaling activity.</p>
    */
   StatusCode: ScalingActivityStatusCode | string | undefined;
 
   /**
-   *
-   *          <p>A simple message about the current status of the scaling activity.</p>
-   *
+   * <p>A simple message about the current status of the scaling activity.</p>
    */
   StatusMessage?: string;
 }
@@ -2528,50 +2308,37 @@ export enum ScalingActivityStatusCode {
 }
 
 /**
- *
- *          <p>Represents a scaling policy to use with Application Auto Scaling.</p>
- *
+ * <p>Represents a scaling policy to use with Application Auto Scaling.</p>
  */
 export interface ScalingPolicy {
   __type?: "ScalingPolicy";
   /**
-   *
-   *          <p>The CloudWatch alarms associated with the scaling policy.</p>
-   *
+   * <p>The CloudWatch alarms associated with the scaling policy.</p>
    */
   Alarms?: Array<Alarm>;
 
   /**
-   *
-   *          <p>The Unix timestamp for when the scaling policy was created.</p>
-   *
+   * <p>The Unix timestamp for when the scaling policy was created.</p>
    */
   CreationTime: Date | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the scaling policy.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the scaling policy.</p>
    */
   PolicyARN: string | undefined;
 
   /**
-   *
-   *          <p>The name of the scaling policy.</p>
-   *
+   * <p>The name of the scaling policy.</p>
    */
   PolicyName: string | undefined;
 
   /**
-   *
-   *          <p>The scaling policy type.</p>
-   *
+   * <p>The scaling policy type.</p>
    */
   PolicyType: PolicyType | string | undefined;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scaling policy.
+   * <p>The identifier of the resource associated with the scaling policy.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -2619,13 +2386,11 @@ export interface ScalingPolicy {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2680,30 +2445,23 @@ export interface ScalingPolicy {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   *
-   *          <p>A step scaling policy.</p>
-   *
+   * <p>A step scaling policy.</p>
    */
   StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
 
   /**
-   *
-   *          <p>A target tracking scaling policy.</p>
-   *
+   * <p>A target tracking scaling policy.</p>
    */
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
 }
@@ -2715,29 +2473,22 @@ export namespace ScalingPolicy {
 }
 
 /**
- *
- *          <p>Represents a scheduled action.</p>
- *
+ * <p>Represents a scheduled action.</p>
  */
 export interface ScheduledAction {
   __type?: "ScheduledAction";
   /**
-   *
-   *          <p>The date and time that the scheduled action was created.</p>
-   *
+   * <p>The date and time that the scheduled action was created.</p>
    */
   CreationTime: Date | undefined;
 
   /**
-   *
-   *          <p>The date and time that the action is scheduled to end.</p>
-   *
+   * <p>The date and time that the action is scheduled to end.</p>
    */
   EndTime?: Date;
 
   /**
-   *
-   *          <p>The identifier of the resource associated with the scaling policy.
+   * <p>The identifier of the resource associated with the scaling policy.
    *          This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
@@ -2785,13 +2536,11 @@ export interface ScheduledAction {
    *                Example: <code>function:my-function:prod</code> or <code>function:my-function:1</code>.</p>
    *            </li>
    *          </ul>
-   *
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
+   * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2846,23 +2595,19 @@ export interface ScheduledAction {
    *                   <code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency for a Lambda function.</p>
    *            </li>
    *          </ul>
-   *
    */
   ScalableDimension?: ScalableDimension | string;
 
   /**
-   *
-   *          <p>The new minimum and maximum capacity. You can set both values or just one. During the
+   * <p>The new minimum and maximum capacity. You can set both values or just one. During the
    *          scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out
    *          to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling
    *          scales in to the maximum capacity.</p>
-   *
    */
   ScalableTargetAction?: ScalableTargetAction;
 
   /**
-   *
-   *          <p>The schedule for this action. The following formats are supported:</p>
+   * <p>The schedule for this action. The following formats are supported:</p>
    *          <ul>
    *             <li>
    *                <p>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</p>
@@ -2879,37 +2624,28 @@ export interface ScheduledAction {
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
    *          <p>For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
-   *
    */
   Schedule: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the scheduled action.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the scheduled action.</p>
    */
   ScheduledActionARN: string | undefined;
 
   /**
-   *
-   *          <p>The name of the scheduled action.</p>
-   *
+   * <p>The name of the scheduled action.</p>
    */
   ScheduledActionName: string | undefined;
 
   /**
-   *
-   *          <p>The namespace of the AWS service that provides the resource or
+   * <p>The namespace of the AWS service that provides the resource or
    *             <code>custom-resource</code> for a resource provided by your own application or service.
    *          For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   *
-   *          <p>The date and time that the action is scheduled to begin.</p>
-   *
+   * <p>The date and time that the action is scheduled to begin.</p>
    */
   StartTime?: Date;
 }
@@ -2934,8 +2670,7 @@ export enum ServiceNamespace {
 }
 
 /**
- *
- *          <p>Represents a step adjustment for a <a>StepScalingPolicyConfiguration</a>.
+ * <p>Represents a step adjustment for a <a>StepScalingPolicyConfiguration</a>.
  *          Describes an adjustment based on the difference between the value of the aggregated CloudWatch
  *          metric and the breach threshold that you've defined for the alarm. </p>
  *          <p>For the following examples, suppose that you have an alarm with a breach threshold of
@@ -2969,39 +2704,32 @@ export enum ServiceNamespace {
  *                <p>The upper and lower bound can't be null in the same step adjustment.</p>
  *             </li>
  *          </ul>
- *
  */
 export interface StepAdjustment {
   __type?: "StepAdjustment";
   /**
-   *
-   *          <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
+   * <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the lower bound is inclusive (the metric
    *          must be greater than or equal to the threshold plus the lower bound). Otherwise, it is
    *          exclusive (the metric must be greater than the threshold plus the lower bound). A null
    *          value indicates negative infinity.</p>
-   *
    */
   MetricIntervalLowerBound?: number;
 
   /**
-   *
-   *          <p>The upper bound for the difference between the alarm threshold and the CloudWatch metric. If
+   * <p>The upper bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the upper bound is exclusive (the metric
    *          must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the
    *          metric must be less than or equal to the threshold plus the upper bound). A null value
    *          indicates positive infinity.</p>
    *          <p>The upper bound must be greater than the lower bound.</p>
-   *
    */
   MetricIntervalUpperBound?: number;
 
   /**
-   *
-   *          <p>The amount by which to scale, based on the specified adjustment type. A positive value
+   * <p>The amount by which to scale, based on the specified adjustment type. A positive value
    *          adds to the current scalable dimension while a negative number removes from the current
    *          scalable dimension.</p>
-   *
    */
   ScalingAdjustment: number | undefined;
 }
@@ -3013,23 +2741,18 @@ export namespace StepAdjustment {
 }
 
 /**
- *
- *          <p>Represents a step scaling policy configuration to use with Application Auto Scaling.</p>
- *
+ * <p>Represents a step scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface StepScalingPolicyConfiguration {
   __type?: "StepScalingPolicyConfiguration";
   /**
-   *
-   *          <p>Specifies whether the <code>ScalingAdjustment</code> value in a <a>StepAdjustment</a> is an absolute number or a percentage of the current
+   * <p>Specifies whether the <code>ScalingAdjustment</code> value in a <a>StepAdjustment</a> is an absolute number or a percentage of the current
    *          capacity. </p>
-   *
    */
   AdjustmentType?: AdjustmentType | string;
 
   /**
-   *
-   *          <p>The amount of time, in seconds, after a scaling activity completes where previous
+   * <p>The amount of time, in seconds, after a scaling activity completes where previous
    *          trigger-related scaling activities can influence future scaling events.</p>
    *          <p>For scale-out policies, while the cooldown period is in effect, the capacity that has
    *          been added by the previous scale-out event that initiated the cooldown is calculated as
@@ -3045,22 +2768,18 @@ export interface StepScalingPolicyConfiguration {
    *          application's availability. However, if another alarm triggers a scale-out policy during
    *          the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target
    *          immediately.</p>
-   *
    */
   Cooldown?: number;
 
   /**
-   *
-   *          <p>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>,
+   * <p>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>,
    *             <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
    *          value is treated as <code>Average</code>.</p>
-   *
    */
   MetricAggregationType?: MetricAggregationType | string;
 
   /**
-   *
-   *          <p>The minimum number to adjust your scalable dimension as a result of a scaling activity.
+   * <p>The minimum number to adjust your scalable dimension as a result of a scaling activity.
    *          If the adjustment type is <code>PercentChangeInCapacity</code>, the scaling policy changes
    *          the scalable dimension of the scalable target by this amount.</p>
    *          <p>For example, suppose that you create a step scaling policy to scale out an Amazon ECS service
@@ -3068,15 +2787,12 @@ export interface StepScalingPolicyConfiguration {
    *          has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1. However, because you
    *          specified a <code>MinAdjustmentMagnitude</code> of 2, Application Auto Scaling scales out the service by 2
    *          tasks.</p>
-   *
    */
   MinAdjustmentMagnitude?: number;
 
   /**
-   *
-   *          <p>A set of adjustments that enable you to scale based on the size of the alarm
+   * <p>A set of adjustments that enable you to scale based on the size of the alarm
    *          breach.</p>
-   *
    */
   StepAdjustments?: Array<StepAdjustment>;
 }
@@ -3088,37 +2804,29 @@ export namespace StepScalingPolicyConfiguration {
 }
 
 /**
- *
- *          <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
+ * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
  *       </p>
- *
  */
 export interface SuspendedState {
   __type?: "SuspendedState";
   /**
-   *
-   *          <p>Whether scale in by a target tracking scaling policy or a step scaling policy is
+   * <p>Whether scale in by a target tracking scaling policy or a step scaling policy is
    *          suspended. Set the value to <code>true</code> if you don't want Application Auto Scaling to remove capacity
    *          when a scaling policy is triggered. The default is <code>false</code>. </p>
-   *
    */
   DynamicScalingInSuspended?: boolean;
 
   /**
-   *
-   *          <p>Whether scale out by a target tracking scaling policy or a step scaling policy is
+   * <p>Whether scale out by a target tracking scaling policy or a step scaling policy is
    *          suspended. Set the value to <code>true</code> if you don't want Application Auto Scaling to add capacity
    *          when a scaling policy is triggered. The default is <code>false</code>. </p>
-   *
    */
   DynamicScalingOutSuspended?: boolean;
 
   /**
-   *
-   *          <p>Whether scheduled scaling is suspended. Set the value to <code>true</code> if you don't
+   * <p>Whether scheduled scaling is suspended. Set the value to <code>true</code> if you don't
    *          want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is
    *             <code>false</code>. </p>
-   *
    */
   ScheduledScalingSuspended?: boolean;
 }
@@ -3130,68 +2838,54 @@ export namespace SuspendedState {
 }
 
 /**
- *
- *          <p>Represents a target tracking scaling policy configuration to use with Application Auto Scaling.</p>
- *
+ * <p>Represents a target tracking scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface TargetTrackingScalingPolicyConfiguration {
   __type?: "TargetTrackingScalingPolicyConfiguration";
   /**
-   *
-   *          <p>A customized metric. You can specify either a predefined metric or a customized
+   * <p>A customized metric. You can specify either a predefined metric or a customized
    *          metric.</p>
-   *
    */
   CustomizedMetricSpecification?: CustomizedMetricSpecification;
 
   /**
-   *
-   *          <p>Indicates whether scale in by the target tracking scaling policy is disabled. If the
+   * <p>Indicates whether scale in by the target tracking scaling policy is disabled. If the
    *          value is <code>true</code>, scale in is disabled and the target tracking scaling policy
    *          won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the
    *          target tracking scaling policy can remove capacity from the scalable resource. The default
    *          value is <code>false</code>.</p>
-   *
    */
   DisableScaleIn?: boolean;
 
   /**
-   *
-   *          <p>A predefined metric. You can specify either a predefined metric or a customized
+   * <p>A predefined metric. You can specify either a predefined metric or a customized
    *          metric.</p>
-   *
    */
   PredefinedMetricSpecification?: PredefinedMetricSpecification;
 
   /**
-   *
-   *          <p>The amount of time, in seconds, after a scale-in activity completes before another scale
+   * <p>The amount of time, in seconds, after a scale-in activity completes before another scale
    *          in activity can start.</p>
    *          <p>The cooldown period is used to block subsequent scale-in requests until it has expired.
    *          The intention is to scale in conservatively to protect your application's availability.
    *          However, if another alarm triggers a scale-out policy during the cooldown period after a
    *          scale-in, Application Auto Scaling scales out your scalable target immediately.</p>
-   *
    */
   ScaleInCooldown?: number;
 
   /**
-   *
-   *          <p>The amount of time, in seconds, after a scale-out activity completes before another
+   * <p>The amount of time, in seconds, after a scale-out activity completes before another
    *          scale-out activity can start.</p>
    *          <p>While the cooldown period is in effect, the capacity that has been added by the previous
    *          scale-out event that initiated the cooldown is calculated as part of the desired capacity
    *          for the next scale out. The intention is to continuously (but not excessively) scale
    *          out.</p>
-   *
    */
   ScaleOutCooldown?: number;
 
   /**
-   *
-   *          <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
+   * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
    *          or 2e-360 to 2e360 (Base 2).</p>
-   *
    */
   TargetValue: number | undefined;
 }
@@ -3203,10 +2897,8 @@ export namespace TargetTrackingScalingPolicyConfiguration {
 }
 
 /**
- *
- *          <p>An exception was thrown for a validation issue. Review the available parameters for the
+ * <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
- *
  */
 export interface ValidationException
   extends _smithy.SmithyException,

@@ -1,46 +1,56 @@
 import {
   AddRoleToDBClusterMessage,
   AddSourceIdentifierToSubscriptionMessage,
+  AddSourceIdentifierToSubscriptionResult,
   AddTagsToResourceMessage,
   ApplyPendingMaintenanceActionMessage,
+  ApplyPendingMaintenanceActionResult,
   CopyDBClusterParameterGroupMessage,
+  CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
+  CopyDBClusterSnapshotResult,
   CopyDBParameterGroupMessage,
+  CopyDBParameterGroupResult,
   CreateDBClusterMessage,
   CreateDBClusterParameterGroupMessage,
+  CreateDBClusterParameterGroupResult,
+  CreateDBClusterResult,
   CreateDBClusterSnapshotMessage,
+  CreateDBClusterSnapshotResult,
   CreateDBInstanceMessage,
+  CreateDBInstanceResult,
   CreateDBParameterGroupMessage,
+  CreateDBParameterGroupResult,
   CreateDBSubnetGroupMessage,
+  CreateDBSubnetGroupResult,
   CreateEventSubscriptionMessage,
-  DBCluster,
+  CreateEventSubscriptionResult,
   DBClusterMessage,
-  DBClusterParameterGroup,
   DBClusterParameterGroupDetails,
   DBClusterParameterGroupNameMessage,
   DBClusterParameterGroupsMessage,
-  DBClusterSnapshot,
-  DBClusterSnapshotAttributesResult,
   DBClusterSnapshotMessage,
   DBEngineVersionMessage,
-  DBInstance,
   DBInstanceMessage,
-  DBParameterGroup,
   DBParameterGroupDetails,
   DBParameterGroupNameMessage,
   DBParameterGroupsMessage,
-  DBSubnetGroup,
   DBSubnetGroupMessage,
   DeleteDBClusterMessage,
   DeleteDBClusterParameterGroupMessage,
+  DeleteDBClusterResult,
   DeleteDBClusterSnapshotMessage,
+  DeleteDBClusterSnapshotResult,
   DeleteDBInstanceMessage,
+  DeleteDBInstanceResult,
   DeleteDBParameterGroupMessage,
   DeleteDBSubnetGroupMessage,
   DeleteEventSubscriptionMessage,
+  DeleteEventSubscriptionResult,
   DescribeDBClusterParameterGroupsMessage,
   DescribeDBClusterParametersMessage,
   DescribeDBClusterSnapshotAttributesMessage,
+  DescribeDBClusterSnapshotAttributesResult,
   DescribeDBClusterSnapshotsMessage,
   DescribeDBClustersMessage,
   DescribeDBEngineVersionsMessage,
@@ -49,41 +59,51 @@ import {
   DescribeDBParametersMessage,
   DescribeDBSubnetGroupsMessage,
   DescribeEngineDefaultClusterParametersMessage,
+  DescribeEngineDefaultClusterParametersResult,
   DescribeEngineDefaultParametersMessage,
+  DescribeEngineDefaultParametersResult,
   DescribeEventCategoriesMessage,
   DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
   DescribeOrderableDBInstanceOptionsMessage,
   DescribePendingMaintenanceActionsMessage,
   DescribeValidDBInstanceModificationsMessage,
-  EngineDefaults,
+  DescribeValidDBInstanceModificationsResult,
   EventCategoriesMessage,
-  EventSubscription,
   EventSubscriptionsMessage,
   EventsMessage,
   FailoverDBClusterMessage,
+  FailoverDBClusterResult,
   ListTagsForResourceMessage,
   ModifyDBClusterMessage,
   ModifyDBClusterParameterGroupMessage,
+  ModifyDBClusterResult,
   ModifyDBClusterSnapshotAttributeMessage,
+  ModifyDBClusterSnapshotAttributeResult,
   ModifyDBInstanceMessage,
+  ModifyDBInstanceResult,
   ModifyDBParameterGroupMessage,
   ModifyDBSubnetGroupMessage,
+  ModifyDBSubnetGroupResult,
   ModifyEventSubscriptionMessage,
+  ModifyEventSubscriptionResult,
   OrderableDBInstanceOptionsMessage,
   PendingMaintenanceActionsMessage,
   PromoteReadReplicaDBClusterMessage,
+  PromoteReadReplicaDBClusterResult,
   RebootDBInstanceMessage,
+  RebootDBInstanceResult,
   RemoveRoleFromDBClusterMessage,
   RemoveSourceIdentifierFromSubscriptionMessage,
+  RemoveSourceIdentifierFromSubscriptionResult,
   RemoveTagsFromResourceMessage,
   ResetDBClusterParameterGroupMessage,
   ResetDBParameterGroupMessage,
-  ResourcePendingMaintenanceActions,
   RestoreDBClusterFromSnapshotMessage,
+  RestoreDBClusterFromSnapshotResult,
   RestoreDBClusterToPointInTimeMessage,
-  TagListMessage,
-  ValidDBInstanceModificationsMessage
+  RestoreDBClusterToPointInTimeResult,
+  TagListMessage
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -199,56 +219,56 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | __MetadataBearer
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
-  | DBCluster
+  | AddSourceIdentifierToSubscriptionResult
+  | ApplyPendingMaintenanceActionResult
+  | CopyDBClusterParameterGroupResult
+  | CopyDBClusterSnapshotResult
+  | CopyDBParameterGroupResult
+  | CreateDBClusterParameterGroupResult
+  | CreateDBClusterResult
+  | CreateDBClusterSnapshotResult
+  | CreateDBInstanceResult
+  | CreateDBParameterGroupResult
+  | CreateDBSubnetGroupResult
+  | CreateEventSubscriptionResult
   | DBClusterMessage
-  | DBClusterParameterGroup
-  | DBClusterParameterGroup
   | DBClusterParameterGroupDetails
   | DBClusterParameterGroupNameMessage
   | DBClusterParameterGroupNameMessage
   | DBClusterParameterGroupsMessage
-  | DBClusterSnapshot
-  | DBClusterSnapshot
-  | DBClusterSnapshot
-  | DBClusterSnapshotAttributesResult
-  | DBClusterSnapshotAttributesResult
   | DBClusterSnapshotMessage
   | DBEngineVersionMessage
-  | DBInstance
-  | DBInstance
-  | DBInstance
-  | DBInstance
   | DBInstanceMessage
-  | DBParameterGroup
-  | DBParameterGroup
   | DBParameterGroupDetails
   | DBParameterGroupNameMessage
   | DBParameterGroupNameMessage
   | DBParameterGroupsMessage
-  | DBSubnetGroup
-  | DBSubnetGroup
   | DBSubnetGroupMessage
-  | EngineDefaults
-  | EngineDefaults
+  | DeleteDBClusterResult
+  | DeleteDBClusterSnapshotResult
+  | DeleteDBInstanceResult
+  | DeleteEventSubscriptionResult
+  | DescribeDBClusterSnapshotAttributesResult
+  | DescribeEngineDefaultClusterParametersResult
+  | DescribeEngineDefaultParametersResult
+  | DescribeValidDBInstanceModificationsResult
   | EventCategoriesMessage
-  | EventSubscription
-  | EventSubscription
-  | EventSubscription
-  | EventSubscription
-  | EventSubscription
   | EventSubscriptionsMessage
   | EventsMessage
+  | FailoverDBClusterResult
+  | ModifyDBClusterResult
+  | ModifyDBClusterSnapshotAttributeResult
+  | ModifyDBInstanceResult
+  | ModifyDBSubnetGroupResult
+  | ModifyEventSubscriptionResult
   | OrderableDBInstanceOptionsMessage
   | PendingMaintenanceActionsMessage
-  | ResourcePendingMaintenanceActions
-  | TagListMessage
-  | ValidDBInstanceModificationsMessage;
+  | PromoteReadReplicaDBClusterResult
+  | RebootDBInstanceResult
+  | RemoveSourceIdentifierFromSubscriptionResult
+  | RestoreDBClusterFromSnapshotResult
+  | RestoreDBClusterToPointInTimeResult
+  | TagListMessage;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -358,8 +378,7 @@ export type NeptuneClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Amazon Neptune</fullname>
+ * <fullname>Amazon Neptune</fullname>
  *          <p>Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it
  *       easy to build and run applications that work with highly connected datasets. The core of
  *       Amazon Neptune is a purpose-built, high-performance graph database engine optimized for
@@ -377,7 +396,6 @@ export type NeptuneClientResolvedConfig = __SmithyResolvedConfiguration<
  *       parameter descriptions indicate whether a command is applied immediately, on the next instance
  *       reboot, or during the maintenance window. The reference structure is as follows, and we list
  *       following some related topics from the user guide.</p>
- *
  */
 export class NeptuneClient extends __Client<
   __HttpHandlerOptions,

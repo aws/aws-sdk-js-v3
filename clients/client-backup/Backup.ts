@@ -55,6 +55,11 @@ import {
   DescribeBackupVaultCommandOutput
 } from "./commands/DescribeBackupVaultCommand";
 import {
+  DescribeCopyJobCommand,
+  DescribeCopyJobCommandInput,
+  DescribeCopyJobCommandOutput
+} from "./commands/DescribeCopyJobCommand";
+import {
   DescribeProtectedResourceCommand,
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput
@@ -145,6 +150,11 @@ import {
   ListBackupVaultsCommandOutput
 } from "./commands/ListBackupVaultsCommand";
 import {
+  ListCopyJobsCommand,
+  ListCopyJobsCommandInput,
+  ListCopyJobsCommandOutput
+} from "./commands/ListCopyJobsCommand";
+import {
   ListProtectedResourcesCommand,
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput
@@ -185,6 +195,11 @@ import {
   StartBackupJobCommandOutput
 } from "./commands/StartBackupJobCommand";
 import {
+  StartCopyJobCommand,
+  StartCopyJobCommandInput,
+  StartCopyJobCommandOutput
+} from "./commands/StartCopyJobCommand";
+import {
   StartRestoreJobCommand,
   StartRestoreJobCommandInput,
   StartRestoreJobCommandOutput
@@ -217,21 +232,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Backup</fullname>
+ * <fullname>AWS Backup</fullname>
  *          <p>AWS Backup is a unified backup service designed to protect AWS services and their
  *          associated data. AWS Backup simplifies the creation, migration, restoration, and deletion
  *          of backups, while also providing reporting and auditing.</p>
- *
  */
 export class Backup extends BackupClient {
   /**
-   *
-   *          <p>Backup plans are documents that contain information that AWS Backup uses to schedule
+   * <p>Backup plans are documents that contain information that AWS Backup uses to schedule
    *          tasks that create recovery points of resources.</p>
-   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, the existing
-   *             <code>backupPlanId</code> is returned.</p>
-   *
+   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an
+   *             <code>AlreadyExistsException</code> is returned.</p>
    */
   public createBackupPlan(
     args: CreateBackupPlanCommandInput,
@@ -266,21 +277,14 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.
-   *          Resources can be included by specifying patterns for a
-   *             <code>ListOfTags</code>
-   *          and selected
-   *             <code>Resources</code>.
-   *          </p>
-   *          <p>For example,
-   *          consider
-   *          the following patterns:</p>
+   * <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.
+   *          Resources can be included by specifying patterns for a <code>ListOfTags</code> and selected
+   *             <code>Resources</code>. </p>
+   *          <p>For example, consider the following patterns:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Resources:
-   *                   "arn:aws:ec2:region:account-id:volume/volume-id"</code>
+   *                   <code>Resources: "arn:aws:ec2:region:account-id:volume/volume-id"</code>
    *                </p>
    *             </li>
    *             <li>
@@ -291,7 +295,7 @@ export class Backup extends BackupClient {
    *                   <code>ConditionValue:"finance"</code>
    *                </p>
    *                <p>
-   *                   <code>ConditionType:"StringEquals"</code>
+   *                   <code>ConditionType:"STRINGEQUALS"</code>
    *                </p>
    *             </li>
    *             <li>
@@ -302,36 +306,17 @@ export class Backup extends BackupClient {
    *                   <code>ConditionValue:"critical"</code>
    *                </p>
    *                <p>
-   *                   <code>ConditionType:"StringEquals"</code>
+   *                   <code>ConditionType:"STRINGEQUALS"</code>
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Using these
-   *          patterns
-   *          would
-   *          back up all Amazon
-   *          Elastic Block Store (Amazon
-   *          EBS)
-   *          volumes that are tagged as
-   *             <code>"department=finance"</code>,
-   *             <code>"importance=critical"</code>,
-   *          in
-   *          addition to an EBS volume with the specified volume Id.</p>
-   *          <p>Resources
-   *          and conditions are additive in that all resources that match the pattern
-   *          are
-   *          selected. This shouldn't be confused with a logical
-   *          AND,
-   *          where all conditions must match.
-   *          The
-   *          matching patterns are
-   *          logically
-   *          'put together
-   *          using
-   *          the OR operator.
-   *          In
-   *          other words, all patterns that match are selected for backup.</p>
-   *
+   *          <p>Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
+   *          that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
+   *          in addition to an EBS volume with the specified volume Id.</p>
+   *          <p>Resources and conditions are additive in that all resources that match the pattern are
+   *          selected. This shouldn't be confused with a logical AND, where all conditions must match.
+   *          The matching patterns are logically 'put together using the OR
+   *          operator. In other words, all patterns that match are selected for backup.</p>
    */
   public createBackupSelection(
     args: CreateBackupSelectionCommandInput,
@@ -366,15 +351,13 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Creates a logical container where backups are stored. A <code>CreateBackupVault</code>
+   * <p>Creates a logical container where backups are stored. A <code>CreateBackupVault</code>
    *          request includes a name, optionally one or more resource tags, an encryption key, and a
    *          request ID.</p>
    *          <note>
    *             <p>Sensitive data, such as passport numbers, should not be included the name of a backup
    *             vault.</p>
    *          </note>
-   *
    */
   public createBackupVault(
     args: CreateBackupVaultCommandInput,
@@ -409,11 +392,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Deletes a backup plan. A backup plan can only be deleted after all associated selections
+   * <p>Deletes a backup plan. A backup plan can only be deleted after all associated selections
    *          of resources have been deleted. Deleting a backup plan deletes the current version of a
    *          backup plan. Previous versions, if any, will still exist.</p>
-   *
    */
   public deleteBackupPlan(
     args: DeleteBackupPlanCommandInput,
@@ -448,10 +429,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Deletes the resource selection associated with a backup plan that is specified by the
+   * <p>Deletes the resource selection associated with a backup plan that is specified by the
    *             <code>SelectionId</code>.</p>
-   *
    */
   public deleteBackupSelection(
     args: DeleteBackupSelectionCommandInput,
@@ -486,10 +465,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is
+   * <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is
    *          empty.</p>
-   *
    */
   public deleteBackupVault(
     args: DeleteBackupVaultCommandInput,
@@ -524,9 +501,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Deletes the policy document that manages permissions on a backup vault.</p>
-   *
+   * <p>Deletes the policy document that manages permissions on a backup vault.</p>
    */
   public deleteBackupVaultAccessPolicy(
     args: DeleteBackupVaultAccessPolicyCommandInput,
@@ -561,9 +536,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Deletes event notifications for the specified backup vault.</p>
-   *
+   * <p>Deletes event notifications for the specified backup vault.</p>
    */
   public deleteBackupVaultNotifications(
     args: DeleteBackupVaultNotificationsCommandInput,
@@ -601,9 +574,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Deletes the recovery point specified by a recovery point ID.</p>
-   *
+   * <p>Deletes the recovery point specified by a recovery point ID.</p>
    */
   public deleteRecoveryPoint(
     args: DeleteRecoveryPointCommandInput,
@@ -638,9 +609,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata associated with creating a backup of a resource.</p>
-   *
+   * <p>Returns metadata associated with creating a backup of a resource.</p>
    */
   public describeBackupJob(
     args: DescribeBackupJobCommandInput,
@@ -675,9 +644,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata about a backup vault specified by its name.</p>
-   *
+   * <p>Returns metadata about a backup vault specified by its name.</p>
    */
   public describeBackupVault(
     args: DescribeBackupVaultCommandInput,
@@ -712,10 +679,43 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns information about a saved resource, including the last time it was backed-up,
+   * <p>Returns metadata associated with creating a copy of a resource.</p>
+   */
+  public describeCopyJob(
+    args: DescribeCopyJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCopyJobCommandOutput>;
+  public describeCopyJob(
+    args: DescribeCopyJobCommandInput,
+    cb: (err: any, data?: DescribeCopyJobCommandOutput) => void
+  ): void;
+  public describeCopyJob(
+    args: DescribeCopyJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCopyJobCommandOutput) => void
+  ): void;
+  public describeCopyJob(
+    args: DescribeCopyJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCopyJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCopyJobCommandOutput) => void
+  ): Promise<DescribeCopyJobCommandOutput> | void {
+    const command = new DescribeCopyJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a saved resource, including the last time it was backed-up,
    *          its Amazon Resource Name (ARN), and the AWS service type of the saved resource.</p>
-   *
    */
   public describeProtectedResource(
     args: DescribeProtectedResourceCommandInput,
@@ -750,10 +750,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
+   * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
    *          lifecycle.</p>
-   *
    */
   public describeRecoveryPoint(
     args: DescribeRecoveryPointCommandInput,
@@ -788,9 +786,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata associated with a restore job that is specified by a job ID.</p>
-   *
+   * <p>Returns metadata associated with a restore job that is specified by a job ID.</p>
    */
   public describeRestoreJob(
     args: DescribeRestoreJobCommandInput,
@@ -825,9 +821,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
-   *
+   * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
    */
   public exportBackupPlanTemplate(
     args: ExportBackupPlanTemplateCommandInput,
@@ -862,9 +856,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns the body of a backup plan in JSON format, in addition to plan metadata.</p>
-   *
+   * <p>Returns the body of a backup plan in JSON format, in addition to plan metadata.</p>
    */
   public getBackupPlan(
     args: GetBackupPlanCommandInput,
@@ -899,9 +891,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns a valid JSON document specifying a backup plan or an error.</p>
-   *
+   * <p>Returns a valid JSON document specifying a backup plan or an error.</p>
    */
   public getBackupPlanFromJSON(
     args: GetBackupPlanFromJSONCommandInput,
@@ -936,9 +926,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns the template specified by its <code>templateId</code> as a backup plan.</p>
-   *
+   * <p>Returns the template specified by its <code>templateId</code> as a backup plan.</p>
    */
   public getBackupPlanFromTemplate(
     args: GetBackupPlanFromTemplateCommandInput,
@@ -973,10 +961,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns selection metadata and a document in JSON format that specifies a list of
+   * <p>Returns selection metadata and a document in JSON format that specifies a list of
    *          resources that are associated with a backup plan.</p>
-   *
    */
   public getBackupSelection(
     args: GetBackupSelectionCommandInput,
@@ -1011,10 +997,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns the access policy document that is associated with the named backup
+   * <p>Returns the access policy document that is associated with the named backup
    *          vault.</p>
-   *
    */
   public getBackupVaultAccessPolicy(
     args: GetBackupVaultAccessPolicyCommandInput,
@@ -1049,9 +1033,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns event notifications for the specified backup vault.</p>
-   *
+   * <p>Returns event notifications for the specified backup vault.</p>
    */
   public getBackupVaultNotifications(
     args: GetBackupVaultNotificationsCommandInput,
@@ -1086,14 +1068,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns two sets of metadata key-value pairs. The first set lists the metadata that the
-   *          recovery point was created with. The second set lists the metadata key-value pairs that are
-   *          required to restore the recovery point.</p>
-   *          <p>These sets can be the same, or the restore metadata set can contain different values if
-   *          the target service to be restored has changed since the recovery point was created and now
-   *          requires additional or different information in order to be restored.</p>
-   *
+   * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
    */
   public getRecoveryPointRestoreMetadata(
     args: GetRecoveryPointRestoreMetadataCommandInput,
@@ -1131,9 +1106,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns the AWS resource types supported by AWS Backup.</p>
-   *
+   * <p>Returns the AWS resource types supported by AWS Backup.</p>
    */
   public getSupportedResourceTypes(
     args: GetSupportedResourceTypesCommandInput,
@@ -1168,9 +1141,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata about your backup jobs.</p>
-   *
+   * <p>Returns metadata about your backup jobs.</p>
    */
   public listBackupJobs(
     args: ListBackupJobsCommandInput,
@@ -1205,10 +1176,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata of your saved backup plan templates, including the template ID, name,
+   * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
    *          and the creation and deletion dates.</p>
-   *
    */
   public listBackupPlanTemplates(
     args: ListBackupPlanTemplatesCommandInput,
@@ -1243,10 +1212,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),
+   * <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),
    *          backup plan IDs, creation and deletion dates, plan names, and version IDs.</p>
-   *
    */
   public listBackupPlanVersions(
     args: ListBackupPlanVersionsCommandInput,
@@ -1281,11 +1248,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata of your saved backup plans, including Amazon Resource Names (ARNs),
+   * <p>Returns metadata of your saved backup plans, including Amazon Resource Names (ARNs),
    *          plan IDs, creation and deletion dates, version IDs, plan names, and creator request
    *          IDs.</p>
-   *
    */
   public listBackupPlans(
     args: ListBackupPlansCommandInput,
@@ -1320,10 +1285,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns an array containing metadata of the resources associated with the target backup
+   * <p>Returns an array containing metadata of the resources associated with the target backup
    *          plan.</p>
-   *
    */
   public listBackupSelections(
     args: ListBackupSelectionsCommandInput,
@@ -1358,10 +1321,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of recovery point storage containers along with information about
+   * <p>Returns a list of recovery point storage containers along with information about
    *          them.</p>
-   *
    */
   public listBackupVaults(
     args: ListBackupVaultsCommandInput,
@@ -1396,11 +1357,44 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of resources successfully backed up by AWS Backup, including the time
+   * <p>Returns metadata about your copy jobs.</p>
+   */
+  public listCopyJobs(
+    args: ListCopyJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCopyJobsCommandOutput>;
+  public listCopyJobs(
+    args: ListCopyJobsCommandInput,
+    cb: (err: any, data?: ListCopyJobsCommandOutput) => void
+  ): void;
+  public listCopyJobs(
+    args: ListCopyJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCopyJobsCommandOutput) => void
+  ): void;
+  public listCopyJobs(
+    args: ListCopyJobsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCopyJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListCopyJobsCommandOutput) => void
+  ): Promise<ListCopyJobsCommandOutput> | void {
+    const command = new ListCopyJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an array of resources successfully backed up by AWS Backup, including the time
    *          the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
    *          type.</p>
-   *
    */
   public listProtectedResources(
     args: ListProtectedResourcesCommandInput,
@@ -1435,9 +1429,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed information about the recovery points stored in a backup vault.</p>
-   *
+   * <p>Returns detailed information about the recovery points stored in a backup vault.</p>
    */
   public listRecoveryPointsByBackupVault(
     args: ListRecoveryPointsByBackupVaultCommandInput,
@@ -1475,10 +1467,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns detailed information about recovery points of the type specified by a resource
+   * <p>Returns detailed information about recovery points of the type specified by a resource
    *          Amazon Resource Name (ARN).</p>
-   *
    */
   public listRecoveryPointsByResource(
     args: ListRecoveryPointsByResourceCommandInput,
@@ -1513,11 +1503,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of jobs that AWS Backup initiated to restore a saved
-   *          resource,
-   *          including metadata about the recovery process.</p>
-   *
+   * <p>Returns a list of jobs that AWS Backup initiated to restore a saved resource, including
+   *          metadata about the recovery process.</p>
    */
   public listRestoreJobs(
     args: ListRestoreJobsCommandInput,
@@ -1552,10 +1539,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
+   * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
    *          backup vault.</p>
-   *
    */
   public listTags(
     args: ListTagsCommandInput,
@@ -1590,11 +1575,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Sets a resource-based policy that is used to manage access permissions on the target
+   * <p>Sets a resource-based policy that is used to manage access permissions on the target
    *          backup vault. Requires a backup vault name and an access policy document in JSON
    *          format.</p>
-   *
    */
   public putBackupVaultAccessPolicy(
     args: PutBackupVaultAccessPolicyCommandInput,
@@ -1629,9 +1612,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Turns on notifications on a backup vault for the specified topic and events.</p>
-   *
+   * <p>Turns on notifications on a backup vault for the specified topic and events.</p>
    */
   public putBackupVaultNotifications(
     args: PutBackupVaultNotificationsCommandInput,
@@ -1666,9 +1647,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Starts a job to create a one-time backup of the specified resource.</p>
-   *
+   * <p>Starts a job to create a one-time backup of the specified resource.</p>
    */
   public startBackupJob(
     args: StartBackupJobCommandInput,
@@ -1703,12 +1682,45 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Recovers the saved resource identified by an Amazon Resource Name (ARN). </p>
+   * <p>Starts a job to create a one-time copy of the specified resource.</p>
+   */
+  public startCopyJob(
+    args: StartCopyJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCopyJobCommandOutput>;
+  public startCopyJob(
+    args: StartCopyJobCommandInput,
+    cb: (err: any, data?: StartCopyJobCommandOutput) => void
+  ): void;
+  public startCopyJob(
+    args: StartCopyJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCopyJobCommandOutput) => void
+  ): void;
+  public startCopyJob(
+    args: StartCopyJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartCopyJobCommandOutput) => void),
+    cb?: (err: any, data?: StartCopyJobCommandOutput) => void
+  ): Promise<StartCopyJobCommandOutput> | void {
+    const command = new StartCopyJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN). </p>
    *          <p>If the resource ARN is included in the request, then the last complete backup of that
    *          resource is recovered. If the ARN of a recovery point is supplied, then that recovery point
    *          is restored.</p>
-   *
    */
   public startRestoreJob(
     args: StartRestoreJobCommandInput,
@@ -1743,9 +1755,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
-   *
+   * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
    */
   public stopBackupJob(
     args: StopBackupJobCommandInput,
@@ -1780,10 +1790,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
+   * <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
    *          identified by an Amazon Resource Name (ARN).</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1818,10 +1826,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
+   * <p>Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
    *          identified by an Amazon Resource Name (ARN)</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1856,11 +1862,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Replaces the body of a saved backup plan identified by its <code>backupPlanId</code>
+   * <p>Replaces the body of a saved backup plan identified by its <code>backupPlanId</code>
    *          with the input document in JSON format. The new version is uniquely identified by a
    *             <code>VersionId</code>.</p>
-   *
    */
   public updateBackupPlan(
     args: UpdateBackupPlanCommandInput,
@@ -1895,21 +1899,14 @@ export class Backup extends BackupClient {
   }
 
   /**
-   *
-   *          <p>Sets the transition lifecycle of a recovery point.</p>
+   * <p>Sets the transition lifecycle of a recovery point.</p>
    *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup
-   *          transitions
-   *          and
-   *          expires
-   *          backups automatically according to the lifecycle that you define. </p>
+   *          it expires. AWS Backup transitions and expires backups automatically according to the
+   *          lifecycle that you define. </p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
-   *          “transition to cold after
-   *          days”
-   *          setting. The “transition to cold after days” setting cannot be changed
-   *          after a backup has been transitioned to cold. </p>
-   *
+   *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
+   *          be changed after a backup has been transitioned to cold. </p>
    */
   public updateRecoveryPointLifecycle(
     args: UpdateRecoveryPointLifecycleCommandInput,

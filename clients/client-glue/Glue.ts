@@ -617,16 +617,12 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Glue</fullname>
+ * <fullname>AWS Glue</fullname>
  *          <p>Defines the public endpoint for the AWS Glue service.</p>
- *
  */
 export class Glue extends GlueClient {
   /**
-   *
-   *          <p>Retrieves a list of tags associated with a resource.</p>
-   *
+   * <p>Retrieves a list of tags associated with a resource.</p>
    */
   public getTags(
     args: GetTagsCommandInput,
@@ -661,11 +657,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Adds tags to a resource. A tag is a label you can assign to an AWS resource.
+   * <p>Adds tags to a resource. A tag is a label you can assign to an AWS resource.
    *       In AWS Glue, you can tag only certain resources. For information about what
    *       resources you can tag, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a>.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -700,9 +694,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Removes tags from a resource.</p>
-   *
+   * <p>Removes tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -737,9 +729,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates one or more partitions in a batch operation.</p>
-   *
+   * <p>Creates one or more partitions in a batch operation.</p>
    */
   public batchCreatePartition(
     args: BatchCreatePartitionCommandInput,
@@ -774,9 +764,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a list of connection definitions from the Data Catalog.</p>
-   *
+   * <p>Deletes a list of connection definitions from the Data Catalog.</p>
    */
   public batchDeleteConnection(
     args: BatchDeleteConnectionCommandInput,
@@ -811,9 +799,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes one or more partitions in a batch operation.</p>
-   *
+   * <p>Deletes one or more partitions in a batch operation.</p>
    */
   public batchDeletePartition(
     args: BatchDeletePartitionCommandInput,
@@ -848,8 +834,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes multiple tables at once.</p>
+   * <p>Deletes multiple tables at once.</p>
    *          <note>
    *             <p>After completing this operation, you no longer have access to the table versions and
    *         partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources
@@ -860,7 +845,6 @@ export class Glue extends GlueClient {
    *           <code>BatchDeletePartition</code>, to delete any resources that belong to the
    *         table.</p>
    *          </note>
-   *
    */
   public batchDeleteTable(
     args: BatchDeleteTableCommandInput,
@@ -895,9 +879,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified batch of versions of a table.</p>
-   *
+   * <p>Deletes a specified batch of versions of a table.</p>
    */
   public batchDeleteTableVersion(
     args: BatchDeleteTableVersionCommandInput,
@@ -932,9 +914,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves partitions in a batch request.</p>
-   *
+   * <p>Retrieves partitions in a batch request.</p>
    */
   public batchGetPartition(
     args: BatchGetPartitionCommandInput,
@@ -969,9 +949,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a connection definition in the Data Catalog.</p>
-   *
+   * <p>Creates a connection definition in the Data Catalog.</p>
    */
   public createConnection(
     args: CreateConnectionCommandInput,
@@ -1006,9 +984,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new database in a Data Catalog.</p>
-   *
+   * <p>Creates a new database in a Data Catalog.</p>
    */
   public createDatabase(
     args: CreateDatabaseCommandInput,
@@ -1043,9 +1019,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new partition.</p>
-   *
+   * <p>Creates a new partition.</p>
    */
   public createPartition(
     args: CreatePartitionCommandInput,
@@ -1080,9 +1054,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new table definition in the Data Catalog.</p>
-   *
+   * <p>Creates a new table definition in the Data Catalog.</p>
    */
   public createTable(
     args: CreateTableCommandInput,
@@ -1117,9 +1089,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new function definition in the Data Catalog.</p>
-   *
+   * <p>Creates a new function definition in the Data Catalog.</p>
    */
   public createUserDefinedFunction(
     args: CreateUserDefinedFunctionCommandInput,
@@ -1154,9 +1124,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a connection from the Data Catalog.</p>
-   *
+   * <p>Deletes a connection from the Data Catalog.</p>
    */
   public deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -1191,8 +1159,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Removes a specified database from a Data Catalog.</p>
+   * <p>Removes a specified database from a Data Catalog.</p>
    *          <note>
    *             <p>After completing this operation, you no longer have access to the tables (and all table
    *         versions and partitions that might belong to the tables) and the user-defined functions in
@@ -1205,7 +1172,6 @@ export class Glue extends GlueClient {
    *           <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources that
    *         belong to the database.</p>
    *          </note>
-   *
    */
   public deleteDatabase(
     args: DeleteDatabaseCommandInput,
@@ -1240,9 +1206,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified partition.</p>
-   *
+   * <p>Deletes a specified partition.</p>
    */
   public deletePartition(
     args: DeletePartitionCommandInput,
@@ -1277,9 +1241,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified policy.</p>
-   *
+   * <p>Deletes a specified policy.</p>
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1314,8 +1276,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Removes a table definition from the Data Catalog.</p>
+   * <p>Removes a table definition from the Data Catalog.</p>
    *          <note>
    *             <p>After completing this operation, you no longer have access to the table versions and
    *         partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources
@@ -1326,7 +1287,6 @@ export class Glue extends GlueClient {
    *           <code>BatchDeletePartition</code>, to delete any resources that belong to the
    *         table.</p>
    *          </note>
-   *
    */
   public deleteTable(
     args: DeleteTableCommandInput,
@@ -1361,9 +1321,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified version of a table.</p>
-   *
+   * <p>Deletes a specified version of a table.</p>
    */
   public deleteTableVersion(
     args: DeleteTableVersionCommandInput,
@@ -1398,9 +1356,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes an existing function definition from the Data Catalog.</p>
-   *
+   * <p>Deletes an existing function definition from the Data Catalog.</p>
    */
   public deleteUserDefinedFunction(
     args: DeleteUserDefinedFunctionCommandInput,
@@ -1435,9 +1391,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the status of a migration operation.</p>
-   *
+   * <p>Retrieves the status of a migration operation.</p>
    */
   public getCatalogImportStatus(
     args: GetCatalogImportStatusCommandInput,
@@ -1472,9 +1426,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a connection definition from the Data Catalog.</p>
-   *
+   * <p>Retrieves a connection definition from the Data Catalog.</p>
    */
   public getConnection(
     args: GetConnectionCommandInput,
@@ -1509,9 +1461,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of connection definitions from the Data Catalog.</p>
-   *
+   * <p>Retrieves a list of connection definitions from the Data Catalog.</p>
    */
   public getConnections(
     args: GetConnectionsCommandInput,
@@ -1546,9 +1496,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the security configuration for a specified catalog.</p>
-   *
+   * <p>Retrieves the security configuration for a specified catalog.</p>
    */
   public getDataCatalogEncryptionSettings(
     args: GetDataCatalogEncryptionSettingsCommandInput,
@@ -1589,9 +1537,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the definition of a specified database.</p>
-   *
+   * <p>Retrieves the definition of a specified database.</p>
    */
   public getDatabase(
     args: GetDatabaseCommandInput,
@@ -1626,9 +1572,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves all databases defined in a given Data Catalog.</p>
-   *
+   * <p>Retrieves all databases defined in a given Data Catalog.</p>
    */
   public getDatabases(
     args: GetDatabasesCommandInput,
@@ -1663,9 +1607,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a specified partition.</p>
-   *
+   * <p>Retrieves information about a specified partition.</p>
    */
   public getPartition(
     args: GetPartitionCommandInput,
@@ -1700,9 +1642,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about the partitions in a table.</p>
-   *
+   * <p>Retrieves information about the partitions in a table.</p>
    */
   public getPartitions(
     args: GetPartitionsCommandInput,
@@ -1737,9 +1677,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a specified resource policy.</p>
-   *
+   * <p>Retrieves a specified resource policy.</p>
    */
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1774,10 +1712,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the <code>Table</code> definition in a Data Catalog for
+   * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
    *       a specified table.</p>
-   *
    */
   public getTable(
     args: GetTableCommandInput,
@@ -1812,9 +1748,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a specified version of a table.</p>
-   *
+   * <p>Retrieves a specified version of a table.</p>
    */
   public getTableVersion(
     args: GetTableVersionCommandInput,
@@ -1849,10 +1783,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of strings that identify available versions of
+   * <p>Retrieves a list of strings that identify available versions of
    *       a specified table.</p>
-   *
    */
   public getTableVersions(
     args: GetTableVersionsCommandInput,
@@ -1887,10 +1819,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the definitions of some or all of the tables in a given
+   * <p>Retrieves the definitions of some or all of the tables in a given
    *       <code>Database</code>.</p>
-   *
    */
   public getTables(
     args: GetTablesCommandInput,
@@ -1925,9 +1855,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a specified function definition from the Data Catalog.</p>
-   *
+   * <p>Retrieves a specified function definition from the Data Catalog.</p>
    */
   public getUserDefinedFunction(
     args: GetUserDefinedFunctionCommandInput,
@@ -1962,9 +1890,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves multiple function definitions from the Data Catalog.</p>
-   *
+   * <p>Retrieves multiple function definitions from the Data Catalog.</p>
    */
   public getUserDefinedFunctions(
     args: GetUserDefinedFunctionsCommandInput,
@@ -1999,9 +1925,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Imports an existing Amazon Athena Data Catalog to AWS Glue</p>
-   *
+   * <p>Imports an existing Amazon Athena Data Catalog to AWS Glue</p>
    */
   public importCatalogToGlue(
     args: ImportCatalogToGlueCommandInput,
@@ -2036,10 +1960,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Sets the security configuration for a specified catalog. After the configuration has been
+   * <p>Sets the security configuration for a specified catalog. After the configuration has been
    *       set, the specified encryption is applied to every catalog write thereafter.</p>
-   *
    */
   public putDataCatalogEncryptionSettings(
     args: PutDataCatalogEncryptionSettingsCommandInput,
@@ -2080,9 +2002,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Sets the Data Catalog resource policy for access control.</p>
-   *
+   * <p>Sets the Data Catalog resource policy for access control.</p>
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -2117,10 +2037,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>
+   * <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>
    *          <p>You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search. </p>
-   *
    */
   public searchTables(
     args: SearchTablesCommandInput,
@@ -2155,9 +2073,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates a connection definition in the Data Catalog.</p>
-   *
+   * <p>Updates a connection definition in the Data Catalog.</p>
    */
   public updateConnection(
     args: UpdateConnectionCommandInput,
@@ -2192,9 +2108,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing database definition in a Data Catalog.</p>
-   *
+   * <p>Updates an existing database definition in a Data Catalog.</p>
    */
   public updateDatabase(
     args: UpdateDatabaseCommandInput,
@@ -2229,9 +2143,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates a partition.</p>
-   *
+   * <p>Updates a partition.</p>
    */
   public updatePartition(
     args: UpdatePartitionCommandInput,
@@ -2266,9 +2178,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates a metadata table in the Data Catalog.</p>
-   *
+   * <p>Updates a metadata table in the Data Catalog.</p>
    */
   public updateTable(
     args: UpdateTableCommandInput,
@@ -2303,9 +2213,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing function definition in the Data Catalog.</p>
-   *
+   * <p>Updates an existing function definition in the Data Catalog.</p>
    */
   public updateUserDefinedFunction(
     args: UpdateUserDefinedFunctionCommandInput,
@@ -2340,12 +2248,10 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of resource metadata for a given list of development endpoint names. After
+   * <p>Returns a list of resource metadata for a given list of development endpoint names. After
    *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
    *       data to which you have been granted permissions. This operation supports all IAM permissions,
    *       including permission conditions that uses tags.</p>
-   *
    */
   public batchGetDevEndpoints(
     args: BatchGetDevEndpointsCommandInput,
@@ -2380,9 +2286,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new development endpoint.</p>
-   *
+   * <p>Creates a new development endpoint.</p>
    */
   public createDevEndpoint(
     args: CreateDevEndpointCommandInput,
@@ -2417,9 +2321,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new security configuration. A security configuration is a set of security properties that can be used by AWS Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>
-   *
+   * <p>Creates a new security configuration. A security configuration is a set of security properties that can be used by AWS Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>
    */
   public createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
@@ -2454,9 +2356,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified development endpoint.</p>
-   *
+   * <p>Deletes a specified development endpoint.</p>
    */
   public deleteDevEndpoint(
     args: DeleteDevEndpointCommandInput,
@@ -2491,9 +2391,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified security configuration.</p>
-   *
+   * <p>Deletes a specified security configuration.</p>
    */
   public deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
@@ -2528,14 +2426,12 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a specified development endpoint.</p>
+   * <p>Retrieves information about a specified development endpoint.</p>
    *          <note>
    *             <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only
    *         a private IP address, and the public IP address field is not populated. When you create a
    *         non-VPC development endpoint, AWS Glue returns only a public IP address.</p>
    *          </note>
-   *
    */
   public getDevEndpoint(
     args: GetDevEndpointCommandInput,
@@ -2570,14 +2466,12 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves all the development endpoints in this AWS account.</p>
+   * <p>Retrieves all the development endpoints in this AWS account.</p>
    *          <note>
    *             <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address
    *       and the public IP address field is not populated. When you create a non-VPC development
    *       endpoint, AWS Glue returns only a public IP address.</p>
    *          </note>
-   *
    */
   public getDevEndpoints(
     args: GetDevEndpointsCommandInput,
@@ -2612,9 +2506,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Returns information on a job bookmark entry.</p>
-   *
+   * <p>Returns information on a job bookmark entry.</p>
    */
   public getJobBookmark(
     args: GetJobBookmarkCommandInput,
@@ -2649,9 +2541,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a specified security configuration.</p>
-   *
+   * <p>Retrieves a specified security configuration.</p>
    */
   public getSecurityConfiguration(
     args: GetSecurityConfigurationCommandInput,
@@ -2686,9 +2576,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of all security configurations.</p>
-   *
+   * <p>Retrieves a list of all security configurations.</p>
    */
   public getSecurityConfigurations(
     args: GetSecurityConfigurationsCommandInput,
@@ -2723,15 +2611,13 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the names of all <code>DevEndpoint</code> resources in this AWS account, or the
+   * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this AWS account, or the
    *       resources with the specified tag. This operation allows you to see which resources are
    *       available in your account, and their names.</p>
    *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
-   *
    */
   public listDevEndpoints(
     args: ListDevEndpointsCommandInput,
@@ -2766,9 +2652,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Resets a bookmark entry.</p>
-   *
+   * <p>Resets a bookmark entry.</p>
    */
   public resetJobBookmark(
     args: ResetJobBookmarkCommandInput,
@@ -2803,9 +2687,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates a specified development endpoint.</p>
-   *
+   * <p>Updates a specified development endpoint.</p>
    */
   public updateDevEndpoint(
     args: UpdateDevEndpointCommandInput,
@@ -2840,12 +2722,10 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that AWS
+   * <p>Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that AWS
    *       Glue runs on your behalf as part of various machine learning workflows. You can cancel a
    *       machine learning task run at any time by calling <code>CancelMLTaskRun</code> with a task
    *       run's parent transform's <code>TransformID</code> and the task run's <code>TaskRunId</code>. </p>
-   *
    */
   public cancelMLTaskRun(
     args: CancelMLTaskRunCommandInput,
@@ -2880,8 +2760,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates an AWS Glue machine learning transform. This operation creates the transform and
+   * <p>Creates an AWS Glue machine learning transform. This operation creates the transform and
    *       all the necessary parameters to train it.</p>
    *
    * 	        <p>Call this operation as the first step in the process of using a machine learning transform
@@ -2894,8 +2773,6 @@ export class Glue extends GlueClient {
    *       transform. These parameters include <code>Role</code>, and optionally,
    *         <code>AllocatedCapacity</code>, <code>Timeout</code>, and <code>MaxRetries</code>. For more
    *       information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html">Jobs</a>.</p>
-   *
-   *
    */
   public createMLTransform(
     args: CreateMLTransformCommandInput,
@@ -2930,14 +2807,12 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes an AWS Glue machine learning transform. Machine learning transforms are a special
+   * <p>Deletes an AWS Glue machine learning transform. Machine learning transforms are a special
    *       type of transform that use machine learning to learn the details of the transformation to be
    *       performed by learning from examples provided by humans. These transformations are then saved
    *       by AWS Glue. If you no longer need a transform, you can delete it by calling
    *         <code>DeleteMLTransforms</code>. However, any AWS Glue jobs that still reference the deleted
    *       transform will no longer succeed.</p>
-   *
    */
   public deleteMLTransform(
     args: DeleteMLTransformCommandInput,
@@ -2972,13 +2847,11 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Gets details for a specific task run on a machine learning transform. Machine learning
+   * <p>Gets details for a specific task run on a machine learning transform. Machine learning
    *       task runs are asynchronous tasks that AWS Glue runs on your behalf as part of various machine
    *       learning workflows. You can check the stats of any task run by calling
    *         <code>GetMLTaskRun</code> with the <code>TaskRunID</code> and its parent transform's
    *         <code>TransformID</code>.</p>
-   *
    */
   public getMLTaskRun(
     args: GetMLTaskRunCommandInput,
@@ -3013,15 +2886,13 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of runs for a machine learning transform. Machine learning task runs are
+   * <p>Gets a list of runs for a machine learning transform. Machine learning task runs are
    *       asynchronous tasks that AWS Glue runs on your behalf as part of various machine learning
    *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
    *         <code>GetMLTaskRuns</code> with their parent transform's <code>TransformID</code> and other
    *       optional parameters as documented in this section.</p>
    *
    * 	        <p>This operation returns a list of historic runs and must be paginated.</p>
-   *
    */
   public getMLTaskRuns(
     args: GetMLTaskRunsCommandInput,
@@ -3056,13 +2927,11 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Gets an AWS Glue machine learning transform artifact and all its corresponding metadata.
+   * <p>Gets an AWS Glue machine learning transform artifact and all its corresponding metadata.
    *       Machine learning transforms are a special type of transform that use machine learning to learn
    *       the details of the transformation to be performed by learning from examples provided by
    *       humans. These transformations are then saved by AWS Glue. You can retrieve their metadata by
    *       calling <code>GetMLTransform</code>.</p>
-   *
    */
   public getMLTransform(
     args: GetMLTransformCommandInput,
@@ -3097,13 +2966,11 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Gets a sortable, filterable list of existing AWS Glue machine learning transforms. Machine
+   * <p>Gets a sortable, filterable list of existing AWS Glue machine learning transforms. Machine
    *       learning transforms are a special type of transform that use machine learning to learn the
    *       details of the transformation to be performed by learning from examples provided by humans.
    *       These transformations are then saved by AWS Glue, and you can retrieve their metadata by
    *       calling <code>GetMLTransforms</code>.</p>
-   *
    */
   public getMLTransforms(
     args: GetMLTransformsCommandInput,
@@ -3138,8 +3005,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Begins an asynchronous task to export all labeled data for a particular transform. This
+   * <p>Begins an asynchronous task to export all labeled data for a particular transform. This
    *       task is the only label-related API call that is not part of the typical active learning
    *       workflow. You typically use <code>StartExportLabelsTaskRun</code> when you want to work with
    *       all of your existing labels at the same time, such as when you want to remove or change labels
@@ -3148,8 +3014,6 @@ export class Glue extends GlueClient {
    *       Service (Amazon S3) path to export the labels to. The operation returns a
    *         <code>TaskRunId</code>. You can check on the status of your task run by calling the
    *         <code>GetMLTaskRun</code> API.</p>
-   *
-   *
    */
   public startExportLabelsTaskRun(
     args: StartExportLabelsTaskRunCommandInput,
@@ -3184,8 +3048,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Enables you to provide additional labels (examples of truth) to be used to teach the
+   * <p>Enables you to provide additional labels (examples of truth) to be used to teach the
    *       machine learning transform and improve its quality. This API operation is generally used as
    *       part of the active learning workflow that starts with the
    *         <code>StartMLLabelingSetGenerationTaskRun</code> call and that ultimately results in
@@ -3210,8 +3073,6 @@ export class Glue extends GlueClient {
    *
    *          <p>You can check on the status of your task run by calling the <code>GetMLTaskRun</code>
    *       operation. </p>
-   *
-   *
    */
   public startImportLabelsTaskRun(
     args: StartImportLabelsTaskRunCommandInput,
@@ -3246,8 +3107,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Starts a task to estimate the quality of the transform. </p>
+   * <p>Starts a task to estimate the quality of the transform. </p>
    *
    * 	        <p>When you provide label sets as examples of truth, AWS Glue machine learning uses some of
    *       those examples to learn from them. The rest of the labels are used as a test to estimate
@@ -3255,8 +3115,6 @@ export class Glue extends GlueClient {
    *
    * 	        <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
    *       information about the stats of the <code>EvaluationTaskRun</code>.</p>
-   *
-   *
    */
   public startMLEvaluationTaskRun(
     args: StartMLEvaluationTaskRunCommandInput,
@@ -3291,8 +3149,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Starts the active learning workflow for your machine learning transform to improve the
+   * <p>Starts the active learning workflow for your machine learning transform to improve the
    *       transform's quality by generating label sets and adding labels.</p>
    *
    * 	        <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, AWS Glue will have
@@ -3306,7 +3163,6 @@ export class Glue extends GlueClient {
    *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
    *       all future runs of the machine learning transform will use the new and improved labels and
    *       perform a higher-quality transformation.</p>
-   *
    */
   public startMLLabelingSetGenerationTaskRun(
     args: StartMLLabelingSetGenerationTaskRunCommandInput,
@@ -3353,13 +3209,11 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
+   * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
    *
    *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
    *       operation to assess how well your new parameters achieved your goals (such as improving the
    *       quality of your machine learning transform, or making it more cost-effective).</p>
-   *
    */
   public updateMLTransform(
     args: UpdateMLTransformCommandInput,
@@ -3394,10 +3248,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
+   * <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
    * </p>
-   *
    */
   public batchGetJobs(
     args: BatchGetJobsCommandInput,
@@ -3432,9 +3284,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
-   *
+   * <p>Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
    */
   public batchGetTriggers(
     args: BatchGetTriggersCommandInput,
@@ -3469,9 +3319,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
-   *
+   * <p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
    */
   public batchGetWorkflows(
     args: BatchGetWorkflowsCommandInput,
@@ -3506,9 +3354,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Stops one or more job runs for a specified job definition.</p>
-   *
+   * <p>Stops one or more job runs for a specified job definition.</p>
    */
   public batchStopJobRun(
     args: BatchStopJobRunCommandInput,
@@ -3543,9 +3389,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new job definition.</p>
-   *
+   * <p>Creates a new job definition.</p>
    */
   public createJob(
     args: CreateJobCommandInput,
@@ -3580,9 +3424,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new trigger.</p>
-   *
+   * <p>Creates a new trigger.</p>
    */
   public createTrigger(
     args: CreateTriggerCommandInput,
@@ -3617,9 +3459,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new workflow.</p>
-   *
+   * <p>Creates a new workflow.</p>
    */
   public createWorkflow(
     args: CreateWorkflowCommandInput,
@@ -3654,10 +3494,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified job definition. If the job definition
+   * <p>Deletes a specified job definition. If the job definition
    *       is not found, no exception is thrown.</p>
-   *
    */
   public deleteJob(
     args: DeleteJobCommandInput,
@@ -3692,10 +3530,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified trigger. If the trigger is not found, no
+   * <p>Deletes a specified trigger. If the trigger is not found, no
    *       exception is thrown.</p>
-   *
    */
   public deleteTrigger(
     args: DeleteTriggerCommandInput,
@@ -3730,9 +3566,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Deletes a workflow.</p>
-   *
+   * <p>Deletes a workflow.</p>
    */
   public deleteWorkflow(
     args: DeleteWorkflowCommandInput,
@@ -3767,9 +3601,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves an existing job definition.</p>
-   *
+   * <p>Retrieves an existing job definition.</p>
    */
   public getJob(
     args: GetJobCommandInput,
@@ -3804,9 +3636,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the metadata for a given job run.</p>
-   *
+   * <p>Retrieves the metadata for a given job run.</p>
    */
   public getJobRun(
     args: GetJobRunCommandInput,
@@ -3841,9 +3671,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves metadata for all runs of a given job definition.</p>
-   *
+   * <p>Retrieves metadata for all runs of a given job definition.</p>
    */
   public getJobRuns(
     args: GetJobRunsCommandInput,
@@ -3878,9 +3706,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves all current job definitions.</p>
-   *
+   * <p>Retrieves all current job definitions.</p>
    */
   public getJobs(
     args: GetJobsCommandInput,
@@ -3915,9 +3741,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the definition of a trigger.</p>
-   *
+   * <p>Retrieves the definition of a trigger.</p>
    */
   public getTrigger(
     args: GetTriggerCommandInput,
@@ -3952,9 +3776,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Gets all the triggers associated with a job.</p>
-   *
+   * <p>Gets all the triggers associated with a job.</p>
    */
   public getTriggers(
     args: GetTriggersCommandInput,
@@ -3989,9 +3811,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *         <p>Retrieves resource metadata for a workflow.</p>
-   *
+   * <p>Retrieves resource metadata for a workflow.</p>
    */
   public getWorkflow(
     args: GetWorkflowCommandInput,
@@ -4026,9 +3846,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the metadata for a given workflow run. </p>
-   *
+   * <p>Retrieves the metadata for a given workflow run. </p>
    */
   public getWorkflowRun(
     args: GetWorkflowRunCommandInput,
@@ -4063,9 +3881,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the workflow run properties which were set during the run.</p>
-   *
+   * <p>Retrieves the workflow run properties which were set during the run.</p>
    */
   public getWorkflowRunProperties(
     args: GetWorkflowRunPropertiesCommandInput,
@@ -4100,9 +3916,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves metadata for all runs of a given workflow.</p>
-   *
+   * <p>Retrieves metadata for all runs of a given workflow.</p>
    */
   public getWorkflowRuns(
     args: GetWorkflowRunsCommandInput,
@@ -4137,13 +3951,11 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the names of all job resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
+   * <p>Retrieves the names of all job resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
    *
    * 	        <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
-   *
    */
   public listJobs(
     args: ListJobsCommandInput,
@@ -4178,13 +3990,11 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
+   * <p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
    *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
-   *
    */
   public listTriggers(
     args: ListTriggersCommandInput,
@@ -4219,9 +4029,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Lists names of workflows created in the account.</p>
-   *
+   * <p>Lists names of workflows created in the account.</p>
    */
   public listWorkflows(
     args: ListWorkflowsCommandInput,
@@ -4256,9 +4064,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
-   *
+   * <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
    */
   public putWorkflowRunProperties(
     args: PutWorkflowRunPropertiesCommandInput,
@@ -4293,9 +4099,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Starts a job run using a job definition.</p>
-   *
+   * <p>Starts a job run using a job definition.</p>
    */
   public startJobRun(
     args: StartJobRunCommandInput,
@@ -4330,11 +4134,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
+   * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
    *       Jobs</a> for information about how different types of trigger are
    *       started.</p>
-   *
    */
   public startTrigger(
     args: StartTriggerCommandInput,
@@ -4369,9 +4171,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Starts a new run of the specified workflow.</p>
-   *
+   * <p>Starts a new run of the specified workflow.</p>
    */
   public startWorkflowRun(
     args: StartWorkflowRunCommandInput,
@@ -4406,9 +4206,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Stops a specified trigger.</p>
-   *
+   * <p>Stops a specified trigger.</p>
    */
   public stopTrigger(
     args: StopTriggerCommandInput,
@@ -4443,9 +4241,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing job definition.</p>
-   *
+   * <p>Updates an existing job definition.</p>
    */
   public updateJob(
     args: UpdateJobCommandInput,
@@ -4480,9 +4276,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates a trigger definition.</p>
-   *
+   * <p>Updates a trigger definition.</p>
    */
   public updateTrigger(
     args: UpdateTriggerCommandInput,
@@ -4517,9 +4311,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing workflow.</p>
-   *
+   * <p>Updates an existing workflow.</p>
    */
   public updateWorkflow(
     args: UpdateWorkflowCommandInput,
@@ -4554,9 +4346,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
-   *
+   * <p>Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
    */
   public batchGetCrawlers(
     args: BatchGetCrawlersCommandInput,
@@ -4591,11 +4381,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
+   * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
    *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
    *       depending on which field of the request is present.</p>
-   *
    */
   public createClassifier(
     args: CreateClassifierCommandInput,
@@ -4630,11 +4418,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
+   * <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
    *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
    *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
-   *
    */
   public createCrawler(
     args: CreateCrawlerCommandInput,
@@ -4669,9 +4455,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Transforms a directed acyclic graph (DAG) into code.</p>
-   *
+   * <p>Transforms a directed acyclic graph (DAG) into code.</p>
    */
   public createScript(
     args: CreateScriptCommandInput,
@@ -4706,9 +4490,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Removes a classifier from the Data Catalog.</p>
-   *
+   * <p>Removes a classifier from the Data Catalog.</p>
    */
   public deleteClassifier(
     args: DeleteClassifierCommandInput,
@@ -4743,10 +4525,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler state is
+   * <p>Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler state is
    *         <code>RUNNING</code>.</p>
-   *
    */
   public deleteCrawler(
     args: DeleteCrawlerCommandInput,
@@ -4781,9 +4561,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieve a classifier by name.</p>
-   *
+   * <p>Retrieve a classifier by name.</p>
    */
   public getClassifier(
     args: GetClassifierCommandInput,
@@ -4818,9 +4596,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Lists all classifier objects in the Data Catalog.</p>
-   *
+   * <p>Lists all classifier objects in the Data Catalog.</p>
    */
   public getClassifiers(
     args: GetClassifiersCommandInput,
@@ -4855,9 +4631,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves metadata for a specified crawler.</p>
-   *
+   * <p>Retrieves metadata for a specified crawler.</p>
    */
   public getCrawler(
     args: GetCrawlerCommandInput,
@@ -4892,9 +4666,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves metrics about specified crawlers.</p>
-   *
+   * <p>Retrieves metrics about specified crawlers.</p>
    */
   public getCrawlerMetrics(
     args: GetCrawlerMetricsCommandInput,
@@ -4929,10 +4701,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves metadata for all crawlers defined in the customer
+   * <p>Retrieves metadata for all crawlers defined in the customer
    *       account.</p>
-   *
    */
   public getCrawlers(
     args: GetCrawlersCommandInput,
@@ -4967,9 +4737,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
-   *
+   * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
    */
   public getDataflowGraph(
     args: GetDataflowGraphCommandInput,
@@ -5004,9 +4772,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Creates mappings.</p>
-   *
+   * <p>Creates mappings.</p>
    */
   public getMapping(
     args: GetMappingCommandInput,
@@ -5041,9 +4807,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Gets code to perform a specified mapping.</p>
-   *
+   * <p>Gets code to perform a specified mapping.</p>
    */
   public getPlan(
     args: GetPlanCommandInput,
@@ -5078,15 +4842,13 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the names of all crawler resources in this AWS account, or the
+   * <p>Retrieves the names of all crawler resources in this AWS account, or the
    *       resources with the specified tag. This operation allows you to see which
    *       resources are available in your account, and their names.</p>
    *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
-   *
    */
   public listCrawlers(
     args: ListCrawlersCommandInput,
@@ -5121,10 +4883,8 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Starts a crawl using the specified crawler, regardless of what is scheduled. If the
+   * <p>Starts a crawl using the specified crawler, regardless of what is scheduled. If the
    *       crawler is already running, returns a <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
-   *
    */
   public startCrawler(
     args: StartCrawlerCommandInput,
@@ -5159,11 +4919,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Changes the schedule state of the specified crawler to
+   * <p>Changes the schedule state of the specified crawler to
    *       <code>SCHEDULED</code>, unless the crawler is already running or the
    *       schedule state is already <code>SCHEDULED</code>.</p>
-   *
    */
   public startCrawlerSchedule(
     args: StartCrawlerScheduleCommandInput,
@@ -5198,9 +4956,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>If the specified crawler is running, stops the crawl.</p>
-   *
+   * <p>If the specified crawler is running, stops the crawl.</p>
    */
   public stopCrawler(
     args: StopCrawlerCommandInput,
@@ -5235,11 +4991,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Sets the schedule state of the specified crawler to
+   * <p>Sets the schedule state of the specified crawler to
    *       <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is
    *       already running.</p>
-   *
    */
   public stopCrawlerSchedule(
     args: StopCrawlerScheduleCommandInput,
@@ -5274,11 +5028,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
+   * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
    *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
    *       which field is present).</p>
-   *
    */
   public updateClassifier(
     args: UpdateClassifierCommandInput,
@@ -5313,11 +5065,9 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates a crawler. If a crawler is
+   * <p>Updates a crawler. If a crawler is
    *       running, you must stop it using <code>StopCrawler</code> before updating
    *       it.</p>
-   *
    */
   public updateCrawler(
     args: UpdateCrawlerCommandInput,
@@ -5352,9 +5102,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   *
-   *          <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
-   *
+   * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
    */
   public updateCrawlerSchedule(
     args: UpdateCrawlerScheduleCommandInput,

@@ -276,8 +276,7 @@ export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>AAWS Sever Migration Service</fullname>
+ * <fullname>AAWS Sever Migration Service</fullname>
  *         <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions,
  *             syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service
  *             (AWS SMS). The topic for each action shows the Query API request parameters and the XML
@@ -298,7 +297,6 @@ export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<
  *                </p>
  *             </li>
  *          </ul>
- *
  */
 export class SMSClient extends __Client<
   __HttpHandlerOptions,

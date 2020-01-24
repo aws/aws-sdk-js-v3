@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBSubnetGroup, ModifyDBSubnetGroupMessage } from "../models/index";
+import {
+  ModifyDBSubnetGroupMessage,
+  ModifyDBSubnetGroupResult
+} from "../models/index";
 import {
   deserializeAws_queryModifyDBSubnetGroupCommand,
   serializeAws_queryModifyDBSubnetGroupCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBSubnetGroupCommandInput = ModifyDBSubnetGroupMessage;
-export type ModifyDBSubnetGroupCommandOutput = DBSubnetGroup;
+export type ModifyDBSubnetGroupCommandOutput = ModifyDBSubnetGroupResult;
 
 export class ModifyDBSubnetGroupCommand extends $Command<
   ModifyDBSubnetGroupCommandInput,

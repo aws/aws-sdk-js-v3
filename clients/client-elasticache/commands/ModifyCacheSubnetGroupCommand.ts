@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../ElastiCacheClient";
 import {
-  CacheSubnetGroup,
-  ModifyCacheSubnetGroupMessage
+  ModifyCacheSubnetGroupMessage,
+  ModifyCacheSubnetGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryModifyCacheSubnetGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyCacheSubnetGroupCommandInput = ModifyCacheSubnetGroupMessage;
-export type ModifyCacheSubnetGroupCommandOutput = CacheSubnetGroup;
+export type ModifyCacheSubnetGroupCommandOutput = ModifyCacheSubnetGroupResult;
 
 export class ModifyCacheSubnetGroupCommand extends $Command<
   ModifyCacheSubnetGroupCommandInput,

@@ -71,6 +71,7 @@ import {
   UpdateOriginEndpointCommandOutput
 } from "../commands/UpdateOriginEndpointCommand";
 import {
+  Authorization,
   Channel,
   CmafEncryption,
   CmafPackage,
@@ -187,6 +188,12 @@ export async function serializeAws_restJson1_1CreateOriginEndpointCommand(
   let resolvedPath = "/origin_endpoints";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.Authorization !== undefined) {
+    bodyParams["authorization"] = serializeAws_restJson1_1Authorization(
+      input.Authorization,
+      context
+    );
+  }
   if (input.ChannelId !== undefined) {
     bodyParams["channelId"] = input.ChannelId;
   }
@@ -670,6 +677,12 @@ export async function serializeAws_restJson1_1UpdateOriginEndpointCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.Authorization !== undefined) {
+    bodyParams["authorization"] = serializeAws_restJson1_1Authorization(
+      input.Authorization,
+      context
+    );
+  }
   if (input.CmafPackage !== undefined) {
     bodyParams[
       "cmafPackage"
@@ -971,6 +984,7 @@ export async function deserializeAws_restJson1_1CreateOriginEndpointCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateOriginEndpointResponse",
     Arn: undefined,
+    Authorization: undefined,
     ChannelId: undefined,
     CmafPackage: undefined,
     DashPackage: undefined,
@@ -989,6 +1003,12 @@ export async function deserializeAws_restJson1_1CreateOriginEndpointCommand(
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
     contents.Arn = data.arn;
+  }
+  if (data.authorization !== undefined) {
+    contents.Authorization = deserializeAws_restJson1_1Authorization(
+      data.authorization,
+      context
+    );
   }
   if (data.channelId !== undefined) {
     contents.ChannelId = data.channelId;
@@ -1528,6 +1548,7 @@ export async function deserializeAws_restJson1_1DescribeOriginEndpointCommand(
     $metadata: deserializeMetadata(output),
     __type: "DescribeOriginEndpointResponse",
     Arn: undefined,
+    Authorization: undefined,
     ChannelId: undefined,
     CmafPackage: undefined,
     DashPackage: undefined,
@@ -1546,6 +1567,12 @@ export async function deserializeAws_restJson1_1DescribeOriginEndpointCommand(
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
     contents.Arn = data.arn;
+  }
+  if (data.authorization !== undefined) {
+    contents.Authorization = deserializeAws_restJson1_1Authorization(
+      data.authorization,
+      context
+    );
   }
   if (data.channelId !== undefined) {
     contents.ChannelId = data.channelId;
@@ -2420,6 +2447,7 @@ export async function deserializeAws_restJson1_1UpdateOriginEndpointCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateOriginEndpointResponse",
     Arn: undefined,
+    Authorization: undefined,
     ChannelId: undefined,
     CmafPackage: undefined,
     DashPackage: undefined,
@@ -2438,6 +2466,12 @@ export async function deserializeAws_restJson1_1UpdateOriginEndpointCommand(
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
     contents.Arn = data.arn;
+  }
+  if (data.authorization !== undefined) {
+    contents.Authorization = deserializeAws_restJson1_1Authorization(
+      data.authorization,
+      context
+    );
   }
   if (data.channelId !== undefined) {
     contents.ChannelId = data.channelId;
@@ -2679,6 +2713,20 @@ const serializeAws_restJson1_1AdTriggers = (
   context: __SerdeContext
 ): any => {
   return (input || []).map(entry => entry);
+};
+
+const serializeAws_restJson1_1Authorization = (
+  input: Authorization,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.CdnIdentifierSecret !== undefined) {
+    bodyParams["cdnIdentifierSecret"] = input.CdnIdentifierSecret;
+  }
+  if (input.SecretsRoleArn !== undefined) {
+    bodyParams["secretsRoleArn"] = input.SecretsRoleArn;
+  }
+  return bodyParams;
 };
 
 const serializeAws_restJson1_1CmafEncryption = (
@@ -3078,6 +3126,24 @@ const deserializeAws_restJson1_1AdTriggers = (
   context: __SerdeContext
 ): Array<__AdTriggersElement | string> => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1_1Authorization = (
+  output: any,
+  context: __SerdeContext
+): Authorization => {
+  let contents: any = {
+    __type: "Authorization",
+    CdnIdentifierSecret: undefined,
+    SecretsRoleArn: undefined
+  };
+  if (output.cdnIdentifierSecret !== undefined) {
+    contents.CdnIdentifierSecret = output.cdnIdentifierSecret;
+  }
+  if (output.secretsRoleArn !== undefined) {
+    contents.SecretsRoleArn = output.secretsRoleArn;
+  }
+  return contents;
 };
 
 const deserializeAws_restJson1_1Channel = (
@@ -3557,6 +3623,7 @@ const deserializeAws_restJson1_1OriginEndpoint = (
   let contents: any = {
     __type: "OriginEndpoint",
     Arn: undefined,
+    Authorization: undefined,
     ChannelId: undefined,
     CmafPackage: undefined,
     DashPackage: undefined,
@@ -3574,6 +3641,12 @@ const deserializeAws_restJson1_1OriginEndpoint = (
   };
   if (output.arn !== undefined) {
     contents.Arn = output.arn;
+  }
+  if (output.authorization !== undefined) {
+    contents.Authorization = deserializeAws_restJson1_1Authorization(
+      output.authorization,
+      context
+    );
   }
   if (output.channelId !== undefined) {
     contents.ChannelId = output.channelId;

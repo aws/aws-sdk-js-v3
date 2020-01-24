@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   DescribeEngineDefaultClusterParametersMessage,
-  EngineDefaults
+  DescribeEngineDefaultClusterParametersResult
 } from "../models/index";
 import {
   deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEngineDefaultClusterParametersCommandInput = DescribeEngineDefaultClusterParametersMessage;
-export type DescribeEngineDefaultClusterParametersCommandOutput = EngineDefaults;
+export type DescribeEngineDefaultClusterParametersCommandOutput = DescribeEngineDefaultClusterParametersResult;
 
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<
   DescribeEngineDefaultClusterParametersCommandInput,

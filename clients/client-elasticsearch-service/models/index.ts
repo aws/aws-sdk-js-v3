@@ -2,24 +2,18 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *       <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
- *
+ * <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
  */
 export interface AccessPoliciesStatus {
   __type?: "AccessPoliciesStatus";
   /**
-   *
-   *        <p>The access policy configured for the Elasticsearch domain.  Access policies may be resource-based, IP-based, or IAM-based.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies" target="_blank">
+   * <p>The access policy configured for the Elasticsearch domain.  Access policies may be resource-based, IP-based, or IAM-based.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies" target="_blank">
    *            Configuring Access Policies</a>for more information.</p>
-   *
    */
   Options: string | undefined;
 
   /**
-   *
-   *       <p>The status of the access policy for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
-   *
+   * <p>The status of the access policy for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
    */
   Status: OptionStatus | undefined;
 }
@@ -31,23 +25,17 @@ export namespace AccessPoliciesStatus {
 }
 
 /**
- *
- *       <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
- *
+ * <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
  */
 export interface AddTagsRequest {
   __type?: "AddTagsRequest";
   /**
-   *
-   *        <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
-   *
+   * <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
    */
   ARN: string | undefined;
 
   /**
-   *
-   *        <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
-   *
+   * <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
    */
   TagList: Array<Tag> | undefined;
 }
@@ -59,21 +47,18 @@ export namespace AddTagsRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       List of limits that are specific to a given InstanceType and for each of it's
  *       <code>
  *         <a>InstanceRole</a>
  *       </code>
  *       .
  *     </p>
- *
  */
 export interface AdditionalLimit {
   __type?: "AdditionalLimit";
   /**
-   *
-   *     <p>
+   * <p>
    *       Name of Additional Limit is specific to a given InstanceType and for each of it's
    *       <code>
    *         <a>InstanceRole</a>
@@ -99,20 +84,17 @@ export interface AdditionalLimit {
    *         upto which you don't need any master nodes to govern them.
    *       </ul>
    *     </p>
-   *
    */
   LimitName?: string;
 
   /**
-   *
-   *   <p>
+   * <p>
    *     Value for given
    *     <code>
    *       <a>AdditionalLimit$LimitName</a>
    *     </code>
    *     .
    *   </p>
-   *
    */
   LimitValues?: Array<string>;
 }
@@ -124,29 +106,23 @@ export namespace AdditionalLimit {
 }
 
 /**
- *
- *        <p> Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:</p>
+ * <p> Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:</p>
  *        <ul>
  *            <li>Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
  *                See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</li>
  *            <li>Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.</li>
  *        </ul>
  *        <p>For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options">Configuring Advanced Options</a>.</p>
- *
  */
 export interface AdvancedOptionsStatus {
   __type?: "AdvancedOptionsStatus";
   /**
-   *
-   *        <p> Specifies the status of advanced options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the status of advanced options for the specified Elasticsearch domain.</p>
    */
   Options: { [key: string]: string } | undefined;
 
   /**
-   *
-   *        <p> Specifies the status of <code>OptionStatus</code> for advanced options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the status of <code>OptionStatus</code> for advanced options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -158,16 +134,12 @@ export namespace AdvancedOptionsStatus {
 }
 
 /**
- *
- *     <p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>
- *
+ * <p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateRequest {
   __type?: "CancelElasticsearchServiceSoftwareUpdateRequest";
   /**
-   *
-   *     <p>The name of the domain that you want to stop the latest service software update on.</p>
-   *
+   * <p>The name of the domain that you want to stop the latest service software update on.</p>
    */
   DomainName: string | undefined;
 }
@@ -181,17 +153,13 @@ export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
 }
 
 /**
- *
- *     <p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
- *
+ * <p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateResponse
   extends $MetadataBearer {
   __type?: "CancelElasticsearchServiceSoftwareUpdateResponse";
   /**
-   *
-   *     <p>The current status of the Elasticsearch service software update.</p>
-   *
+   * <p>The current status of the Elasticsearch service software update.</p>
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
 }
@@ -205,37 +173,27 @@ export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
 }
 
 /**
- *
- *        <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
- *
+ * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
  */
 export interface CognitoOptions {
   __type?: "CognitoOptions";
   /**
-   *
-   *        <p>Specifies the option to enable Cognito for Kibana authentication.</p>
-   *
+   * <p>Specifies the option to enable Cognito for Kibana authentication.</p>
    */
   Enabled?: boolean;
 
   /**
-   *
-   *        <p>Specifies the Cognito identity pool ID for Kibana authentication.</p>
-   *
+   * <p>Specifies the Cognito identity pool ID for Kibana authentication.</p>
    */
   IdentityPoolId?: string;
 
   /**
-   *
-   *        <p>Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.</p>
-   *
+   * <p>Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.</p>
    */
   RoleArn?: string;
 
   /**
-   *
-   *        <p>Specifies the Cognito user pool ID for Kibana authentication.</p>
-   *
+   * <p>Specifies the Cognito user pool ID for Kibana authentication.</p>
    */
   UserPoolId?: string;
 }
@@ -247,23 +205,17 @@ export namespace CognitoOptions {
 }
 
 /**
- *
- *        <p>Status of the Cognito options for the specified Elasticsearch domain.</p>
- *
+ * <p>Status of the Cognito options for the specified Elasticsearch domain.</p>
  */
 export interface CognitoOptionsStatus {
   __type?: "CognitoOptionsStatus";
   /**
-   *
-   *        <p>Specifies the Cognito options for the specified Elasticsearch domain.</p>
-   *
+   * <p>Specifies the Cognito options for the specified Elasticsearch domain.</p>
    */
   Options: CognitoOptions | undefined;
 
   /**
-   *
-   *        <p>Specifies the status of the Cognito options for the specified Elasticsearch domain.</p>
-   *
+   * <p>Specifies the status of the Cognito options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -275,8 +227,7 @@ export namespace CognitoOptionsStatus {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       A map from an
  *       <code>
  *         <a>ElasticsearchVersion</a>
@@ -287,22 +238,17 @@ export namespace CognitoOptionsStatus {
  *       </code>
  *       s to which the domain can be upgraded.
  *     </p>
- *
  */
 export interface CompatibleVersionsMap {
   __type?: "CompatibleVersionsMap";
   /**
-   *
-   *     <p>The current version of Elasticsearch on which a domain is.</p>
-   *
+   * <p>The current version of Elasticsearch on which a domain is.</p>
    */
   SourceVersion?: string;
 
   /**
-   *
-   *     <p>List of supported elastic search versions.
+   * <p>List of supported elastic search versions.
    *     </p>
-   *
    */
   TargetVersions?: Array<string>;
 }
@@ -316,95 +262,69 @@ export namespace CompatibleVersionsMap {
 export interface CreateElasticsearchDomainRequest {
   __type?: "CreateElasticsearchDomainRequest";
   /**
-   *
-   *       <p> IAM access policy as a JSON-formatted string.</p>
-   *
+   * <p> IAM access policy as a JSON-formatted string.</p>
    */
   AccessPolicies?: string;
 
   /**
-   *
-   *       <p> Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
+   * <p> Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
    *           See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</p>
-   *
    */
   AdvancedOptions?: { [key: string]: string };
 
   /**
-   *
-   *        <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-   *
+   * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
    */
   CognitoOptions?: CognitoOptions;
 
   /**
-   *
-   *         <p>Options to specify configuration that will be applied to the domain endpoint.</p>
-   *
+   * <p>Options to specify configuration that will be applied to the domain endpoint.</p>
    */
   DomainEndpointOptions?: DomainEndpointOptions;
 
   /**
-   *
-   *       <p>The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   *
+   * <p>The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
 
   /**
-   *
-   *        <p>Options to enable, disable and specify the type and size of EBS storage volumes. </p>
-   *
+   * <p>Options to enable, disable and specify the type and size of EBS storage volumes. </p>
    */
   EBSOptions?: EBSOptions;
 
   /**
-   *
-   *       <p>Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster. </p>
-   *
+   * <p>Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster. </p>
    */
   ElasticsearchClusterConfig?: ElasticsearchClusterConfig;
 
   /**
-   *
-   *        <p>String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information,
+   * <p>String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information,
    *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
-   *
    */
   ElasticsearchVersion?: string;
 
   /**
-   *
-   *       <p>Specifies the Encryption At Rest Options.</p>
-   *
+   * <p>Specifies the Encryption At Rest Options.</p>
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
 
   /**
-   *
-   *        <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
-   *
+   * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
   LogPublishingOptions?: { [key: string]: LogPublishingOption };
 
   /**
-   *
-   *       <p>Specifies the NodeToNodeEncryptionOptions.</p>
-   *
+   * <p>Specifies the NodeToNodeEncryptionOptions.</p>
    */
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
 
   /**
-   *
-   *        <p>Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours. </p>
-   *
+   * <p>Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours. </p>
    */
   SnapshotOptions?: SnapshotOptions;
 
   /**
-   *
-   *        <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc" target="_blank">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>
-   *
+   * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc" target="_blank">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>
    */
   VPCOptions?: VPCOptions;
 }
@@ -416,16 +336,12 @@ export namespace CreateElasticsearchDomainRequest {
 }
 
 /**
- *
- *       <p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>
- *
+ * <p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>
  */
 export interface CreateElasticsearchDomainResponse extends $MetadataBearer {
   __type?: "CreateElasticsearchDomainResponse";
   /**
-   *
-   *       <p>The status of the newly created Elasticsearch domain. </p>
-   *
+   * <p>The status of the newly created Elasticsearch domain. </p>
    */
   DomainStatus?: ElasticsearchDomainStatus;
 }
@@ -437,16 +353,12 @@ export namespace CreateElasticsearchDomainResponse {
 }
 
 /**
- *
- *       <p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>
- *
+ * <p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>
  */
 export interface DeleteElasticsearchDomainRequest {
   __type?: "DeleteElasticsearchDomainRequest";
   /**
-   *
-   *       <p>The name of the Elasticsearch domain that you want to permanently delete.</p>
-   *
+   * <p>The name of the Elasticsearch domain that you want to permanently delete.</p>
    */
   DomainName: string | undefined;
 }
@@ -458,16 +370,12 @@ export namespace DeleteElasticsearchDomainRequest {
 }
 
 /**
- *
- *       <p>The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.</p>
- *
+ * <p>The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.</p>
  */
 export interface DeleteElasticsearchDomainResponse extends $MetadataBearer {
   __type?: "DeleteElasticsearchDomainResponse";
   /**
-   *
-   *       <p>The status of the Elasticsearch domain being deleted.</p>
-   *
+   * <p>The status of the Elasticsearch domain being deleted.</p>
    */
   DomainStatus?: ElasticsearchDomainStatus;
 }
@@ -486,16 +394,12 @@ export type DeploymentStatus =
   | "PENDING_UPDATE";
 
 /**
- *
- *        <p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>
- *
+ * <p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>
  */
 export interface DescribeElasticsearchDomainConfigRequest {
   __type?: "DescribeElasticsearchDomainConfigRequest";
   /**
-   *
-   *       <p>The Elasticsearch domain that you want to get information about.</p>
-   *
+   * <p>The Elasticsearch domain that you want to get information about.</p>
    */
   DomainName: string | undefined;
 }
@@ -507,17 +411,13 @@ export namespace DescribeElasticsearchDomainConfigRequest {
 }
 
 /**
- *
- *       <p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>
- *
+ * <p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>
  */
 export interface DescribeElasticsearchDomainConfigResponse
   extends $MetadataBearer {
   __type?: "DescribeElasticsearchDomainConfigResponse";
   /**
-   *
-   *       <p>The configuration information of the domain requested in the <code>DescribeElasticsearchDomainConfig</code> request.</p>
-   *
+   * <p>The configuration information of the domain requested in the <code>DescribeElasticsearchDomainConfig</code> request.</p>
    */
   DomainConfig: ElasticsearchDomainConfig | undefined;
 }
@@ -529,16 +429,12 @@ export namespace DescribeElasticsearchDomainConfigResponse {
 }
 
 /**
- *
- *       <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
- *
+ * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
  */
 export interface DescribeElasticsearchDomainRequest {
   __type?: "DescribeElasticsearchDomainRequest";
   /**
-   *
-   *       <p>The name of the Elasticsearch domain for which you want information.</p>
-   *
+   * <p>The name of the Elasticsearch domain for which you want information.</p>
    */
   DomainName: string | undefined;
 }
@@ -550,16 +446,12 @@ export namespace DescribeElasticsearchDomainRequest {
 }
 
 /**
- *
- *       <p>The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.</p>
- *
+ * <p>The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.</p>
  */
 export interface DescribeElasticsearchDomainResponse extends $MetadataBearer {
   __type?: "DescribeElasticsearchDomainResponse";
   /**
-   *
-   *       <p>The current status of the Elasticsearch domain.</p>
-   *
+   * <p>The current status of the Elasticsearch domain.</p>
    */
   DomainStatus: ElasticsearchDomainStatus | undefined;
 }
@@ -571,16 +463,12 @@ export namespace DescribeElasticsearchDomainResponse {
 }
 
 /**
- *
- *       <p>Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.</p>
- *
+ * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.</p>
  */
 export interface DescribeElasticsearchDomainsRequest {
   __type?: "DescribeElasticsearchDomainsRequest";
   /**
-   *
-   *       <p>The Elasticsearch domains for which you want information.</p>
-   *
+   * <p>The Elasticsearch domains for which you want information.</p>
    */
   DomainNames: Array<string> | undefined;
 }
@@ -592,16 +480,12 @@ export namespace DescribeElasticsearchDomainsRequest {
 }
 
 /**
- *
- *       <p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>
- *
+ * <p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>
  */
 export interface DescribeElasticsearchDomainsResponse extends $MetadataBearer {
   __type?: "DescribeElasticsearchDomainsResponse";
   /**
-   *
-   *       <p>The status of the domains requested in the <code>DescribeElasticsearchDomains</code> request.</p>
-   *
+   * <p>The status of the domains requested in the <code>DescribeElasticsearchDomains</code> request.</p>
    */
   DomainStatusList: Array<ElasticsearchDomainStatus> | undefined;
 }
@@ -613,21 +497,18 @@ export namespace DescribeElasticsearchDomainsResponse {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for the parameters to
  *       <code>
  *         <a>DescribeElasticsearchInstanceTypeLimits</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface DescribeElasticsearchInstanceTypeLimitsRequest {
   __type?: "DescribeElasticsearchInstanceTypeLimitsRequest";
   /**
-   *
-   *     <p>
+   * <p>
    *       DomainName represents the name of the Domain that we are trying to
    *       modify. This should be present only if we are
    *       querying for Elasticsearch
@@ -636,33 +517,28 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
    *       </code>
    *       for existing domain.
    *     </p>
-   *
    */
   DomainName?: string;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Version of Elasticsearch for which
    *       <code>
    *         <a>Limits</a>
    *       </code>
    *       are needed.
    *     </p>
-   *
    */
   ElasticsearchVersion: string | undefined;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       The instance type for an Elasticsearch cluster for which Elasticsearch
    *       <code>
    *         <a>Limits</a>
    *       </code>
    *       are needed.
    *     </p>
-   *
    */
   InstanceType: ESPartitionInstanceType | string | undefined;
 }
@@ -676,22 +552,19 @@ export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for the parameters received from
  *       <code>
  *         <a>DescribeElasticsearchInstanceTypeLimits</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface DescribeElasticsearchInstanceTypeLimitsResponse
   extends $MetadataBearer {
   __type?: "DescribeElasticsearchInstanceTypeLimitsResponse";
   /**
-   *
-   *     <p>
+   * <p>
    *       Map of Role of the Instance and Limits that are applicable.
    *       Role performed by given Instance in Elasticsearch
    *       can be one of the following:
@@ -701,7 +574,6 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse
    *         <li>ultra_warm: If the given InstanceType is used as warm node</li>
    *       </ul>
    *     </p>
-   *
    */
   LimitsByRole?: { [key: string]: Limits };
 }
@@ -715,31 +587,23 @@ export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
 }
 
 /**
- *
- * 	<p>Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
- *
+ * <p>Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
   __type?: "DescribeReservedElasticsearchInstanceOfferingsRequest";
   /**
-   *
-   * 	<p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
-   *
+   * <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   * 	<p>NextToken should be sent in case if earlier API call produced result
+   * <p>NextToken should be sent in case if earlier API call produced result
    * 		containing NextToken. It is used for pagination.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   * 	<p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
-   *
+   * <p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
    */
   ReservedElasticsearchInstanceOfferingId?: string;
 }
@@ -756,24 +620,18 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
 }
 
 /**
- *
- * 	<p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
- *
+ * <p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsResponse
   extends $MetadataBearer {
   __type?: "DescribeReservedElasticsearchInstanceOfferingsResponse";
   /**
-   *
-   * 	<p>Provides an identifier to allow retrieval of paginated results.</p>
-   *
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   * 	<p>List of reserved Elasticsearch instance offerings</p>
-   *
+   * <p>List of reserved Elasticsearch instance offerings</p>
    */
   ReservedElasticsearchInstanceOfferings?: Array<
     ReservedElasticsearchInstanceOffering
@@ -792,31 +650,23 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
 }
 
 /**
- *
- * 	<p>Container for parameters to <code>DescribeReservedElasticsearchInstances</code></p>
- *
+ * <p>Container for parameters to <code>DescribeReservedElasticsearchInstances</code></p>
  */
 export interface DescribeReservedElasticsearchInstancesRequest {
   __type?: "DescribeReservedElasticsearchInstancesRequest";
   /**
-   *
-   * 	<p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
-   *
+   * <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   * 	<p>NextToken should be sent in case if earlier API call produced result
+   * <p>NextToken should be sent in case if earlier API call produced result
    * 		containing NextToken. It is used for pagination.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   * 	<p>The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.</p>
-   *
+   * <p>The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.</p>
    */
   ReservedElasticsearchInstanceId?: string;
 }
@@ -830,24 +680,18 @@ export namespace DescribeReservedElasticsearchInstancesRequest {
 }
 
 /**
- *
- * 	<p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
- *
+ * <p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
  */
 export interface DescribeReservedElasticsearchInstancesResponse
   extends $MetadataBearer {
   __type?: "DescribeReservedElasticsearchInstancesResponse";
   /**
-   *
-   * 	<p>Provides an identifier to allow retrieval of paginated results.</p>
-   *
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   * 	<p>List of reserved Elasticsearch instances.</p>
-   *
+   * <p>List of reserved Elasticsearch instances.</p>
    */
   ReservedElasticsearchInstances?: Array<ReservedElasticsearchInstance>;
 }
@@ -861,29 +705,23 @@ export namespace DescribeReservedElasticsearchInstancesResponse {
 }
 
 /**
- *
- *     <p>Options to configure endpoint for the Elasticsearch domain.</p>
- *
+ * <p>Options to configure endpoint for the Elasticsearch domain.</p>
  */
 export interface DomainEndpointOptions {
   __type?: "DomainEndpointOptions";
   /**
-   *
-   *     <p>Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.</p>
-   *
+   * <p>Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.</p>
    */
   EnforceHTTPS?: boolean;
 
   /**
-   *
-   *     <p>Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+   * <p>Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
    *         <br></br> It can be one of the following values:
    *         <ul>
    *             <li><b>Policy-Min-TLS-1-0-2019-07: </b> TLS security policy which supports TLSv1.0 and higher.</li>
    *             <li><b>Policy-Min-TLS-1-2-2019-07: </b> TLS security policy which supports only TLSv1.2</li>
    *         </ul>
    *     </p>
-   *
    */
   TLSSecurityPolicy?: TLSSecurityPolicy | string;
 }
@@ -895,23 +733,17 @@ export namespace DomainEndpointOptions {
 }
 
 /**
- *
- *     <p>The configured endpoint options for the domain and their current status.</p>
- *
+ * <p>The configured endpoint options for the domain and their current status.</p>
  */
 export interface DomainEndpointOptionsStatus {
   __type?: "DomainEndpointOptionsStatus";
   /**
-   *
-   *     <p>Options to configure endpoint for the Elasticsearch domain.</p>
-   *
+   * <p>Options to configure endpoint for the Elasticsearch domain.</p>
    */
   Options: DomainEndpointOptions | undefined;
 
   /**
-   *
-   *     <p>The status of the endpoint options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
-   *
+   * <p>The status of the endpoint options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
    */
   Status: OptionStatus | undefined;
 }
@@ -922,16 +754,10 @@ export namespace DomainEndpointOptionsStatus {
   }
 }
 
-/**
- *
- *
- */
 export interface DomainInfo {
   __type?: "DomainInfo";
   /**
-   *
-   *        <p> Specifies the <code>DomainName</code>.</p>
-   *
+   * <p> Specifies the <code>DomainName</code>.</p>
    */
   DomainName?: string;
 }
@@ -943,37 +769,27 @@ export namespace DomainInfo {
 }
 
 /**
- *
- *        <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
- *
+ * <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
  */
 export interface EBSOptions {
   __type?: "EBSOptions";
   /**
-   *
-   *        <p>Specifies whether EBS-based storage is enabled.</p>
-   *
+   * <p>Specifies whether EBS-based storage is enabled.</p>
    */
   EBSEnabled?: boolean;
 
   /**
-   *
-   *        <p>Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).</p>
-   *
+   * <p>Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).</p>
    */
   Iops?: number;
 
   /**
-   *
-   *        <p> Integer to specify the size of an EBS volume.</p>
-   *
+   * <p> Integer to specify the size of an EBS volume.</p>
    */
   VolumeSize?: number;
 
   /**
-   *
-   *        <p> Specifies the volume type for EBS-based storage.</p>
-   *
+   * <p> Specifies the volume type for EBS-based storage.</p>
    */
   VolumeType?: VolumeType | string;
 }
@@ -985,23 +801,17 @@ export namespace EBSOptions {
 }
 
 /**
- *
- *        <p> Status of the EBS options for the specified Elasticsearch domain.</p>
- *
+ * <p> Status of the EBS options for the specified Elasticsearch domain.</p>
  */
 export interface EBSOptionsStatus {
   __type?: "EBSOptionsStatus";
   /**
-   *
-   *        <p> Specifies the EBS options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the EBS options for the specified Elasticsearch domain.</p>
    */
   Options: EBSOptions | undefined;
 
   /**
-   *
-   *        <p> Specifies the status of the EBS options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the status of the EBS options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -1077,79 +887,57 @@ export type ESWarmPartitionInstanceType =
   | "ultrawarm1.medium.elasticsearch";
 
 /**
- *
- *       <p>Specifies the configuration for the domain cluster, such as the type and number of instances.</p>
- *
+ * <p>Specifies the configuration for the domain cluster, such as the type and number of instances.</p>
  */
 export interface ElasticsearchClusterConfig {
   __type?: "ElasticsearchClusterConfig";
   /**
-   *
-   *       <p>Total number of dedicated master nodes, active and on standby, for the cluster.</p>
-   *
+   * <p>Total number of dedicated master nodes, active and on standby, for the cluster.</p>
    */
   DedicatedMasterCount?: number;
 
   /**
-   *
-   *        <p>A boolean value to indicate whether a dedicated master node is enabled.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes" target="_blank">About Dedicated Master Nodes</a> for more information.</p>
-   *
+   * <p>A boolean value to indicate whether a dedicated master node is enabled.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes" target="_blank">About Dedicated Master Nodes</a> for more information.</p>
    */
   DedicatedMasterEnabled?: boolean;
 
   /**
-   *
-   *       <p>The instance type for a dedicated master node.</p>
-   *
+   * <p>The instance type for a dedicated master node.</p>
    */
   DedicatedMasterType?: ESPartitionInstanceType | string;
 
   /**
-   *
-   *       <p>The number of instances in the specified domain cluster.</p>
-   *
+   * <p>The number of instances in the specified domain cluster.</p>
    */
   InstanceCount?: number;
 
   /**
-   *
-   *       <p>The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.</p>
-   *
+   * <p>The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.</p>
    */
   InstanceType?: ESPartitionInstanceType | string;
 
   /**
-   *
-   *         <p>The number of warm nodes in the cluster.</p>
-   *
+   * <p>The number of warm nodes in the cluster.</p>
    */
   WarmCount?: number;
 
   /**
-   *
-   *         <p>True to enable warm storage.</p>
-   *
+   * <p>True to enable warm storage.</p>
    */
   WarmEnabled?: boolean;
 
   /**
-   *
-   *         <p>The instance type for the Elasticsearch cluster's warm nodes.</p>
-   *
+   * <p>The instance type for the Elasticsearch cluster's warm nodes.</p>
    */
   WarmType?: ESWarmPartitionInstanceType | string;
 
   /**
-   *
-   *       <p>Specifies the zone awareness configuration for a domain when zone awareness is enabled.</p>
-   *
+   * <p>Specifies the zone awareness configuration for a domain when zone awareness is enabled.</p>
    */
   ZoneAwarenessConfig?: ZoneAwarenessConfig;
 
   /**
-   *
-   *        <p>A boolean value to indicate whether zone awareness is enabled.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness" target="_blank">About Zone Awareness</a> for more information.</p>
-   *
+   * <p>A boolean value to indicate whether zone awareness is enabled.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness" target="_blank">About Zone Awareness</a> for more information.</p>
    */
   ZoneAwarenessEnabled?: boolean;
 }
@@ -1161,23 +949,17 @@ export namespace ElasticsearchClusterConfig {
 }
 
 /**
- *
- *        <p> Specifies the configuration status for the specified Elasticsearch domain.</p>
- *
+ * <p> Specifies the configuration status for the specified Elasticsearch domain.</p>
  */
 export interface ElasticsearchClusterConfigStatus {
   __type?: "ElasticsearchClusterConfigStatus";
   /**
-   *
-   *        <p> Specifies the cluster configuration for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the cluster configuration for the specified Elasticsearch domain.</p>
    */
   Options: ElasticsearchClusterConfig | undefined;
 
   /**
-   *
-   *        <p> Specifies the status of the configuration for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the status of the configuration for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -1189,93 +971,67 @@ export namespace ElasticsearchClusterConfigStatus {
 }
 
 /**
- *
- *       <p>The configuration of an Elasticsearch domain.</p>
- *
+ * <p>The configuration of an Elasticsearch domain.</p>
  */
 export interface ElasticsearchDomainConfig {
   __type?: "ElasticsearchDomainConfig";
   /**
-   *
-   *       <p>IAM access policy as a JSON-formatted string.</p>
-   *
+   * <p>IAM access policy as a JSON-formatted string.</p>
    */
   AccessPolicies?: AccessPoliciesStatus;
 
   /**
-   *
-   *        <p>Specifies the <code>AdvancedOptions</code> for the domain.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuring Advanced Options</a> for more information.</p>
-   *
+   * <p>Specifies the <code>AdvancedOptions</code> for the domain.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuring Advanced Options</a> for more information.</p>
    */
   AdvancedOptions?: AdvancedOptionsStatus;
 
   /**
-   *
-   *        <p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-   *
+   * <p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
    */
   CognitoOptions?: CognitoOptionsStatus;
 
   /**
-   *
-   *        <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch domain.</p>
    */
   DomainEndpointOptions?: DomainEndpointOptionsStatus;
 
   /**
-   *
-   *        <p>Specifies the <code>EBSOptions</code> for the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the <code>EBSOptions</code> for the Elasticsearch domain.</p>
    */
   EBSOptions?: EBSOptionsStatus;
 
   /**
-   *
-   *        <p>Specifies the <code>ElasticsearchClusterConfig</code> for the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the <code>ElasticsearchClusterConfig</code> for the Elasticsearch domain.</p>
    */
   ElasticsearchClusterConfig?: ElasticsearchClusterConfigStatus;
 
   /**
-   *
-   *        <p>String of format X.Y to specify version for the Elasticsearch domain.</p>
-   *
+   * <p>String of format X.Y to specify version for the Elasticsearch domain.</p>
    */
   ElasticsearchVersion?: ElasticsearchVersionStatus;
 
   /**
-   *
-   *        <p>Specifies the <code>EncryptionAtRestOptions</code> for the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the <code>EncryptionAtRestOptions</code> for the Elasticsearch domain.</p>
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptionsStatus;
 
   /**
-   *
-   *        <p>Log publishing options for the given domain.</p>
-   *
+   * <p>Log publishing options for the given domain.</p>
    */
   LogPublishingOptions?: LogPublishingOptionsStatus;
 
   /**
-   *
-   *        <p>Specifies the <code>NodeToNodeEncryptionOptions</code> for the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the <code>NodeToNodeEncryptionOptions</code> for the Elasticsearch domain.</p>
    */
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptionsStatus;
 
   /**
-   *
-   *        <p>Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain.</p>
    */
   SnapshotOptions?: SnapshotOptionsStatus;
 
   /**
-   *
-   *        <p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
-   *
+   * <p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
    */
   VPCOptions?: VPCDerivedInfoStatus;
 }
@@ -1287,157 +1043,113 @@ export namespace ElasticsearchDomainConfig {
 }
 
 /**
- *
- *       <p>The current status of an Elasticsearch domain.</p>
- *
+ * <p>The current status of an Elasticsearch domain.</p>
  */
 export interface ElasticsearchDomainStatus {
   __type?: "ElasticsearchDomainStatus";
   /**
-   *
-   *       <p>The Amazon resource name (ARN) of an Elasticsearch domain.  See <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html" target="_blank">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>
-   *
+   * <p>The Amazon resource name (ARN) of an Elasticsearch domain.  See <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html" target="_blank">Identifiers for IAM Entities</a> in <i>Using AWS Identity and Access Management</i> for more information.</p>
    */
   ARN: string | undefined;
 
   /**
-   *
-   *       <p> IAM access policy as a JSON-formatted string.</p>
-   *
+   * <p> IAM access policy as a JSON-formatted string.</p>
    */
   AccessPolicies?: string;
 
   /**
-   *
-   *        <p>Specifies the status of the <code>AdvancedOptions</code></p>
-   *
+   * <p>Specifies the status of the <code>AdvancedOptions</code></p>
    */
   AdvancedOptions?: { [key: string]: string };
 
   /**
-   *
-   *        <p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-   *
+   * <p>The <code>CognitoOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
    */
   CognitoOptions?: CognitoOptions;
 
   /**
-   *
-   *       <p>The domain creation status. <code>True</code> if the creation of an Elasticsearch domain is complete. <code>False</code> if domain creation is still in progress.</p>
-   *
+   * <p>The domain creation status. <code>True</code> if the creation of an Elasticsearch domain is complete. <code>False</code> if domain creation is still in progress.</p>
    */
   Created?: boolean;
 
   /**
-   *
-   *        <p>The domain deletion status. <code>True</code> if a delete request has been received for the domain but resource cleanup is still in progress. <code>False</code> if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.</p>
-   *
+   * <p>The domain deletion status. <code>True</code> if a delete request has been received for the domain but resource cleanup is still in progress. <code>False</code> if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.</p>
    */
   Deleted?: boolean;
 
   /**
-   *
-   *        <p>The current status of the Elasticsearch domain's endpoint options.</p>
-   *
+   * <p>The current status of the Elasticsearch domain's endpoint options.</p>
    */
   DomainEndpointOptions?: DomainEndpointOptions;
 
   /**
-   *
-   *       <p>The unique identifier for the specified Elasticsearch domain.</p>
-   *
+   * <p>The unique identifier for the specified Elasticsearch domain.</p>
    */
   DomainId: string | undefined;
 
   /**
-   *
-   *       <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   *
+   * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
 
   /**
-   *
-   *        <p>The <code>EBSOptions</code> for the specified domain.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank">Configuring EBS-based Storage</a> for more information.</p>
-   *
+   * <p>The <code>EBSOptions</code> for the specified domain.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank">Configuring EBS-based Storage</a> for more information.</p>
    */
   EBSOptions?: EBSOptions;
 
   /**
-   *
-   *       <p>The type and number of instances in the domain cluster.</p>
-   *
+   * <p>The type and number of instances in the domain cluster.</p>
    */
   ElasticsearchClusterConfig: ElasticsearchClusterConfig | undefined;
 
   ElasticsearchVersion?: string;
   /**
-   *
-   *        <p> Specifies the status of the <code>EncryptionAtRestOptions</code>.</p>
-   *
+   * <p> Specifies the status of the <code>EncryptionAtRestOptions</code>.</p>
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
 
   /**
-   *
-   *       <p>The Elasticsearch domain endpoint that you use to submit index and search requests.</p>
-   *
+   * <p>The Elasticsearch domain endpoint that you use to submit index and search requests.</p>
    */
   Endpoint?: string;
 
   /**
-   *
-   *        <p>Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
-   *
+   * <p>Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
    */
   Endpoints?: { [key: string]: string };
 
   /**
-   *
-   *        <p>Log publishing options for the given domain.</p>
-   *
+   * <p>Log publishing options for the given domain.</p>
    */
   LogPublishingOptions?: { [key: string]: LogPublishingOption };
 
   /**
-   *
-   *        <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
-   *
+   * <p>Specifies the status of the <code>NodeToNodeEncryptionOptions</code>.</p>
    */
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
 
   /**
-   *
-   *       <p>The status of the Elasticsearch domain configuration. <code>True</code> if Amazon Elasticsearch Service is processing configuration changes. <code>False</code> if the configuration is active.</p>
-   *
+   * <p>The status of the Elasticsearch domain configuration. <code>True</code> if Amazon Elasticsearch Service is processing configuration changes. <code>False</code> if the configuration is active.</p>
    */
   Processing?: boolean;
 
   /**
-   *
-   *        <p>The current status of the Elasticsearch domain's service software.</p>
-   *
+   * <p>The current status of the Elasticsearch domain's service software.</p>
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
 
   /**
-   *
-   *        <p>Specifies the status of the <code>SnapshotOptions</code></p>
-   *
+   * <p>Specifies the status of the <code>SnapshotOptions</code></p>
    */
   SnapshotOptions?: SnapshotOptions;
 
   /**
-   *
-   *       <p>The status of an Elasticsearch domain version upgrade. <code>True</code> if Amazon Elasticsearch Service is undergoing a version upgrade. <code>False</code> if the configuration is active.</p>
-   *
+   * <p>The status of an Elasticsearch domain version upgrade. <code>True</code> if Amazon Elasticsearch Service is undergoing a version upgrade. <code>False</code> if the configuration is active.</p>
    */
   UpgradeProcessing?: boolean;
 
   /**
-   *
-   *        <p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
-   *
+   * <p>The <code>VPCOptions</code> for the specified domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
    */
   VPCOptions?: VPCDerivedInfo;
 }
@@ -1449,23 +1161,17 @@ export namespace ElasticsearchDomainStatus {
 }
 
 /**
- *
- *        <p> Status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
- *
+ * <p> Status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
  */
 export interface ElasticsearchVersionStatus {
   __type?: "ElasticsearchVersionStatus";
   /**
-   *
-   *        <p> Specifies the Elasticsearch version for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the Elasticsearch version for the specified Elasticsearch domain.</p>
    */
   Options: string | undefined;
 
   /**
-   *
-   *        <p> Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -1477,23 +1183,17 @@ export namespace ElasticsearchVersionStatus {
 }
 
 /**
- *
- *        <p>Specifies the Encryption At Rest Options.</p>
- *
+ * <p>Specifies the Encryption At Rest Options.</p>
  */
 export interface EncryptionAtRestOptions {
   __type?: "EncryptionAtRestOptions";
   /**
-   *
-   *        <p>Specifies the option to enable Encryption At Rest.</p>
-   *
+   * <p>Specifies the option to enable Encryption At Rest.</p>
    */
   Enabled?: boolean;
 
   /**
-   *
-   *        <p> Specifies the KMS Key ID for Encryption At Rest options.</p>
-   *
+   * <p> Specifies the KMS Key ID for Encryption At Rest options.</p>
    */
   KmsKeyId?: string;
 }
@@ -1505,23 +1205,17 @@ export namespace EncryptionAtRestOptions {
 }
 
 /**
- *
- *        <p> Status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
- *
+ * <p> Status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
  */
 export interface EncryptionAtRestOptionsStatus {
   __type?: "EncryptionAtRestOptionsStatus";
   /**
-   *
-   *        <p> Specifies the Encryption At Rest options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the Encryption At Rest options for the specified Elasticsearch domain.</p>
    */
   Options: EncryptionAtRestOptions | undefined;
 
   /**
-   *
-   *        <p> Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -1533,22 +1227,18 @@ export namespace EncryptionAtRestOptionsStatus {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for request parameters to
  *       <code>
  *         <a>GetCompatibleElasticsearchVersions</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface GetCompatibleElasticsearchVersionsRequest {
   __type?: "GetCompatibleElasticsearchVersionsRequest";
   /**
-   *
-   *     <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   *
+   * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName?: string;
 }
@@ -1560,29 +1250,25 @@ export namespace GetCompatibleElasticsearchVersionsRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for response returned by
  *       <code>
  *         <a>GetCompatibleElasticsearchVersions</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface GetCompatibleElasticsearchVersionsResponse
   extends $MetadataBearer {
   __type?: "GetCompatibleElasticsearchVersionsResponse";
   /**
-   *
-   *     <p>
+   * <p>
    *       A map of compatible Elasticsearch versions returned as part of the
    *       <code>
    *         <a>GetCompatibleElasticsearchVersions</a>
    *       </code>
    *       operation.
    *     </p>
-   *
    */
   CompatibleElasticsearchVersions?: Array<CompatibleVersionsMap>;
 }
@@ -1594,41 +1280,33 @@ export namespace GetCompatibleElasticsearchVersionsResponse {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for request parameters to
  *       <code>
  *         <a>GetUpgradeHistory</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface GetUpgradeHistoryRequest {
   __type?: "GetUpgradeHistoryRequest";
   /**
-   *
-   *     <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   *
+   * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Set this value to limit the number of results returned.
    *     </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Paginated APIs accepts NextToken input to returns next page results and provides
    *       a NextToken output in the response which can be used by the client to retrieve more results.
    *     </p>
-   *
    */
   NextToken?: string;
 }
@@ -1640,28 +1318,23 @@ export namespace GetUpgradeHistoryRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for response returned by
  *       <code>
  *         <a>GetUpgradeHistory</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface GetUpgradeHistoryResponse extends $MetadataBearer {
   __type?: "GetUpgradeHistoryResponse";
   /**
-   *
-   *     <p>Pagination token that needs to be supplied to the next call to get the next page of results</p>
-   *
+   * <p>Pagination token that needs to be supplied to the next call to get the next page of results</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       A list of
    *       <code>
    *         <a>UpgradeHistory</a>
@@ -1672,7 +1345,6 @@ export interface GetUpgradeHistoryResponse extends $MetadataBearer {
    *       </code>
    *       object.
    *     </p>
-   *
    */
   UpgradeHistories?: Array<UpgradeHistory>;
 }
@@ -1684,22 +1356,18 @@ export namespace GetUpgradeHistoryResponse {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for request parameters to
  *       <code>
  *         <a>GetUpgradeStatus</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface GetUpgradeStatusRequest {
   __type?: "GetUpgradeStatusRequest";
   /**
-   *
-   *     <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   *
+   * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
 }
@@ -1711,21 +1379,18 @@ export namespace GetUpgradeStatusRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for response returned by
  *       <code>
  *         <a>GetUpgradeStatus</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface GetUpgradeStatusResponse extends $MetadataBearer {
   __type?: "GetUpgradeStatusResponse";
   /**
-   *
-   *     <p>
+   * <p>
    *       One of 4 statuses that a step can go through returned as part of the
    *       <code>
    *         <a>GetUpgradeStatusResponse</a>
@@ -1738,20 +1403,16 @@ export interface GetUpgradeStatusResponse extends $MetadataBearer {
    *         <li>Failed</li>
    *       </ul>
    *     </p>
-   *
    */
   StepStatus?: UpgradeStatus | string;
 
   /**
-   *
-   *     <p>A string that describes the update briefly</p>
-   *
+   * <p>A string that describes the update briefly</p>
    */
   UpgradeName?: string;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
    *       <ul>
    *         <li>PreUpgradeCheck</li>
@@ -1759,7 +1420,6 @@ export interface GetUpgradeStatusResponse extends $MetadataBearer {
    *         <li>Upgrade</li>
    *       </ul>
    *     </p>
-   *
    */
   UpgradeStep?: UpgradeStep | string;
 }
@@ -1771,30 +1431,24 @@ export namespace GetUpgradeStatusResponse {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for
  *       given InstanceType.
  *     </p>
- *
  */
 export interface InstanceCountLimits {
   __type?: "InstanceCountLimits";
   /**
-   *
-   *     <p>
+   * <p>
    *       Maximum number of Instances that can be instantiated for given InstanceType.
    *     </p>
-   *
    */
   MaximumInstanceCount?: number;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Minimum number of Instances that can be instantiated for given InstanceType.
    *     </p>
-   *
    */
   MinimumInstanceCount?: number;
 }
@@ -1806,20 +1460,16 @@ export namespace InstanceCountLimits {
 }
 
 /**
- *
- *     <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
+ * <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
  *     </p>
- *
  */
 export interface InstanceLimits {
   __type?: "InstanceLimits";
   /**
-   *
-   *     <p>
+   * <p>
    *       InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for
    *       given InstanceType.
    *     </p>
-   *
    */
   InstanceCountLimits?: InstanceCountLimits;
 }
@@ -1831,8 +1481,7 @@ export namespace InstanceLimits {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Limits for given InstanceType and for each of it's role.
  *       <br></br>
  *       Limits contains following
@@ -1847,37 +1496,30 @@ export namespace InstanceLimits {
  *         <a>AdditionalLimits</a>
  *       </code>
  *     </p>
- *
  */
 export interface Limits {
   __type?: "Limits";
   /**
-   *
-   *     <p>
+   * <p>
    *       List of additional limits that are specific to a given InstanceType and for each of it's
    *       <code>
    *         <a>InstanceRole</a>
    *       </code>
    *       .
    *     </p>
-   *
    */
   AdditionalLimits?: Array<AdditionalLimit>;
 
   /**
-   *
-   *     <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
+   * <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
    *     </p>
-   *
    */
   InstanceLimits?: InstanceLimits;
 
   /**
-   *
-   *     <p>StorageType represents the list of storage related types and attributes
+   * <p>StorageType represents the list of storage related types and attributes
    *       that are available for given InstanceType.
    *     </p>
-   *
    */
   StorageTypes?: Array<StorageType>;
 }
@@ -1889,16 +1531,12 @@ export namespace Limits {
 }
 
 /**
- *
- *        <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all Elasticsearch domains owned by this account.</p>
- *
+ * <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all Elasticsearch domains owned by this account.</p>
  */
 export interface ListDomainNamesResponse extends $MetadataBearer {
   __type?: "ListDomainNamesResponse";
   /**
-   *
-   *        <p>List of Elasticsearch domain names.</p>
-   *
+   * <p>List of Elasticsearch domain names.</p>
    */
   DomainNames?: Array<DomainInfo>;
 }
@@ -1910,52 +1548,42 @@ export namespace ListDomainNamesResponse {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for the parameters to the
  *       <code>
  *         <a>ListElasticsearchInstanceTypes</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface ListElasticsearchInstanceTypesRequest {
   __type?: "ListElasticsearchInstanceTypesRequest";
   /**
-   *
-   *     <p>DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are
+   * <p>DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are
    *       querying for list of available Elasticsearch instance types when modifying existing domain.
    *     </p>
-   *
    */
   DomainName?: string;
 
   /**
-   *
-   *     <p>Version of Elasticsearch for which list of supported elasticsearch
+   * <p>Version of Elasticsearch for which list of supported elasticsearch
    *       instance types are needed.
    *     </p>
-   *
    */
   ElasticsearchVersion: string | undefined;
 
   /**
-   *
-   *   <p>
+   * <p>
    *     Set this value to limit the number of results returned.
    *     Value provided must be greater than 30 else it wont be honored.
    *   </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *     <p>NextToken should be sent in case if earlier API call produced result
+   * <p>NextToken should be sent in case if earlier API call produced result
    *       containing NextToken. It is used for pagination.
    *     </p>
-   *
    */
   NextToken?: string;
 }
@@ -1967,39 +1595,33 @@ export namespace ListElasticsearchInstanceTypesRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for the parameters returned by
  *       <code>
  *         <a>ListElasticsearchInstanceTypes</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface ListElasticsearchInstanceTypesResponse
   extends $MetadataBearer {
   __type?: "ListElasticsearchInstanceTypesResponse";
   /**
-   *
-   *     <p>
+   * <p>
    *       List of instance types supported by Amazon Elasticsearch service for
    *       given
    *       <code>
    *         <a>ElasticsearchVersion</a>
    *       </code>
    *     </p>
-   *
    */
   ElasticsearchInstanceTypes?: Array<ESPartitionInstanceType | string>;
 
   /**
-   *
-   *     <p>In case if there are more results available NextToken would be
+   * <p>In case if there are more results available NextToken would be
    *       present, make further request to the same API with
    *       received NextToken to paginate remaining results.
    *     </p>
-   *
    */
   NextToken?: string;
 }
@@ -2011,8 +1633,7 @@ export namespace ListElasticsearchInstanceTypesResponse {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for the parameters to the
  *       <code>
  *         <a>ListElasticsearchVersions</a>
@@ -2035,27 +1656,22 @@ export namespace ListElasticsearchInstanceTypesResponse {
  *         not contain a NextToken, then there are no more results to retrieve.
  *       </p>
  *     </p>
- *
  */
 export interface ListElasticsearchVersionsRequest {
   __type?: "ListElasticsearchVersionsRequest";
   /**
-   *
-   *     <p>
+   * <p>
    *       Set this value to limit the number of results returned.
    *       Value provided must be greater than 10 else it wont be honored.
    *     </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Paginated APIs accepts NextToken input to returns next page results and provides
    *       a NextToken output in the response which can be used by the client to retrieve more results.
    *     </p>
-   *
    */
   NextToken?: string;
 }
@@ -2067,33 +1683,27 @@ export namespace ListElasticsearchVersionsRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for the parameters for response received from
  *       <code>
  *         <a>ListElasticsearchVersions</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface ListElasticsearchVersionsResponse extends $MetadataBearer {
   __type?: "ListElasticsearchVersionsResponse";
   /**
-   *
-   *     <p>List of supported elastic search versions.
+   * <p>List of supported elastic search versions.
    *     </p>
-   *
    */
   ElasticsearchVersions?: Array<string>;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Paginated APIs accepts NextToken input to returns next page results and provides
    *       a NextToken output in the response which can be used by the client to retrieve more results.
    *     </p>
-   *
    */
   NextToken?: string;
 }
@@ -2105,16 +1715,12 @@ export namespace ListElasticsearchVersionsResponse {
 }
 
 /**
- *
- *        <p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>
- *
+ * <p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>
  */
 export interface ListTagsRequest {
   __type?: "ListTagsRequest";
   /**
-   *
-   *        <p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.</p>
-   *
+   * <p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.</p>
    */
   ARN: string | undefined;
 }
@@ -2126,16 +1732,12 @@ export namespace ListTagsRequest {
 }
 
 /**
- *
- *        <p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>
- *
+ * <p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>
  */
 export interface ListTagsResponse extends $MetadataBearer {
   __type?: "ListTagsResponse";
   /**
-   *
-   *        <p> List of <code>Tag</code> for the requested Elasticsearch domain.</p>
-   *
+   * <p> List of <code>Tag</code> for the requested Elasticsearch domain.</p>
    */
   TagList?: Array<Tag>;
 }
@@ -2147,29 +1749,23 @@ export namespace ListTagsResponse {
 }
 
 /**
- *
- *     <p>Log Publishing option that is set for given domain.
+ * <p>Log Publishing option that is set for given domain.
  *        <br></br>Attributes and their details:
  *      <ul>
  *        <li>CloudWatchLogsLogGroupArn: ARN of the Cloudwatch log group to which log needs to be published.</li>
  *        <li>Enabled: Whether the log publishing for given log type is enabled or not</li>
  *      </ul>
  *    </p>
- *
  */
 export interface LogPublishingOption {
   __type?: "LogPublishingOption";
   /**
-   *
-   *    <p>ARN of the Cloudwatch log group to which log needs to be published.</p>
-   *
+   * <p>ARN of the Cloudwatch log group to which log needs to be published.</p>
    */
   CloudWatchLogsLogGroupArn?: string;
 
   /**
-   *
-   *    <p> Specifies whether given log publishing option is enabled or not.</p>
-   *
+   * <p> Specifies whether given log publishing option is enabled or not.</p>
    */
   Enabled?: boolean;
 }
@@ -2181,23 +1777,17 @@ export namespace LogPublishingOption {
 }
 
 /**
- *
- *       <p>The configured log publishing options for the domain and their current status.</p>
- *
+ * <p>The configured log publishing options for the domain and their current status.</p>
  */
 export interface LogPublishingOptionsStatus {
   __type?: "LogPublishingOptionsStatus";
   /**
-   *
-   *        <p>The log publishing options configured for the Elasticsearch domain.</p>
-   *
+   * <p>The log publishing options configured for the Elasticsearch domain.</p>
    */
   Options?: { [key: string]: LogPublishingOption };
 
   /**
-   *
-   *       <p>The status of the log publishing options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
-   *
+   * <p>The status of the log publishing options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
    */
   Status?: OptionStatus;
 }
@@ -2214,16 +1804,12 @@ export type LogType =
   | "SEARCH_SLOW_LOGS";
 
 /**
- *
- *        <p>Specifies the node-to-node encryption options.</p>
- *
+ * <p>Specifies the node-to-node encryption options.</p>
  */
 export interface NodeToNodeEncryptionOptions {
   __type?: "NodeToNodeEncryptionOptions";
   /**
-   *
-   *        <p>Specify true to enable node-to-node encryption.</p>
-   *
+   * <p>Specify true to enable node-to-node encryption.</p>
    */
   Enabled?: boolean;
 }
@@ -2235,23 +1821,17 @@ export namespace NodeToNodeEncryptionOptions {
 }
 
 /**
- *
- *        <p>Status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
- *
+ * <p>Status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
  */
 export interface NodeToNodeEncryptionOptionsStatus {
   __type?: "NodeToNodeEncryptionOptionsStatus";
   /**
-   *
-   *        <p>Specifies the node-to-node encryption options for the specified Elasticsearch domain.</p>
-   *
+   * <p>Specifies the node-to-node encryption options for the specified Elasticsearch domain.</p>
    */
   Options: NodeToNodeEncryptionOptions | undefined;
 
   /**
-   *
-   *        <p>Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
-   *
+   * <p>Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -2265,44 +1845,32 @@ export namespace NodeToNodeEncryptionOptionsStatus {
 export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
 
 /**
- *
- *        <p>Provides the current status of the entity.</p>
- *
+ * <p>Provides the current status of the entity.</p>
  */
 export interface OptionStatus {
   __type?: "OptionStatus";
   /**
-   *
-   *        <p>Timestamp which tells the creation date for the entity.</p>
-   *
+   * <p>Timestamp which tells the creation date for the entity.</p>
    */
   CreationDate: Date | undefined;
 
   /**
-   *
-   *        <p>Indicates whether the Elasticsearch domain is being deleted.</p>
-   *
+   * <p>Indicates whether the Elasticsearch domain is being deleted.</p>
    */
   PendingDeletion?: boolean;
 
   /**
-   *
-   *        <p>Provides the <code>OptionState</code> for the Elasticsearch domain.</p>
-   *
+   * <p>Provides the <code>OptionState</code> for the Elasticsearch domain.</p>
    */
   State: OptionState | string | undefined;
 
   /**
-   *
-   *        <p>Timestamp which tells the last updated time for the entity.</p>
-   *
+   * <p>Timestamp which tells the last updated time for the entity.</p>
    */
   UpdateDate: Date | undefined;
 
   /**
-   *
-   *        <p>Specifies the latest version for the entity.</p>
-   *
+   * <p>Specifies the latest version for the entity.</p>
    */
   UpdateVersion?: number;
 }
@@ -2314,30 +1882,22 @@ export namespace OptionStatus {
 }
 
 /**
- *
- * 	<p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>
- *
+ * <p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
   __type?: "PurchaseReservedElasticsearchInstanceOfferingRequest";
   /**
-   *
-   * 	<p>The number of Elasticsearch instances to reserve.</p>
-   *
+   * <p>The number of Elasticsearch instances to reserve.</p>
    */
   InstanceCount?: number;
 
   /**
-   *
-   * 	<p>A customer-specified identifier to track this reservation.</p>
-   *
+   * <p>A customer-specified identifier to track this reservation.</p>
    */
   ReservationName: string | undefined;
 
   /**
-   *
-   * 	<p>The ID of the reserved Elasticsearch instance offering to purchase.</p>
-   *
+   * <p>The ID of the reserved Elasticsearch instance offering to purchase.</p>
    */
   ReservedElasticsearchInstanceOfferingId: string | undefined;
 }
@@ -2354,24 +1914,18 @@ export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
 }
 
 /**
- *
- * 	<p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
- *
+ * <p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingResponse
   extends $MetadataBearer {
   __type?: "PurchaseReservedElasticsearchInstanceOfferingResponse";
   /**
-   *
-   * 	<p>The customer-specified identifier used to track this reservation.</p>
-   *
+   * <p>The customer-specified identifier used to track this reservation.</p>
    */
   ReservationName?: string;
 
   /**
-   *
-   * 	<p>Details of the reserved Elasticsearch instance which was purchased.</p>
-   *
+   * <p>Details of the reserved Elasticsearch instance which was purchased.</p>
    */
   ReservedElasticsearchInstanceId?: string;
 }
@@ -2388,23 +1942,17 @@ export namespace PurchaseReservedElasticsearchInstanceOfferingResponse {
 }
 
 /**
- *
- * 	<p>Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.</p>
- *
+ * <p>Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.</p>
  */
 export interface RecurringCharge {
   __type?: "RecurringCharge";
   /**
-   *
-   * 	<p>The monetary amount of the recurring charge.</p>
-   *
+   * <p>The monetary amount of the recurring charge.</p>
    */
   RecurringChargeAmount?: number;
 
   /**
-   *
-   * 	<p>The frequency of the recurring charge.</p>
-   *
+   * <p>The frequency of the recurring charge.</p>
    */
   RecurringChargeFrequency?: string;
 }
@@ -2416,23 +1964,17 @@ export namespace RecurringCharge {
 }
 
 /**
- *
- *        <p>Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.</p>
- *
+ * <p>Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.</p>
  */
 export interface RemoveTagsRequest {
   __type?: "RemoveTagsRequest";
   /**
-   *
-   *        <p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to delete the specified tags.</p>
-   *
+   * <p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to delete the specified tags.</p>
    */
   ARN: string | undefined;
 
   /**
-   *
-   *        <p>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch domain.</p>
    */
   TagKeys: Array<string> | undefined;
 }
@@ -2444,100 +1986,72 @@ export namespace RemoveTagsRequest {
 }
 
 /**
- *
- * 	<p>Details of a reserved Elasticsearch instance.</p>
- *
+ * <p>Details of a reserved Elasticsearch instance.</p>
  */
 export interface ReservedElasticsearchInstance {
   __type?: "ReservedElasticsearchInstance";
   /**
-   *
-   * 	<p>The currency code for the reserved Elasticsearch instance offering.</p>
-   *
+   * <p>The currency code for the reserved Elasticsearch instance offering.</p>
    */
   CurrencyCode?: string;
 
   /**
-   *
-   * 	<p>The duration, in seconds, for which the Elasticsearch instance is reserved.</p>
-   *
+   * <p>The duration, in seconds, for which the Elasticsearch instance is reserved.</p>
    */
   Duration?: number;
 
   /**
-   *
-   * 	<p>The number of Elasticsearch instances that have been reserved.</p>
-   *
+   * <p>The number of Elasticsearch instances that have been reserved.</p>
    */
   ElasticsearchInstanceCount?: number;
 
   /**
-   *
-   * 	<p>The Elasticsearch instance type offered by the reserved instance offering.</p>
-   *
+   * <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
    */
   ElasticsearchInstanceType?: ESPartitionInstanceType | string;
 
   /**
-   *
-   * 	<p>The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering. </p>
-   *
+   * <p>The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering. </p>
    */
   FixedPrice?: number;
 
   /**
-   *
-   * 	<p>The payment option as defined in the reserved Elasticsearch instance offering.</p>
-   *
+   * <p>The payment option as defined in the reserved Elasticsearch instance offering.</p>
    */
   PaymentOption?: ReservedElasticsearchInstancePaymentOption | string;
 
   /**
-   *
-   * 	<p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
-   *
+   * <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
    */
   RecurringCharges?: Array<RecurringCharge>;
 
   /**
-   *
-   * 	<p>The customer-specified identifier to track this reservation.</p>
-   *
+   * <p>The customer-specified identifier to track this reservation.</p>
    */
   ReservationName?: string;
 
   /**
-   *
-   * 	<p>The unique identifier for the reservation.</p>
-   *
+   * <p>The unique identifier for the reservation.</p>
    */
   ReservedElasticsearchInstanceId?: string;
 
   /**
-   *
-   * 	<p>The offering identifier.</p>
-   *
+   * <p>The offering identifier.</p>
    */
   ReservedElasticsearchInstanceOfferingId?: string;
 
   /**
-   *
-   * 	<p>The time the reservation started.</p>
-   *
+   * <p>The time the reservation started.</p>
    */
   StartTime?: Date;
 
   /**
-   *
-   * 	<p>The state of the reserved Elasticsearch instance.</p>
-   *
+   * <p>The state of the reserved Elasticsearch instance.</p>
    */
   State?: string;
 
   /**
-   *
-   * 	<p>The rate you are charged for each hour for the domain that is using this reserved instance.</p>
-   *
+   * <p>The rate you are charged for each hour for the domain that is using this reserved instance.</p>
    */
   UsagePrice?: number;
 }
@@ -2549,65 +2063,47 @@ export namespace ReservedElasticsearchInstance {
 }
 
 /**
- *
- * 	<p>Details of a reserved Elasticsearch instance offering.</p>
- *
+ * <p>Details of a reserved Elasticsearch instance offering.</p>
  */
 export interface ReservedElasticsearchInstanceOffering {
   __type?: "ReservedElasticsearchInstanceOffering";
   /**
-   *
-   * 	<p>The currency code for the reserved Elasticsearch instance offering.</p>
-   *
+   * <p>The currency code for the reserved Elasticsearch instance offering.</p>
    */
   CurrencyCode?: string;
 
   /**
-   *
-   * 	<p>The duration, in seconds, for which the offering will reserve the Elasticsearch instance.</p>
-   *
+   * <p>The duration, in seconds, for which the offering will reserve the Elasticsearch instance.</p>
    */
   Duration?: number;
 
   /**
-   *
-   * 	<p>The Elasticsearch instance type offered by the reserved instance offering.</p>
-   *
+   * <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
    */
   ElasticsearchInstanceType?: ESPartitionInstanceType | string;
 
   /**
-   *
-   * 	<p>The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering. </p>
-   *
+   * <p>The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering. </p>
    */
   FixedPrice?: number;
 
   /**
-   *
-   * 	<p>Payment option for the reserved Elasticsearch instance offering</p>
-   *
+   * <p>Payment option for the reserved Elasticsearch instance offering</p>
    */
   PaymentOption?: ReservedElasticsearchInstancePaymentOption | string;
 
   /**
-   *
-   * 	<p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
-   *
+   * <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
    */
   RecurringCharges?: Array<RecurringCharge>;
 
   /**
-   *
-   * 	<p>The Elasticsearch reserved instance offering identifier.</p>
-   *
+   * <p>The Elasticsearch reserved instance offering identifier.</p>
    */
   ReservedElasticsearchInstanceOfferingId?: string;
 
   /**
-   *
-   * 	<p>The rate you are charged for each hour the domain that is using the offering is running.</p>
-   *
+   * <p>The rate you are charged for each hour the domain that is using the offering is running.</p>
    */
   UsagePrice?: number;
 }
@@ -2624,58 +2120,42 @@ export type ReservedElasticsearchInstancePaymentOption =
   | "PARTIAL_UPFRONT";
 
 /**
- *
- *       <p>The current options of an Elasticsearch domain service software options.</p>
- *
+ * <p>The current options of an Elasticsearch domain service software options.</p>
  */
 export interface ServiceSoftwareOptions {
   __type?: "ServiceSoftwareOptions";
   /**
-   *
-   *     <p>Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.</p>
-   *
+   * <p>Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.</p>
    */
   AutomatedUpdateDate?: Date;
 
   /**
-   *
-   *     <p><code>True</code> if you are able to cancel your service software version update. <code>False</code> if you are not able to cancel your service software version. </p>
-   *
+   * <p><code>True</code> if you are able to cancel your service software version update. <code>False</code> if you are not able to cancel your service software version. </p>
    */
   Cancellable?: boolean;
 
   /**
-   *
-   *     <p>The current service software version that is present on the domain.</p>
-   *
+   * <p>The current service software version that is present on the domain.</p>
    */
   CurrentVersion?: string;
 
   /**
-   *
-   *     <p>The description of the <code>UpdateStatus</code>.</p>
-   *
+   * <p>The description of the <code>UpdateStatus</code>.</p>
    */
   Description?: string;
 
   /**
-   *
-   *     <p>The new service software version if one is available.</p>
-   *
+   * <p>The new service software version if one is available.</p>
    */
   NewVersion?: string;
 
   /**
-   *
-   *     <p><code>True</code> if you are able to update you service software version. <code>False</code> if you are not able to update your service software version. </p>
-   *
+   * <p><code>True</code> if you are able to update you service software version. <code>False</code> if you are not able to update your service software version. </p>
    */
   UpdateAvailable?: boolean;
 
   /**
-   *
-   *     <p>The status of your service software update. This field can take the following values: <code>ELIGIBLE</code>, <code>PENDING_UPDATE</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>NOT_ELIGIBLE</code>.</p>
-   *
+   * <p>The status of your service software update. This field can take the following values: <code>ELIGIBLE</code>, <code>PENDING_UPDATE</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>NOT_ELIGIBLE</code>.</p>
    */
   UpdateStatus?: DeploymentStatus | string;
 }
@@ -2687,16 +2167,12 @@ export namespace ServiceSoftwareOptions {
 }
 
 /**
- *
- *        <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
- *
+ * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
  */
 export interface SnapshotOptions {
   __type?: "SnapshotOptions";
   /**
-   *
-   *        <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
-   *
+   * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
    */
   AutomatedSnapshotStartHour?: number;
 }
@@ -2708,23 +2184,17 @@ export namespace SnapshotOptions {
 }
 
 /**
- *
- *        <p>Status of a daily automated snapshot.</p>
- *
+ * <p>Status of a daily automated snapshot.</p>
  */
 export interface SnapshotOptionsStatus {
   __type?: "SnapshotOptionsStatus";
   /**
-   *
-   *        <p>Specifies the daily snapshot options specified for the Elasticsearch domain.</p>
-   *
+   * <p>Specifies the daily snapshot options specified for the Elasticsearch domain.</p>
    */
   Options: SnapshotOptions | undefined;
 
   /**
-   *
-   *        <p>Specifies the status of a daily automated snapshot.</p>
-   *
+   * <p>Specifies the status of a daily automated snapshot.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -2736,16 +2206,12 @@ export namespace SnapshotOptionsStatus {
 }
 
 /**
- *
- *     <p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>
- *
+ * <p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>
  */
 export interface StartElasticsearchServiceSoftwareUpdateRequest {
   __type?: "StartElasticsearchServiceSoftwareUpdateRequest";
   /**
-   *
-   *     <p>The name of the domain that you want to update to the latest service software.</p>
-   *
+   * <p>The name of the domain that you want to update to the latest service software.</p>
    */
   DomainName: string | undefined;
 }
@@ -2759,17 +2225,13 @@ export namespace StartElasticsearchServiceSoftwareUpdateRequest {
 }
 
 /**
- *
- *     <p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
- *
+ * <p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
 export interface StartElasticsearchServiceSoftwareUpdateResponse
   extends $MetadataBearer {
   __type?: "StartElasticsearchServiceSoftwareUpdateResponse";
   /**
-   *
-   *     <p>The current status of the Elasticsearch service software update.</p>
-   *
+   * <p>The current status of the Elasticsearch service software update.</p>
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
 }
@@ -2783,17 +2245,14 @@ export namespace StartElasticsearchServiceSoftwareUpdateResponse {
 }
 
 /**
- *
- *     <p>StorageTypes represents the list of storage related types and their attributes
+ * <p>StorageTypes represents the list of storage related types and their attributes
  *       that are available for given InstanceType.
  *     </p>
- *
  */
 export interface StorageType {
   __type?: "StorageType";
   /**
-   *
-   *     <p>
+   * <p>
    *       SubType of the given storage type.
    *       List of available sub-storage options:
    *       For "instance" storageType we wont have any storageSubType,
@@ -2805,21 +2264,17 @@ export interface StorageType {
    *       </ol>
    *       Refer <code><a>VolumeType</a></code> for more information regarding above EBS storage options.
    *     </p>
-   *
    */
   StorageSubTypeName?: string;
 
   /**
-   *
-   *     <p>List of limits that are applicable for given storage type.
+   * <p>List of limits that are applicable for given storage type.
    *     </p>
-   *
    */
   StorageTypeLimits?: Array<StorageTypeLimit>;
 
   /**
-   *
-   *     <p>
+   * <p>
    *   Type of the storage.
    *   List of available storage options:
    *   <ol>
@@ -2827,7 +2282,6 @@ export interface StorageType {
    *     <li>ebs</li> Elastic block storage that would be attached to the given Instance
    *   </ol>
    *     </p>
-   *
    */
   StorageTypeName?: string;
 }
@@ -2839,16 +2293,13 @@ export namespace StorageType {
 }
 
 /**
- *
- *     <p>Limits that are applicable for given storage type.
+ * <p>Limits that are applicable for given storage type.
  *     </p>
- *
  */
 export interface StorageTypeLimit {
   __type?: "StorageTypeLimit";
   /**
-   *
-   *   <p>
+   * <p>
    *     Name of storage limits that are applicable for given storage type.
    *     If
    *     <code>
@@ -2866,20 +2317,17 @@ export interface StorageTypeLimit {
    *       Minimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
    *     </ol>
    *   </p>
-   *
    */
   LimitName?: string;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Values for the
    *       <code>
    *         <a>StorageTypeLimit$LimitName</a>
    *       </code>
    *       .
    *     </p>
-   *
    */
   LimitValues?: Array<string>;
 }
@@ -2896,24 +2344,18 @@ export enum TLSSecurityPolicy {
 }
 
 /**
- *
- *        <p>Specifies a key value pair for a resource tag.</p>
- *
+ * <p>Specifies a key value pair for a resource tag.</p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *        <p>Specifies the <code>TagKey</code>, the name of the tag.  Tag keys must be unique for the Elasticsearch domain to which they are attached.</p>
-   *
+   * <p>Specifies the <code>TagKey</code>, the name of the tag.  Tag keys must be unique for the Elasticsearch domain to which they are attached.</p>
    */
   Key: string | undefined;
 
   /**
-   *
-   *        <p>Specifies the <code>TagValue</code>, the value assigned to the corresponding tag key.  Tag values can be null and do not have to be unique in a tag set.  For example, you can have a key value
+   * <p>Specifies the <code>TagValue</code>, the value assigned to the corresponding tag key.  Tag values can be null and do not have to be unique in a tag set.  For example, you can have a key value
    *        pair in a tag set of <code>project : Trinity</code> and <code>cost-center : Trinity</code></p>
-   *
    */
   Value: string | undefined;
 }
@@ -2925,80 +2367,58 @@ export namespace Tag {
 }
 
 /**
- *
- *       <p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>
- *
+ * <p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>
  */
 export interface UpdateElasticsearchDomainConfigRequest {
   __type?: "UpdateElasticsearchDomainConfigRequest";
   /**
-   *
-   *       <p>IAM access policy as a JSON-formatted string.</p>
-   *
+   * <p>IAM access policy as a JSON-formatted string.</p>
    */
   AccessPolicies?: string;
 
   /**
-   *
-   *        <p>Modifies the advanced option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
+   * <p>Modifies the advanced option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
    *        See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</p>
-   *
    */
   AdvancedOptions?: { [key: string]: string };
 
   /**
-   *
-   *        <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
-   *
+   * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
    */
   CognitoOptions?: CognitoOptions;
 
   /**
-   *
-   *       <p>Options to specify configuration that will be applied to the domain endpoint.</p>
-   *
+   * <p>Options to specify configuration that will be applied to the domain endpoint.</p>
    */
   DomainEndpointOptions?: DomainEndpointOptions;
 
   /**
-   *
-   *       <p>The name of the Elasticsearch domain that you are updating. </p>
-   *
+   * <p>The name of the Elasticsearch domain that you are updating. </p>
    */
   DomainName: string | undefined;
 
   /**
-   *
-   *       <p>Specify the type and size of the EBS volume that you want to use. </p>
-   *
+   * <p>Specify the type and size of the EBS volume that you want to use. </p>
    */
   EBSOptions?: EBSOptions;
 
   /**
-   *
-   *       <p>The type and number of instances to instantiate for the domain cluster.</p>
-   *
+   * <p>The type and number of instances to instantiate for the domain cluster.</p>
    */
   ElasticsearchClusterConfig?: ElasticsearchClusterConfig;
 
   /**
-   *
-   *       <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
-   *
+   * <p>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.</p>
    */
   LogPublishingOptions?: { [key: string]: LogPublishingOption };
 
   /**
-   *
-   *       <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. </p>
-   *
+   * <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. </p>
    */
   SnapshotOptions?: SnapshotOptions;
 
   /**
-   *
-   *        <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc" target="_blank">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>
-   *
+   * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc" target="_blank">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i></p>
    */
   VPCOptions?: VPCOptions;
 }
@@ -3010,17 +2430,13 @@ export namespace UpdateElasticsearchDomainConfigRequest {
 }
 
 /**
- *
- *       <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
- *
+ * <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
  */
 export interface UpdateElasticsearchDomainConfigResponse
   extends $MetadataBearer {
   __type?: "UpdateElasticsearchDomainConfigResponse";
   /**
-   *
-   *       <p>The status of the updated Elasticsearch domain. </p>
-   *
+   * <p>The status of the updated Elasticsearch domain. </p>
    */
   DomainConfig: ElasticsearchDomainConfig | undefined;
 }
@@ -3032,39 +2448,31 @@ export namespace UpdateElasticsearchDomainConfigResponse {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for request parameters to
  *       <code>
  *         <a>UpgradeElasticsearchDomain</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface UpgradeElasticsearchDomainRequest {
   __type?: "UpgradeElasticsearchDomainRequest";
   /**
-   *
-   *     <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   *
+   * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
    *       This will not actually perform the Upgrade.
    *     </p>
-   *
    */
   PerformCheckOnly?: boolean;
 
   /**
-   *
-   *     <p>The version of Elasticsearch that you intend to upgrade the domain to.</p>
-   *
+   * <p>The version of Elasticsearch that you intend to upgrade the domain to.</p>
    */
   TargetVersion: string | undefined;
 }
@@ -3076,39 +2484,31 @@ export namespace UpgradeElasticsearchDomainRequest {
 }
 
 /**
- *
- *     <p>
+ * <p>
  *       Container for response returned by
  *       <code>
  *         <a>UpgradeElasticsearchDomain</a>
  *       </code>
  *       operation.
  *     </p>
- *
  */
 export interface UpgradeElasticsearchDomainResponse extends $MetadataBearer {
   __type?: "UpgradeElasticsearchDomainResponse";
   /**
-   *
-   *     <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
-   *
+   * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName?: string;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
    *       This will not actually perform the Upgrade.
    *     </p>
-   *
    */
   PerformCheckOnly?: boolean;
 
   /**
-   *
-   *     <p>The version of Elasticsearch that you intend to upgrade the domain to.</p>
-   *
+   * <p>The version of Elasticsearch that you intend to upgrade the domain to.</p>
    */
   TargetVersion?: string;
 }
@@ -3120,42 +2520,33 @@ export namespace UpgradeElasticsearchDomainResponse {
 }
 
 /**
- *
- *     <p>History of the last 10 Upgrades and Upgrade Eligibility Checks.</p>
- *
+ * <p>History of the last 10 Upgrades and Upgrade Eligibility Checks.</p>
  */
 export interface UpgradeHistory {
   __type?: "UpgradeHistory";
   /**
-   *
-   *     <p>UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.</p>
-   *
+   * <p>UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.</p>
    */
   StartTimestamp?: Date;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       A list of
    *       <code>
    *         <a>UpgradeStepItem</a>
    *       </code>
    *       s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
    *     </p>
-   *
    */
   StepsList?: Array<UpgradeStepItem>;
 
   /**
-   *
-   *     <p>A string that describes the update briefly</p>
-   *
+   * <p>A string that describes the update briefly</p>
    */
   UpgradeName?: string;
 
   /**
-   *
-   *    <p>
+   * <p>
    *       The overall status of the update. The status can take one of the following values:
    *       <ul>
    *         <li>In Progress</li>
@@ -3164,7 +2555,6 @@ export interface UpgradeHistory {
    *         <li>Failed</li>
    *       </ul>
    *     </p>
-   *
    */
   UpgradeStatus?: UpgradeStatus | string;
 }
@@ -3184,29 +2574,22 @@ export type UpgradeStatus =
 export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
 
 /**
- *
- *     <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
- *
+ * <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
  */
 export interface UpgradeStepItem {
   __type?: "UpgradeStepItem";
   /**
-   *
-   *     <p>A list of strings containing detailed information about the errors encountered in a particular step.</p>
-   *
+   * <p>A list of strings containing detailed information about the errors encountered in a particular step.</p>
    */
   Issues?: Array<string>;
 
   /**
-   *
-   *     <p>The Floating point value representing progress percentage of a particular step.</p>
-   *
+   * <p>The Floating point value representing progress percentage of a particular step.</p>
    */
   ProgressPercent?: number;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
    *       <ul>
    *         <li>PreUpgradeCheck</li>
@@ -3214,13 +2597,11 @@ export interface UpgradeStepItem {
    *         <li>Upgrade</li>
    *       </ul>
    *     </p>
-   *
    */
   UpgradeStep?: UpgradeStep | string;
 
   /**
-   *
-   *     <p>
+   * <p>
    *       The status of a particular step during an upgrade. The status can take one of the following values:
    *       <ul>
    *         <li>In Progress</li>
@@ -3229,7 +2610,6 @@ export interface UpgradeStepItem {
    *         <li>Failed</li>
    *       </ul>
    *     </p>
-   *
    */
   UpgradeStepStatus?: UpgradeStatus | string;
 }
@@ -3241,37 +2621,27 @@ export namespace UpgradeStepItem {
 }
 
 /**
- *
- *        <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
- *
+ * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCDerivedInfo {
   __type?: "VPCDerivedInfo";
   /**
-   *
-   *        <p>The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
-   *
+   * <p>The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
    */
   AvailabilityZones?: Array<string>;
 
   /**
-   *
-   *        <p>Specifies the security groups for VPC endpoint.</p>
-   *
+   * <p>Specifies the security groups for VPC endpoint.</p>
    */
   SecurityGroupIds?: Array<string>;
 
   /**
-   *
-   *        <p>Specifies the subnets for VPC endpoint.</p>
-   *
+   * <p>Specifies the subnets for VPC endpoint.</p>
    */
   SubnetIds?: Array<string>;
 
   /**
-   *
-   *        <p>The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
-   *
+   * <p>The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>
    */
   VPCId?: string;
 }
@@ -3283,23 +2653,17 @@ export namespace VPCDerivedInfo {
 }
 
 /**
- *
- *        <p> Status of the VPC options for the specified Elasticsearch domain.</p>
- *
+ * <p> Status of the VPC options for the specified Elasticsearch domain.</p>
  */
 export interface VPCDerivedInfoStatus {
   __type?: "VPCDerivedInfoStatus";
   /**
-   *
-   *        <p> Specifies the VPC options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the VPC options for the specified Elasticsearch domain.</p>
    */
   Options: VPCDerivedInfo | undefined;
 
   /**
-   *
-   *        <p> Specifies the status of the VPC options for the specified Elasticsearch domain.</p>
-   *
+   * <p> Specifies the status of the VPC options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
 }
@@ -3311,23 +2675,17 @@ export namespace VPCDerivedInfoStatus {
 }
 
 /**
- *
- *        <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
- *
+ * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCOptions {
   __type?: "VPCOptions";
   /**
-   *
-   *        <p>Specifies the security groups for VPC endpoint.</p>
-   *
+   * <p>Specifies the security groups for VPC endpoint.</p>
    */
   SecurityGroupIds?: Array<string>;
 
   /**
-   *
-   *        <p>Specifies the subnets for VPC endpoint.</p>
-   *
+   * <p>Specifies the subnets for VPC endpoint.</p>
    */
   SubnetIds?: Array<string>;
 }
@@ -3341,16 +2699,12 @@ export namespace VPCOptions {
 export type VolumeType = "gp2" | "io1" | "standard";
 
 /**
- *
- *       <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
- *
+ * <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
  */
 export interface ZoneAwarenessConfig {
   __type?: "ZoneAwarenessConfig";
   /**
-   *
-   *       <p>An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled</p>
-   *
+   * <p>An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled</p>
    */
   AvailabilityZoneCount?: number;
 }
@@ -3362,9 +2716,7 @@ export namespace ZoneAwarenessConfig {
 }
 
 /**
- *
- *       <p>An error occurred while processing the request.</p>
- *
+ * <p>An error occurred while processing the request.</p>
  */
 export interface BaseException
   extends _smithy.SmithyException,
@@ -3373,9 +2725,7 @@ export interface BaseException
   name: "BaseException";
   $fault: "client";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }
@@ -3387,9 +2737,7 @@ export namespace BaseException {
 }
 
 /**
- *
- *       <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
- *
+ * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
  */
 export interface DisabledOperationException
   extends _smithy.SmithyException,
@@ -3398,9 +2746,7 @@ export interface DisabledOperationException
   name: "DisabledOperationException";
   $fault: "client";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }
@@ -3412,9 +2758,7 @@ export namespace DisabledOperationException {
 }
 
 /**
- *
- *       <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
- *
+ * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
  */
 export interface InternalException
   extends _smithy.SmithyException,
@@ -3423,9 +2767,7 @@ export interface InternalException
   name: "InternalException";
   $fault: "server";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }
@@ -3437,9 +2779,7 @@ export namespace InternalException {
 }
 
 /**
- *
- *       <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
- *
+ * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
  */
 export interface InvalidTypeException
   extends _smithy.SmithyException,
@@ -3448,9 +2788,7 @@ export interface InvalidTypeException
   name: "InvalidTypeException";
   $fault: "client";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }
@@ -3462,9 +2800,7 @@ export namespace InvalidTypeException {
 }
 
 /**
- *
- *       <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
- *
+ * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -3473,9 +2809,7 @@ export interface LimitExceededException
   name: "LimitExceededException";
   $fault: "client";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }
@@ -3487,9 +2821,7 @@ export namespace LimitExceededException {
 }
 
 /**
- *
- *       <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
- *
+ * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  */
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
@@ -3498,9 +2830,7 @@ export interface ResourceAlreadyExistsException
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }
@@ -3512,9 +2842,7 @@ export namespace ResourceAlreadyExistsException {
 }
 
 /**
- *
- *       <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
- *
+ * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -3523,9 +2851,7 @@ export interface ResourceNotFoundException
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }
@@ -3537,9 +2863,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- *
- *       <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
- *
+ * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  */
 export interface ValidationException
   extends _smithy.SmithyException,
@@ -3548,9 +2872,7 @@ export interface ValidationException
   name: "ValidationException";
   $fault: "client";
   /**
-   *
-   *       <p>A description of the error.</p>
-   *
+   * <p>A description of the error.</p>
    */
   message?: string;
 }

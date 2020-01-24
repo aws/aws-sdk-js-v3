@@ -430,6 +430,11 @@ import {
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ModifyCertificatesCommand,
+  ModifyCertificatesCommandInput,
+  ModifyCertificatesCommandOutput
+} from "./commands/ModifyCertificatesCommand";
+import {
   ModifyCurrentDBClusterCapacityCommand,
   ModifyCurrentDBClusterCapacityCommandInput,
   ModifyCurrentDBClusterCapacityCommandOutput
@@ -632,8 +637,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon Relational Database Service</fullname>
+ * <fullname>Amazon Relational Database Service</fullname>
  *         <p> </p>
  *          <p>Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and
  *           scale a relational database in the cloud. It provides cost-efficient, resizeable capacity for an industry-standard relational
@@ -690,20 +694,15 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html">Using the Query API</a>.</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class RDS extends RDSClient {
   /**
-   *
-   *         <p>Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
+   * <p>Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing Amazon Aurora MySQL
    *                   to Access Other AWS Services on Your Behalf</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
-   *
    */
   public addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
@@ -738,13 +737,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Associates an AWS Identity and Access Management (IAM) role with a DB instance.</p>
+   * <p>Associates an AWS Identity and Access Management (IAM) role with a DB instance.</p>
    *         <note>
    *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
    *         </note>
-   *
-   *
    */
   public addRoleToDBInstance(
     args: AddRoleToDBInstanceCommandInput,
@@ -779,10 +775,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Adds a source identifier to an existing RDS event notification subscription.</p>
-   *
-   *
+   * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
    */
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
@@ -829,12 +822,9 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>
+   * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>
    *          <p>For an overview on tagging Amazon RDS resources,
    *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>.</p>
-   *
-   *
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -869,10 +859,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
-   *
-   *
+   * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
    */
   public applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -907,8 +894,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
+   * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
    *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
    *           instances. Second, IP ranges are available if the application accessing your database is running on the Internet.
    *           Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
@@ -920,8 +906,6 @@ export class RDS extends RDSClient {
    *          <p>For an overview of CIDR ranges, go to the
    *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.
    *         </p>
-   *
-   *
    */
   public authorizeDBSecurityGroupIngress(
     args: AuthorizeDBSecurityGroupIngressCommandInput,
@@ -959,8 +943,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>
+   * <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>
    *         <p>For more information on backtracking, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
    *                 Backtracking an Aurora DB Cluster</a> in the
@@ -969,7 +952,6 @@ export class RDS extends RDSClient {
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
    */
   public backtrackDBCluster(
     args: BacktrackDBClusterCommandInput,
@@ -1004,13 +986,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Copies the specified DB cluster parameter group.</p>
+   * <p>Copies the specified DB cluster parameter group.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
-   *
    */
   public copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
@@ -1045,9 +1024,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <p>Copies a snapshot of a DB cluster.</p>
+   * <p>Copies a snapshot of a DB cluster.</p>
    *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
    *           must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
    *
@@ -1122,8 +1099,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -1158,10 +1133,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Copies the specified DB parameter group.</p>
-   *
-   *
+   * <p>Copies the specified DB parameter group.</p>
    */
   public copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
@@ -1196,19 +1168,15 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Copies the specified DB snapshot. The source DB snapshot must be in the "available" state.</p>
+   * <p>Copies the specified DB snapshot. The source DB snapshot must be in the "available" state.</p>
    *
    *         <p>You can copy a snapshot from one AWS Region to another. In that case, the AWS Region
    *             where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region for the
    *             DB snapshot copy. </p>
    *
    *         <p>For more information about copying snapshots, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i>
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
-   *
-   *
-   *
    */
   public copyDBSnapshot(
     args: CopyDBSnapshotCommandInput,
@@ -1243,10 +1211,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Copies the specified option group.</p>
-   *
-   *
+   * <p>Copies the specified option group.</p>
    */
   public copyOptionGroup(
     args: CopyOptionGroupCommandInput,
@@ -1281,15 +1246,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Creates a custom Availability Zone (AZ).</p>
+   * <p>Creates a custom Availability Zone (AZ).</p>
    *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
    *         <p>For more information about RDS on VMware, see the
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
    *                 <i>RDS on VMware User Guide.</i>
    *             </a>
    *          </p>
-   *
    */
   public createCustomAvailabilityZone(
     args: CreateCustomAvailabilityZoneCommandInput,
@@ -1324,8 +1287,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new Amazon Aurora DB cluster.</p>
+   * <p>Creates a new Amazon Aurora DB cluster.</p>
    *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB cluster as a
    *           Read Replica of another DB cluster or Amazon RDS MySQL DB instance. For cross-region replication
    *           where the DB cluster identified by <code>ReplicationSourceIdentifier</code> is encrypted,
@@ -1338,8 +1300,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -1374,12 +1334,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
+   * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
@@ -1414,8 +1372,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB cluster parameter group.</p>
+   * <p>Creates a new DB cluster parameter group.</p>
    *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p>
    *         <p>
    *             A DB cluster parameter group is initially created with the default parameters for the
@@ -1447,8 +1404,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
@@ -1483,16 +1438,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see
+   * <p>Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -1527,10 +1479,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB instance.</p>
-   *
-   *
+   * <p>Creates a new DB instance.</p>
    */
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
@@ -1565,8 +1514,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
+   * <p>Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
    *           You can create a Read Replica for a DB instance running MySQL, MariaDB, Oracle, or PostgreSQL.
    *           For more information, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
@@ -1584,10 +1532,6 @@ export class RDS extends RDSClient {
    *             <p>Your source DB instance must have backup retention enabled.
    *          </p>
    *          </important>
-   *
-   *
-   *
-   *
    */
   public createDBInstanceReadReplica(
     args: CreateDBInstanceReadReplicaCommandInput,
@@ -1622,8 +1566,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB parameter group.</p>
+   * <p>Creates a new DB parameter group.</p>
    *          <p>
    *             A DB parameter group is initially created with the default parameters for the
    *             database engine used by the DB instance. To provide custom values for any of the
@@ -1644,8 +1587,6 @@ export class RDS extends RDSClient {
    *                 <i>DescribeDBParameters</i> command to verify
    *                 that your DB parameter group has been created or modified.</p>
    *          </important>
-   *
-   *
    */
   public createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
@@ -1680,14 +1621,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Creates a new DB proxy.</p>
-   *
    */
   public createDBProxy(
     args: CreateDBProxyCommandInput,
@@ -1722,13 +1660,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
+   * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
    *          <note>
    *             <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
    *          </note>
-   *
-   *
    */
   public createDBSecurityGroup(
     args: CreateDBSecurityGroupCommandInput,
@@ -1763,10 +1698,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a DBSnapshot. The source DBInstance must be in "available" state.</p>
-   *
-   *
+   * <p>Creates a DBSnapshot. The source DBInstance must be in "available" state.</p>
    */
   public createDBSnapshot(
     args: CreateDBSnapshotCommandInput,
@@ -1801,10 +1733,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
-   *
-   *
+   * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
    */
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -1839,8 +1768,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates an RDS event notification subscription. This action requires a topic ARN (Amazon Resource Name) created by
+   * <p>Creates an RDS event notification subscription. This action requires a topic ARN (Amazon Resource Name) created by
    *           either the RDS console, the SNS console, or the SNS API. To obtain an ARN with SNS, you must create a topic in
    *           Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.</p>
    *          <p>You can specify the type of source (SourceType) you want to be notified of, provide a list of RDS sources
@@ -1856,8 +1784,6 @@ export class RDS extends RDSClient {
    *             <p>RDS event notification is only available for unencrypted SNS topics. If you specify an
    *               encrypted SNS topic, event notifications aren't sent for the topic.</p>
    *          </note>
-   *
-   *
    */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -1892,8 +1818,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       </p>
    *          <p>
    *         Creates an Aurora global database
@@ -1912,7 +1837,6 @@ export class RDS extends RDSClient {
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
@@ -1947,10 +1871,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new option group. You can create up to 20 option groups.</p>
-   *
-   *
+   * <p>Creates a new option group. You can create up to 20 option groups.</p>
    */
   public createOptionGroup(
     args: CreateOptionGroupCommandInput,
@@ -1985,15 +1906,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Deletes a custom Availability Zone (AZ).</p>
+   * <p>Deletes a custom Availability Zone (AZ).</p>
    *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
    *         <p>For more information about RDS on VMware, see the
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
    *                 <i>RDS on VMware User Guide.</i>
    *             </a>
    *          </p>
-   *
    */
   public deleteCustomAvailabilityZone(
     args: DeleteCustomAvailabilityZoneCommandInput,
@@ -2028,8 +1947,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
+   * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
    *           When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
    *           Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
    *          <p></p>
@@ -2040,8 +1958,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -2076,12 +1992,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p>
+   * <p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p>
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
@@ -2116,8 +2030,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
+   * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
@@ -2125,8 +2038,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -2161,8 +2072,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
+   * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
    *          <note>
    *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
    *             deleted.</p>
@@ -2174,8 +2084,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -2210,8 +2118,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
+   * <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
    *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
    *           Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p>
    *          <p>
@@ -2235,9 +2142,6 @@ export class RDS extends RDSClient {
    *          <p>To delete a DB instance in this case, first call the <code>PromoteReadReplicaDBCluster</code> API action to
    *       promote the DB cluster so it's no longer a Read Replica. After the promotion completes, then call the <code>DeleteDBInstance</code>
    *       API action to delete the final instance in the DB cluster.</p>
-   *
-   *
-   *
    */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -2272,11 +2176,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   * 	        <p>Deletes automated backups based on the source instance's <code>DbiResourceId</code>
+   * <p>Deletes automated backups based on the source instance's <code>DbiResourceId</code>
    *             value or the restorable instance's resource ID.</p>
-   *
-   *
    */
   public deleteDBInstanceAutomatedBackup(
     args: DeleteDBInstanceAutomatedBackupCommandInput,
@@ -2314,10 +2215,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.</p>
-   *
-   *
+   * <p>Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.</p>
    */
   public deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
@@ -2352,14 +2250,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Deletes an existing proxy.</p>
-   *
    */
   public deleteDBProxy(
     args: DeleteDBProxyCommandInput,
@@ -2394,13 +2289,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a DB security group.</p>
+   * <p>Deletes a DB security group.</p>
    *          <note>
    *             <p>The specified DB security group must not be associated with any DB instances.</p>
    *          </note>
-   *
-   *
    */
   public deleteDBSecurityGroup(
     args: DeleteDBSecurityGroupCommandInput,
@@ -2435,14 +2327,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
+   * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
    *             terminated.</p>
    *          <note>
    *             <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p>
    *          </note>
-   *
-   *
    */
   public deleteDBSnapshot(
     args: DeleteDBSnapshotCommandInput,
@@ -2477,13 +2366,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes a DB subnet group.</p>
+   * <p>Deletes a DB subnet group.</p>
    *          <note>
    *             <p>The specified database subnet group must not be associated with any DB instances.</p>
    *          </note>
-   *
-   *
    */
   public deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
@@ -2518,10 +2404,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes an RDS event notification subscription.</p>
-   *
-   *
+   * <p>Deletes an RDS event notification subscription.</p>
    */
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -2556,15 +2439,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *         Deletes a global database cluster. The primary and secondary clusters must already be detached or
    *         destroyed first.
    *       </p>
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
@@ -2599,10 +2480,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes the installation medium for a DB engine that requires an on-premises customer provided license,
+   * <p>Deletes the installation medium for a DB engine that requires an on-premises customer provided license,
    *             such as Microsoft SQL Server.</p>
-   *
    */
   public deleteInstallationMedia(
     args: DeleteInstallationMediaCommandInput,
@@ -2637,10 +2516,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Deletes an existing option group.</p>
-   *
-   *
+   * <p>Deletes an existing option group.</p>
    */
   public deleteOptionGroup(
     args: DeleteOptionGroupCommandInput,
@@ -2675,14 +2551,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
-   *
    */
   public deregisterDBProxyTargets(
     args: DeregisterDBProxyTargetsCommandInput,
@@ -2717,11 +2590,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p>
+   * <p>Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p>
    *          <p>This command doesn't take any parameters.</p>
-   *
-   *
    */
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -2756,10 +2626,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Lists the set of CA certificates provided by Amazon RDS for this AWS account.</p>
-   *
-   *
+   * <p>Lists the set of CA certificates provided by Amazon RDS for this AWS account.</p>
    */
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -2794,15 +2661,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Returns information about custom Availability Zones (AZs).</p>
+   * <p>Returns information about custom Availability Zones (AZs).</p>
    *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
    *         <p>For more information about RDS on VMware, see the
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
    *                 <i>RDS on VMware User Guide.</i>
    *             </a>
    *          </p>
-   *
    */
   public describeCustomAvailabilityZones(
     args: DescribeCustomAvailabilityZonesCommandInput,
@@ -2840,8 +2705,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Returns information about backtracks for a DB cluster.</p>
+   * <p>Returns information about backtracks for a DB cluster.</p>
    *         <p>For more information on Amazon Aurora, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *                 What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
@@ -2849,7 +2713,6 @@ export class RDS extends RDSClient {
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
    */
   public describeDBClusterBacktracks(
     args: DescribeDBClusterBacktracksCommandInput,
@@ -2884,12 +2747,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns information about endpoints for an Amazon Aurora DB cluster.</p>
+   * <p>Returns information about endpoints for an Amazon Aurora DB cluster.</p>
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
@@ -2924,8 +2785,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
    *             <code>DBClusterParameterGroupName</code> parameter is specified,
    *             the list will contain only the description of the specified DB cluster parameter group.
@@ -2937,8 +2797,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -2979,8 +2837,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
+   * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
@@ -2988,8 +2845,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
@@ -3024,8 +2879,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
+   * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
    *         <p>When sharing snapshots with other AWS accounts, <code>DescribeDBClusterSnapshotAttributes</code>
    *             returns the <code>restore</code> attribute and a list of IDs for the AWS accounts that are
    *             authorized to copy or restore the manual DB cluster snapshot. If <code>all</code> is included in the list of
@@ -3036,8 +2890,6 @@ export class RDS extends RDSClient {
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
-   *
    */
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
@@ -3084,8 +2936,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns information about DB cluster snapshots. This API action supports pagination.</p>
+   * <p>Returns information about DB cluster snapshots. This API action supports pagination.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
@@ -3093,8 +2944,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -3129,17 +2978,14 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns information about provisioned Aurora DB clusters. This API supports pagination.</p>
+   * <p>Returns information about provisioned Aurora DB clusters. This API supports pagination.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
    *          <note>
-   *             <p>This action only applies to Aurora DB clusters.</p>
+   *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
    *          </note>
-   *
-   *
    */
   public describeDBClusters(
     args: DescribeDBClustersCommandInput,
@@ -3174,10 +3020,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the available DB engines.</p>
-   *
-   *
+   * <p>Returns a list of the available DB engines.</p>
    */
   public describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
@@ -3212,16 +3055,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   * 	        <p>Displays backups for both current and deleted
+   * <p>Displays backups for both current and deleted
    *             instances. For example, use this operation to
    *             find details about automated backups for previously deleted instances. Current instances
    *             with retention periods greater than zero (0) are returned for both the
    *             <code>DescribeDBInstanceAutomatedBackups</code> and
    *             <code>DescribeDBInstances</code> operations.</p>
    * 	        <p>All parameters are optional.</p>
-   *
-   *
    */
   public describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
@@ -3268,11 +3108,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns information about provisioned RDS instances. This API supports pagination.</p>
-   *
-   *
-   *
+   * <p>Returns information about provisioned RDS instances. This API supports pagination.</p>
+   *          <note>
+   *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
+   *          </note>
    */
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
@@ -3307,10 +3146,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of DB log files for the DB instance.</p>
-   *
-   *
+   * <p>Returns a list of DB log files for the DB instance.</p>
    */
   public describeDBLogFiles(
     args: DescribeDBLogFilesCommandInput,
@@ -3345,13 +3181,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *         Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
    *             the list will contain only the description of the specified DB parameter group.
    *         </p>
-   *
-   *
    */
   public describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
@@ -3386,10 +3219,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns the detailed parameter list for a particular DB parameter group.</p>
-   *
-   *
+   * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
    */
   public describeDBParameters(
     args: DescribeDBParametersCommandInput,
@@ -3424,14 +3254,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Returns information about DB proxies.</p>
-   *
    */
   public describeDBProxies(
     args: DescribeDBProxiesCommandInput,
@@ -3466,14 +3293,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
-   *
    */
   public describeDBProxyTargetGroups(
     args: DescribeDBProxyTargetGroupsCommandInput,
@@ -3508,14 +3332,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
-   *
    */
   public describeDBProxyTargets(
     args: DescribeDBProxyTargetsCommandInput,
@@ -3550,13 +3371,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *         Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
    *             the list will contain only the descriptions of the specified DB security group.
    *         </p>
-   *
-   *
    */
   public describeDBSecurityGroups(
     args: DescribeDBSecurityGroupsCommandInput,
@@ -3591,8 +3409,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
+   * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
    *          <p>When sharing snapshots with other AWS accounts, <code>DescribeDBSnapshotAttributes</code>
    *       returns the <code>restore</code> attribute and a list of IDs for the AWS accounts that are
    *       authorized to copy or restore the manual DB snapshot. If <code>all</code> is included in the list of
@@ -3600,8 +3417,6 @@ export class RDS extends RDSClient {
    *       can be copied or restored by all AWS accounts.</p>
    *          <p>To add or remove access for an AWS account to copy or restore a manual DB snapshot, or to make the
    *       manual DB snapshot public or private, use the <code>ModifyDBSnapshotAttribute</code> API action.</p>
-   *
-   *
    */
   public describeDBSnapshotAttributes(
     args: DescribeDBSnapshotAttributesCommandInput,
@@ -3636,10 +3451,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns information about DB snapshots. This API action supports pagination.</p>
-   *
-   *
+   * <p>Returns information about DB snapshots. This API action supports pagination.</p>
    */
   public describeDBSnapshots(
     args: DescribeDBSnapshotsCommandInput,
@@ -3674,13 +3486,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.</p>
+   * <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.</p>
    *          <p>For an overview of CIDR ranges, go to the
    *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.
    *         </p>
-   *
-   *
    */
   public describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
@@ -3715,14 +3524,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns the default engine and system parameter information for the cluster database engine.</p>
+   * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
-   *
-   *
    */
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
@@ -3769,10 +3575,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns the default engine and system parameter information for the specified database engine.</p>
-   *
-   *
+   * <p>Returns the default engine and system parameter information for the specified database engine.</p>
    */
   public describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
@@ -3810,14 +3613,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
+   * <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
    *             You can see a list of the event categories and source types
    *             in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
    *                 Events</a> topic in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *
-   *
    */
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -3852,11 +3652,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status.</p>
+   * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status.</p>
    *          <p>If you specify a SubscriptionName, lists the description for that subscription.</p>
-   *
-   *
    */
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -3891,10 +3688,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned.</p>
-   *
-   *
+   * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned.</p>
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -3929,8 +3723,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *         Returns information about Aurora global database clusters. This API supports pagination.
    *       </p>
    *          <p>
@@ -3940,7 +3733,6 @@ export class RDS extends RDSClient {
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
@@ -3975,10 +3767,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Describes the available installation media for a DB engine that requires an
+   * <p>Describes the available installation media for a DB engine that requires an
    *           on-premises customer provided license, such as Microsoft SQL Server.</p>
-   *
    */
   public describeInstallationMedia(
     args: DescribeInstallationMediaCommandInput,
@@ -4013,10 +3803,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Describes all available options.</p>
-   *
-   *
+   * <p>Describes all available options.</p>
    */
   public describeOptionGroupOptions(
     args: DescribeOptionGroupOptionsCommandInput,
@@ -4051,10 +3838,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Describes the available option groups.</p>
-   *
-   *
+   * <p>Describes the available option groups.</p>
    */
   public describeOptionGroups(
     args: DescribeOptionGroupsCommandInput,
@@ -4089,10 +3873,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of orderable DB instance options for the specified engine.</p>
-   *
-   *
+   * <p>Returns a list of orderable DB instance options for the specified engine.</p>
    */
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
@@ -4139,10 +3920,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
-   *
-   *
+   * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
    */
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
@@ -4189,10 +3967,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
-   *
-   *
+   * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
    */
   public describeReservedDBInstances(
     args: DescribeReservedDBInstancesCommandInput,
@@ -4227,10 +4002,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Lists available reserved DB instance offerings.</p>
-   *
-   *
+   * <p>Lists available reserved DB instance offerings.</p>
    */
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
@@ -4277,11 +4049,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the source AWS Regions where the current AWS Region can create a Read Replica
+   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a Read Replica
    *             or copy a DB snapshot from. This API action supports pagination.</p>
-   *
-   *
    */
   public describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
@@ -4316,13 +4085,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>You can call <code>DescribeValidDBInstanceModifications</code>
+   * <p>You can call <code>DescribeValidDBInstanceModifications</code>
    *             to learn what modifications you can make to your DB instance.
    *             You can use this information when you call
    *             <code>ModifyDBInstance</code>.
    *         </p>
-   *
    */
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
@@ -4369,10 +4136,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
-   *
-   *
+   * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
    */
   public downloadDBLogFilePortion(
     args: DownloadDBLogFilePortionCommandInput,
@@ -4407,8 +4171,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Forces a failover for a DB cluster.</p>
+   * <p>Forces a failover for a DB cluster.</p>
    *          <p>A failover for a DB cluster promotes one of the Aurora Replicas (read-only instances)
    *           in the DB cluster to be the primary instance (the cluster writer).</p>
    *          <p>Amazon Aurora will automatically fail over to an Aurora Replica, if one exists,
@@ -4422,8 +4185,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -4458,10 +4219,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Imports the installation media for a DB engine that requires an on-premises
+   * <p>Imports the installation media for a DB engine that requires an on-premises
    *           customer provided license, such as SQL Server.</p>
-   *
    */
   public importInstallationMedia(
     args: ImportInstallationMediaCommandInput,
@@ -4496,13 +4255,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags on an Amazon RDS resource.</p>
+   * <p>Lists all tags on an Amazon RDS resource.</p>
    *          <p>For an overview on tagging an Amazon RDS resource,
    *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
    *           in the <i>Amazon RDS User Guide</i>.</p>
-   *
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -4537,8 +4293,66 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Set the capacity of an Aurora Serverless DB cluster to a specific value.</p>
+   * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
+   *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
+   *          <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
+   *             instances that is different from the default certificate provided by RDS. You can also
+   *             use this operation to remove the override, so that new DB instances use the default
+   *             certificate provided by RDS.</p>
+   *          <p>You might need to override the default certificate in the following situations:</p>
+   *          <ul>
+   *             <li>
+   *               <p>You already migrated your applications to support the latest certificate authority (CA) certificate, but the new CA certificate is not yet
+   *                   the RDS default CA certificate for the specified AWS Region.</p>
+   *             </li>
+   *             <li>
+   *               <p>RDS has already moved to a new default CA certificate for the specified AWS
+   *                     Region, but you are still in the process of supporting the new CA certificate.
+   *                     In this case, you temporarily need additional time to finish your application
+   *                     changes.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about rotating your SSL/TLS certificate for RDS DB engines, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+   *               Rotating Your SSL/TLS Certificate</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information about rotating your SSL/TLS certificate for Aurora DB engines, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+   *               Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   */
+  public modifyCertificates(
+    args: ModifyCertificatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCertificatesCommandOutput>;
+  public modifyCertificates(
+    args: ModifyCertificatesCommandInput,
+    cb: (err: any, data?: ModifyCertificatesCommandOutput) => void
+  ): void;
+  public modifyCertificates(
+    args: ModifyCertificatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCertificatesCommandOutput) => void
+  ): void;
+  public modifyCertificates(
+    args: ModifyCertificatesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyCertificatesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyCertificatesCommandOutput) => void
+  ): Promise<ModifyCertificatesCommandOutput> | void {
+    const command = new ModifyCertificatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Set the capacity of an Aurora Serverless DB cluster to a specific value.</p>
    *          <p>Aurora Serverless scales seamlessly based on the workload on the DB cluster. In some cases, the capacity might not scale
    *         fast enough to meet a sudden change in workload, such as a large number of new transactions. Call <code>ModifyCurrentDBClusterCapacity</code>
    *         to set the capacity explicitly.</p>
@@ -4556,7 +4370,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public modifyCurrentDBClusterCapacity(
     args: ModifyCurrentDBClusterCapacityCommandInput,
@@ -4594,8 +4407,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Modify a setting for an Amazon Aurora DB cluster.
+   * <p>Modify a setting for an Amazon Aurora DB cluster.
    *            You can change one
    *            or more database configuration parameters by specifying these parameters and the new values in the
    *            request. For more information on Amazon Aurora, see
@@ -4605,8 +4417,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
@@ -4641,12 +4451,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p>
+   * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p>
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
@@ -4681,8 +4489,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
    *             submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>,
    *             and <code>ApplyMethod</code>. A maximum of 20
@@ -4713,9 +4520,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
-   *
    */
   public modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
@@ -4750,8 +4554,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
+   * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
    *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify <code>restore</code>
    *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
    *             a list of IDs of the AWS accounts that are
@@ -4767,9 +4570,6 @@ export class RDS extends RDSClient {
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
-   *
-   *
    */
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -4810,17 +4610,12 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Modifies settings for a DB instance.
+   * <p>Modifies settings for a DB instance.
    *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
    *             To learn what modifications you can make to your DB instance,
    *             call <code>DescribeValidDBInstanceModifications</code>
    *             before you call <code>ModifyDBInstance</code>.
    *       </p>
-   *
-   *
-   *
-   *
    */
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
@@ -4855,8 +4650,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *         Modifies the parameters of a DB parameter group. To modify more than one parameter,
    *         submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
    *         <code>ApplyMethod</code>. A maximum of 20
@@ -4876,8 +4670,6 @@ export class RDS extends RDSClient {
    *             <i>DescribeDBParameters</i> command to verify
    *             that your DB parameter group has been created or modified.</p>
    *          </important>
-   *
-   *
    */
   public modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
@@ -4912,14 +4704,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Changes the settings for an existing DB proxy.</p>
-   *
    */
   public modifyDBProxy(
     args: ModifyDBProxyCommandInput,
@@ -4954,14 +4743,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
-   *
    */
   public modifyDBProxyTargetGroup(
     args: ModifyDBProxyTargetGroupCommandInput,
@@ -4996,17 +4782,12 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <p>Updates a manual DB snapshot, which can be encrypted or not encrypted, with a new engine version.
+   * <p>Updates a manual DB snapshot, which can be encrypted or not encrypted, with a new engine version.
    *
    *       </p>
    *
    *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
    *       </p>
-   *
-   *
-   *
    */
   public modifyDBSnapshot(
     args: ModifyDBSnapshotCommandInput,
@@ -5041,8 +4822,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
+   * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
    *          <p>To share a manual DB snapshot with other AWS accounts, specify <code>restore</code>
    *       as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
    *       a list of IDs of the AWS accounts that are
@@ -5055,9 +4835,6 @@ export class RDS extends RDSClient {
    *           <code>all</code> as a value for that parameter in this case.</p>
    *          <p>To view which AWS accounts have access to copy or restore a manual DB snapshot, or whether a
    *       manual DB snapshot public or private, use the <code>DescribeDBSnapshotAttributes</code> API action.</p>
-   *
-   *
-   *
    */
   public modifyDBSnapshotAttribute(
     args: ModifyDBSnapshotAttributeCommandInput,
@@ -5092,10 +4869,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
-   *
-   *
+   * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
    */
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
@@ -5130,14 +4904,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing RDS event notification subscription. Note that you can't modify the source identifiers using this call; to change
+   * <p>Modifies an existing RDS event notification subscription. Note that you can't modify the source identifiers using this call; to change
    *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
    *          <p>You can see a list of the event categories for a given SourceType
    *           in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> topic  in the <i>Amazon RDS User Guide</i>
    *             or by using the <b>DescribeEventCategories</b> action.</p>
-   *
-   *
    */
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -5172,8 +4943,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *         Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration
    *         parameters by specifying these parameters and the new values in the request. For more information on
    *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What Is Amazon Aurora?</a> in the
@@ -5182,7 +4952,6 @@ export class RDS extends RDSClient {
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
@@ -5217,10 +4986,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing option group.</p>
-   *
-   *
+   * <p>Modifies an existing option group.</p>
    */
   public modifyOptionGroup(
     args: ModifyOptionGroupCommandInput,
@@ -5255,8 +5021,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Promotes a Read Replica DB instance to a standalone DB instance.</p>
+   * <p>Promotes a Read Replica DB instance to a standalone DB instance.</p>
    *          <note>
    *             <ul>
    *                <li>
@@ -5273,8 +5038,6 @@ export class RDS extends RDSClient {
    *             </ul>
    *
    *          </note>
-   *
-   *
    */
   public promoteReadReplica(
     args: PromoteReadReplicaCommandInput,
@@ -5309,13 +5072,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Promotes a Read Replica DB cluster to a standalone DB cluster.</p>
+   * <p>Promotes a Read Replica DB cluster to a standalone DB cluster.</p>
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
@@ -5350,10 +5110,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Purchases a reserved DB instance offering.</p>
-   *
-   *
+   * <p>Purchases a reserved DB instance offering.</p>
    */
   public purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
@@ -5400,9 +5157,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <p>You might need to reboot your DB instance, usually for maintenance reasons.
+   * <p>You might need to reboot your DB instance, usually for maintenance reasons.
    *         For example, if you make certain modifications,
    *         or if you change the DB parameter group associated with the DB instance,
    *         you must reboot the instance for the changes to take effect.
@@ -5414,9 +5169,6 @@ export class RDS extends RDSClient {
    *
    *          <p>For more information about rebooting, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html">Rebooting a DB Instance</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *
-   *
-   *
    */
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
@@ -5451,14 +5203,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *          <note>
+   * <note>
    *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
    *          </note>
    *
    *          <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
-   *
    */
   public registerDBProxyTargets(
     args: RegisterDBProxyTargetsCommandInput,
@@ -5493,8 +5242,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *         Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
    *         standalone cluster with read-write capability instead of being read-only and receiving data from a
    *         primary cluster in a different region.
@@ -5502,7 +5250,6 @@ export class RDS extends RDSClient {
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
    */
   public removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
@@ -5537,15 +5284,12 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
+   * <p>Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing Amazon Aurora MySQL
    *                 to Access Other AWS Services on Your Behalf </a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
-   *
    */
   public removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
@@ -5580,10 +5324,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Disassociates an AWS Identity and Access Management (IAM) role from a DB instance.</p>
-   *
-   *
+   * <p>Disassociates an AWS Identity and Access Management (IAM) role from a DB instance.</p>
    */
   public removeRoleFromDBInstance(
     args: RemoveRoleFromDBInstanceCommandInput,
@@ -5618,10 +5359,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Removes a source identifier from an existing RDS event notification subscription.</p>
-   *
-   *
+   * <p>Removes a source identifier from an existing RDS event notification subscription.</p>
    */
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
@@ -5668,14 +5406,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Removes metadata tags from an Amazon RDS resource.</p>
+   * <p>Removes metadata tags from an Amazon RDS resource.</p>
    *          <p>For an overview on tagging an Amazon RDS resource,
    *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
    *           in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *
-   *
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -5710,8 +5445,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             Modifies the parameters of a DB cluster parameter group to the default value. To
    *             reset specific parameters submit a list of the following: <code>ParameterName</code>
    *             and <code>ApplyMethod</code>. To reset the
@@ -5731,8 +5465,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
@@ -5767,8 +5499,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Modifies the parameters of a DB parameter group to the engine/system default value.
+   * <p>Modifies the parameters of a DB parameter group to the engine/system default value.
    *             To reset specific parameters, provide a list of the following:
    *                 <code>ParameterName</code> and <code>ApplyMethod</code>. To reset the entire DB
    *             parameter group, specify the <code>DBParameterGroup</code> name and
@@ -5776,8 +5507,6 @@ export class RDS extends RDSClient {
    *             parameters are updated immediately and static parameters are set to
    *                 <code>pending-reboot</code> to take effect on the next DB instance restart or
    *                 <code>RebootDBInstance</code> request. </p>
-   *
-   *
    */
   public resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
@@ -5812,16 +5541,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be
+   * <p>Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be
    *         authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as
    *         described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html">
    *             Migrating Data to an Amazon Aurora MySQL DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
-   *
-   *
    */
   public restoreDBClusterFromS3(
     args: RestoreDBClusterFromS3CommandInput,
@@ -5856,8 +5582,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
+   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
    *         <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
    *             snapshot with a default configuration and default security group.</p>
    *          <p>If a DB cluster snapshot is specified, the target DB
@@ -5871,9 +5596,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
-   *
    */
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
@@ -5908,8 +5630,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point
+   * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point
    *             in time before <code>LatestRestorableTime</code> for up to
    *                 <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the
    *             source DB cluster with the same configuration as the original DB cluster, except that
@@ -5929,8 +5650,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
@@ -5965,17 +5684,13 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with the most of original configuration with the default security group and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored AZ deployment and not a single-AZ deployment.</p>
+   * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with the most of original configuration with the default security group and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored AZ deployment and not a single-AZ deployment.</p>
    *          <p>If your intent is to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. Once you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you will replace the original DB instance with the DB instance created from the snapshot.</p>
    *          <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
    *       must be the ARN of the shared DB snapshot.</p>
    *          <note>
    *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>
    *          </note>
-   *
-   *
-   *
    */
   public restoreDBInstanceFromDBSnapshot(
     args: RestoreDBInstanceFromDBSnapshotCommandInput,
@@ -6013,9 +5728,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *
-   *         <p>Amazon Relational Database Service (Amazon RDS)
+   * <p>Amazon Relational Database Service (Amazon RDS)
    *             supports importing MySQL databases by using backup files.
    *             You can create a backup of your on-premises database,
    *             store it on Amazon Simple Storage Service (Amazon S3),
@@ -6023,7 +5736,6 @@ export class RDS extends RDSClient {
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Importing Data into an Amazon RDS MySQL DB Instance</a>
    *             in the <i>Amazon RDS User Guide.</i>
    *         </p>
-   *
    */
   public restoreDBInstanceFromS3(
     args: RestoreDBInstanceFromS3CommandInput,
@@ -6058,8 +5770,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
+   * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
    * 	        <p>The target database is created with most of the original configuration, but in a
    *             system-selected Availability Zone, with the default security group, the default subnet
    *             group, and the default DB parameter group. By default, the new DB instance is created as
@@ -6069,9 +5780,6 @@ export class RDS extends RDSClient {
    *          <note>
    *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
    *          </note>
-   *
-   *
-   *
    */
   public restoreDBInstanceToPointInTime(
     args: RestoreDBInstanceToPointInTimeCommandInput,
@@ -6109,10 +5817,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).</p>
-   *
-   *
+   * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).</p>
    */
   public revokeDBSecurityGroupIngress(
     args: RevokeDBSecurityGroupIngressCommandInput,
@@ -6147,11 +5852,9 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Starts a database activity stream to monitor activity on the database.
+   * <p>Starts a database activity stream to monitor activity on the database.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
    *             in the <i>Amazon Aurora User Guide</i>.</p>
-   *
    */
   public startActivityStream(
     args: StartActivityStreamCommandInput,
@@ -6186,8 +5889,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster
+   * <p>Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster
    *        AWS CLI command, or the StopDBCluster action.</p>
    *
    *          <p>For more information, see
@@ -6197,10 +5899,6 @@ export class RDS extends RDSClient {
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
-   *
-   *
    */
   public startDBCluster(
     args: StartDBClusterCommandInput,
@@ -6235,8 +5933,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Starts an Amazon RDS DB instance that was stopped using the AWS console, the stop-db-instance AWS CLI command, or the StopDBInstance action.
    *         </p>
    *
@@ -6252,7 +5949,6 @@ export class RDS extends RDSClient {
    *             For Aurora DB clusters, use <code>StartDBCluster</code> instead.
    *           </p>
    *         </note>
-   *
    */
   public startDBInstance(
     args: StartDBInstanceCommandInput,
@@ -6287,13 +5983,11 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>Stops a database activity stream that was started using the AWS console,
+   * <p>Stops a database activity stream that was started using the AWS console,
    *             the <code>start-activity-stream</code> AWS CLI command, or the <code>StartActivityStream</code> action.</p>
    *         <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
    *             in the <i>Amazon Aurora User Guide</i>.</p>
-   *
    */
   public stopActivityStream(
     args: StopActivityStreamCommandInput,
@@ -6328,8 +6022,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *        Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's
    *        metadata, including its endpoints and DB parameter groups. Aurora also
    *        retains the transaction logs so you can do a point-in-time restore if necessary.
@@ -6342,8 +6035,6 @@ export class RDS extends RDSClient {
    *          <note>
    *            <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
-   *
-   *
    */
   public stopDBCluster(
     args: StopDBClusterCommandInput,
@@ -6378,8 +6069,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
    *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
    *             necessary.
@@ -6397,7 +6087,6 @@ export class RDS extends RDSClient {
    *             For Aurora clusters, use <code>StopDBCluster</code> instead.
    *           </p>
    *         </note>
-   *
    */
   public stopDBInstance(
     args: StopDBInstanceCommandInput,

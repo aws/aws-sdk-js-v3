@@ -2,23 +2,17 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>A list of possible transcriptions for the audio.</p>
- *
+ * <p>A list of possible transcriptions for the audio.</p>
  */
 export interface Alternative {
   __type?: "Alternative";
   /**
-   *
-   *          <p>One or more alternative interpretations of the input audio. </p>
-   *
+   * <p>One or more alternative interpretations of the input audio. </p>
    */
   Items?: Array<Item>;
 
   /**
-   *
-   *          <p>The text that was transcribed from the audio.</p>
-   *
+   * <p>The text that was transcribed from the audio.</p>
    */
   Transcript?: string;
 }
@@ -30,17 +24,12 @@ export namespace Alternative {
 }
 
 /**
- *
- *
- *          <p>Provides a wrapper for the audio chunks that you are sending.</p>
- *
+ * <p>Provides a wrapper for the audio chunks that you are sending.</p>
  */
 export interface AudioEvent {
   __type?: "AudioEvent";
   /**
-   *
-   *          <p>An audio blob that contains the next part of the audio that you want to transcribe.</p>
-   *
+   * <p>An audio blob that contains the next part of the audio that you want to transcribe.</p>
    */
   AudioChunk?: Uint8Array;
 }
@@ -52,9 +41,7 @@ export namespace AudioEvent {
 }
 
 /**
- *
- *          <p>Represents the audio stream from your application to Amazon Transcribe.</p>
- *
+ * <p>Represents the audio stream from your application to Amazon Transcribe.</p>
  */
 export type AudioStream =
   | AudioStream.AudioEventMember
@@ -65,10 +52,8 @@ export namespace AudioStream {
     __type?: "AudioStream";
   }
   /**
-   *
-   *          <p>A blob of audio from your application. You audio stream consists of one or more audio
+   * <p>A blob of audio from your application. You audio stream consists of one or more audio
    *       events.</p>
-   *
    */
   export interface AudioEventMember extends $Base {
     AudioEvent: AudioEvent;
@@ -90,12 +75,10 @@ export namespace AudioStream {
 }
 
 /**
- *
- *          <p>One or more arguments to the <code>StartStreamTranscription</code> operation was invalid.
+ * <p>One or more arguments to the <code>StartStreamTranscription</code> operation was invalid.
  *       For example, <code>MediaEncoding</code> was not set to <code>pcm</code> or
  *         <code>LanguageCode</code> was not set to a valid code. Check the parameters and try your
  *       request again.</p>
- *
  */
 export interface BadRequestException
   extends _smithy.SmithyException,
@@ -113,10 +96,8 @@ export namespace BadRequestException {
 }
 
 /**
- *
- *          <p>A new stream started with the same session ID. The current stream has been
+ * <p>A new stream started with the same session ID. The current stream has been
  *       terminated.</p>
- *
  */
 export interface ConflictException
   extends _smithy.SmithyException,
@@ -134,10 +115,8 @@ export namespace ConflictException {
 }
 
 /**
- *
- *          <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing. Try your
+ * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing. Try your
  *       request again.</p>
- *
  */
 export interface InternalFailureException
   extends _smithy.SmithyException,
@@ -155,41 +134,31 @@ export namespace InternalFailureException {
 }
 
 /**
- *
- *          <p>A word or phrase transcribed from the input audio.</p>
- *
+ * <p>A word or phrase transcribed from the input audio.</p>
  */
 export interface Item {
   __type?: "Item";
   /**
-   *
-   *          <p>The word or punctuation that was recognized in the input audio.</p>
-   *
+   * <p>The word or punctuation that was recognized in the input audio.</p>
    */
   Content?: string;
 
   /**
-   *
-   *          <p>The offset from the beginning of the audio stream to the end of the audio that resulted in
+   * <p>The offset from the beginning of the audio stream to the end of the audio that resulted in
    *       the item.</p>
-   *
    */
   EndTime?: number;
 
   /**
-   *
-   *          <p>The offset from the beginning of the audio stream to the beginning of the audio that
+   * <p>The offset from the beginning of the audio stream to the beginning of the audio that
    *       resulted in the item.</p>
-   *
    */
   StartTime?: number;
 
   /**
-   *
-   *          <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
+   * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
    *       was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was
    *       interpreted as a pause in the input audio.</p>
-   *
    */
   Type?: ItemType | string;
 }
@@ -215,12 +184,10 @@ export enum LanguageCode {
 }
 
 /**
- *
- *          <p>You have exceeded the maximum number of concurrent transcription streams, are starting
+ * <p>You have exceeded the maximum number of concurrent transcription streams, are starting
  *       transcription streams too quickly, or the maximum audio length of 4 hours. Wait until a stream
  *       has finished processing, or break your audio stream into smaller chunks and try your request
  *       again.</p>
- *
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -238,51 +205,39 @@ export namespace LimitExceededException {
 }
 
 /**
- *
- *          <p>The result of transcribing a portion of the input audio stream. </p>
- *
+ * <p>The result of transcribing a portion of the input audio stream. </p>
  */
 export interface Result {
   __type?: "Result";
   /**
-   *
-   *          <p>A list of possible transcriptions for the audio. Each alternative typically contains one
+   * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
    *         <code>item</code> that contains the result of the transcription.</p>
-   *
    */
   Alternatives?: Array<Alternative>;
 
   /**
-   *
-   *          <p>The offset in seconds from the beginning of the audio stream to the end of the
+   * <p>The offset in seconds from the beginning of the audio stream to the end of the
    *       result.</p>
-   *
    */
   EndTime?: number;
 
   /**
-   *
-   *          <p>Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio.
+   * <p>Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio.
    *       Transcription results are returned based on these segments. </p>
    *          <p>The <code>IsPartial</code> field is <code>true</code> to indicate that Amazon Transcribe has
    *       additional transcription data to send, <code>false</code> to indicate that this is the last
    *       transcription result for the segment.</p>
-   *
    */
   IsPartial?: boolean;
 
   /**
-   *
-   *          <p>A unique identifier for the result. </p>
-   *
+   * <p>A unique identifier for the result. </p>
    */
   ResultId?: string;
 
   /**
-   *
-   *          <p>The offset in seconds from the beginning of the audio stream to the beginning of the
+   * <p>The offset in seconds from the beginning of the audio stream to the beginning of the
    *       result.</p>
-   *
    */
   StartTime?: number;
 }
@@ -296,48 +251,36 @@ export namespace Result {
 export interface StartStreamTranscriptionRequest {
   __type?: "StartStreamTranscriptionRequest";
   /**
-   *
-   *          <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
+   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
    *       frame.</p>
-   *
    */
   AudioStream?: AudioStream;
 
   /**
-   *
-   *          <p>Indicates the source language used in the input audio stream.</p>
-   *
+   * <p>Indicates the source language used in the input audio stream.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   *
-   *          <p>The encoding used for the input audio. </p>
-   *
+   * <p>The encoding used for the input audio. </p>
    */
   MediaEncoding: MediaEncoding | string | undefined;
 
   /**
-   *
-   *          <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low
+   * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low
    *       quality audio and 16000 Hz for high quality audio.</p>
-   *
    */
   MediaSampleRateHertz: number | undefined;
 
   /**
-   *
-   *          <p>A identifier for the transcription session. Use this parameter when you want to retry a
+   * <p>A identifier for the transcription session. Use this parameter when you want to retry a
    *       session. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in
    *       the response.</p>
-   *
    */
   SessionId?: string;
 
   /**
-   *
-   *          <p>The name of the vocabulary to use when processing the transcription job.</p>
-   *
+   * <p>The name of the vocabulary to use when processing the transcription job.</p>
    */
   VocabularyName?: string;
 }
@@ -351,52 +294,38 @@ export namespace StartStreamTranscriptionRequest {
 export interface StartStreamTranscriptionResponse extends $MetadataBearer {
   __type?: "StartStreamTranscriptionResponse";
   /**
-   *
-   *          <p>The language code for the input audio stream.</p>
-   *
+   * <p>The language code for the input audio stream.</p>
    */
   LanguageCode?: LanguageCode | string;
 
   /**
-   *
-   *          <p>The encoding used for the input audio stream.</p>
-   *
+   * <p>The encoding used for the input audio stream.</p>
    */
   MediaEncoding?: MediaEncoding | string;
 
   /**
-   *
-   *          <p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz
+   * <p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz
    *       for high quality audio.</p>
-   *
    */
   MediaSampleRateHertz?: number;
 
   /**
-   *
-   *          <p>An identifier for the streaming transcription.</p>
-   *
+   * <p>An identifier for the streaming transcription.</p>
    */
   RequestId?: string;
 
   /**
-   *
-   *          <p>An identifier for a specific transcription session.</p>
-   *
+   * <p>An identifier for a specific transcription session.</p>
    */
   SessionId?: string;
 
   /**
-   *
-   *          <p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>
-   *
+   * <p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>
    */
   TranscriptResultStream?: TranscriptResultStream;
 
   /**
-   *
-   *          <p>The name of the vocabulary used when processing the job.</p>
-   *
+   * <p>The name of the vocabulary used when processing the job.</p>
    */
   VocabularyName?: string;
 }
@@ -408,18 +337,14 @@ export namespace StartStreamTranscriptionResponse {
 }
 
 /**
- *
- *          <p>The transcription in a <a>TranscriptEvent</a>.</p>
- *
+ * <p>The transcription in a <a>TranscriptEvent</a>.</p>
  */
 export interface Transcript {
   __type?: "Transcript";
   /**
-   *
-   *          <p>
+   * <p>
    *             <a>Result</a> objects that contain the results of transcribing a portion of the
    *       input audio stream. The array can be empty.</p>
-   *
    */
   Results?: Array<Result>;
 }
@@ -431,18 +356,14 @@ export namespace Transcript {
 }
 
 /**
- *
- *          <p>Represents a set of transcription results from the server to the client. It contains one
+ * <p>Represents a set of transcription results from the server to the client. It contains one
  *       or more segments of the transcription.</p>
- *
  */
 export interface TranscriptEvent {
   __type?: "TranscriptEvent";
   /**
-   *
-   *          <p>The transcription of the audio stream. The transcription is composed of all of the items
+   * <p>The transcription of the audio stream. The transcription is composed of all of the items
    *       in the results list.</p>
-   *
    */
   Transcript?: Transcript;
 }
@@ -454,9 +375,7 @@ export namespace TranscriptEvent {
 }
 
 /**
- *
- *          <p>Represents the transcription result stream from Amazon Transcribe to your application.</p>
- *
+ * <p>Represents the transcription result stream from Amazon Transcribe to your application.</p>
  */
 export type TranscriptResultStream =
   | TranscriptResultStream.BadRequestExceptionMember
@@ -471,10 +390,8 @@ export namespace TranscriptResultStream {
     __type?: "TranscriptResultStream";
   }
   /**
-   *
-   *          <p>A client error occurred when the stream was created. Check the parameters of the request
+   * <p>A client error occurred when the stream was created. Check the parameters of the request
    *       and try your request again.</p>
-   *
    */
   export interface BadRequestExceptionMember extends $Base {
     BadRequestException: BadRequestException;
@@ -485,10 +402,8 @@ export namespace TranscriptResultStream {
     $unknown?: never;
   }
   /**
-   *
-   *          <p>A new stream started with the same session ID. The current stream has been
+   * <p>A new stream started with the same session ID. The current stream has been
    *       terminated.</p>
-   *
    */
   export interface ConflictExceptionMember extends $Base {
     BadRequestException?: never;
@@ -499,9 +414,7 @@ export namespace TranscriptResultStream {
     $unknown?: never;
   }
   /**
-   *
-   *          <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
-   *
+   * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
    */
   export interface InternalFailureExceptionMember extends $Base {
     BadRequestException?: never;
@@ -512,10 +425,8 @@ export namespace TranscriptResultStream {
     $unknown?: never;
   }
   /**
-   *
-   *          <p>Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length.
+   * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length.
    *       Break your audio stream into smaller chunks and try your request again.</p>
-   *
    */
   export interface LimitExceededExceptionMember extends $Base {
     BadRequestException?: never;
@@ -526,12 +437,10 @@ export namespace TranscriptResultStream {
     $unknown?: never;
   }
   /**
-   *
-   *          <p>A portion of the transcription of the audio stream. Events are sent periodically from
+   * <p>A portion of the transcription of the audio stream. Events are sent periodically from
    *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
    *       stream, or it can be the entire transcription of that portion of the audio stream.
    *       </p>
-   *
    */
   export interface TranscriptEventMember extends $Base {
     BadRequestException?: never;
