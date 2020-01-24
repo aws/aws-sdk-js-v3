@@ -1,276 +1,284 @@
 import { CloudFrontClient } from "./CloudFrontClient";
 import {
-  CreateCloudFrontOriginAccessIdentityCommand,
-  CreateCloudFrontOriginAccessIdentityCommandInput,
-  CreateCloudFrontOriginAccessIdentityCommandOutput
-} from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
+  CreateCloudFrontOriginAccessIdentity2019_03_26Command,
+  CreateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+  CreateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+} from "./commands/CreateCloudFrontOriginAccessIdentity2019_03_26Command";
 import {
-  CreateDistributionCommand,
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput
-} from "./commands/CreateDistributionCommand";
+  CreateDistribution2019_03_26Command,
+  CreateDistribution2019_03_26CommandInput,
+  CreateDistribution2019_03_26CommandOutput
+} from "./commands/CreateDistribution2019_03_26Command";
 import {
-  CreateDistributionWithTagsCommand,
-  CreateDistributionWithTagsCommandInput,
-  CreateDistributionWithTagsCommandOutput
-} from "./commands/CreateDistributionWithTagsCommand";
+  CreateDistributionWithTags2019_03_26Command,
+  CreateDistributionWithTags2019_03_26CommandInput,
+  CreateDistributionWithTags2019_03_26CommandOutput
+} from "./commands/CreateDistributionWithTags2019_03_26Command";
 import {
-  CreateFieldLevelEncryptionConfigCommand,
-  CreateFieldLevelEncryptionConfigCommandInput,
-  CreateFieldLevelEncryptionConfigCommandOutput
-} from "./commands/CreateFieldLevelEncryptionConfigCommand";
+  CreateFieldLevelEncryptionConfig2019_03_26Command,
+  CreateFieldLevelEncryptionConfig2019_03_26CommandInput,
+  CreateFieldLevelEncryptionConfig2019_03_26CommandOutput
+} from "./commands/CreateFieldLevelEncryptionConfig2019_03_26Command";
 import {
-  CreateFieldLevelEncryptionProfileCommand,
-  CreateFieldLevelEncryptionProfileCommandInput,
-  CreateFieldLevelEncryptionProfileCommandOutput
-} from "./commands/CreateFieldLevelEncryptionProfileCommand";
+  CreateFieldLevelEncryptionProfile2019_03_26Command,
+  CreateFieldLevelEncryptionProfile2019_03_26CommandInput,
+  CreateFieldLevelEncryptionProfile2019_03_26CommandOutput
+} from "./commands/CreateFieldLevelEncryptionProfile2019_03_26Command";
 import {
-  CreateInvalidationCommand,
-  CreateInvalidationCommandInput,
-  CreateInvalidationCommandOutput
-} from "./commands/CreateInvalidationCommand";
+  CreateInvalidation2019_03_26Command,
+  CreateInvalidation2019_03_26CommandInput,
+  CreateInvalidation2019_03_26CommandOutput
+} from "./commands/CreateInvalidation2019_03_26Command";
 import {
-  CreatePublicKeyCommand,
-  CreatePublicKeyCommandInput,
-  CreatePublicKeyCommandOutput
-} from "./commands/CreatePublicKeyCommand";
+  CreatePublicKey2019_03_26Command,
+  CreatePublicKey2019_03_26CommandInput,
+  CreatePublicKey2019_03_26CommandOutput
+} from "./commands/CreatePublicKey2019_03_26Command";
 import {
-  CreateStreamingDistributionCommand,
-  CreateStreamingDistributionCommandInput,
-  CreateStreamingDistributionCommandOutput
-} from "./commands/CreateStreamingDistributionCommand";
+  CreateStreamingDistribution2019_03_26Command,
+  CreateStreamingDistribution2019_03_26CommandInput,
+  CreateStreamingDistribution2019_03_26CommandOutput
+} from "./commands/CreateStreamingDistribution2019_03_26Command";
 import {
-  CreateStreamingDistributionWithTagsCommand,
-  CreateStreamingDistributionWithTagsCommandInput,
-  CreateStreamingDistributionWithTagsCommandOutput
-} from "./commands/CreateStreamingDistributionWithTagsCommand";
+  CreateStreamingDistributionWithTags2019_03_26Command,
+  CreateStreamingDistributionWithTags2019_03_26CommandInput,
+  CreateStreamingDistributionWithTags2019_03_26CommandOutput
+} from "./commands/CreateStreamingDistributionWithTags2019_03_26Command";
 import {
-  DeleteCloudFrontOriginAccessIdentityCommand,
-  DeleteCloudFrontOriginAccessIdentityCommandInput,
-  DeleteCloudFrontOriginAccessIdentityCommandOutput
-} from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
+  DeleteCloudFrontOriginAccessIdentity2019_03_26Command,
+  DeleteCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+  DeleteCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+} from "./commands/DeleteCloudFrontOriginAccessIdentity2019_03_26Command";
 import {
-  DeleteDistributionCommand,
-  DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput
-} from "./commands/DeleteDistributionCommand";
+  DeleteDistribution2019_03_26Command,
+  DeleteDistribution2019_03_26CommandInput,
+  DeleteDistribution2019_03_26CommandOutput
+} from "./commands/DeleteDistribution2019_03_26Command";
 import {
-  DeleteFieldLevelEncryptionConfigCommand,
-  DeleteFieldLevelEncryptionConfigCommandInput,
-  DeleteFieldLevelEncryptionConfigCommandOutput
-} from "./commands/DeleteFieldLevelEncryptionConfigCommand";
+  DeleteFieldLevelEncryptionConfig2019_03_26Command,
+  DeleteFieldLevelEncryptionConfig2019_03_26CommandInput,
+  DeleteFieldLevelEncryptionConfig2019_03_26CommandOutput
+} from "./commands/DeleteFieldLevelEncryptionConfig2019_03_26Command";
 import {
-  DeleteFieldLevelEncryptionProfileCommand,
-  DeleteFieldLevelEncryptionProfileCommandInput,
-  DeleteFieldLevelEncryptionProfileCommandOutput
-} from "./commands/DeleteFieldLevelEncryptionProfileCommand";
+  DeleteFieldLevelEncryptionProfile2019_03_26Command,
+  DeleteFieldLevelEncryptionProfile2019_03_26CommandInput,
+  DeleteFieldLevelEncryptionProfile2019_03_26CommandOutput
+} from "./commands/DeleteFieldLevelEncryptionProfile2019_03_26Command";
 import {
-  DeletePublicKeyCommand,
-  DeletePublicKeyCommandInput,
-  DeletePublicKeyCommandOutput
-} from "./commands/DeletePublicKeyCommand";
+  DeletePublicKey2019_03_26Command,
+  DeletePublicKey2019_03_26CommandInput,
+  DeletePublicKey2019_03_26CommandOutput
+} from "./commands/DeletePublicKey2019_03_26Command";
 import {
-  DeleteStreamingDistributionCommand,
-  DeleteStreamingDistributionCommandInput,
-  DeleteStreamingDistributionCommandOutput
-} from "./commands/DeleteStreamingDistributionCommand";
+  DeleteStreamingDistribution2019_03_26Command,
+  DeleteStreamingDistribution2019_03_26CommandInput,
+  DeleteStreamingDistribution2019_03_26CommandOutput
+} from "./commands/DeleteStreamingDistribution2019_03_26Command";
 import {
-  GetCloudFrontOriginAccessIdentityCommand,
-  GetCloudFrontOriginAccessIdentityCommandInput,
-  GetCloudFrontOriginAccessIdentityCommandOutput
-} from "./commands/GetCloudFrontOriginAccessIdentityCommand";
+  GetCloudFrontOriginAccessIdentity2019_03_26Command,
+  GetCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+  GetCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+} from "./commands/GetCloudFrontOriginAccessIdentity2019_03_26Command";
 import {
-  GetCloudFrontOriginAccessIdentityConfigCommand,
-  GetCloudFrontOriginAccessIdentityConfigCommandInput,
-  GetCloudFrontOriginAccessIdentityConfigCommandOutput
-} from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+  GetCloudFrontOriginAccessIdentityConfig2019_03_26Command,
+  GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandInput,
+  GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandOutput
+} from "./commands/GetCloudFrontOriginAccessIdentityConfig2019_03_26Command";
 import {
-  GetDistributionCommand,
-  GetDistributionCommandInput,
-  GetDistributionCommandOutput
-} from "./commands/GetDistributionCommand";
+  GetDistribution2019_03_26Command,
+  GetDistribution2019_03_26CommandInput,
+  GetDistribution2019_03_26CommandOutput
+} from "./commands/GetDistribution2019_03_26Command";
 import {
-  GetDistributionConfigCommand,
-  GetDistributionConfigCommandInput,
-  GetDistributionConfigCommandOutput
-} from "./commands/GetDistributionConfigCommand";
+  GetDistributionConfig2019_03_26Command,
+  GetDistributionConfig2019_03_26CommandInput,
+  GetDistributionConfig2019_03_26CommandOutput
+} from "./commands/GetDistributionConfig2019_03_26Command";
 import {
-  GetFieldLevelEncryptionCommand,
-  GetFieldLevelEncryptionCommandInput,
-  GetFieldLevelEncryptionCommandOutput
-} from "./commands/GetFieldLevelEncryptionCommand";
+  GetFieldLevelEncryption2019_03_26Command,
+  GetFieldLevelEncryption2019_03_26CommandInput,
+  GetFieldLevelEncryption2019_03_26CommandOutput
+} from "./commands/GetFieldLevelEncryption2019_03_26Command";
 import {
-  GetFieldLevelEncryptionConfigCommand,
-  GetFieldLevelEncryptionConfigCommandInput,
-  GetFieldLevelEncryptionConfigCommandOutput
-} from "./commands/GetFieldLevelEncryptionConfigCommand";
+  GetFieldLevelEncryptionConfig2019_03_26Command,
+  GetFieldLevelEncryptionConfig2019_03_26CommandInput,
+  GetFieldLevelEncryptionConfig2019_03_26CommandOutput
+} from "./commands/GetFieldLevelEncryptionConfig2019_03_26Command";
 import {
-  GetFieldLevelEncryptionProfileCommand,
-  GetFieldLevelEncryptionProfileCommandInput,
-  GetFieldLevelEncryptionProfileCommandOutput
-} from "./commands/GetFieldLevelEncryptionProfileCommand";
+  GetFieldLevelEncryptionProfile2019_03_26Command,
+  GetFieldLevelEncryptionProfile2019_03_26CommandInput,
+  GetFieldLevelEncryptionProfile2019_03_26CommandOutput
+} from "./commands/GetFieldLevelEncryptionProfile2019_03_26Command";
 import {
-  GetFieldLevelEncryptionProfileConfigCommand,
-  GetFieldLevelEncryptionProfileConfigCommandInput,
-  GetFieldLevelEncryptionProfileConfigCommandOutput
-} from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
+  GetFieldLevelEncryptionProfileConfig2019_03_26Command,
+  GetFieldLevelEncryptionProfileConfig2019_03_26CommandInput,
+  GetFieldLevelEncryptionProfileConfig2019_03_26CommandOutput
+} from "./commands/GetFieldLevelEncryptionProfileConfig2019_03_26Command";
 import {
-  GetInvalidationCommand,
-  GetInvalidationCommandInput,
-  GetInvalidationCommandOutput
-} from "./commands/GetInvalidationCommand";
+  GetInvalidation2019_03_26Command,
+  GetInvalidation2019_03_26CommandInput,
+  GetInvalidation2019_03_26CommandOutput
+} from "./commands/GetInvalidation2019_03_26Command";
 import {
-  GetPublicKeyCommand,
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput
-} from "./commands/GetPublicKeyCommand";
+  GetPublicKey2019_03_26Command,
+  GetPublicKey2019_03_26CommandInput,
+  GetPublicKey2019_03_26CommandOutput
+} from "./commands/GetPublicKey2019_03_26Command";
 import {
-  GetPublicKeyConfigCommand,
-  GetPublicKeyConfigCommandInput,
-  GetPublicKeyConfigCommandOutput
-} from "./commands/GetPublicKeyConfigCommand";
+  GetPublicKeyConfig2019_03_26Command,
+  GetPublicKeyConfig2019_03_26CommandInput,
+  GetPublicKeyConfig2019_03_26CommandOutput
+} from "./commands/GetPublicKeyConfig2019_03_26Command";
 import {
-  GetStreamingDistributionCommand,
-  GetStreamingDistributionCommandInput,
-  GetStreamingDistributionCommandOutput
-} from "./commands/GetStreamingDistributionCommand";
+  GetStreamingDistribution2019_03_26Command,
+  GetStreamingDistribution2019_03_26CommandInput,
+  GetStreamingDistribution2019_03_26CommandOutput
+} from "./commands/GetStreamingDistribution2019_03_26Command";
 import {
-  GetStreamingDistributionConfigCommand,
-  GetStreamingDistributionConfigCommandInput,
-  GetStreamingDistributionConfigCommandOutput
-} from "./commands/GetStreamingDistributionConfigCommand";
+  GetStreamingDistributionConfig2019_03_26Command,
+  GetStreamingDistributionConfig2019_03_26CommandInput,
+  GetStreamingDistributionConfig2019_03_26CommandOutput
+} from "./commands/GetStreamingDistributionConfig2019_03_26Command";
 import {
-  ListCloudFrontOriginAccessIdentitiesCommand,
-  ListCloudFrontOriginAccessIdentitiesCommandInput,
-  ListCloudFrontOriginAccessIdentitiesCommandOutput
-} from "./commands/ListCloudFrontOriginAccessIdentitiesCommand";
+  ListCloudFrontOriginAccessIdentities2019_03_26Command,
+  ListCloudFrontOriginAccessIdentities2019_03_26CommandInput,
+  ListCloudFrontOriginAccessIdentities2019_03_26CommandOutput
+} from "./commands/ListCloudFrontOriginAccessIdentities2019_03_26Command";
 import {
-  ListDistributionsByWebACLIdCommand,
-  ListDistributionsByWebACLIdCommandInput,
-  ListDistributionsByWebACLIdCommandOutput
-} from "./commands/ListDistributionsByWebACLIdCommand";
+  ListDistributions2019_03_26Command,
+  ListDistributions2019_03_26CommandInput,
+  ListDistributions2019_03_26CommandOutput
+} from "./commands/ListDistributions2019_03_26Command";
 import {
-  ListDistributionsCommand,
-  ListDistributionsCommandInput,
-  ListDistributionsCommandOutput
-} from "./commands/ListDistributionsCommand";
+  ListDistributionsByWebACLId2019_03_26Command,
+  ListDistributionsByWebACLId2019_03_26CommandInput,
+  ListDistributionsByWebACLId2019_03_26CommandOutput
+} from "./commands/ListDistributionsByWebACLId2019_03_26Command";
 import {
-  ListFieldLevelEncryptionConfigsCommand,
-  ListFieldLevelEncryptionConfigsCommandInput,
-  ListFieldLevelEncryptionConfigsCommandOutput
-} from "./commands/ListFieldLevelEncryptionConfigsCommand";
+  ListFieldLevelEncryptionConfigs2019_03_26Command,
+  ListFieldLevelEncryptionConfigs2019_03_26CommandInput,
+  ListFieldLevelEncryptionConfigs2019_03_26CommandOutput
+} from "./commands/ListFieldLevelEncryptionConfigs2019_03_26Command";
 import {
-  ListFieldLevelEncryptionProfilesCommand,
-  ListFieldLevelEncryptionProfilesCommandInput,
-  ListFieldLevelEncryptionProfilesCommandOutput
-} from "./commands/ListFieldLevelEncryptionProfilesCommand";
+  ListFieldLevelEncryptionProfiles2019_03_26Command,
+  ListFieldLevelEncryptionProfiles2019_03_26CommandInput,
+  ListFieldLevelEncryptionProfiles2019_03_26CommandOutput
+} from "./commands/ListFieldLevelEncryptionProfiles2019_03_26Command";
 import {
-  ListInvalidationsCommand,
-  ListInvalidationsCommandInput,
-  ListInvalidationsCommandOutput
-} from "./commands/ListInvalidationsCommand";
+  ListInvalidations2019_03_26Command,
+  ListInvalidations2019_03_26CommandInput,
+  ListInvalidations2019_03_26CommandOutput
+} from "./commands/ListInvalidations2019_03_26Command";
 import {
-  ListPublicKeysCommand,
-  ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput
-} from "./commands/ListPublicKeysCommand";
+  ListPublicKeys2019_03_26Command,
+  ListPublicKeys2019_03_26CommandInput,
+  ListPublicKeys2019_03_26CommandOutput
+} from "./commands/ListPublicKeys2019_03_26Command";
 import {
-  ListStreamingDistributionsCommand,
-  ListStreamingDistributionsCommandInput,
-  ListStreamingDistributionsCommandOutput
-} from "./commands/ListStreamingDistributionsCommand";
+  ListStreamingDistributions2019_03_26Command,
+  ListStreamingDistributions2019_03_26CommandInput,
+  ListStreamingDistributions2019_03_26CommandOutput
+} from "./commands/ListStreamingDistributions2019_03_26Command";
 import {
-  ListTagsForResourceCommand,
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
-} from "./commands/ListTagsForResourceCommand";
+  ListTagsForResource2019_03_26Command,
+  ListTagsForResource2019_03_26CommandInput,
+  ListTagsForResource2019_03_26CommandOutput
+} from "./commands/ListTagsForResource2019_03_26Command";
 import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+  TagResource2019_03_26Command,
+  TagResource2019_03_26CommandInput,
+  TagResource2019_03_26CommandOutput
+} from "./commands/TagResource2019_03_26Command";
 import {
-  UntagResourceCommand,
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+  UntagResource2019_03_26Command,
+  UntagResource2019_03_26CommandInput,
+  UntagResource2019_03_26CommandOutput
+} from "./commands/UntagResource2019_03_26Command";
 import {
-  UpdateCloudFrontOriginAccessIdentityCommand,
-  UpdateCloudFrontOriginAccessIdentityCommandInput,
-  UpdateCloudFrontOriginAccessIdentityCommandOutput
-} from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
+  UpdateCloudFrontOriginAccessIdentity2019_03_26Command,
+  UpdateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+  UpdateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+} from "./commands/UpdateCloudFrontOriginAccessIdentity2019_03_26Command";
 import {
-  UpdateDistributionCommand,
-  UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput
-} from "./commands/UpdateDistributionCommand";
+  UpdateDistribution2019_03_26Command,
+  UpdateDistribution2019_03_26CommandInput,
+  UpdateDistribution2019_03_26CommandOutput
+} from "./commands/UpdateDistribution2019_03_26Command";
 import {
-  UpdateFieldLevelEncryptionConfigCommand,
-  UpdateFieldLevelEncryptionConfigCommandInput,
-  UpdateFieldLevelEncryptionConfigCommandOutput
-} from "./commands/UpdateFieldLevelEncryptionConfigCommand";
+  UpdateFieldLevelEncryptionConfig2019_03_26Command,
+  UpdateFieldLevelEncryptionConfig2019_03_26CommandInput,
+  UpdateFieldLevelEncryptionConfig2019_03_26CommandOutput
+} from "./commands/UpdateFieldLevelEncryptionConfig2019_03_26Command";
 import {
-  UpdateFieldLevelEncryptionProfileCommand,
-  UpdateFieldLevelEncryptionProfileCommandInput,
-  UpdateFieldLevelEncryptionProfileCommandOutput
-} from "./commands/UpdateFieldLevelEncryptionProfileCommand";
+  UpdateFieldLevelEncryptionProfile2019_03_26Command,
+  UpdateFieldLevelEncryptionProfile2019_03_26CommandInput,
+  UpdateFieldLevelEncryptionProfile2019_03_26CommandOutput
+} from "./commands/UpdateFieldLevelEncryptionProfile2019_03_26Command";
 import {
-  UpdatePublicKeyCommand,
-  UpdatePublicKeyCommandInput,
-  UpdatePublicKeyCommandOutput
-} from "./commands/UpdatePublicKeyCommand";
+  UpdatePublicKey2019_03_26Command,
+  UpdatePublicKey2019_03_26CommandInput,
+  UpdatePublicKey2019_03_26CommandOutput
+} from "./commands/UpdatePublicKey2019_03_26Command";
 import {
-  UpdateStreamingDistributionCommand,
-  UpdateStreamingDistributionCommandInput,
-  UpdateStreamingDistributionCommandOutput
-} from "./commands/UpdateStreamingDistributionCommand";
+  UpdateStreamingDistribution2019_03_26Command,
+  UpdateStreamingDistribution2019_03_26CommandInput,
+  UpdateStreamingDistribution2019_03_26CommandOutput
+} from "./commands/UpdateStreamingDistribution2019_03_26Command";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>Amazon CloudFront</fullname>
+ *
+ * 		       <fullname>Amazon CloudFront</fullname>
  * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about
  * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
+ *
  */
 export class CloudFront extends CloudFrontClient {
   /**
-   * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
+   *
+   * 		       <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
    * 			use an origin access identity to require users to access your content using a CloudFront URL instead
    * 			of the Amazon S3 URL. For more information about how to use origin access identities, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   *
    */
-  public createCloudFrontOriginAccessIdentity(
-    args: CreateCloudFrontOriginAccessIdentityCommandInput,
+  public createCloudFrontOriginAccessIdentity2019_03_26(
+    args: CreateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput>;
-  public createCloudFrontOriginAccessIdentity(
-    args: CreateCloudFrontOriginAccessIdentityCommandInput,
+  ): Promise<CreateCloudFrontOriginAccessIdentity2019_03_26CommandOutput>;
+  public createCloudFrontOriginAccessIdentity2019_03_26(
+    args: CreateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
+      data?: CreateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
     ) => void
   ): void;
-  public createCloudFrontOriginAccessIdentity(
-    args: CreateCloudFrontOriginAccessIdentityCommandInput,
+  public createCloudFrontOriginAccessIdentity2019_03_26(
+    args: CreateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
+      data?: CreateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
     ) => void
   ): void;
-  public createCloudFrontOriginAccessIdentity(
-    args: CreateCloudFrontOriginAccessIdentityCommandInput,
+  public createCloudFrontOriginAccessIdentity2019_03_26(
+    args: CreateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: CreateCloudFrontOriginAccessIdentityCommandOutput
+          data?: CreateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
+      data?: CreateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
     ) => void
-  ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> | void {
-    const command = new CreateCloudFrontOriginAccessIdentityCommand(args);
+  ): Promise<
+    CreateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+  > | void {
+    const command = new CreateCloudFrontOriginAccessIdentity2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -283,7 +291,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you
+   *
+   * 		       <p>Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you
    * 			want content to be delivered from, and the details about how to track and manage content delivery. Send a <code>POST</code> request to the
    * 			<code>/<i>CloudFront API version</i>/distribution</code>/<code>distribution ID</code> resource.</p>
    * 		       <important>
@@ -296,28 +305,30 @@ export class CloudFront extends CloudFrontClient {
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html">Required
    * 				Fields for Create Distribution and Update Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    *          </important>
+   *
+   *
    */
-  public createDistribution(
-    args: CreateDistributionCommandInput,
+  public createDistribution2019_03_26(
+    args: CreateDistribution2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDistributionCommandOutput>;
-  public createDistribution(
-    args: CreateDistributionCommandInput,
-    cb: (err: any, data?: CreateDistributionCommandOutput) => void
+  ): Promise<CreateDistribution2019_03_26CommandOutput>;
+  public createDistribution2019_03_26(
+    args: CreateDistribution2019_03_26CommandInput,
+    cb: (err: any, data?: CreateDistribution2019_03_26CommandOutput) => void
   ): void;
-  public createDistribution(
-    args: CreateDistributionCommandInput,
+  public createDistribution2019_03_26(
+    args: CreateDistribution2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDistributionCommandOutput) => void
+    cb: (err: any, data?: CreateDistribution2019_03_26CommandOutput) => void
   ): void;
-  public createDistribution(
-    args: CreateDistributionCommandInput,
+  public createDistribution2019_03_26(
+    args: CreateDistribution2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateDistributionCommandOutput) => void),
-    cb?: (err: any, data?: CreateDistributionCommandOutput) => void
-  ): Promise<CreateDistributionCommandOutput> | void {
-    const command = new CreateDistributionCommand(args);
+      | ((err: any, data?: CreateDistribution2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: CreateDistribution2019_03_26CommandOutput) => void
+  ): Promise<CreateDistribution2019_03_26CommandOutput> | void {
+    const command = new CreateDistribution2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -330,70 +341,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Create a new distribution with tags.</p>
+   *
+   * 		       <p>Create a new distribution with tags.</p>
+   *
    */
-  public createDistributionWithTags(
-    args: CreateDistributionWithTagsCommandInput,
+  public createDistributionWithTags2019_03_26(
+    args: CreateDistributionWithTags2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDistributionWithTagsCommandOutput>;
-  public createDistributionWithTags(
-    args: CreateDistributionWithTagsCommandInput,
-    cb: (err: any, data?: CreateDistributionWithTagsCommandOutput) => void
+  ): Promise<CreateDistributionWithTags2019_03_26CommandOutput>;
+  public createDistributionWithTags2019_03_26(
+    args: CreateDistributionWithTags2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: CreateDistributionWithTags2019_03_26CommandOutput
+    ) => void
   ): void;
-  public createDistributionWithTags(
-    args: CreateDistributionWithTagsCommandInput,
+  public createDistributionWithTags2019_03_26(
+    args: CreateDistributionWithTags2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDistributionWithTagsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreateDistributionWithTags2019_03_26CommandOutput
+    ) => void
   ): void;
-  public createDistributionWithTags(
-    args: CreateDistributionWithTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDistributionWithTagsCommandOutput) => void),
-    cb?: (err: any, data?: CreateDistributionWithTagsCommandOutput) => void
-  ): Promise<CreateDistributionWithTagsCommandOutput> | void {
-    const command = new CreateDistributionWithTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Create a new field-level encryption configuration.</p>
-   */
-  public createFieldLevelEncryptionConfig(
-    args: CreateFieldLevelEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFieldLevelEncryptionConfigCommandOutput>;
-  public createFieldLevelEncryptionConfig(
-    args: CreateFieldLevelEncryptionConfigCommandInput,
-    cb: (err: any, data?: CreateFieldLevelEncryptionConfigCommandOutput) => void
-  ): void;
-  public createFieldLevelEncryptionConfig(
-    args: CreateFieldLevelEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateFieldLevelEncryptionConfigCommandOutput) => void
-  ): void;
-  public createFieldLevelEncryptionConfig(
-    args: CreateFieldLevelEncryptionConfigCommandInput,
+  public createDistributionWithTags2019_03_26(
+    args: CreateDistributionWithTags2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: CreateFieldLevelEncryptionConfigCommandOutput
+          data?: CreateDistributionWithTags2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: CreateFieldLevelEncryptionConfigCommandOutput
+      data?: CreateDistributionWithTags2019_03_26CommandOutput
     ) => void
-  ): Promise<CreateFieldLevelEncryptionConfigCommandOutput> | void {
-    const command = new CreateFieldLevelEncryptionConfigCommand(args);
+  ): Promise<CreateDistributionWithTags2019_03_26CommandOutput> | void {
+    const command = new CreateDistributionWithTags2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -406,41 +390,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Create a field-level encryption profile.</p>
+   *
+   * 		       <p>Create a new field-level encryption configuration.</p>
+   *
    */
-  public createFieldLevelEncryptionProfile(
-    args: CreateFieldLevelEncryptionProfileCommandInput,
+  public createFieldLevelEncryptionConfig2019_03_26(
+    args: CreateFieldLevelEncryptionConfig2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateFieldLevelEncryptionProfileCommandOutput>;
-  public createFieldLevelEncryptionProfile(
-    args: CreateFieldLevelEncryptionProfileCommandInput,
+  ): Promise<CreateFieldLevelEncryptionConfig2019_03_26CommandOutput>;
+  public createFieldLevelEncryptionConfig2019_03_26(
+    args: CreateFieldLevelEncryptionConfig2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
+      data?: CreateFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
   ): void;
-  public createFieldLevelEncryptionProfile(
-    args: CreateFieldLevelEncryptionProfileCommandInput,
+  public createFieldLevelEncryptionConfig2019_03_26(
+    args: CreateFieldLevelEncryptionConfig2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
+      data?: CreateFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
   ): void;
-  public createFieldLevelEncryptionProfile(
-    args: CreateFieldLevelEncryptionProfileCommandInput,
+  public createFieldLevelEncryptionConfig2019_03_26(
+    args: CreateFieldLevelEncryptionConfig2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: CreateFieldLevelEncryptionProfileCommandOutput
+          data?: CreateFieldLevelEncryptionConfig2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
+      data?: CreateFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
-  ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> | void {
-    const command = new CreateFieldLevelEncryptionProfileCommand(args);
+  ): Promise<CreateFieldLevelEncryptionConfig2019_03_26CommandOutput> | void {
+    const command = new CreateFieldLevelEncryptionConfig2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -453,29 +439,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Create a new invalidation. </p>
+   *
+   * 		       <p>Create a field-level encryption profile.</p>
+   *
    */
-  public createInvalidation(
-    args: CreateInvalidationCommandInput,
+  public createFieldLevelEncryptionProfile2019_03_26(
+    args: CreateFieldLevelEncryptionProfile2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateInvalidationCommandOutput>;
-  public createInvalidation(
-    args: CreateInvalidationCommandInput,
-    cb: (err: any, data?: CreateInvalidationCommandOutput) => void
+  ): Promise<CreateFieldLevelEncryptionProfile2019_03_26CommandOutput>;
+  public createFieldLevelEncryptionProfile2019_03_26(
+    args: CreateFieldLevelEncryptionProfile2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: CreateFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
   ): void;
-  public createInvalidation(
-    args: CreateInvalidationCommandInput,
+  public createFieldLevelEncryptionProfile2019_03_26(
+    args: CreateFieldLevelEncryptionProfile2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateInvalidationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreateFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
   ): void;
-  public createInvalidation(
-    args: CreateInvalidationCommandInput,
+  public createFieldLevelEncryptionProfile2019_03_26(
+    args: CreateFieldLevelEncryptionProfile2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateInvalidationCommandOutput) => void),
-    cb?: (err: any, data?: CreateInvalidationCommandOutput) => void
-  ): Promise<CreateInvalidationCommandOutput> | void {
-    const command = new CreateInvalidationCommand(args);
+      | ((
+          err: any,
+          data?: CreateFieldLevelEncryptionProfile2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: CreateFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
+  ): Promise<CreateFieldLevelEncryptionProfile2019_03_26CommandOutput> | void {
+    const command = new CreateFieldLevelEncryptionProfile2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -488,29 +490,31 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Add a new public key to CloudFront to use, for example, for field-level encryption. You can add a maximum of 10 public keys with one AWS account.</p>
+   *
+   * 		       <p>Create a new invalidation. </p>
+   *
    */
-  public createPublicKey(
-    args: CreatePublicKeyCommandInput,
+  public createInvalidation2019_03_26(
+    args: CreateInvalidation2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreatePublicKeyCommandOutput>;
-  public createPublicKey(
-    args: CreatePublicKeyCommandInput,
-    cb: (err: any, data?: CreatePublicKeyCommandOutput) => void
+  ): Promise<CreateInvalidation2019_03_26CommandOutput>;
+  public createInvalidation2019_03_26(
+    args: CreateInvalidation2019_03_26CommandInput,
+    cb: (err: any, data?: CreateInvalidation2019_03_26CommandOutput) => void
   ): void;
-  public createPublicKey(
-    args: CreatePublicKeyCommandInput,
+  public createInvalidation2019_03_26(
+    args: CreateInvalidation2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePublicKeyCommandOutput) => void
+    cb: (err: any, data?: CreateInvalidation2019_03_26CommandOutput) => void
   ): void;
-  public createPublicKey(
-    args: CreatePublicKeyCommandInput,
+  public createInvalidation2019_03_26(
+    args: CreateInvalidation2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreatePublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: CreatePublicKeyCommandOutput) => void
-  ): Promise<CreatePublicKeyCommandOutput> | void {
-    const command = new CreatePublicKeyCommand(args);
+      | ((err: any, data?: CreateInvalidation2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: CreateInvalidation2019_03_26CommandOutput) => void
+  ): Promise<CreateInvalidation2019_03_26CommandOutput> | void {
+    const command = new CreateInvalidation2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -523,7 +527,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Creates a new RTMP distribution. An RTMP distribution is similar to a web distribution,
+   *
+   * 		       <p>Add a new public key to CloudFront to use, for example, for field-level encryption. You can add a maximum of 10 public keys with one AWS account.</p>
+   *
+   */
+  public createPublicKey2019_03_26(
+    args: CreatePublicKey2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePublicKey2019_03_26CommandOutput>;
+  public createPublicKey2019_03_26(
+    args: CreatePublicKey2019_03_26CommandInput,
+    cb: (err: any, data?: CreatePublicKey2019_03_26CommandOutput) => void
+  ): void;
+  public createPublicKey2019_03_26(
+    args: CreatePublicKey2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePublicKey2019_03_26CommandOutput) => void
+  ): void;
+  public createPublicKey2019_03_26(
+    args: CreatePublicKey2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreatePublicKey2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: CreatePublicKey2019_03_26CommandOutput) => void
+  ): Promise<CreatePublicKey2019_03_26CommandOutput> | void {
+    const command = new CreatePublicKey2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Creates a new RTMP distribution. An RTMP distribution is similar to a web distribution,
    * 			but an RTMP distribution streams media files using the Adobe Real-Time Messaging Protocol
    * 			(RTMP) instead of serving files using HTTP. </p>
    * 		       <p>To create a new distribution, submit a <code>POST</code> request to the
@@ -548,75 +590,41 @@ export class CloudFront extends CloudFrontClient {
    * 				you're specifying in the <code>Quantity</code> element and the number of values
    * 				specified.</p>
    * 		       </important>
+   *
    */
-  public createStreamingDistribution(
-    args: CreateStreamingDistributionCommandInput,
+  public createStreamingDistribution2019_03_26(
+    args: CreateStreamingDistribution2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateStreamingDistributionCommandOutput>;
-  public createStreamingDistribution(
-    args: CreateStreamingDistributionCommandInput,
-    cb: (err: any, data?: CreateStreamingDistributionCommandOutput) => void
-  ): void;
-  public createStreamingDistribution(
-    args: CreateStreamingDistributionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateStreamingDistributionCommandOutput) => void
-  ): void;
-  public createStreamingDistribution(
-    args: CreateStreamingDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamingDistributionCommandOutput) => void),
-    cb?: (err: any, data?: CreateStreamingDistributionCommandOutput) => void
-  ): Promise<CreateStreamingDistributionCommandOutput> | void {
-    const command = new CreateStreamingDistributionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Create a new streaming distribution with tags.</p>
-   */
-  public createStreamingDistributionWithTags(
-    args: CreateStreamingDistributionWithTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStreamingDistributionWithTagsCommandOutput>;
-  public createStreamingDistributionWithTags(
-    args: CreateStreamingDistributionWithTagsCommandInput,
+  ): Promise<CreateStreamingDistribution2019_03_26CommandOutput>;
+  public createStreamingDistribution2019_03_26(
+    args: CreateStreamingDistribution2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
+      data?: CreateStreamingDistribution2019_03_26CommandOutput
     ) => void
   ): void;
-  public createStreamingDistributionWithTags(
-    args: CreateStreamingDistributionWithTagsCommandInput,
+  public createStreamingDistribution2019_03_26(
+    args: CreateStreamingDistribution2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
+      data?: CreateStreamingDistribution2019_03_26CommandOutput
     ) => void
   ): void;
-  public createStreamingDistributionWithTags(
-    args: CreateStreamingDistributionWithTagsCommandInput,
+  public createStreamingDistribution2019_03_26(
+    args: CreateStreamingDistribution2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: CreateStreamingDistributionWithTagsCommandOutput
+          data?: CreateStreamingDistribution2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
+      data?: CreateStreamingDistribution2019_03_26CommandOutput
     ) => void
-  ): Promise<CreateStreamingDistributionWithTagsCommandOutput> | void {
-    const command = new CreateStreamingDistributionWithTagsCommand(args);
+  ): Promise<CreateStreamingDistribution2019_03_26CommandOutput> | void {
+    const command = new CreateStreamingDistribution2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -629,41 +637,47 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Delete an origin access identity. </p>
+   *
+   * 		       <p>Create a new streaming distribution with tags.</p>
+   *
    */
-  public deleteCloudFrontOriginAccessIdentity(
-    args: DeleteCloudFrontOriginAccessIdentityCommandInput,
+  public createStreamingDistributionWithTags2019_03_26(
+    args: CreateStreamingDistributionWithTags2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput>;
-  public deleteCloudFrontOriginAccessIdentity(
-    args: DeleteCloudFrontOriginAccessIdentityCommandInput,
+  ): Promise<CreateStreamingDistributionWithTags2019_03_26CommandOutput>;
+  public createStreamingDistributionWithTags2019_03_26(
+    args: CreateStreamingDistributionWithTags2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
+      data?: CreateStreamingDistributionWithTags2019_03_26CommandOutput
     ) => void
   ): void;
-  public deleteCloudFrontOriginAccessIdentity(
-    args: DeleteCloudFrontOriginAccessIdentityCommandInput,
+  public createStreamingDistributionWithTags2019_03_26(
+    args: CreateStreamingDistributionWithTags2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
+      data?: CreateStreamingDistributionWithTags2019_03_26CommandOutput
     ) => void
   ): void;
-  public deleteCloudFrontOriginAccessIdentity(
-    args: DeleteCloudFrontOriginAccessIdentityCommandInput,
+  public createStreamingDistributionWithTags2019_03_26(
+    args: CreateStreamingDistributionWithTags2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
+          data?: CreateStreamingDistributionWithTags2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
+      data?: CreateStreamingDistributionWithTags2019_03_26CommandOutput
     ) => void
-  ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> | void {
-    const command = new DeleteCloudFrontOriginAccessIdentityCommand(args);
+  ): Promise<
+    CreateStreamingDistributionWithTags2019_03_26CommandOutput
+  > | void {
+    const command = new CreateStreamingDistributionWithTags2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -676,70 +690,47 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Delete a distribution. </p>
+   *
+   * 		       <p>Delete an origin access identity. </p>
+   *
    */
-  public deleteDistribution(
-    args: DeleteDistributionCommandInput,
+  public deleteCloudFrontOriginAccessIdentity2019_03_26(
+    args: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDistributionCommandOutput>;
-  public deleteDistribution(
-    args: DeleteDistributionCommandInput,
-    cb: (err: any, data?: DeleteDistributionCommandOutput) => void
+  ): Promise<DeleteCloudFrontOriginAccessIdentity2019_03_26CommandOutput>;
+  public deleteCloudFrontOriginAccessIdentity2019_03_26(
+    args: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+    ) => void
   ): void;
-  public deleteDistribution(
-    args: DeleteDistributionCommandInput,
+  public deleteCloudFrontOriginAccessIdentity2019_03_26(
+    args: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDistributionCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+    ) => void
   ): void;
-  public deleteDistribution(
-    args: DeleteDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDistributionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDistributionCommandOutput) => void
-  ): Promise<DeleteDistributionCommandOutput> | void {
-    const command = new DeleteDistributionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Remove a field-level encryption configuration.</p>
-   */
-  public deleteFieldLevelEncryptionConfig(
-    args: DeleteFieldLevelEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput>;
-  public deleteFieldLevelEncryptionConfig(
-    args: DeleteFieldLevelEncryptionConfigCommandInput,
-    cb: (err: any, data?: DeleteFieldLevelEncryptionConfigCommandOutput) => void
-  ): void;
-  public deleteFieldLevelEncryptionConfig(
-    args: DeleteFieldLevelEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteFieldLevelEncryptionConfigCommandOutput) => void
-  ): void;
-  public deleteFieldLevelEncryptionConfig(
-    args: DeleteFieldLevelEncryptionConfigCommandInput,
+  public deleteCloudFrontOriginAccessIdentity2019_03_26(
+    args: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: DeleteFieldLevelEncryptionConfigCommandOutput
+          data?: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: DeleteFieldLevelEncryptionConfigCommandOutput
+      data?: DeleteCloudFrontOriginAccessIdentity2019_03_26CommandOutput
     ) => void
-  ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> | void {
-    const command = new DeleteFieldLevelEncryptionConfigCommand(args);
+  ): Promise<
+    DeleteCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+  > | void {
+    const command = new DeleteCloudFrontOriginAccessIdentity2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -752,41 +743,80 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Remove a field-level encryption profile.</p>
+   *
+   * 		       <p>Delete a distribution. </p>
+   *
    */
-  public deleteFieldLevelEncryptionProfile(
-    args: DeleteFieldLevelEncryptionProfileCommandInput,
+  public deleteDistribution2019_03_26(
+    args: DeleteDistribution2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput>;
-  public deleteFieldLevelEncryptionProfile(
-    args: DeleteFieldLevelEncryptionProfileCommandInput,
+  ): Promise<DeleteDistribution2019_03_26CommandOutput>;
+  public deleteDistribution2019_03_26(
+    args: DeleteDistribution2019_03_26CommandInput,
+    cb: (err: any, data?: DeleteDistribution2019_03_26CommandOutput) => void
+  ): void;
+  public deleteDistribution2019_03_26(
+    args: DeleteDistribution2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDistribution2019_03_26CommandOutput) => void
+  ): void;
+  public deleteDistribution2019_03_26(
+    args: DeleteDistribution2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDistribution2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: DeleteDistribution2019_03_26CommandOutput) => void
+  ): Promise<DeleteDistribution2019_03_26CommandOutput> | void {
+    const command = new DeleteDistribution2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Remove a field-level encryption configuration.</p>
+   *
+   */
+  public deleteFieldLevelEncryptionConfig2019_03_26(
+    args: DeleteFieldLevelEncryptionConfig2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFieldLevelEncryptionConfig2019_03_26CommandOutput>;
+  public deleteFieldLevelEncryptionConfig2019_03_26(
+    args: DeleteFieldLevelEncryptionConfig2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
+      data?: DeleteFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
   ): void;
-  public deleteFieldLevelEncryptionProfile(
-    args: DeleteFieldLevelEncryptionProfileCommandInput,
+  public deleteFieldLevelEncryptionConfig2019_03_26(
+    args: DeleteFieldLevelEncryptionConfig2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
+      data?: DeleteFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
   ): void;
-  public deleteFieldLevelEncryptionProfile(
-    args: DeleteFieldLevelEncryptionProfileCommandInput,
+  public deleteFieldLevelEncryptionConfig2019_03_26(
+    args: DeleteFieldLevelEncryptionConfig2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: DeleteFieldLevelEncryptionProfileCommandOutput
+          data?: DeleteFieldLevelEncryptionConfig2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
+      data?: DeleteFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
-  ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> | void {
-    const command = new DeleteFieldLevelEncryptionProfileCommand(args);
+  ): Promise<DeleteFieldLevelEncryptionConfig2019_03_26CommandOutput> | void {
+    const command = new DeleteFieldLevelEncryptionConfig2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -799,29 +829,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Remove a public key you previously added to CloudFront.</p>
+   *
+   * 		       <p>Remove a field-level encryption profile.</p>
+   *
    */
-  public deletePublicKey(
-    args: DeletePublicKeyCommandInput,
+  public deleteFieldLevelEncryptionProfile2019_03_26(
+    args: DeleteFieldLevelEncryptionProfile2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeletePublicKeyCommandOutput>;
-  public deletePublicKey(
-    args: DeletePublicKeyCommandInput,
-    cb: (err: any, data?: DeletePublicKeyCommandOutput) => void
+  ): Promise<DeleteFieldLevelEncryptionProfile2019_03_26CommandOutput>;
+  public deleteFieldLevelEncryptionProfile2019_03_26(
+    args: DeleteFieldLevelEncryptionProfile2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: DeleteFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
   ): void;
-  public deletePublicKey(
-    args: DeletePublicKeyCommandInput,
+  public deleteFieldLevelEncryptionProfile2019_03_26(
+    args: DeleteFieldLevelEncryptionProfile2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePublicKeyCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DeleteFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
   ): void;
-  public deletePublicKey(
-    args: DeletePublicKeyCommandInput,
+  public deleteFieldLevelEncryptionProfile2019_03_26(
+    args: DeleteFieldLevelEncryptionProfile2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeletePublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: DeletePublicKeyCommandOutput) => void
-  ): Promise<DeletePublicKeyCommandOutput> | void {
-    const command = new DeletePublicKeyCommand(args);
+      | ((
+          err: any,
+          data?: DeleteFieldLevelEncryptionProfile2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DeleteFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
+  ): Promise<DeleteFieldLevelEncryptionProfile2019_03_26CommandOutput> | void {
+    const command = new DeleteFieldLevelEncryptionProfile2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -834,7 +880,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,
+   *
+   * 		       <p>Remove a public key you previously added to CloudFront.</p>
+   *
+   */
+  public deletePublicKey2019_03_26(
+    args: DeletePublicKey2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePublicKey2019_03_26CommandOutput>;
+  public deletePublicKey2019_03_26(
+    args: DeletePublicKey2019_03_26CommandInput,
+    cb: (err: any, data?: DeletePublicKey2019_03_26CommandOutput) => void
+  ): void;
+  public deletePublicKey2019_03_26(
+    args: DeletePublicKey2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePublicKey2019_03_26CommandOutput) => void
+  ): void;
+  public deletePublicKey2019_03_26(
+    args: DeletePublicKey2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeletePublicKey2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: DeletePublicKey2019_03_26CommandOutput) => void
+  ): Promise<DeletePublicKey2019_03_26CommandOutput> | void {
+    const command = new DeletePublicKey2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,
    * 			perform the following steps.</p>
    *
    * 		       <p>
@@ -882,75 +966,41 @@ export class CloudFront extends CloudFrontClient {
    *          </ol>
    * 		       <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   *
    */
-  public deleteStreamingDistribution(
-    args: DeleteStreamingDistributionCommandInput,
+  public deleteStreamingDistribution2019_03_26(
+    args: DeleteStreamingDistribution2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteStreamingDistributionCommandOutput>;
-  public deleteStreamingDistribution(
-    args: DeleteStreamingDistributionCommandInput,
-    cb: (err: any, data?: DeleteStreamingDistributionCommandOutput) => void
-  ): void;
-  public deleteStreamingDistribution(
-    args: DeleteStreamingDistributionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteStreamingDistributionCommandOutput) => void
-  ): void;
-  public deleteStreamingDistribution(
-    args: DeleteStreamingDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamingDistributionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStreamingDistributionCommandOutput) => void
-  ): Promise<DeleteStreamingDistributionCommandOutput> | void {
-    const command = new DeleteStreamingDistributionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the information about an origin access identity. </p>
-   */
-  public getCloudFrontOriginAccessIdentity(
-    args: GetCloudFrontOriginAccessIdentityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput>;
-  public getCloudFrontOriginAccessIdentity(
-    args: GetCloudFrontOriginAccessIdentityCommandInput,
+  ): Promise<DeleteStreamingDistribution2019_03_26CommandOutput>;
+  public deleteStreamingDistribution2019_03_26(
+    args: DeleteStreamingDistribution2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
+      data?: DeleteStreamingDistribution2019_03_26CommandOutput
     ) => void
   ): void;
-  public getCloudFrontOriginAccessIdentity(
-    args: GetCloudFrontOriginAccessIdentityCommandInput,
+  public deleteStreamingDistribution2019_03_26(
+    args: DeleteStreamingDistribution2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
+      data?: DeleteStreamingDistribution2019_03_26CommandOutput
     ) => void
   ): void;
-  public getCloudFrontOriginAccessIdentity(
-    args: GetCloudFrontOriginAccessIdentityCommandInput,
+  public deleteStreamingDistribution2019_03_26(
+    args: DeleteStreamingDistribution2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: GetCloudFrontOriginAccessIdentityCommandOutput
+          data?: DeleteStreamingDistribution2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
+      data?: DeleteStreamingDistribution2019_03_26CommandOutput
     ) => void
-  ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> | void {
-    const command = new GetCloudFrontOriginAccessIdentityCommand(args);
+  ): Promise<DeleteStreamingDistribution2019_03_26CommandOutput> | void {
+    const command = new DeleteStreamingDistribution2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -963,41 +1013,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Get the configuration information about an origin access identity. </p>
+   *
+   * 		       <p>Get the information about an origin access identity. </p>
+   *
    */
-  public getCloudFrontOriginAccessIdentityConfig(
-    args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
+  public getCloudFrontOriginAccessIdentity2019_03_26(
+    args: GetCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput>;
-  public getCloudFrontOriginAccessIdentityConfig(
-    args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
+  ): Promise<GetCloudFrontOriginAccessIdentity2019_03_26CommandOutput>;
+  public getCloudFrontOriginAccessIdentity2019_03_26(
+    args: GetCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
+      data?: GetCloudFrontOriginAccessIdentity2019_03_26CommandOutput
     ) => void
   ): void;
-  public getCloudFrontOriginAccessIdentityConfig(
-    args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
+  public getCloudFrontOriginAccessIdentity2019_03_26(
+    args: GetCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
+      data?: GetCloudFrontOriginAccessIdentity2019_03_26CommandOutput
     ) => void
   ): void;
-  public getCloudFrontOriginAccessIdentityConfig(
-    args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
+  public getCloudFrontOriginAccessIdentity2019_03_26(
+    args: GetCloudFrontOriginAccessIdentity2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
+          data?: GetCloudFrontOriginAccessIdentity2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
+      data?: GetCloudFrontOriginAccessIdentity2019_03_26CommandOutput
     ) => void
-  ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> | void {
-    const command = new GetCloudFrontOriginAccessIdentityConfigCommand(args);
+  ): Promise<GetCloudFrontOriginAccessIdentity2019_03_26CommandOutput> | void {
+    const command = new GetCloudFrontOriginAccessIdentity2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1010,219 +1064,47 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Get the information about a distribution.</p>
+   *
+   * 		       <p>Get the configuration information about an origin access identity. </p>
+   *
    */
-  public getDistribution(
-    args: GetDistributionCommandInput,
+  public getCloudFrontOriginAccessIdentityConfig2019_03_26(
+    args: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetDistributionCommandOutput>;
-  public getDistribution(
-    args: GetDistributionCommandInput,
-    cb: (err: any, data?: GetDistributionCommandOutput) => void
+  ): Promise<GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandOutput>;
+  public getCloudFrontOriginAccessIdentityConfig2019_03_26(
+    args: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandOutput
+    ) => void
   ): void;
-  public getDistribution(
-    args: GetDistributionCommandInput,
+  public getCloudFrontOriginAccessIdentityConfig2019_03_26(
+    args: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDistributionCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandOutput
+    ) => void
   ): void;
-  public getDistribution(
-    args: GetDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDistributionCommandOutput) => void),
-    cb?: (err: any, data?: GetDistributionCommandOutput) => void
-  ): Promise<GetDistributionCommandOutput> | void {
-    const command = new GetDistributionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the configuration information about a distribution. </p>
-   */
-  public getDistributionConfig(
-    args: GetDistributionConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDistributionConfigCommandOutput>;
-  public getDistributionConfig(
-    args: GetDistributionConfigCommandInput,
-    cb: (err: any, data?: GetDistributionConfigCommandOutput) => void
-  ): void;
-  public getDistributionConfig(
-    args: GetDistributionConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDistributionConfigCommandOutput) => void
-  ): void;
-  public getDistributionConfig(
-    args: GetDistributionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDistributionConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetDistributionConfigCommandOutput) => void
-  ): Promise<GetDistributionConfigCommandOutput> | void {
-    const command = new GetDistributionConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the field-level encryption configuration information.</p>
-   */
-  public getFieldLevelEncryption(
-    args: GetFieldLevelEncryptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFieldLevelEncryptionCommandOutput>;
-  public getFieldLevelEncryption(
-    args: GetFieldLevelEncryptionCommandInput,
-    cb: (err: any, data?: GetFieldLevelEncryptionCommandOutput) => void
-  ): void;
-  public getFieldLevelEncryption(
-    args: GetFieldLevelEncryptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFieldLevelEncryptionCommandOutput) => void
-  ): void;
-  public getFieldLevelEncryption(
-    args: GetFieldLevelEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFieldLevelEncryptionCommandOutput) => void),
-    cb?: (err: any, data?: GetFieldLevelEncryptionCommandOutput) => void
-  ): Promise<GetFieldLevelEncryptionCommandOutput> | void {
-    const command = new GetFieldLevelEncryptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the field-level encryption configuration information.</p>
-   */
-  public getFieldLevelEncryptionConfig(
-    args: GetFieldLevelEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFieldLevelEncryptionConfigCommandOutput>;
-  public getFieldLevelEncryptionConfig(
-    args: GetFieldLevelEncryptionConfigCommandInput,
-    cb: (err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void
-  ): void;
-  public getFieldLevelEncryptionConfig(
-    args: GetFieldLevelEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void
-  ): void;
-  public getFieldLevelEncryptionConfig(
-    args: GetFieldLevelEncryptionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void
-  ): Promise<GetFieldLevelEncryptionConfigCommandOutput> | void {
-    const command = new GetFieldLevelEncryptionConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the field-level encryption profile information.</p>
-   */
-  public getFieldLevelEncryptionProfile(
-    args: GetFieldLevelEncryptionProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFieldLevelEncryptionProfileCommandOutput>;
-  public getFieldLevelEncryptionProfile(
-    args: GetFieldLevelEncryptionProfileCommandInput,
-    cb: (err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void
-  ): void;
-  public getFieldLevelEncryptionProfile(
-    args: GetFieldLevelEncryptionProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void
-  ): void;
-  public getFieldLevelEncryptionProfile(
-    args: GetFieldLevelEncryptionProfileCommandInput,
+  public getCloudFrontOriginAccessIdentityConfig2019_03_26(
+    args: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: GetFieldLevelEncryptionProfileCommandOutput
-        ) => void),
-    cb?: (err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void
-  ): Promise<GetFieldLevelEncryptionProfileCommandOutput> | void {
-    const command = new GetFieldLevelEncryptionProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the field-level encryption profile configuration information.</p>
-   */
-  public getFieldLevelEncryptionProfileConfig(
-    args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput>;
-  public getFieldLevelEncryptionProfileConfig(
-    args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    cb: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
-  ): void;
-  public getFieldLevelEncryptionProfileConfig(
-    args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
-  ): void;
-  public getFieldLevelEncryptionProfileConfig(
-    args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetFieldLevelEncryptionProfileConfigCommandOutput
+          data?: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
+      data?: GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandOutput
     ) => void
-  ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> | void {
-    const command = new GetFieldLevelEncryptionProfileConfigCommand(args);
+  ): Promise<
+    GetCloudFrontOriginAccessIdentityConfig2019_03_26CommandOutput
+  > | void {
+    const command = new GetCloudFrontOriginAccessIdentityConfig2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1235,29 +1117,31 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Get the information about an invalidation. </p>
+   *
+   * 		       <p>Get the information about a distribution.</p>
+   *
    */
-  public getInvalidation(
-    args: GetInvalidationCommandInput,
+  public getDistribution2019_03_26(
+    args: GetDistribution2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetInvalidationCommandOutput>;
-  public getInvalidation(
-    args: GetInvalidationCommandInput,
-    cb: (err: any, data?: GetInvalidationCommandOutput) => void
+  ): Promise<GetDistribution2019_03_26CommandOutput>;
+  public getDistribution2019_03_26(
+    args: GetDistribution2019_03_26CommandInput,
+    cb: (err: any, data?: GetDistribution2019_03_26CommandOutput) => void
   ): void;
-  public getInvalidation(
-    args: GetInvalidationCommandInput,
+  public getDistribution2019_03_26(
+    args: GetDistribution2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetInvalidationCommandOutput) => void
+    cb: (err: any, data?: GetDistribution2019_03_26CommandOutput) => void
   ): void;
-  public getInvalidation(
-    args: GetInvalidationCommandInput,
+  public getDistribution2019_03_26(
+    args: GetDistribution2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetInvalidationCommandOutput) => void),
-    cb?: (err: any, data?: GetInvalidationCommandOutput) => void
-  ): Promise<GetInvalidationCommandOutput> | void {
-    const command = new GetInvalidationCommand(args);
+      | ((err: any, data?: GetDistribution2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: GetDistribution2019_03_26CommandOutput) => void
+  ): Promise<GetDistribution2019_03_26CommandOutput> | void {
+    const command = new GetDistribution2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1270,137 +1154,34 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Get the public key information.</p>
+   *
+   * 		       <p>Get the configuration information about a distribution. </p>
+   *
    */
-  public getPublicKey(
-    args: GetPublicKeyCommandInput,
+  public getDistributionConfig2019_03_26(
+    args: GetDistributionConfig2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetPublicKeyCommandOutput>;
-  public getPublicKey(
-    args: GetPublicKeyCommandInput,
-    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
+  ): Promise<GetDistributionConfig2019_03_26CommandOutput>;
+  public getDistributionConfig2019_03_26(
+    args: GetDistributionConfig2019_03_26CommandInput,
+    cb: (err: any, data?: GetDistributionConfig2019_03_26CommandOutput) => void
   ): void;
-  public getPublicKey(
-    args: GetPublicKeyCommandInput,
+  public getDistributionConfig2019_03_26(
+    args: GetDistributionConfig2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
+    cb: (err: any, data?: GetDistributionConfig2019_03_26CommandOutput) => void
   ): void;
-  public getPublicKey(
-    args: GetPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: GetPublicKeyCommandOutput) => void
-  ): Promise<GetPublicKeyCommandOutput> | void {
-    const command = new GetPublicKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Return public key configuration informaation</p>
-   */
-  public getPublicKeyConfig(
-    args: GetPublicKeyConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPublicKeyConfigCommandOutput>;
-  public getPublicKeyConfig(
-    args: GetPublicKeyConfigCommandInput,
-    cb: (err: any, data?: GetPublicKeyConfigCommandOutput) => void
-  ): void;
-  public getPublicKeyConfig(
-    args: GetPublicKeyConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPublicKeyConfigCommandOutput) => void
-  ): void;
-  public getPublicKeyConfig(
-    args: GetPublicKeyConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicKeyConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetPublicKeyConfigCommandOutput) => void
-  ): Promise<GetPublicKeyConfigCommandOutput> | void {
-    const command = new GetPublicKeyConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
-   */
-  public getStreamingDistribution(
-    args: GetStreamingDistributionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetStreamingDistributionCommandOutput>;
-  public getStreamingDistribution(
-    args: GetStreamingDistributionCommandInput,
-    cb: (err: any, data?: GetStreamingDistributionCommandOutput) => void
-  ): void;
-  public getStreamingDistribution(
-    args: GetStreamingDistributionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetStreamingDistributionCommandOutput) => void
-  ): void;
-  public getStreamingDistribution(
-    args: GetStreamingDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStreamingDistributionCommandOutput) => void),
-    cb?: (err: any, data?: GetStreamingDistributionCommandOutput) => void
-  ): Promise<GetStreamingDistributionCommandOutput> | void {
-    const command = new GetStreamingDistributionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the configuration information about a streaming distribution. </p>
-   */
-  public getStreamingDistributionConfig(
-    args: GetStreamingDistributionConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetStreamingDistributionConfigCommandOutput>;
-  public getStreamingDistributionConfig(
-    args: GetStreamingDistributionConfigCommandInput,
-    cb: (err: any, data?: GetStreamingDistributionConfigCommandOutput) => void
-  ): void;
-  public getStreamingDistributionConfig(
-    args: GetStreamingDistributionConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetStreamingDistributionConfigCommandOutput) => void
-  ): void;
-  public getStreamingDistributionConfig(
-    args: GetStreamingDistributionConfigCommandInput,
+  public getDistributionConfig2019_03_26(
+    args: GetDistributionConfig2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: GetStreamingDistributionConfigCommandOutput
+          data?: GetDistributionConfig2019_03_26CommandOutput
         ) => void),
-    cb?: (err: any, data?: GetStreamingDistributionConfigCommandOutput) => void
-  ): Promise<GetStreamingDistributionConfigCommandOutput> | void {
-    const command = new GetStreamingDistributionConfigCommand(args);
+    cb?: (err: any, data?: GetDistributionConfig2019_03_26CommandOutput) => void
+  ): Promise<GetDistributionConfig2019_03_26CommandOutput> | void {
+    const command = new GetDistributionConfig2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1413,41 +1194,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Lists origin access identities.</p>
+   *
+   * 		       <p>Get the field-level encryption configuration information.</p>
+   *
    */
-  public listCloudFrontOriginAccessIdentities(
-    args: ListCloudFrontOriginAccessIdentitiesCommandInput,
+  public getFieldLevelEncryption2019_03_26(
+    args: GetFieldLevelEncryption2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput>;
-  public listCloudFrontOriginAccessIdentities(
-    args: ListCloudFrontOriginAccessIdentitiesCommandInput,
+  ): Promise<GetFieldLevelEncryption2019_03_26CommandOutput>;
+  public getFieldLevelEncryption2019_03_26(
+    args: GetFieldLevelEncryption2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
+      data?: GetFieldLevelEncryption2019_03_26CommandOutput
     ) => void
   ): void;
-  public listCloudFrontOriginAccessIdentities(
-    args: ListCloudFrontOriginAccessIdentitiesCommandInput,
+  public getFieldLevelEncryption2019_03_26(
+    args: GetFieldLevelEncryption2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
+      data?: GetFieldLevelEncryption2019_03_26CommandOutput
     ) => void
   ): void;
-  public listCloudFrontOriginAccessIdentities(
-    args: ListCloudFrontOriginAccessIdentitiesCommandInput,
+  public getFieldLevelEncryption2019_03_26(
+    args: GetFieldLevelEncryption2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
+          data?: GetFieldLevelEncryption2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
+      data?: GetFieldLevelEncryption2019_03_26CommandOutput
     ) => void
-  ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> | void {
-    const command = new ListCloudFrontOriginAccessIdentitiesCommand(args);
+  ): Promise<GetFieldLevelEncryption2019_03_26CommandOutput> | void {
+    const command = new GetFieldLevelEncryption2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1460,400 +1243,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>List CloudFront distributions.</p>
+   *
+   * 		       <p>Get the field-level encryption configuration information.</p>
+   *
    */
-  public listDistributions(
-    args: ListDistributionsCommandInput,
+  public getFieldLevelEncryptionConfig2019_03_26(
+    args: GetFieldLevelEncryptionConfig2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListDistributionsCommandOutput>;
-  public listDistributions(
-    args: ListDistributionsCommandInput,
-    cb: (err: any, data?: ListDistributionsCommandOutput) => void
-  ): void;
-  public listDistributions(
-    args: ListDistributionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDistributionsCommandOutput) => void
-  ): void;
-  public listDistributions(
-    args: ListDistributionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDistributionsCommandOutput) => void),
-    cb?: (err: any, data?: ListDistributionsCommandOutput) => void
-  ): Promise<ListDistributionsCommandOutput> | void {
-    const command = new ListDistributionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>List the distributions that are associated with a specified AWS WAF web ACL. </p>
-   */
-  public listDistributionsByWebACLId(
-    args: ListDistributionsByWebACLIdCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDistributionsByWebACLIdCommandOutput>;
-  public listDistributionsByWebACLId(
-    args: ListDistributionsByWebACLIdCommandInput,
-    cb: (err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void
-  ): void;
-  public listDistributionsByWebACLId(
-    args: ListDistributionsByWebACLIdCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void
-  ): void;
-  public listDistributionsByWebACLId(
-    args: ListDistributionsByWebACLIdCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void),
-    cb?: (err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void
-  ): Promise<ListDistributionsByWebACLIdCommandOutput> | void {
-    const command = new ListDistributionsByWebACLIdCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>
-   */
-  public listFieldLevelEncryptionConfigs(
-    args: ListFieldLevelEncryptionConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFieldLevelEncryptionConfigsCommandOutput>;
-  public listFieldLevelEncryptionConfigs(
-    args: ListFieldLevelEncryptionConfigsCommandInput,
-    cb: (err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void
-  ): void;
-  public listFieldLevelEncryptionConfigs(
-    args: ListFieldLevelEncryptionConfigsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void
-  ): void;
-  public listFieldLevelEncryptionConfigs(
-    args: ListFieldLevelEncryptionConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFieldLevelEncryptionConfigsCommandOutput
-        ) => void),
-    cb?: (err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void
-  ): Promise<ListFieldLevelEncryptionConfigsCommandOutput> | void {
-    const command = new ListFieldLevelEncryptionConfigsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>
-   */
-  public listFieldLevelEncryptionProfiles(
-    args: ListFieldLevelEncryptionProfilesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFieldLevelEncryptionProfilesCommandOutput>;
-  public listFieldLevelEncryptionProfiles(
-    args: ListFieldLevelEncryptionProfilesCommandInput,
-    cb: (err: any, data?: ListFieldLevelEncryptionProfilesCommandOutput) => void
-  ): void;
-  public listFieldLevelEncryptionProfiles(
-    args: ListFieldLevelEncryptionProfilesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFieldLevelEncryptionProfilesCommandOutput) => void
-  ): void;
-  public listFieldLevelEncryptionProfiles(
-    args: ListFieldLevelEncryptionProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFieldLevelEncryptionProfilesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListFieldLevelEncryptionProfilesCommandOutput
-    ) => void
-  ): Promise<ListFieldLevelEncryptionProfilesCommandOutput> | void {
-    const command = new ListFieldLevelEncryptionProfilesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Lists invalidation batches. </p>
-   */
-  public listInvalidations(
-    args: ListInvalidationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListInvalidationsCommandOutput>;
-  public listInvalidations(
-    args: ListInvalidationsCommandInput,
-    cb: (err: any, data?: ListInvalidationsCommandOutput) => void
-  ): void;
-  public listInvalidations(
-    args: ListInvalidationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListInvalidationsCommandOutput) => void
-  ): void;
-  public listInvalidations(
-    args: ListInvalidationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvalidationsCommandOutput) => void),
-    cb?: (err: any, data?: ListInvalidationsCommandOutput) => void
-  ): Promise<ListInvalidationsCommandOutput> | void {
-    const command = new ListInvalidationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>List all public keys that have been added to CloudFront for this account.</p>
-   */
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPublicKeysCommandOutput>;
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
-  ): void;
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
-  ): void;
-  public listPublicKeys(
-    args: ListPublicKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPublicKeysCommandOutput) => void),
-    cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
-  ): Promise<ListPublicKeysCommandOutput> | void {
-    const command = new ListPublicKeysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>List streaming distributions. </p>
-   */
-  public listStreamingDistributions(
-    args: ListStreamingDistributionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStreamingDistributionsCommandOutput>;
-  public listStreamingDistributions(
-    args: ListStreamingDistributionsCommandInput,
-    cb: (err: any, data?: ListStreamingDistributionsCommandOutput) => void
-  ): void;
-  public listStreamingDistributions(
-    args: ListStreamingDistributionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStreamingDistributionsCommandOutput) => void
-  ): void;
-  public listStreamingDistributions(
-    args: ListStreamingDistributionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamingDistributionsCommandOutput) => void),
-    cb?: (err: any, data?: ListStreamingDistributionsCommandOutput) => void
-  ): Promise<ListStreamingDistributionsCommandOutput> | void {
-    const command = new ListStreamingDistributionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>List tags for a CloudFront resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Add tags to a CloudFront resource.</p>
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Remove tags from a CloudFront resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Update an origin access identity. </p>
-   */
-  public updateCloudFrontOriginAccessIdentity(
-    args: UpdateCloudFrontOriginAccessIdentityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput>;
-  public updateCloudFrontOriginAccessIdentity(
-    args: UpdateCloudFrontOriginAccessIdentityCommandInput,
+  ): Promise<GetFieldLevelEncryptionConfig2019_03_26CommandOutput>;
+  public getFieldLevelEncryptionConfig2019_03_26(
+    args: GetFieldLevelEncryptionConfig2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
+      data?: GetFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
   ): void;
-  public updateCloudFrontOriginAccessIdentity(
-    args: UpdateCloudFrontOriginAccessIdentityCommandInput,
+  public getFieldLevelEncryptionConfig2019_03_26(
+    args: GetFieldLevelEncryptionConfig2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
+      data?: GetFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
   ): void;
-  public updateCloudFrontOriginAccessIdentity(
-    args: UpdateCloudFrontOriginAccessIdentityCommandInput,
+  public getFieldLevelEncryptionConfig2019_03_26(
+    args: GetFieldLevelEncryptionConfig2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
+          data?: GetFieldLevelEncryptionConfig2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
+      data?: GetFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
-  ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> | void {
-    const command = new UpdateCloudFrontOriginAccessIdentityCommand(args);
+  ): Promise<GetFieldLevelEncryptionConfig2019_03_26CommandOutput> | void {
+    const command = new GetFieldLevelEncryptionConfig2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1866,7 +1292,843 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Updates the configuration for a web distribution. </p>
+   *
+   * 		       <p>Get the field-level encryption profile information.</p>
+   *
+   */
+  public getFieldLevelEncryptionProfile2019_03_26(
+    args: GetFieldLevelEncryptionProfile2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFieldLevelEncryptionProfile2019_03_26CommandOutput>;
+  public getFieldLevelEncryptionProfile2019_03_26(
+    args: GetFieldLevelEncryptionProfile2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: GetFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getFieldLevelEncryptionProfile2019_03_26(
+    args: GetFieldLevelEncryptionProfile2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: GetFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getFieldLevelEncryptionProfile2019_03_26(
+    args: GetFieldLevelEncryptionProfile2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetFieldLevelEncryptionProfile2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetFieldLevelEncryptionProfile2019_03_26CommandOutput
+    ) => void
+  ): Promise<GetFieldLevelEncryptionProfile2019_03_26CommandOutput> | void {
+    const command = new GetFieldLevelEncryptionProfile2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Get the field-level encryption profile configuration information.</p>
+   *
+   */
+  public getFieldLevelEncryptionProfileConfig2019_03_26(
+    args: GetFieldLevelEncryptionProfileConfig2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFieldLevelEncryptionProfileConfig2019_03_26CommandOutput>;
+  public getFieldLevelEncryptionProfileConfig2019_03_26(
+    args: GetFieldLevelEncryptionProfileConfig2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: GetFieldLevelEncryptionProfileConfig2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getFieldLevelEncryptionProfileConfig2019_03_26(
+    args: GetFieldLevelEncryptionProfileConfig2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: GetFieldLevelEncryptionProfileConfig2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getFieldLevelEncryptionProfileConfig2019_03_26(
+    args: GetFieldLevelEncryptionProfileConfig2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetFieldLevelEncryptionProfileConfig2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetFieldLevelEncryptionProfileConfig2019_03_26CommandOutput
+    ) => void
+  ): Promise<
+    GetFieldLevelEncryptionProfileConfig2019_03_26CommandOutput
+  > | void {
+    const command = new GetFieldLevelEncryptionProfileConfig2019_03_26Command(
+      args
+    );
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Get the information about an invalidation. </p>
+   *
+   */
+  public getInvalidation2019_03_26(
+    args: GetInvalidation2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInvalidation2019_03_26CommandOutput>;
+  public getInvalidation2019_03_26(
+    args: GetInvalidation2019_03_26CommandInput,
+    cb: (err: any, data?: GetInvalidation2019_03_26CommandOutput) => void
+  ): void;
+  public getInvalidation2019_03_26(
+    args: GetInvalidation2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInvalidation2019_03_26CommandOutput) => void
+  ): void;
+  public getInvalidation2019_03_26(
+    args: GetInvalidation2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetInvalidation2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: GetInvalidation2019_03_26CommandOutput) => void
+  ): Promise<GetInvalidation2019_03_26CommandOutput> | void {
+    const command = new GetInvalidation2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Get the public key information.</p>
+   *
+   */
+  public getPublicKey2019_03_26(
+    args: GetPublicKey2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPublicKey2019_03_26CommandOutput>;
+  public getPublicKey2019_03_26(
+    args: GetPublicKey2019_03_26CommandInput,
+    cb: (err: any, data?: GetPublicKey2019_03_26CommandOutput) => void
+  ): void;
+  public getPublicKey2019_03_26(
+    args: GetPublicKey2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPublicKey2019_03_26CommandOutput) => void
+  ): void;
+  public getPublicKey2019_03_26(
+    args: GetPublicKey2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPublicKey2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: GetPublicKey2019_03_26CommandOutput) => void
+  ): Promise<GetPublicKey2019_03_26CommandOutput> | void {
+    const command = new GetPublicKey2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Return public key configuration informaation</p>
+   *
+   */
+  public getPublicKeyConfig2019_03_26(
+    args: GetPublicKeyConfig2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPublicKeyConfig2019_03_26CommandOutput>;
+  public getPublicKeyConfig2019_03_26(
+    args: GetPublicKeyConfig2019_03_26CommandInput,
+    cb: (err: any, data?: GetPublicKeyConfig2019_03_26CommandOutput) => void
+  ): void;
+  public getPublicKeyConfig2019_03_26(
+    args: GetPublicKeyConfig2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPublicKeyConfig2019_03_26CommandOutput) => void
+  ): void;
+  public getPublicKeyConfig2019_03_26(
+    args: GetPublicKeyConfig2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPublicKeyConfig2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: GetPublicKeyConfig2019_03_26CommandOutput) => void
+  ): Promise<GetPublicKeyConfig2019_03_26CommandOutput> | void {
+    const command = new GetPublicKeyConfig2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
+   *
+   */
+  public getStreamingDistribution2019_03_26(
+    args: GetStreamingDistribution2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamingDistribution2019_03_26CommandOutput>;
+  public getStreamingDistribution2019_03_26(
+    args: GetStreamingDistribution2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: GetStreamingDistribution2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getStreamingDistribution2019_03_26(
+    args: GetStreamingDistribution2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: GetStreamingDistribution2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getStreamingDistribution2019_03_26(
+    args: GetStreamingDistribution2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetStreamingDistribution2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetStreamingDistribution2019_03_26CommandOutput
+    ) => void
+  ): Promise<GetStreamingDistribution2019_03_26CommandOutput> | void {
+    const command = new GetStreamingDistribution2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Get the configuration information about a streaming distribution. </p>
+   *
+   */
+  public getStreamingDistributionConfig2019_03_26(
+    args: GetStreamingDistributionConfig2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamingDistributionConfig2019_03_26CommandOutput>;
+  public getStreamingDistributionConfig2019_03_26(
+    args: GetStreamingDistributionConfig2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: GetStreamingDistributionConfig2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getStreamingDistributionConfig2019_03_26(
+    args: GetStreamingDistributionConfig2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: GetStreamingDistributionConfig2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public getStreamingDistributionConfig2019_03_26(
+    args: GetStreamingDistributionConfig2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetStreamingDistributionConfig2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetStreamingDistributionConfig2019_03_26CommandOutput
+    ) => void
+  ): Promise<GetStreamingDistributionConfig2019_03_26CommandOutput> | void {
+    const command = new GetStreamingDistributionConfig2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists origin access identities.</p>
+   *
+   */
+  public listCloudFrontOriginAccessIdentities2019_03_26(
+    args: ListCloudFrontOriginAccessIdentities2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCloudFrontOriginAccessIdentities2019_03_26CommandOutput>;
+  public listCloudFrontOriginAccessIdentities2019_03_26(
+    args: ListCloudFrontOriginAccessIdentities2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: ListCloudFrontOriginAccessIdentities2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listCloudFrontOriginAccessIdentities2019_03_26(
+    args: ListCloudFrontOriginAccessIdentities2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: ListCloudFrontOriginAccessIdentities2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listCloudFrontOriginAccessIdentities2019_03_26(
+    args: ListCloudFrontOriginAccessIdentities2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListCloudFrontOriginAccessIdentities2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListCloudFrontOriginAccessIdentities2019_03_26CommandOutput
+    ) => void
+  ): Promise<
+    ListCloudFrontOriginAccessIdentities2019_03_26CommandOutput
+  > | void {
+    const command = new ListCloudFrontOriginAccessIdentities2019_03_26Command(
+      args
+    );
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>List CloudFront distributions.</p>
+   *
+   */
+  public listDistributions2019_03_26(
+    args: ListDistributions2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributions2019_03_26CommandOutput>;
+  public listDistributions2019_03_26(
+    args: ListDistributions2019_03_26CommandInput,
+    cb: (err: any, data?: ListDistributions2019_03_26CommandOutput) => void
+  ): void;
+  public listDistributions2019_03_26(
+    args: ListDistributions2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributions2019_03_26CommandOutput) => void
+  ): void;
+  public listDistributions2019_03_26(
+    args: ListDistributions2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDistributions2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: ListDistributions2019_03_26CommandOutput) => void
+  ): Promise<ListDistributions2019_03_26CommandOutput> | void {
+    const command = new ListDistributions2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>List the distributions that are associated with a specified AWS WAF web ACL. </p>
+   *
+   */
+  public listDistributionsByWebACLId2019_03_26(
+    args: ListDistributionsByWebACLId2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByWebACLId2019_03_26CommandOutput>;
+  public listDistributionsByWebACLId2019_03_26(
+    args: ListDistributionsByWebACLId2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: ListDistributionsByWebACLId2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listDistributionsByWebACLId2019_03_26(
+    args: ListDistributionsByWebACLId2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: ListDistributionsByWebACLId2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listDistributionsByWebACLId2019_03_26(
+    args: ListDistributionsByWebACLId2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListDistributionsByWebACLId2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListDistributionsByWebACLId2019_03_26CommandOutput
+    ) => void
+  ): Promise<ListDistributionsByWebACLId2019_03_26CommandOutput> | void {
+    const command = new ListDistributionsByWebACLId2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>
+   *
+   */
+  public listFieldLevelEncryptionConfigs2019_03_26(
+    args: ListFieldLevelEncryptionConfigs2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFieldLevelEncryptionConfigs2019_03_26CommandOutput>;
+  public listFieldLevelEncryptionConfigs2019_03_26(
+    args: ListFieldLevelEncryptionConfigs2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: ListFieldLevelEncryptionConfigs2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listFieldLevelEncryptionConfigs2019_03_26(
+    args: ListFieldLevelEncryptionConfigs2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: ListFieldLevelEncryptionConfigs2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listFieldLevelEncryptionConfigs2019_03_26(
+    args: ListFieldLevelEncryptionConfigs2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListFieldLevelEncryptionConfigs2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListFieldLevelEncryptionConfigs2019_03_26CommandOutput
+    ) => void
+  ): Promise<ListFieldLevelEncryptionConfigs2019_03_26CommandOutput> | void {
+    const command = new ListFieldLevelEncryptionConfigs2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>
+   *
+   */
+  public listFieldLevelEncryptionProfiles2019_03_26(
+    args: ListFieldLevelEncryptionProfiles2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFieldLevelEncryptionProfiles2019_03_26CommandOutput>;
+  public listFieldLevelEncryptionProfiles2019_03_26(
+    args: ListFieldLevelEncryptionProfiles2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: ListFieldLevelEncryptionProfiles2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listFieldLevelEncryptionProfiles2019_03_26(
+    args: ListFieldLevelEncryptionProfiles2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: ListFieldLevelEncryptionProfiles2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listFieldLevelEncryptionProfiles2019_03_26(
+    args: ListFieldLevelEncryptionProfiles2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListFieldLevelEncryptionProfiles2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListFieldLevelEncryptionProfiles2019_03_26CommandOutput
+    ) => void
+  ): Promise<ListFieldLevelEncryptionProfiles2019_03_26CommandOutput> | void {
+    const command = new ListFieldLevelEncryptionProfiles2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists invalidation batches. </p>
+   *
+   */
+  public listInvalidations2019_03_26(
+    args: ListInvalidations2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInvalidations2019_03_26CommandOutput>;
+  public listInvalidations2019_03_26(
+    args: ListInvalidations2019_03_26CommandInput,
+    cb: (err: any, data?: ListInvalidations2019_03_26CommandOutput) => void
+  ): void;
+  public listInvalidations2019_03_26(
+    args: ListInvalidations2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInvalidations2019_03_26CommandOutput) => void
+  ): void;
+  public listInvalidations2019_03_26(
+    args: ListInvalidations2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListInvalidations2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: ListInvalidations2019_03_26CommandOutput) => void
+  ): Promise<ListInvalidations2019_03_26CommandOutput> | void {
+    const command = new ListInvalidations2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>List all public keys that have been added to CloudFront for this account.</p>
+   *
+   */
+  public listPublicKeys2019_03_26(
+    args: ListPublicKeys2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPublicKeys2019_03_26CommandOutput>;
+  public listPublicKeys2019_03_26(
+    args: ListPublicKeys2019_03_26CommandInput,
+    cb: (err: any, data?: ListPublicKeys2019_03_26CommandOutput) => void
+  ): void;
+  public listPublicKeys2019_03_26(
+    args: ListPublicKeys2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPublicKeys2019_03_26CommandOutput) => void
+  ): void;
+  public listPublicKeys2019_03_26(
+    args: ListPublicKeys2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPublicKeys2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: ListPublicKeys2019_03_26CommandOutput) => void
+  ): Promise<ListPublicKeys2019_03_26CommandOutput> | void {
+    const command = new ListPublicKeys2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>List streaming distributions. </p>
+   *
+   */
+  public listStreamingDistributions2019_03_26(
+    args: ListStreamingDistributions2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamingDistributions2019_03_26CommandOutput>;
+  public listStreamingDistributions2019_03_26(
+    args: ListStreamingDistributions2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: ListStreamingDistributions2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listStreamingDistributions2019_03_26(
+    args: ListStreamingDistributions2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: ListStreamingDistributions2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public listStreamingDistributions2019_03_26(
+    args: ListStreamingDistributions2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListStreamingDistributions2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListStreamingDistributions2019_03_26CommandOutput
+    ) => void
+  ): Promise<ListStreamingDistributions2019_03_26CommandOutput> | void {
+    const command = new ListStreamingDistributions2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>List tags for a CloudFront resource.</p>
+   *
+   */
+  public listTagsForResource2019_03_26(
+    args: ListTagsForResource2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResource2019_03_26CommandOutput>;
+  public listTagsForResource2019_03_26(
+    args: ListTagsForResource2019_03_26CommandInput,
+    cb: (err: any, data?: ListTagsForResource2019_03_26CommandOutput) => void
+  ): void;
+  public listTagsForResource2019_03_26(
+    args: ListTagsForResource2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResource2019_03_26CommandOutput) => void
+  ): void;
+  public listTagsForResource2019_03_26(
+    args: ListTagsForResource2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResource2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResource2019_03_26CommandOutput) => void
+  ): Promise<ListTagsForResource2019_03_26CommandOutput> | void {
+    const command = new ListTagsForResource2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Add tags to a CloudFront resource.</p>
+   *
+   */
+  public tagResource2019_03_26(
+    args: TagResource2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResource2019_03_26CommandOutput>;
+  public tagResource2019_03_26(
+    args: TagResource2019_03_26CommandInput,
+    cb: (err: any, data?: TagResource2019_03_26CommandOutput) => void
+  ): void;
+  public tagResource2019_03_26(
+    args: TagResource2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResource2019_03_26CommandOutput) => void
+  ): void;
+  public tagResource2019_03_26(
+    args: TagResource2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResource2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: TagResource2019_03_26CommandOutput) => void
+  ): Promise<TagResource2019_03_26CommandOutput> | void {
+    const command = new TagResource2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Remove tags from a CloudFront resource.</p>
+   *
+   */
+  public untagResource2019_03_26(
+    args: UntagResource2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResource2019_03_26CommandOutput>;
+  public untagResource2019_03_26(
+    args: UntagResource2019_03_26CommandInput,
+    cb: (err: any, data?: UntagResource2019_03_26CommandOutput) => void
+  ): void;
+  public untagResource2019_03_26(
+    args: UntagResource2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResource2019_03_26CommandOutput) => void
+  ): void;
+  public untagResource2019_03_26(
+    args: UntagResource2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResource2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: UntagResource2019_03_26CommandOutput) => void
+  ): Promise<UntagResource2019_03_26CommandOutput> | void {
+    const command = new UntagResource2019_03_26Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Update an origin access identity. </p>
+   *
+   */
+  public updateCloudFrontOriginAccessIdentity2019_03_26(
+    args: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCloudFrontOriginAccessIdentity2019_03_26CommandOutput>;
+  public updateCloudFrontOriginAccessIdentity2019_03_26(
+    args: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public updateCloudFrontOriginAccessIdentity2019_03_26(
+    args: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+    ) => void
+  ): void;
+  public updateCloudFrontOriginAccessIdentity2019_03_26(
+    args: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: UpdateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+    ) => void
+  ): Promise<
+    UpdateCloudFrontOriginAccessIdentity2019_03_26CommandOutput
+  > | void {
+    const command = new UpdateCloudFrontOriginAccessIdentity2019_03_26Command(
+      args
+    );
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Updates the configuration for a web distribution. </p>
    * 		       <important>
    *             <p>When you update a distribution, there are more required fields than when you create a distribution.
    * 			When you update your distribution by using this API action, follow the steps here to get the current configuration
@@ -1945,28 +2207,29 @@ export class CloudFront extends CloudFrontClient {
    * 				When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p>
    * 			         </li>
    *          </ol>
+   *
    */
-  public updateDistribution(
-    args: UpdateDistributionCommandInput,
+  public updateDistribution2019_03_26(
+    args: UpdateDistribution2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateDistributionCommandOutput>;
-  public updateDistribution(
-    args: UpdateDistributionCommandInput,
-    cb: (err: any, data?: UpdateDistributionCommandOutput) => void
+  ): Promise<UpdateDistribution2019_03_26CommandOutput>;
+  public updateDistribution2019_03_26(
+    args: UpdateDistribution2019_03_26CommandInput,
+    cb: (err: any, data?: UpdateDistribution2019_03_26CommandOutput) => void
   ): void;
-  public updateDistribution(
-    args: UpdateDistributionCommandInput,
+  public updateDistribution2019_03_26(
+    args: UpdateDistribution2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDistributionCommandOutput) => void
+    cb: (err: any, data?: UpdateDistribution2019_03_26CommandOutput) => void
   ): void;
-  public updateDistribution(
-    args: UpdateDistributionCommandInput,
+  public updateDistribution2019_03_26(
+    args: UpdateDistribution2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDistributionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDistributionCommandOutput) => void
-  ): Promise<UpdateDistributionCommandOutput> | void {
-    const command = new UpdateDistributionCommand(args);
+      | ((err: any, data?: UpdateDistribution2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: UpdateDistribution2019_03_26CommandOutput) => void
+  ): Promise<UpdateDistribution2019_03_26CommandOutput> | void {
+    const command = new UpdateDistribution2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1979,35 +2242,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Update a field-level encryption configuration. </p>
+   *
+   * 		       <p>Update a field-level encryption configuration. </p>
+   *
    */
-  public updateFieldLevelEncryptionConfig(
-    args: UpdateFieldLevelEncryptionConfigCommandInput,
+  public updateFieldLevelEncryptionConfig2019_03_26(
+    args: UpdateFieldLevelEncryptionConfig2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput>;
-  public updateFieldLevelEncryptionConfig(
-    args: UpdateFieldLevelEncryptionConfigCommandInput,
-    cb: (err: any, data?: UpdateFieldLevelEncryptionConfigCommandOutput) => void
+  ): Promise<UpdateFieldLevelEncryptionConfig2019_03_26CommandOutput>;
+  public updateFieldLevelEncryptionConfig2019_03_26(
+    args: UpdateFieldLevelEncryptionConfig2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: UpdateFieldLevelEncryptionConfig2019_03_26CommandOutput
+    ) => void
   ): void;
-  public updateFieldLevelEncryptionConfig(
-    args: UpdateFieldLevelEncryptionConfigCommandInput,
+  public updateFieldLevelEncryptionConfig2019_03_26(
+    args: UpdateFieldLevelEncryptionConfig2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateFieldLevelEncryptionConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: UpdateFieldLevelEncryptionConfig2019_03_26CommandOutput
+    ) => void
   ): void;
-  public updateFieldLevelEncryptionConfig(
-    args: UpdateFieldLevelEncryptionConfigCommandInput,
+  public updateFieldLevelEncryptionConfig2019_03_26(
+    args: UpdateFieldLevelEncryptionConfig2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: UpdateFieldLevelEncryptionConfigCommandOutput
+          data?: UpdateFieldLevelEncryptionConfig2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: UpdateFieldLevelEncryptionConfigCommandOutput
+      data?: UpdateFieldLevelEncryptionConfig2019_03_26CommandOutput
     ) => void
-  ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> | void {
-    const command = new UpdateFieldLevelEncryptionConfigCommand(args);
+  ): Promise<UpdateFieldLevelEncryptionConfig2019_03_26CommandOutput> | void {
+    const command = new UpdateFieldLevelEncryptionConfig2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2020,41 +2291,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Update a field-level encryption profile. </p>
+   *
+   * 		       <p>Update a field-level encryption profile. </p>
+   *
    */
-  public updateFieldLevelEncryptionProfile(
-    args: UpdateFieldLevelEncryptionProfileCommandInput,
+  public updateFieldLevelEncryptionProfile2019_03_26(
+    args: UpdateFieldLevelEncryptionProfile2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput>;
-  public updateFieldLevelEncryptionProfile(
-    args: UpdateFieldLevelEncryptionProfileCommandInput,
+  ): Promise<UpdateFieldLevelEncryptionProfile2019_03_26CommandOutput>;
+  public updateFieldLevelEncryptionProfile2019_03_26(
+    args: UpdateFieldLevelEncryptionProfile2019_03_26CommandInput,
     cb: (
       err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
+      data?: UpdateFieldLevelEncryptionProfile2019_03_26CommandOutput
     ) => void
   ): void;
-  public updateFieldLevelEncryptionProfile(
-    args: UpdateFieldLevelEncryptionProfileCommandInput,
+  public updateFieldLevelEncryptionProfile2019_03_26(
+    args: UpdateFieldLevelEncryptionProfile2019_03_26CommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
+      data?: UpdateFieldLevelEncryptionProfile2019_03_26CommandOutput
     ) => void
   ): void;
-  public updateFieldLevelEncryptionProfile(
-    args: UpdateFieldLevelEncryptionProfileCommandInput,
+  public updateFieldLevelEncryptionProfile2019_03_26(
+    args: UpdateFieldLevelEncryptionProfile2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: UpdateFieldLevelEncryptionProfileCommandOutput
+          data?: UpdateFieldLevelEncryptionProfile2019_03_26CommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
+      data?: UpdateFieldLevelEncryptionProfile2019_03_26CommandOutput
     ) => void
-  ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> | void {
-    const command = new UpdateFieldLevelEncryptionProfileCommand(args);
+  ): Promise<UpdateFieldLevelEncryptionProfile2019_03_26CommandOutput> | void {
+    const command = new UpdateFieldLevelEncryptionProfile2019_03_26Command(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2067,29 +2342,31 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Update public key information. Note that the only value you can change is the comment.</p>
+   *
+   * 		       <p>Update public key information. Note that the only value you can change is the comment.</p>
+   *
    */
-  public updatePublicKey(
-    args: UpdatePublicKeyCommandInput,
+  public updatePublicKey2019_03_26(
+    args: UpdatePublicKey2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdatePublicKeyCommandOutput>;
-  public updatePublicKey(
-    args: UpdatePublicKeyCommandInput,
-    cb: (err: any, data?: UpdatePublicKeyCommandOutput) => void
+  ): Promise<UpdatePublicKey2019_03_26CommandOutput>;
+  public updatePublicKey2019_03_26(
+    args: UpdatePublicKey2019_03_26CommandInput,
+    cb: (err: any, data?: UpdatePublicKey2019_03_26CommandOutput) => void
   ): void;
-  public updatePublicKey(
-    args: UpdatePublicKeyCommandInput,
+  public updatePublicKey2019_03_26(
+    args: UpdatePublicKey2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePublicKeyCommandOutput) => void
+    cb: (err: any, data?: UpdatePublicKey2019_03_26CommandOutput) => void
   ): void;
-  public updatePublicKey(
-    args: UpdatePublicKeyCommandInput,
+  public updatePublicKey2019_03_26(
+    args: UpdatePublicKey2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePublicKeyCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePublicKeyCommandOutput) => void
-  ): Promise<UpdatePublicKeyCommandOutput> | void {
-    const command = new UpdatePublicKeyCommand(args);
+      | ((err: any, data?: UpdatePublicKey2019_03_26CommandOutput) => void),
+    cb?: (err: any, data?: UpdatePublicKey2019_03_26CommandOutput) => void
+  ): Promise<UpdatePublicKey2019_03_26CommandOutput> | void {
+    const command = new UpdatePublicKey2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2102,29 +2379,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Update a streaming distribution. </p>
+   *
+   * 		       <p>Update a streaming distribution. </p>
+   *
    */
-  public updateStreamingDistribution(
-    args: UpdateStreamingDistributionCommandInput,
+  public updateStreamingDistribution2019_03_26(
+    args: UpdateStreamingDistribution2019_03_26CommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateStreamingDistributionCommandOutput>;
-  public updateStreamingDistribution(
-    args: UpdateStreamingDistributionCommandInput,
-    cb: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
+  ): Promise<UpdateStreamingDistribution2019_03_26CommandOutput>;
+  public updateStreamingDistribution2019_03_26(
+    args: UpdateStreamingDistribution2019_03_26CommandInput,
+    cb: (
+      err: any,
+      data?: UpdateStreamingDistribution2019_03_26CommandOutput
+    ) => void
   ): void;
-  public updateStreamingDistribution(
-    args: UpdateStreamingDistributionCommandInput,
+  public updateStreamingDistribution2019_03_26(
+    args: UpdateStreamingDistribution2019_03_26CommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
+    cb: (
+      err: any,
+      data?: UpdateStreamingDistribution2019_03_26CommandOutput
+    ) => void
   ): void;
-  public updateStreamingDistribution(
-    args: UpdateStreamingDistributionCommandInput,
+  public updateStreamingDistribution2019_03_26(
+    args: UpdateStreamingDistribution2019_03_26CommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStreamingDistributionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
-  ): Promise<UpdateStreamingDistributionCommandOutput> | void {
-    const command = new UpdateStreamingDistributionCommand(args);
+      | ((
+          err: any,
+          data?: UpdateStreamingDistribution2019_03_26CommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: UpdateStreamingDistribution2019_03_26CommandOutput
+    ) => void
+  ): Promise<UpdateStreamingDistribution2019_03_26CommandOutput> | void {
+    const command = new UpdateStreamingDistribution2019_03_26Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
