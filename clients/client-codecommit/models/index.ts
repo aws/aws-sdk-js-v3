@@ -2,9 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *         <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
- *
+ * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
 export interface ActorDoesNotExistException
   extends _smithy.SmithyException,
@@ -13,9 +11,7 @@ export interface ActorDoesNotExistException
   name: "ActorDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -27,23 +23,17 @@ export namespace ActorDoesNotExistException {
 }
 
 /**
- *
- *         <p>Returns information about a specific approval on a pull request.</p>
- *
+ * <p>Returns information about a specific approval on a pull request.</p>
  */
 export interface Approval {
   __type?: "Approval";
   /**
-   *
-   *         <p>The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.</p>
-   *
+   * <p>The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.</p>
    */
   approvalState?: ApprovalState | string;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   userArn?: string;
 }
@@ -55,65 +45,47 @@ export namespace Approval {
 }
 
 /**
- *
- *         <p>Returns information about an approval rule.</p>
- *
+ * <p>Returns information about an approval rule.</p>
  */
 export interface ApprovalRule {
   __type?: "ApprovalRule";
   /**
-   *
-   *         <p>The content of the approval rule.</p>
-   *
+   * <p>The content of the approval rule.</p>
    */
   approvalRuleContent?: string;
 
   /**
-   *
-   *         <p>The system-generated ID of the approval rule.</p>
-   *
+   * <p>The system-generated ID of the approval rule.</p>
    */
   approvalRuleId?: string;
 
   /**
-   *
-   *         <p>The name of the approval rule.</p>
-   *
+   * <p>The name of the approval rule.</p>
    */
   approvalRuleName?: string;
 
   /**
-   *
-   *         <p>The date the approval rule was created, in timestamp format.</p>
-   *
+   * <p>The date the approval rule was created, in timestamp format.</p>
    */
   creationDate?: Date;
 
   /**
-   *
-   *         <p>The date the approval rule was most recently changed, in timestamp format.</p>
-   *
+   * <p>The date the approval rule was most recently changed, in timestamp format.</p>
    */
   lastModifiedDate?: Date;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule.</p>
    */
   lastModifiedUser?: string;
 
   /**
-   *
-   *         <p>The approval rule template used to create the rule.</p>
-   *
+   * <p>The approval rule template used to create the rule.</p>
    */
   originApprovalRuleTemplate?: OriginApprovalRuleTemplate;
 
   /**
-   *
-   *         <p>The SHA-256 hash signature for the content of the approval rule.</p>
-   *
+   * <p>The SHA-256 hash signature for the content of the approval rule.</p>
    */
   ruleContentSha256?: string;
 }
@@ -125,9 +97,7 @@ export namespace ApprovalRule {
 }
 
 /**
- *
- *         <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
- *
+ * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
  */
 export interface ApprovalRuleContentRequiredException
   extends _smithy.SmithyException,
@@ -136,9 +106,7 @@ export interface ApprovalRuleContentRequiredException
   name: "ApprovalRuleContentRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -150,9 +118,7 @@ export namespace ApprovalRuleContentRequiredException {
 }
 
 /**
- *
- *         <p>The specified approval rule does not exist.</p>
- *
+ * <p>The specified approval rule does not exist.</p>
  */
 export interface ApprovalRuleDoesNotExistException
   extends _smithy.SmithyException,
@@ -161,9 +127,7 @@ export interface ApprovalRuleDoesNotExistException
   name: "ApprovalRuleDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -175,30 +139,22 @@ export namespace ApprovalRuleDoesNotExistException {
 }
 
 /**
- *
- *         <p>Returns information about an event for an approval rule.</p>
- *
+ * <p>Returns information about an event for an approval rule.</p>
  */
 export interface ApprovalRuleEventMetadata {
   __type?: "ApprovalRuleEventMetadata";
   /**
-   *
-   *         <p>The content of the approval rule.</p>
-   *
+   * <p>The content of the approval rule.</p>
    */
   approvalRuleContent?: string;
 
   /**
-   *
-   *         <p>The system-generated ID of the approval rule.</p>
-   *
+   * <p>The system-generated ID of the approval rule.</p>
    */
   approvalRuleId?: string;
 
   /**
-   *
-   *         <p>The name of the approval rule.</p>
-   *
+   * <p>The name of the approval rule.</p>
    */
   approvalRuleName?: string;
 }
@@ -210,10 +166,8 @@ export namespace ApprovalRuleEventMetadata {
 }
 
 /**
- *
- *         <p>An approval rule with that name already exists. Approval rule names must be unique
+ * <p>An approval rule with that name already exists. Approval rule names must be unique
  *             within the scope of a pull request.</p>
- *
  */
 export interface ApprovalRuleNameAlreadyExistsException
   extends _smithy.SmithyException,
@@ -222,9 +176,7 @@ export interface ApprovalRuleNameAlreadyExistsException
   name: "ApprovalRuleNameAlreadyExistsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -236,9 +188,7 @@ export namespace ApprovalRuleNameAlreadyExistsException {
 }
 
 /**
- *
- *         <p>An approval rule name is required, but was not specified.</p>
- *
+ * <p>An approval rule name is required, but was not specified.</p>
  */
 export interface ApprovalRuleNameRequiredException
   extends _smithy.SmithyException,
@@ -247,9 +197,7 @@ export interface ApprovalRuleNameRequiredException
   name: "ApprovalRuleNameRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -261,23 +209,17 @@ export namespace ApprovalRuleNameRequiredException {
 }
 
 /**
- *
- *         <p>Returns information about an override event for approval rules for a pull request.</p>
- *
+ * <p>Returns information about an override event for approval rules for a pull request.</p>
  */
 export interface ApprovalRuleOverriddenEventMetadata {
   __type?: "ApprovalRuleOverriddenEventMetadata";
   /**
-   *
-   *         <p>The status of the override event.</p>
-   *
+   * <p>The status of the override event.</p>
    */
   overrideStatus?: OverrideStatus | string;
 
   /**
-   *
-   *         <p>The revision ID of the pull request when the override event occurred.</p>
-   *
+   * <p>The revision ID of the pull request when the override event occurred.</p>
    */
   revisionId?: string;
 }
@@ -289,65 +231,47 @@ export namespace ApprovalRuleOverriddenEventMetadata {
 }
 
 /**
- *
- *         <p>Returns information about an approval rule template.</p>
- *
+ * <p>Returns information about an approval rule template.</p>
  */
 export interface ApprovalRuleTemplate {
   __type?: "ApprovalRuleTemplate";
   /**
-   *
-   *         <p>The content of the approval rule template.</p>
-   *
+   * <p>The content of the approval rule template.</p>
    */
   approvalRuleTemplateContent?: string;
 
   /**
-   *
-   *         <p>The description of the approval rule template.</p>
-   *
+   * <p>The description of the approval rule template.</p>
    */
   approvalRuleTemplateDescription?: string;
 
   /**
-   *
-   *         <p>The system-generated ID of the approval rule template.</p>
-   *
+   * <p>The system-generated ID of the approval rule template.</p>
    */
   approvalRuleTemplateId?: string;
 
   /**
-   *
-   *         <p>The name of the approval rule template.</p>
-   *
+   * <p>The name of the approval rule template.</p>
    */
   approvalRuleTemplateName?: string;
 
   /**
-   *
-   *         <p>The date the approval rule template was created, in timestamp format.</p>
-   *
+   * <p>The date the approval rule template was created, in timestamp format.</p>
    */
   creationDate?: Date;
 
   /**
-   *
-   *         <p>The date the approval rule template was most recently changed, in timestamp format.</p>
-   *
+   * <p>The date the approval rule template was most recently changed, in timestamp format.</p>
    */
   lastModifiedDate?: Date;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.</p>
    */
   lastModifiedUser?: string;
 
   /**
-   *
-   *         <p>The SHA-256 hash signature for the content of the approval rule template.</p>
-   *
+   * <p>The SHA-256 hash signature for the content of the approval rule template.</p>
    */
   ruleContentSha256?: string;
 }
@@ -359,9 +283,7 @@ export namespace ApprovalRuleTemplate {
 }
 
 /**
- *
- *         <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
- *
+ * <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
  */
 export interface ApprovalRuleTemplateContentRequiredException
   extends _smithy.SmithyException,
@@ -370,9 +292,7 @@ export interface ApprovalRuleTemplateContentRequiredException
   name: "ApprovalRuleTemplateContentRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -386,10 +306,8 @@ export namespace ApprovalRuleTemplateContentRequiredException {
 }
 
 /**
- *
- *         <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
+ * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
  *         was created, and then try again.</p>
- *
  */
 export interface ApprovalRuleTemplateDoesNotExistException
   extends _smithy.SmithyException,
@@ -398,9 +316,7 @@ export interface ApprovalRuleTemplateDoesNotExistException
   name: "ApprovalRuleTemplateDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -412,10 +328,8 @@ export namespace ApprovalRuleTemplateDoesNotExistException {
 }
 
 /**
- *
- *         <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
+ * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
  *         all associations, and then try again.</p>
- *
  */
 export interface ApprovalRuleTemplateInUseException
   extends _smithy.SmithyException,
@@ -424,9 +338,7 @@ export interface ApprovalRuleTemplateInUseException
   name: "ApprovalRuleTemplateInUseException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -438,11 +350,9 @@ export namespace ApprovalRuleTemplateInUseException {
 }
 
 /**
- *
- *         <p>You cannot create an approval rule template with that name because a template with
+ * <p>You cannot create an approval rule template with that name because a template with
  *             that name already exists in this AWS Region for your AWS account. Approval rule template
  *             names must be unique.</p>
- *
  */
 export interface ApprovalRuleTemplateNameAlreadyExistsException
   extends _smithy.SmithyException,
@@ -451,9 +361,7 @@ export interface ApprovalRuleTemplateNameAlreadyExistsException
   name: "ApprovalRuleTemplateNameAlreadyExistsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -467,9 +375,7 @@ export namespace ApprovalRuleTemplateNameAlreadyExistsException {
 }
 
 /**
- *
- *         <p>An approval rule template name is required, but was not specified.</p>
- *
+ * <p>An approval rule template name is required, but was not specified.</p>
  */
 export interface ApprovalRuleTemplateNameRequiredException
   extends _smithy.SmithyException,
@@ -478,9 +384,7 @@ export interface ApprovalRuleTemplateNameRequiredException
   name: "ApprovalRuleTemplateNameRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -497,23 +401,17 @@ export enum ApprovalState {
 }
 
 /**
- *
- *         <p>Returns information about a change in the approval state for a pull request.</p>
- *
+ * <p>Returns information about a change in the approval state for a pull request.</p>
  */
 export interface ApprovalStateChangedEventMetadata {
   __type?: "ApprovalStateChangedEventMetadata";
   /**
-   *
-   *         <p>The approval status for the pull request.</p>
-   *
+   * <p>The approval status for the pull request.</p>
    */
   approvalStatus?: ApprovalState | string;
 
   /**
-   *
-   *         <p>The revision ID of the pull request when the approval state changed.</p>
-   *
+   * <p>The revision ID of the pull request when the approval state changed.</p>
    */
   revisionId?: string;
 }
@@ -525,9 +423,7 @@ export namespace ApprovalStateChangedEventMetadata {
 }
 
 /**
- *
- *         <p>An approval state is required, but was not specified.</p>
- *
+ * <p>An approval state is required, but was not specified.</p>
  */
 export interface ApprovalStateRequiredException
   extends _smithy.SmithyException,
@@ -536,9 +432,7 @@ export interface ApprovalStateRequiredException
   name: "ApprovalStateRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -552,16 +446,12 @@ export namespace ApprovalStateRequiredException {
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
   __type?: "AssociateApprovalRuleTemplateWithRepositoryInput";
   /**
-   *
-   *         <p>The name for the approval rule template. </p>
-   *
+   * <p>The name for the approval rule template. </p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that you want to associate with the template.</p>
-   *
+   * <p>The name of the repository that you want to associate with the template.</p>
    */
   repositoryName: string | undefined;
 }
@@ -575,9 +465,7 @@ export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
 }
 
 /**
- *
- *         <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
- *
+ * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
 export interface AuthorDoesNotExistException
   extends _smithy.SmithyException,
@@ -586,9 +474,7 @@ export interface AuthorDoesNotExistException
   name: "AuthorDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -600,30 +486,22 @@ export namespace AuthorDoesNotExistException {
 }
 
 /**
- *
- *         <p>Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.</p>
- *
+ * <p>Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.</p>
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
   __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesError";
   /**
-   *
-   *         <p>An error code that specifies whether the repository name was not valid or not found.</p>
-   *
+   * <p>An error code that specifies whether the repository name was not valid or not found.</p>
    */
   errorCode?: string;
 
   /**
-   *
-   *         <p>An error message that provides details about why the repository name was not found or not valid.</p>
-   *
+   * <p>An error message that provides details about why the repository name was not found or not valid.</p>
    */
   errorMessage?: string;
 
   /**
-   *
-   *         <p>The name of the repository where the association was not made.</p>
-   *
+   * <p>The name of the repository where the association was not made.</p>
    */
   repositoryName?: string;
 }
@@ -642,19 +520,15 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesError {
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesInput";
   /**
-   *
-   *         <p>The name of the template you want to associate with one or more repositories.</p>
-   *
+   * <p>The name of the template you want to associate with one or more repositories.</p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   *
-   *         <p>The names of the repositories you want to associate with the template.</p>
+   * <p>The names of the repositories you want to associate with the template.</p>
    *         <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
-   *
    */
   repositoryNames: Array<string> | undefined;
 }
@@ -674,16 +548,12 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
   extends $MetadataBearer {
   __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput";
   /**
-   *
-   *         <p>A list of names of the repositories that have been associated with the template.</p>
-   *
+   * <p>A list of names of the repositories that have been associated with the template.</p>
    */
   associatedRepositoryNames: Array<string> | undefined;
 
   /**
-   *
-   *         <p>A list of any errors that might have occurred while attempting to create the association between the template and the repositories.</p>
-   *
+   * <p>A list of any errors that might have occurred while attempting to create the association between the template and the repositories.</p>
    */
   errors:
     | Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError>
@@ -702,30 +572,22 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
 }
 
 /**
- *
- *         <p>Returns information about errors in a BatchDescribeMergeConflicts operation.</p>
- *
+ * <p>Returns information about errors in a BatchDescribeMergeConflicts operation.</p>
  */
 export interface BatchDescribeMergeConflictsError {
   __type?: "BatchDescribeMergeConflictsError";
   /**
-   *
-   *         <p>The name of the exception.</p>
-   *
+   * <p>The name of the exception.</p>
    */
   exceptionName: string | undefined;
 
   /**
-   *
-   *         <p>The path to the file.</p>
-   *
+   * <p>The path to the file.</p>
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The message provided by the exception.</p>
-   *
+   * <p>The message provided by the exception.</p>
    */
   message: string | undefined;
 }
@@ -739,80 +601,60 @@ export namespace BatchDescribeMergeConflictsError {
 export interface BatchDescribeMergeConflictsInput {
   __type?: "BatchDescribeMergeConflictsInput";
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The path of the target files used to describe the conflicts. If not specified, the default is all conflict files.</p>
-   *
+   * <p>The path of the target files used to describe the conflicts. If not specified, the default is all conflict files.</p>
    */
   filePaths?: Array<string>;
 
   /**
-   *
-   *         <p>The maximum number of files to include in the output.</p>
-   *
+   * <p>The maximum number of files to include in the output.</p>
    */
   maxConflictFiles?: number;
 
   /**
-   *
-   *         <p>The maximum number of merge hunks to include in the output.</p>
-   *
+   * <p>The maximum number of merge hunks to include in the output.</p>
    */
   maxMergeHunks?: number;
 
   /**
-   *
-   *         <p>The merge option or strategy you want to use to merge the code.</p>
-   *
+   * <p>The merge option or strategy you want to use to merge the code.</p>
    */
   mergeOption: MergeOptionTypeEnum | string | undefined;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The name of the repository that contains the merge conflicts you want to review.</p>
-   *
+   * <p>The name of the repository that contains the merge conflicts you want to review.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 }
@@ -826,44 +668,32 @@ export namespace BatchDescribeMergeConflictsInput {
 export interface BatchDescribeMergeConflictsOutput extends $MetadataBearer {
   __type?: "BatchDescribeMergeConflictsOutput";
   /**
-   *
-   *         <p>The commit ID of the merge base.</p>
-   *
+   * <p>The commit ID of the merge base.</p>
    */
   baseCommitId?: string;
 
   /**
-   *
-   *         <p>A list of conflicts for each file, including the conflict metadata and the hunks of the differences between the files.</p>
-   *
+   * <p>A list of conflicts for each file, including the conflict metadata and the hunks of the differences between the files.</p>
    */
   conflicts: Array<Conflict> | undefined;
 
   /**
-   *
-   *         <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    */
   destinationCommitId: string | undefined;
 
   /**
-   *
-   *         <p>A list of any errors returned while describing the merge conflicts for each file.</p>
-   *
+   * <p>A list of any errors returned while describing the merge conflicts for each file.</p>
    */
   errors?: Array<BatchDescribeMergeConflictsError>;
 
   /**
-   *
-   *         <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   *
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
    */
   sourceCommitId: string | undefined;
 }
@@ -875,31 +705,23 @@ export namespace BatchDescribeMergeConflictsOutput {
 }
 
 /**
- *
- *         <p>Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.</p>
- *
+ * <p>Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.</p>
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
   __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesError";
   /**
-   *
-   *         <p>An error code that specifies whether the repository name was not valid or not
+   * <p>An error code that specifies whether the repository name was not valid or not
    *             found.</p>
-   *
    */
   errorCode?: string;
 
   /**
-   *
-   *         <p>An error message that provides details about why the repository name was either not found or not valid.</p>
-   *
+   * <p>An error message that provides details about why the repository name was either not found or not valid.</p>
    */
   errorMessage?: string;
 
   /**
-   *
-   *         <p>The name of the repository where the association with the template was not able to be removed.</p>
-   *
+   * <p>The name of the repository where the association with the template was not able to be removed.</p>
    */
   repositoryName?: string;
 }
@@ -918,20 +740,16 @@ export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesInput";
   /**
-   *
-   *         <p>The name of the template that you want to disassociate from one or more repositories.</p>
-   *
+   * <p>The name of the template that you want to disassociate from one or more repositories.</p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   *
-   *         <p>The repository names that you want to disassociate from the approval rule
+   * <p>The repository names that you want to disassociate from the approval rule
    *             template.</p>
    *         <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
-   *
    */
   repositoryNames: Array<string> | undefined;
 }
@@ -951,17 +769,13 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
   extends $MetadataBearer {
   __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput";
   /**
-   *
-   *         <p>A list of repository names that have had their association with the template
+   * <p>A list of repository names that have had their association with the template
    *             removed.</p>
-   *
    */
   disassociatedRepositoryNames: Array<string> | undefined;
 
   /**
-   *
-   *         <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
-   *
+   * <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
    */
   errors:
     | Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError>
@@ -980,30 +794,22 @@ export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
 }
 
 /**
- *
- *         <p>Returns information about errors in a BatchGetCommits operation.</p>
- *
+ * <p>Returns information about errors in a BatchGetCommits operation.</p>
  */
 export interface BatchGetCommitsError {
   __type?: "BatchGetCommitsError";
   /**
-   *
-   *         <p>A commit ID that either could not be found or was not in a valid format.</p>
-   *
+   * <p>A commit ID that either could not be found or was not in a valid format.</p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>An error code that specifies whether the commit ID was not valid or not found.</p>
-   *
+   * <p>An error code that specifies whether the commit ID was not valid or not found.</p>
    */
   errorCode?: string;
 
   /**
-   *
-   *         <p>An error message that provides detail about why the commit ID either was not found or was not valid.</p>
-   *
+   * <p>An error message that provides detail about why the commit ID either was not found or was not valid.</p>
    */
   errorMessage?: string;
 }
@@ -1017,20 +823,16 @@ export namespace BatchGetCommitsError {
 export interface BatchGetCommitsInput {
   __type?: "BatchGetCommitsInput";
   /**
-   *
-   *         <p>The full commit IDs of the commits to get information about.</p>
+   * <p>The full commit IDs of the commits to get information about.</p>
    *         <note>
    *             <p>You must supply the full SHA IDs of each commit. You cannot use shortened SHA
    *                 IDs.</p>
    *         </note>
-   *
    */
   commitIds: Array<string> | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the commits.</p>
-   *
+   * <p>The name of the repository that contains the commits.</p>
    */
   repositoryName: string | undefined;
 }
@@ -1044,18 +846,14 @@ export namespace BatchGetCommitsInput {
 export interface BatchGetCommitsOutput extends $MetadataBearer {
   __type?: "BatchGetCommitsOutput";
   /**
-   *
-   *         <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
-   *
+   * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
    */
   commits?: Array<Commit>;
 
   /**
-   *
-   *         <p>Returns any commit IDs for which information could not be found. For example, if one
+   * <p>Returns any commit IDs for which information could not be found. For example, if one
    *             of the commit IDs was a shortened SHA ID or that commit was not found in the specified
    *             repository, the ID returns an error object with more information.</p>
-   *
    */
   errors?: Array<BatchGetCommitsError>;
 }
@@ -1067,19 +865,15 @@ export namespace BatchGetCommitsOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a batch get repositories operation.</p>
- *
+ * <p>Represents the input of a batch get repositories operation.</p>
  */
 export interface BatchGetRepositoriesInput {
   __type?: "BatchGetRepositoriesInput";
   /**
-   *
-   *         <p>The names of the repositories to get information about.</p>
+   * <p>The names of the repositories to get information about.</p>
    *         <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
-   *
    */
   repositoryNames: Array<string> | undefined;
 }
@@ -1091,23 +885,17 @@ export namespace BatchGetRepositoriesInput {
 }
 
 /**
- *
- *         <p>Represents the output of a batch get repositories operation.</p>
- *
+ * <p>Represents the output of a batch get repositories operation.</p>
  */
 export interface BatchGetRepositoriesOutput extends $MetadataBearer {
   __type?: "BatchGetRepositoriesOutput";
   /**
-   *
-   *         <p>A list of repositories returned by the batch get repositories operation.</p>
-   *
+   * <p>A list of repositories returned by the batch get repositories operation.</p>
    */
   repositories?: Array<RepositoryMetadata>;
 
   /**
-   *
-   *         <p>Returns a list of repository names for which information could not be found.</p>
-   *
+   * <p>Returns a list of repository names for which information could not be found.</p>
    */
   repositoriesNotFound?: Array<string>;
 }
@@ -1119,9 +907,7 @@ export namespace BatchGetRepositoriesOutput {
 }
 
 /**
- *
- *         <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
- *
+ * <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
  */
 export interface BeforeCommitIdAndAfterCommitIdAreSameException
   extends _smithy.SmithyException,
@@ -1130,9 +916,7 @@ export interface BeforeCommitIdAndAfterCommitIdAreSameException
   name: "BeforeCommitIdAndAfterCommitIdAreSameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1146,9 +930,7 @@ export namespace BeforeCommitIdAndAfterCommitIdAreSameException {
 }
 
 /**
- *
- *         <p>The specified blob does not exist.</p>
- *
+ * <p>The specified blob does not exist.</p>
  */
 export interface BlobIdDoesNotExistException
   extends _smithy.SmithyException,
@@ -1157,9 +939,7 @@ export interface BlobIdDoesNotExistException
   name: "BlobIdDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1171,9 +951,7 @@ export namespace BlobIdDoesNotExistException {
 }
 
 /**
- *
- *         <p>A blob ID is required, but was not specified.</p>
- *
+ * <p>A blob ID is required, but was not specified.</p>
  */
 export interface BlobIdRequiredException
   extends _smithy.SmithyException,
@@ -1182,9 +960,7 @@ export interface BlobIdRequiredException
   name: "BlobIdRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1196,22 +972,17 @@ export namespace BlobIdRequiredException {
 }
 
 /**
- *
- *         <p>Returns information about a specific Git blob object.</p>
- *
+ * <p>Returns information about a specific Git blob object.</p>
  */
 export interface BlobMetadata {
   __type?: "BlobMetadata";
   /**
-   *
-   *         <p>The full ID of the blob.</p>
-   *
+   * <p>The full ID of the blob.</p>
    */
   blobId?: string;
 
   /**
-   *
-   *         <p>The file mode permissions of the blob. File mode permission codes include:</p>
+   * <p>The file mode permissions of the blob. File mode permission codes include:</p>
    *         <ul>
    *             <li>
    *                <p>
@@ -1230,14 +1001,11 @@ export interface BlobMetadata {
    *                   <code>120000</code> indicates a symlink</p>
    *             </li>
    *          </ul>
-   *
    */
   mode?: string;
 
   /**
-   *
-   *         <p>The path to the blob and associated file name, if any.</p>
-   *
+   * <p>The path to the blob and associated file name, if any.</p>
    */
   path?: string;
 }
@@ -1249,9 +1017,7 @@ export namespace BlobMetadata {
 }
 
 /**
- *
- *         <p>The specified branch does not exist.</p>
- *
+ * <p>The specified branch does not exist.</p>
  */
 export interface BranchDoesNotExistException
   extends _smithy.SmithyException,
@@ -1260,9 +1026,7 @@ export interface BranchDoesNotExistException
   name: "BranchDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1274,23 +1038,17 @@ export namespace BranchDoesNotExistException {
 }
 
 /**
- *
- *         <p>Returns information about a branch.</p>
- *
+ * <p>Returns information about a branch.</p>
  */
 export interface BranchInfo {
   __type?: "BranchInfo";
   /**
-   *
-   *         <p>The name of the branch.</p>
-   *
+   * <p>The name of the branch.</p>
    */
   branchName?: string;
 
   /**
-   *
-   *         <p>The ID of the last commit made to the branch.</p>
-   *
+   * <p>The ID of the last commit made to the branch.</p>
    */
   commitId?: string;
 }
@@ -1302,9 +1060,7 @@ export namespace BranchInfo {
 }
 
 /**
- *
- *         <p>The specified branch name already exists.</p>
- *
+ * <p>The specified branch name already exists.</p>
  */
 export interface BranchNameExistsException
   extends _smithy.SmithyException,
@@ -1313,9 +1069,7 @@ export interface BranchNameExistsException
   name: "BranchNameExistsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1327,10 +1081,8 @@ export namespace BranchNameExistsException {
 }
 
 /**
- *
- *         <p>The specified branch name is not valid because it is a tag name. Enter the name of a
+ * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
- *
  */
 export interface BranchNameIsTagNameException
   extends _smithy.SmithyException,
@@ -1339,9 +1091,7 @@ export interface BranchNameIsTagNameException
   name: "BranchNameIsTagNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1353,9 +1103,7 @@ export namespace BranchNameIsTagNameException {
 }
 
 /**
- *
- *         <p>A branch name is required, but was not specified.</p>
- *
+ * <p>A branch name is required, but was not specified.</p>
  */
 export interface BranchNameRequiredException
   extends _smithy.SmithyException,
@@ -1364,9 +1112,7 @@ export interface BranchNameRequiredException
   name: "BranchNameRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1378,10 +1124,8 @@ export namespace BranchNameRequiredException {
 }
 
 /**
- *
- *         <p>The approval rule cannot be deleted from the pull request because it was created by an
+ * <p>The approval rule cannot be deleted from the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
- *
  */
 export interface CannotDeleteApprovalRuleFromTemplateException
   extends _smithy.SmithyException,
@@ -1390,9 +1134,7 @@ export interface CannotDeleteApprovalRuleFromTemplateException
   name: "CannotDeleteApprovalRuleFromTemplateException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1406,10 +1148,8 @@ export namespace CannotDeleteApprovalRuleFromTemplateException {
 }
 
 /**
- *
- *         <p>The approval rule cannot be modified for the pull request because it was created by an
+ * <p>The approval rule cannot be modified for the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
- *
  */
 export interface CannotModifyApprovalRuleFromTemplateException
   extends _smithy.SmithyException,
@@ -1418,9 +1158,7 @@ export interface CannotModifyApprovalRuleFromTemplateException
   name: "CannotModifyApprovalRuleFromTemplateException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1440,13 +1178,11 @@ export enum ChangeTypeEnum {
 }
 
 /**
- *
- *         <p>A client request token is required. A client request token is an unique,
+ * <p>A client request token is required. A client request token is an unique,
  *             client-generated idempotency token that, when provided in a request, ensures the request
  *             cannot be repeated with a changed parameter. If a request is received with the same
  *             parameters and a token is included, the request returns information about the initial
  *             request that used that token.</p>
- *
  */
 export interface ClientRequestTokenRequiredException
   extends _smithy.SmithyException,
@@ -1455,9 +1191,7 @@ export interface ClientRequestTokenRequiredException
   name: "ClientRequestTokenRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1469,68 +1203,50 @@ export namespace ClientRequestTokenRequiredException {
 }
 
 /**
- *
- *         <p>Returns information about a specific comment.</p>
- *
+ * <p>Returns information about a specific comment.</p>
  */
 export interface Comment {
   __type?: "Comment";
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the person who posted the comment.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the person who posted the comment.</p>
    */
   authorArn?: string;
 
   /**
-   *
-   *         <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *         <p>The system-generated comment ID.</p>
-   *
+   * <p>The system-generated comment ID.</p>
    */
   commentId?: string;
 
   /**
-   *
-   *         <p>The content of the comment.</p>
-   *
+   * <p>The content of the comment.</p>
    */
   content?: string;
 
   /**
-   *
-   *         <p>The date and time the comment was created, in timestamp format.</p>
-   *
+   * <p>The date and time the comment was created, in timestamp format.</p>
    */
   creationDate?: Date;
 
   /**
-   *
-   *         <p>A Boolean value indicating whether the comment has been deleted.</p>
-   *
+   * <p>A Boolean value indicating whether the comment has been deleted.</p>
    */
   deleted?: boolean;
 
   /**
-   *
-   *         <p>The ID of the comment for which this comment is a reply, if any.</p>
-   *
+   * <p>The ID of the comment for which this comment is a reply, if any.</p>
    */
   inReplyTo?: string;
 
   /**
-   *
-   *         <p>The date and time the comment was most recently modified, in timestamp format.</p>
-   *
+   * <p>The date and time the comment was most recently modified, in timestamp format.</p>
    */
   lastModifiedDate?: Date;
 }
@@ -1542,9 +1258,7 @@ export namespace Comment {
 }
 
 /**
- *
- *         <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
- *
+ * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  */
 export interface CommentContentRequiredException
   extends _smithy.SmithyException,
@@ -1553,9 +1267,7 @@ export interface CommentContentRequiredException
   name: "CommentContentRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1567,9 +1279,7 @@ export namespace CommentContentRequiredException {
 }
 
 /**
- *
- *         <p>The comment is too large. Comments are limited to 1,000 characters.</p>
- *
+ * <p>The comment is too large. Comments are limited to 1,000 characters.</p>
  */
 export interface CommentContentSizeLimitExceededException
   extends _smithy.SmithyException,
@@ -1578,9 +1288,7 @@ export interface CommentContentSizeLimitExceededException
   name: "CommentContentSizeLimitExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1592,9 +1300,7 @@ export namespace CommentContentSizeLimitExceededException {
 }
 
 /**
- *
- *         <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
- *
+ * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
  */
 export interface CommentDeletedException
   extends _smithy.SmithyException,
@@ -1603,9 +1309,7 @@ export interface CommentDeletedException
   name: "CommentDeletedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1617,10 +1321,8 @@ export namespace CommentDeletedException {
 }
 
 /**
- *
- *         <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
+ * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
  *             then try again.</p>
- *
  */
 export interface CommentDoesNotExistException
   extends _smithy.SmithyException,
@@ -1629,9 +1331,7 @@ export interface CommentDoesNotExistException
   name: "CommentDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1643,9 +1343,7 @@ export namespace CommentDoesNotExistException {
 }
 
 /**
- *
- *         <p>The comment ID is missing or null. A comment ID is required.</p>
- *
+ * <p>The comment ID is missing or null. A comment ID is required.</p>
  */
 export interface CommentIdRequiredException
   extends _smithy.SmithyException,
@@ -1654,9 +1352,7 @@ export interface CommentIdRequiredException
   name: "CommentIdRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1668,9 +1364,7 @@ export namespace CommentIdRequiredException {
 }
 
 /**
- *
- *         <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
- *
+ * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
  */
 export interface CommentNotCreatedByCallerException
   extends _smithy.SmithyException,
@@ -1679,9 +1373,7 @@ export interface CommentNotCreatedByCallerException
   name: "CommentNotCreatedByCallerException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1693,62 +1385,46 @@ export namespace CommentNotCreatedByCallerException {
 }
 
 /**
- *
- *         <p>Returns information about comments on the comparison between two commits.</p>
- *
+ * <p>Returns information about comments on the comparison between two commits.</p>
  */
 export interface CommentsForComparedCommit {
   __type?: "CommentsForComparedCommit";
   /**
-   *
-   *         <p>The full blob ID of the commit used to establish the after of the comparison.</p>
-   *
+   * <p>The full blob ID of the commit used to establish the after of the comparison.</p>
    */
   afterBlobId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit used to establish the after of the comparison.</p>
-   *
+   * <p>The full commit ID of the commit used to establish the after of the comparison.</p>
    */
   afterCommitId?: string;
 
   /**
-   *
-   *         <p>The full blob ID of the commit used to establish the before of the comparison.</p>
-   *
+   * <p>The full blob ID of the commit used to establish the before of the comparison.</p>
    */
   beforeBlobId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit used to establish the before of the
+   * <p>The full commit ID of the commit used to establish the before of the
    *             comparison.</p>
-   *
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>An array of comment objects. Each comment object contains information about a comment on the comparison
+   * <p>An array of comment objects. Each comment object contains information about a comment on the comparison
    *          between commits.</p>
-   *
    */
   comments?: Array<Comment>;
 
   /**
-   *
-   *         <p>Location information about the comment on the comparison, including the file name,
+   * <p>Location information about the comment on the comparison, including the file name,
    *             line number, and whether the version of the file where the comment was made is BEFORE or
    *             AFTER.</p>
-   *
    */
   location?: Location;
 
   /**
-   *
-   *         <p>The name of the repository that contains the compared commits.</p>
-   *
+   * <p>The name of the repository that contains the compared commits.</p>
    */
   repositoryName?: string;
 }
@@ -1760,70 +1436,52 @@ export namespace CommentsForComparedCommit {
 }
 
 /**
- *
- *         <p>Returns information about comments on a pull request.</p>
- *
+ * <p>Returns information about comments on a pull request.</p>
  */
 export interface CommentsForPullRequest {
   __type?: "CommentsForPullRequest";
   /**
-   *
-   *         <p>The full blob ID of the file on which you want to comment on the source commit.</p>
-   *
+   * <p>The full blob ID of the file on which you want to comment on the source commit.</p>
    */
   afterBlobId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit that was the tip of the source branch at the time the
+   * <p>The full commit ID of the commit that was the tip of the source branch at the time the
    *             comment was made. </p>
-   *
    */
   afterCommitId?: string;
 
   /**
-   *
-   *         <p>The full blob ID of the file on which you want to comment on the destination commit.</p>
-   *
+   * <p>The full blob ID of the file on which you want to comment on the destination commit.</p>
    */
   beforeBlobId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit that was the tip of the destination branch when the
+   * <p>The full commit ID of the commit that was the tip of the destination branch when the
    *             pull request was created. This commit is superceded by the after commit in the source
    *             branch when and if you merge the source branch into the destination branch.</p>
-   *
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>An array of comment objects. Each comment object contains information about a comment on the pull request.</p>
-   *
+   * <p>An array of comment objects. Each comment object contains information about a comment on the pull request.</p>
    */
   comments?: Array<Comment>;
 
   /**
-   *
-   *         <p>Location information about the comment on the pull request, including the file name,
+   * <p>Location information about the comment on the pull request, including the file name,
    *             line number, and whether the version of the file where the comment was made is BEFORE
    *             (destination branch) or AFTER (source branch).</p>
-   *
    */
   location?: Location;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request.</p>
-   *
+   * <p>The system-generated ID of the pull request.</p>
    */
   pullRequestId?: string;
 
   /**
-   *
-   *         <p>The name of the repository that contains the pull request.</p>
-   *
+   * <p>The name of the repository that contains the pull request.</p>
    */
   repositoryName?: string;
 }
@@ -1835,65 +1493,49 @@ export namespace CommentsForPullRequest {
 }
 
 /**
- *
- *         <p>Returns information about a specific commit.</p>
- *
+ * <p>Returns information about a specific commit.</p>
  */
 export interface Commit {
   __type?: "Commit";
   /**
-   *
-   *         <p>Any other data associated with the specified commit.</p>
-   *
+   * <p>Any other data associated with the specified commit.</p>
    */
   additionalData?: string;
 
   /**
-   *
-   *         <p>Information about the author of the specified commit. Information includes
+   * <p>Information about the author of the specified commit. Information includes
    *             the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured
    *             in Git.</p>
-   *
    */
   author?: UserInfo;
 
   /**
-   *
-   *         <p>The full SHA ID of the specified commit. </p>
-   *
+   * <p>The full SHA ID of the specified commit. </p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>Information about the person who committed the specified commit, also known as the committer. Information includes
+   * <p>Information about the person who committed the specified commit, also known as the committer. Information includes
    *         the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured
    *         in Git.</p>
    *         <p>For more information
    *             about the difference between an author and a committer in Git, see <a href="http://git-scm.com/book/ch2-3.html">Viewing the Commit History</a> in Pro Git
    *             by Scott Chacon and Ben Straub.</p>
-   *
    */
   committer?: UserInfo;
 
   /**
-   *
-   *         <p>The commit message associated with the specified commit.</p>
-   *
+   * <p>The commit message associated with the specified commit.</p>
    */
   message?: string;
 
   /**
-   *
-   *         <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
-   *
+   * <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
    */
   parents?: Array<string>;
 
   /**
-   *
-   *         <p>Tree information for the specified commit.</p>
-   *
+   * <p>Tree information for the specified commit.</p>
    */
   treeId?: string;
 }
@@ -1905,9 +1547,7 @@ export namespace Commit {
 }
 
 /**
- *
- *         <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
- *
+ * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
  */
 export interface CommitDoesNotExistException
   extends _smithy.SmithyException,
@@ -1916,9 +1556,7 @@ export interface CommitDoesNotExistException
   name: "CommitDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1930,9 +1568,7 @@ export namespace CommitDoesNotExistException {
 }
 
 /**
- *
- *         <p>The specified commit ID does not exist.</p>
- *
+ * <p>The specified commit ID does not exist.</p>
  */
 export interface CommitIdDoesNotExistException
   extends _smithy.SmithyException,
@@ -1941,9 +1577,7 @@ export interface CommitIdDoesNotExistException
   name: "CommitIdDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1955,9 +1589,7 @@ export namespace CommitIdDoesNotExistException {
 }
 
 /**
- *
- *         <p>A commit ID was not specified.</p>
- *
+ * <p>A commit ID was not specified.</p>
  */
 export interface CommitIdRequiredException
   extends _smithy.SmithyException,
@@ -1966,9 +1598,7 @@ export interface CommitIdRequiredException
   name: "CommitIdRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -1980,9 +1610,7 @@ export namespace CommitIdRequiredException {
 }
 
 /**
- *
- *         <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
- *
+ * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
  */
 export interface CommitIdsLimitExceededException
   extends _smithy.SmithyException,
@@ -1991,9 +1619,7 @@ export interface CommitIdsLimitExceededException
   name: "CommitIdsLimitExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -2005,9 +1631,7 @@ export namespace CommitIdsLimitExceededException {
 }
 
 /**
- *
- *         <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
- *
+ * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
  */
 export interface CommitIdsListRequiredException
   extends _smithy.SmithyException,
@@ -2016,9 +1640,7 @@ export interface CommitIdsListRequiredException
   name: "CommitIdsListRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -2030,9 +1652,7 @@ export namespace CommitIdsListRequiredException {
 }
 
 /**
- *
- *         <p>The commit message is too long. Provide a shorter string. </p>
- *
+ * <p>The commit message is too long. Provide a shorter string. </p>
  */
 export interface CommitMessageLengthExceededException
   extends _smithy.SmithyException,
@@ -2041,9 +1661,7 @@ export interface CommitMessageLengthExceededException
   name: "CommitMessageLengthExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -2055,9 +1673,7 @@ export namespace CommitMessageLengthExceededException {
 }
 
 /**
- *
- *         <p>A commit was not specified.</p>
- *
+ * <p>A commit was not specified.</p>
  */
 export interface CommitRequiredException
   extends _smithy.SmithyException,
@@ -2066,9 +1682,7 @@ export interface CommitRequiredException
   name: "CommitRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -2080,9 +1694,7 @@ export namespace CommitRequiredException {
 }
 
 /**
- *
- *         <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
- *
+ * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
  */
 export interface ConcurrentReferenceUpdateException
   extends _smithy.SmithyException,
@@ -2091,9 +1703,7 @@ export interface ConcurrentReferenceUpdateException
   name: "ConcurrentReferenceUpdateException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -2105,23 +1715,17 @@ export namespace ConcurrentReferenceUpdateException {
 }
 
 /**
- *
- *         <p>Information about conflicts in a merge operation.</p>
- *
+ * <p>Information about conflicts in a merge operation.</p>
  */
 export interface Conflict {
   __type?: "Conflict";
   /**
-   *
-   *         <p>Metadata about a conflict in a merge operation.</p>
-   *
+   * <p>Metadata about a conflict in a merge operation.</p>
    */
   conflictMetadata?: ConflictMetadata;
 
   /**
-   *
-   *         <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
-   *
+   * <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
    */
   mergeHunks?: Array<MergeHunk>;
 }
@@ -2138,79 +1742,57 @@ export enum ConflictDetailLevelTypeEnum {
 }
 
 /**
- *
- *         <p>Information about the metadata for a conflict in a merge operation.</p>
- *
+ * <p>Information about the metadata for a conflict in a merge operation.</p>
  */
 export interface ConflictMetadata {
   __type?: "ConflictMetadata";
   /**
-   *
-   *         <p>A boolean value indicating whether there are conflicts in the content of a file.</p>
-   *
+   * <p>A boolean value indicating whether there are conflicts in the content of a file.</p>
    */
   contentConflict?: boolean;
 
   /**
-   *
-   *         <p>A boolean value indicating whether there are conflicts in the file mode of a file.</p>
-   *
+   * <p>A boolean value indicating whether there are conflicts in the file mode of a file.</p>
    */
   fileModeConflict?: boolean;
 
   /**
-   *
-   *         <p>The file modes of the file in the source, destination, and base of the merge.</p>
-   *
+   * <p>The file modes of the file in the source, destination, and base of the merge.</p>
    */
   fileModes?: FileModes;
 
   /**
-   *
-   *         <p>The path of the file that contains conflicts.</p>
-   *
+   * <p>The path of the file that contains conflicts.</p>
    */
   filePath?: string;
 
   /**
-   *
-   *         <p>The file sizes of the file in the source, destination, and base of the merge.</p>
-   *
+   * <p>The file sizes of the file in the source, destination, and base of the merge.</p>
    */
   fileSizes?: FileSizes;
 
   /**
-   *
-   *         <p>A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.</p>
-   *
+   * <p>A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.</p>
    */
   isBinaryFile?: IsBinaryFile;
 
   /**
-   *
-   *         <p>Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.</p>
-   *
+   * <p>Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.</p>
    */
   mergeOperations?: MergeOperations;
 
   /**
-   *
-   *         <p>The number of conflicts, including both hunk conflicts and metadata conflicts.</p>
-   *
+   * <p>The number of conflicts, including both hunk conflicts and metadata conflicts.</p>
    */
   numberOfConflicts?: number;
 
   /**
-   *
-   *         <p>A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.</p>
-   *
+   * <p>A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.</p>
    */
   objectTypeConflict?: boolean;
 
   /**
-   *
-   *         <p>Information about any object type conflicts in a merge operation.</p>
-   *
+   * <p>Information about any object type conflicts in a merge operation.</p>
    */
   objectTypes?: ObjectTypes;
 }
@@ -2222,31 +1804,23 @@ export namespace ConflictMetadata {
 }
 
 /**
- *
- *         <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+ * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
  *             resolving conflicts during a merge.</p>
- *
  */
 export interface ConflictResolution {
   __type?: "ConflictResolution";
   /**
-   *
-   *         <p>Files to be deleted as part of the merge conflict resolution.</p>
-   *
+   * <p>Files to be deleted as part of the merge conflict resolution.</p>
    */
   deleteFiles?: Array<DeleteFileEntry>;
 
   /**
-   *
-   *         <p>Files to have content replaced as part of the merge conflict resolution.</p>
-   *
+   * <p>Files to have content replaced as part of the merge conflict resolution.</p>
    */
   replaceContents?: Array<ReplaceContentEntry>;
 
   /**
-   *
-   *         <p>File modes that are set as part of the merge conflict resolution.</p>
-   *
+   * <p>File modes that are set as part of the merge conflict resolution.</p>
    */
   setFileModes?: Array<SetFileModeEntry>;
 }
@@ -2267,8 +1841,7 @@ export enum ConflictResolutionStrategyTypeEnum {
 export interface CreateApprovalRuleTemplateInput {
   __type?: "CreateApprovalRuleTemplateInput";
   /**
-   *
-   *         <p>The content of the approval rule that is created on pull requests in associated
+   * <p>The content of the approval rule that is created on pull requests in associated
    *             repositories. If you specify one or more destination references (branches), approval
    *             rules are created in an associated repository only if their destination references
    *             (branches) match those specified in the template.</p>
@@ -2312,25 +1885,20 @@ export interface CreateApprovalRuleTemplateInput {
    *                     Identifiers</a> in the <i>IAM User Guide</i>.</p>
    *
    *         </note>
-   *
    */
   approvalRuleTemplateContent: string | undefined;
 
   /**
-   *
-   *         <p>The description of the approval rule template. Consider providing a description that
+   * <p>The description of the approval rule template. Consider providing a description that
    *             explains what this template does and when it might be appropriate to associate it with
    *             repositories.</p>
-   *
    */
   approvalRuleTemplateDescription?: string;
 
   /**
-   *
-   *         <p>The name of the approval rule template. Provide descriptive names, because this name
+   * <p>The name of the approval rule template. Provide descriptive names, because this name
    *             is applied to the approval rules created automatically in associated
    *             repositories.</p>
-   *
    */
   approvalRuleTemplateName: string | undefined;
 }
@@ -2344,9 +1912,7 @@ export namespace CreateApprovalRuleTemplateInput {
 export interface CreateApprovalRuleTemplateOutput extends $MetadataBearer {
   __type?: "CreateApprovalRuleTemplateOutput";
   /**
-   *
-   *         <p>The content and structure of the created approval rule template.</p>
-   *
+   * <p>The content and structure of the created approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
@@ -2358,31 +1924,22 @@ export namespace CreateApprovalRuleTemplateOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a create branch operation.</p>
- *
+ * <p>Represents the input of a create branch operation.</p>
  */
 export interface CreateBranchInput {
   __type?: "CreateBranchInput";
   /**
-   *
-   *         <p>The name of the new branch to create.</p>
-   *
+   * <p>The name of the new branch to create.</p>
    */
   branchName: string | undefined;
 
   /**
-   *
-   *         <p>The ID of the commit to point the new branch to.</p>
-   *
-   *
+   * <p>The ID of the commit to point the new branch to.</p>
    */
   commitId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository in which you want to create the new branch.</p>
-   *
+   * <p>The name of the repository in which you want to create the new branch.</p>
    */
   repositoryName: string | undefined;
 }
@@ -2396,77 +1953,57 @@ export namespace CreateBranchInput {
 export interface CreateCommitInput {
   __type?: "CreateCommitInput";
   /**
-   *
-   *         <p>The name of the author who created the commit. This information is used as both the
+   * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
-   *
    */
   authorName?: string;
 
   /**
-   *
-   *         <p>The name of the branch where you create the commit.</p>
-   *
+   * <p>The name of the branch where you create the commit.</p>
    */
   branchName: string | undefined;
 
   /**
-   *
-   *         <p>The commit message you want to include in the commit. Commit messages are limited to
+   * <p>The commit message you want to include in the commit. Commit messages are limited to
    *             256 KB. If no message is specified, a default message is used.</p>
-   *
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>The files to delete in this commit. These files still exist in earlier commits.</p>
-   *
+   * <p>The files to delete in this commit. These files still exist in earlier commits.</p>
    */
   deleteFiles?: Array<DeleteFileEntry>;
 
   /**
-   *
-   *         <p>The email address of the person who created the commit.</p>
-   *
+   * <p>The email address of the person who created the commit.</p>
    */
   email?: string;
 
   /**
-   *
-   *         <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a ..gitkeep file is created for empty folders.
    *             The default is false.</p>
-   *
    */
   keepEmptyFolders?: boolean;
 
   /**
-   *
-   *         <p>The ID of the commit that is the parent of the commit you create. Not required if this
+   * <p>The ID of the commit that is the parent of the commit you create. Not required if this
    *             is an empty repository.</p>
-   *
    */
   parentCommitId?: string;
 
   /**
-   *
-   *         <p>The files to add or update in this commit.</p>
-   *
+   * <p>The files to add or update in this commit.</p>
    */
   putFiles?: Array<PutFileEntry>;
 
   /**
-   *
-   *         <p>The name of the repository where you create the commit.</p>
-   *
+   * <p>The name of the repository where you create the commit.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The file modes to update for files in this commit.</p>
-   *
+   * <p>The file modes to update for files in this commit.</p>
    */
   setFileModes?: Array<SetFileModeEntry>;
 }
@@ -2480,37 +2017,27 @@ export namespace CreateCommitInput {
 export interface CreateCommitOutput extends $MetadataBearer {
   __type?: "CreateCommitOutput";
   /**
-   *
-   *         <p>The full commit ID of the commit that contains your committed file changes.</p>
-   *
+   * <p>The full commit ID of the commit that contains your committed file changes.</p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>The files added as part of the committed file changes.</p>
-   *
+   * <p>The files added as part of the committed file changes.</p>
    */
   filesAdded?: Array<FileMetadata>;
 
   /**
-   *
-   *         <p>The files deleted as part of the committed file changes.</p>
-   *
+   * <p>The files deleted as part of the committed file changes.</p>
    */
   filesDeleted?: Array<FileMetadata>;
 
   /**
-   *
-   *         <p>The files updated as part of the commited file changes.</p>
-   *
+   * <p>The files updated as part of the commited file changes.</p>
    */
   filesUpdated?: Array<FileMetadata>;
 
   /**
-   *
-   *         <p>The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.</p>
-   *
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.</p>
    */
   treeId?: string;
 }
@@ -2524,8 +2051,7 @@ export namespace CreateCommitOutput {
 export interface CreatePullRequestApprovalRuleInput {
   __type?: "CreatePullRequestApprovalRuleInput";
   /**
-   *
-   *         <p>The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information
+   * <p>The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information
    *         about approval pools, see the AWS CodeCommit User Guide.</p>
    *         <note>
    *             <p>When you create the content of the approval rule, you can specify approvers in an
@@ -2568,21 +2094,16 @@ export interface CreatePullRequestApprovalRuleInput {
    *                 Identifiers</a> in the <i>IAM User Guide</i>.</p>
    *
    *         </note>
-   *
    */
   approvalRuleContent: string | undefined;
 
   /**
-   *
-   *         <p>The name for the approval rule.</p>
-   *
+   * <p>The name for the approval rule.</p>
    */
   approvalRuleName: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request for which you want to create the approval rule.</p>
-   *
+   * <p>The system-generated ID of the pull request for which you want to create the approval rule.</p>
    */
   pullRequestId: string | undefined;
 }
@@ -2596,9 +2117,7 @@ export namespace CreatePullRequestApprovalRuleInput {
 export interface CreatePullRequestApprovalRuleOutput extends $MetadataBearer {
   __type?: "CreatePullRequestApprovalRuleOutput";
   /**
-   *
-   *         <p>Information about the created approval rule.</p>
-   *
+   * <p>Information about the created approval rule.</p>
    */
   approvalRule: ApprovalRule | undefined;
 }
@@ -2612,8 +2131,7 @@ export namespace CreatePullRequestApprovalRuleOutput {
 export interface CreatePullRequestInput {
   __type?: "CreatePullRequestInput";
   /**
-   *
-   *         <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
@@ -2621,31 +2139,24 @@ export interface CreatePullRequestInput {
    *             <p>The AWS SDKs prepopulate client request tokens. If you are using an AWS SDK, an
    *                 idempotency token is created for you.</p>
    *         </note>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *         <p>A description of the pull request.</p>
-   *
+   * <p>A description of the pull request.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The targets for the pull request, including the source of the code to be reviewed (the
+   * <p>The targets for the pull request, including the source of the code to be reviewed (the
    *             source branch) and the destination where the creator of the pull request intends the
    *             code to be merged after the pull request is closed (the destination branch).</p>
-   *
    */
   targets: Array<Target> | undefined;
 
   /**
-   *
-   *         <p>The title of the pull request. This title is used to identify the pull request to
+   * <p>The title of the pull request. This title is used to identify the pull request to
    *             other users in the repository.</p>
-   *
    */
   title: string | undefined;
 }
@@ -2659,9 +2170,7 @@ export namespace CreatePullRequestInput {
 export interface CreatePullRequestOutput extends $MetadataBearer {
   __type?: "CreatePullRequestOutput";
   /**
-   *
-   *         <p>Information about the newly created pull request.</p>
-   *
+   * <p>Information about the newly created pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
@@ -2673,15 +2182,12 @@ export namespace CreatePullRequestOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a create repository operation.</p>
- *
+ * <p>Represents the input of a create repository operation.</p>
  */
 export interface CreateRepositoryInput {
   __type?: "CreateRepositoryInput";
   /**
-   *
-   *         <p>A comment or description about the new repository.</p>
+   * <p>A comment or description about the new repository.</p>
    *         <note>
    *             <p>The description field for a repository accepts all HTML characters and all valid
    *                 Unicode characters. Applications that do not HTML-encode the description and display
@@ -2689,13 +2195,11 @@ export interface CreateRepositoryInput {
    *                 HTML-encode the description field in any application that uses this API to display
    *                 the repository description on a webpage.</p>
    *          </note>
-   *
    */
   repositoryDescription?: string;
 
   /**
-   *
-   *         <p>The name of the new repository to be created.</p>
+   * <p>The name of the new repository to be created.</p>
    *         <note>
    *             <p>The repository name must be unique across the calling AWS account. Repository names
    *                 are limited to 100 alphanumeric, dash, and underscore characters, and cannot include
@@ -2703,14 +2207,11 @@ export interface CreateRepositoryInput {
    *                     <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a> in the <i>AWS CodeCommit User Guide</i>. The
    *                 suffix .git is prohibited.</p>
    *          </note>
-   *
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>One or more tag key-value pairs to use when tagging this repository.</p>
-   *
+   * <p>One or more tag key-value pairs to use when tagging this repository.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -2722,16 +2223,12 @@ export namespace CreateRepositoryInput {
 }
 
 /**
- *
- *         <p>Represents the output of a create repository operation.</p>
- *
+ * <p>Represents the output of a create repository operation.</p>
  */
 export interface CreateRepositoryOutput extends $MetadataBearer {
   __type?: "CreateRepositoryOutput";
   /**
-   *
-   *         <p>Information about the newly created repository.</p>
-   *
+   * <p>Information about the newly created repository.</p>
    */
   repositoryMetadata?: RepositoryMetadata;
 }
@@ -2745,90 +2242,68 @@ export namespace CreateRepositoryOutput {
 export interface CreateUnreferencedMergeCommitInput {
   __type?: "CreateUnreferencedMergeCommitInput";
   /**
-   *
-   *         <p>The name of the author who created the unreferenced commit. This information is used
+   * <p>The name of the author who created the unreferenced commit. This information is used
    *             as both the author and committer for the commit.</p>
-   *
    */
   authorName?: string;
 
   /**
-   *
-   *         <p>The commit message for the unreferenced commit.</p>
-   *
+   * <p>The commit message for the unreferenced commit.</p>
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
-   *
    */
   conflictResolution?: ConflictResolution;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The email address for the person who created the unreferenced commit.</p>
-   *
+   * <p>The email address for the person who created the unreferenced commit.</p>
    */
   email?: string;
 
   /**
-   *
-   *         <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
    *             created for empty folders. The default is false.</p>
-   *
    */
   keepEmptyFolders?: boolean;
 
   /**
-   *
-   *         <p>The merge option or strategy you want to use to merge the code.</p>
-   *
+   * <p>The merge option or strategy you want to use to merge the code.</p>
    */
   mergeOption: MergeOptionTypeEnum | string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository where you want to create the unreferenced merge commit.</p>
-   *
+   * <p>The name of the repository where you want to create the unreferenced merge commit.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 }
@@ -2842,16 +2317,12 @@ export namespace CreateUnreferencedMergeCommitInput {
 export interface CreateUnreferencedMergeCommitOutput extends $MetadataBearer {
   __type?: "CreateUnreferencedMergeCommitOutput";
   /**
-   *
-   *         <p>The full commit ID of the commit that contains your merge results.</p>
-   *
+   * <p>The full commit ID of the commit that contains your merge results.</p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>The full SHA-1 pointer of the tree information for the commit that contains the merge results.</p>
-   *
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains the merge results.</p>
    */
   treeId?: string;
 }
@@ -2863,9 +2334,7 @@ export namespace CreateUnreferencedMergeCommitOutput {
 }
 
 /**
- *
- *         <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
- *
+ * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
  */
 export interface DefaultBranchCannotBeDeletedException
   extends _smithy.SmithyException,
@@ -2874,9 +2343,7 @@ export interface DefaultBranchCannotBeDeletedException
   name: "DefaultBranchCannotBeDeletedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -2890,9 +2357,7 @@ export namespace DefaultBranchCannotBeDeletedException {
 export interface DeleteApprovalRuleTemplateInput {
   __type?: "DeleteApprovalRuleTemplateInput";
   /**
-   *
-   *         <p>The name of the approval rule template to delete.</p>
-   *
+   * <p>The name of the approval rule template to delete.</p>
    */
   approvalRuleTemplateName: string | undefined;
 }
@@ -2906,10 +2371,8 @@ export namespace DeleteApprovalRuleTemplateInput {
 export interface DeleteApprovalRuleTemplateOutput extends $MetadataBearer {
   __type?: "DeleteApprovalRuleTemplateOutput";
   /**
-   *
-   *         <p>The system-generated ID of the deleted approval rule template. If the template has
+   * <p>The system-generated ID of the deleted approval rule template. If the template has
    *             been previously deleted, the only response is a 200 OK.</p>
-   *
    */
   approvalRuleTemplateId: string | undefined;
 }
@@ -2921,23 +2384,17 @@ export namespace DeleteApprovalRuleTemplateOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a delete branch operation.</p>
- *
+ * <p>Represents the input of a delete branch operation.</p>
  */
 export interface DeleteBranchInput {
   __type?: "DeleteBranchInput";
   /**
-   *
-   *         <p>The name of the branch to delete.</p>
-   *
+   * <p>The name of the branch to delete.</p>
    */
   branchName: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the branch to be deleted.</p>
-   *
+   * <p>The name of the repository that contains the branch to be deleted.</p>
    */
   repositoryName: string | undefined;
 }
@@ -2949,16 +2406,12 @@ export namespace DeleteBranchInput {
 }
 
 /**
- *
- *         <p>Represents the output of a delete branch operation.</p>
- *
+ * <p>Represents the output of a delete branch operation.</p>
  */
 export interface DeleteBranchOutput extends $MetadataBearer {
   __type?: "DeleteBranchOutput";
   /**
-   *
-   *         <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
-   *
+   * <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
    */
   deletedBranch?: BranchInfo;
 }
@@ -2972,10 +2425,8 @@ export namespace DeleteBranchOutput {
 export interface DeleteCommentContentInput {
   __type?: "DeleteCommentContentInput";
   /**
-   *
-   *         <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
+   * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
    *          or <a>GetCommentsForPullRequest</a>.</p>
-   *
    */
   commentId: string | undefined;
 }
@@ -2989,9 +2440,7 @@ export namespace DeleteCommentContentInput {
 export interface DeleteCommentContentOutput extends $MetadataBearer {
   __type?: "DeleteCommentContentOutput";
   /**
-   *
-   *         <p>Information about the comment you just deleted.</p>
-   *
+   * <p>Information about the comment you just deleted.</p>
    */
   comment?: Comment;
 }
@@ -3003,16 +2452,12 @@ export namespace DeleteCommentContentOutput {
 }
 
 /**
- *
- *         <p>A file that is deleted as part of a commit.</p>
- *
+ * <p>A file that is deleted as part of a commit.</p>
  */
 export interface DeleteFileEntry {
   __type?: "DeleteFileEntry";
   /**
-   *
-   *         <p>The full path of the file to be deleted, including the name of the file.</p>
-   *
+   * <p>The full path of the file to be deleted, including the name of the file.</p>
    */
   filePath: string | undefined;
 }
@@ -3026,69 +2471,53 @@ export namespace DeleteFileEntry {
 export interface DeleteFileInput {
   __type?: "DeleteFileInput";
   /**
-   *
-   *         <p>The name of the branch where the commit that deletes the file is made.</p>
-   *
+   * <p>The name of the branch where the commit that deletes the file is made.</p>
    */
   branchName: string | undefined;
 
   /**
-   *
-   *         <p>The commit message you want to include as part of deleting the file. Commit messages
+   * <p>The commit message you want to include as part of deleting the file. Commit messages
    *             are limited to 256 KB. If no message is specified, a default message is used.</p>
-   *
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>The email address for the commit that deletes the file. If no email address is
+   * <p>The email address for the commit that deletes the file. If no email address is
    *             specified, the email address is left blank.</p>
-   *
    */
   email?: string;
 
   /**
-   *
-   *         <p>The fully qualified path to the file that to be deleted, including the full name and
+   * <p>The fully qualified path to the file that to be deleted, including the full name and
    *             extension of that file. For example, /examples/file.md is a fully qualified path to a
    *             file named file.md in a folder named examples.</p>
-   *
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>If a file is the only object in the folder or directory, specifies whether to delete
+   * <p>If a file is the only object in the folder or directory, specifies whether to delete
    *             the folder or directory that contains the file. By default, empty folders are deleted.
    *             This includes empty folders that are part of the directory structure. For example, if
    *             the path to a file is dir1/dir2/dir3/dir4, and dir2 and dir3 are empty, deleting the
    *             last file in dir4 also deletes the empty folders dir4, dir3, and dir2.</p>
-   *
    */
   keepEmptyFolders?: boolean;
 
   /**
-   *
-   *         <p>The name of the author of the commit that deletes the file. If no name is specified,
+   * <p>The name of the author of the commit that deletes the file. If no name is specified,
    *             the user's ARN is used as the author name and committer name.</p>
-   *
    */
   name?: string;
 
   /**
-   *
-   *         <p>The ID of the commit that is the tip of the branch where you want to create the commit
+   * <p>The ID of the commit that is the tip of the branch where you want to create the commit
    *             that deletes the file. This must be the HEAD commit for the branch. The commit that
    *             deletes the file is created from this commit ID.</p>
-   *
    */
   parentCommitId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the file to delete.</p>
-   *
+   * <p>The name of the repository that contains the file to delete.</p>
    */
   repositoryName: string | undefined;
 }
@@ -3102,31 +2531,23 @@ export namespace DeleteFileInput {
 export interface DeleteFileOutput extends $MetadataBearer {
   __type?: "DeleteFileOutput";
   /**
-   *
-   *         <p>The blob ID removed from the tree as part of deleting the file.</p>
-   *
+   * <p>The blob ID removed from the tree as part of deleting the file.</p>
    */
   blobId: string | undefined;
 
   /**
-   *
-   *         <p>The full commit ID of the commit that contains the change that deletes the file.</p>
-   *
+   * <p>The full commit ID of the commit that contains the change that deletes the file.</p>
    */
   commitId: string | undefined;
 
   /**
-   *
-   *         <p>The fully qualified path to the file to be deleted, including the full name and
+   * <p>The fully qualified path to the file to be deleted, including the full name and
    *             extension of that file.</p>
-   *
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The full SHA-1 pointer of the tree information for the commit that contains the delete file change.</p>
-   *
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains the delete file change.</p>
    */
   treeId: string | undefined;
 }
@@ -3140,16 +2561,12 @@ export namespace DeleteFileOutput {
 export interface DeletePullRequestApprovalRuleInput {
   __type?: "DeletePullRequestApprovalRuleInput";
   /**
-   *
-   *         <p>The name of the approval rule you want to delete.</p>
-   *
+   * <p>The name of the approval rule you want to delete.</p>
    */
   approvalRuleName: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request that contains the approval rule you want to delete.</p>
-   *
+   * <p>The system-generated ID of the pull request that contains the approval rule you want to delete.</p>
    */
   pullRequestId: string | undefined;
 }
@@ -3163,13 +2580,11 @@ export namespace DeletePullRequestApprovalRuleInput {
 export interface DeletePullRequestApprovalRuleOutput extends $MetadataBearer {
   __type?: "DeletePullRequestApprovalRuleOutput";
   /**
-   *
-   *         <p>The ID of the deleted approval rule. </p>
+   * <p>The ID of the deleted approval rule. </p>
    *         <note>
    *             <p>If the approval rule was deleted in an earlier API call, the response is 200 OK without
    *                 content.</p>
    *          </note>
-   *
    */
   approvalRuleId: string | undefined;
 }
@@ -3181,16 +2596,12 @@ export namespace DeletePullRequestApprovalRuleOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a delete repository operation.</p>
- *
+ * <p>Represents the input of a delete repository operation.</p>
  */
 export interface DeleteRepositoryInput {
   __type?: "DeleteRepositoryInput";
   /**
-   *
-   *         <p>The name of the repository to delete.</p>
-   *
+   * <p>The name of the repository to delete.</p>
    */
   repositoryName: string | undefined;
 }
@@ -3202,16 +2613,12 @@ export namespace DeleteRepositoryInput {
 }
 
 /**
- *
- *         <p>Represents the output of a delete repository operation.</p>
- *
+ * <p>Represents the output of a delete repository operation.</p>
  */
 export interface DeleteRepositoryOutput extends $MetadataBearer {
   __type?: "DeleteRepositoryOutput";
   /**
-   *
-   *         <p>The ID of the repository that was deleted.</p>
-   *
+   * <p>The ID of the repository that was deleted.</p>
    */
   repositoryId?: string;
 }
@@ -3225,73 +2632,55 @@ export namespace DeleteRepositoryOutput {
 export interface DescribeMergeConflictsInput {
   __type?: "DescribeMergeConflictsInput";
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The path of the target files used to describe the conflicts. </p>
-   *
+   * <p>The path of the target files used to describe the conflicts. </p>
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The maximum number of merge hunks to include in the output.</p>
-   *
+   * <p>The maximum number of merge hunks to include in the output.</p>
    */
   maxMergeHunks?: number;
 
   /**
-   *
-   *         <p>The merge option or strategy you want to use to merge the code.</p>
-   *
+   * <p>The merge option or strategy you want to use to merge the code.</p>
    */
   mergeOption: MergeOptionTypeEnum | string | undefined;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The name of the repository where you want to get information about a merge conflict.</p>
-   *
+   * <p>The name of the repository where you want to get information about a merge conflict.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 }
@@ -3305,44 +2694,32 @@ export namespace DescribeMergeConflictsInput {
 export interface DescribeMergeConflictsOutput extends $MetadataBearer {
   __type?: "DescribeMergeConflictsOutput";
   /**
-   *
-   *         <p>The commit ID of the merge base.</p>
-   *
+   * <p>The commit ID of the merge base.</p>
    */
   baseCommitId?: string;
 
   /**
-   *
-   *         <p>Contains metadata about the conflicts found in the merge.</p>
-   *
+   * <p>Contains metadata about the conflicts found in the merge.</p>
    */
   conflictMetadata: ConflictMetadata | undefined;
 
   /**
-   *
-   *         <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    */
   destinationCommitId: string | undefined;
 
   /**
-   *
-   *         <p>A list of merge hunks of the differences between the files or lines.</p>
-   *
+   * <p>A list of merge hunks of the differences between the files or lines.</p>
    */
   mergeHunks: Array<MergeHunk> | undefined;
 
   /**
-   *
-   *         <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   *
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
    */
   sourceCommitId: string | undefined;
 }
@@ -3356,41 +2733,31 @@ export namespace DescribeMergeConflictsOutput {
 export interface DescribePullRequestEventsInput {
   __type?: "DescribePullRequestEventsInput";
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
+   * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
    *             Examples include updating the pull request with more commits or changing the status of a
    *             pull request.</p>
-   *
    */
   actorArn?: string;
 
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results.
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.
    *             The default is 100 events, which is also the maximum number of events that can be returned in a result.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>Optional. The pull request event type about which you want to return information.</p>
-   *
+   * <p>Optional. The pull request event type about which you want to return information.</p>
    */
   pullRequestEventType?: PullRequestEventType | string;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 }
@@ -3404,16 +2771,12 @@ export namespace DescribePullRequestEventsInput {
 export interface DescribePullRequestEventsOutput extends $MetadataBearer {
   __type?: "DescribePullRequestEventsOutput";
   /**
-   *
-   *         <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   *
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>Information about the pull request events.</p>
-   *
+   * <p>Information about the pull request events.</p>
    */
   pullRequestEvents: Array<PullRequestEvent> | undefined;
 }
@@ -3425,32 +2788,24 @@ export namespace DescribePullRequestEventsOutput {
 }
 
 /**
- *
- *         <p>Returns information about a set of differences for a commit specifier.</p>
- *
+ * <p>Returns information about a set of differences for a commit specifier.</p>
  */
 export interface Difference {
   __type?: "Difference";
   /**
-   *
-   *         <p>Information about an <code>afterBlob</code> data type object, including the ID,
+   * <p>Information about an <code>afterBlob</code> data type object, including the ID,
    *             the file mode permission code, and the path.</p>
-   *
    */
   afterBlob?: BlobMetadata;
 
   /**
-   *
-   *         <p>Information about a <code>beforeBlob</code> data type object, including the ID,
+   * <p>Information about a <code>beforeBlob</code> data type object, including the ID,
    *             the file mode permission code, and the path.</p>
-   *
    */
   beforeBlob?: BlobMetadata;
 
   /**
-   *
-   *         <p>Whether the change type of the difference is an addition (A), deletion (D), or modification (M).</p>
-   *
+   * <p>Whether the change type of the difference is an addition (A), deletion (D), or modification (M).</p>
    */
   changeType?: ChangeTypeEnum | string;
 }
@@ -3462,10 +2817,8 @@ export namespace Difference {
 }
 
 /**
- *
- *         <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
+ * <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
  *         Either provide a different name for the file, or specify a different path for the file.</p>
- *
  */
 export interface DirectoryNameConflictsWithFileNameException
   extends _smithy.SmithyException,
@@ -3474,9 +2827,7 @@ export interface DirectoryNameConflictsWithFileNameException
   name: "DirectoryNameConflictsWithFileNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3492,16 +2843,12 @@ export namespace DirectoryNameConflictsWithFileNameException {
 export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
   __type?: "DisassociateApprovalRuleTemplateFromRepositoryInput";
   /**
-   *
-   *         <p>The name of the approval rule template to disassociate from a specified repository.</p>
-   *
+   * <p>The name of the approval rule template to disassociate from a specified repository.</p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository you want to disassociate from the template.</p>
-   *
+   * <p>The name of the repository you want to disassociate from the template.</p>
    */
   repositoryName: string | undefined;
 }
@@ -3518,9 +2865,7 @@ export namespace DisassociateApprovalRuleTemplateFromRepositoryInput {
 }
 
 /**
- *
- *         <p>An encryption integrity check failed.</p>
- *
+ * <p>An encryption integrity check failed.</p>
  */
 export interface EncryptionIntegrityChecksFailedException
   extends _smithy.SmithyException,
@@ -3529,9 +2874,7 @@ export interface EncryptionIntegrityChecksFailedException
   name: "EncryptionIntegrityChecksFailedException";
   $fault: "server";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3543,9 +2886,7 @@ export namespace EncryptionIntegrityChecksFailedException {
 }
 
 /**
- *
- *         <p>An encryption key could not be accessed.</p>
- *
+ * <p>An encryption key could not be accessed.</p>
  */
 export interface EncryptionKeyAccessDeniedException
   extends _smithy.SmithyException,
@@ -3554,9 +2895,7 @@ export interface EncryptionKeyAccessDeniedException
   name: "EncryptionKeyAccessDeniedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3568,9 +2907,7 @@ export namespace EncryptionKeyAccessDeniedException {
 }
 
 /**
- *
- *         <p>The encryption key is disabled.</p>
- *
+ * <p>The encryption key is disabled.</p>
  */
 export interface EncryptionKeyDisabledException
   extends _smithy.SmithyException,
@@ -3579,9 +2916,7 @@ export interface EncryptionKeyDisabledException
   name: "EncryptionKeyDisabledException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3593,9 +2928,7 @@ export namespace EncryptionKeyDisabledException {
 }
 
 /**
- *
- *         <p>No encryption key was found.</p>
- *
+ * <p>No encryption key was found.</p>
  */
 export interface EncryptionKeyNotFoundException
   extends _smithy.SmithyException,
@@ -3604,9 +2937,7 @@ export interface EncryptionKeyNotFoundException
   name: "EncryptionKeyNotFoundException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3618,9 +2949,7 @@ export namespace EncryptionKeyNotFoundException {
 }
 
 /**
- *
- *         <p>The encryption key is not available.</p>
- *
+ * <p>The encryption key is not available.</p>
  */
 export interface EncryptionKeyUnavailableException
   extends _smithy.SmithyException,
@@ -3629,9 +2958,7 @@ export interface EncryptionKeyUnavailableException
   name: "EncryptionKeyUnavailableException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3645,18 +2972,14 @@ export namespace EncryptionKeyUnavailableException {
 export interface EvaluatePullRequestApprovalRulesInput {
   __type?: "EvaluatePullRequestApprovalRulesInput";
   /**
-   *
-   *         <p>The system-generated ID of the pull request you want to evaluate.</p>
-   *
+   * <p>The system-generated ID of the pull request you want to evaluate.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID for the pull request revision. To retrieve the most recent
+   * <p>The system-generated ID for the pull request revision. To retrieve the most recent
    *             revision ID for a pull request, use
    *             <a>GetPullRequest</a>.</p>
-   *
    */
   revisionId: string | undefined;
 }
@@ -3671,10 +2994,8 @@ export interface EvaluatePullRequestApprovalRulesOutput
   extends $MetadataBearer {
   __type?: "EvaluatePullRequestApprovalRulesOutput";
   /**
-   *
-   *         <p>The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have
+   * <p>The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have
    *         not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override. </p>
-   *
    */
   evaluation: Evaluation | undefined;
 }
@@ -3686,37 +3007,27 @@ export namespace EvaluatePullRequestApprovalRulesOutput {
 }
 
 /**
- *
- *         <p>Returns information about the approval rules applied to a pull request and whether conditions have been met.</p>
- *
+ * <p>Returns information about the approval rules applied to a pull request and whether conditions have been met.</p>
  */
 export interface Evaluation {
   __type?: "Evaluation";
   /**
-   *
-   *         <p>The names of the approval rules that have not had their conditions met.</p>
-   *
+   * <p>The names of the approval rules that have not had their conditions met.</p>
    */
   approvalRulesNotSatisfied?: Array<string>;
 
   /**
-   *
-   *         <p>The names of the approval rules that have had their conditions met.</p>
-   *
+   * <p>The names of the approval rules that have had their conditions met.</p>
    */
   approvalRulesSatisfied?: Array<string>;
 
   /**
-   *
-   *         <p>Whether the state of the pull request is approved.</p>
-   *
+   * <p>Whether the state of the pull request is approved.</p>
    */
   approved?: boolean;
 
   /**
-   *
-   *         <p>Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.</p>
-   *
+   * <p>Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.</p>
    */
   overridden?: boolean;
 }
@@ -3728,37 +3039,27 @@ export namespace Evaluation {
 }
 
 /**
- *
- *         <p>Returns information about a file in a repository.</p>
- *
+ * <p>Returns information about a file in a repository.</p>
  */
 export interface File {
   __type?: "File";
   /**
-   *
-   *         <p>The fully qualified path to the file in the repository.</p>
-   *
+   * <p>The fully qualified path to the file in the repository.</p>
    */
   absolutePath?: string;
 
   /**
-   *
-   *         <p>The blob ID that contains the file information.</p>
-   *
+   * <p>The blob ID that contains the file information.</p>
    */
   blobId?: string;
 
   /**
-   *
-   *         <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
-   *
+   * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    */
   fileMode?: FileModeTypeEnum | string;
 
   /**
-   *
-   *         <p>The relative path of the file from the folder where the query originated.</p>
-   *
+   * <p>The relative path of the file from the folder where the query originated.</p>
    */
   relativePath?: string;
 }
@@ -3770,11 +3071,9 @@ export namespace File {
 }
 
 /**
- *
- *         <p>The commit cannot be created because both a source file and file content have been
+ * <p>The commit cannot be created because both a source file and file content have been
  *             specified for the same file. You cannot provide both. Either specify a source file or
  *             provide the file content directly.</p>
- *
  */
 export interface FileContentAndSourceFileSpecifiedException
   extends _smithy.SmithyException,
@@ -3783,9 +3082,7 @@ export interface FileContentAndSourceFileSpecifiedException
   name: "FileContentAndSourceFileSpecifiedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3797,9 +3094,7 @@ export namespace FileContentAndSourceFileSpecifiedException {
 }
 
 /**
- *
- *         <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
- *
+ * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  */
 export interface FileContentRequiredException
   extends _smithy.SmithyException,
@@ -3808,9 +3103,7 @@ export interface FileContentRequiredException
   name: "FileContentRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3822,11 +3115,9 @@ export namespace FileContentRequiredException {
 }
 
 /**
- *
- *         <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and
+ * <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and
  *             the combined file content change size is 7 MB. Consider making these changes using a Git
  *             client.</p>
- *
  */
 export interface FileContentSizeLimitExceededException
   extends _smithy.SmithyException,
@@ -3835,9 +3126,7 @@ export interface FileContentSizeLimitExceededException
   name: "FileContentSizeLimitExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3849,10 +3138,8 @@ export namespace FileContentSizeLimitExceededException {
 }
 
 /**
- *
- *         <p>The specified file does not exist. Verify that you have used the correct file name,
+ * <p>The specified file does not exist. Verify that you have used the correct file name,
  *             full path, and extension.</p>
- *
  */
 export interface FileDoesNotExistException
   extends _smithy.SmithyException,
@@ -3861,9 +3148,7 @@ export interface FileDoesNotExistException
   name: "FileDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3875,9 +3160,7 @@ export namespace FileDoesNotExistException {
 }
 
 /**
- *
- *         <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
- *
+ * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
  */
 export interface FileEntryRequiredException
   extends _smithy.SmithyException,
@@ -3886,9 +3169,7 @@ export interface FileEntryRequiredException
   name: "FileEntryRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3900,31 +3181,23 @@ export namespace FileEntryRequiredException {
 }
 
 /**
- *
- *         <p>A file to be added, updated, or deleted as part of a commit.</p>
- *
+ * <p>A file to be added, updated, or deleted as part of a commit.</p>
  */
 export interface FileMetadata {
   __type?: "FileMetadata";
   /**
-   *
-   *         <p>The full path to the file to be added or updated, including the name of the
+   * <p>The full path to the file to be added or updated, including the name of the
    *             file.</p>
-   *
    */
   absolutePath?: string;
 
   /**
-   *
-   *         <p>The blob ID that contains the file information.</p>
-   *
+   * <p>The blob ID that contains the file information.</p>
    */
   blobId?: string;
 
   /**
-   *
-   *         <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
-   *
+   * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    */
   fileMode?: FileModeTypeEnum | string;
 }
@@ -3936,10 +3209,8 @@ export namespace FileMetadata {
 }
 
 /**
- *
- *         <p>The commit cannot be created because no file mode has been specified. A file mode is
+ * <p>The commit cannot be created because no file mode has been specified. A file mode is
  *             required to update mode permissions for a file.</p>
- *
  */
 export interface FileModeRequiredException
   extends _smithy.SmithyException,
@@ -3948,9 +3219,7 @@ export interface FileModeRequiredException
   name: "FileModeRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -3968,30 +3237,22 @@ export enum FileModeTypeEnum {
 }
 
 /**
- *
- *         <p>Information about file modes in a merge or pull request.</p>
- *
+ * <p>Information about file modes in a merge or pull request.</p>
  */
 export interface FileModes {
   __type?: "FileModes";
   /**
-   *
-   *         <p>The file mode of a file in the base of a merge or pull request.</p>
-   *
+   * <p>The file mode of a file in the base of a merge or pull request.</p>
    */
   base?: FileModeTypeEnum | string;
 
   /**
-   *
-   *         <p>The file mode of a file in the destination of a merge or pull request.</p>
-   *
+   * <p>The file mode of a file in the destination of a merge or pull request.</p>
    */
   destination?: FileModeTypeEnum | string;
 
   /**
-   *
-   *         <p>The file mode of a file in the source of a merge or pull request.</p>
-   *
+   * <p>The file mode of a file in the source of a merge or pull request.</p>
    */
   source?: FileModeTypeEnum | string;
 }
@@ -4003,10 +3264,8 @@ export namespace FileModes {
 }
 
 /**
- *
- *         <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
+ * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
  *         another name for the file, or add the file in a directory that does not match the file name.</p>
- *
  */
 export interface FileNameConflictsWithDirectoryNameException
   extends _smithy.SmithyException,
@@ -4015,9 +3274,7 @@ export interface FileNameConflictsWithDirectoryNameException
   name: "FileNameConflictsWithDirectoryNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -4031,10 +3288,8 @@ export namespace FileNameConflictsWithDirectoryNameException {
 }
 
 /**
- *
- *         <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
+ * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
  *         have valid file paths that do not point to a submodule.</p>
- *
  */
 export interface FilePathConflictsWithSubmodulePathException
   extends _smithy.SmithyException,
@@ -4043,9 +3298,7 @@ export interface FilePathConflictsWithSubmodulePathException
   name: "FilePathConflictsWithSubmodulePathException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -4059,30 +3312,22 @@ export namespace FilePathConflictsWithSubmodulePathException {
 }
 
 /**
- *
- *         <p>Information about the size of files in a merge or pull request.</p>
- *
+ * <p>Information about the size of files in a merge or pull request.</p>
  */
 export interface FileSizes {
   __type?: "FileSizes";
   /**
-   *
-   *         <p>The size of a file in the base of a merge or pull request.</p>
-   *
+   * <p>The size of a file in the base of a merge or pull request.</p>
    */
   base?: number;
 
   /**
-   *
-   *         <p>The size of a file in the destination of a merge or pull request.</p>
-   *
+   * <p>The size of a file in the destination of a merge or pull request.</p>
    */
   destination?: number;
 
   /**
-   *
-   *         <p>The  size of a file in the source of a merge or pull request.</p>
-   *
+   * <p>The  size of a file in the source of a merge or pull request.</p>
    */
   source?: number;
 }
@@ -4094,10 +3339,8 @@ export namespace FileSizes {
 }
 
 /**
- *
- *         <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
+ * <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
- *
  */
 export interface FileTooLargeException
   extends _smithy.SmithyException,
@@ -4106,9 +3349,7 @@ export interface FileTooLargeException
   name: "FileTooLargeException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -4120,30 +3361,22 @@ export namespace FileTooLargeException {
 }
 
 /**
- *
- *         <p>Returns information about a folder in a repository.</p>
- *
+ * <p>Returns information about a folder in a repository.</p>
  */
 export interface Folder {
   __type?: "Folder";
   /**
-   *
-   *         <p>The fully qualified path of the folder in the repository.</p>
-   *
+   * <p>The fully qualified path of the folder in the repository.</p>
    */
   absolutePath?: string;
 
   /**
-   *
-   *         <p>The relative path of the specified folder from the folder where the query originated.</p>
-   *
+   * <p>The relative path of the specified folder from the folder where the query originated.</p>
    */
   relativePath?: string;
 
   /**
-   *
-   *         <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
-   *
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
    */
   treeId?: string;
 }
@@ -4155,11 +3388,9 @@ export namespace Folder {
 }
 
 /**
- *
- *         <p>The commit cannot be created because at least one of the overall changes in the commit results in a
+ * <p>The commit cannot be created because at least one of the overall changes in the commit results in a
  *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
  *         or split the changes across multiple folders.</p>
- *
  */
 export interface FolderContentSizeLimitExceededException
   extends _smithy.SmithyException,
@@ -4168,9 +3399,7 @@ export interface FolderContentSizeLimitExceededException
   name: "FolderContentSizeLimitExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -4182,10 +3411,8 @@ export namespace FolderContentSizeLimitExceededException {
 }
 
 /**
- *
- *         <p>The specified folder does not exist. Either the folder name is not correct, or you did
+ * <p>The specified folder does not exist. Either the folder name is not correct, or you did
  *             not enter the full path to the folder.</p>
- *
  */
 export interface FolderDoesNotExistException
   extends _smithy.SmithyException,
@@ -4194,9 +3421,7 @@ export interface FolderDoesNotExistException
   name: "FolderDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -4210,9 +3435,7 @@ export namespace FolderDoesNotExistException {
 export interface GetApprovalRuleTemplateInput {
   __type?: "GetApprovalRuleTemplateInput";
   /**
-   *
-   *         <p>The name of the approval rule template for which you want to get information.</p>
-   *
+   * <p>The name of the approval rule template for which you want to get information.</p>
    */
   approvalRuleTemplateName: string | undefined;
 }
@@ -4226,9 +3449,7 @@ export namespace GetApprovalRuleTemplateInput {
 export interface GetApprovalRuleTemplateOutput extends $MetadataBearer {
   __type?: "GetApprovalRuleTemplateOutput";
   /**
-   *
-   *         <p>The content and structure of the approval rule template.</p>
-   *
+   * <p>The content and structure of the approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
@@ -4240,23 +3461,17 @@ export namespace GetApprovalRuleTemplateOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a get blob operation.</p>
- *
+ * <p>Represents the input of a get blob operation.</p>
  */
 export interface GetBlobInput {
   __type?: "GetBlobInput";
   /**
-   *
-   *         <p>The ID of the blob, which is its SHA-1 pointer.</p>
-   *
+   * <p>The ID of the blob, which is its SHA-1 pointer.</p>
    */
   blobId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the blob.</p>
-   *
+   * <p>The name of the repository that contains the blob.</p>
    */
   repositoryName: string | undefined;
 }
@@ -4268,16 +3483,12 @@ export namespace GetBlobInput {
 }
 
 /**
- *
- *         <p>Represents the output of a get blob operation.</p>
- *
+ * <p>Represents the output of a get blob operation.</p>
  */
 export interface GetBlobOutput extends $MetadataBearer {
   __type?: "GetBlobOutput";
   /**
-   *
-   *         <p>The content of the blob, usually a file.</p>
-   *
+   * <p>The content of the blob, usually a file.</p>
    */
   content: Uint8Array | undefined;
 }
@@ -4289,23 +3500,17 @@ export namespace GetBlobOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a get branch operation.</p>
- *
+ * <p>Represents the input of a get branch operation.</p>
  */
 export interface GetBranchInput {
   __type?: "GetBranchInput";
   /**
-   *
-   *         <p>The name of the branch for which you want to retrieve information.</p>
-   *
+   * <p>The name of the branch for which you want to retrieve information.</p>
    */
   branchName?: string;
 
   /**
-   *
-   *         <p>The name of the repository that contains the branch for which you want to retrieve information.</p>
-   *
+   * <p>The name of the repository that contains the branch for which you want to retrieve information.</p>
    */
   repositoryName?: string;
 }
@@ -4317,16 +3522,12 @@ export namespace GetBranchInput {
 }
 
 /**
- *
- *         <p>Represents the output of a get branch operation.</p>
- *
+ * <p>Represents the output of a get branch operation.</p>
  */
 export interface GetBranchOutput extends $MetadataBearer {
   __type?: "GetBranchOutput";
   /**
-   *
-   *         <p>The name of the branch.</p>
-   *
+   * <p>The name of the branch.</p>
    */
   branch?: BranchInfo;
 }
@@ -4340,10 +3541,8 @@ export namespace GetBranchOutput {
 export interface GetCommentInput {
   __type?: "GetCommentInput";
   /**
-   *
-   *         <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
+   * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
    *             or <a>GetCommentsForPullRequest</a>.</p>
-   *
    */
   commentId: string | undefined;
 }
@@ -4357,9 +3556,7 @@ export namespace GetCommentInput {
 export interface GetCommentOutput extends $MetadataBearer {
   __type?: "GetCommentOutput";
   /**
-   *
-   *         <p>The contents of the comment.</p>
-   *
+   * <p>The contents of the comment.</p>
    */
   comment?: Comment;
 }
@@ -4373,40 +3570,30 @@ export namespace GetCommentOutput {
 export interface GetCommentsForComparedCommitInput {
   __type?: "GetCommentsForComparedCommitInput";
   /**
-   *
-   *         <p>To establish the directionality of the comparison, the full commit ID of the after
+   * <p>To establish the directionality of the comparison, the full commit ID of the after
    *             commit.</p>
-   *
    */
   afterCommitId: string | undefined;
 
   /**
-   *
-   *         <p>To establish the directionality of the comparison, the full commit ID of the before
+   * <p>To establish the directionality of the comparison, the full commit ID of the before
    *             commit.</p>
-   *
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results. The
+   * <p>A non-zero, non-negative integer used to limit the number of returned results. The
    *             default is 100 comments, but you can configure up to 500.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that when provided in a request, returns the next batch of the results. </p>
-   *
+   * <p>An enumeration token that when provided in a request, returns the next batch of the results. </p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The name of the repository where you want to compare commits.</p>
-   *
+   * <p>The name of the repository where you want to compare commits.</p>
    */
   repositoryName: string | undefined;
 }
@@ -4420,16 +3607,12 @@ export namespace GetCommentsForComparedCommitInput {
 export interface GetCommentsForComparedCommitOutput extends $MetadataBearer {
   __type?: "GetCommentsForComparedCommitOutput";
   /**
-   *
-   *         <p>A list of comment objects on the compared commit.</p>
-   *
+   * <p>A list of comment objects on the compared commit.</p>
    */
   commentsForComparedCommitData?: Array<CommentsForComparedCommit>;
 
   /**
-   *
-   *         <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   *
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
 }
@@ -4443,46 +3626,34 @@ export namespace GetCommentsForComparedCommitOutput {
 export interface GetCommentsForPullRequestInput {
   __type?: "GetCommentsForPullRequestInput";
   /**
-   *
-   *         <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made.</p>
-   *
+   * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made.</p>
    */
   afterCommitId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
-   *
+   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments.
+   * <p>A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments.
    *             You can return up to 500 comments with a single request.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the pull request.</p>
-   *
+   * <p>The name of the repository that contains the pull request.</p>
    */
   repositoryName?: string;
 }
@@ -4496,16 +3667,12 @@ export namespace GetCommentsForPullRequestInput {
 export interface GetCommentsForPullRequestOutput extends $MetadataBearer {
   __type?: "GetCommentsForPullRequestOutput";
   /**
-   *
-   *         <p>An array of comment objects on the pull request.</p>
-   *
+   * <p>An array of comment objects on the pull request.</p>
    */
   commentsForPullRequestData?: Array<CommentsForPullRequest>;
 
   /**
-   *
-   *         <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   *
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
 }
@@ -4517,23 +3684,17 @@ export namespace GetCommentsForPullRequestOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a get commit operation.</p>
- *
+ * <p>Represents the input of a get commit operation.</p>
  */
 export interface GetCommitInput {
   __type?: "GetCommitInput";
   /**
-   *
-   *         <p>The commit ID. Commit IDs are the full SHA ID of the commit.</p>
-   *
+   * <p>The commit ID. Commit IDs are the full SHA ID of the commit.</p>
    */
   commitId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository to which the commit was made.</p>
-   *
+   * <p>The name of the repository to which the commit was made.</p>
    */
   repositoryName: string | undefined;
 }
@@ -4545,16 +3706,12 @@ export namespace GetCommitInput {
 }
 
 /**
- *
- *         <p>Represents the output of a get commit operation.</p>
- *
+ * <p>Represents the output of a get commit operation.</p>
  */
 export interface GetCommitOutput extends $MetadataBearer {
   __type?: "GetCommitOutput";
   /**
-   *
-   *         <p>A commit data type object that contains information about the specified commit.</p>
-   *
+   * <p>A commit data type object that contains information about the specified commit.</p>
    */
   commit: Commit | undefined;
 }
@@ -4568,61 +3725,47 @@ export namespace GetCommitOutput {
 export interface GetDifferencesInput {
   __type?: "GetDifferencesInput";
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-   *
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.</p>
-   *
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.</p>
    */
   afterCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The file path in which to check differences. Limits the results to this path. Can also
+   * <p>The file path in which to check differences. Limits the results to this path. Can also
    *             be used to specify the changed name of a directory or folder, if it has changed. If not
    *             specified, differences are shown for all paths.</p>
-   *
    */
   afterPath?: string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, the full commit ID). Optional. If not specified, all changes before the
    *                 <code>afterCommitSpecifier</code> value are shown. If you do not use
    *                 <code>beforeCommitSpecifier</code> in your request, consider limiting the results
    *             with <code>maxResults</code>.</p>
-   *
    */
   beforeCommitSpecifier?: string;
 
   /**
-   *
-   *         <p>The file path in which to check for differences. Limits the results to this path. Can
+   * <p>The file path in which to check for differences. Limits the results to this path. Can
    *             also be used to specify the previous name of a directory or folder. If
    *                 <code>beforePath</code> and <code>afterPath</code> are not specified, differences
    *             are shown for all paths.</p>
-   *
    */
   beforePath?: string;
 
   /**
-   *
-   *         <p>The name of the repository where you want to get differences.</p>
-   *
+   * <p>The name of the repository where you want to get differences.</p>
    */
   repositoryName: string | undefined;
 }
@@ -4636,17 +3779,13 @@ export namespace GetDifferencesInput {
 export interface GetDifferencesOutput extends $MetadataBearer {
   __type?: "GetDifferencesOutput";
   /**
-   *
-   *         <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   *
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>A data type object that contains information about the differences, including whether
+   * <p>A data type object that contains information about the differences, including whether
    *             the difference is added, modified, or deleted (A, D, M).</p>
-   *
    */
   differences?: Array<Difference>;
 }
@@ -4660,27 +3799,21 @@ export namespace GetDifferencesOutput {
 export interface GetFileInput {
   __type?: "GetFileInput";
   /**
-   *
-   *         <p>The fully quaified reference that identifies the commit that contains the file. For
+   * <p>The fully quaified reference that identifies the commit that contains the file. For
    *             example, you can specify a full commit ID, a tag, a branch name, or a reference such as
    *             refs/heads/master. If none is provided, the head commit is used.</p>
-   *
    */
   commitSpecifier?: string;
 
   /**
-   *
-   *         <p>The fully qualified path to the file, including the full name and extension of the
+   * <p>The fully qualified path to the file, including the full name and extension of the
    *             file. For example, /examples/file.md is the fully qualified path to a file named file.md
    *             in a folder named examples.</p>
-   *
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the file.</p>
-   *
+   * <p>The name of the repository that contains the file.</p>
    */
   repositoryName: string | undefined;
 }
@@ -4694,50 +3827,38 @@ export namespace GetFileInput {
 export interface GetFileOutput extends $MetadataBearer {
   __type?: "GetFileOutput";
   /**
-   *
-   *         <p>The blob ID of the object that represents the file content.</p>
-   *
+   * <p>The blob ID of the object that represents the file content.</p>
    */
   blobId: string | undefined;
 
   /**
-   *
-   *         <p>The full commit ID of the commit that contains the content returned by GetFile.</p>
-   *
+   * <p>The full commit ID of the commit that contains the content returned by GetFile.</p>
    */
   commitId: string | undefined;
 
   /**
-   *
-   *         <p>The base-64 encoded binary data object that represents the content of the file.</p>
-   *
+   * <p>The base-64 encoded binary data object that represents the content of the file.</p>
    */
   fileContent: Uint8Array | undefined;
 
   /**
-   *
-   *         <p>The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.</p>
+   * <p>The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.</p>
    *         <note>
    *             <p>The file mode permissions returned by this API are not the standard file mode
    *                 permission values, such as 100644, but rather extrapolated values. See the supported
    *                 return values.</p>
    *         </note>
-   *
    */
   fileMode: FileModeTypeEnum | string | undefined;
 
   /**
-   *
-   *         <p>The fully qualified path to the specified file. Returns the name and extension of the
+   * <p>The fully qualified path to the specified file. Returns the name and extension of the
    *             file.</p>
-   *
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The size of the contents of the file, in bytes.</p>
-   *
+   * <p>The size of the contents of the file, in bytes.</p>
    */
   fileSize: number | undefined;
 }
@@ -4751,28 +3872,22 @@ export namespace GetFileOutput {
 export interface GetFolderInput {
   __type?: "GetFolderInput";
   /**
-   *
-   *         <p>A fully qualified reference used to identify a commit that contains the version of the
+   * <p>A fully qualified reference used to identify a commit that contains the version of the
    *             folder's content to return. A fully qualified reference can be a commit ID, branch name,
    *             tag, or reference such as HEAD. If no specifier is provided, the folder content is
    *             returned as it exists in the HEAD commit.</p>
-   *
    */
   commitSpecifier?: string;
 
   /**
-   *
-   *         <p>The fully qualified path to the folder whose contents are returned, including the
+   * <p>The fully qualified path to the folder whose contents are returned, including the
    *             folder name. For example, /examples is a fully-qualified path to a folder named examples
    *             that was created off of the root directory (/) of a repository. </p>
-   *
    */
   folderPath: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository.</p>
-   *
+   * <p>The name of the repository.</p>
    */
   repositoryName: string | undefined;
 }
@@ -4786,53 +3901,39 @@ export namespace GetFolderInput {
 export interface GetFolderOutput extends $MetadataBearer {
   __type?: "GetFolderOutput";
   /**
-   *
-   *         <p>The full commit ID used as a reference for the returned version of the folder
+   * <p>The full commit ID used as a reference for the returned version of the folder
    *             content.</p>
-   *
    */
   commitId: string | undefined;
 
   /**
-   *
-   *         <p>The list of files in the specified folder, if any.</p>
-   *
+   * <p>The list of files in the specified folder, if any.</p>
    */
   files?: Array<File>;
 
   /**
-   *
-   *         <p>The fully qualified path of the folder whose contents are returned.</p>
-   *
+   * <p>The fully qualified path of the folder whose contents are returned.</p>
    */
   folderPath: string | undefined;
 
   /**
-   *
-   *         <p>The list of folders that exist under the specified folder, if any.</p>
-   *
+   * <p>The list of folders that exist under the specified folder, if any.</p>
    */
   subFolders?: Array<Folder>;
 
   /**
-   *
-   *         <p>The list of submodules in the specified folder, if any.</p>
-   *
+   * <p>The list of submodules in the specified folder, if any.</p>
    */
   subModules?: Array<SubModule>;
 
   /**
-   *
-   *         <p>The list of symbolic links to other files and folders in the specified folder, if
+   * <p>The list of symbolic links to other files and folders in the specified folder, if
    *             any.</p>
-   *
    */
   symbolicLinks?: Array<SymbolicLink>;
 
   /**
-   *
-   *         <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
-   *
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
    */
   treeId?: string;
 }
@@ -4846,44 +3947,34 @@ export namespace GetFolderOutput {
 export interface GetMergeCommitInput {
   __type?: "GetMergeCommitInput";
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the merge commit about which you want to get information.</p>
-   *
+   * <p>The name of the repository that contains the merge commit about which you want to get information.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 }
@@ -4897,32 +3988,24 @@ export namespace GetMergeCommitInput {
 export interface GetMergeCommitOutput extends $MetadataBearer {
   __type?: "GetMergeCommitOutput";
   /**
-   *
-   *         <p>The commit ID of the merge base.</p>
-   *
+   * <p>The commit ID of the merge base.</p>
    */
   baseCommitId?: string;
 
   /**
-   *
-   *         <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    */
   destinationCommitId?: string;
 
   /**
-   *
-   *         <p>The commit ID for the merge commit created when the source branch was merged into the
+   * <p>The commit ID for the merge commit created when the source branch was merged into the
    *             destination branch. If the fast-forward merge strategy was used, there is no merge
    *             commit.</p>
-   *
    */
   mergedCommitId?: string;
 
   /**
-   *
-   *         <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
    */
   sourceCommitId?: string;
 }
@@ -4936,66 +4019,50 @@ export namespace GetMergeCommitOutput {
 export interface GetMergeConflictsInput {
   __type?: "GetMergeConflictsInput";
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The maximum number of files to include in the output.</p>
-   *
+   * <p>The maximum number of files to include in the output.</p>
    */
   maxConflictFiles?: number;
 
   /**
-   *
-   *         <p>The merge option or strategy you want to use to merge the code.  </p>
-   *
+   * <p>The merge option or strategy you want to use to merge the code.  </p>
    */
   mergeOption: MergeOptionTypeEnum | string | undefined;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The name of the repository where the pull request was created.</p>
-   *
+   * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 }
@@ -5009,45 +4076,33 @@ export namespace GetMergeConflictsInput {
 export interface GetMergeConflictsOutput extends $MetadataBearer {
   __type?: "GetMergeConflictsOutput";
   /**
-   *
-   *         <p>The commit ID of the merge base.</p>
-   *
+   * <p>The commit ID of the merge base.</p>
    */
   baseCommitId?: string;
 
   /**
-   *
-   *         <p>A list of metadata for any conflicting files. If the specified merge strategy is
+   * <p>A list of metadata for any conflicting files. If the specified merge strategy is
    *             FAST_FORWARD_MERGE, this list is always empty.</p>
-   *
    */
   conflictMetadataList: Array<ConflictMetadata> | undefined;
 
   /**
-   *
-   *         <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    */
   destinationCommitId: string | undefined;
 
   /**
-   *
-   *         <p>A Boolean value that indicates whether the code is mergeable by the specified merge option.</p>
-   *
+   * <p>A Boolean value that indicates whether the code is mergeable by the specified merge option.</p>
    */
   mergeable: boolean | undefined;
 
   /**
-   *
-   *         <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   *
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
    */
   sourceCommitId: string | undefined;
 }
@@ -5061,44 +4116,34 @@ export namespace GetMergeConflictsOutput {
 export interface GetMergeOptionsInput {
   __type?: "GetMergeOptionsInput";
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository that contains the commits about which you want to get merge options.</p>
-   *
+   * <p>The name of the repository that contains the commits about which you want to get merge options.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 }
@@ -5112,30 +4157,22 @@ export namespace GetMergeOptionsInput {
 export interface GetMergeOptionsOutput extends $MetadataBearer {
   __type?: "GetMergeOptionsOutput";
   /**
-   *
-   *         <p>The commit ID of the merge base.</p>
-   *
+   * <p>The commit ID of the merge base.</p>
    */
   baseCommitId: string | undefined;
 
   /**
-   *
-   *         <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    */
   destinationCommitId: string | undefined;
 
   /**
-   *
-   *         <p>The merge option or strategy used to merge the code.</p>
-   *
+   * <p>The merge option or strategy used to merge the code.</p>
    */
   mergeOptions: Array<MergeOptionTypeEnum | string> | undefined;
 
   /**
-   *
-   *         <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
-   *
+   * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
    */
   sourceCommitId: string | undefined;
 }
@@ -5149,16 +4186,12 @@ export namespace GetMergeOptionsOutput {
 export interface GetPullRequestApprovalStatesInput {
   __type?: "GetPullRequestApprovalStatesInput";
   /**
-   *
-   *         <p>The system-generated ID for the pull request.</p>
-   *
+   * <p>The system-generated ID for the pull request.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID for the pull request revision.</p>
-   *
+   * <p>The system-generated ID for the pull request revision.</p>
    */
   revisionId: string | undefined;
 }
@@ -5172,9 +4205,7 @@ export namespace GetPullRequestApprovalStatesInput {
 export interface GetPullRequestApprovalStatesOutput extends $MetadataBearer {
   __type?: "GetPullRequestApprovalStatesOutput";
   /**
-   *
-   *         <p>Information about users who have approved the pull request.</p>
-   *
+   * <p>Information about users who have approved the pull request.</p>
    */
   approvals?: Array<Approval>;
 }
@@ -5188,9 +4219,7 @@ export namespace GetPullRequestApprovalStatesOutput {
 export interface GetPullRequestInput {
   __type?: "GetPullRequestInput";
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 }
@@ -5204,9 +4233,7 @@ export namespace GetPullRequestInput {
 export interface GetPullRequestOutput extends $MetadataBearer {
   __type?: "GetPullRequestOutput";
   /**
-   *
-   *         <p>Information about the specified pull request.</p>
-   *
+   * <p>Information about the specified pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
@@ -5220,18 +4247,14 @@ export namespace GetPullRequestOutput {
 export interface GetPullRequestOverrideStateInput {
   __type?: "GetPullRequestOverrideStateInput";
   /**
-   *
-   *         <p>The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).</p>
-   *
+   * <p>The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the revision for the pull request. To retrieve the most
+   * <p>The system-generated ID of the revision for the pull request. To retrieve the most
    *             recent revision ID, use
    *             <a>GetPullRequest</a>.</p>
-   *
    */
   revisionId: string | undefined;
 }
@@ -5245,16 +4268,12 @@ export namespace GetPullRequestOverrideStateInput {
 export interface GetPullRequestOverrideStateOutput extends $MetadataBearer {
   __type?: "GetPullRequestOverrideStateOutput";
   /**
-   *
-   *         <p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>
-   *
+   * <p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>
    */
   overridden?: boolean;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
    */
   overrider?: string;
 }
@@ -5266,16 +4285,12 @@ export namespace GetPullRequestOverrideStateOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a get repository operation.</p>
- *
+ * <p>Represents the input of a get repository operation.</p>
  */
 export interface GetRepositoryInput {
   __type?: "GetRepositoryInput";
   /**
-   *
-   *         <p>The name of the repository to get information about.</p>
-   *
+   * <p>The name of the repository to get information about.</p>
    */
   repositoryName: string | undefined;
 }
@@ -5287,16 +4302,12 @@ export namespace GetRepositoryInput {
 }
 
 /**
- *
- *         <p>Represents the output of a get repository operation.</p>
- *
+ * <p>Represents the output of a get repository operation.</p>
  */
 export interface GetRepositoryOutput extends $MetadataBearer {
   __type?: "GetRepositoryOutput";
   /**
-   *
-   *         <p>Information about the repository.</p>
-   *
+   * <p>Information about the repository.</p>
    */
   repositoryMetadata?: RepositoryMetadata;
 }
@@ -5308,16 +4319,12 @@ export namespace GetRepositoryOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a get repository triggers operation.</p>
- *
+ * <p>Represents the input of a get repository triggers operation.</p>
  */
 export interface GetRepositoryTriggersInput {
   __type?: "GetRepositoryTriggersInput";
   /**
-   *
-   *         <p>The name of the repository for which the trigger is configured.</p>
-   *
+   * <p>The name of the repository for which the trigger is configured.</p>
    */
   repositoryName: string | undefined;
 }
@@ -5329,23 +4336,17 @@ export namespace GetRepositoryTriggersInput {
 }
 
 /**
- *
- *         <p>Represents the output of a get repository triggers operation.</p>
- *
+ * <p>Represents the output of a get repository triggers operation.</p>
  */
 export interface GetRepositoryTriggersOutput extends $MetadataBearer {
   __type?: "GetRepositoryTriggersOutput";
   /**
-   *
-   *         <p>The system-generated unique ID for the trigger.</p>
-   *
+   * <p>The system-generated unique ID for the trigger.</p>
    */
   configurationId?: string;
 
   /**
-   *
-   *         <p>The JSON block of configuration information for each trigger.</p>
-   *
+   * <p>The JSON block of configuration information for each trigger.</p>
    */
   triggers?: Array<RepositoryTrigger>;
 }
@@ -5357,10 +4358,8 @@ export namespace GetRepositoryTriggersOutput {
 }
 
 /**
- *
- *         <p>The client request token is not valid. Either the token is not in a valid format, or
+ * <p>The client request token is not valid. Either the token is not in a valid format, or
  *             the token has been used in a previous request and cannot be reused.</p>
- *
  */
 export interface IdempotencyParameterMismatchException
   extends _smithy.SmithyException,
@@ -5369,9 +4368,7 @@ export interface IdempotencyParameterMismatchException
   name: "IdempotencyParameterMismatchException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5383,10 +4380,8 @@ export namespace IdempotencyParameterMismatchException {
 }
 
 /**
- *
- *         <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
+ * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
  *             and then try again.</p>
- *
  */
 export interface InvalidActorArnException
   extends _smithy.SmithyException,
@@ -5395,9 +4390,7 @@ export interface InvalidActorArnException
   name: "InvalidActorArnException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5409,9 +4402,7 @@ export namespace InvalidActorArnException {
 }
 
 /**
- *
- *         <p>The content for the approval rule is not valid.</p>
- *
+ * <p>The content for the approval rule is not valid.</p>
  */
 export interface InvalidApprovalRuleContentException
   extends _smithy.SmithyException,
@@ -5420,9 +4411,7 @@ export interface InvalidApprovalRuleContentException
   name: "InvalidApprovalRuleContentException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5434,9 +4423,7 @@ export namespace InvalidApprovalRuleContentException {
 }
 
 /**
- *
- *         <p>The name for the approval rule is not valid.</p>
- *
+ * <p>The name for the approval rule is not valid.</p>
  */
 export interface InvalidApprovalRuleNameException
   extends _smithy.SmithyException,
@@ -5445,9 +4432,7 @@ export interface InvalidApprovalRuleNameException
   name: "InvalidApprovalRuleNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5459,9 +4444,7 @@ export namespace InvalidApprovalRuleNameException {
 }
 
 /**
- *
- *         <p>The content of the approval rule template is not valid.</p>
- *
+ * <p>The content of the approval rule template is not valid.</p>
  */
 export interface InvalidApprovalRuleTemplateContentException
   extends _smithy.SmithyException,
@@ -5470,9 +4453,7 @@ export interface InvalidApprovalRuleTemplateContentException
   name: "InvalidApprovalRuleTemplateContentException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5486,12 +4467,10 @@ export namespace InvalidApprovalRuleTemplateContentException {
 }
 
 /**
- *
- *         <p>The description for the approval rule template is not valid because it exceeds the
+ * <p>The description for the approval rule template is not valid because it exceeds the
  *             maximum characters allowed for a description. For more information about limits in AWS
  *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User
  *             Guide</a>.</p>
- *
  */
 export interface InvalidApprovalRuleTemplateDescriptionException
   extends _smithy.SmithyException,
@@ -5500,9 +4479,7 @@ export interface InvalidApprovalRuleTemplateDescriptionException
   name: "InvalidApprovalRuleTemplateDescriptionException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5516,12 +4493,10 @@ export namespace InvalidApprovalRuleTemplateDescriptionException {
 }
 
 /**
- *
- *         <p>The name of the approval rule template is not valid. Template names must be between 1
+ * <p>The name of the approval rule template is not valid. Template names must be between 1
  *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
  *                 CodeCommit User Guide</a>.</p>
- *
  */
 export interface InvalidApprovalRuleTemplateNameException
   extends _smithy.SmithyException,
@@ -5530,9 +4505,7 @@ export interface InvalidApprovalRuleTemplateNameException
   name: "InvalidApprovalRuleTemplateNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5544,9 +4517,7 @@ export namespace InvalidApprovalRuleTemplateNameException {
 }
 
 /**
- *
- *         <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
- *
+ * <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
  */
 export interface InvalidApprovalStateException
   extends _smithy.SmithyException,
@@ -5555,9 +4526,7 @@ export interface InvalidApprovalStateException
   name: "InvalidApprovalStateException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5569,9 +4538,7 @@ export namespace InvalidApprovalStateException {
 }
 
 /**
- *
- *         <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
- *
+ * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
  */
 export interface InvalidAuthorArnException
   extends _smithy.SmithyException,
@@ -5580,9 +4547,7 @@ export interface InvalidAuthorArnException
   name: "InvalidAuthorArnException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5594,9 +4559,7 @@ export namespace InvalidAuthorArnException {
 }
 
 /**
- *
- *         <p>The specified blob is not valid.</p>
- *
+ * <p>The specified blob is not valid.</p>
  */
 export interface InvalidBlobIdException
   extends _smithy.SmithyException,
@@ -5605,9 +4568,7 @@ export interface InvalidBlobIdException
   name: "InvalidBlobIdException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5619,9 +4580,7 @@ export namespace InvalidBlobIdException {
 }
 
 /**
- *
- *         <p>The specified reference name is not valid.</p>
- *
+ * <p>The specified reference name is not valid.</p>
  */
 export interface InvalidBranchNameException
   extends _smithy.SmithyException,
@@ -5630,9 +4589,7 @@ export interface InvalidBranchNameException
   name: "InvalidBranchNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5644,9 +4601,7 @@ export namespace InvalidBranchNameException {
 }
 
 /**
- *
- *         <p>The client request token is not valid.</p>
- *
+ * <p>The client request token is not valid.</p>
  */
 export interface InvalidClientRequestTokenException
   extends _smithy.SmithyException,
@@ -5655,9 +4610,7 @@ export interface InvalidClientRequestTokenException
   name: "InvalidClientRequestTokenException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5669,9 +4622,7 @@ export namespace InvalidClientRequestTokenException {
 }
 
 /**
- *
- *         <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
- *
+ * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  */
 export interface InvalidCommentIdException
   extends _smithy.SmithyException,
@@ -5680,9 +4631,7 @@ export interface InvalidCommentIdException
   name: "InvalidCommentIdException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5694,9 +4643,7 @@ export namespace InvalidCommentIdException {
 }
 
 /**
- *
- *         <p>The specified commit is not valid.</p>
- *
+ * <p>The specified commit is not valid.</p>
  */
 export interface InvalidCommitException
   extends _smithy.SmithyException,
@@ -5705,9 +4652,7 @@ export interface InvalidCommitException
   name: "InvalidCommitException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5719,9 +4664,7 @@ export namespace InvalidCommitException {
 }
 
 /**
- *
- *         <p>The specified commit ID is not valid.</p>
- *
+ * <p>The specified commit ID is not valid.</p>
  */
 export interface InvalidCommitIdException
   extends _smithy.SmithyException,
@@ -5730,9 +4673,7 @@ export interface InvalidCommitIdException
   name: "InvalidCommitIdException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5744,9 +4685,7 @@ export namespace InvalidCommitIdException {
 }
 
 /**
- *
- *         <p>The specified conflict detail level is not valid.</p>
- *
+ * <p>The specified conflict detail level is not valid.</p>
  */
 export interface InvalidConflictDetailLevelException
   extends _smithy.SmithyException,
@@ -5755,9 +4694,7 @@ export interface InvalidConflictDetailLevelException
   name: "InvalidConflictDetailLevelException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5769,9 +4706,7 @@ export namespace InvalidConflictDetailLevelException {
 }
 
 /**
- *
- *         <p>The specified conflict resolution list is not valid.</p>
- *
+ * <p>The specified conflict resolution list is not valid.</p>
  */
 export interface InvalidConflictResolutionException
   extends _smithy.SmithyException,
@@ -5780,9 +4715,7 @@ export interface InvalidConflictResolutionException
   name: "InvalidConflictResolutionException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5794,9 +4727,7 @@ export namespace InvalidConflictResolutionException {
 }
 
 /**
- *
- *         <p>The specified conflict resolution strategy is not valid.</p>
- *
+ * <p>The specified conflict resolution strategy is not valid.</p>
  */
 export interface InvalidConflictResolutionStrategyException
   extends _smithy.SmithyException,
@@ -5805,9 +4736,7 @@ export interface InvalidConflictResolutionStrategyException
   name: "InvalidConflictResolutionStrategyException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5819,9 +4748,7 @@ export namespace InvalidConflictResolutionStrategyException {
 }
 
 /**
- *
- *         <p>The specified continuation token is not valid.</p>
- *
+ * <p>The specified continuation token is not valid.</p>
  */
 export interface InvalidContinuationTokenException
   extends _smithy.SmithyException,
@@ -5830,9 +4757,7 @@ export interface InvalidContinuationTokenException
   name: "InvalidContinuationTokenException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5844,9 +4769,7 @@ export namespace InvalidContinuationTokenException {
 }
 
 /**
- *
- *         <p>The specified deletion parameter is not valid.</p>
- *
+ * <p>The specified deletion parameter is not valid.</p>
  */
 export interface InvalidDeletionParameterException
   extends _smithy.SmithyException,
@@ -5855,9 +4778,7 @@ export interface InvalidDeletionParameterException
   name: "InvalidDeletionParameterException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5869,10 +4790,8 @@ export namespace InvalidDeletionParameterException {
 }
 
 /**
- *
- *         <p>The pull request description is not valid. Descriptions cannot be more than 1,000
+ * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
  *             characters.</p>
- *
  */
 export interface InvalidDescriptionException
   extends _smithy.SmithyException,
@@ -5881,9 +4800,7 @@ export interface InvalidDescriptionException
   name: "InvalidDescriptionException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5895,9 +4812,7 @@ export namespace InvalidDescriptionException {
 }
 
 /**
- *
- *         <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
- *
+ * <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
  */
 export interface InvalidDestinationCommitSpecifierException
   extends _smithy.SmithyException,
@@ -5906,9 +4821,7 @@ export interface InvalidDestinationCommitSpecifierException
   name: "InvalidDestinationCommitSpecifierException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5920,10 +4833,8 @@ export namespace InvalidDestinationCommitSpecifierException {
 }
 
 /**
- *
- *         <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
+ * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
  *         allowed for an email address.</p>
- *
  */
 export interface InvalidEmailException
   extends _smithy.SmithyException,
@@ -5932,9 +4843,7 @@ export interface InvalidEmailException
   name: "InvalidEmailException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5946,10 +4855,8 @@ export namespace InvalidEmailException {
 }
 
 /**
- *
- *         <p>The location of the file is not valid. Make sure that you include the file name and
+ * <p>The location of the file is not valid. Make sure that you include the file name and
  *             extension.</p>
- *
  */
 export interface InvalidFileLocationException
   extends _smithy.SmithyException,
@@ -5958,9 +4865,7 @@ export interface InvalidFileLocationException
   name: "InvalidFileLocationException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5972,9 +4877,7 @@ export namespace InvalidFileLocationException {
 }
 
 /**
- *
- *         <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
- *
+ * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
  */
 export interface InvalidFileModeException
   extends _smithy.SmithyException,
@@ -5983,9 +4886,7 @@ export interface InvalidFileModeException
   name: "InvalidFileModeException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -5997,9 +4898,7 @@ export namespace InvalidFileModeException {
 }
 
 /**
- *
- *         <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
- *
+ * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
  */
 export interface InvalidFilePositionException
   extends _smithy.SmithyException,
@@ -6008,9 +4907,7 @@ export interface InvalidFilePositionException
   name: "InvalidFilePositionException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6022,9 +4919,7 @@ export namespace InvalidFilePositionException {
 }
 
 /**
- *
- *         <p>The specified value for the number of conflict files to return is not valid.</p>
- *
+ * <p>The specified value for the number of conflict files to return is not valid.</p>
  */
 export interface InvalidMaxConflictFilesException
   extends _smithy.SmithyException,
@@ -6033,9 +4928,7 @@ export interface InvalidMaxConflictFilesException
   name: "InvalidMaxConflictFilesException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6047,9 +4940,7 @@ export namespace InvalidMaxConflictFilesException {
 }
 
 /**
- *
- *         <p>The specified value for the number of merge hunks to return is not valid.</p>
- *
+ * <p>The specified value for the number of merge hunks to return is not valid.</p>
  */
 export interface InvalidMaxMergeHunksException
   extends _smithy.SmithyException,
@@ -6058,9 +4949,7 @@ export interface InvalidMaxMergeHunksException
   name: "InvalidMaxMergeHunksException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6072,9 +4961,7 @@ export namespace InvalidMaxMergeHunksException {
 }
 
 /**
- *
- *         <p>The specified number of maximum results is not valid.</p>
- *
+ * <p>The specified number of maximum results is not valid.</p>
  */
 export interface InvalidMaxResultsException
   extends _smithy.SmithyException,
@@ -6083,9 +4970,7 @@ export interface InvalidMaxResultsException
   name: "InvalidMaxResultsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6097,9 +4982,7 @@ export namespace InvalidMaxResultsException {
 }
 
 /**
- *
- *         <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
- *
+ * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
  */
 export interface InvalidMergeOptionException
   extends _smithy.SmithyException,
@@ -6108,9 +4991,7 @@ export interface InvalidMergeOptionException
   name: "InvalidMergeOptionException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6122,9 +5003,7 @@ export namespace InvalidMergeOptionException {
 }
 
 /**
- *
- *         <p>The specified sort order is not valid.</p>
- *
+ * <p>The specified sort order is not valid.</p>
  */
 export interface InvalidOrderException
   extends _smithy.SmithyException,
@@ -6133,9 +5012,7 @@ export interface InvalidOrderException
   name: "InvalidOrderException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6147,9 +5024,7 @@ export namespace InvalidOrderException {
 }
 
 /**
- *
- *         <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
- *
+ * <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
  */
 export interface InvalidOverrideStatusException
   extends _smithy.SmithyException,
@@ -6158,9 +5033,7 @@ export interface InvalidOverrideStatusException
   name: "InvalidOverrideStatusException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6172,10 +5045,8 @@ export namespace InvalidOverrideStatusException {
 }
 
 /**
- *
- *         <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
+ * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
  *         want to add or update a file.</p>
- *
  */
 export interface InvalidParentCommitIdException
   extends _smithy.SmithyException,
@@ -6184,9 +5055,7 @@ export interface InvalidParentCommitIdException
   name: "InvalidParentCommitIdException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6198,9 +5067,7 @@ export namespace InvalidParentCommitIdException {
 }
 
 /**
- *
- *         <p>The specified path is not valid.</p>
- *
+ * <p>The specified path is not valid.</p>
  */
 export interface InvalidPathException
   extends _smithy.SmithyException,
@@ -6209,9 +5076,7 @@ export interface InvalidPathException
   name: "InvalidPathException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6223,9 +5088,7 @@ export namespace InvalidPathException {
 }
 
 /**
- *
- *         <p>The pull request event type is not valid. </p>
- *
+ * <p>The pull request event type is not valid. </p>
  */
 export interface InvalidPullRequestEventTypeException
   extends _smithy.SmithyException,
@@ -6234,9 +5097,7 @@ export interface InvalidPullRequestEventTypeException
   name: "InvalidPullRequestEventTypeException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6248,9 +5109,7 @@ export namespace InvalidPullRequestEventTypeException {
 }
 
 /**
- *
- *         <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
- *
+ * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
  */
 export interface InvalidPullRequestIdException
   extends _smithy.SmithyException,
@@ -6259,9 +5118,7 @@ export interface InvalidPullRequestIdException
   name: "InvalidPullRequestIdException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6273,9 +5130,7 @@ export namespace InvalidPullRequestIdException {
 }
 
 /**
- *
- *         <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
- *
+ * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
  */
 export interface InvalidPullRequestStatusException
   extends _smithy.SmithyException,
@@ -6284,9 +5139,7 @@ export interface InvalidPullRequestStatusException
   name: "InvalidPullRequestStatusException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6298,9 +5151,7 @@ export namespace InvalidPullRequestStatusException {
 }
 
 /**
- *
- *         <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
- *
+ * <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
  */
 export interface InvalidPullRequestStatusUpdateException
   extends _smithy.SmithyException,
@@ -6309,9 +5160,7 @@ export interface InvalidPullRequestStatusUpdateException
   name: "InvalidPullRequestStatusUpdateException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6323,11 +5172,9 @@ export namespace InvalidPullRequestStatusUpdateException {
 }
 
 /**
- *
- *         <p>The specified reference name format is not valid. Reference names must conform to the
+ * <p>The specified reference name format is not valid. Reference names must conform to the
  *             Git references format (for example, refs/heads/master). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
- *
  */
 export interface InvalidReferenceNameException
   extends _smithy.SmithyException,
@@ -6336,9 +5183,7 @@ export interface InvalidReferenceNameException
   name: "InvalidReferenceNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6350,10 +5195,7 @@ export namespace InvalidReferenceNameException {
 }
 
 /**
- *
- *         <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
- *
- *
+ * <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
  */
 export interface InvalidRelativeFileVersionEnumException
   extends _smithy.SmithyException,
@@ -6362,9 +5204,7 @@ export interface InvalidRelativeFileVersionEnumException
   name: "InvalidRelativeFileVersionEnumException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6376,9 +5216,7 @@ export namespace InvalidRelativeFileVersionEnumException {
 }
 
 /**
- *
- *         <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
- *
+ * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
  */
 export interface InvalidReplacementContentException
   extends _smithy.SmithyException,
@@ -6387,9 +5225,7 @@ export interface InvalidReplacementContentException
   name: "InvalidReplacementContentException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6401,10 +5237,7 @@ export namespace InvalidReplacementContentException {
 }
 
 /**
- *
- *         <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
- *
- *
+ * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
  */
 export interface InvalidReplacementTypeException
   extends _smithy.SmithyException,
@@ -6413,9 +5246,7 @@ export interface InvalidReplacementTypeException
   name: "InvalidReplacementTypeException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6427,9 +5258,7 @@ export namespace InvalidReplacementTypeException {
 }
 
 /**
- *
- *         <p>The specified repository description is not valid.</p>
- *
+ * <p>The specified repository description is not valid.</p>
  */
 export interface InvalidRepositoryDescriptionException
   extends _smithy.SmithyException,
@@ -6438,9 +5267,7 @@ export interface InvalidRepositoryDescriptionException
   name: "InvalidRepositoryDescriptionException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6452,16 +5279,13 @@ export namespace InvalidRepositoryDescriptionException {
 }
 
 /**
- *
- *
- *         <p>A specified repository name is not valid.</p>
+ * <p>A specified repository name is not valid.</p>
  *
  *         <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>
  *          </note>
- *
  */
 export interface InvalidRepositoryNameException
   extends _smithy.SmithyException,
@@ -6470,9 +5294,7 @@ export interface InvalidRepositoryNameException
   name: "InvalidRepositoryNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6484,9 +5306,7 @@ export namespace InvalidRepositoryNameException {
 }
 
 /**
- *
- *         <p>One or more branch names specified for the trigger is not valid.</p>
- *
+ * <p>One or more branch names specified for the trigger is not valid.</p>
  */
 export interface InvalidRepositoryTriggerBranchNameException
   extends _smithy.SmithyException,
@@ -6495,9 +5315,7 @@ export interface InvalidRepositoryTriggerBranchNameException
   name: "InvalidRepositoryTriggerBranchNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6511,9 +5329,7 @@ export namespace InvalidRepositoryTriggerBranchNameException {
 }
 
 /**
- *
- *         <p>The custom data provided for the trigger is not valid.</p>
- *
+ * <p>The custom data provided for the trigger is not valid.</p>
  */
 export interface InvalidRepositoryTriggerCustomDataException
   extends _smithy.SmithyException,
@@ -6522,9 +5338,7 @@ export interface InvalidRepositoryTriggerCustomDataException
   name: "InvalidRepositoryTriggerCustomDataException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6538,9 +5352,7 @@ export namespace InvalidRepositoryTriggerCustomDataException {
 }
 
 /**
- *
- *         <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
- *
+ * <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
  */
 export interface InvalidRepositoryTriggerDestinationArnException
   extends _smithy.SmithyException,
@@ -6549,9 +5361,7 @@ export interface InvalidRepositoryTriggerDestinationArnException
   name: "InvalidRepositoryTriggerDestinationArnException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6565,9 +5375,7 @@ export namespace InvalidRepositoryTriggerDestinationArnException {
 }
 
 /**
- *
- *         <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
- *
+ * <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
  */
 export interface InvalidRepositoryTriggerEventsException
   extends _smithy.SmithyException,
@@ -6576,9 +5384,7 @@ export interface InvalidRepositoryTriggerEventsException
   name: "InvalidRepositoryTriggerEventsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6590,9 +5396,7 @@ export namespace InvalidRepositoryTriggerEventsException {
 }
 
 /**
- *
- *         <p>The name of the trigger is not valid.</p>
- *
+ * <p>The name of the trigger is not valid.</p>
  */
 export interface InvalidRepositoryTriggerNameException
   extends _smithy.SmithyException,
@@ -6601,9 +5405,7 @@ export interface InvalidRepositoryTriggerNameException
   name: "InvalidRepositoryTriggerNameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6615,11 +5417,9 @@ export namespace InvalidRepositoryTriggerNameException {
 }
 
 /**
- *
- *         <p>The AWS Region for the trigger target does not match the AWS Region for the
+ * <p>The AWS Region for the trigger target does not match the AWS Region for the
  *             repository. Triggers must be created in the same Region as the target for the
  *             trigger.</p>
- *
  */
 export interface InvalidRepositoryTriggerRegionException
   extends _smithy.SmithyException,
@@ -6628,9 +5428,7 @@ export interface InvalidRepositoryTriggerRegionException
   name: "InvalidRepositoryTriggerRegionException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6642,11 +5440,9 @@ export namespace InvalidRepositoryTriggerRegionException {
 }
 
 /**
- *
- *         <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
+ * <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
- *
  */
 export interface InvalidResourceArnException
   extends _smithy.SmithyException,
@@ -6655,9 +5451,7 @@ export interface InvalidResourceArnException
   name: "InvalidResourceArnException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6669,9 +5463,7 @@ export namespace InvalidResourceArnException {
 }
 
 /**
- *
- *         <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
- *
+ * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
  */
 export interface InvalidRevisionIdException
   extends _smithy.SmithyException,
@@ -6680,9 +5472,7 @@ export interface InvalidRevisionIdException
   name: "InvalidRevisionIdException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6694,9 +5484,7 @@ export namespace InvalidRevisionIdException {
 }
 
 /**
- *
- *         <p>The SHA-256 hash signature for the rule content is not valid.</p>
- *
+ * <p>The SHA-256 hash signature for the rule content is not valid.</p>
  */
 export interface InvalidRuleContentSha256Exception
   extends _smithy.SmithyException,
@@ -6705,9 +5493,7 @@ export interface InvalidRuleContentSha256Exception
   name: "InvalidRuleContentSha256Exception";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6719,9 +5505,7 @@ export namespace InvalidRuleContentSha256Exception {
 }
 
 /**
- *
- *         <p>The specified sort by value is not valid.</p>
- *
+ * <p>The specified sort by value is not valid.</p>
  */
 export interface InvalidSortByException
   extends _smithy.SmithyException,
@@ -6730,9 +5514,7 @@ export interface InvalidSortByException
   name: "InvalidSortByException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6744,9 +5526,7 @@ export namespace InvalidSortByException {
 }
 
 /**
- *
- *         <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
- *
+ * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
  */
 export interface InvalidSourceCommitSpecifierException
   extends _smithy.SmithyException,
@@ -6755,9 +5535,7 @@ export interface InvalidSourceCommitSpecifierException
   name: "InvalidSourceCommitSpecifierException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6769,9 +5547,7 @@ export namespace InvalidSourceCommitSpecifierException {
 }
 
 /**
- *
- *         <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
- *
+ * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
  */
 export interface InvalidSystemTagUsageException
   extends _smithy.SmithyException,
@@ -6780,9 +5556,7 @@ export interface InvalidSystemTagUsageException
   name: "InvalidSystemTagUsageException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6794,9 +5568,7 @@ export namespace InvalidSystemTagUsageException {
 }
 
 /**
- *
- *         <p>The list of tags is not valid.</p>
- *
+ * <p>The list of tags is not valid.</p>
  */
 export interface InvalidTagKeysListException
   extends _smithy.SmithyException,
@@ -6805,9 +5577,7 @@ export interface InvalidTagKeysListException
   name: "InvalidTagKeysListException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6819,9 +5589,7 @@ export namespace InvalidTagKeysListException {
 }
 
 /**
- *
- *         <p>The map of tags is not valid.</p>
- *
+ * <p>The map of tags is not valid.</p>
  */
 export interface InvalidTagsMapException
   extends _smithy.SmithyException,
@@ -6830,9 +5598,7 @@ export interface InvalidTagsMapException
   name: "InvalidTagsMapException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6844,9 +5610,7 @@ export namespace InvalidTagsMapException {
 }
 
 /**
- *
- *             <p>The specified target branch is not valid.</p>
- *
+ * <p>The specified target branch is not valid.</p>
  */
 export interface InvalidTargetBranchException
   extends _smithy.SmithyException,
@@ -6855,9 +5619,7 @@ export interface InvalidTargetBranchException
   name: "InvalidTargetBranchException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6869,9 +5631,7 @@ export namespace InvalidTargetBranchException {
 }
 
 /**
- *
- *         <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
- *
+ * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
 export interface InvalidTargetException
   extends _smithy.SmithyException,
@@ -6880,9 +5640,7 @@ export interface InvalidTargetException
   name: "InvalidTargetException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6894,10 +5652,8 @@ export namespace InvalidTargetException {
 }
 
 /**
- *
- *         <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
+ * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
  *             the repository name, source branch, and destination branch for a pull request.</p>
- *
  */
 export interface InvalidTargetsException
   extends _smithy.SmithyException,
@@ -6906,9 +5662,7 @@ export interface InvalidTargetsException
   name: "InvalidTargetsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6920,9 +5674,7 @@ export namespace InvalidTargetsException {
 }
 
 /**
- *
- *         <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
- *
+ * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
  */
 export interface InvalidTitleException
   extends _smithy.SmithyException,
@@ -6931,9 +5683,7 @@ export interface InvalidTitleException
   name: "InvalidTitleException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -6945,30 +5695,22 @@ export namespace InvalidTitleException {
 }
 
 /**
- *
- *         <p>Information about whether a file is binary or textual in a merge or pull request operation.</p>
- *
+ * <p>Information about whether a file is binary or textual in a merge or pull request operation.</p>
  */
 export interface IsBinaryFile {
   __type?: "IsBinaryFile";
   /**
-   *
-   *         <p>The binary or non-binary status of a file in the base of a merge or pull request.</p>
-   *
+   * <p>The binary or non-binary status of a file in the base of a merge or pull request.</p>
    */
   base?: boolean;
 
   /**
-   *
-   *         <p>The binary or non-binary status of a file in the destination of a merge or pull request.</p>
-   *
+   * <p>The binary or non-binary status of a file in the destination of a merge or pull request.</p>
    */
   destination?: boolean;
 
   /**
-   *
-   *         <p>The binary or non-binary status of file in the source of a merge or pull request.</p>
-   *
+   * <p>The binary or non-binary status of file in the source of a merge or pull request.</p>
    */
   source?: boolean;
 }
@@ -6982,17 +5724,13 @@ export namespace IsBinaryFile {
 export interface ListApprovalRuleTemplatesInput {
   __type?: "ListApprovalRuleTemplatesInput";
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-   *
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 }
@@ -7006,17 +5744,12 @@ export namespace ListApprovalRuleTemplatesInput {
 export interface ListApprovalRuleTemplatesOutput extends $MetadataBearer {
   __type?: "ListApprovalRuleTemplatesOutput";
   /**
-   *
-   *         <p>The names of all the approval rule templates found in the AWS Region for your AWS account.</p>
-   *
+   * <p>The names of all the approval rule templates found in the AWS Region for your AWS account.</p>
    */
   approvalRuleTemplateNames?: Array<string>;
 
   /**
-   *
-   *
-   *         <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   *
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
 }
@@ -7030,24 +5763,18 @@ export namespace ListApprovalRuleTemplatesOutput {
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   __type?: "ListAssociatedApprovalRuleTemplatesForRepositoryInput";
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-   *
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The name of the repository for which you want to list all associated approval rule templates.</p>
-   *
+   * <p>The name of the repository for which you want to list all associated approval rule templates.</p>
    */
   repositoryName: string | undefined;
 }
@@ -7067,16 +5794,12 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput
   extends $MetadataBearer {
   __type?: "ListAssociatedApprovalRuleTemplatesForRepositoryOutput";
   /**
-   *
-   *         <p>The names of all approval rule templates associated with the repository.</p>
-   *
+   * <p>The names of all approval rule templates associated with the repository.</p>
    */
   approvalRuleTemplateNames?: Array<string>;
 
   /**
-   *
-   *         <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   *
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
 }
@@ -7093,23 +5816,17 @@ export namespace ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a list branches operation.</p>
- *
+ * <p>Represents the input of a list branches operation.</p>
  */
 export interface ListBranchesInput {
   __type?: "ListBranchesInput";
   /**
-   *
-   *         <p>An enumeration token that allows the operation to batch the results.</p>
-   *
+   * <p>An enumeration token that allows the operation to batch the results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The name of the repository that contains the branches.</p>
-   *
+   * <p>The name of the repository that contains the branches.</p>
    */
   repositoryName: string | undefined;
 }
@@ -7121,23 +5838,17 @@ export namespace ListBranchesInput {
 }
 
 /**
- *
- *         <p>Represents the output of a list branches operation.</p>
- *
+ * <p>Represents the output of a list branches operation.</p>
  */
 export interface ListBranchesOutput extends $MetadataBearer {
   __type?: "ListBranchesOutput";
   /**
-   *
-   *         <p>The list of branch names.</p>
-   *
+   * <p>The list of branch names.</p>
    */
   branches?: Array<string>;
 
   /**
-   *
-   *         <p>An enumeration token that returns the batch of the results.</p>
-   *
+   * <p>An enumeration token that returns the batch of the results.</p>
    */
   nextToken?: string;
 }
@@ -7151,39 +5862,29 @@ export namespace ListBranchesOutput {
 export interface ListPullRequestsInput {
   __type?: "ListPullRequestsInput";
   /**
-   *
-   *         <p>Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results
+   * <p>Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results
    *         to pull requests created by that user.</p>
-   *
    */
   authorArn?: string;
 
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-   *
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.</p>
-   *
+   * <p>Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.</p>
    */
   pullRequestStatus?: PullRequestStatusEnum | string;
 
   /**
-   *
-   *         <p>The name of the repository for which you want to list pull requests.</p>
-   *
+   * <p>The name of the repository for which you want to list pull requests.</p>
    */
   repositoryName: string | undefined;
 }
@@ -7197,16 +5898,12 @@ export namespace ListPullRequestsInput {
 export interface ListPullRequestsOutput extends $MetadataBearer {
   __type?: "ListPullRequestsOutput";
   /**
-   *
-   *         <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   *
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The system-generated IDs of the pull requests.</p>
-   *
+   * <p>The system-generated IDs of the pull requests.</p>
    */
   pullRequestIds: Array<string> | undefined;
 }
@@ -7220,24 +5917,18 @@ export namespace ListPullRequestsOutput {
 export interface ListRepositoriesForApprovalRuleTemplateInput {
   __type?: "ListRepositoriesForApprovalRuleTemplateInput";
   /**
-   *
-   *         <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
-   *
+   * <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   *
-   *         <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-   *
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 }
@@ -7254,16 +5945,12 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput
   extends $MetadataBearer {
   __type?: "ListRepositoriesForApprovalRuleTemplateOutput";
   /**
-   *
-   *         <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   *
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>A list of repository names that are associated with the specified approval rule template.</p>
-   *
+   * <p>A list of repository names that are associated with the specified approval rule template.</p>
    */
   repositoryNames?: Array<string>;
 }
@@ -7277,32 +5964,24 @@ export namespace ListRepositoriesForApprovalRuleTemplateOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a list repositories operation.</p>
- *
+ * <p>Represents the input of a list repositories operation.</p>
  */
 export interface ListRepositoriesInput {
   __type?: "ListRepositoriesInput";
   /**
-   *
-   *         <p>An enumeration token that allows the operation to batch the results of the operation.
+   * <p>An enumeration token that allows the operation to batch the results of the operation.
    *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
    *             another page of 1,000 records is retrieved.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The order in which to sort the results of a list repositories operation.</p>
-   *
+   * <p>The order in which to sort the results of a list repositories operation.</p>
    */
   order?: OrderEnum | string;
 
   /**
-   *
-   *         <p>The criteria used to sort the results of a list repositories operation.</p>
-   *
+   * <p>The criteria used to sort the results of a list repositories operation.</p>
    */
   sortBy?: SortByEnum | string;
 }
@@ -7314,25 +5993,19 @@ export namespace ListRepositoriesInput {
 }
 
 /**
- *
- *         <p>Represents the output of a list repositories operation.</p>
- *
+ * <p>Represents the output of a list repositories operation.</p>
  */
 export interface ListRepositoriesOutput extends $MetadataBearer {
   __type?: "ListRepositoriesOutput";
   /**
-   *
-   *         <p>An enumeration token that allows the operation to batch the results of the operation.
+   * <p>An enumeration token that allows the operation to batch the results of the operation.
    *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
    *             another page of 1,000 records is retrieved.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Lists the repositories called by the list repositories operation.</p>
-   *
+   * <p>Lists the repositories called by the list repositories operation.</p>
    */
   repositories?: Array<RepositoryNameIdPair>;
 }
@@ -7346,18 +6019,14 @@ export namespace ListRepositoriesOutput {
 export interface ListTagsForResourceInput {
   __type?: "ListTagsForResourceInput";
   /**
-   *
-   *         <p>An enumeration token that, when provided in a request, returns the next batch of the
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the resource for which you want to get information
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information
    *             about tags, if any.</p>
-   *
    */
   resourceArn: string | undefined;
 }
@@ -7371,16 +6040,12 @@ export namespace ListTagsForResourceInput {
 export interface ListTagsForResourceOutput extends $MetadataBearer {
   __type?: "ListTagsForResourceOutput";
   /**
-   *
-   *         <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
-   *
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>A list of tag key and value pairs associated with the specified resource.</p>
-   *
+   * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -7392,31 +6057,23 @@ export namespace ListTagsForResourceOutput {
 }
 
 /**
- *
- *         <p>Returns information about the location of a change or comment in the comparison between two commits or a pull request.</p>
- *
+ * <p>Returns information about the location of a change or comment in the comparison between two commits or a pull request.</p>
  */
 export interface Location {
   __type?: "Location";
   /**
-   *
-   *         <p>The name of the file being compared, including its extension and subdirectory, if any.</p>
-   *
+   * <p>The name of the file being compared, including its extension and subdirectory, if any.</p>
    */
   filePath?: string;
 
   /**
-   *
-   *         <p>The position of a change in a compared file, in line number format.</p>
-   *
+   * <p>The position of a change in a compared file, in line number format.</p>
    */
   filePosition?: number;
 
   /**
-   *
-   *         <p>In a comparison of commits or a pull request, whether the change is in the before or
+   * <p>In a comparison of commits or a pull request, whether the change is in the before or
    *             after of that comparison.</p>
-   *
    */
   relativeFileVersion?: RelativeFileVersionEnum | string;
 }
@@ -7428,9 +6085,7 @@ export namespace Location {
 }
 
 /**
- *
- *         <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
- *
+ * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
  */
 export interface ManualMergeRequiredException
   extends _smithy.SmithyException,
@@ -7439,9 +6094,7 @@ export interface ManualMergeRequiredException
   name: "ManualMergeRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7453,9 +6106,7 @@ export namespace ManualMergeRequiredException {
 }
 
 /**
- *
- *         <p>The number of branches for the trigger was exceeded.</p>
- *
+ * <p>The number of branches for the trigger was exceeded.</p>
  */
 export interface MaximumBranchesExceededException
   extends _smithy.SmithyException,
@@ -7464,9 +6115,7 @@ export interface MaximumBranchesExceededException
   name: "MaximumBranchesExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7478,9 +6127,7 @@ export namespace MaximumBranchesExceededException {
 }
 
 /**
- *
- *         <p>The number of allowed conflict resolution entries was exceeded.</p>
- *
+ * <p>The number of allowed conflict resolution entries was exceeded.</p>
  */
 export interface MaximumConflictResolutionEntriesExceededException
   extends _smithy.SmithyException,
@@ -7489,9 +6136,7 @@ export interface MaximumConflictResolutionEntriesExceededException
   name: "MaximumConflictResolutionEntriesExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7505,9 +6150,7 @@ export namespace MaximumConflictResolutionEntriesExceededException {
 }
 
 /**
- *
- *         <p>The number of files to load exceeds the allowed limit.</p>
- *
+ * <p>The number of files to load exceeds the allowed limit.</p>
  */
 export interface MaximumFileContentToLoadExceededException
   extends _smithy.SmithyException,
@@ -7516,9 +6159,7 @@ export interface MaximumFileContentToLoadExceededException
   name: "MaximumFileContentToLoadExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7530,10 +6171,8 @@ export namespace MaximumFileContentToLoadExceededException {
 }
 
 /**
- *
- *         <p>The number of specified files to change as part of this commit exceeds the maximum number of files
+ * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
  *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
- *
  */
 export interface MaximumFileEntriesExceededException
   extends _smithy.SmithyException,
@@ -7542,9 +6181,7 @@ export interface MaximumFileEntriesExceededException
   name: "MaximumFileEntriesExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7556,9 +6193,7 @@ export namespace MaximumFileEntriesExceededException {
 }
 
 /**
- *
- *         <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
- *
+ * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
  */
 export interface MaximumItemsToCompareExceededException
   extends _smithy.SmithyException,
@@ -7567,9 +6202,7 @@ export interface MaximumItemsToCompareExceededException
   name: "MaximumItemsToCompareExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7581,9 +6214,7 @@ export namespace MaximumItemsToCompareExceededException {
 }
 
 /**
- *
- *         <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
- *
+ * <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
  */
 export interface MaximumNumberOfApprovalsExceededException
   extends _smithy.SmithyException,
@@ -7592,9 +6223,7 @@ export interface MaximumNumberOfApprovalsExceededException
   name: "MaximumNumberOfApprovalsExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7606,10 +6235,8 @@ export namespace MaximumNumberOfApprovalsExceededException {
 }
 
 /**
- *
- *         <p>You cannot create the pull request because the repository has too many open pull requests.
+ * <p>You cannot create the pull request because the repository has too many open pull requests.
  *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
- *
  */
 export interface MaximumOpenPullRequestsExceededException
   extends _smithy.SmithyException,
@@ -7618,9 +6245,7 @@ export interface MaximumOpenPullRequestsExceededException
   name: "MaximumOpenPullRequestsExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7632,9 +6257,7 @@ export namespace MaximumOpenPullRequestsExceededException {
 }
 
 /**
- *
- *         <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
- *
+ * <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
  */
 export interface MaximumRepositoryNamesExceededException
   extends _smithy.SmithyException,
@@ -7643,9 +6266,7 @@ export interface MaximumRepositoryNamesExceededException
   name: "MaximumRepositoryNamesExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7657,9 +6278,7 @@ export namespace MaximumRepositoryNamesExceededException {
 }
 
 /**
- *
- *         <p>The number of triggers allowed for the repository was exceeded.</p>
- *
+ * <p>The number of triggers allowed for the repository was exceeded.</p>
  */
 export interface MaximumRepositoryTriggersExceededException
   extends _smithy.SmithyException,
@@ -7668,9 +6287,7 @@ export interface MaximumRepositoryTriggersExceededException
   name: "MaximumRepositoryTriggersExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7682,10 +6299,8 @@ export namespace MaximumRepositoryTriggersExceededException {
 }
 
 /**
- *
- *         <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
+ * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
  *         approval rule templates with a repository.</p>
- *
  */
 export interface MaximumRuleTemplatesAssociatedWithRepositoryException
   extends _smithy.SmithyException,
@@ -7694,9 +6309,7 @@ export interface MaximumRuleTemplatesAssociatedWithRepositoryException
   name: "MaximumRuleTemplatesAssociatedWithRepositoryException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -7715,32 +6328,24 @@ export namespace MaximumRuleTemplatesAssociatedWithRepositoryException {
 export interface MergeBranchesByFastForwardInput {
   __type?: "MergeBranchesByFastForwardInput";
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository where you want to merge two branches.</p>
-   *
+   * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The branch where the merge is applied.</p>
-   *
+   * <p>The branch where the merge is applied.</p>
    */
   targetBranch?: string;
 }
@@ -7754,16 +6359,12 @@ export namespace MergeBranchesByFastForwardInput {
 export interface MergeBranchesByFastForwardOutput extends $MetadataBearer {
   __type?: "MergeBranchesByFastForwardOutput";
   /**
-   *
-   *         <p>The commit ID of the merge in the destination or target branch.</p>
-   *
+   * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>The tree ID of the merge in the destination or target branch.</p>
-   *
+   * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
 }
@@ -7777,91 +6378,69 @@ export namespace MergeBranchesByFastForwardOutput {
 export interface MergeBranchesBySquashInput {
   __type?: "MergeBranchesBySquashInput";
   /**
-   *
-   *         <p>The name of the author who created the commit. This information is used as both the
+   * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
-   *
    */
   authorName?: string;
 
   /**
-   *
-   *         <p>The commit message for the merge.</p>
-   *
+   * <p>The commit message for the merge.</p>
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
-   *
    */
   conflictResolution?: ConflictResolution;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The email address of the person merging the branches. This information is used in the
+   * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
-   *
    */
   email?: string;
 
   /**
-   *
-   *         <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
    *             created for empty folders. The default is false.</p>
-   *
    */
   keepEmptyFolders?: boolean;
 
   /**
-   *
-   *         <p>The name of the repository where you want to merge two branches.</p>
-   *
+   * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The branch where the merge is applied. </p>
-   *
+   * <p>The branch where the merge is applied. </p>
    */
   targetBranch?: string;
 }
@@ -7875,16 +6454,12 @@ export namespace MergeBranchesBySquashInput {
 export interface MergeBranchesBySquashOutput extends $MetadataBearer {
   __type?: "MergeBranchesBySquashOutput";
   /**
-   *
-   *         <p>The commit ID of the merge in the destination or target branch.</p>
-   *
+   * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>The tree ID of the merge in the destination or target branch.</p>
-   *
+   * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
 }
@@ -7898,91 +6473,69 @@ export namespace MergeBranchesBySquashOutput {
 export interface MergeBranchesByThreeWayInput {
   __type?: "MergeBranchesByThreeWayInput";
   /**
-   *
-   *         <p>The name of the author who created the commit. This information is used as both the
+   * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
-   *
    */
   authorName?: string;
 
   /**
-   *
-   *         <p>The commit message to include in the commit information for the merge.</p>
-   *
+   * <p>The commit message to include in the commit information for the merge.</p>
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
-   *
    */
   conflictResolution?: ConflictResolution;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The email address of the person merging the branches. This information is used in the
+   * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
-   *
    */
   email?: string;
 
   /**
-   *
-   *         <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
    *             The default is false.</p>
-   *
    */
   keepEmptyFolders?: boolean;
 
   /**
-   *
-   *         <p>The name of the repository where you want to merge two branches.</p>
-   *
+   * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
-   *
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   *
-   *         <p>The branch where the merge is applied. </p>
-   *
+   * <p>The branch where the merge is applied. </p>
    */
   targetBranch?: string;
 }
@@ -7996,16 +6549,12 @@ export namespace MergeBranchesByThreeWayInput {
 export interface MergeBranchesByThreeWayOutput extends $MetadataBearer {
   __type?: "MergeBranchesByThreeWayOutput";
   /**
-   *
-   *         <p>The commit ID of the merge in the destination or target branch.</p>
-   *
+   * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>The tree ID of the merge in the destination or target branch.</p>
-   *
+   * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
 }
@@ -8017,41 +6566,31 @@ export namespace MergeBranchesByThreeWayOutput {
 }
 
 /**
- *
- *         <p>Information about merge hunks in a merge or pull request operation.</p>
- *
+ * <p>Information about merge hunks in a merge or pull request operation.</p>
  */
 export interface MergeHunk {
   __type?: "MergeHunk";
   /**
-   *
-   *         <p>Information about the merge hunk in the base of a merge or pull request.</p>
-   *
+   * <p>Information about the merge hunk in the base of a merge or pull request.</p>
    */
   base?: MergeHunkDetail;
 
   /**
-   *
-   *         <p>Information about the merge hunk in the destination of a merge or pull request.</p>
-   *
+   * <p>Information about the merge hunk in the destination of a merge or pull request.</p>
    */
   destination?: MergeHunkDetail;
 
   /**
-   *
-   *         <p>A Boolean value indicating whether a combination of hunks contains a conflict.
+   * <p>A Boolean value indicating whether a combination of hunks contains a conflict.
    *             Conflicts occur when the same file or the same lines in a file were modified in both the
    *             source and destination of a merge or pull request. Valid values include true, false, and
    *             null. True when the hunk represents a conflict and one or more files contains a line
    *             conflict. File mode conflicts in a merge do not set this to true.</p>
-   *
    */
   isConflict?: boolean;
 
   /**
-   *
-   *         <p>Information about the merge hunk in the source of a merge or pull request.</p>
-   *
+   * <p>Information about the merge hunk in the source of a merge or pull request.</p>
    */
   source?: MergeHunkDetail;
 }
@@ -8063,32 +6602,23 @@ export namespace MergeHunk {
 }
 
 /**
- *
- *         <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
- *
+ * <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
  */
 export interface MergeHunkDetail {
   __type?: "MergeHunkDetail";
   /**
-   *
-   *         <p>The end position of the hunk in the merge result.</p>
-   *
+   * <p>The end position of the hunk in the merge result.</p>
    */
   endLine?: number;
 
   /**
-   *
-   *         <p>The base-64 encoded content of the hunk merged region that might contain a
+   * <p>The base-64 encoded content of the hunk merged region that might contain a
    *             conflict.</p>
-   *
    */
   hunkContent?: string;
 
   /**
-   *
-   *         <p>The start position of the hunk in the merge result.</p>
-   *
-   *
+   * <p>The start position of the hunk in the merge result.</p>
    */
   startLine?: number;
 }
@@ -8100,37 +6630,27 @@ export namespace MergeHunkDetail {
 }
 
 /**
- *
- *         <p>Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.</p>
- *
+ * <p>Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.</p>
  */
 export interface MergeMetadata {
   __type?: "MergeMetadata";
   /**
-   *
-   *         <p>A Boolean value indicating whether the merge has been made.</p>
-   *
+   * <p>A Boolean value indicating whether the merge has been made.</p>
    */
   isMerged?: boolean;
 
   /**
-   *
-   *         <p>The commit ID for the merge commit, if any.</p>
-   *
+   * <p>The commit ID for the merge commit, if any.</p>
    */
   mergeCommitId?: string;
 
   /**
-   *
-   *         <p>The merge strategy used in the merge.</p>
-   *
+   * <p>The merge strategy used in the merge.</p>
    */
   mergeOption?: MergeOptionTypeEnum | string;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user who merged the branches.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the user who merged the branches.</p>
    */
   mergedBy?: string;
 }
@@ -8142,24 +6662,18 @@ export namespace MergeMetadata {
 }
 
 /**
- *
- *         <p>Information about the file operation conflicts in a merge operation.</p>
- *
+ * <p>Information about the file operation conflicts in a merge operation.</p>
  */
 export interface MergeOperations {
   __type?: "MergeOperations";
   /**
-   *
-   *         <p>The operation on a file in the destination of a merge or pull request.</p>
-   *
+   * <p>The operation on a file in the destination of a merge or pull request.</p>
    */
   destination?: ChangeTypeEnum | string;
 
   /**
-   *
-   *         <p>The operation (add, modify, or delete) on a file in the source of a merge or pull
+   * <p>The operation (add, modify, or delete) on a file in the source of a merge or pull
    *             request.</p>
-   *
    */
   source?: ChangeTypeEnum | string;
 }
@@ -8171,9 +6685,7 @@ export namespace MergeOperations {
 }
 
 /**
- *
- *         <p>A merge option or stategy is required, and none was provided.</p>
- *
+ * <p>A merge option or stategy is required, and none was provided.</p>
  */
 export interface MergeOptionRequiredException
   extends _smithy.SmithyException,
@@ -8182,9 +6694,7 @@ export interface MergeOptionRequiredException
   name: "MergeOptionRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8204,24 +6714,18 @@ export enum MergeOptionTypeEnum {
 export interface MergePullRequestByFastForwardInput {
   __type?: "MergePullRequestByFastForwardInput";
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository where the pull request was created.</p>
-   *
+   * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
+   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *         exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
-   *
    */
   sourceCommitId?: string;
 }
@@ -8235,9 +6739,7 @@ export namespace MergePullRequestByFastForwardInput {
 export interface MergePullRequestByFastForwardOutput extends $MetadataBearer {
   __type?: "MergePullRequestByFastForwardOutput";
   /**
-   *
-   *         <p>Information about the specified pull request, including the merge.</p>
-   *
+   * <p>Information about the specified pull request, including the merge.</p>
    */
   pullRequest?: PullRequest;
 }
@@ -8251,83 +6753,63 @@ export namespace MergePullRequestByFastForwardOutput {
 export interface MergePullRequestBySquashInput {
   __type?: "MergePullRequestBySquashInput";
   /**
-   *
-   *         <p>The name of the author who created the commit. This information is used as both the
+   * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
-   *
    */
   authorName?: string;
 
   /**
-   *
-   *         <p>The commit message to include in the commit information for the merge.</p>
-   *
+   * <p>The commit message to include in the commit information for the merge.</p>
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
-   *
    */
   conflictResolution?: ConflictResolution;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The email address of the person merging the branches. This information is used in the
+   * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
-   *
    */
   email?: string;
 
   /**
-   *
-   *         <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
    *             The default is false.</p>
-   *
    */
   keepEmptyFolders?: boolean;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository where the pull request was created.</p>
-   *
+   * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
+   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
-   *
    */
   sourceCommitId?: string;
 }
@@ -8341,9 +6823,7 @@ export namespace MergePullRequestBySquashInput {
 export interface MergePullRequestBySquashOutput extends $MetadataBearer {
   __type?: "MergePullRequestBySquashOutput";
   /**
-   *
-   *         <p>Returns information about a pull request.</p>
-   *
+   * <p>Returns information about a pull request.</p>
    */
   pullRequest?: PullRequest;
 }
@@ -8357,83 +6837,63 @@ export namespace MergePullRequestBySquashOutput {
 export interface MergePullRequestByThreeWayInput {
   __type?: "MergePullRequestByThreeWayInput";
   /**
-   *
-   *         <p>The name of the author who created the commit. This information is used as both the
+   * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
-   *
    */
   authorName?: string;
 
   /**
-   *
-   *         <p>The commit message to include in the commit information for the merge.</p>
-   *
+   * <p>The commit message to include in the commit information for the merge.</p>
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
-   *
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
-   *
-   *         <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
-   *
    */
   conflictResolution?: ConflictResolution;
 
   /**
-   *
-   *         <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
-   *
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
-   *
-   *         <p>The email address of the person merging the branches. This information is used in the
+   * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
-   *
    */
   email?: string;
 
   /**
-   *
-   *         <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
    *             The default is false.</p>
-   *
    */
   keepEmptyFolders?: boolean;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository where the pull request was created.</p>
-   *
+   * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
+   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
-   *
    */
   sourceCommitId?: string;
 }
@@ -8447,9 +6907,7 @@ export namespace MergePullRequestByThreeWayInput {
 export interface MergePullRequestByThreeWayOutput extends $MetadataBearer {
   __type?: "MergePullRequestByThreeWayOutput";
   /**
-   *
-   *         <p>Returns information about a pull request.</p>
-   *
+   * <p>Returns information about a pull request.</p>
    */
   pullRequest?: PullRequest;
 }
@@ -8461,9 +6919,7 @@ export namespace MergePullRequestByThreeWayOutput {
 }
 
 /**
- *
- *         <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
- *
+ * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
  */
 export interface MultipleConflictResolutionEntriesException
   extends _smithy.SmithyException,
@@ -8472,9 +6928,7 @@ export interface MultipleConflictResolutionEntriesException
   name: "MultipleConflictResolutionEntriesException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8486,9 +6940,7 @@ export namespace MultipleConflictResolutionEntriesException {
 }
 
 /**
- *
- *         <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
- *
+ * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
  */
 export interface MultipleRepositoriesInPullRequestException
   extends _smithy.SmithyException,
@@ -8497,9 +6949,7 @@ export interface MultipleRepositoriesInPullRequestException
   name: "MultipleRepositoriesInPullRequestException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8511,9 +6961,7 @@ export namespace MultipleRepositoriesInPullRequestException {
 }
 
 /**
- *
- *         <p>The user name is not valid because it has exceeded the character limit for author names. </p>
- *
+ * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
  */
 export interface NameLengthExceededException
   extends _smithy.SmithyException,
@@ -8522,9 +6970,7 @@ export interface NameLengthExceededException
   name: "NameLengthExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8536,9 +6982,7 @@ export namespace NameLengthExceededException {
 }
 
 /**
- *
- *         <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
- *
+ * <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
  */
 export interface NoChangeException
   extends _smithy.SmithyException,
@@ -8547,9 +6991,7 @@ export interface NoChangeException
   name: "NoChangeException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8561,9 +7003,7 @@ export namespace NoChangeException {
 }
 
 /**
- *
- *         <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
- *
+ * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  */
 export interface NumberOfRuleTemplatesExceededException
   extends _smithy.SmithyException,
@@ -8572,9 +7012,7 @@ export interface NumberOfRuleTemplatesExceededException
   name: "NumberOfRuleTemplatesExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8586,9 +7024,7 @@ export namespace NumberOfRuleTemplatesExceededException {
 }
 
 /**
- *
- *         <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
- *
+ * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  */
 export interface NumberOfRulesExceededException
   extends _smithy.SmithyException,
@@ -8597,9 +7033,7 @@ export interface NumberOfRulesExceededException
   name: "NumberOfRulesExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8618,31 +7052,22 @@ export enum ObjectTypeEnum {
 }
 
 /**
- *
- *         <p>Information about the type of an object in a merge operation.</p>
- *
+ * <p>Information about the type of an object in a merge operation.</p>
  */
 export interface ObjectTypes {
   __type?: "ObjectTypes";
   /**
-   *
-   *         <p>The type of the object in the base commit of the merge.</p>
-   *
-   *
+   * <p>The type of the object in the base commit of the merge.</p>
    */
   base?: ObjectTypeEnum | string;
 
   /**
-   *
-   *         <p>The type of the object in the destination branch.</p>
-   *
+   * <p>The type of the object in the destination branch.</p>
    */
   destination?: ObjectTypeEnum | string;
 
   /**
-   *
-   *         <p>The type of the object in the source branch.</p>
-   *
+   * <p>The type of the object in the source branch.</p>
    */
   source?: ObjectTypeEnum | string;
 }
@@ -8659,23 +7084,17 @@ export enum OrderEnum {
 }
 
 /**
- *
- *         <p>Returns information about the template that created the approval rule for a pull request.</p>
- *
+ * <p>Returns information about the template that created the approval rule for a pull request.</p>
  */
 export interface OriginApprovalRuleTemplate {
   __type?: "OriginApprovalRuleTemplate";
   /**
-   *
-   *         <p>The ID of the template that created the approval rule.</p>
-   *
+   * <p>The ID of the template that created the approval rule.</p>
    */
   approvalRuleTemplateId?: string;
 
   /**
-   *
-   *         <p>The name of the template that created the approval rule.</p>
-   *
+   * <p>The name of the template that created the approval rule.</p>
    */
   approvalRuleTemplateName?: string;
 }
@@ -8687,9 +7106,7 @@ export namespace OriginApprovalRuleTemplate {
 }
 
 /**
- *
- *         <p>The pull request has already had its approval rules set to override.</p>
- *
+ * <p>The pull request has already had its approval rules set to override.</p>
  */
 export interface OverrideAlreadySetException
   extends _smithy.SmithyException,
@@ -8698,9 +7115,7 @@ export interface OverrideAlreadySetException
   name: "OverrideAlreadySetException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8714,27 +7129,21 @@ export namespace OverrideAlreadySetException {
 export interface OverridePullRequestApprovalRulesInput {
   __type?: "OverridePullRequestApprovalRulesInput";
   /**
-   *
-   *         <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
+   * <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
    *         approval rule requirements (REVOKE). REVOKE status is not stored.</p>
-   *
    */
   overrideStatus: OverrideStatus | string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request for which you want to override all
+   * <p>The system-generated ID of the pull request for which you want to override all
    *             approval rule requirements. To get this information, use
    *             <a>GetPullRequest</a>.</p>
-   *
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
+   * <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
    *             To get the revision ID, use GetPullRequest.</p>
-   *
    */
   revisionId: string | undefined;
 }
@@ -8751,9 +7160,7 @@ export enum OverrideStatus {
 }
 
 /**
- *
- *         <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
- *
+ * <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
  */
 export interface OverrideStatusRequiredException
   extends _smithy.SmithyException,
@@ -8762,9 +7169,7 @@ export interface OverrideStatusRequiredException
   name: "OverrideStatusRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8776,9 +7181,7 @@ export namespace OverrideStatusRequiredException {
 }
 
 /**
- *
- *         <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
- *
+ * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
  */
 export interface ParentCommitDoesNotExistException
   extends _smithy.SmithyException,
@@ -8787,9 +7190,7 @@ export interface ParentCommitDoesNotExistException
   name: "ParentCommitDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8801,10 +7202,8 @@ export namespace ParentCommitDoesNotExistException {
 }
 
 /**
- *
- *         <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
+ * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
  *         of the branch, use <a>GetBranch</a>.</p>
- *
  */
 export interface ParentCommitIdOutdatedException
   extends _smithy.SmithyException,
@@ -8813,9 +7212,7 @@ export interface ParentCommitIdOutdatedException
   name: "ParentCommitIdOutdatedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8827,10 +7224,8 @@ export namespace ParentCommitIdOutdatedException {
 }
 
 /**
- *
- *         <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
+ * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
  *         (for example, git pull or git log).</p>
- *
  */
 export interface ParentCommitIdRequiredException
   extends _smithy.SmithyException,
@@ -8839,9 +7234,7 @@ export interface ParentCommitIdRequiredException
   name: "ParentCommitIdRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8853,9 +7246,7 @@ export namespace ParentCommitIdRequiredException {
 }
 
 /**
- *
- *         <p>The specified path does not exist.</p>
- *
+ * <p>The specified path does not exist.</p>
  */
 export interface PathDoesNotExistException
   extends _smithy.SmithyException,
@@ -8864,9 +7255,7 @@ export interface PathDoesNotExistException
   name: "PathDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8878,9 +7267,7 @@ export namespace PathDoesNotExistException {
 }
 
 /**
- *
- *         <p>The folderPath for a location cannot be null.</p>
- *
+ * <p>The folderPath for a location cannot be null.</p>
  */
 export interface PathRequiredException
   extends _smithy.SmithyException,
@@ -8889,9 +7276,7 @@ export interface PathRequiredException
   name: "PathRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -8905,50 +7290,38 @@ export namespace PathRequiredException {
 export interface PostCommentForComparedCommitInput {
   __type?: "PostCommentForComparedCommitInput";
   /**
-   *
-   *         <p>To establish the directionality of the comparison, the full commit ID of the after
+   * <p>To establish the directionality of the comparison, the full commit ID of the after
    *             commit.</p>
-   *
    */
   afterCommitId: string | undefined;
 
   /**
-   *
-   *         <p>To establish the directionality of the comparison, the full commit ID of the before
+   * <p>To establish the directionality of the comparison, the full commit ID of the before
    *             commit. Required for commenting on any commit unless that commit is the initial
    *             commit.</p>
-   *
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *         <p>The content of the comment you want to make.</p>
-   *
+   * <p>The content of the comment you want to make.</p>
    */
   content: string | undefined;
 
   /**
-   *
-   *         <p>The location of the comparison where you want to comment.</p>
-   *
+   * <p>The location of the comparison where you want to comment.</p>
    */
   location?: Location;
 
   /**
-   *
-   *         <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
-   *
+   * <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
    */
   repositoryName: string | undefined;
 }
@@ -8962,51 +7335,37 @@ export namespace PostCommentForComparedCommitInput {
 export interface PostCommentForComparedCommitOutput extends $MetadataBearer {
   __type?: "PostCommentForComparedCommitOutput";
   /**
-   *
-   *         <p>In the directionality you established, the blob ID of the after blob.</p>
-   *
+   * <p>In the directionality you established, the blob ID of the after blob.</p>
    */
   afterBlobId?: string;
 
   /**
-   *
-   *         <p>In the directionality you established, the full commit ID of the after commit.</p>
-   *
+   * <p>In the directionality you established, the full commit ID of the after commit.</p>
    */
   afterCommitId?: string;
 
   /**
-   *
-   *         <p>In the directionality you established, the blob ID of the before blob.</p>
-   *
+   * <p>In the directionality you established, the blob ID of the before blob.</p>
    */
   beforeBlobId?: string;
 
   /**
-   *
-   *         <p>In the directionality you established, the full commit ID of the before commit.</p>
-   *
+   * <p>In the directionality you established, the full commit ID of the before commit.</p>
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>The content of the comment you posted.</p>
-   *
+   * <p>The content of the comment you posted.</p>
    */
   comment?: Comment;
 
   /**
-   *
-   *         <p>The location of the comment in the comparison between the two commits.</p>
-   *
+   * <p>The location of the comment in the comparison between the two commits.</p>
    */
   location?: Location;
 
   /**
-   *
-   *         <p>The name of the repository where you posted a comment on the comparison between commits.</p>
-   *
+   * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
    */
   repositoryName?: string;
 }
@@ -9020,56 +7379,42 @@ export namespace PostCommentForComparedCommitOutput {
 export interface PostCommentForPullRequestInput {
   __type?: "PostCommentForPullRequestInput";
   /**
-   *
-   *         <p>The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.</p>
-   *
+   * <p>The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.</p>
    */
   afterCommitId: string | undefined;
 
   /**
-   *
-   *         <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
-   *
+   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
    */
   beforeCommitId: string | undefined;
 
   /**
-   *
-   *         <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *         <p>The content of your comment on the change.</p>
-   *
+   * <p>The content of your comment on the change.</p>
    */
   content: string | undefined;
 
   /**
-   *
-   *         <p>The location of the change where you want to post your comment. If no location is
+   * <p>The location of the change where you want to post your comment. If no location is
    *             provided, the comment is posted as a general comment on the pull request difference
    *             between the before commit ID and the after commit ID.</p>
-   *
    */
   location?: Location;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository where you want to post a comment on a pull request.</p>
-   *
+   * <p>The name of the repository where you want to post a comment on a pull request.</p>
    */
   repositoryName: string | undefined;
 }
@@ -9083,60 +7428,44 @@ export namespace PostCommentForPullRequestInput {
 export interface PostCommentForPullRequestOutput extends $MetadataBearer {
   __type?: "PostCommentForPullRequestOutput";
   /**
-   *
-   *         <p>In the directionality of the pull request, the blob ID of the after blob.</p>
-   *
+   * <p>In the directionality of the pull request, the blob ID of the after blob.</p>
    */
   afterBlobId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit in the destination branch where the pull request is
+   * <p>The full commit ID of the commit in the destination branch where the pull request is
    *             merged.</p>
-   *
    */
   afterCommitId?: string;
 
   /**
-   *
-   *         <p>In the directionality of the pull request, the blob ID of the before blob.</p>
-   *
+   * <p>In the directionality of the pull request, the blob ID of the before blob.</p>
    */
   beforeBlobId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit in the source branch used to create the pull request,
+   * <p>The full commit ID of the commit in the source branch used to create the pull request,
    *             or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.</p>
-   *
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>The content of the comment you posted.</p>
-   *
+   * <p>The content of the comment you posted.</p>
    */
   comment?: Comment;
 
   /**
-   *
-   *         <p>The location of the change where you posted your comment.</p>
-   *
+   * <p>The location of the change where you posted your comment.</p>
    */
   location?: Location;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. </p>
-   *
+   * <p>The system-generated ID of the pull request. </p>
    */
   pullRequestId?: string;
 
   /**
-   *
-   *         <p>The name of the repository where you posted a comment on a pull request.</p>
-   *
+   * <p>The name of the repository where you posted a comment on a pull request.</p>
    */
   repositoryName?: string;
 }
@@ -9150,27 +7479,21 @@ export namespace PostCommentForPullRequestOutput {
 export interface PostCommentReplyInput {
   __type?: "PostCommentReplyInput";
   /**
-   *
-   *         <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *         <p>The contents of your reply to a comment.</p>
-   *
+   * <p>The contents of your reply to a comment.</p>
    */
   content: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
+   * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
    *         or <a>GetCommentsForPullRequest</a>.</p>
-   *
    */
   inReplyTo: string | undefined;
 }
@@ -9184,9 +7507,7 @@ export namespace PostCommentReplyInput {
 export interface PostCommentReplyOutput extends $MetadataBearer {
   __type?: "PostCommentReplyOutput";
   /**
-   *
-   *         <p>Information about the reply to a comment.</p>
-   *
+   * <p>Information about the reply to a comment.</p>
    */
   comment?: Comment;
 }
@@ -9198,90 +7519,66 @@ export namespace PostCommentReplyOutput {
 }
 
 /**
- *
- *         <p>Returns information about a pull request.</p>
- *
+ * <p>Returns information about a pull request.</p>
  */
 export interface PullRequest {
   __type?: "PullRequest";
   /**
-   *
-   *         <p>The approval rules applied to the pull request.</p>
-   *
+   * <p>The approval rules applied to the pull request.</p>
    */
   approvalRules?: Array<ApprovalRule>;
 
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user who created the pull request.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the user who created the pull request.</p>
    */
   authorArn?: string;
 
   /**
-   *
-   *         <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
-   *
    */
   clientRequestToken?: string;
 
   /**
-   *
-   *         <p>The date and time the pull request was originally created, in timestamp format.</p>
-   *
+   * <p>The date and time the pull request was originally created, in timestamp format.</p>
    */
   creationDate?: Date;
 
   /**
-   *
-   *         <p>The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.</p>
-   *
+   * <p>The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The day and time of the last user or system activity on the pull request, in timestamp format.</p>
-   *
+   * <p>The day and time of the last user or system activity on the pull request, in timestamp format.</p>
    */
   lastActivityDate?: Date;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. </p>
-   *
+   * <p>The system-generated ID of the pull request. </p>
    */
   pullRequestId?: string;
 
   /**
-   *
-   *         <p>The status of the pull request. Pull request status can only change from <code>OPEN</code> to <code>CLOSED</code>.</p>
-   *
+   * <p>The status of the pull request. Pull request status can only change from <code>OPEN</code> to <code>CLOSED</code>.</p>
    */
   pullRequestStatus?: PullRequestStatusEnum | string;
 
   /**
-   *
-   *         <p>The targets of the pull request, including the source branch and destination branch for the pull request.</p>
-   *
+   * <p>The targets of the pull request, including the source branch and destination branch for the pull request.</p>
    */
   pullRequestTargets?: Array<PullRequestTarget>;
 
   /**
-   *
-   *         <p>The system-generated revision ID for the pull request.</p>
-   *
+   * <p>The system-generated revision ID for the pull request.</p>
    */
   revisionId?: string;
 
   /**
-   *
-   *         <p>The user-defined title of the pull request. This title is displayed in the list of
+   * <p>The user-defined title of the pull request. This title is displayed in the list of
    *             pull requests to other repository users.</p>
-   *
    */
   title?: string;
 }
@@ -9293,9 +7590,7 @@ export namespace PullRequest {
 }
 
 /**
- *
- *         <p>The pull request status cannot be updated because it is already closed.</p>
- *
+ * <p>The pull request status cannot be updated because it is already closed.</p>
  */
 export interface PullRequestAlreadyClosedException
   extends _smithy.SmithyException,
@@ -9304,9 +7599,7 @@ export interface PullRequestAlreadyClosedException
   name: "PullRequestAlreadyClosedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -9318,9 +7611,7 @@ export namespace PullRequestAlreadyClosedException {
 }
 
 /**
- *
- *         <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
- *
+ * <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
  */
 export interface PullRequestApprovalRulesNotSatisfiedException
   extends _smithy.SmithyException,
@@ -9329,9 +7620,7 @@ export interface PullRequestApprovalRulesNotSatisfiedException
   name: "PullRequestApprovalRulesNotSatisfiedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -9345,10 +7634,8 @@ export namespace PullRequestApprovalRulesNotSatisfiedException {
 }
 
 /**
- *
- *         <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull
+ * <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull
  *         request that you created.</p>
- *
  */
 export interface PullRequestCannotBeApprovedByAuthorException
   extends _smithy.SmithyException,
@@ -9357,9 +7644,7 @@ export interface PullRequestCannotBeApprovedByAuthorException
   name: "PullRequestCannotBeApprovedByAuthorException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -9373,37 +7658,27 @@ export namespace PullRequestCannotBeApprovedByAuthorException {
 }
 
 /**
- *
- *         <p>Metadata about the pull request that is used when comparing the pull request source with its destination.</p>
- *
+ * <p>Metadata about the pull request that is used when comparing the pull request source with its destination.</p>
  */
 export interface PullRequestCreatedEventMetadata {
   __type?: "PullRequestCreatedEventMetadata";
   /**
-   *
-   *         <p>The commit ID of the tip of the branch specified as the destination branch when the pull request was created.</p>
-   *
+   * <p>The commit ID of the tip of the branch specified as the destination branch when the pull request was created.</p>
    */
   destinationCommitId?: string;
 
   /**
-   *
-   *         <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
-   *
+   * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
    */
   mergeBase?: string;
 
   /**
-   *
-   *         <p>The name of the repository where the pull request was created.</p>
-   *
+   * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName?: string;
 
   /**
-   *
-   *         <p>The commit ID on the source branch used when the pull request was created.</p>
-   *
+   * <p>The commit ID on the source branch used when the pull request was created.</p>
    */
   sourceCommitId?: string;
 }
@@ -9415,9 +7690,7 @@ export namespace PullRequestCreatedEventMetadata {
 }
 
 /**
- *
- *         <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
- *
+ * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
  */
 export interface PullRequestDoesNotExistException
   extends _smithy.SmithyException,
@@ -9426,9 +7699,7 @@ export interface PullRequestDoesNotExistException
   name: "PullRequestDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -9440,90 +7711,66 @@ export namespace PullRequestDoesNotExistException {
 }
 
 /**
- *
- *         <p>Returns information about a pull request event.</p>
- *
+ * <p>Returns information about a pull request event.</p>
  */
 export interface PullRequestEvent {
   __type?: "PullRequestEvent";
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
+   * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
    *             Examples include updating the pull request with more commits or changing the status of a
    *             pull request.</p>
-   *
    */
   actorArn?: string;
 
   /**
-   *
-   *         <p>Information about a pull request event.</p>
-   *
+   * <p>Information about a pull request event.</p>
    */
   approvalRuleEventMetadata?: ApprovalRuleEventMetadata;
 
   /**
-   *
-   *         <p>Information about an approval rule override event for a pull request.</p>
-   *
+   * <p>Information about an approval rule override event for a pull request.</p>
    */
   approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata;
 
   /**
-   *
-   *         <p>Information about an approval state change for a pull request.</p>
-   *
+   * <p>Information about an approval state change for a pull request.</p>
    */
   approvalStateChangedEventMetadata?: ApprovalStateChangedEventMetadata;
 
   /**
-   *
-   *         <p>The day and time of the pull request event, in timestamp format.</p>
-   *
+   * <p>The day and time of the pull request event, in timestamp format.</p>
    */
   eventDate?: Date;
 
   /**
-   *
-   *         <p>Information about the source and destination branches for the pull request.</p>
-   *
+   * <p>Information about the source and destination branches for the pull request.</p>
    */
   pullRequestCreatedEventMetadata?: PullRequestCreatedEventMetadata;
 
   /**
-   *
-   *         <p>The type of the pull request event (for example, a status change event
+   * <p>The type of the pull request event (for example, a status change event
    *             (PULL_REQUEST_STATUS_CHANGED) or update event
    *             (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).</p>
-   *
    */
   pullRequestEventType?: PullRequestEventType | string;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request.</p>
-   *
+   * <p>The system-generated ID of the pull request.</p>
    */
   pullRequestId?: string;
 
   /**
-   *
-   *         <p>Information about the change in mergability state for the pull request event.</p>
-   *
+   * <p>Information about the change in mergability state for the pull request event.</p>
    */
   pullRequestMergedStateChangedEventMetadata?: PullRequestMergedStateChangedEventMetadata;
 
   /**
-   *
-   *         <p>Information about the updated source branch for the pull request event. </p>
-   *
+   * <p>Information about the updated source branch for the pull request event. </p>
    */
   pullRequestSourceReferenceUpdatedEventMetadata?: PullRequestSourceReferenceUpdatedEventMetadata;
 
   /**
-   *
-   *         <p>Information about the change in status for the pull request event.</p>
-   *
+   * <p>Information about the change in status for the pull request event.</p>
    */
   pullRequestStatusChangedEventMetadata?: PullRequestStatusChangedEventMetadata;
 }
@@ -9547,9 +7794,7 @@ export enum PullRequestEventType {
 }
 
 /**
- *
- *         <p>A pull request ID is required, but none was provided.</p>
- *
+ * <p>A pull request ID is required, but none was provided.</p>
  */
 export interface PullRequestIdRequiredException
   extends _smithy.SmithyException,
@@ -9558,9 +7803,7 @@ export interface PullRequestIdRequiredException
   name: "PullRequestIdRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -9572,30 +7815,22 @@ export namespace PullRequestIdRequiredException {
 }
 
 /**
- *
- *         <p>Returns information about the change in the merge state for a pull request event. </p>
- *
+ * <p>Returns information about the change in the merge state for a pull request event. </p>
  */
 export interface PullRequestMergedStateChangedEventMetadata {
   __type?: "PullRequestMergedStateChangedEventMetadata";
   /**
-   *
-   *         <p>The name of the branch that the pull request is merged into.</p>
-   *
+   * <p>The name of the branch that the pull request is merged into.</p>
    */
   destinationReference?: string;
 
   /**
-   *
-   *         <p>Information about the merge state change event.</p>
-   *
+   * <p>Information about the merge state change event.</p>
    */
   mergeMetadata?: MergeMetadata;
 
   /**
-   *
-   *         <p>The name of the repository where the pull request was created.</p>
-   *
+   * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName?: string;
 }
@@ -9607,37 +7842,27 @@ export namespace PullRequestMergedStateChangedEventMetadata {
 }
 
 /**
- *
- *         <p>Information about an update to the source branch of a pull request.</p>
- *
+ * <p>Information about an update to the source branch of a pull request.</p>
  */
 export interface PullRequestSourceReferenceUpdatedEventMetadata {
   __type?: "PullRequestSourceReferenceUpdatedEventMetadata";
   /**
-   *
-   *         <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.</p>
-   *
+   * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.</p>
    */
   afterCommitId?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.</p>
-   *
+   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.</p>
    */
   beforeCommitId?: string;
 
   /**
-   *
-   *         <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
-   *
+   * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
    */
   mergeBase?: string;
 
   /**
-   *
-   *         <p>The name of the repository where the pull request was updated.</p>
-   *
+   * <p>The name of the repository where the pull request was updated.</p>
    */
   repositoryName?: string;
 }
@@ -9651,16 +7876,12 @@ export namespace PullRequestSourceReferenceUpdatedEventMetadata {
 }
 
 /**
- *
- *         <p>Information about a change to the status of a pull request.</p>
- *
+ * <p>Information about a change to the status of a pull request.</p>
  */
 export interface PullRequestStatusChangedEventMetadata {
   __type?: "PullRequestStatusChangedEventMetadata";
   /**
-   *
-   *         <p>The changed status of the pull request.</p>
-   *
+   * <p>The changed status of the pull request.</p>
    */
   pullRequestStatus?: PullRequestStatusEnum | string;
 }
@@ -9677,9 +7898,7 @@ export enum PullRequestStatusEnum {
 }
 
 /**
- *
- *         <p>A pull request status is required, but none was provided.</p>
- *
+ * <p>A pull request status is required, but none was provided.</p>
  */
 export interface PullRequestStatusRequiredException
   extends _smithy.SmithyException,
@@ -9688,9 +7907,7 @@ export interface PullRequestStatusRequiredException
   name: "PullRequestStatusRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -9702,61 +7919,45 @@ export namespace PullRequestStatusRequiredException {
 }
 
 /**
- *
- *         <p>Returns information about a pull request target.</p>
- *
+ * <p>Returns information about a pull request target.</p>
  */
 export interface PullRequestTarget {
   __type?: "PullRequestTarget";
   /**
-   *
-   *         <p>The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.</p>
-   *
+   * <p>The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.</p>
    */
   destinationCommit?: string;
 
   /**
-   *
-   *         <p>The branch of the repository where the pull request changes are merged. Also known as
+   * <p>The branch of the repository where the pull request changes are merged. Also known as
    *             the destination branch. </p>
-   *
    */
   destinationReference?: string;
 
   /**
-   *
-   *         <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
-   *
+   * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
    */
   mergeBase?: string;
 
   /**
-   *
-   *         <p>Returns metadata about the state of the merge, including whether the merge has been made.</p>
-   *
+   * <p>Returns metadata about the state of the merge, including whether the merge has been made.</p>
    */
   mergeMetadata?: MergeMetadata;
 
   /**
-   *
-   *         <p>The name of the repository that contains the pull request source and destination branches.</p>
-   *
+   * <p>The name of the repository that contains the pull request source and destination branches.</p>
    */
   repositoryName?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the tip of the source branch used to create the pull request. If
+   * <p>The full commit ID of the tip of the source branch used to create the pull request. If
    *             the pull request branch is updated by a push while the pull request is open, the commit
    *             ID changes to reflect the new tip of the branch.</p>
-   *
    */
   sourceCommit?: string;
 
   /**
-   *
-   *         <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
-   *
+   * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
    */
   sourceReference?: string;
 }
@@ -9768,38 +7969,28 @@ export namespace PullRequestTarget {
 }
 
 /**
- *
- *         <p>Information about a file added or updated as part of a commit.</p>
- *
+ * <p>Information about a file added or updated as part of a commit.</p>
  */
 export interface PutFileEntry {
   __type?: "PutFileEntry";
   /**
-   *
-   *         <p>The content of the file, if a source file is not specified.</p>
-   *
+   * <p>The content of the file, if a source file is not specified.</p>
    */
   fileContent?: Uint8Array;
 
   /**
-   *
-   *         <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
-   *
+   * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    */
   fileMode?: FileModeTypeEnum | string;
 
   /**
-   *
-   *         <p>The full path to the file in the repository, including the name of the file.</p>
-   *
+   * <p>The full path to the file in the repository, including the name of the file.</p>
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The name and full path of the file that contains the changes you want to make as part of the commit,
+   * <p>The name and full path of the file that contains the changes you want to make as part of the commit,
    *         if you are not providing the file content directly.</p>
-   *
    */
   sourceFile?: SourceFileSpecifier;
 }
@@ -9811,9 +8002,7 @@ export namespace PutFileEntry {
 }
 
 /**
- *
- *         <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
- *
+ * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
  */
 export interface PutFileEntryConflictException
   extends _smithy.SmithyException,
@@ -9822,9 +8011,7 @@ export interface PutFileEntryConflictException
   name: "PutFileEntryConflictException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -9838,77 +8025,58 @@ export namespace PutFileEntryConflictException {
 export interface PutFileInput {
   __type?: "PutFileInput";
   /**
-   *
-   *         <p>The name of the branch where you want to add or update the file. If this is an empty
+   * <p>The name of the branch where you want to add or update the file. If this is an empty
    *             repository, this branch is created.</p>
-   *
    */
   branchName: string | undefined;
 
   /**
-   *
-   *         <p>A message about why this file was added or updated. Although it is optional, a message
+   * <p>A message about why this file was added or updated. Although it is optional, a message
    *             makes the commit history for your repository more useful.</p>
-   *
    */
   commitMessage?: string;
 
   /**
-   *
-   *         <p>An email address for the person adding or updating the file.</p>
-   *
+   * <p>An email address for the person adding or updating the file.</p>
    */
   email?: string;
 
   /**
-   *
-   *         <p>The content of the file, in binary object format. </p>
-   *
-   *
+   * <p>The content of the file, in binary object format. </p>
    */
   fileContent: Uint8Array | undefined;
 
   /**
-   *
-   *         <p>The file mode permissions of the blob. Valid file mode permissions are listed
+   * <p>The file mode permissions of the blob. Valid file mode permissions are listed
    *             here.</p>
-   *
    */
   fileMode?: FileModeTypeEnum | string;
 
   /**
-   *
-   *         <p>The name of the file you want to add or update, including the relative path to the file in the repository.</p>
+   * <p>The name of the file you want to add or update, including the relative path to the file in the repository.</p>
    *         <note>
    *             <p>If the path does not currently exist in the repository, the path is created as part of adding
    *                 the file.</p>
    *          </note>
-   *
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The name of the person adding or updating the file. Although it is optional, a name
+   * <p>The name of the person adding or updating the file. Although it is optional, a name
    *             makes the commit history for your repository more useful.</p>
-   *
    */
   name?: string;
 
   /**
-   *
-   *         <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
+   * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
    *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
    *         <p>The commit ID must match the ID of the head commit at the time of the operation.
    *             Otherwise, an error occurs, and the file is not added or updated.</p>
-   *
    */
   parentCommitId?: string;
 
   /**
-   *
-   *         <p>The name of the repository where you want to add or update the file.</p>
-   *
+   * <p>The name of the repository where you want to add or update the file.</p>
    */
   repositoryName: string | undefined;
 }
@@ -9922,23 +8090,17 @@ export namespace PutFileInput {
 export interface PutFileOutput extends $MetadataBearer {
   __type?: "PutFileOutput";
   /**
-   *
-   *         <p>The ID of the blob, which is its SHA-1 pointer.</p>
-   *
+   * <p>The ID of the blob, which is its SHA-1 pointer.</p>
    */
   blobId: string | undefined;
 
   /**
-   *
-   *         <p>The full SHA ID of the commit that contains this file change.</p>
-   *
+   * <p>The full SHA ID of the commit that contains this file change.</p>
    */
   commitId: string | undefined;
 
   /**
-   *
-   *         <p>The full SHA-1 pointer of the tree information for the commit that contains this file change.</p>
-   *
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains this file change.</p>
    */
   treeId: string | undefined;
 }
@@ -9950,23 +8112,17 @@ export namespace PutFileOutput {
 }
 
 /**
- *
- *         <p>Represents the input of a put repository triggers operation.</p>
- *
+ * <p>Represents the input of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersInput {
   __type?: "PutRepositoryTriggersInput";
   /**
-   *
-   *         <p>The name of the repository where you want to create or update the trigger.</p>
-   *
+   * <p>The name of the repository where you want to create or update the trigger.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The JSON block of configuration information for each trigger.</p>
-   *
+   * <p>The JSON block of configuration information for each trigger.</p>
    */
   triggers: Array<RepositoryTrigger> | undefined;
 }
@@ -9978,16 +8134,12 @@ export namespace PutRepositoryTriggersInput {
 }
 
 /**
- *
- *         <p>Represents the output of a put repository triggers operation.</p>
- *
+ * <p>Represents the output of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersOutput extends $MetadataBearer {
   __type?: "PutRepositoryTriggersOutput";
   /**
-   *
-   *         <p>The system-generated unique ID for the create or update operation.</p>
-   *
+   * <p>The system-generated unique ID for the create or update operation.</p>
    */
   configurationId?: string;
 }
@@ -9999,9 +8151,7 @@ export namespace PutRepositoryTriggersOutput {
 }
 
 /**
- *
- *         <p>The specified reference does not exist. You must provide a full commit ID.</p>
- *
+ * <p>The specified reference does not exist. You must provide a full commit ID.</p>
  */
 export interface ReferenceDoesNotExistException
   extends _smithy.SmithyException,
@@ -10010,9 +8160,7 @@ export interface ReferenceDoesNotExistException
   name: "ReferenceDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10024,9 +8172,7 @@ export namespace ReferenceDoesNotExistException {
 }
 
 /**
- *
- *         <p>A reference name is required, but none was provided.</p>
- *
+ * <p>A reference name is required, but none was provided.</p>
  */
 export interface ReferenceNameRequiredException
   extends _smithy.SmithyException,
@@ -10035,9 +8181,7 @@ export interface ReferenceNameRequiredException
   name: "ReferenceNameRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10049,9 +8193,7 @@ export namespace ReferenceNameRequiredException {
 }
 
 /**
- *
- *         <p>The specified reference is not a supported type. </p>
- *
+ * <p>The specified reference is not a supported type. </p>
  */
 export interface ReferenceTypeNotSupportedException
   extends _smithy.SmithyException,
@@ -10060,9 +8202,7 @@ export interface ReferenceTypeNotSupportedException
   name: "ReferenceTypeNotSupportedException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10079,37 +8219,27 @@ export enum RelativeFileVersionEnum {
 }
 
 /**
- *
- *         <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
- *
+ * <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
  */
 export interface ReplaceContentEntry {
   __type?: "ReplaceContentEntry";
   /**
-   *
-   *         <p>The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.</p>
-   *
+   * <p>The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.</p>
    */
   content?: Uint8Array;
 
   /**
-   *
-   *         <p>The file mode to apply during conflict resoltion.</p>
-   *
+   * <p>The file mode to apply during conflict resoltion.</p>
    */
   fileMode?: FileModeTypeEnum | string;
 
   /**
-   *
-   *         <p>The path of the conflicting file.</p>
-   *
+   * <p>The path of the conflicting file.</p>
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>The replacement type to use when determining how to resolve the conflict.</p>
-   *
+   * <p>The replacement type to use when determining how to resolve the conflict.</p>
    */
   replacementType: ReplacementTypeEnum | string | undefined;
 }
@@ -10121,9 +8251,7 @@ export namespace ReplaceContentEntry {
 }
 
 /**
- *
- *         <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
- *
+ * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
  */
 export interface ReplacementContentRequiredException
   extends _smithy.SmithyException,
@@ -10132,9 +8260,7 @@ export interface ReplacementContentRequiredException
   name: "ReplacementContentRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10153,9 +8279,7 @@ export enum ReplacementTypeEnum {
 }
 
 /**
- *
- *         <p>A replacement type is required.</p>
- *
+ * <p>A replacement type is required.</p>
  */
 export interface ReplacementTypeRequiredException
   extends _smithy.SmithyException,
@@ -10164,9 +8288,7 @@ export interface ReplacementTypeRequiredException
   name: "ReplacementTypeRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10178,9 +8300,7 @@ export namespace ReplacementTypeRequiredException {
 }
 
 /**
- *
- *         <p>The specified repository does not exist.</p>
- *
+ * <p>The specified repository does not exist.</p>
  */
 export interface RepositoryDoesNotExistException
   extends _smithy.SmithyException,
@@ -10189,9 +8309,7 @@ export interface RepositoryDoesNotExistException
   name: "RepositoryDoesNotExistException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10203,9 +8321,7 @@ export namespace RepositoryDoesNotExistException {
 }
 
 /**
- *
- *         <p>A repository resource limit was exceeded.</p>
- *
+ * <p>A repository resource limit was exceeded.</p>
  */
 export interface RepositoryLimitExceededException
   extends _smithy.SmithyException,
@@ -10214,9 +8330,7 @@ export interface RepositoryLimitExceededException
   name: "RepositoryLimitExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10228,79 +8342,57 @@ export namespace RepositoryLimitExceededException {
 }
 
 /**
- *
- *         <p>Information about a repository.</p>
- *
+ * <p>Information about a repository.</p>
  */
 export interface RepositoryMetadata {
   __type?: "RepositoryMetadata";
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the repository.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the repository.</p>
    */
   Arn?: string;
 
   /**
-   *
-   *         <p>The ID of the AWS account associated with the repository.</p>
-   *
+   * <p>The ID of the AWS account associated with the repository.</p>
    */
   accountId?: string;
 
   /**
-   *
-   *         <p>The URL to use for cloning the repository over HTTPS.</p>
-   *
+   * <p>The URL to use for cloning the repository over HTTPS.</p>
    */
   cloneUrlHttp?: string;
 
   /**
-   *
-   *         <p>The URL to use for cloning the repository over SSH.</p>
-   *
+   * <p>The URL to use for cloning the repository over SSH.</p>
    */
   cloneUrlSsh?: string;
 
   /**
-   *
-   *         <p>The date and time the repository was created, in timestamp format.</p>
-   *
+   * <p>The date and time the repository was created, in timestamp format.</p>
    */
   creationDate?: Date;
 
   /**
-   *
-   *         <p>The repository's default branch name.</p>
-   *
+   * <p>The repository's default branch name.</p>
    */
   defaultBranch?: string;
 
   /**
-   *
-   *         <p>The date and time the repository was last modified, in timestamp format.</p>
-   *
+   * <p>The date and time the repository was last modified, in timestamp format.</p>
    */
   lastModifiedDate?: Date;
 
   /**
-   *
-   *         <p>A comment or description about the repository.</p>
-   *
+   * <p>A comment or description about the repository.</p>
    */
   repositoryDescription?: string;
 
   /**
-   *
-   *         <p>The ID of the repository.</p>
-   *
+   * <p>The ID of the repository.</p>
    */
   repositoryId?: string;
 
   /**
-   *
-   *         <p>The repository's name.</p>
-   *
+   * <p>The repository's name.</p>
    */
   repositoryName?: string;
 }
@@ -10312,9 +8404,7 @@ export namespace RepositoryMetadata {
 }
 
 /**
- *
- *         <p>The specified repository name already exists.</p>
- *
+ * <p>The specified repository name already exists.</p>
  */
 export interface RepositoryNameExistsException
   extends _smithy.SmithyException,
@@ -10323,9 +8413,7 @@ export interface RepositoryNameExistsException
   name: "RepositoryNameExistsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10337,23 +8425,17 @@ export namespace RepositoryNameExistsException {
 }
 
 /**
- *
- *         <p>Information about a repository name and ID.</p>
- *
+ * <p>Information about a repository name and ID.</p>
  */
 export interface RepositoryNameIdPair {
   __type?: "RepositoryNameIdPair";
   /**
-   *
-   *         <p>The ID associated with the repository.</p>
-   *
+   * <p>The ID associated with the repository.</p>
    */
   repositoryId?: string;
 
   /**
-   *
-   *         <p>The name associated with the repository.</p>
-   *
+   * <p>The name associated with the repository.</p>
    */
   repositoryName?: string;
 }
@@ -10365,9 +8447,7 @@ export namespace RepositoryNameIdPair {
 }
 
 /**
- *
- *         <p>A repository name is required, but was not specified.</p>
- *
+ * <p>A repository name is required, but was not specified.</p>
  */
 export interface RepositoryNameRequiredException
   extends _smithy.SmithyException,
@@ -10376,9 +8456,7 @@ export interface RepositoryNameRequiredException
   name: "RepositoryNameRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10390,9 +8468,7 @@ export namespace RepositoryNameRequiredException {
 }
 
 /**
- *
- *         <p>At least one repository name object is required, but was not specified.</p>
- *
+ * <p>At least one repository name object is required, but was not specified.</p>
  */
 export interface RepositoryNamesRequiredException
   extends _smithy.SmithyException,
@@ -10401,9 +8477,7 @@ export interface RepositoryNamesRequiredException
   name: "RepositoryNamesRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10415,9 +8489,7 @@ export namespace RepositoryNamesRequiredException {
 }
 
 /**
- *
- *         <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
- *
+ * <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
  */
 export interface RepositoryNotAssociatedWithPullRequestException
   extends _smithy.SmithyException,
@@ -10426,9 +8498,7 @@ export interface RepositoryNotAssociatedWithPullRequestException
   name: "RepositoryNotAssociatedWithPullRequestException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10442,56 +8512,44 @@ export namespace RepositoryNotAssociatedWithPullRequestException {
 }
 
 /**
- *
- *         <p>Information about a trigger for a repository.</p>
- *
+ * <p>Information about a trigger for a repository.</p>
  */
 export interface RepositoryTrigger {
   __type?: "RepositoryTrigger";
   /**
-   *
-   *         <p>The branches to be included in the trigger configuration. If you specify an empty
+   * <p>The branches to be included in the trigger configuration. If you specify an empty
    *             array, the trigger applies to all branches.</p>
    *         <note>
    *             <p>Although no content is required in the array, you must include the array itself.</p>
    *         </note>
-   *
    */
   branches?: Array<string>;
 
   /**
-   *
-   *         <p>Any custom data associated with the trigger to be included in the information sent to
+   * <p>Any custom data associated with the trigger to be included in the information sent to
    *             the target of the trigger.</p>
-   *
    */
   customData?: string;
 
   /**
-   *
-   *         <p>The ARN of the resource that is the target for a trigger (for example, the ARN of a
+   * <p>The ARN of the resource that is the target for a trigger (for example, the ARN of a
    *             topic in Amazon SNS).</p>
-   *
    */
   destinationArn: string | undefined;
 
   /**
-   *
-   *         <p>The repository events that cause the trigger to run actions in another service, such
+   * <p>The repository events that cause the trigger to run actions in another service, such
    *             as sending a notification through Amazon SNS.
    *
    *         </p>
    *          <note>
    *             <p>The valid value "all" cannot be used with any other values.</p>
    *          </note>
-   *
    */
   events: Array<RepositoryTriggerEventEnum | string> | undefined;
 
   /**
-   *
-   *         <p>The name of the trigger.</p>
-   *
+   * <p>The name of the trigger.</p>
    */
   name: string | undefined;
 }
@@ -10503,10 +8561,8 @@ export namespace RepositoryTrigger {
 }
 
 /**
- *
- *         <p>At least one branch name is required, but was not specified in the trigger
+ * <p>At least one branch name is required, but was not specified in the trigger
  *             configuration.</p>
- *
  */
 export interface RepositoryTriggerBranchNameListRequiredException
   extends _smithy.SmithyException,
@@ -10515,9 +8571,7 @@ export interface RepositoryTriggerBranchNameListRequiredException
   name: "RepositoryTriggerBranchNameListRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10531,10 +8585,8 @@ export namespace RepositoryTriggerBranchNameListRequiredException {
 }
 
 /**
- *
- *         <p>A destination ARN for the target service for the trigger is required, but was not
+ * <p>A destination ARN for the target service for the trigger is required, but was not
  *             specified.</p>
- *
  */
 export interface RepositoryTriggerDestinationArnRequiredException
   extends _smithy.SmithyException,
@@ -10543,9 +8595,7 @@ export interface RepositoryTriggerDestinationArnRequiredException
   name: "RepositoryTriggerDestinationArnRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10566,9 +8616,7 @@ export enum RepositoryTriggerEventEnum {
 }
 
 /**
- *
- *         <p>At least one event for the trigger is required, but was not specified.</p>
- *
+ * <p>At least one event for the trigger is required, but was not specified.</p>
  */
 export interface RepositoryTriggerEventsListRequiredException
   extends _smithy.SmithyException,
@@ -10577,9 +8625,7 @@ export interface RepositoryTriggerEventsListRequiredException
   name: "RepositoryTriggerEventsListRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10593,23 +8639,17 @@ export namespace RepositoryTriggerEventsListRequiredException {
 }
 
 /**
- *
- *         <p>A trigger failed to run.</p>
- *
+ * <p>A trigger failed to run.</p>
  */
 export interface RepositoryTriggerExecutionFailure {
   __type?: "RepositoryTriggerExecutionFailure";
   /**
-   *
-   *         <p>Message information about the trigger that did not run.</p>
-   *
+   * <p>Message information about the trigger that did not run.</p>
    */
   failureMessage?: string;
 
   /**
-   *
-   *         <p>The name of the trigger that did not run.</p>
-   *
+   * <p>The name of the trigger that did not run.</p>
    */
   trigger?: string;
 }
@@ -10621,9 +8661,7 @@ export namespace RepositoryTriggerExecutionFailure {
 }
 
 /**
- *
- *         <p>A name for the trigger is required, but was not specified.</p>
- *
+ * <p>A name for the trigger is required, but was not specified.</p>
  */
 export interface RepositoryTriggerNameRequiredException
   extends _smithy.SmithyException,
@@ -10632,9 +8670,7 @@ export interface RepositoryTriggerNameRequiredException
   name: "RepositoryTriggerNameRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10646,9 +8682,7 @@ export namespace RepositoryTriggerNameRequiredException {
 }
 
 /**
- *
- *         <p>The list of triggers for the repository is required, but was not specified.</p>
- *
+ * <p>The list of triggers for the repository is required, but was not specified.</p>
  */
 export interface RepositoryTriggersListRequiredException
   extends _smithy.SmithyException,
@@ -10657,9 +8691,7 @@ export interface RepositoryTriggersListRequiredException
   name: "RepositoryTriggersListRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10671,11 +8703,9 @@ export namespace RepositoryTriggersListRequiredException {
 }
 
 /**
- *
- *         <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
+ * <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
- *
  */
 export interface ResourceArnRequiredException
   extends _smithy.SmithyException,
@@ -10684,9 +8714,7 @@ export interface ResourceArnRequiredException
   name: "ResourceArnRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10698,9 +8726,7 @@ export namespace ResourceArnRequiredException {
 }
 
 /**
- *
- *         <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
- *
+ * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
  */
 export interface RestrictedSourceFileException
   extends _smithy.SmithyException,
@@ -10709,9 +8735,7 @@ export interface RestrictedSourceFileException
   name: "RestrictedSourceFileException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10723,9 +8747,7 @@ export namespace RestrictedSourceFileException {
 }
 
 /**
- *
- *         <p>A revision ID is required, but was not provided.</p>
- *
+ * <p>A revision ID is required, but was not provided.</p>
  */
 export interface RevisionIdRequiredException
   extends _smithy.SmithyException,
@@ -10734,9 +8756,7 @@ export interface RevisionIdRequiredException
   name: "RevisionIdRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10748,9 +8768,7 @@ export namespace RevisionIdRequiredException {
 }
 
 /**
- *
- *         <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
- *
+ * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  */
 export interface RevisionNotCurrentException
   extends _smithy.SmithyException,
@@ -10759,9 +8777,7 @@ export interface RevisionNotCurrentException
   name: "RevisionNotCurrentException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10773,10 +8789,8 @@ export namespace RevisionNotCurrentException {
 }
 
 /**
- *
- *         <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
+ * <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
  *         that you specified.</p>
- *
  */
 export interface SameFileContentException
   extends _smithy.SmithyException,
@@ -10785,9 +8799,7 @@ export interface SameFileContentException
   name: "SameFileContentException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10799,11 +8811,9 @@ export namespace SameFileContentException {
 }
 
 /**
- *
- *         <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example,
+ * <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example,
  *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
  *         file as part of the same commit.</p>
- *
  */
 export interface SamePathRequestException
   extends _smithy.SmithyException,
@@ -10812,9 +8822,7 @@ export interface SamePathRequestException
   name: "SamePathRequestException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10826,23 +8834,17 @@ export namespace SamePathRequestException {
 }
 
 /**
- *
- *         <p>Information about the file mode changes.</p>
- *
+ * <p>Information about the file mode changes.</p>
  */
 export interface SetFileModeEntry {
   __type?: "SetFileModeEntry";
   /**
-   *
-   *         <p>The file mode for the file.</p>
-   *
+   * <p>The file mode for the file.</p>
    */
   fileMode: FileModeTypeEnum | string | undefined;
 
   /**
-   *
-   *         <p>The full path to the file, including the name of the file.</p>
-   *
+   * <p>The full path to the file, including the name of the file.</p>
    */
   filePath: string | undefined;
 }
@@ -10859,10 +8861,8 @@ export enum SortByEnum {
 }
 
 /**
- *
- *         <p>The source branch and destination branch for the pull request are the same. You must
+ * <p>The source branch and destination branch for the pull request are the same. You must
  *             specify different branches for the source and destination.</p>
- *
  */
 export interface SourceAndDestinationAreSameException
   extends _smithy.SmithyException,
@@ -10871,9 +8871,7 @@ export interface SourceAndDestinationAreSameException
   name: "SourceAndDestinationAreSameException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10885,9 +8883,7 @@ export namespace SourceAndDestinationAreSameException {
 }
 
 /**
- *
- *         <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
- *
+ * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  */
 export interface SourceFileOrContentRequiredException
   extends _smithy.SmithyException,
@@ -10896,9 +8892,7 @@ export interface SourceFileOrContentRequiredException
   name: "SourceFileOrContentRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -10910,23 +8904,17 @@ export namespace SourceFileOrContentRequiredException {
 }
 
 /**
- *
- *         <p>Information about a source file that is part of changes made in a commit.</p>
- *
+ * <p>Information about a source file that is part of changes made in a commit.</p>
  */
 export interface SourceFileSpecifier {
   __type?: "SourceFileSpecifier";
   /**
-   *
-   *         <p>The full path to the file, including the name of the file.</p>
-   *
+   * <p>The full path to the file, including the name of the file.</p>
    */
   filePath: string | undefined;
 
   /**
-   *
-   *         <p>Whether to remove the source file from the parent commit.</p>
-   *
+   * <p>Whether to remove the source file from the parent commit.</p>
    */
   isMove?: boolean;
 }
@@ -10938,30 +8926,22 @@ export namespace SourceFileSpecifier {
 }
 
 /**
- *
- *         <p>Returns information about a submodule reference in a repository folder.</p>
- *
+ * <p>Returns information about a submodule reference in a repository folder.</p>
  */
 export interface SubModule {
   __type?: "SubModule";
   /**
-   *
-   *         <p>The fully qualified path to the folder that contains the reference to the submodule.</p>
-   *
+   * <p>The fully qualified path to the folder that contains the reference to the submodule.</p>
    */
   absolutePath?: string;
 
   /**
-   *
-   *         <p>The commit ID that contains the reference to the submodule.</p>
-   *
+   * <p>The commit ID that contains the reference to the submodule.</p>
    */
   commitId?: string;
 
   /**
-   *
-   *         <p>The relative path of the submodule from the folder where the query originated.</p>
-   *
+   * <p>The relative path of the submodule from the folder where the query originated.</p>
    */
   relativePath?: string;
 }
@@ -10973,37 +8953,27 @@ export namespace SubModule {
 }
 
 /**
- *
- *         <p>Returns information about a symbolic link in a repository folder.</p>
- *
+ * <p>Returns information about a symbolic link in a repository folder.</p>
  */
 export interface SymbolicLink {
   __type?: "SymbolicLink";
   /**
-   *
-   *         <p>The fully qualified path to the folder that contains the symbolic link.</p>
-   *
+   * <p>The fully qualified path to the folder that contains the symbolic link.</p>
    */
   absolutePath?: string;
 
   /**
-   *
-   *         <p>The blob ID that contains the information about the symbolic link.</p>
-   *
+   * <p>The blob ID that contains the information about the symbolic link.</p>
    */
   blobId?: string;
 
   /**
-   *
-   *         <p>The file mode permissions of the blob that cotains information about the symbolic link.</p>
-   *
+   * <p>The file mode permissions of the blob that cotains information about the symbolic link.</p>
    */
   fileMode?: FileModeTypeEnum | string;
 
   /**
-   *
-   *         <p>The relative path of the symbolic link from the folder where the query originated.</p>
-   *
+   * <p>The relative path of the symbolic link from the folder where the query originated.</p>
    */
   relativePath?: string;
 }
@@ -11015,9 +8985,7 @@ export namespace SymbolicLink {
 }
 
 /**
- *
- *         <p>A list of tag keys is required. The list cannot be empty or null.</p>
- *
+ * <p>A list of tag keys is required. The list cannot be empty or null.</p>
  */
 export interface TagKeysListRequiredException
   extends _smithy.SmithyException,
@@ -11026,9 +8994,7 @@ export interface TagKeysListRequiredException
   name: "TagKeysListRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11040,9 +9006,7 @@ export namespace TagKeysListRequiredException {
 }
 
 /**
- *
- *         <p>The tag policy is not valid.</p>
- *
+ * <p>The tag policy is not valid.</p>
  */
 export interface TagPolicyException
   extends _smithy.SmithyException,
@@ -11051,9 +9015,7 @@ export interface TagPolicyException
   name: "TagPolicyException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11067,16 +9029,12 @@ export namespace TagPolicyException {
 export interface TagResourceInput {
   __type?: "TagResourceInput";
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *         <p>The key-value pair to use when tagging this repository.</p>
-   *
+   * <p>The key-value pair to use when tagging this repository.</p>
    */
   tags: { [key: string]: string } | undefined;
 }
@@ -11088,9 +9046,7 @@ export namespace TagResourceInput {
 }
 
 /**
- *
- *         <p>A map of tags is required.</p>
- *
+ * <p>A map of tags is required.</p>
  */
 export interface TagsMapRequiredException
   extends _smithy.SmithyException,
@@ -11099,9 +9055,7 @@ export interface TagsMapRequiredException
   name: "TagsMapRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11113,31 +9067,23 @@ export namespace TagsMapRequiredException {
 }
 
 /**
- *
- *         <p>Returns information about a target for a pull request.</p>
- *
+ * <p>Returns information about a target for a pull request.</p>
  */
 export interface Target {
   __type?: "Target";
   /**
-   *
-   *         <p>The branch of the repository where the pull request changes are merged. Also known as
+   * <p>The branch of the repository where the pull request changes are merged. Also known as
    *             the destination branch.</p>
-   *
    */
   destinationReference?: string;
 
   /**
-   *
-   *         <p>The name of the repository that contains the pull request.</p>
-   *
+   * <p>The name of the repository that contains the pull request.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
-   *
+   * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
    */
   sourceReference: string | undefined;
 }
@@ -11149,9 +9095,7 @@ export namespace Target {
 }
 
 /**
- *
- *         <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
- *
+ * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
 export interface TargetRequiredException
   extends _smithy.SmithyException,
@@ -11160,9 +9104,7 @@ export interface TargetRequiredException
   name: "TargetRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11174,9 +9116,7 @@ export namespace TargetRequiredException {
 }
 
 /**
- *
- *         <p>An array of target objects is required. It cannot be empty or null.</p>
- *
+ * <p>An array of target objects is required. It cannot be empty or null.</p>
  */
 export interface TargetsRequiredException
   extends _smithy.SmithyException,
@@ -11185,9 +9125,7 @@ export interface TargetsRequiredException
   name: "TargetsRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11199,23 +9137,17 @@ export namespace TargetsRequiredException {
 }
 
 /**
- *
- *         <p>Represents the input of a test repository triggers operation.</p>
- *
+ * <p>Represents the input of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersInput {
   __type?: "TestRepositoryTriggersInput";
   /**
-   *
-   *         <p>The name of the repository in which to test the triggers.</p>
-   *
+   * <p>The name of the repository in which to test the triggers.</p>
    */
   repositoryName: string | undefined;
 
   /**
-   *
-   *         <p>The list of triggers to test.</p>
-   *
+   * <p>The list of triggers to test.</p>
    */
   triggers: Array<RepositoryTrigger> | undefined;
 }
@@ -11227,24 +9159,18 @@ export namespace TestRepositoryTriggersInput {
 }
 
 /**
- *
- *         <p>Represents the output of a test repository triggers operation.</p>
- *
+ * <p>Represents the output of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersOutput extends $MetadataBearer {
   __type?: "TestRepositoryTriggersOutput";
   /**
-   *
-   *         <p>The list of triggers that were not tested. This list provides the names of the
+   * <p>The list of triggers that were not tested. This list provides the names of the
    *             triggers that could not be tested, separated by commas.</p>
-   *
    */
   failedExecutions?: Array<RepositoryTriggerExecutionFailure>;
 
   /**
-   *
-   *         <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
-   *
+   * <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
    */
   successfulExecutions?: Array<string>;
 }
@@ -11256,10 +9182,8 @@ export namespace TestRepositoryTriggersOutput {
 }
 
 /**
- *
- *         <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
+ * <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
  *             The pull request might have been updated. Make sure that you have the latest changes.</p>
- *
  */
 export interface TipOfSourceReferenceIsDifferentException
   extends _smithy.SmithyException,
@@ -11268,9 +9192,7 @@ export interface TipOfSourceReferenceIsDifferentException
   name: "TipOfSourceReferenceIsDifferentException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11282,10 +9204,8 @@ export namespace TipOfSourceReferenceIsDifferentException {
 }
 
 /**
- *
- *         <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
+ * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
- *
  */
 export interface TipsDivergenceExceededException
   extends _smithy.SmithyException,
@@ -11294,9 +9214,7 @@ export interface TipsDivergenceExceededException
   name: "TipsDivergenceExceededException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11308,9 +9226,7 @@ export namespace TipsDivergenceExceededException {
 }
 
 /**
- *
- *         <p>A pull request title is required. It cannot be empty or null.</p>
- *
+ * <p>A pull request title is required. It cannot be empty or null.</p>
  */
 export interface TitleRequiredException
   extends _smithy.SmithyException,
@@ -11319,9 +9235,7 @@ export interface TitleRequiredException
   name: "TitleRequiredException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11333,9 +9247,7 @@ export namespace TitleRequiredException {
 }
 
 /**
- *
- *         <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
- *
+ * <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  */
 export interface TooManyTagsException
   extends _smithy.SmithyException,
@@ -11344,9 +9256,7 @@ export interface TooManyTagsException
   name: "TooManyTagsException";
   $fault: "client";
   /**
-   *
-   *         <p>Any message associated with the exception.</p>
-   *
+   * <p>Any message associated with the exception.</p>
    */
   message?: string;
 }
@@ -11360,16 +9270,12 @@ export namespace TooManyTagsException {
 export interface UntagResourceInput {
   __type?: "UntagResourceInput";
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *         <p>The tag key for each tag that you want to remove from the resource.</p>
-   *
+   * <p>The tag key for each tag that you want to remove from the resource.</p>
    */
   tagKeys: Array<string> | undefined;
 }
@@ -11383,26 +9289,20 @@ export namespace UntagResourceInput {
 export interface UpdateApprovalRuleTemplateContentInput {
   __type?: "UpdateApprovalRuleTemplateContentInput";
   /**
-   *
-   *         <p>The name of the approval rule template where you want to update the content of the rule. </p>
-   *
+   * <p>The name of the approval rule template where you want to update the content of the rule. </p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   *
-   *         <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
+   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
    *             information by using
    *             <a>GetPullRequest</a>.</p>
-   *
    */
   existingRuleContentSha256?: string;
 
   /**
-   *
-   *         <p>The content that replaces the existing content of the rule. Content statements must be
+   * <p>The content that replaces the existing content of the rule. Content statements must be
    *             complete. You cannot provide only the changes.</p>
-   *
    */
   newRuleContent: string | undefined;
 }
@@ -11417,9 +9317,7 @@ export interface UpdateApprovalRuleTemplateContentOutput
   extends $MetadataBearer {
   __type?: "UpdateApprovalRuleTemplateContentOutput";
   /**
-   *
-   *         <p>Returns information about an approval rule template.</p>
-   *
+   * <p>Returns information about an approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
@@ -11433,16 +9331,12 @@ export namespace UpdateApprovalRuleTemplateContentOutput {
 export interface UpdateApprovalRuleTemplateDescriptionInput {
   __type?: "UpdateApprovalRuleTemplateDescriptionInput";
   /**
-   *
-   *         <p>The updated description of the approval rule template.</p>
-   *
+   * <p>The updated description of the approval rule template.</p>
    */
   approvalRuleTemplateDescription: string | undefined;
 
   /**
-   *
-   *         <p>The name of the template for which you want to update the description.</p>
-   *
+   * <p>The name of the template for which you want to update the description.</p>
    */
   approvalRuleTemplateName: string | undefined;
 }
@@ -11457,9 +9351,7 @@ export interface UpdateApprovalRuleTemplateDescriptionOutput
   extends $MetadataBearer {
   __type?: "UpdateApprovalRuleTemplateDescriptionOutput";
   /**
-   *
-   *         <p>The structure and content of the updated approval rule template.</p>
-   *
+   * <p>The structure and content of the updated approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
@@ -11475,16 +9367,12 @@ export namespace UpdateApprovalRuleTemplateDescriptionOutput {
 export interface UpdateApprovalRuleTemplateNameInput {
   __type?: "UpdateApprovalRuleTemplateNameInput";
   /**
-   *
-   *         <p>The new name you want to apply to the approval rule template.</p>
-   *
+   * <p>The new name you want to apply to the approval rule template.</p>
    */
   newApprovalRuleTemplateName: string | undefined;
 
   /**
-   *
-   *         <p>The current name of the approval rule template.</p>
-   *
+   * <p>The current name of the approval rule template.</p>
    */
   oldApprovalRuleTemplateName: string | undefined;
 }
@@ -11498,9 +9386,7 @@ export namespace UpdateApprovalRuleTemplateNameInput {
 export interface UpdateApprovalRuleTemplateNameOutput extends $MetadataBearer {
   __type?: "UpdateApprovalRuleTemplateNameOutput";
   /**
-   *
-   *         <p>The structure and content of the updated approval rule template.</p>
-   *
+   * <p>The structure and content of the updated approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
@@ -11514,17 +9400,13 @@ export namespace UpdateApprovalRuleTemplateNameOutput {
 export interface UpdateCommentInput {
   __type?: "UpdateCommentInput";
   /**
-   *
-   *         <p>The system-generated ID of the comment you want to update. To get this ID, use <a>GetCommentsForComparedCommit</a>
+   * <p>The system-generated ID of the comment you want to update. To get this ID, use <a>GetCommentsForComparedCommit</a>
    *             or <a>GetCommentsForPullRequest</a>.</p>
-   *
    */
   commentId: string | undefined;
 
   /**
-   *
-   *         <p>The updated content to replace the existing content of the comment.</p>
-   *
+   * <p>The updated content to replace the existing content of the comment.</p>
    */
   content: string | undefined;
 }
@@ -11538,9 +9420,7 @@ export namespace UpdateCommentInput {
 export interface UpdateCommentOutput extends $MetadataBearer {
   __type?: "UpdateCommentOutput";
   /**
-   *
-   *         <p>Information about the updated comment.</p>
-   *
+   * <p>Information about the updated comment.</p>
    */
   comment?: Comment;
 }
@@ -11552,23 +9432,17 @@ export namespace UpdateCommentOutput {
 }
 
 /**
- *
- *         <p>Represents the input of an update default branch operation.</p>
- *
+ * <p>Represents the input of an update default branch operation.</p>
  */
 export interface UpdateDefaultBranchInput {
   __type?: "UpdateDefaultBranchInput";
   /**
-   *
-   *         <p>The name of the branch to set as the default.</p>
-   *
+   * <p>The name of the branch to set as the default.</p>
    */
   defaultBranchName: string | undefined;
 
   /**
-   *
-   *         <p>The name of the repository to set or change the default branch for.</p>
-   *
+   * <p>The name of the repository to set or change the default branch for.</p>
    */
   repositoryName: string | undefined;
 }
@@ -11582,24 +9456,19 @@ export namespace UpdateDefaultBranchInput {
 export interface UpdatePullRequestApprovalRuleContentInput {
   __type?: "UpdatePullRequestApprovalRuleContentInput";
   /**
-   *
-   *         <p>The name of the approval rule you want to update.</p>
-   *
+   * <p>The name of the approval rule you want to update.</p>
    */
   approvalRuleName: string | undefined;
 
   /**
-   *
-   *         <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
+   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
    *             information by using
    *             <a>GetPullRequest</a>.</p>
-   *
    */
   existingRuleContentSha256?: string;
 
   /**
-   *
-   *         <p>The updated content for the approval rule.</p>
+   * <p>The updated content for the approval rule.</p>
    *         <note>
    *             <p>When you update the content of the approval rule, you can specify approvers in an
    *                 approval pool in one of two ways:</p>
@@ -11640,14 +9509,11 @@ export interface UpdatePullRequestApprovalRuleContentInput {
    *                     Identifiers</a> in the <i>IAM User Guide</i>.</p>
    *
    *         </note>
-   *
    */
   newRuleContent: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request.</p>
-   *
+   * <p>The system-generated ID of the pull request.</p>
    */
   pullRequestId: string | undefined;
 }
@@ -11662,9 +9528,7 @@ export interface UpdatePullRequestApprovalRuleContentOutput
   extends $MetadataBearer {
   __type?: "UpdatePullRequestApprovalRuleContentOutput";
   /**
-   *
-   *         <p>Information about the updated approval rule.</p>
-   *
+   * <p>Information about the updated approval rule.</p>
    */
   approvalRule: ApprovalRule | undefined;
 }
@@ -11678,23 +9542,17 @@ export namespace UpdatePullRequestApprovalRuleContentOutput {
 export interface UpdatePullRequestApprovalStateInput {
   __type?: "UpdatePullRequestApprovalStateInput";
   /**
-   *
-   *         <p>The approval state to associate with the user on the pull request.</p>
-   *
+   * <p>The approval state to associate with the user on the pull request.</p>
    */
   approvalState: ApprovalState | string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request.</p>
-   *
+   * <p>The system-generated ID of the pull request.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the revision.</p>
-   *
+   * <p>The system-generated ID of the revision.</p>
    */
   revisionId: string | undefined;
 }
@@ -11708,17 +9566,13 @@ export namespace UpdatePullRequestApprovalStateInput {
 export interface UpdatePullRequestDescriptionInput {
   __type?: "UpdatePullRequestDescriptionInput";
   /**
-   *
-   *         <p>The updated content of the description for the pull request. This content replaces the
+   * <p>The updated content of the description for the pull request. This content replaces the
    *             existing description.</p>
-   *
    */
   description: string | undefined;
 
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 }
@@ -11732,9 +9586,7 @@ export namespace UpdatePullRequestDescriptionInput {
 export interface UpdatePullRequestDescriptionOutput extends $MetadataBearer {
   __type?: "UpdatePullRequestDescriptionOutput";
   /**
-   *
-   *         <p>Information about the updated pull request.</p>
-   *
+   * <p>Information about the updated pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
@@ -11748,18 +9600,14 @@ export namespace UpdatePullRequestDescriptionOutput {
 export interface UpdatePullRequestStatusInput {
   __type?: "UpdatePullRequestStatusInput";
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The status of the pull request. The only valid operations are to update the status
+   * <p>The status of the pull request. The only valid operations are to update the status
    *             from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code> or
    *             from <code>CLOSED</code> to <code>CLOSED</code>.</p>
-   *
    */
   pullRequestStatus: PullRequestStatusEnum | string | undefined;
 }
@@ -11773,9 +9621,7 @@ export namespace UpdatePullRequestStatusInput {
 export interface UpdatePullRequestStatusOutput extends $MetadataBearer {
   __type?: "UpdatePullRequestStatusOutput";
   /**
-   *
-   *         <p>Information about the pull request.</p>
-   *
+   * <p>Information about the pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
@@ -11789,16 +9635,12 @@ export namespace UpdatePullRequestStatusOutput {
 export interface UpdatePullRequestTitleInput {
   __type?: "UpdatePullRequestTitleInput";
   /**
-   *
-   *         <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
-   *
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
-   *
-   *         <p>The updated title of the pull request. This replaces the existing title.</p>
-   *
+   * <p>The updated title of the pull request. This replaces the existing title.</p>
    */
   title: string | undefined;
 }
@@ -11812,9 +9654,7 @@ export namespace UpdatePullRequestTitleInput {
 export interface UpdatePullRequestTitleOutput extends $MetadataBearer {
   __type?: "UpdatePullRequestTitleOutput";
   /**
-   *
-   *         <p>Information about the updated pull request.</p>
-   *
+   * <p>Information about the updated pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
@@ -11826,24 +9666,17 @@ export namespace UpdatePullRequestTitleOutput {
 }
 
 /**
- *
- *         <p>Represents the input of an update repository description operation.</p>
- *
+ * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryDescriptionInput {
   __type?: "UpdateRepositoryDescriptionInput";
   /**
-   *
-   *         <p>The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.</p>
-   *
-   *
+   * <p>The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.</p>
    */
   repositoryDescription?: string;
 
   /**
-   *
-   *         <p>The name of the repository to set or change the comment or description for.</p>
-   *
+   * <p>The name of the repository to set or change the comment or description for.</p>
    */
   repositoryName: string | undefined;
 }
@@ -11855,24 +9688,17 @@ export namespace UpdateRepositoryDescriptionInput {
 }
 
 /**
- *
- *         <p>Represents the input of an update repository description operation.</p>
- *
+ * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryNameInput {
   __type?: "UpdateRepositoryNameInput";
   /**
-   *
-   *         <p>The new name for the repository.</p>
-   *
-   *
+   * <p>The new name for the repository.</p>
    */
   newName: string | undefined;
 
   /**
-   *
-   *         <p>The current name of the repository.</p>
-   *
+   * <p>The current name of the repository.</p>
    */
   oldName: string | undefined;
 }
@@ -11884,30 +9710,22 @@ export namespace UpdateRepositoryNameInput {
 }
 
 /**
- *
- *         <p>Information about the user who made a specified commit.</p>
- *
+ * <p>Information about the user who made a specified commit.</p>
  */
 export interface UserInfo {
   __type?: "UserInfo";
   /**
-   *
-   *         <p>The date when the specified commit was commited, in timestamp format with GMT offset.</p>
-   *
+   * <p>The date when the specified commit was commited, in timestamp format with GMT offset.</p>
    */
   date?: string;
 
   /**
-   *
-   *         <p>The email address associated with the user who made the commit, if any.</p>
-   *
+   * <p>The email address associated with the user who made the commit, if any.</p>
    */
   email?: string;
 
   /**
-   *
-   *         <p>The name of the user who made the specified commit.</p>
-   *
+   * <p>The name of the user who made the specified commit.</p>
    */
   name?: string;
 }

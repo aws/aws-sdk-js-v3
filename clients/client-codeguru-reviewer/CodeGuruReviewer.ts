@@ -22,18 +22,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations.</p>
- *
+ * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations.</p>
  */
 export class CodeGuruReviewer extends CodeGuruReviewerClient {
   /**
-   *
-   *          <p>Associates an AWS CodeCommit repository with Amazon CodeGuru Reviewer. When you associate an
+   * <p>Associates an AWS CodeCommit repository with Amazon CodeGuru Reviewer. When you associate an
    *         AWS CodeCommit repository with Amazon CodeGuru Reviewer, Amazon CodeGuru Reviewer will provide recommendations for
    *         each pull request. You can view recommendations in the AWS CodeCommit repository.</p>
    *         <p>You can associate a GitHub repository using the Amazon CodeGuru Reviewer console.</p>
-   *
    */
   public associateRepository(
     args: AssociateRepositoryCommandInput,
@@ -68,9 +64,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
-   *
-   *          <p>Describes a repository association.</p>
-   *
+   * <p>Describes a repository association.</p>
    */
   public describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
@@ -105,9 +99,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
-   *
-   *          <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
-   *
+   * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
    */
   public disassociateRepository(
     args: DisassociateRepositoryCommandInput,
@@ -142,10 +134,8 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   }
 
   /**
-   *
-   *          <p>Lists repository associations. You can optionally filter on one or more
+   * <p>Lists repository associations. You can optionally filter on one or more
    *         of the following recommendation properties: provider types, states, names, and owners.</p>
-   *
    */
   public listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,

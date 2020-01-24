@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, ModifyClusterMaintenanceMessage } from "../models/index";
+import {
+  ModifyClusterMaintenanceMessage,
+  ModifyClusterMaintenanceResult
+} from "../models/index";
 import {
   deserializeAws_queryModifyClusterMaintenanceCommand,
   serializeAws_queryModifyClusterMaintenanceCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClusterMaintenanceCommandInput = ModifyClusterMaintenanceMessage;
-export type ModifyClusterMaintenanceCommandOutput = Cluster;
+export type ModifyClusterMaintenanceCommandOutput = ModifyClusterMaintenanceResult;
 
 export class ModifyClusterMaintenanceCommand extends $Command<
   ModifyClusterMaintenanceCommandInput,

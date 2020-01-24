@@ -220,8 +220,7 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>AWS Support</fullname>
+ * <fullname>AWS Support</fullname>
  *         <p>The AWS Support API reference is intended for programmers who need detailed
  *             information about the AWS Support operations and data types. This service enables you to
  *             manage your AWS Support cases programmatically. It uses HTTP methods that return results
@@ -284,8 +283,6 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<
  *                 AWS Support API</a> in the <i>AWS Support User Guide</i> for
  *             information about how to use this service to create and manage your support cases, and
  *             how to call Trusted Advisor for results of checks on your resources.</p>
- *
- *
  */
 export class SupportClient extends __Client<
   __HttpHandlerOptions,

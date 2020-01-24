@@ -1,5 +1,10 @@
 import { EFSClient } from "./EFSClient";
 import {
+  CreateAccessPointCommand,
+  CreateAccessPointCommandInput,
+  CreateAccessPointCommandOutput
+} from "./commands/CreateAccessPointCommand";
+import {
   CreateFileSystemCommand,
   CreateFileSystemCommandInput,
   CreateFileSystemCommandOutput
@@ -15,10 +20,20 @@ import {
   CreateTagsCommandOutput
 } from "./commands/CreateTagsCommand";
 import {
+  DeleteAccessPointCommand,
+  DeleteAccessPointCommandInput,
+  DeleteAccessPointCommandOutput
+} from "./commands/DeleteAccessPointCommand";
+import {
   DeleteFileSystemCommand,
   DeleteFileSystemCommandInput,
   DeleteFileSystemCommandOutput
 } from "./commands/DeleteFileSystemCommand";
+import {
+  DeleteFileSystemPolicyCommand,
+  DeleteFileSystemPolicyCommandInput,
+  DeleteFileSystemPolicyCommandOutput
+} from "./commands/DeleteFileSystemPolicyCommand";
 import {
   DeleteMountTargetCommand,
   DeleteMountTargetCommandInput,
@@ -29,6 +44,16 @@ import {
   DeleteTagsCommandInput,
   DeleteTagsCommandOutput
 } from "./commands/DeleteTagsCommand";
+import {
+  DescribeAccessPointsCommand,
+  DescribeAccessPointsCommandInput,
+  DescribeAccessPointsCommandOutput
+} from "./commands/DescribeAccessPointsCommand";
+import {
+  DescribeFileSystemPolicyCommand,
+  DescribeFileSystemPolicyCommandInput,
+  DescribeFileSystemPolicyCommandOutput
+} from "./commands/DescribeFileSystemPolicyCommand";
 import {
   DescribeFileSystemsCommand,
   DescribeFileSystemsCommandInput,
@@ -55,15 +80,35 @@ import {
   DescribeTagsCommandOutput
 } from "./commands/DescribeTagsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
   ModifyMountTargetSecurityGroupsCommand,
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
 import {
+  PutFileSystemPolicyCommand,
+  PutFileSystemPolicyCommandInput,
+  PutFileSystemPolicyCommandOutput
+} from "./commands/PutFileSystemPolicyCommand";
+import {
   PutLifecycleConfigurationCommand,
   PutLifecycleConfigurationCommandInput,
   PutLifecycleConfigurationCommandOutput
 } from "./commands/PutLifecycleConfigurationCommand";
+import {
+  TagResourceCommand,
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import {
   UpdateFileSystemCommand,
   UpdateFileSystemCommandInput,
@@ -72,19 +117,55 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon Elastic File System</fullname>
+ * <fullname>Amazon Elastic File System</fullname>
  *          <p>Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use
  *       with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic,
  *       growing and shrinking automatically as you add and remove files, so your applications have the
  *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User Guide</a>.</p>
- *
  */
 export class EFS extends EFSClient {
   /**
-   *
-   *
-   *          <p>Creates a new, empty file system. The operation requires a creation token in the
+   * <p>Creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and
+   *       group, and a file system path, to any file system request made through the access point. The operating system
+   *       user and group override any identity information provided by the NFS client. The file system path is exposed as
+   *       the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a File System Using EFS Access Points</a>.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>
+   */
+  public createAccessPoint(
+    args: CreateAccessPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessPointCommandOutput>;
+  public createAccessPoint(
+    args: CreateAccessPointCommandInput,
+    cb: (err: any, data?: CreateAccessPointCommandOutput) => void
+  ): void;
+  public createAccessPoint(
+    args: CreateAccessPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessPointCommandOutput) => void
+  ): void;
+  public createAccessPoint(
+    args: CreateAccessPointCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAccessPointCommandOutput) => void),
+    cb?: (err: any, data?: CreateAccessPointCommandOutput) => void
+  ): Promise<CreateAccessPointCommandOutput> | void {
+    const command = new CreateAccessPointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new, empty file system. The operation requires a creation token in the
    *       request that Amazon EFS uses to ensure idempotent creation (calling the operation with same
    *       creation token has no effect). If a file system does not currently exist that is owned by the
    *       caller's AWS account with the specified creation token, this operation does the
@@ -134,8 +215,6 @@ export class EFS extends EFSClient {
    *
    *          <p> This operation requires permissions for the
    *         <code>elasticfilesystem:CreateFileSystem</code> action. </p>
-   *
-   *
    */
   public createFileSystem(
     args: CreateFileSystemCommandInput,
@@ -170,8 +249,7 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Creates a mount target for a file system. You can then mount the file system on EC2
+   * <p>Creates a mount target for a file system. You can then mount the file system on EC2
    *       instances by using the mount target.</p>
    *          <p>You can create one mount target in each Availability Zone in your VPC. All EC2
    *       instances in a VPC within a given Availability Zone share a single mount target for a given
@@ -298,8 +376,6 @@ export class EFS extends EFSClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public createMountTarget(
     args: CreateMountTargetCommandInput,
@@ -334,15 +410,12 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
+   * <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
    *       a tag key specified in the request already exists on the file system, this operation
    *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
    *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
    *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
    *       action.</p>
-   *
-   *
    */
   public createTags(
     args: CreateTagsCommandInput,
@@ -377,9 +450,45 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *
-   *          <p>Deletes a file system, permanently severing access to its contents. Upon return, the
+   * <p>Deletes the specified access point. After deletion is complete, new clients can no
+   *       longer connect to the access points. Clients connected to the access point at the time of
+   *       deletion will continue to function until they terminate their connection.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteAccessPoint</code> action.</p>
+   */
+  public deleteAccessPoint(
+    args: DeleteAccessPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessPointCommandOutput>;
+  public deleteAccessPoint(
+    args: DeleteAccessPointCommandInput,
+    cb: (err: any, data?: DeleteAccessPointCommandOutput) => void
+  ): void;
+  public deleteAccessPoint(
+    args: DeleteAccessPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessPointCommandOutput) => void
+  ): void;
+  public deleteAccessPoint(
+    args: DeleteAccessPointCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAccessPointCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccessPointCommandOutput) => void
+  ): Promise<DeleteAccessPointCommandOutput> | void {
+    const command = new DeleteAccessPointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
    *       file system no longer exists and you can't access any contents of the deleted file
    *       system.</p>
    *          <p> You can't delete a file system that is in use. That is, if the file system has
@@ -394,9 +503,6 @@ export class EFS extends EFSClient {
    *
    *          <p>This operation requires permissions for the
    *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
-   *
-   *
-   *
    */
   public deleteFileSystem(
     args: DeleteFileSystemCommandInput,
@@ -431,8 +537,45 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified mount target.</p>
+   * <p>Deletes the <code>FileSystemPolicy</code> for the specified file system.
+   *       The default <code>FileSystemPolicy</code> goes into effect once the existing policy is deleted.
+   *       For more information about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteFileSystemPolicy</code> action.</p>
+   */
+  public deleteFileSystemPolicy(
+    args: DeleteFileSystemPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFileSystemPolicyCommandOutput>;
+  public deleteFileSystemPolicy(
+    args: DeleteFileSystemPolicyCommandInput,
+    cb: (err: any, data?: DeleteFileSystemPolicyCommandOutput) => void
+  ): void;
+  public deleteFileSystemPolicy(
+    args: DeleteFileSystemPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFileSystemPolicyCommandOutput) => void
+  ): void;
+  public deleteFileSystemPolicy(
+    args: DeleteFileSystemPolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteFileSystemPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFileSystemPolicyCommandOutput) => void
+  ): Promise<DeleteFileSystemPolicyCommandOutput> | void {
+    const command = new DeleteFileSystemPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified mount target.</p>
    *
    *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
    *       that is being deleted, which might disrupt instances or applications using those mounts. To
@@ -466,8 +609,6 @@ export class EFS extends EFSClient {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public deleteMountTarget(
     args: DeleteMountTargetCommandInput,
@@ -502,17 +643,13 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
+   * <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
    *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
    *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
    *         <i>AWS Billing and Cost Management User Guide</i>.</p>
    *
    *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
    *       action.</p>
-   *
-   *
-   *
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -547,8 +684,81 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Returns the description of a specific Amazon EFS file system if either the file system
+   * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.
+   *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
+   *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
+   */
+  public describeAccessPoints(
+    args: DescribeAccessPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccessPointsCommandOutput>;
+  public describeAccessPoints(
+    args: DescribeAccessPointsCommandInput,
+    cb: (err: any, data?: DescribeAccessPointsCommandOutput) => void
+  ): void;
+  public describeAccessPoints(
+    args: DescribeAccessPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccessPointsCommandOutput) => void
+  ): void;
+  public describeAccessPoints(
+    args: DescribeAccessPointsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAccessPointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAccessPointsCommandOutput) => void
+  ): Promise<DescribeAccessPointsCommandOutput> | void {
+    const command = new DescribeAccessPointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
+   */
+  public describeFileSystemPolicy(
+    args: DescribeFileSystemPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFileSystemPolicyCommandOutput>;
+  public describeFileSystemPolicy(
+    args: DescribeFileSystemPolicyCommandInput,
+    cb: (err: any, data?: DescribeFileSystemPolicyCommandOutput) => void
+  ): void;
+  public describeFileSystemPolicy(
+    args: DescribeFileSystemPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFileSystemPolicyCommandOutput) => void
+  ): void;
+  public describeFileSystemPolicy(
+    args: DescribeFileSystemPolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeFileSystemPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFileSystemPolicyCommandOutput) => void
+  ): Promise<DescribeFileSystemPolicyCommandOutput> | void {
+    const command = new DescribeFileSystemPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the description of a specific Amazon EFS file system if either the file system
    *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
    *       returns descriptions of all file systems owned by the caller's AWS account in the AWS
    *       Region of the endpoint that you're calling.</p>
@@ -571,8 +781,6 @@ export class EFS extends EFSClient {
    *       responses of a multi-call iteration is unspecified. </p>
    *          <p> This operation requires permissions for the
    *         <code>elasticfilesystem:DescribeFileSystems</code> action. </p>
-   *
-   *
    */
   public describeFileSystems(
     args: DescribeFileSystemsCommandInput,
@@ -607,17 +815,13 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
+   * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
    *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
    *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
    *       without a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
    *       response.</p>
    *          <p>This operation requires permissions for the
    *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
-   *
-   *
-   *
    */
   public describeLifecycleConfiguration(
     args: DescribeLifecycleConfigurationCommandInput,
@@ -655,8 +859,7 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Returns the security groups currently in effect for a mount target. This operation
+   * <p>Returns the security groups currently in effect for a mount target. This operation
    *       requires that the network interface of the mount target has been created and the lifecycle
    *       state of the mount target is not <code>deleted</code>.</p>
    *          <p>This operation requires permissions for the following actions:</p>
@@ -672,9 +875,6 @@ export class EFS extends EFSClient {
    *           network interface. </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
    */
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
@@ -721,8 +921,7 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Returns the descriptions of all the current mount targets, or a specific mount target,
+   * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
    *       for a file system. When requesting all of the current mount targets, the order of mount
    *       targets returned in the response is unspecified.</p>
    *
@@ -730,8 +929,6 @@ export class EFS extends EFSClient {
    *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
    *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
    *       you specify in <code>MountTargetId</code>.</p>
-   *
-   *
    */
   public describeMountTargets(
     args: DescribeMountTargetsCommandInput,
@@ -766,14 +963,11 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Returns the tags associated with a file system. The order of tags returned in the
+   * <p>Returns the tags associated with a file system. The order of tags returned in the
    *       response of one <code>DescribeTags</code> call and the order of tags returned across the
    *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
    *          <p> This operation requires permissions for the
    *         <code>elasticfilesystem:DescribeTags</code> action. </p>
-   *
-   *
    */
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -808,8 +1002,43 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Modifies the set of security groups in effect for a mount target.</p>
+   * <p>Lists all tags for a top-level EFS resource. You must provide the ID of the resource that you want to retrieve the tags for.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the set of security groups in effect for a mount target.</p>
    *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
    *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
    *       network interface associated with a mount target, with the <code>SecurityGroups</code>
@@ -829,10 +1058,6 @@ export class EFS extends EFSClient {
    *           interface. </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public modifyMountTargetSecurityGroups(
     args: ModifyMountTargetSecurityGroupsCommandInput,
@@ -870,8 +1095,48 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
+   * <p>Applies an Amazon EFS <code>FileSystemPolicy</code> to an Amazon EFS file system.
+   *       A file system policy is an IAM resource-based policy and can contain multiple policy statements.
+   *       A file system always has exactly one file system policy, which can be the default policy or an explicit policy set or updated using this API operation.
+   *       When an explicit policy is set, it overrides the default policy. For more information about the default file system policy, see
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.
+   *     </p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:PutFileSystemPolicy</code> action.</p>
+   */
+  public putFileSystemPolicy(
+    args: PutFileSystemPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFileSystemPolicyCommandOutput>;
+  public putFileSystemPolicy(
+    args: PutFileSystemPolicyCommandInput,
+    cb: (err: any, data?: PutFileSystemPolicyCommandOutput) => void
+  ): void;
+  public putFileSystemPolicy(
+    args: PutFileSystemPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFileSystemPolicyCommandOutput) => void
+  ): void;
+  public putFileSystemPolicy(
+    args: PutFileSystemPolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutFileSystemPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutFileSystemPolicyCommandOutput) => void
+  ): Promise<PutFileSystemPolicyCommandOutput> | void {
+    const command = new PutFileSystemPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
    *       object. A <code>LifecycleConfiguration</code> object defines when files in an Amazon EFS file
    *       system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class.
    *       A <code>LifecycleConfiguration</code> applies to all files in a file system.</p>
@@ -900,8 +1165,6 @@ export class EFS extends EFSClient {
    *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
    *       need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted
    *       file system. </p>
-   *
-   *
    */
   public putLifecycleConfiguration(
     args: PutLifecycleConfigurationCommandInput,
@@ -936,10 +1199,80 @@ export class EFS extends EFSClient {
   }
 
   /**
-   *
-   *          <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
+   * <p>Creates a tag for an EFS resource. You can create tags for EFS file systems and access points using this API operation.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:TagResource</code> action.</p>
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes tags from an EFS resource. You can remove tags from EFS file systems and access points using this API operation.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:UntagResource</code> action.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
    *       system.</p>
-   *
    */
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,

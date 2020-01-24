@@ -121,6 +121,7 @@ import {
   CmafAdditionalManifest,
   CmafEncryptionSettings,
   CmafGroupSettings,
+  CmfcSettings,
   ColorCorrector,
   ConflictException,
   ContainerSettings,
@@ -182,6 +183,7 @@ import {
   MotionImageInsertionOffset,
   MovSettings,
   Mp2Settings,
+  Mp3Settings,
   Mp4Settings,
   MpdSettings,
   Mpeg2Settings,
@@ -3546,6 +3548,12 @@ const serializeAws_restJson1_1AudioCodecSettings = (
       context
     );
   }
+  if (input.Mp3Settings !== undefined) {
+    bodyParams["mp3Settings"] = serializeAws_restJson1_1Mp3Settings(
+      input.Mp3Settings,
+      context
+    );
+  }
   if (input.WavSettings !== undefined) {
     bodyParams["wavSettings"] = serializeAws_restJson1_1WavSettings(
       input.WavSettings,
@@ -4111,6 +4119,24 @@ const serializeAws_restJson1_1CmafGroupSettings = (
   if (input.WriteHlsManifest !== undefined) {
     bodyParams["writeHlsManifest"] = input.WriteHlsManifest;
   }
+  if (input.WriteSegmentTimelineInRepresentation !== undefined) {
+    bodyParams["writeSegmentTimelineInRepresentation"] =
+      input.WriteSegmentTimelineInRepresentation;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1CmfcSettings = (
+  input: CmfcSettings,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Scte35Esam !== undefined) {
+    bodyParams["scte35Esam"] = input.Scte35Esam;
+  }
+  if (input.Scte35Source !== undefined) {
+    bodyParams["scte35Source"] = input.Scte35Source;
+  }
   return bodyParams;
 };
 
@@ -4148,6 +4174,12 @@ const serializeAws_restJson1_1ContainerSettings = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.CmfcSettings !== undefined) {
+    bodyParams["cmfcSettings"] = serializeAws_restJson1_1CmfcSettings(
+      input.CmfcSettings,
+      context
+    );
+  }
   if (input.Container !== undefined) {
     bodyParams["container"] = input.Container;
   }
@@ -6044,6 +6076,29 @@ const serializeAws_restJson1_1Mp2Settings = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1Mp3Settings = (
+  input: Mp3Settings,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Bitrate !== undefined) {
+    bodyParams["bitrate"] = input.Bitrate;
+  }
+  if (input.Channels !== undefined) {
+    bodyParams["channels"] = input.Channels;
+  }
+  if (input.RateControlMode !== undefined) {
+    bodyParams["rateControlMode"] = input.RateControlMode;
+  }
+  if (input.SampleRate !== undefined) {
+    bodyParams["sampleRate"] = input.SampleRate;
+  }
+  if (input.VbrQuality !== undefined) {
+    bodyParams["vbrQuality"] = input.VbrQuality;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1Mp4Settings = (
   input: Mp4Settings,
   context: __SerdeContext
@@ -6051,6 +6106,9 @@ const serializeAws_restJson1_1Mp4Settings = (
   let bodyParams: any = {};
   if (input.CslgAtom !== undefined) {
     bodyParams["cslgAtom"] = input.CslgAtom;
+  }
+  if (input.CttsVersion !== undefined) {
+    bodyParams["cttsVersion"] = input.CttsVersion;
   }
   if (input.FreeSpaceBox !== undefined) {
     bodyParams["freeSpaceBox"] = input.FreeSpaceBox;
@@ -7512,6 +7570,7 @@ const deserializeAws_restJson1_1AudioCodecSettings = (
     Eac3AtmosSettings: undefined,
     Eac3Settings: undefined,
     Mp2Settings: undefined,
+    Mp3Settings: undefined,
     WavSettings: undefined
   };
   if (output.aacSettings !== undefined) {
@@ -7550,6 +7609,12 @@ const deserializeAws_restJson1_1AudioCodecSettings = (
   if (output.mp2Settings !== undefined) {
     contents.Mp2Settings = deserializeAws_restJson1_1Mp2Settings(
       output.mp2Settings,
+      context
+    );
+  }
+  if (output.mp3Settings !== undefined) {
+    contents.Mp3Settings = deserializeAws_restJson1_1Mp3Settings(
+      output.mp3Settings,
       context
     );
   }
@@ -8131,7 +8196,8 @@ const deserializeAws_restJson1_1CmafGroupSettings = (
     SegmentLength: undefined,
     StreamInfResolution: undefined,
     WriteDashManifest: undefined,
-    WriteHlsManifest: undefined
+    WriteHlsManifest: undefined,
+    WriteSegmentTimelineInRepresentation: undefined
   };
   if (output.additionalManifests !== undefined) {
     contents.AdditionalManifests = deserializeAws_restJson1_1__listOfCmafAdditionalManifest(
@@ -8196,6 +8262,28 @@ const deserializeAws_restJson1_1CmafGroupSettings = (
   if (output.writeHlsManifest !== undefined) {
     contents.WriteHlsManifest = output.writeHlsManifest;
   }
+  if (output.writeSegmentTimelineInRepresentation !== undefined) {
+    contents.WriteSegmentTimelineInRepresentation =
+      output.writeSegmentTimelineInRepresentation;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1CmfcSettings = (
+  output: any,
+  context: __SerdeContext
+): CmfcSettings => {
+  let contents: any = {
+    __type: "CmfcSettings",
+    Scte35Esam: undefined,
+    Scte35Source: undefined
+  };
+  if (output.scte35Esam !== undefined) {
+    contents.Scte35Esam = output.scte35Esam;
+  }
+  if (output.scte35Source !== undefined) {
+    contents.Scte35Source = output.scte35Source;
+  }
   return contents;
 };
 
@@ -8242,6 +8330,7 @@ const deserializeAws_restJson1_1ContainerSettings = (
 ): ContainerSettings => {
   let contents: any = {
     __type: "ContainerSettings",
+    CmfcSettings: undefined,
     Container: undefined,
     F4vSettings: undefined,
     M2tsSettings: undefined,
@@ -8250,6 +8339,12 @@ const deserializeAws_restJson1_1ContainerSettings = (
     Mp4Settings: undefined,
     MpdSettings: undefined
   };
+  if (output.cmfcSettings !== undefined) {
+    contents.CmfcSettings = deserializeAws_restJson1_1CmfcSettings(
+      output.cmfcSettings,
+      context
+    );
+  }
   if (output.container !== undefined) {
     contents.Container = output.container;
   }
@@ -10092,7 +10187,11 @@ const deserializeAws_restJson1_1Job = (
     contents.BillingTagsSource = output.billingTagsSource;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(output.createdAt);
+    contents.CreatedAt = new Date(
+      output.createdAt % 1 != 0
+        ? Math.round(output.createdAt * 1000)
+        : output.createdAt
+    );
   }
   if (output.currentPhase !== undefined) {
     contents.CurrentPhase = output.currentPhase;
@@ -10289,13 +10388,21 @@ const deserializeAws_restJson1_1JobTemplate = (
     contents.Category = output.category;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(output.createdAt);
+    contents.CreatedAt = new Date(
+      output.createdAt % 1 != 0
+        ? Math.round(output.createdAt * 1000)
+        : output.createdAt
+    );
   }
   if (output.description !== undefined) {
     contents.Description = output.description;
   }
   if (output.lastUpdated !== undefined) {
-    contents.LastUpdated = new Date(output.lastUpdated);
+    contents.LastUpdated = new Date(
+      output.lastUpdated % 1 != 0
+        ? Math.round(output.lastUpdated * 1000)
+        : output.lastUpdated
+    );
   }
   if (output.name !== undefined) {
     contents.Name = output.name;
@@ -10782,6 +10889,36 @@ const deserializeAws_restJson1_1Mp2Settings = (
   return contents;
 };
 
+const deserializeAws_restJson1_1Mp3Settings = (
+  output: any,
+  context: __SerdeContext
+): Mp3Settings => {
+  let contents: any = {
+    __type: "Mp3Settings",
+    Bitrate: undefined,
+    Channels: undefined,
+    RateControlMode: undefined,
+    SampleRate: undefined,
+    VbrQuality: undefined
+  };
+  if (output.bitrate !== undefined) {
+    contents.Bitrate = output.bitrate;
+  }
+  if (output.channels !== undefined) {
+    contents.Channels = output.channels;
+  }
+  if (output.rateControlMode !== undefined) {
+    contents.RateControlMode = output.rateControlMode;
+  }
+  if (output.sampleRate !== undefined) {
+    contents.SampleRate = output.sampleRate;
+  }
+  if (output.vbrQuality !== undefined) {
+    contents.VbrQuality = output.vbrQuality;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1Mp4Settings = (
   output: any,
   context: __SerdeContext
@@ -10789,12 +10926,16 @@ const deserializeAws_restJson1_1Mp4Settings = (
   let contents: any = {
     __type: "Mp4Settings",
     CslgAtom: undefined,
+    CttsVersion: undefined,
     FreeSpaceBox: undefined,
     MoovPlacement: undefined,
     Mp4MajorBrand: undefined
   };
   if (output.cslgAtom !== undefined) {
     contents.CslgAtom = output.cslgAtom;
+  }
+  if (output.cttsVersion !== undefined) {
+    contents.CttsVersion = output.cttsVersion;
   }
   if (output.freeSpaceBox !== undefined) {
     contents.FreeSpaceBox = output.freeSpaceBox;
@@ -11394,13 +11535,21 @@ const deserializeAws_restJson1_1Preset = (
     contents.Category = output.category;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(output.createdAt);
+    contents.CreatedAt = new Date(
+      output.createdAt % 1 != 0
+        ? Math.round(output.createdAt * 1000)
+        : output.createdAt
+    );
   }
   if (output.description !== undefined) {
     contents.Description = output.description;
   }
   if (output.lastUpdated !== undefined) {
-    contents.LastUpdated = new Date(output.lastUpdated);
+    contents.LastUpdated = new Date(
+      output.lastUpdated % 1 != 0
+        ? Math.round(output.lastUpdated * 1000)
+        : output.lastUpdated
+    );
   }
   if (output.name !== undefined) {
     contents.Name = output.name;
@@ -11531,13 +11680,21 @@ const deserializeAws_restJson1_1Queue = (
     contents.Arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(output.createdAt);
+    contents.CreatedAt = new Date(
+      output.createdAt % 1 != 0
+        ? Math.round(output.createdAt * 1000)
+        : output.createdAt
+    );
   }
   if (output.description !== undefined) {
     contents.Description = output.description;
   }
   if (output.lastUpdated !== undefined) {
-    contents.LastUpdated = new Date(output.lastUpdated);
+    contents.LastUpdated = new Date(
+      output.lastUpdated % 1 != 0
+        ? Math.round(output.lastUpdated * 1000)
+        : output.lastUpdated
+    );
   }
   if (output.name !== undefined) {
     contents.Name = output.name;
@@ -11634,10 +11791,18 @@ const deserializeAws_restJson1_1ReservationPlan = (
     contents.Commitment = output.commitment;
   }
   if (output.expiresAt !== undefined) {
-    contents.ExpiresAt = new Date(output.expiresAt);
+    contents.ExpiresAt = new Date(
+      output.expiresAt % 1 != 0
+        ? Math.round(output.expiresAt * 1000)
+        : output.expiresAt
+    );
   }
   if (output.purchasedAt !== undefined) {
-    contents.PurchasedAt = new Date(output.purchasedAt);
+    contents.PurchasedAt = new Date(
+      output.purchasedAt % 1 != 0
+        ? Math.round(output.purchasedAt * 1000)
+        : output.purchasedAt
+    );
   }
   if (output.renewalType !== undefined) {
     contents.RenewalType = output.renewalType;
@@ -11944,13 +12109,25 @@ const deserializeAws_restJson1_1Timing = (
     SubmitTime: undefined
   };
   if (output.finishTime !== undefined) {
-    contents.FinishTime = new Date(output.finishTime);
+    contents.FinishTime = new Date(
+      output.finishTime % 1 != 0
+        ? Math.round(output.finishTime * 1000)
+        : output.finishTime
+    );
   }
   if (output.startTime !== undefined) {
-    contents.StartTime = new Date(output.startTime);
+    contents.StartTime = new Date(
+      output.startTime % 1 != 0
+        ? Math.round(output.startTime * 1000)
+        : output.startTime
+    );
   }
   if (output.submitTime !== undefined) {
-    contents.SubmitTime = new Date(output.submitTime);
+    contents.SubmitTime = new Date(
+      output.submitTime % 1 != 0
+        ? Math.round(output.submitTime * 1000)
+        : output.submitTime
+    );
   }
   return contents;
 };

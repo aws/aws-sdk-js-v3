@@ -102,26 +102,19 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in.
+ * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in.
  * 			When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map.
  * 			For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check.
  * 			Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to
  * 			eight healthy records. </p>
- *
  */
 export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
-   *
-   * 		       <p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a
+   * <p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a
    * 			<code>DiscoverInstances</code> request but can't be discovered using DNS. </p>
    * 		       <p>For the current limit on the number of namespaces that you can create using the same AWS account, see
    * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
    * 			<i>AWS Cloud Map Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
    */
   public createHttpNamespace(
     args: CreateHttpNamespaceCommandInput,
@@ -156,17 +149,12 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines
+   * <p>Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines
    * 			your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>,
    * 			the resulting DNS name for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can
    * 			create using the same AWS account, see
    * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
    * 			<i>AWS Cloud Map Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
    */
   public createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
@@ -201,17 +189,12 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme.
+   * <p>Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme.
    * 			For example, if you name your namespace <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name
    * 			for the service will be <code>backend.example.com</code>. For the current limit on the number of namespaces that you can
    * 			create using the same AWS account, see
    * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
    * 			<i>AWS Cloud Map Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
    */
   public createPublicDnsNamespace(
     args: CreatePublicDnsNamespaceCommandInput,
@@ -246,8 +229,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a service, which defines the configuration for the following entities:</p>
+   * <p>Creates a service, which defines the configuration for the following entities:</p>
    * 		       <ul>
    *             <li>
    *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
@@ -278,10 +260,6 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * 		       <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see
    * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
    * 			<i>AWS Cloud Map Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -316,12 +294,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a namespace from the current account. If the namespace still contains one or more services, the request fails.</p>
-   *
-   *
-   *
-   *
+   * <p>Deletes a namespace from the current account. If the namespace still contains one or more services, the request fails.</p>
    */
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -356,12 +329,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a specified service. If the service still contains one or more registered instances, the request fails.</p>
-   *
-   *
-   *
-   *
+   * <p>Deletes a specified service. If the service still contains one or more registered instances, the request fails.</p>
    */
   public deleteService(
     args: DeleteServiceCommandInput,
@@ -396,12 +364,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified instance.</p>
-   *
-   *
-   *
-   *
+   * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified instance.</p>
    */
   public deregisterInstance(
     args: DeregisterInstanceCommandInput,
@@ -436,12 +399,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Discovers registered instances for a specified namespace and service.</p>
-   *
-   *
-   *
-   *
+   * <p>Discovers registered instances for a specified namespace and service.</p>
    */
   public discoverInstances(
     args: DiscoverInstancesCommandInput,
@@ -476,12 +434,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a specified instance.</p>
-   *
-   *
-   *
-   *
+   * <p>Gets information about a specified instance.</p>
    */
   public getInstance(
     args: GetInstanceCommandInput,
@@ -516,16 +469,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or more instances
+   * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or more instances
    * 			that are associated with a specified service.</p>
    * 		       <note>
    *             <p>There is a brief delay between when you register an instance and when the health status for the instance is available. </p>
    *          </note>
-   *
-   *
-   *
-   *
    */
   public getInstancesHealthStatus(
     args: GetInstancesHealthStatusCommandInput,
@@ -560,12 +508,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a namespace.</p>
-   *
-   *
-   *
-   *
+   * <p>Gets information about a namespace.</p>
    */
   public getNamespace(
     args: GetNamespaceCommandInput,
@@ -600,16 +543,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Gets information about any operation that returns an operation ID in the response, such as a <code>CreateService</code> request.</p>
+   * <p>Gets information about any operation that returns an operation ID in the response, such as a <code>CreateService</code> request.</p>
    *
    * 			      <note>
    * 				        <p>To get a list of operations that match specified criteria, see <a>ListOperations</a>.</p>
    * 			      </note>
-   *
-   *
-   *
-   *
    */
   public getOperation(
     args: GetOperationCommandInput,
@@ -644,12 +582,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Gets the settings for a specified service.</p>
-   *
-   *
-   *
-   *
+   * <p>Gets the settings for a specified service.</p>
    */
   public getService(
     args: GetServiceCommandInput,
@@ -684,12 +617,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Lists summary information about the instances that you registered by using a specified service.</p>
-   *
-   *
-   *
-   *
+   * <p>Lists summary information about the instances that you registered by using a specified service.</p>
    */
   public listInstances(
     args: ListInstancesCommandInput,
@@ -724,12 +652,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Lists summary information about the namespaces that were created by the current AWS account.</p>
-   *
-   *
-   *
-   *
+   * <p>Lists summary information about the namespaces that were created by the current AWS account.</p>
    */
   public listNamespaces(
     args: ListNamespacesCommandInput,
@@ -764,12 +687,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Lists operations that match the criteria that you specify.</p>
-   *
-   *
-   *
-   *
+   * <p>Lists operations that match the criteria that you specify.</p>
    */
   public listOperations(
     args: ListOperationsCommandInput,
@@ -804,12 +722,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Lists summary information for all the services that are associated with one or more specified namespaces.</p>
-   *
-   *
-   *
-   *
+   * <p>Lists summary information for all the services that are associated with one or more specified namespaces.</p>
    */
   public listServices(
     args: ListServicesCommandInput,
@@ -844,8 +757,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a specified service.
+   * <p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a specified service.
    * 			When you submit a <code>RegisterInstance</code> request, the following occurs:</p>
    * 		       <ul>
    *             <li>
@@ -885,10 +797,6 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * 		       <p>For the current limit on the number of instances that you can register using the same namespace and using the same service, see
    * 			<a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
    * 			<i>AWS Cloud Map Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
    */
   public registerInstance(
     args: RegisterInstanceCommandInput,
@@ -923,16 +831,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>
+   * <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>
    * 		       <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks, which you define using
    * 			<code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the status for Route 53 health checks, which you define
    * 			using <code>HealthCheckConfig</code>.</p>
    * 		       <p>For more information, see <a>HealthCheckCustomConfig</a>.</p>
-   *
-   *
-   *
-   *
    */
   public updateInstanceCustomHealthStatus(
     args: UpdateInstanceCustomHealthStatusCommandInput,
@@ -973,8 +876,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   *
-   * 		       <p>Submits a request to perform the following operations:</p>
+   * <p>Submits a request to perform the following operations:</p>
    * 		       <ul>
    *             <li>
    *                <p>Add or delete <code>DnsRecords</code> configurations</p>
@@ -992,10 +894,6 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * 			in an <code>UpdateService</code> request are deleted.</p>
    * 		       <p>When you update the TTL setting for a service, AWS Cloud Map also updates the corresponding settings in all the records and
    * 			health checks that were created by using the specified service.</p>
-   *
-   *
-   *
-   *
    */
   public updateService(
     args: UpdateServiceCommandInput,

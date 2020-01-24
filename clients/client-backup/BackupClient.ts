@@ -16,6 +16,8 @@ import {
   DescribeBackupJobOutput,
   DescribeBackupVaultInput,
   DescribeBackupVaultOutput,
+  DescribeCopyJobInput,
+  DescribeCopyJobOutput,
   DescribeProtectedResourceInput,
   DescribeProtectedResourceOutput,
   DescribeRecoveryPointInput,
@@ -51,6 +53,8 @@ import {
   ListBackupSelectionsOutput,
   ListBackupVaultsInput,
   ListBackupVaultsOutput,
+  ListCopyJobsInput,
+  ListCopyJobsOutput,
   ListProtectedResourcesInput,
   ListProtectedResourcesOutput,
   ListRecoveryPointsByBackupVaultInput,
@@ -65,6 +69,8 @@ import {
   PutBackupVaultNotificationsInput,
   StartBackupJobInput,
   StartBackupJobOutput,
+  StartCopyJobInput,
+  StartCopyJobOutput,
   StartRestoreJobInput,
   StartRestoreJobOutput,
   StopBackupJobInput,
@@ -141,6 +147,7 @@ export type ServiceInputTypes =
   | DeleteRecoveryPointInput
   | DescribeBackupJobInput
   | DescribeBackupVaultInput
+  | DescribeCopyJobInput
   | DescribeProtectedResourceInput
   | DescribeRecoveryPointInput
   | DescribeRestoreJobInput
@@ -158,6 +165,7 @@ export type ServiceInputTypes =
   | ListBackupPlansInput
   | ListBackupSelectionsInput
   | ListBackupVaultsInput
+  | ListCopyJobsInput
   | ListProtectedResourcesInput
   | ListRecoveryPointsByBackupVaultInput
   | ListRecoveryPointsByResourceInput
@@ -166,6 +174,7 @@ export type ServiceInputTypes =
   | PutBackupVaultAccessPolicyInput
   | PutBackupVaultNotificationsInput
   | StartBackupJobInput
+  | StartCopyJobInput
   | StartRestoreJobInput
   | StopBackupJobInput
   | TagResourceInput
@@ -181,6 +190,7 @@ export type ServiceOutputTypes =
   | DeleteBackupPlanOutput
   | DescribeBackupJobOutput
   | DescribeBackupVaultOutput
+  | DescribeCopyJobOutput
   | DescribeProtectedResourceOutput
   | DescribeRecoveryPointOutput
   | DescribeRestoreJobOutput
@@ -199,12 +209,14 @@ export type ServiceOutputTypes =
   | ListBackupPlansOutput
   | ListBackupSelectionsOutput
   | ListBackupVaultsOutput
+  | ListCopyJobsOutput
   | ListProtectedResourcesOutput
   | ListRecoveryPointsByBackupVaultOutput
   | ListRecoveryPointsByResourceOutput
   | ListRestoreJobsOutput
   | ListTagsOutput
   | StartBackupJobOutput
+  | StartCopyJobOutput
   | StartRestoreJobOutput
   | UpdateBackupPlanOutput
   | UpdateRecoveryPointLifecycleOutput;
@@ -317,12 +329,10 @@ export type BackupClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Backup</fullname>
+ * <fullname>AWS Backup</fullname>
  *          <p>AWS Backup is a unified backup service designed to protect AWS services and their
  *          associated data. AWS Backup simplifies the creation, migration, restoration, and deletion
  *          of backups, while also providing reporting and auditing.</p>
- *
  */
 export class BackupClient extends __Client<
   __HttpHandlerOptions,

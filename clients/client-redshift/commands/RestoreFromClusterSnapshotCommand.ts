@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, RestoreFromClusterSnapshotMessage } from "../models/index";
+import {
+  RestoreFromClusterSnapshotMessage,
+  RestoreFromClusterSnapshotResult
+} from "../models/index";
 import {
   deserializeAws_queryRestoreFromClusterSnapshotCommand,
   serializeAws_queryRestoreFromClusterSnapshotCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreFromClusterSnapshotCommandInput = RestoreFromClusterSnapshotMessage;
-export type RestoreFromClusterSnapshotCommandOutput = Cluster;
+export type RestoreFromClusterSnapshotCommandOutput = RestoreFromClusterSnapshotResult;
 
 export class RestoreFromClusterSnapshotCommand extends $Command<
   RestoreFromClusterSnapshotCommandInput,

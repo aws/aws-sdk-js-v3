@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../ElastiCacheClient";
 import {
-  CacheSecurityGroup,
-  CreateCacheSecurityGroupMessage
+  CreateCacheSecurityGroupMessage,
+  CreateCacheSecurityGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateCacheSecurityGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCacheSecurityGroupCommandInput = CreateCacheSecurityGroupMessage;
-export type CreateCacheSecurityGroupCommandOutput = CacheSecurityGroup;
+export type CreateCacheSecurityGroupCommandOutput = CreateCacheSecurityGroupResult;
 
 export class CreateCacheSecurityGroupCommand extends $Command<
   CreateCacheSecurityGroupCommandInput,

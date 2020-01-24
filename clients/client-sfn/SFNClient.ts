@@ -252,8 +252,7 @@ export type SFNClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Step Functions</fullname>
+ * <fullname>AWS Step Functions</fullname>
  *          <p>AWS Step Functions is a service that lets you coordinate the components of distributed applications
  *       and microservices using visual workflows.</p>
  *          <p>You can use Step Functions to build applications from individual components, each of which performs
@@ -269,7 +268,6 @@ export type SFNClientResolvedConfig = __SmithyResolvedConfiguration<
  *       For more information about Step Functions, see the <i>
  *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">AWS Step Functions Developer Guide</a>
  *             </i>.</p>
- *
  */
 export class SFNClient extends __Client<
   __HttpHandlerOptions,

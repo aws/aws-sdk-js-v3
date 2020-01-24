@@ -163,8 +163,7 @@ export type MarketplaceEntitlementServiceClientResolvedConfig = __SmithyResolved
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Marketplace Entitlement Service</fullname>
+ * <fullname>AWS Marketplace Entitlement Service</fullname>
  *          <p>This reference provides descriptions of the AWS Marketplace Entitlement Service
  *    API.</p>
  *          <p>AWS Marketplace Entitlement Service is used to determine the entitlement of a customer to
@@ -181,7 +180,6 @@ export type MarketplaceEntitlementServiceClientResolvedConfig = __SmithyResolved
  *      product.</p>
  *             </li>
  *          </ul>
- *
  */
 export class MarketplaceEntitlementServiceClient extends __Client<
   __HttpHandlerOptions,

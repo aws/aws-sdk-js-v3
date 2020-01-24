@@ -32,6 +32,8 @@ import {
 } from "../commands/UpdateLifecyclePolicyCommand";
 import {
   CreateRule,
+  CrossRegionCopyRetainRule,
+  CrossRegionCopyRule,
   FastRestoreRule,
   InternalServerException,
   InvalidRequestException,
@@ -349,21 +351,21 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
+    case "com.amazonaws.dlm#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "LimitExceededException":
-    case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
+    case "com.amazonaws.dlm#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
         output,
         context
@@ -376,7 +378,7 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -412,21 +414,21 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "LimitExceededException":
-    case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
+    case "com.amazonaws.dlm#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
+    case "com.amazonaws.dlm#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
@@ -439,7 +441,7 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -483,28 +485,28 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
+    case "com.amazonaws.dlm#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "LimitExceededException":
-    case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
+    case "com.amazonaws.dlm#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
+    case "com.amazonaws.dlm#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
@@ -517,7 +519,7 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -561,21 +563,21 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "LimitExceededException":
-    case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
+    case "com.amazonaws.dlm#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
+    case "com.amazonaws.dlm#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
@@ -588,7 +590,7 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -629,21 +631,21 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
+    case "com.amazonaws.dlm#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
+    case "com.amazonaws.dlm#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
@@ -656,7 +658,7 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -689,21 +691,21 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
+    case "com.amazonaws.dlm#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
+    case "com.amazonaws.dlm#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
@@ -716,7 +718,7 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -749,21 +751,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
+    case "com.amazonaws.dlm#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
+    case "com.amazonaws.dlm#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
@@ -776,7 +778,7 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -812,28 +814,28 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
   }
   switch (errorCode) {
     case "InternalServerException":
-    case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
+    case "com.amazonaws.dlm#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
         output,
         context
       );
       break;
     case "InvalidRequestException":
-    case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
+    case "com.amazonaws.dlm#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
         output,
         context
       );
       break;
     case "LimitExceededException":
-    case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
+    case "com.amazonaws.dlm#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
         output,
         context
       );
       break;
     case "ResourceNotFoundException":
-    case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
+    case "com.amazonaws.dlm#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
@@ -846,7 +848,7 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
+        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -998,6 +1000,57 @@ const serializeAws_restJson1_1CreateRule = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1CrossRegionCopyRetainRule = (
+  input: CrossRegionCopyRetainRule,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Interval !== undefined) {
+    bodyParams["Interval"] = input.Interval;
+  }
+  if (input.IntervalUnit !== undefined) {
+    bodyParams["IntervalUnit"] = input.IntervalUnit;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1CrossRegionCopyRule = (
+  input: CrossRegionCopyRule,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.CmkArn !== undefined) {
+    bodyParams["CmkArn"] = input.CmkArn;
+  }
+  if (input.CopyTags !== undefined) {
+    bodyParams["CopyTags"] = input.CopyTags;
+  }
+  if (input.Encrypted !== undefined) {
+    bodyParams["Encrypted"] = input.Encrypted;
+  }
+  if (input.RetainRule !== undefined) {
+    bodyParams[
+      "RetainRule"
+    ] = serializeAws_restJson1_1CrossRegionCopyRetainRule(
+      input.RetainRule,
+      context
+    );
+  }
+  if (input.TargetRegion !== undefined) {
+    bodyParams["TargetRegion"] = input.TargetRegion;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1CrossRegionCopyRules = (
+  input: Array<CrossRegionCopyRule>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1CrossRegionCopyRule(entry, context)
+  );
+};
+
 const serializeAws_restJson1_1FastRestoreRule = (
   input: FastRestoreRule,
   context: __SerdeContext
@@ -1106,6 +1159,14 @@ const serializeAws_restJson1_1Schedule = (
   if (input.CreateRule !== undefined) {
     bodyParams["CreateRule"] = serializeAws_restJson1_1CreateRule(
       input.CreateRule,
+      context
+    );
+  }
+  if (input.CrossRegionCopyRules !== undefined) {
+    bodyParams[
+      "CrossRegionCopyRules"
+    ] = serializeAws_restJson1_1CrossRegionCopyRules(
+      input.CrossRegionCopyRules,
       context
     );
   }
@@ -1236,6 +1297,66 @@ const deserializeAws_restJson1_1CreateRule = (
   return contents;
 };
 
+const deserializeAws_restJson1_1CrossRegionCopyRetainRule = (
+  output: any,
+  context: __SerdeContext
+): CrossRegionCopyRetainRule => {
+  let contents: any = {
+    __type: "CrossRegionCopyRetainRule",
+    Interval: undefined,
+    IntervalUnit: undefined
+  };
+  if (output.Interval !== undefined) {
+    contents.Interval = output.Interval;
+  }
+  if (output.IntervalUnit !== undefined) {
+    contents.IntervalUnit = output.IntervalUnit;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1CrossRegionCopyRule = (
+  output: any,
+  context: __SerdeContext
+): CrossRegionCopyRule => {
+  let contents: any = {
+    __type: "CrossRegionCopyRule",
+    CmkArn: undefined,
+    CopyTags: undefined,
+    Encrypted: undefined,
+    RetainRule: undefined,
+    TargetRegion: undefined
+  };
+  if (output.CmkArn !== undefined) {
+    contents.CmkArn = output.CmkArn;
+  }
+  if (output.CopyTags !== undefined) {
+    contents.CopyTags = output.CopyTags;
+  }
+  if (output.Encrypted !== undefined) {
+    contents.Encrypted = output.Encrypted;
+  }
+  if (output.RetainRule !== undefined) {
+    contents.RetainRule = deserializeAws_restJson1_1CrossRegionCopyRetainRule(
+      output.RetainRule,
+      context
+    );
+  }
+  if (output.TargetRegion !== undefined) {
+    contents.TargetRegion = output.TargetRegion;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1CrossRegionCopyRules = (
+  output: any,
+  context: __SerdeContext
+): Array<CrossRegionCopyRule> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1CrossRegionCopyRule(entry, context)
+  );
+};
+
 const deserializeAws_restJson1_1FastRestoreRule = (
   output: any,
   context: __SerdeContext
@@ -1283,18 +1404,10 @@ const deserializeAws_restJson1_1LifecyclePolicy = (
     Tags: undefined
   };
   if (output.DateCreated !== undefined) {
-    contents.DateCreated = new Date(
-      output.DateCreated % 1 != 0
-        ? Math.round(output.DateCreated * 1000)
-        : output.DateCreated
-    );
+    contents.DateCreated = new Date(output.DateCreated);
   }
   if (output.DateModified !== undefined) {
-    contents.DateModified = new Date(
-      output.DateModified % 1 != 0
-        ? Math.round(output.DateModified * 1000)
-        : output.DateModified
-    );
+    contents.DateModified = new Date(output.DateModified);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -1468,6 +1581,7 @@ const deserializeAws_restJson1_1Schedule = (
     __type: "Schedule",
     CopyTags: undefined,
     CreateRule: undefined,
+    CrossRegionCopyRules: undefined,
     FastRestoreRule: undefined,
     Name: undefined,
     RetainRule: undefined,
@@ -1480,6 +1594,12 @@ const deserializeAws_restJson1_1Schedule = (
   if (output.CreateRule !== undefined) {
     contents.CreateRule = deserializeAws_restJson1_1CreateRule(
       output.CreateRule,
+      context
+    );
+  }
+  if (output.CrossRegionCopyRules !== undefined) {
+    contents.CrossRegionCopyRules = deserializeAws_restJson1_1CrossRegionCopyRules(
+      output.CrossRegionCopyRules,
       context
     );
   }

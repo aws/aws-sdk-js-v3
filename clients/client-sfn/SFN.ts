@@ -112,8 +112,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Step Functions</fullname>
+ * <fullname>AWS Step Functions</fullname>
  *          <p>AWS Step Functions is a service that lets you coordinate the components of distributed applications
  *       and microservices using visual workflows.</p>
  *          <p>You can use Step Functions to build applications from individual components, each of which performs
@@ -129,12 +128,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       For more information about Step Functions, see the <i>
  *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">AWS Step Functions Developer Guide</a>
  *             </i>.</p>
- *
  */
 export class SFN extends SFNClient {
   /**
-   *
-   *          <p>Creates an activity. An activity is a task that you write in any programming language and
+   * <p>Creates an activity. An activity is a task that you write in any programming language and
    *       host on any machine that has access to AWS Step Functions. Activities must poll Step Functions using the
    *         <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API
    *       actions. This function lets Step Functions know the existence of your activity and returns an
@@ -151,7 +148,6 @@ export class SFN extends SFNClient {
    *         idempotent request of the previous. In this case, <code>tags</code> will not be updated,
    *         even if they are different.</p>
    *          </note>
-   *
    */
   public createActivity(
     args: CreateActivityCommandInput,
@@ -186,8 +182,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Creates a state machine. A state machine consists of a collection of states that can do
+   * <p>Creates a state machine. A state machine consists of a collection of states that can do
    *       work (<code>Task</code> states), determine to which states to transition next
    *         (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),
    *       and so on. State machines are specified using a JSON-based, structured language.</p>
@@ -204,7 +199,6 @@ export class SFN extends SFNClient {
    *         case, <code>roleArn</code> and <code>tags</code> will not be updated, even if they are
    *         different.</p>
    *          </note>
-   *
    */
   public createStateMachine(
     args: CreateStateMachineCommandInput,
@@ -239,9 +233,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Deletes an activity.</p>
-   *
+   * <p>Deletes an activity.</p>
    */
   public deleteActivity(
     args: DeleteActivityCommandInput,
@@ -276,15 +268,13 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
+   * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
    *       status to <code>DELETING</code> and begins the deletion process. Each state machine execution
    *       is deleted the next time it makes a state transition.</p>
    *          <note>
    *             <p>The state machine itself is deleted after all executions are completed or
    *         deleted.</p>
    *          </note>
-   *
    */
   public deleteStateMachine(
     args: DeleteStateMachineCommandInput,
@@ -319,12 +309,10 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Describes an activity.</p>
+   * <p>Describes an activity.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *
    */
   public describeActivity(
     args: DescribeActivityCommandInput,
@@ -359,12 +347,10 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Describes an execution.</p>
+   * <p>Describes an execution.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *
    */
   public describeExecution(
     args: DescribeExecutionCommandInput,
@@ -399,12 +385,10 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Describes a state machine.</p>
+   * <p>Describes a state machine.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *
    */
   public describeStateMachine(
     args: DescribeStateMachineCommandInput,
@@ -439,12 +423,10 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Describes the state machine associated with a specific execution.</p>
+   * <p>Describes the state machine associated with a specific execution.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *
    */
   public describeStateMachineForExecution(
     args: DescribeStateMachineForExecutionCommandInput,
@@ -485,8 +467,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Used by workers to retrieve a task (with the specified activity ARN) which has been
+   * <p>Used by workers to retrieve a task (with the specified activity ARN) which has been
    *       scheduled for execution by a running state machine. This initiates a long poll, where the
    *       service holds the HTTP connection open and responds as soon as a task becomes available (i.e.
    *       an execution of a task of this type is needed.) The maximum time the service holds on to the
@@ -499,7 +480,6 @@ export class SFN extends SFNClient {
    *           <a href="https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html">Avoid
    *           Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.</p>
    *          </important>
-   *
    */
   public getActivityTask(
     args: GetActivityTaskCommandInput,
@@ -534,14 +514,11 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Returns the history of the specified execution as a list of events. By default, the
+   * <p>Returns the history of the specified execution as a list of events. By default, the
    *       results are returned in ascending order of the <code>timeStamp</code> of the events. Use the
    *         <code>reverseOrder</code> parameter to get the latest events first.</p>
    *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
-   *
-   *
    */
   public getExecutionHistory(
     args: GetExecutionHistoryCommandInput,
@@ -576,14 +553,12 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Lists the existing activities.</p>
+   * <p>Lists the existing activities.</p>
    *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *
    */
   public listActivities(
     args: ListActivitiesCommandInput,
@@ -618,15 +593,13 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Lists the executions of a state machine that meet the filtering criteria. Results are
+   * <p>Lists the executions of a state machine that meet the filtering criteria. Results are
    *       sorted by time, with the most recent execution first.</p>
    *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *
    */
   public listExecutions(
     args: ListExecutionsCommandInput,
@@ -661,14 +634,12 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Lists the existing state machines.</p>
+   * <p>Lists the existing state machines.</p>
    *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *
    */
   public listStateMachines(
     args: ListStateMachinesCommandInput,
@@ -703,10 +674,8 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>List tags for a given resource.</p>
+   * <p>List tags for a given resource.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -741,10 +710,8 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a> pattern
+   * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a> pattern
    *       to report that the task identified by the <code>taskToken</code> failed.</p>
-   *
    */
   public sendTaskFailure(
     args: SendTaskFailureCommandInput,
@@ -779,8 +746,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a> pattern to report to Step Functions that
+   * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a> pattern to report to Step Functions that
    *       the task represented by the specified <code>taskToken</code> is still making progress. This
    *       action resets the <code>Heartbeat</code> clock. The <code>Heartbeat</code> threshold is
    *       specified in the state machine's Amazon States Language definition (<code>HeartbeatSeconds</code>). This action
@@ -794,8 +760,6 @@ export class SFN extends SFNClient {
    *         its maximum allowed duration, regardless of the number of <a>SendTaskHeartbeat</a> requests received. Use <code>HeartbeatSeconds</code> to configure the timeout interval
    *         for heartbeats.</p>
    *          </note>
-   *
-   *
    */
   public sendTaskHeartbeat(
     args: SendTaskHeartbeatCommandInput,
@@ -830,11 +794,9 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
+   * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
    *       pattern to report that the task identified by the <code>taskToken</code> completed
    *       successfully.</p>
-   *
    */
   public sendTaskSuccess(
     args: SendTaskSuccessCommandInput,
@@ -869,8 +831,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Starts a state machine execution.</p>
+   * <p>Starts a state machine execution.</p>
    *          <note>
    *             <p>
    *                <code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called with
@@ -879,7 +840,6 @@ export class SFN extends SFNClient {
    *         it will return a 400 <code>ExecutionAlreadyExists</code> error. Names can be reused after 90
    *         days. </p>
    *          </note>
-   *
    */
   public startExecution(
     args: StartExecutionCommandInput,
@@ -914,9 +874,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Stops an execution.</p>
-   *
+   * <p>Stops an execution.</p>
    */
   public stopExecution(
     args: StopExecutionCommandInput,
@@ -951,14 +909,12 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Add a tag to a Step Functions resource.</p>
+   * <p>Add a tag to a Step Functions resource.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
    *       Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
    *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -993,9 +949,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Remove a tag from a Step Functions resource</p>
-   *
+   * <p>Remove a tag from a Step Functions resource</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1030,8 +984,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   *
-   *          <p>Updates an existing state machine by modifying its <code>definition</code> and/or
+   * <p>Updates an existing state machine by modifying its <code>definition</code> and/or
    *         <code>roleArn</code>. Running executions will continue to use the previous
    *         <code>definition</code> and <code>roleArn</code>. You must include at least one of
    *         <code>definition</code> or <code>roleArn</code> or you will receive a
@@ -1042,7 +995,6 @@ export class SFN extends SFNClient {
    *         calling <code>UpdateStateMachine</code> may use the previous state machine
    *           <code>definition</code> and <code>roleArn</code>. </p>
    *          </note>
-   *
    */
   public updateStateMachine(
     args: UpdateStateMachineCommandInput,

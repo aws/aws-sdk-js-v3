@@ -34,7 +34,9 @@ import {
   UpdateBrokerStorageRequest,
   UpdateBrokerStorageResponse,
   UpdateClusterConfigurationRequest,
-  UpdateClusterConfigurationResponse
+  UpdateClusterConfigurationResponse,
+  UpdateMonitoringRequest,
+  UpdateMonitoringResponse
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -108,7 +110,8 @@ export type ServiceInputTypes =
   | UntagResourceRequest
   | UpdateBrokerCountRequest
   | UpdateBrokerStorageRequest
-  | UpdateClusterConfigurationRequest;
+  | UpdateClusterConfigurationRequest
+  | UpdateMonitoringRequest;
 
 export type ServiceOutputTypes =
   | __MetadataBearer
@@ -128,7 +131,8 @@ export type ServiceOutputTypes =
   | ListTagsForResourceResponse
   | UpdateBrokerCountResponse
   | UpdateBrokerStorageResponse
-  | UpdateClusterConfigurationResponse;
+  | UpdateClusterConfigurationResponse
+  | UpdateMonitoringResponse;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -238,9 +242,7 @@ export type KafkaClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *                <p>The operations for managing an Amazon MSK cluster.</p>
- *
+ * <p>The operations for managing an Amazon MSK cluster.</p>
  */
 export class KafkaClient extends __Client<
   __HttpHandlerOptions,

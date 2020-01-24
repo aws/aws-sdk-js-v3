@@ -22,8 +22,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>AWS Marketplace Metering Service</fullname>
+ * <fullname>AWS Marketplace Metering Service</fullname>
  *         <p>This reference provides descriptions of the low-level AWS Marketplace Metering
  *             Service API.</p>
  *         <p>AWS Marketplace sellers can use this API to submit usage data for custom usage
@@ -77,20 +76,16 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             records over time. For more information, see the <i>
  *                <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">AWS CloudTrail User Guide</a>
  *             </i>.</p>
- *
- *
  */
 export class MarketplaceMetering extends MarketplaceMeteringClient {
   /**
-   *
-   *         <p>BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace to
+   * <p>BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace to
    *             post metering records for a set of customers.</p>
    *         <p>For identical requests, the API is idempotent; requests can be retried with the
    *             same records or a subset of the input records.</p>
    *         <p>Every request to BatchMeterUsage is for one product. If you need to meter usage for
    *             multiple products, you must make multiple calls to BatchMeterUsage.</p>
    *         <p>BatchMeterUsage can process up to 25 UsageRecords at a time.</p>
-   *
    */
   public batchMeterUsage(
     args: BatchMeterUsageCommandInput,
@@ -125,12 +120,10 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   }
 
   /**
-   *
-   *         <p>API to emit metering records. For identical requests, the API is idempotent. It
+   * <p>API to emit metering records. For identical requests, the API is idempotent. It
    *             simply returns the metering record ID.</p>
    *         <p>MeterUsage is authenticated on the buyer's AWS account using credentials from the
    *             EC2 instance, ECS task, or EKS pod.</p>
-   *
    */
   public meterUsage(
     args: MeterUsageCommandInput,
@@ -165,8 +158,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   }
 
   /**
-   *
-   *         <p>Paid container software products sold through AWS Marketplace must integrate with
+   * <p>Paid container software products sold through AWS Marketplace must integrate with
    *             the AWS Marketplace Metering Service and call the RegisterUsage operation for software
    *             entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS aren't
    *             required to call RegisterUsage, but you may choose to do so if you would like to receive
@@ -205,8 +197,6 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
    *                     runtime.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public registerUsage(
     args: RegisterUsageCommandInput,
@@ -241,12 +231,10 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   }
 
   /**
-   *
-   *         <p>ResolveCustomer is called by a SaaS application during the registration process.
+   * <p>ResolveCustomer is called by a SaaS application during the registration process.
    *             When a buyer visits your website during the registration process, the buyer submits a
    *             registration token through their browser. The registration token is resolved through
    *             this API to obtain a CustomerIdentifier and product code.</p>
-   *
    */
   public resolveCustomer(
     args: ResolveCustomerCommandInput,

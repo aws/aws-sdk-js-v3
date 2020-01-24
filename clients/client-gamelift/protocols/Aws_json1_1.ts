@@ -203,6 +203,10 @@ import {
   ListScriptsCommandOutput
 } from "../commands/ListScriptsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "../commands/ListTagsForResourceCommand";
+import {
   PutScalingPolicyCommandInput,
   PutScalingPolicyCommandOutput
 } from "../commands/PutScalingPolicyCommand";
@@ -246,6 +250,14 @@ import {
   StopMatchmakingCommandInput,
   StopMatchmakingCommandOutput
 } from "../commands/StopMatchmakingCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "../commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "../commands/UntagResourceCommand";
 import {
   UpdateAliasCommandInput,
   UpdateAliasCommandOutput
@@ -421,6 +433,8 @@ import {
   ListFleetsOutput,
   ListScriptsInput,
   ListScriptsOutput,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   MatchedPlayerSession,
   MatchmakingConfiguration,
   MatchmakingRuleSet,
@@ -460,10 +474,16 @@ import {
   StopGameSessionPlacementOutput,
   StopMatchmakingInput,
   StopMatchmakingOutput,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
+  TaggingFailedException,
   TargetConfiguration,
   TerminalRoutingStrategyException,
   UnauthorizedException,
   UnsupportedRegionException,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateAliasInput,
   UpdateAliasOutput,
   UpdateBuildInput,
@@ -1543,6 +1563,27 @@ export async function serializeAws_json1_1ListScriptsCommand(
   });
 }
 
+export async function serializeAws_json1_1ListTagsForResourceCommand(
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "GameLift.ListTagsForResource";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListTagsForResource",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1PutScalingPolicyCommand(
   input: PutScalingPolicyCommandInput,
   context: __SerdeContext
@@ -1767,6 +1808,46 @@ export async function serializeAws_json1_1StopMatchmakingCommand(
     protocol: "https",
     method: "POST",
     path: "/StopMatchmaking",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1TagResourceCommand(
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "GameLift.TagResource";
+  let body: any = {};
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/TagResource",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1UntagResourceCommand(
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "GameLift.UntagResource";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UntagResource",
     headers: headers,
     body: body
   });
@@ -2132,6 +2213,13 @@ async function deserializeAws_json1_1CreateAliasCommandError(
         context
       );
       break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
@@ -2203,6 +2291,13 @@ async function deserializeAws_json1_1CreateBuildCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -2292,6 +2387,13 @@ async function deserializeAws_json1_1CreateFleetCommandError(
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -2491,6 +2593,13 @@ async function deserializeAws_json1_1CreateGameSessionQueueCommandError(
         context
       );
       break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
@@ -2579,6 +2688,13 @@ async function deserializeAws_json1_1CreateMatchmakingConfigurationCommandError(
         context
       );
       break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
@@ -2649,6 +2765,13 @@ async function deserializeAws_json1_1CreateMatchmakingRuleSetCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -2926,6 +3049,13 @@ async function deserializeAws_json1_1CreateScriptCommandError(
         context
       );
       break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
@@ -3158,6 +3288,13 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
         context
       );
       break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
@@ -3224,6 +3361,13 @@ async function deserializeAws_json1_1DeleteBuildCommandError(
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -3305,6 +3449,13 @@ async function deserializeAws_json1_1DeleteFleetCommandError(
         context
       );
       break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
@@ -3379,6 +3530,13 @@ async function deserializeAws_json1_1DeleteGameSessionQueueCommandError(
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -3464,6 +3622,13 @@ async function deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError(
         context
       );
       break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
@@ -3541,6 +3706,13 @@ async function deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError(
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -3684,6 +3856,13 @@ async function deserializeAws_json1_1DeleteScriptCommandError(
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
       response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -6027,6 +6206,84 @@ async function deserializeAws_json1_1ListScriptsCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1ListTagsForResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListTagsForResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1PutScalingPolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -6871,6 +7128,156 @@ async function deserializeAws_json1_1StopMatchmakingCommandError(
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1TagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "TagResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1TagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1UntagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UntagResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UntagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TaggingFailedException":
+    case "com.amazonaws.gameliftapi.v20151001#TaggingFailedException":
+      response = await deserializeAws_json1_1TaggingFailedExceptionResponse(
         parsedOutput,
         context
       );
@@ -8012,6 +8419,25 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1TaggingFailedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TaggingFailedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TaggingFailedException(
+    body,
+    context
+  );
+  const contents: TaggingFailedException = {
+    name: "TaggingFailedException",
+    __type: "TaggingFailedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -8137,6 +8563,9 @@ const serializeAws_json1_1CreateAliasInput = (
       context
     );
   }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
   return bodyParams;
 };
 
@@ -8156,6 +8585,9 @@ const serializeAws_json1_1CreateBuildInput = (
       input.StorageLocation,
       context
     );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
@@ -8247,6 +8679,9 @@ const serializeAws_json1_1CreateFleetInput = (
   if (input.ServerLaunchPath !== undefined) {
     bodyParams["ServerLaunchPath"] = input.ServerLaunchPath;
   }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
   return bodyParams;
 };
 
@@ -8312,6 +8747,9 @@ const serializeAws_json1_1CreateGameSessionQueueInput = (
       context
     );
   }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
   if (input.TimeoutInSeconds !== undefined) {
     bodyParams["TimeoutInSeconds"] = input.TimeoutInSeconds;
   }
@@ -8368,6 +8806,9 @@ const serializeAws_json1_1CreateMatchmakingConfigurationInput = (
   if (input.RuleSetName !== undefined) {
     bodyParams["RuleSetName"] = input.RuleSetName;
   }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
   return bodyParams;
 };
 
@@ -8381,6 +8822,9 @@ const serializeAws_json1_1CreateMatchmakingRuleSetInput = (
   }
   if (input.RuleSetBody !== undefined) {
     bodyParams["RuleSetBody"] = input.RuleSetBody;
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
 };
@@ -8438,6 +8882,9 @@ const serializeAws_json1_1CreateScriptInput = (
       input.StorageLocation,
       context
     );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   if (input.Version !== undefined) {
     bodyParams["Version"] = input.Version;
@@ -8837,7 +9284,7 @@ const serializeAws_json1_1DescribeMatchmakingConfigurationsInput = (
     bodyParams["Limit"] = input.Limit;
   }
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1MatchmakingIdList(
+    bodyParams["Names"] = serializeAws_json1_1MatchmakingConfigurationNameList(
       input.Names,
       context
     );
@@ -9193,6 +9640,24 @@ const serializeAws_json1_1ListScriptsInput = (
     bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
+};
+
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceARN !== undefined) {
+    bodyParams["ResourceARN"] = input.ResourceARN;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1MatchmakingConfigurationNameList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_json1_1MatchmakingIdList = (
@@ -9683,6 +10148,45 @@ const serializeAws_json1_1StringList = (
   return (input || []).map(entry => entry);
 };
 
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  let bodyParams: any = {};
+  if (input.Key !== undefined) {
+    bodyParams["Key"] = input.Key;
+  }
+  if (input.Value !== undefined) {
+    bodyParams["Value"] = input.Value;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1TagKeyList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1TagList = (
+  input: Array<Tag>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1TagResourceRequest = (
+  input: TagResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceARN !== undefined) {
+    bodyParams["ResourceARN"] = input.ResourceARN;
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1TargetConfiguration = (
   input: TargetConfiguration,
   context: __SerdeContext
@@ -9690,6 +10194,23 @@ const serializeAws_json1_1TargetConfiguration = (
   let bodyParams: any = {};
   if (input.TargetValue !== undefined) {
     bodyParams["TargetValue"] = input.TargetValue;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1UntagResourceRequest = (
+  input: UntagResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceARN !== undefined) {
+    bodyParams["ResourceARN"] = input.ResourceARN;
+  }
+  if (input.TagKeys !== undefined) {
+    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
+      input.TagKeys,
+      context
+    );
   }
   return bodyParams;
 };
@@ -10101,6 +10622,7 @@ const deserializeAws_json1_1Build = (
 ): Build => {
   let contents: any = {
     __type: "Build",
+    BuildArn: undefined,
     BuildId: undefined,
     CreationTime: undefined,
     Name: undefined,
@@ -10109,6 +10631,9 @@ const deserializeAws_json1_1Build = (
     Status: undefined,
     Version: undefined
   };
+  if (output.BuildArn !== undefined) {
+    contents.BuildArn = output.BuildArn;
+  }
   if (output.BuildId !== undefined) {
     contents.BuildId = output.BuildId;
   }
@@ -10965,6 +11490,7 @@ const deserializeAws_json1_1FleetAttributes = (
 ): FleetAttributes => {
   let contents: any = {
     __type: "FleetAttributes",
+    BuildArn: undefined,
     BuildId: undefined,
     CertificateConfiguration: undefined,
     CreationTime: undefined,
@@ -10980,6 +11506,7 @@ const deserializeAws_json1_1FleetAttributes = (
     NewGameSessionProtectionPolicy: undefined,
     OperatingSystem: undefined,
     ResourceCreationLimitPolicy: undefined,
+    ScriptArn: undefined,
     ScriptId: undefined,
     ServerLaunchParameters: undefined,
     ServerLaunchPath: undefined,
@@ -10987,6 +11514,9 @@ const deserializeAws_json1_1FleetAttributes = (
     StoppedActions: undefined,
     TerminationTime: undefined
   };
+  if (output.BuildArn !== undefined) {
+    contents.BuildArn = output.BuildArn;
+  }
   if (output.BuildId !== undefined) {
     contents.BuildId = output.BuildId;
   }
@@ -11048,6 +11578,9 @@ const deserializeAws_json1_1FleetAttributes = (
       output.ResourceCreationLimitPolicy,
       context
     );
+  }
+  if (output.ScriptArn !== undefined) {
+    contents.ScriptArn = output.ScriptArn;
   }
   if (output.ScriptId !== undefined) {
     contents.ScriptId = output.ScriptId;
@@ -11217,6 +11750,7 @@ const deserializeAws_json1_1GameSession = (
     CreatorId: undefined,
     CurrentPlayerSessionCount: undefined,
     DnsName: undefined,
+    FleetArn: undefined,
     FleetId: undefined,
     GameProperties: undefined,
     GameSessionData: undefined,
@@ -11246,6 +11780,9 @@ const deserializeAws_json1_1GameSession = (
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
+  }
+  if (output.FleetArn !== undefined) {
+    contents.FleetArn = output.FleetArn;
   }
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
@@ -11894,6 +12431,20 @@ const deserializeAws_json1_1ListScriptsOutput = (
   return contents;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  let contents: any = {
+    __type: "ListTagsForResourceResponse",
+    Tags: undefined
+  };
+  if (output.Tags !== undefined) {
+    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1MatchedPlayerSession = (
   output: any,
   context: __SerdeContext
@@ -11931,6 +12482,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     AcceptanceTimeoutSeconds: undefined,
     AdditionalPlayerCount: undefined,
     BackfillMode: undefined,
+    ConfigurationArn: undefined,
     CreationTime: undefined,
     CustomEventData: undefined,
     Description: undefined,
@@ -11940,6 +12492,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     Name: undefined,
     NotificationTarget: undefined,
     RequestTimeoutSeconds: undefined,
+    RuleSetArn: undefined,
     RuleSetName: undefined
   };
   if (output.AcceptanceRequired !== undefined) {
@@ -11953,6 +12506,9 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
   }
   if (output.BackfillMode !== undefined) {
     contents.BackfillMode = output.BackfillMode;
+  }
+  if (output.ConfigurationArn !== undefined) {
+    contents.ConfigurationArn = output.ConfigurationArn;
   }
   if (output.CreationTime !== undefined) {
     contents.CreationTime = new Date(
@@ -11991,6 +12547,9 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
   if (output.RequestTimeoutSeconds !== undefined) {
     contents.RequestTimeoutSeconds = output.RequestTimeoutSeconds;
   }
+  if (output.RuleSetArn !== undefined) {
+    contents.RuleSetArn = output.RuleSetArn;
+  }
   if (output.RuleSetName !== undefined) {
     contents.RuleSetName = output.RuleSetName;
   }
@@ -12013,6 +12572,7 @@ const deserializeAws_json1_1MatchmakingRuleSet = (
   let contents: any = {
     __type: "MatchmakingRuleSet",
     CreationTime: undefined,
+    RuleSetArn: undefined,
     RuleSetBody: undefined,
     RuleSetName: undefined
   };
@@ -12022,6 +12582,9 @@ const deserializeAws_json1_1MatchmakingRuleSet = (
         ? Math.round(output.CreationTime * 1000)
         : output.CreationTime
     );
+  }
+  if (output.RuleSetArn !== undefined) {
+    contents.RuleSetArn = output.RuleSetArn;
   }
   if (output.RuleSetBody !== undefined) {
     contents.RuleSetBody = output.RuleSetBody;
@@ -12047,6 +12610,7 @@ const deserializeAws_json1_1MatchmakingTicket = (
 ): MatchmakingTicket => {
   let contents: any = {
     __type: "MatchmakingTicket",
+    ConfigurationArn: undefined,
     ConfigurationName: undefined,
     EndTime: undefined,
     EstimatedWaitTime: undefined,
@@ -12058,6 +12622,9 @@ const deserializeAws_json1_1MatchmakingTicket = (
     StatusReason: undefined,
     TicketId: undefined
   };
+  if (output.ConfigurationArn !== undefined) {
+    contents.ConfigurationArn = output.ConfigurationArn;
+  }
   if (output.ConfigurationName !== undefined) {
     contents.ConfigurationName = output.ConfigurationName;
   }
@@ -12281,6 +12848,7 @@ const deserializeAws_json1_1PlayerSession = (
     __type: "PlayerSession",
     CreationTime: undefined,
     DnsName: undefined,
+    FleetArn: undefined,
     FleetId: undefined,
     GameSessionId: undefined,
     IpAddress: undefined,
@@ -12300,6 +12868,9 @@ const deserializeAws_json1_1PlayerSession = (
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
+  }
+  if (output.FleetArn !== undefined) {
+    contents.FleetArn = output.FleetArn;
   }
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
@@ -12395,8 +12966,12 @@ const deserializeAws_json1_1ResolveAliasOutput = (
 ): ResolveAliasOutput => {
   let contents: any = {
     __type: "ResolveAliasOutput",
+    FleetArn: undefined,
     FleetId: undefined
   };
+  if (output.FleetArn !== undefined) {
+    contents.FleetArn = output.FleetArn;
+  }
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
   }
@@ -12570,6 +13145,7 @@ const deserializeAws_json1_1Script = (
     __type: "Script",
     CreationTime: undefined,
     Name: undefined,
+    ScriptArn: undefined,
     ScriptId: undefined,
     SizeOnDisk: undefined,
     StorageLocation: undefined,
@@ -12584,6 +13160,9 @@ const deserializeAws_json1_1Script = (
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
+  }
+  if (output.ScriptArn !== undefined) {
+    contents.ScriptArn = output.ScriptArn;
   }
   if (output.ScriptId !== undefined) {
     contents.ScriptId = output.ScriptId;
@@ -12780,6 +13359,57 @@ const deserializeAws_json1_1StringList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1Tag = (
+  output: any,
+  context: __SerdeContext
+): Tag => {
+  let contents: any = {
+    __type: "Tag",
+    Key: undefined,
+    Value: undefined
+  };
+  if (output.Key !== undefined) {
+    contents.Key = output.Key;
+  }
+  if (output.Value !== undefined) {
+    contents.Value = output.Value;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1TagList = (
+  output: any,
+  context: __SerdeContext
+): Array<Tag> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Tag(entry, context)
+  );
+};
+
+const deserializeAws_json1_1TagResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): TagResourceResponse => {
+  let contents: any = {
+    __type: "TagResourceResponse"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1TaggingFailedException = (
+  output: any,
+  context: __SerdeContext
+): TaggingFailedException => {
+  let contents: any = {
+    __type: "TaggingFailedException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1TargetConfiguration = (
   output: any,
   context: __SerdeContext
@@ -12833,6 +13463,16 @@ const deserializeAws_json1_1UnsupportedRegionException = (
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
+  return contents;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): UntagResourceResponse => {
+  let contents: any = {
+    __type: "UntagResourceResponse"
+  };
   return contents;
 };
 
@@ -13055,6 +13695,7 @@ const deserializeAws_json1_1VpcPeeringConnection = (
 ): VpcPeeringConnection => {
   let contents: any = {
     __type: "VpcPeeringConnection",
+    FleetArn: undefined,
     FleetId: undefined,
     GameLiftVpcId: undefined,
     IpV4CidrBlock: undefined,
@@ -13062,6 +13703,9 @@ const deserializeAws_json1_1VpcPeeringConnection = (
     Status: undefined,
     VpcPeeringConnectionId: undefined
   };
+  if (output.FleetArn !== undefined) {
+    contents.FleetArn = output.FleetArn;
+  }
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
   }

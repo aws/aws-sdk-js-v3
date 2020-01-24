@@ -9,6 +9,10 @@ import {
   DetectEntitiesV2Response,
   DetectPHIRequest,
   DetectPHIResponse,
+  InferICD10CMRequest,
+  InferICD10CMResponse,
+  InferRxNormRequest,
+  InferRxNormResponse,
   ListEntitiesDetectionV2JobsRequest,
   ListEntitiesDetectionV2JobsResponse,
   ListPHIDetectionJobsRequest,
@@ -80,6 +84,8 @@ export type ServiceInputTypes =
   | DetectEntitiesRequest
   | DetectEntitiesV2Request
   | DetectPHIRequest
+  | InferICD10CMRequest
+  | InferRxNormRequest
   | ListEntitiesDetectionV2JobsRequest
   | ListPHIDetectionJobsRequest
   | StartEntitiesDetectionV2JobRequest
@@ -93,6 +99,8 @@ export type ServiceOutputTypes =
   | DetectEntitiesResponse
   | DetectEntitiesV2Response
   | DetectPHIResponse
+  | InferICD10CMResponse
+  | InferRxNormResponse
   | ListEntitiesDetectionV2JobsResponse
   | ListPHIDetectionJobsResponse
   | StartEntitiesDetectionV2JobResponse
@@ -208,10 +216,8 @@ export type ComprehendMedicalClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions
+ * <p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions
  *    to gain insight in your documents. </p>
- *
  */
 export class ComprehendMedicalClient extends __Client<
   __HttpHandlerOptions,

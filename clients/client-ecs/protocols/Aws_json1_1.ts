@@ -262,6 +262,7 @@ import {
   DiscoverPollEndpointRequest,
   DiscoverPollEndpointResponse,
   DockerVolumeConfiguration,
+  EFSVolumeConfiguration,
   Failure,
   FirelensConfiguration,
   HealthCheck,
@@ -6876,6 +6877,20 @@ const serializeAws_json1_1DockerVolumeConfiguration = (
   return bodyParams;
 };
 
+const serializeAws_json1_1EFSVolumeConfiguration = (
+  input: EFSVolumeConfiguration,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.fileSystemId !== undefined) {
+    bodyParams["fileSystemId"] = input.fileSystemId;
+  }
+  if (input.rootDirectory !== undefined) {
+    bodyParams["rootDirectory"] = input.rootDirectory;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1EnvironmentVariables = (
   input: Array<KeyValuePair>,
   context: __SerdeContext
@@ -8535,6 +8550,14 @@ const serializeAws_json1_1Volume = (
       context
     );
   }
+  if (input.efsVolumeConfiguration !== undefined) {
+    bodyParams[
+      "efsVolumeConfiguration"
+    ] = serializeAws_json1_1EFSVolumeConfiguration(
+      input.efsVolumeConfiguration,
+      context
+    );
+  }
   if (input.host !== undefined) {
     bodyParams["host"] = serializeAws_json1_1HostVolumeProperties(
       input.host,
@@ -10078,6 +10101,24 @@ const deserializeAws_json1_1DockerVolumeConfiguration = (
   }
   if (output.scope !== undefined) {
     contents.scope = output.scope;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1EFSVolumeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EFSVolumeConfiguration => {
+  let contents: any = {
+    __type: "EFSVolumeConfiguration",
+    fileSystemId: undefined,
+    rootDirectory: undefined
+  };
+  if (output.fileSystemId !== undefined) {
+    contents.fileSystemId = output.fileSystemId;
+  }
+  if (output.rootDirectory !== undefined) {
+    contents.rootDirectory = output.rootDirectory;
   }
   return contents;
 };
@@ -12502,12 +12543,19 @@ const deserializeAws_json1_1Volume = (
   let contents: any = {
     __type: "Volume",
     dockerVolumeConfiguration: undefined,
+    efsVolumeConfiguration: undefined,
     host: undefined,
     name: undefined
   };
   if (output.dockerVolumeConfiguration !== undefined) {
     contents.dockerVolumeConfiguration = deserializeAws_json1_1DockerVolumeConfiguration(
       output.dockerVolumeConfiguration,
+      context
+    );
+  }
+  if (output.efsVolumeConfiguration !== undefined) {
+    contents.efsVolumeConfiguration = deserializeAws_json1_1EFSVolumeConfiguration(
+      output.efsVolumeConfiguration,
       context
     );
   }

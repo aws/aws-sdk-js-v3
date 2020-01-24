@@ -4,73 +4,53 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface DescribeSavingsPlansOfferingRatesRequest {
   __type?: "DescribeSavingsPlansOfferingRatesRequest";
   /**
-   *
-   *          <p>The filters.</p>
-   *
+   * <p>The filters.</p>
    */
   filters?: Array<SavingsPlanOfferingRateFilterElement>;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call. To retrieve additional results, make another
+   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *        call with the returned token value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The specific AWS operation for the line item in the billing report.</p>
-   *
+   * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operations?: Array<string>;
 
   /**
-   *
-   *          <p>The AWS products.</p>
-   *
+   * <p>The AWS products.</p>
    */
   products?: Array<SavingsPlanProductType | string>;
 
   /**
-   *
-   *          <p>The IDs of the offerings.</p>
-   *
+   * <p>The IDs of the offerings.</p>
    */
   savingsPlanOfferingIds?: Array<string>;
 
   /**
-   *
-   *          <p>The payment options.</p>
-   *
+   * <p>The payment options.</p>
    */
   savingsPlanPaymentOptions?: Array<SavingsPlanPaymentOption | string>;
 
   /**
-   *
-   *          <p>The plan types.</p>
-   *
+   * <p>The plan types.</p>
    */
   savingsPlanTypes?: Array<SavingsPlanType | string>;
 
   /**
-   *
-   *          <p>The services.</p>
-   *
+   * <p>The services.</p>
    */
   serviceCodes?: Array<SavingsPlanRateServiceCode | string>;
 
   /**
-   *
-   *          <p>The usage details of the line item in the billing report.</p>
-   *
+   * <p>The usage details of the line item in the billing report.</p>
    */
   usageTypes?: Array<string>;
 }
@@ -85,17 +65,13 @@ export interface DescribeSavingsPlansOfferingRatesResponse
   extends $MetadataBearer {
   __type?: "DescribeSavingsPlansOfferingRatesResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is null when there are no more
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Information about the Savings Plans offering rates.</p>
-   *
+   * <p>Information about the Savings Plans offering rates.</p>
    */
   searchResults?: Array<SavingsPlanOfferingRate>;
 }
@@ -109,94 +85,68 @@ export namespace DescribeSavingsPlansOfferingRatesResponse {
 export interface DescribeSavingsPlansOfferingsRequest {
   __type?: "DescribeSavingsPlansOfferingsRequest";
   /**
-   *
-   *          <p>The currencies.</p>
-   *
+   * <p>The currencies.</p>
    */
   currencies?: Array<CurrencyCode | string>;
 
   /**
-   *
-   *          <p>The descriptions.</p>
-   *
+   * <p>The descriptions.</p>
    */
   descriptions?: Array<string>;
 
   /**
-   *
-   *          <p>The durations, in seconds.</p>
-   *
+   * <p>The durations, in seconds.</p>
    */
   durations?: Array<number>;
 
   /**
-   *
-   *          <p>The filters.</p>
-   *
+   * <p>The filters.</p>
    */
   filters?: Array<SavingsPlanOfferingFilterElement>;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call. To retrieve additional results, make another
+   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *        call with the returned token value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The IDs of the offerings.</p>
-   *
+   * <p>The IDs of the offerings.</p>
    */
   offeringIds?: Array<string>;
 
   /**
-   *
-   *          <p>The specific AWS operation for the line item in the billing report.</p>
-   *
+   * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operations?: Array<string>;
 
   /**
-   *
-   *          <p>The payment options.</p>
-   *
+   * <p>The payment options.</p>
    */
   paymentOptions?: Array<SavingsPlanPaymentOption | string>;
 
   /**
-   *
-   *          <p>The plan type.</p>
-   *
+   * <p>The plan type.</p>
    */
   planTypes?: Array<SavingsPlanType | string>;
 
   /**
-   *
-   *          <p>The product type.</p>
-   *
+   * <p>The product type.</p>
    */
   productType?: SavingsPlanProductType | string;
 
   /**
-   *
-   *          <p>The services.</p>
-   *
+   * <p>The services.</p>
    */
   serviceCodes?: Array<string>;
 
   /**
-   *
-   *          <p>The usage details of the line item in the billing report.</p>
-   *
+   * <p>The usage details of the line item in the billing report.</p>
    */
   usageTypes?: Array<string>;
 }
@@ -210,17 +160,13 @@ export namespace DescribeSavingsPlansOfferingsRequest {
 export interface DescribeSavingsPlansOfferingsResponse extends $MetadataBearer {
   __type?: "DescribeSavingsPlansOfferingsResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is null when there are no more
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Information about the Savings Plans offerings.</p>
-   *
+   * <p>Information about the Savings Plans offerings.</p>
    */
   searchResults?: Array<SavingsPlanOffering>;
 }
@@ -232,51 +178,37 @@ export namespace DescribeSavingsPlansOfferingsResponse {
 }
 
 /**
- *
- *          <p>Information about a Savings Plan offering.</p>
- *
+ * <p>Information about a Savings Plan offering.</p>
  */
 export interface ParentSavingsPlanOffering {
   __type?: "ParentSavingsPlanOffering";
   /**
-   *
-   *          <p>The currency.</p>
-   *
+   * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
-   *
-   *          <p>The duration, in seconds.</p>
-   *
+   * <p>The duration, in seconds.</p>
    */
   durationSeconds?: number;
 
   /**
-   *
-   *          <p>The ID of the offering.</p>
-   *
+   * <p>The ID of the offering.</p>
    */
   offeringId?: string;
 
   /**
-   *
-   *          <p>The payment option.</p>
-   *
+   * <p>The payment option.</p>
    */
   paymentOption?: SavingsPlanPaymentOption | string;
 
   /**
-   *
-   *          <p>The description.</p>
-   *
+   * <p>The description.</p>
    */
   planDescription?: string;
 
   /**
-   *
-   *          <p>The plan type.</p>
-   *
+   * <p>The plan type.</p>
    */
   planType?: SavingsPlanType | string;
 }
@@ -288,86 +220,62 @@ export namespace ParentSavingsPlanOffering {
 }
 
 /**
- *
- *          <p>Information about a Savings Plan offering.</p>
- *
+ * <p>Information about a Savings Plan offering.</p>
  */
 export interface SavingsPlanOffering {
   __type?: "SavingsPlanOffering";
   /**
-   *
-   *          <p>The currency.</p>
-   *
+   * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
-   *
-   *          <p>The description.</p>
-   *
+   * <p>The description.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>The duration, in seconds.</p>
-   *
+   * <p>The duration, in seconds.</p>
    */
   durationSeconds?: number;
 
   /**
-   *
-   *          <p>The ID of the offering.</p>
-   *
+   * <p>The ID of the offering.</p>
    */
   offeringId?: string;
 
   /**
-   *
-   *          <p>The specific AWS operation for the line item in the billing report.</p>
-   *
+   * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operation?: string;
 
   /**
-   *
-   *          <p>The payment option.</p>
-   *
+   * <p>The payment option.</p>
    */
   paymentOption?: SavingsPlanPaymentOption | string;
 
   /**
-   *
-   *          <p>The plan type.</p>
-   *
+   * <p>The plan type.</p>
    */
   planType?: SavingsPlanType | string;
 
   /**
-   *
-   *          <p>The product type.</p>
-   *
+   * <p>The product type.</p>
    */
   productTypes?: Array<SavingsPlanProductType | string>;
 
   /**
-   *
-   *          <p>The properties.</p>
-   *
+   * <p>The properties.</p>
    */
   properties?: Array<SavingsPlanOfferingProperty>;
 
   /**
-   *
-   *          <p>The service.</p>
-   *
+   * <p>The service.</p>
    */
   serviceCode?: string;
 
   /**
-   *
-   *          <p>The usage details of the line item in the billing report.</p>
-   *
+   * <p>The usage details of the line item in the billing report.</p>
    */
   usageType?: string;
 }
@@ -384,23 +292,17 @@ export enum SavingsPlanOfferingFilterAttribute {
 }
 
 /**
- *
- *          <p>Information about a filter.</p>
- *
+ * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingFilterElement {
   __type?: "SavingsPlanOfferingFilterElement";
   /**
-   *
-   *          <p>The filter name.</p>
-   *
+   * <p>The filter name.</p>
    */
   name?: SavingsPlanOfferingFilterAttribute | string;
 
   /**
-   *
-   *          <p>The filter values.</p>
-   *
+   * <p>The filter values.</p>
    */
   values?: Array<string>;
 }
@@ -412,23 +314,17 @@ export namespace SavingsPlanOfferingFilterElement {
 }
 
 /**
- *
- *          <p>Information about a property.</p>
- *
+ * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingProperty {
   __type?: "SavingsPlanOfferingProperty";
   /**
-   *
-   *          <p>The property name.</p>
-   *
+   * <p>The property name.</p>
    */
   name?: SavingsPlanOfferingPropertyKey | string;
 
   /**
-   *
-   *          <p>The property value.</p>
-   *
+   * <p>The property value.</p>
    */
   value?: string;
 }
@@ -445,65 +341,47 @@ export enum SavingsPlanOfferingPropertyKey {
 }
 
 /**
- *
- *          <p>Information about a Savings Plan offering rate.</p>
- *
+ * <p>Information about a Savings Plan offering rate.</p>
  */
 export interface SavingsPlanOfferingRate {
   __type?: "SavingsPlanOfferingRate";
   /**
-   *
-   *          <p>The specific AWS operation for the line item in the billing report.</p>
-   *
+   * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operation?: string;
 
   /**
-   *
-   *          <p>The product type.</p>
-   *
+   * <p>The product type.</p>
    */
   productType?: SavingsPlanProductType | string;
 
   /**
-   *
-   *          <p>The properties.</p>
-   *
+   * <p>The properties.</p>
    */
   properties?: Array<SavingsPlanOfferingRateProperty>;
 
   /**
-   *
-   *          <p>The Savings Plan rate.</p>
-   *
+   * <p>The Savings Plan rate.</p>
    */
   rate?: string;
 
   /**
-   *
-   *          <p>The Savings Plan offering.</p>
-   *
+   * <p>The Savings Plan offering.</p>
    */
   savingsPlanOffering?: ParentSavingsPlanOffering;
 
   /**
-   *
-   *          <p>The service.</p>
-   *
+   * <p>The service.</p>
    */
   serviceCode?: SavingsPlanRateServiceCode | string;
 
   /**
-   *
-   *          <p>The unit.</p>
-   *
+   * <p>The unit.</p>
    */
   unit?: SavingsPlanRateUnit | string;
 
   /**
-   *
-   *          <p>The usage details of the line item in the billing report.</p>
-   *
+   * <p>The usage details of the line item in the billing report.</p>
    */
   usageType?: string;
 }
@@ -515,23 +393,17 @@ export namespace SavingsPlanOfferingRate {
 }
 
 /**
- *
- *          <p>Information about a filter.</p>
- *
+ * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingRateFilterElement {
   __type?: "SavingsPlanOfferingRateFilterElement";
   /**
-   *
-   *          <p>The filter name.</p>
-   *
+   * <p>The filter name.</p>
    */
   name?: SavingsPlanRateFilterAttribute | string;
 
   /**
-   *
-   *          <p>The filter values.</p>
-   *
+   * <p>The filter values.</p>
    */
   values?: Array<string>;
 }
@@ -543,23 +415,17 @@ export namespace SavingsPlanOfferingRateFilterElement {
 }
 
 /**
- *
- *          <p>Information about a property.</p>
- *
+ * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingRateProperty {
   __type?: "SavingsPlanOfferingRateProperty";
   /**
-   *
-   *          <p>The property name.</p>
-   *
+   * <p>The property name.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The property value.</p>
-   *
+   * <p>The property value.</p>
    */
   value?: string;
 }
@@ -597,23 +463,17 @@ export enum SavingsPlanProductType {
 }
 
 /**
- *
- *          <p>Information about a property.</p>
- *
+ * <p>Information about a property.</p>
  */
 export interface SavingsPlanRateProperty {
   __type?: "SavingsPlanRateProperty";
   /**
-   *
-   *          <p>The property name.</p>
-   *
+   * <p>The property name.</p>
    */
   name?: SavingsPlanRatePropertyKey | string;
 
   /**
-   *
-   *          <p>The property value.</p>
-   *
+   * <p>The property value.</p>
    */
   value?: string;
 }
@@ -645,39 +505,29 @@ export enum SavingsPlanType {
 export interface CreateSavingsPlanRequest {
   __type?: "CreateSavingsPlanRequest";
   /**
-   *
-   *          <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   *
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
-   *
-   *          <p>The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot specify more
+   * <p>The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot specify more
    *         than three digits after the decimal point.</p>
-   *
    */
   commitment: string | undefined;
 
   /**
-   *
-   *          <p>The ID of the offering.</p>
-   *
+   * <p>The ID of the offering.</p>
    */
   savingsPlanOfferingId: string | undefined;
 
   /**
-   *
-   *          <p>One or more tags.</p>
-   *
+   * <p>One or more tags.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan.
+   * <p>The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan.
    *        This parameter is supported only if the payment option is <code>Partial Upfront</code>.</p>
-   *
    */
   upfrontPaymentAmount?: string;
 }
@@ -691,9 +541,7 @@ export namespace CreateSavingsPlanRequest {
 export interface CreateSavingsPlanResponse extends $MetadataBearer {
   __type?: "CreateSavingsPlanResponse";
   /**
-   *
-   *          <p>The ID of the Savings Plan.</p>
-   *
+   * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId?: string;
 }
@@ -707,31 +555,23 @@ export namespace CreateSavingsPlanResponse {
 export interface DescribeSavingsPlanRatesRequest {
   __type?: "DescribeSavingsPlanRatesRequest";
   /**
-   *
-   *          <p>The filters.</p>
-   *
+   * <p>The filters.</p>
    */
   filters?: Array<SavingsPlanRateFilter>;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call. To retrieve additional results, make another
+   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *          call with the returned token value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The ID of the Savings Plan.</p>
-   *
+   * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId: string | undefined;
 }
@@ -745,24 +585,18 @@ export namespace DescribeSavingsPlanRatesRequest {
 export interface DescribeSavingsPlanRatesResponse extends $MetadataBearer {
   __type?: "DescribeSavingsPlanRatesResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is null when there are no more
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *          results to return.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The ID of the Savings Plan.</p>
-   *
+   * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId?: string;
 
   /**
-   *
-   *          <p>Information about the Savings Plans rates.</p>
-   *
+   * <p>Information about the Savings Plans rates.</p>
    */
   searchResults?: Array<SavingsPlanRate>;
 }
@@ -776,45 +610,33 @@ export namespace DescribeSavingsPlanRatesResponse {
 export interface DescribeSavingsPlansRequest {
   __type?: "DescribeSavingsPlansRequest";
   /**
-   *
-   *          <p>The filters.</p>
-   *
+   * <p>The filters.</p>
    */
   filters?: Array<SavingsPlanFilter>;
 
   /**
-   *
-   *          <p>The maximum number of results to return with a single call. To retrieve additional results, make another
+   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *        call with the returned token value.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token for the next page of results.</p>
-   *
+   * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
-   *
+   * <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
    */
   savingsPlanArns?: Array<string>;
 
   /**
-   *
-   *          <p>The IDs of the Savings Plans.</p>
-   *
+   * <p>The IDs of the Savings Plans.</p>
    */
   savingsPlanIds?: Array<string>;
 
   /**
-   *
-   *          <p>The states.</p>
-   *
+   * <p>The states.</p>
    */
   states?: Array<SavingsPlanState | string>;
 }
@@ -828,17 +650,13 @@ export namespace DescribeSavingsPlansRequest {
 export interface DescribeSavingsPlansResponse extends $MetadataBearer {
   __type?: "DescribeSavingsPlansResponse";
   /**
-   *
-   *          <p>The token to use to retrieve the next page of results. This value is null when there are no more
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>Information about the Savings Plans.</p>
-   *
+   * <p>Information about the Savings Plans.</p>
    */
   savingsPlans?: Array<SavingsPlan>;
 }
@@ -850,9 +668,7 @@ export namespace DescribeSavingsPlansResponse {
 }
 
 /**
- *
- *          <p>An unexpected error occurred.</p>
- *
+ * <p>An unexpected error occurred.</p>
  */
 export interface InternalServerException
   extends _smithy.SmithyException,
@@ -872,9 +688,7 @@ export namespace InternalServerException {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 }
@@ -888,9 +702,7 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse extends $MetadataBearer {
   __type?: "ListTagsForResourceResponse";
   /**
-   *
-   *          <p>Information about the tags.</p>
-   *
+   * <p>Information about the tags.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -902,9 +714,7 @@ export namespace ListTagsForResourceResponse {
 }
 
 /**
- *
- *          <p>The specified resource was not found.</p>
- *
+ * <p>The specified resource was not found.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -922,135 +732,97 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- *
- *          <p>Information about a Savings Plan.</p>
- *
+ * <p>Information about a Savings Plan.</p>
  */
 export interface SavingsPlan {
   __type?: "SavingsPlan";
   /**
-   *
-   *          <p>The hourly commitment, in USD.</p>
-   *
+   * <p>The hourly commitment, in USD.</p>
    */
   commitment?: string;
 
   /**
-   *
-   *          <p>The currency.</p>
-   *
+   * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
-   *
-   *          <p>The description.</p>
-   *
+   * <p>The description.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>The EC2 instance family.</p>
-   *
+   * <p>The EC2 instance family.</p>
    */
   ec2InstanceFamily?: string;
 
   /**
-   *
-   *          <p>The end time.</p>
-   *
+   * <p>The end time.</p>
    */
   end?: string;
 
   /**
-   *
-   *          <p>The ID of the offering.</p>
-   *
+   * <p>The ID of the offering.</p>
    */
   offeringId?: string;
 
   /**
-   *
-   *          <p>The payment option.</p>
-   *
+   * <p>The payment option.</p>
    */
   paymentOption?: SavingsPlanPaymentOption | string;
 
   /**
-   *
-   *          <p>The product types.</p>
-   *
+   * <p>The product types.</p>
    */
   productTypes?: Array<SavingsPlanProductType | string>;
 
   /**
-   *
-   *          <p>The recurring payment amount.</p>
-   *
+   * <p>The recurring payment amount.</p>
    */
   recurringPaymentAmount?: string;
 
   /**
-   *
-   *          <p>The AWS Region.</p>
-   *
+   * <p>The AWS Region.</p>
    */
   region?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the Savings Plan.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the Savings Plan.</p>
    */
   savingsPlanArn?: string;
 
   /**
-   *
-   *          <p>The ID of the Savings Plan.</p>
-   *
+   * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId?: string;
 
   /**
-   *
-   *          <p>The plan type.</p>
-   *
+   * <p>The plan type.</p>
    */
   savingsPlanType?: SavingsPlanType | string;
 
   /**
-   *
-   *          <p>The start time.</p>
-   *
+   * <p>The start time.</p>
    */
   start?: string;
 
   /**
-   *
-   *          <p>The state.</p>
-   *
+   * <p>The state.</p>
    */
   state?: SavingsPlanState | string;
 
   /**
-   *
-   *          <p>One or more tags.</p>
-   *
+   * <p>One or more tags.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The duration of the term, in seconds.</p>
-   *
+   * <p>The duration of the term, in seconds.</p>
    */
   termDurationInSeconds?: number;
 
   /**
-   *
-   *          <p>The up-front payment amount.</p>
-   *
+   * <p>The up-front payment amount.</p>
    */
   upfrontPaymentAmount?: string;
 }
@@ -1062,23 +834,17 @@ export namespace SavingsPlan {
 }
 
 /**
- *
- *          <p>Information about a filter.</p>
- *
+ * <p>Information about a filter.</p>
  */
 export interface SavingsPlanFilter {
   __type?: "SavingsPlanFilter";
   /**
-   *
-   *          <p>The filter name.</p>
-   *
+   * <p>The filter name.</p>
    */
   name?: SavingsPlansFilterName | string;
 
   /**
-   *
-   *          <p>The filter value.</p>
-   *
+   * <p>The filter value.</p>
    */
   values?: Array<string>;
 }
@@ -1090,65 +856,47 @@ export namespace SavingsPlanFilter {
 }
 
 /**
- *
- *          <p>Information about a Savings Plan rate.</p>
- *
+ * <p>Information about a Savings Plan rate.</p>
  */
 export interface SavingsPlanRate {
   __type?: "SavingsPlanRate";
   /**
-   *
-   *          <p>The currency.</p>
-   *
+   * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
-   *
-   *          <p>The specific AWS operation for the line item in the billing report.</p>
-   *
+   * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operation?: string;
 
   /**
-   *
-   *          <p>The product type.</p>
-   *
+   * <p>The product type.</p>
    */
   productType?: SavingsPlanProductType | string;
 
   /**
-   *
-   *          <p>The properties.</p>
-   *
+   * <p>The properties.</p>
    */
   properties?: Array<SavingsPlanRateProperty>;
 
   /**
-   *
-   *          <p>The rate.</p>
-   *
+   * <p>The rate.</p>
    */
   rate?: string;
 
   /**
-   *
-   *          <p>The service.</p>
-   *
+   * <p>The service.</p>
    */
   serviceCode?: SavingsPlanRateServiceCode | string;
 
   /**
-   *
-   *          <p>The unit.</p>
-   *
+   * <p>The unit.</p>
    */
   unit?: SavingsPlanRateUnit | string;
 
   /**
-   *
-   *          <p>The usage details of the line item in the billing report.</p>
-   *
+   * <p>The usage details of the line item in the billing report.</p>
    */
   usageType?: string;
 }
@@ -1160,23 +908,17 @@ export namespace SavingsPlanRate {
 }
 
 /**
- *
- *          <p>Information about a filter.</p>
- *
+ * <p>Information about a filter.</p>
  */
 export interface SavingsPlanRateFilter {
   __type?: "SavingsPlanRateFilter";
   /**
-   *
-   *          <p>The filter name.</p>
-   *
+   * <p>The filter name.</p>
    */
   name?: SavingsPlanRateFilterName | string;
 
   /**
-   *
-   *          <p>The filter values.</p>
-   *
+   * <p>The filter values.</p>
    */
   values?: Array<string>;
 }
@@ -1218,9 +960,7 @@ export enum SavingsPlansFilterName {
 }
 
 /**
- *
- *          <p>A service quota has been exceeded.</p>
- *
+ * <p>A service quota has been exceeded.</p>
  */
 export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
@@ -1240,16 +980,12 @@ export namespace ServiceQuotaExceededException {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *          <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
-   *
+   * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   tags: { [key: string]: string } | undefined;
 }
@@ -1273,16 +1009,12 @@ export namespace TagResourceResponse {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *          <p>The tag keys.</p>
-   *
+   * <p>The tag keys.</p>
    */
   tagKeys: Array<string> | undefined;
 }
@@ -1304,9 +1036,7 @@ export namespace UntagResourceResponse {
 }
 
 /**
- *
- *          <p>One of the input parameters is not valid.</p>
- *
+ * <p>One of the input parameters is not valid.</p>
  */
 export interface ValidationException
   extends _smithy.SmithyException,

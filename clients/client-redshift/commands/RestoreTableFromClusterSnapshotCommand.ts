@@ -5,7 +5,7 @@ import {
 } from "../RedshiftClient";
 import {
   RestoreTableFromClusterSnapshotMessage,
-  TableRestoreStatus
+  RestoreTableFromClusterSnapshotResult
 } from "../models/index";
 import {
   deserializeAws_queryRestoreTableFromClusterSnapshotCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreTableFromClusterSnapshotCommandInput = RestoreTableFromClusterSnapshotMessage;
-export type RestoreTableFromClusterSnapshotCommandOutput = TableRestoreStatus;
+export type RestoreTableFromClusterSnapshotCommandOutput = RestoreTableFromClusterSnapshotResult;
 
 export class RestoreTableFromClusterSnapshotCommand extends $Command<
   RestoreTableFromClusterSnapshotCommandInput,

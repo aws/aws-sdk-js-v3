@@ -2,9 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *         <p> An internal failure occurred. </p>
- *
+ * <p> An internal failure occurred. </p>
  */
 export interface InternalFailure
   extends _smithy.SmithyException,
@@ -24,32 +22,25 @@ export namespace InternalFailure {
 export interface InvokeEndpointInput {
   __type?: "InvokeEndpointInput";
   /**
-   *
-   *         <p>The desired MIME type of the inference in the response.</p>
-   *
+   * <p>The desired MIME type of the inference in the response.</p>
    */
   Accept?: string;
 
   /**
-   *
-   *         <p>Provides input data, in the format specified in the <code>ContentType</code>
+   * <p>Provides input data, in the format specified in the <code>ContentType</code>
    *             request header. Amazon SageMaker passes all of the data in the body to the model. </p>
    *         <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
    *                 Formats—Inference</a>.</p>
-   *
    */
   Body: Uint8Array | undefined;
 
   /**
-   *
-   *         <p>The MIME type of the input data in the request body.</p>
-   *
+   * <p>The MIME type of the input data in the request body.</p>
    */
   ContentType?: string;
 
   /**
-   *
-   *         <p>Provides additional information about a request for an inference submitted to a model
+   * <p>Provides additional information about a request for an inference submitted to a model
    *             hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
    *             forwarded verbatim. You could use this value, for example, to provide an ID that you can
    *             use to track a request or to provide other metadata that a service endpoint was
@@ -57,22 +48,17 @@ export interface InvokeEndpointInput {
    *             characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value
    *                 Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is
    *             currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.</p>
-   *
    */
   CustomAttributes?: string;
 
   /**
-   *
-   *         <p>The name of the endpoint that you specified when you created the endpoint using the
+   * <p>The name of the endpoint that you specified when you created the endpoint using the
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
-   *
    */
   EndpointName: string | undefined;
 
   /**
-   *
-   *         <p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>
-   *
+   * <p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>
    */
   TargetModel?: string;
 }
@@ -86,24 +72,19 @@ export namespace InvokeEndpointInput {
 export interface InvokeEndpointOutput extends $MetadataBearer {
   __type?: "InvokeEndpointOutput";
   /**
-   *
-   *         <p>Includes the inference provided by the model.</p>
+   * <p>Includes the inference provided by the model.</p>
    *         <p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
    *                 Formats—Inference</a>.</p>
-   *
    */
   Body: Uint8Array | undefined;
 
   /**
-   *
-   *         <p>The MIME type of the inference returned in the response body.</p>
-   *
+   * <p>The MIME type of the inference returned in the response body.</p>
    */
   ContentType?: string;
 
   /**
-   *
-   *         <p>Provides additional information in the response about the inference returned by a
+   * <p>Provides additional information in the response about the inference returned by a
    *             model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
    *             forwarded verbatim. You could use this value, for example, to return an ID received in
    *             the <code>CustomAttributes</code> header of a request or other metadata that a service
@@ -114,14 +95,11 @@ export interface InvokeEndpointOutput extends $MetadataBearer {
    *             included on the way back. </p>
    *         <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker
    *             Python SDK.</p>
-   *
    */
   CustomAttributes?: string;
 
   /**
-   *
-   *         <p>Identifies the production variant that was invoked.</p>
-   *
+   * <p>Identifies the production variant that was invoked.</p>
    */
   InvokedProductionVariant?: string;
 }
@@ -133,34 +111,26 @@ export namespace InvokeEndpointOutput {
 }
 
 /**
- *
- *         <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
+ * <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
  *         </p>
- *
  */
 export interface ModelError extends _smithy.SmithyException, $MetadataBearer {
   __type: "ModelError";
   name: "ModelError";
   $fault: "client";
   /**
-   *
-   *         <p> The Amazon Resource Name (ARN) of the log stream. </p>
-   *
+   * <p> The Amazon Resource Name (ARN) of the log stream. </p>
    */
   LogStreamArn?: string;
 
   Message?: string;
   /**
-   *
-   *         <p> Original message. </p>
-   *
+   * <p> Original message. </p>
    */
   OriginalMessage?: string;
 
   /**
-   *
-   *         <p> Original status code. </p>
-   *
+   * <p> Original status code. </p>
    */
   OriginalStatusCode?: number;
 }
@@ -172,9 +142,7 @@ export namespace ModelError {
 }
 
 /**
- *
- *         <p> The service is unavailable. Try your call again. </p>
- *
+ * <p> The service is unavailable. Try your call again. </p>
  */
 export interface ServiceUnavailable
   extends _smithy.SmithyException,
@@ -192,9 +160,7 @@ export namespace ServiceUnavailable {
 }
 
 /**
- *
- *         <p> Inspect your request and try again. </p>
- *
+ * <p> Inspect your request and try again. </p>
  */
 export interface ValidationError
   extends _smithy.SmithyException,

@@ -32,24 +32,20 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Catalog API actions allow you to create, describe, list, and delete changes to your
+ * <p>Catalog API actions allow you to create, describe, list, and delete changes to your
  *             published entities. An entity is a product or an offer on AWS Marketplace.</p>
  *
  *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
  *             API with your AWS Marketplace product build or deployment pipelines. You can also create
  *             your own applications on top of the Catalog API to manage your products on AWS
  *             Marketplace.</p>
- *
  */
 export class MarketplaceCatalog extends MarketplaceCatalogClient {
   /**
-   *
-   *         <p>Used to cancel an open change request. Must be sent before the status of the request
+   * <p>Used to cancel an open change request. Must be sent before the status of the request
    *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
    *             can describe a change during the 60-day request history retention period for API
    *             calls.</p>
-   *
    */
   public cancelChangeSet(
     args: CancelChangeSetCommandInput,
@@ -84,9 +80,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
-   *
-   *         <p>Provides information about a given change set.</p>
-   *
+   * <p>Provides information about a given change set.</p>
    */
   public describeChangeSet(
     args: DescribeChangeSetCommandInput,
@@ -121,9 +115,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
-   *
-   *         <p>Returns the metadata and content of the entity.</p>
-   *
+   * <p>Returns the metadata and content of the entity.</p>
    */
   public describeEntity(
     args: DescribeEntityCommandInput,
@@ -158,15 +150,13 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
-   *
-   *         <p>Returns the list of change sets owned by the account being used to make the call. You
+   * <p>Returns the list of change sets owned by the account being used to make the call. You
    *             can filter this list by providing any combination of <code>entityId</code>,
    *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
    *             operation applies a logical AND between the filters.</p>
    *
    *         <p>You can describe a change during the 60-day request history retention period for API
    *             calls.</p>
-   *
    */
   public listChangeSets(
     args: ListChangeSetsCommandInput,
@@ -201,9 +191,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
-   *
-   *         <p>Provides the list of entities of a given type.</p>
-   *
+   * <p>Provides the list of entities of a given type.</p>
    */
   public listEntities(
     args: ListEntitiesCommandInput,
@@ -238,10 +226,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
-   *
-   *         <p>This operation allows you to request changes in your entities.</p>
-   *
-   *
+   * <p>This operation allows you to request changes in your entities.</p>
    */
   public startChangeSet(
     args: StartChangeSetCommandInput,

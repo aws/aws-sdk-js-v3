@@ -19,6 +19,14 @@ import {
   DetectPHICommandOutput
 } from "../commands/DetectPHICommand";
 import {
+  InferICD10CMCommandInput,
+  InferICD10CMCommandOutput
+} from "../commands/InferICD10CMCommand";
+import {
+  InferRxNormCommandInput,
+  InferRxNormCommandOutput
+} from "../commands/InferRxNormCommand";
+import {
   ListEntitiesDetectionV2JobsCommandInput,
   ListEntitiesDetectionV2JobsCommandOutput
 } from "../commands/ListEntitiesDetectionV2JobsCommand";
@@ -57,6 +65,14 @@ import {
   DetectPHIRequest,
   DetectPHIResponse,
   Entity,
+  ICD10CMAttribute,
+  ICD10CMConcept,
+  ICD10CMEntity,
+  ICD10CMTrait,
+  InferICD10CMRequest,
+  InferICD10CMResponse,
+  InferRxNormRequest,
+  InferRxNormResponse,
   InputDataConfig,
   InternalServerException,
   InvalidEncodingException,
@@ -67,6 +83,10 @@ import {
   ListPHIDetectionJobsResponse,
   OutputDataConfig,
   ResourceNotFoundException,
+  RxNormAttribute,
+  RxNormConcept,
+  RxNormEntity,
+  RxNormTrait,
   ServiceUnavailableException,
   StartEntitiesDetectionV2JobRequest,
   StartEntitiesDetectionV2JobResponse,
@@ -194,6 +214,46 @@ export async function serializeAws_json1_1DetectPHICommand(
     protocol: "https",
     method: "POST",
     path: "/DetectPHI",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1InferICD10CMCommand(
+  input: InferICD10CMCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ComprehendMedical_20181030.InferICD10CM";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1InferICD10CMRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/InferICD10CM",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1InferRxNormCommand(
+  input: InferRxNormCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ComprehendMedical_20181030.InferRxNorm";
+  let body: any = {};
+  body = JSON.stringify(serializeAws_json1_1InferRxNormRequest(input, context));
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/InferRxNorm",
     headers: headers,
     body: body
   });
@@ -690,6 +750,184 @@ async function deserializeAws_json1_1DetectPHICommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectPHICommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.deepinsight.medical#InternalServerException":
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidEncodingException":
+    case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
+      response = await deserializeAws_json1_1InvalidEncodingExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException":
+      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1InferICD10CMCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InferICD10CMCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1InferICD10CMCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1InferICD10CMResponse(data, context);
+  const response: InferICD10CMCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "InferICD10CMResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1InferICD10CMCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InferICD10CMCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.deepinsight.medical#InternalServerException":
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidEncodingException":
+    case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
+      response = await deserializeAws_json1_1InvalidEncodingExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.deepinsight.medical#InvalidRequestException":
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.deepinsight.medical#TextSizeLimitExceededException":
+      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1InferRxNormCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InferRxNormCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1InferRxNormCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1InferRxNormResponse(data, context);
+  const response: InferRxNormCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "InferRxNormResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1InferRxNormCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InferRxNormCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -1451,6 +1689,28 @@ const serializeAws_json1_1DetectPHIRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1InferICD10CMRequest = (
+  input: InferICD10CMRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Text !== undefined) {
+    bodyParams["Text"] = input.Text;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1InferRxNormRequest = (
+  input: InferRxNormRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Text !== undefined) {
+    bodyParams["Text"] = input.Text;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1InputDataConfig = (
   input: InputDataConfig,
   context: __SerdeContext
@@ -1936,6 +2196,236 @@ const deserializeAws_json1_1EntityList = (
   );
 };
 
+const deserializeAws_json1_1ICD10CMAttribute = (
+  output: any,
+  context: __SerdeContext
+): ICD10CMAttribute => {
+  let contents: any = {
+    __type: "ICD10CMAttribute",
+    BeginOffset: undefined,
+    EndOffset: undefined,
+    Id: undefined,
+    RelationshipScore: undefined,
+    Score: undefined,
+    Text: undefined,
+    Traits: undefined,
+    Type: undefined
+  };
+  if (output.BeginOffset !== undefined) {
+    contents.BeginOffset = output.BeginOffset;
+  }
+  if (output.EndOffset !== undefined) {
+    contents.EndOffset = output.EndOffset;
+  }
+  if (output.Id !== undefined) {
+    contents.Id = output.Id;
+  }
+  if (output.RelationshipScore !== undefined) {
+    contents.RelationshipScore = output.RelationshipScore;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  if (output.Text !== undefined) {
+    contents.Text = output.Text;
+  }
+  if (output.Traits !== undefined) {
+    contents.Traits = deserializeAws_json1_1ICD10CMTraitList(
+      output.Traits,
+      context
+    );
+  }
+  if (output.Type !== undefined) {
+    contents.Type = output.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ICD10CMAttributeList = (
+  output: any,
+  context: __SerdeContext
+): Array<ICD10CMAttribute> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ICD10CMAttribute(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ICD10CMConcept = (
+  output: any,
+  context: __SerdeContext
+): ICD10CMConcept => {
+  let contents: any = {
+    __type: "ICD10CMConcept",
+    Code: undefined,
+    Description: undefined,
+    Score: undefined
+  };
+  if (output.Code !== undefined) {
+    contents.Code = output.Code;
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ICD10CMConceptList = (
+  output: any,
+  context: __SerdeContext
+): Array<ICD10CMConcept> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ICD10CMConcept(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ICD10CMEntity = (
+  output: any,
+  context: __SerdeContext
+): ICD10CMEntity => {
+  let contents: any = {
+    __type: "ICD10CMEntity",
+    Attributes: undefined,
+    BeginOffset: undefined,
+    Category: undefined,
+    EndOffset: undefined,
+    ICD10CMConcepts: undefined,
+    Id: undefined,
+    Score: undefined,
+    Text: undefined,
+    Traits: undefined,
+    Type: undefined
+  };
+  if (output.Attributes !== undefined) {
+    contents.Attributes = deserializeAws_json1_1ICD10CMAttributeList(
+      output.Attributes,
+      context
+    );
+  }
+  if (output.BeginOffset !== undefined) {
+    contents.BeginOffset = output.BeginOffset;
+  }
+  if (output.Category !== undefined) {
+    contents.Category = output.Category;
+  }
+  if (output.EndOffset !== undefined) {
+    contents.EndOffset = output.EndOffset;
+  }
+  if (output.ICD10CMConcepts !== undefined) {
+    contents.ICD10CMConcepts = deserializeAws_json1_1ICD10CMConceptList(
+      output.ICD10CMConcepts,
+      context
+    );
+  }
+  if (output.Id !== undefined) {
+    contents.Id = output.Id;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  if (output.Text !== undefined) {
+    contents.Text = output.Text;
+  }
+  if (output.Traits !== undefined) {
+    contents.Traits = deserializeAws_json1_1ICD10CMTraitList(
+      output.Traits,
+      context
+    );
+  }
+  if (output.Type !== undefined) {
+    contents.Type = output.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ICD10CMEntityList = (
+  output: any,
+  context: __SerdeContext
+): Array<ICD10CMEntity> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ICD10CMEntity(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ICD10CMTrait = (
+  output: any,
+  context: __SerdeContext
+): ICD10CMTrait => {
+  let contents: any = {
+    __type: "ICD10CMTrait",
+    Name: undefined,
+    Score: undefined
+  };
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ICD10CMTraitList = (
+  output: any,
+  context: __SerdeContext
+): Array<ICD10CMTrait> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ICD10CMTrait(entry, context)
+  );
+};
+
+const deserializeAws_json1_1InferICD10CMResponse = (
+  output: any,
+  context: __SerdeContext
+): InferICD10CMResponse => {
+  let contents: any = {
+    __type: "InferICD10CMResponse",
+    Entities: undefined,
+    ModelVersion: undefined,
+    PaginationToken: undefined
+  };
+  if (output.Entities !== undefined) {
+    contents.Entities = deserializeAws_json1_1ICD10CMEntityList(
+      output.Entities,
+      context
+    );
+  }
+  if (output.ModelVersion !== undefined) {
+    contents.ModelVersion = output.ModelVersion;
+  }
+  if (output.PaginationToken !== undefined) {
+    contents.PaginationToken = output.PaginationToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InferRxNormResponse = (
+  output: any,
+  context: __SerdeContext
+): InferRxNormResponse => {
+  let contents: any = {
+    __type: "InferRxNormResponse",
+    Entities: undefined,
+    ModelVersion: undefined,
+    PaginationToken: undefined
+  };
+  if (output.Entities !== undefined) {
+    contents.Entities = deserializeAws_json1_1RxNormEntityList(
+      output.Entities,
+      context
+    );
+  }
+  if (output.ModelVersion !== undefined) {
+    contents.ModelVersion = output.ModelVersion;
+  }
+  if (output.PaginationToken !== undefined) {
+    contents.PaginationToken = output.PaginationToken;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1InputDataConfig = (
   output: any,
   context: __SerdeContext
@@ -2068,6 +2558,186 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     contents.Message = output.Message;
   }
   return contents;
+};
+
+const deserializeAws_json1_1RxNormAttribute = (
+  output: any,
+  context: __SerdeContext
+): RxNormAttribute => {
+  let contents: any = {
+    __type: "RxNormAttribute",
+    BeginOffset: undefined,
+    EndOffset: undefined,
+    Id: undefined,
+    RelationshipScore: undefined,
+    Score: undefined,
+    Text: undefined,
+    Traits: undefined,
+    Type: undefined
+  };
+  if (output.BeginOffset !== undefined) {
+    contents.BeginOffset = output.BeginOffset;
+  }
+  if (output.EndOffset !== undefined) {
+    contents.EndOffset = output.EndOffset;
+  }
+  if (output.Id !== undefined) {
+    contents.Id = output.Id;
+  }
+  if (output.RelationshipScore !== undefined) {
+    contents.RelationshipScore = output.RelationshipScore;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  if (output.Text !== undefined) {
+    contents.Text = output.Text;
+  }
+  if (output.Traits !== undefined) {
+    contents.Traits = deserializeAws_json1_1RxNormTraitList(
+      output.Traits,
+      context
+    );
+  }
+  if (output.Type !== undefined) {
+    contents.Type = output.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RxNormAttributeList = (
+  output: any,
+  context: __SerdeContext
+): Array<RxNormAttribute> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RxNormAttribute(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RxNormConcept = (
+  output: any,
+  context: __SerdeContext
+): RxNormConcept => {
+  let contents: any = {
+    __type: "RxNormConcept",
+    Code: undefined,
+    Description: undefined,
+    Score: undefined
+  };
+  if (output.Code !== undefined) {
+    contents.Code = output.Code;
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RxNormConceptList = (
+  output: any,
+  context: __SerdeContext
+): Array<RxNormConcept> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RxNormConcept(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RxNormEntity = (
+  output: any,
+  context: __SerdeContext
+): RxNormEntity => {
+  let contents: any = {
+    __type: "RxNormEntity",
+    Attributes: undefined,
+    BeginOffset: undefined,
+    Category: undefined,
+    EndOffset: undefined,
+    Id: undefined,
+    RxNormConcepts: undefined,
+    Score: undefined,
+    Text: undefined,
+    Traits: undefined,
+    Type: undefined
+  };
+  if (output.Attributes !== undefined) {
+    contents.Attributes = deserializeAws_json1_1RxNormAttributeList(
+      output.Attributes,
+      context
+    );
+  }
+  if (output.BeginOffset !== undefined) {
+    contents.BeginOffset = output.BeginOffset;
+  }
+  if (output.Category !== undefined) {
+    contents.Category = output.Category;
+  }
+  if (output.EndOffset !== undefined) {
+    contents.EndOffset = output.EndOffset;
+  }
+  if (output.Id !== undefined) {
+    contents.Id = output.Id;
+  }
+  if (output.RxNormConcepts !== undefined) {
+    contents.RxNormConcepts = deserializeAws_json1_1RxNormConceptList(
+      output.RxNormConcepts,
+      context
+    );
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  if (output.Text !== undefined) {
+    contents.Text = output.Text;
+  }
+  if (output.Traits !== undefined) {
+    contents.Traits = deserializeAws_json1_1RxNormTraitList(
+      output.Traits,
+      context
+    );
+  }
+  if (output.Type !== undefined) {
+    contents.Type = output.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RxNormEntityList = (
+  output: any,
+  context: __SerdeContext
+): Array<RxNormEntity> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RxNormEntity(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RxNormTrait = (
+  output: any,
+  context: __SerdeContext
+): RxNormTrait => {
+  let contents: any = {
+    __type: "RxNormTrait",
+    Name: undefined,
+    Score: undefined
+  };
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  if (output.Score !== undefined) {
+    contents.Score = output.Score;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RxNormTraitList = (
+  output: any,
+  context: __SerdeContext
+): Array<RxNormTrait> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RxNormTrait(entry, context)
+  );
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (

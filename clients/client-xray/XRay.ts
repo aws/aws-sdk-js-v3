@@ -102,18 +102,14 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps
+ * <p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps
  *       and other data created by processing those traces.</p>
- *
  */
 export class XRay extends XRayClient {
   /**
-   *
-   *          <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
+   * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
    *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
    *       list of trace IDs.</p>
-   *
    */
   public batchGetTraces(
     args: BatchGetTracesCommandInput,
@@ -148,9 +144,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *         <p>Creates a group resource with a name and a filter expression. </p>
-   *
+   * <p>Creates a group resource with a name and a filter expression. </p>
    */
   public createGroup(
     args: CreateGroupCommandInput,
@@ -185,15 +179,13 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Creates a rule to control sampling behavior for instrumented applications. Services
+   * <p>Creates a rule to control sampling behavior for instrumented applications. Services
    *          retrieve rules with <a>GetSamplingRules</a>, and evaluate each rule in ascending
    *          order of <i>priority</i> for each request. If a rule matches, the service
    *          records a trace, borrowing it from the reservoir size. After 10 seconds, the service
    *          reports back to X-Ray with <a>GetSamplingTargets</a> to get updated versions of
    *          each in-use rule. The updated rule contains a trace quota that the service can use instead
    *          of borrowing from the reservoir.</p>
-   *
    */
   public createSamplingRule(
     args: CreateSamplingRuleCommandInput,
@@ -228,9 +220,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *         <p>Deletes a group resource.</p>
-   *
+   * <p>Deletes a group resource.</p>
    */
   public deleteGroup(
     args: DeleteGroupCommandInput,
@@ -265,9 +255,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Deletes a sampling rule.</p>
-   *
+   * <p>Deletes a sampling rule.</p>
    */
   public deleteSamplingRule(
     args: DeleteSamplingRuleCommandInput,
@@ -302,9 +290,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the current encryption configuration for X-Ray data.</p>
-   *
+   * <p>Retrieves the current encryption configuration for X-Ray data.</p>
    */
   public getEncryptionConfig(
     args: GetEncryptionConfigCommandInput,
@@ -339,9 +325,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *         <p>Retrieves group resource details.</p>
-   *
+   * <p>Retrieves group resource details.</p>
    */
   public getGroup(
     args: GetGroupCommandInput,
@@ -376,9 +360,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *         <p>Retrieves all active group details.</p>
-   *
+   * <p>Retrieves all active group details.</p>
    */
   public getGroups(
     args: GetGroupsCommandInput,
@@ -413,9 +395,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves all sampling rules.</p>
-   *
+   * <p>Retrieves all sampling rules.</p>
    */
   public getSamplingRules(
     args: GetSamplingRulesCommandInput,
@@ -450,9 +430,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about recent sampling results for all sampling rules.</p>
-   *
+   * <p>Retrieves information about recent sampling results for all sampling rules.</p>
    */
   public getSamplingStatisticSummaries(
     args: GetSamplingStatisticSummariesCommandInput,
@@ -487,10 +465,8 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Requests a sampling quota for rules that the service is using to sample requests.
+   * <p>Requests a sampling quota for rules that the service is using to sample requests.
    *       </p>
-   *
    */
   public getSamplingTargets(
     args: GetSamplingTargetsCommandInput,
@@ -525,13 +501,11 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a document that describes services that process incoming requests, and
+   * <p>Retrieves a document that describes services that process incoming requests, and
    *       downstream services that they call as a result. Root services process incoming requests and
-   *       make calls to downstream services. Root services are applications that use the AWS X-Ray SDK.
+   *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">AWS X-Ray SDK</a>.
    *       Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL
    *       databases.</p>
-   *
    */
   public getServiceGraph(
     args: GetServiceGraphCommandInput,
@@ -566,10 +540,8 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *         <p>Get an aggregation of service statistics defined by a specific time
+   * <p>Get an aggregation of service statistics defined by a specific time
    *             range.</p>
-   *
    */
   public getTimeSeriesServiceStatistics(
     args: GetTimeSeriesServiceStatisticsCommandInput,
@@ -607,9 +579,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a service graph for one or more specific trace IDs.</p>
-   *
+   * <p>Retrieves a service graph for one or more specific trace IDs.</p>
    */
   public getTraceGraph(
     args: GetTraceGraphCommandInput,
@@ -644,8 +614,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves IDs and metadata for traces available for a specified time frame using an
+   * <p>Retrieves IDs and annotations for traces available for a specified time frame using an
    *       optional filter. To get the full traces, pass the trace IDs to
    *       <code>BatchGetTraces</code>.</p>
    *          <p>A filter expression can target traced requests that hit specific service nodes or
@@ -662,7 +631,6 @@ export class XRay extends XRayClient {
    *          <p>For a full list of indexed fields and keywords that you can use in filter expressions,
    *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter
    *         Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
-   *
    */
   public getTraceSummaries(
     args: GetTraceSummariesCommandInput,
@@ -697,9 +665,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Updates the encryption configuration for X-Ray data.</p>
-   *
+   * <p>Updates the encryption configuration for X-Ray data.</p>
    */
   public putEncryptionConfig(
     args: PutEncryptionConfigCommandInput,
@@ -734,9 +700,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
-   *
+   * <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
    */
   public putTelemetryRecords(
     args: PutTelemetryRecordsCommandInput,
@@ -771,8 +735,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Uploads segment documents to AWS X-Ray. The X-Ray SDK generates segment documents and
+   * <p>Uploads segment documents to AWS X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and
    *       sends them to the X-Ray daemon, which uploads them in batches. A segment document can be a
    *       completed segment, an in-progress segment, or an array of subsegments.</p>
    *          <p>Segments must include the following fields. For the full segment document schema, see
@@ -836,7 +799,6 @@ export class XRay extends XRayClient {
    *           digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   public putTraceSegments(
     args: PutTraceSegmentsCommandInput,
@@ -871,9 +833,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *         <p>Updates a group resource.</p>
-   *
+   * <p>Updates a group resource.</p>
    */
   public updateGroup(
     args: UpdateGroupCommandInput,
@@ -908,9 +868,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   *
-   *          <p>Modifies a sampling rule's configuration.</p>
-   *
+   * <p>Modifies a sampling rule's configuration.</p>
    */
   public updateSamplingRule(
     args: UpdateSamplingRuleCommandInput,

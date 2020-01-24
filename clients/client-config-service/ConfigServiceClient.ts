@@ -439,8 +439,7 @@ export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- * 		       <fullname>AWS Config</fullname>
+ * <fullname>AWS Config</fullname>
  *
  * 		       <p>AWS Config provides a way to keep track of the configurations
  * 			of all the AWS resources associated with your AWS account. You can
@@ -464,24 +463,6 @@ export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<
  * 			as well as how to work with AWS Management Console, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html">What Is AWS
  * 				Config</a> in the <i>AWS Config Developer
  * 				Guide</i>.</p>
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
  */
 export class ConfigServiceClient extends __Client<
   __HttpHandlerOptions,

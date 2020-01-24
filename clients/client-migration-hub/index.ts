@@ -9,6 +9,7 @@ export * from "./commands/DescribeMigrationTaskCommand";
 export * from "./commands/DisassociateCreatedArtifactCommand";
 export * from "./commands/DisassociateDiscoveredResourceCommand";
 export * from "./commands/ImportMigrationTaskCommand";
+export * from "./commands/ListApplicationStatesCommand";
 export * from "./commands/ListCreatedArtifactsCommand";
 export * from "./commands/ListDiscoveredResourcesCommand";
 export * from "./commands/ListMigrationTasksCommand";

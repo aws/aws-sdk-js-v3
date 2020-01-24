@@ -82,17 +82,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
+ * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
  *         and triggers actions when such events occur. AWS IoT Events API commands enable you to create, read,
  *         update and delete inputs and detector models, and to list their versions.</p>
- *
  */
 export class IoTEvents extends IoTEventsClient {
   /**
-   *
-   *          <p>Creates a detector model.</p>
-   *
+   * <p>Creates a detector model.</p>
    */
   public createDetectorModel(
     args: CreateDetectorModelCommandInput,
@@ -127,9 +123,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Creates an input.</p>
-   *
+   * <p>Creates an input.</p>
    */
   public createInput(
     args: CreateInputCommandInput,
@@ -164,10 +158,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Deletes a detector model. Any active instances of the detector model are also
+   * <p>Deletes a detector model. Any active instances of the detector model are also
    *           deleted.</p>
-   *
    */
   public deleteDetectorModel(
     args: DeleteDetectorModelCommandInput,
@@ -202,9 +194,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Deletes an input.</p>
-   *
+   * <p>Deletes an input.</p>
    */
   public deleteInput(
     args: DeleteInputCommandInput,
@@ -239,10 +229,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *          <p>Describes a detector model. If the <code>"version"</code> parameter is not specified, information
+   * <p>Describes a detector model. If the <code>"version"</code> parameter is not specified, information
    *         about the latest version is returned.</p>
-   *
    */
   public describeDetectorModel(
     args: DescribeDetectorModelCommandInput,
@@ -277,9 +265,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Describes an input.</p>
-   *
+   * <p>Describes an input.</p>
    */
   public describeInput(
     args: DescribeInputCommandInput,
@@ -314,9 +300,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Retrieves the current settings of the AWS IoT Events logging options.</p>
-   *
+   * <p>Retrieves the current settings of the AWS IoT Events logging options.</p>
    */
   public describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
@@ -351,10 +335,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Lists all the versions of a detector model. Only the metadata associated with each
+   * <p>Lists all the versions of a detector model. Only the metadata associated with each
    *           detector model version is returned.</p>
-   *
    */
   public listDetectorModelVersions(
     args: ListDetectorModelVersionsCommandInput,
@@ -389,10 +371,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Lists the detector models you have created.
+   * <p>Lists the detector models you have created.
    *           Only the metadata associated with each detector model is returned.</p>
-   *
    */
   public listDetectorModels(
     args: ListDetectorModelsCommandInput,
@@ -427,9 +407,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Lists the inputs you have created.</p>
-   *
+   * <p>Lists the inputs you have created.</p>
    */
   public listInputs(
     args: ListInputsCommandInput,
@@ -464,9 +442,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags (metadata) you have assigned to the resource.</p>
-   *
+   * <p>Lists the tags (metadata) you have assigned to the resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -501,13 +477,11 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Sets or updates the AWS IoT Events logging options.</p>
+   * <p>Sets or updates the AWS IoT Events logging options.</p>
    *         <p>If you update the value of any <code>"loggingOptions"</code> field, it takes up to one minute
    *           for the change to take effect. Also, if you change the policy attached to the role you specified
    *           in the <code>"roleArn"</code> field (for example, to correct an invalid policy) it takes up to
    *           five minutes for that change to take effect.</p>
-   *
    */
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
@@ -542,10 +516,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *          <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
+   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
    *         manage a resource.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -580,9 +552,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *          <p>Removes the given tags (metadata) from the resource.</p>
-   *
+   * <p>Removes the given tags (metadata) from the resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -617,10 +587,8 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Updates a detector model. Detectors (instances) spawned by the previous version are
+   * <p>Updates a detector model. Detectors (instances) spawned by the previous version are
    *           deleted and then re-created as new inputs arrive.</p>
-   *
    */
   public updateDetectorModel(
     args: UpdateDetectorModelCommandInput,
@@ -655,9 +623,7 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   *
-   *         <p>Updates an input.</p>
-   *
+   * <p>Updates an input.</p>
    */
   public updateInput(
     args: UpdateInputCommandInput,

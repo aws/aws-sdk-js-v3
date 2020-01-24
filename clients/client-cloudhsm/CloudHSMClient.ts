@@ -244,8 +244,7 @@ export type CloudHSMClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS CloudHSM Service</fullname>
+ * <fullname>AWS CloudHSM Service</fullname>
  *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -256,7 +255,6 @@ export type CloudHSMClientResolvedConfig = __SmithyResolvedConfiguration<
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
- *
  */
 export class CloudHSMClient extends __Client<
   __HttpHandlerOptions,

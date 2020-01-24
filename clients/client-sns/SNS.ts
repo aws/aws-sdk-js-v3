@@ -167,8 +167,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>Amazon Simple Notification Service</fullname>
+ * <fullname>Amazon Simple Notification Service</fullname>
  *         <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build
  *             distributed web-enabled applications. Applications can use Amazon SNS to easily push
  *             real-time notification messages to interested subscribers over multiple delivery
@@ -178,16 +177,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             language. The SDKs contain functionality that automatically takes care of tasks such as:
  *             cryptographically signing your service requests, retrying requests, and handling error
  *             responses. For a list of available SDKs, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>. </p>
- *
- *
  */
 export class SNS extends SNSClient {
   /**
-   *
-   *         <p>Adds a statement to a topic's access control policy, granting access for the specified
+   * <p>Adds a statement to a topic's access control policy, granting access for the specified
    *             AWS accounts to the specified actions.</p>
-   *
-   *
    */
   public addPermission(
     args: AddPermissionCommandInput,
@@ -222,13 +216,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Accepts a phone number and indicates whether the phone holder has opted out of
+   * <p>Accepts a phone number and indicates whether the phone holder has opted out of
    *             receiving SMS messages from your account. You cannot send SMS messages to a number that
    *             is opted out.</p>
    *         <p>To resume sending messages, you can opt in the number by using the
    *                 <code>OptInPhoneNumber</code> action.</p>
-   *
    */
   public checkIfPhoneNumberIsOptedOut(
     args: CheckIfPhoneNumberIsOptedOutCommandInput,
@@ -263,16 +255,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
+   * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
    *             to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the
    *             action creates a new subscription and returns its Amazon Resource Name (ARN). This call
    *             requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is
    *             set to "true".</p>
-   *
-   *
-   *
-   *
    */
   public confirmSubscription(
     args: ConfirmSubscriptionCommandInput,
@@ -307,9 +294,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *
-   *         <p>Creates a platform application object for one of the supported push notification
+   * <p>Creates a platform application object for one of the supported push notification
    *             services, such as APNS and FCM, to which devices and mobile apps may register. You must
    *             specify PlatformPrincipal and PlatformCredential attributes when using the
    *                 <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received
@@ -324,8 +309,6 @@ export class SNS extends SNSClient {
    *             For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is
    *             returned when using <code>CreatePlatformApplication</code> is then used as an attribute
    *             for the <code>CreatePlatformEndpoint</code> action.</p>
-   *
-   *
    */
   public createPlatformApplication(
     args: CreatePlatformApplicationCommandInput,
@@ -360,8 +343,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Creates an endpoint for a device and mobile app on one of the supported push
+   * <p>Creates an endpoint for a device and mobile app on one of the supported push
    *             notification services, such as FCM and APNS. <code>CreatePlatformEndpoint</code>
    *             requires the PlatformApplicationArn that is returned from
    *                 <code>CreatePlatformApplication</code>. The EndpointArn that is returned when using
@@ -376,8 +358,6 @@ export class SNS extends SNSClient {
    *             provided: ChannelId and UserId. The token field must also contain the ChannelId. For
    *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint
    *                 for Baidu</a>. </p>
-   *
-   *
    */
   public createPlatformEndpoint(
     args: CreatePlatformEndpointCommandInput,
@@ -412,13 +392,10 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Creates a topic to which notifications can be published. Users can create at most
+   * <p>Creates a topic to which notifications can be published. Users can create at most
    *             100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester
    *             already owns a topic with the specified name, that topic's ARN is returned without
    *             creating a new topic.</p>
-   *
-   *
    */
   public createTopic(
     args: CreateTopicCommandInput,
@@ -453,15 +430,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
+   * <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
    *             idempotent. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *             Notifications</a>. </p>
    *         <p>When you delete an endpoint that is also subscribed to a topic, then you must also
    *             unsubscribe the endpoint from the topic.</p>
-   *
-   *
-   *
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -496,12 +469,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Deletes a platform application object for one of the supported push notification
+   * <p>Deletes a platform application object for one of the supported push notification
    *             services, such as APNS and FCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *             Notifications</a>. </p>
-   *
-   *
    */
   public deletePlatformApplication(
     args: DeletePlatformApplicationCommandInput,
@@ -536,13 +506,10 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some
+   * <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some
    *             messages previously sent to the topic from being delivered to subscribers. This action
    *             is idempotent, so deleting a topic that does not exist does not result in an
    *             error.</p>
-   *
-   *
    */
   public deleteTopic(
     args: DeleteTopicCommandInput,
@@ -577,12 +544,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Retrieves the endpoint attributes for a device on one of the supported push
+   * <p>Retrieves the endpoint attributes for a device on one of the supported push
    *             notification services, such as FCM and APNS. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *                 Notifications</a>. </p>
-   *
-   *
    */
   public getEndpointAttributes(
     args: GetEndpointAttributesCommandInput,
@@ -617,12 +581,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Retrieves the attributes of the platform application object for the supported push
+   * <p>Retrieves the attributes of the platform application object for the supported push
    *             notification services, such as APNS and FCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *                 Notifications</a>. </p>
-   *
-   *
    */
   public getPlatformApplicationAttributes(
     args: GetPlatformApplicationAttributesCommandInput,
@@ -663,10 +624,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Returns the settings for sending SMS messages from your account.</p>
+   * <p>Returns the settings for sending SMS messages from your account.</p>
    *         <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
-   *
    */
   public getSMSAttributes(
     args: GetSMSAttributesCommandInput,
@@ -701,10 +660,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Returns all of the properties of a subscription.</p>
-   *
-   *
+   * <p>Returns all of the properties of a subscription.</p>
    */
   public getSubscriptionAttributes(
     args: GetSubscriptionAttributesCommandInput,
@@ -739,11 +695,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Returns all of the properties of a topic. Topic properties returned might differ based
+   * <p>Returns all of the properties of a topic. Topic properties returned might differ based
    *             on the authorization of the user.</p>
-   *
-   *
    */
   public getTopicAttributes(
     args: GetTopicAttributesCommandInput,
@@ -778,8 +731,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Lists the endpoints and endpoint attributes for devices in a supported push
+   * <p>Lists the endpoints and endpoint attributes for devices in a supported push
    *             notification service, such as FCM and APNS. The results for
    *                 <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited
    *             list of endpoints, up to 100. If additional records are available after the first page
@@ -789,8 +741,6 @@ export class SNS extends SNSClient {
    *             will be null. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *             Notifications</a>. </p>
    *         <p>This action is throttled at 30 transactions per second (TPS).</p>
-   *
-   *
    */
   public listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
@@ -837,8 +787,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
+   * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
    *             messages to them.</p>
    *         <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
    *             returns up to 100 phone numbers. If additional phone numbers are available after the
@@ -846,7 +795,6 @@ export class SNS extends SNSClient {
    *             the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the
    *                 <code>NextToken</code> string received from the previous call. When there are no
    *             more records to return, <code>NextToken</code> will be null.</p>
-   *
    */
   public listPhoneNumbersOptedOut(
     args: ListPhoneNumbersOptedOutCommandInput,
@@ -881,8 +829,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Lists the platform application objects for the supported push notification services,
+   * <p>Lists the platform application objects for the supported push notification services,
    *             such as APNS and FCM. The results for <code>ListPlatformApplications</code> are
    *             paginated and return a limited list of applications, up to 100. If additional records
    *             are available after the first page results, then a NextToken string will be returned. To
@@ -891,8 +838,6 @@ export class SNS extends SNSClient {
    *             return, NextToken will be null. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *             Notifications</a>. </p>
    *         <p>This action is throttled at 15 transactions per second (TPS).</p>
-   *
-   *
    */
   public listPlatformApplications(
     args: ListPlatformApplicationsCommandInput,
@@ -927,14 +872,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of the requester's subscriptions. Each call returns a limited list of
+   * <p>Returns a list of the requester's subscriptions. Each call returns a limited list of
    *             subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is
    *             also returned. Use the <code>NextToken</code> parameter in a new
    *                 <code>ListSubscriptions</code> call to get further results.</p>
    *         <p>This action is throttled at 30 transactions per second (TPS).</p>
-   *
-   *
    */
   public listSubscriptions(
     args: ListSubscriptionsCommandInput,
@@ -969,14 +911,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of the subscriptions to a specific topic. Each call returns a limited
+   * <p>Returns a list of the subscriptions to a specific topic. Each call returns a limited
    *             list of subscriptions, up to 100. If there are more subscriptions, a
    *                 <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in
    *             a new <code>ListSubscriptionsByTopic</code> call to get further results.</p>
    *         <p>This action is throttled at 30 transactions per second (TPS).</p>
-   *
-   *
    */
   public listSubscriptionsByTopic(
     args: ListSubscriptionsByTopicCommandInput,
@@ -1011,12 +950,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>List all tags added to the specified Amazon SNS topic. For an overview, see
+   * <p>List all tags added to the specified Amazon SNS topic. For an overview, see
    *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
    *             <i>Amazon Simple Notification Service Developer Guide</i>.</p>
-   *
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1051,13 +987,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of the requester's topics. Each call returns a limited list of topics,
+   * <p>Returns a list of the requester's topics. Each call returns a limited list of topics,
    *             up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the
    *                 <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
    *             further results.</p>
    *         <p>This action is throttled at 30 transactions per second (TPS).</p>
-   *
    */
   public listTopics(
     args: ListTopicsCommandInput,
@@ -1092,11 +1026,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Use this request to opt in a phone number that is opted out, which enables you to
+   * <p>Use this request to opt in a phone number that is opted out, which enables you to
    *             resume sending SMS messages to the number.</p>
    *         <p>You can opt in a phone number only once every 30 days.</p>
-   *
    */
   public optInPhoneNumber(
     args: OptInPhoneNumberCommandInput,
@@ -1131,8 +1063,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Sends a message to an Amazon SNS topic or sends a text message (SMS message) directly to a
+   * <p>Sends a message to an Amazon SNS topic or sends a text message (SMS message) directly to a
    *             phone number. </p>
    *         <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is
    *             subscribed to the topic. The format of the message depends on the notification protocol
@@ -1146,8 +1077,6 @@ export class SNS extends SNSClient {
    *       </p>
    *         <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
    *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
-   *
-   *
    */
   public publish(
     args: PublishCommandInput,
@@ -1182,10 +1111,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Removes a statement from a topic's access control policy.</p>
-   *
-   *
+   * <p>Removes a statement from a topic's access control policy.</p>
    */
   public removePermission(
     args: RemovePermissionCommandInput,
@@ -1220,12 +1146,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Sets the attributes for an endpoint for a device on one of the supported push
+   * <p>Sets the attributes for an endpoint for a device on one of the supported push
    *             notification services, such as FCM and APNS. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *                 Notifications</a>. </p>
-   *
-   *
    */
   public setEndpointAttributes(
     args: SetEndpointAttributesCommandInput,
@@ -1260,13 +1183,10 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Sets the attributes of the platform application object for the supported push
+   * <p>Sets the attributes of the platform application object for the supported push
    *             notification services, such as APNS and FCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
    *                 Notifications</a>. For information on configuring attributes for message
    *             delivery status, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p>
-   *
-   *
    */
   public setPlatformApplicationAttributes(
     args: SetPlatformApplicationAttributesCommandInput,
@@ -1307,14 +1227,12 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Use this request to set the default settings for sending SMS messages and receiving
+   * <p>Use this request to set the default settings for sending SMS messages and receiving
    *             daily SMS usage reports.</p>
    *         <p>You can override some of these settings for a single message when you use the
    *                 <code>Publish</code> action with the <code>MessageAttributes.entry.N</code>
    *             parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Sending an SMS Message</a> in the
    *                 <i>Amazon SNS Developer Guide</i>.</p>
-   *
    */
   public setSMSAttributes(
     args: SetSMSAttributesCommandInput,
@@ -1349,11 +1267,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Allows a subscription owner to set an attribute of the subscription to a new
+   * <p>Allows a subscription owner to set an attribute of the subscription to a new
    *             value.</p>
-   *
-   *
    */
   public setSubscriptionAttributes(
     args: SetSubscriptionAttributesCommandInput,
@@ -1388,12 +1303,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
-   *
-   *
-   *
-   *
+   * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
    */
   public setTopicAttributes(
     args: SetTopicAttributesCommandInput,
@@ -1428,14 +1338,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To
+   * <p>Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To
    *             actually create a subscription, the endpoint owner must call the
    *                 <code>ConfirmSubscription</code> action with the token from the confirmation
    *             message. Confirmation tokens are valid for three days.</p>
    *         <p>This action is throttled at 100 transactions per second (TPS).</p>
-   *
-   *
    */
   public subscribe(
     args: SubscribeCommandInput,
@@ -1470,8 +1377,7 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Add tags to the specified Amazon SNS topic. For an overview, see
+   * <p>Add tags to the specified Amazon SNS topic. For an overview, see
    *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
    *             <i>Amazon SNS Developer Guide</i>.</p>
    *         <p>When you use topic tags, keep the following guidelines in mind:</p>
@@ -1495,9 +1401,6 @@ export class SNS extends SNSClient {
    *                     requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1532,16 +1435,13 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Deletes a subscription. If the subscription requires authentication for deletion, only
+   * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
    *             the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature
    *             is required. If the <code>Unsubscribe</code> call does not require authentication and
    *             the requester is not the subscription owner, a final cancellation message is delivered
    *             to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the
    *                 <code>Unsubscribe</code> request was unintended.</p>
    *         <p>This action is throttled at 100 transactions per second (TPS).</p>
-   *
-   *
    */
   public unsubscribe(
     args: UnsubscribeCommandInput,
@@ -1576,12 +1476,9 @@ export class SNS extends SNSClient {
   }
 
   /**
-   *
-   *         <p>Remove tags from the specified Amazon SNS topic. For an overview, see
+   * <p>Remove tags from the specified Amazon SNS topic. For an overview, see
    *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
    *             <i>Amazon SNS Developer Guide</i>.</p>
-   *
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,

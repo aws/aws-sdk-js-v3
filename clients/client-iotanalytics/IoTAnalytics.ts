@@ -172,9 +172,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *
- *          <p>AWS IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
+ * <p>AWS IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
  *     You can then query the data and run sophisticated analytics on it.  AWS IoT Analytics enables advanced
  *     data exploration through integration with Jupyter Notebooks and data visualization through integration
  *     with Amazon QuickSight.</p>
@@ -193,14 +191,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *     or perform more complex analytics and machine learning inference. AWS IoT Analytics includes pre-built models
  *     for common IoT use cases so you can answer questions like which devices are about to fail or which customers
  *     are at risk of abandoning their wearable devices.</p>
- *
- *
  */
 export class IoTAnalytics extends IoTAnalyticsClient {
   /**
-   *
-   *          <p>Cancels the reprocessing of data through the pipeline.</p>
-   *
+   * <p>Cancels the reprocessing of data through the pipeline.</p>
    */
   public cancelPipelineReprocessing(
     args: CancelPipelineReprocessingCommandInput,
@@ -235,10 +229,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Creates a channel. A channel collects data from an MQTT topic and archives the
+   * <p>Creates a channel. A channel collects data from an MQTT topic and archives the
    *           raw, unprocessed messages before publishing the data to a pipeline.</p>
-   *
    */
   public createChannel(
     args: CreateChannelCommandInput,
@@ -273,12 +265,10 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Creates a data set. A data set stores data retrieved from a data store by applying a
+   * <p>Creates a data set. A data set stores data retrieved from a data store by applying a
    *          "queryAction" (a SQL query) or a "containerAction" (executing a containerized application).
    *          This operation creates the skeleton of a data set. The data set can be populated manually
    *          by calling "CreateDatasetContent" or automatically according to a "trigger" you specify.</p>
-   *
    */
   public createDataset(
     args: CreateDatasetCommandInput,
@@ -313,10 +303,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Creates the content of a data set by applying a "queryAction" (a SQL query) or a "containerAction"
+   * <p>Creates the content of a data set by applying a "queryAction" (a SQL query) or a "containerAction"
    *          (executing a containerized application).</p>
-   *
    */
   public createDatasetContent(
     args: CreateDatasetContentCommandInput,
@@ -351,9 +339,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Creates a data store, which is a repository for messages.</p>
-   *
+   * <p>Creates a data store, which is a repository for messages.</p>
    */
   public createDatastore(
     args: CreateDatastoreCommandInput,
@@ -388,12 +374,10 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Creates a pipeline. A pipeline consumes messages from a channel and allows
+   * <p>Creates a pipeline. A pipeline consumes messages from a channel and allows
    *           you to process the messages before storing them in a data store. You must specify both a
    *           <code>channel</code> and a <code>datastore</code> activity and, optionally, as many
    *           as 23 additional activities in the <code>pipelineActivities</code> array.</p>
-   *
    */
   public createPipeline(
     args: CreatePipelineCommandInput,
@@ -428,9 +412,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified channel.</p>
-   *
+   * <p>Deletes the specified channel.</p>
    */
   public deleteChannel(
     args: DeleteChannelCommandInput,
@@ -465,10 +447,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified data set.</p>
+   * <p>Deletes the specified data set.</p>
    *          <p>You do not have to delete the content of the data set before you perform this operation.</p>
-   *
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -503,9 +483,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Deletes the content of the specified data set.</p>
-   *
+   * <p>Deletes the content of the specified data set.</p>
    */
   public deleteDatasetContent(
     args: DeleteDatasetContentCommandInput,
@@ -540,9 +518,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified data store.</p>
-   *
+   * <p>Deletes the specified data store.</p>
    */
   public deleteDatastore(
     args: DeleteDatastoreCommandInput,
@@ -577,9 +553,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified pipeline.</p>
-   *
+   * <p>Deletes the specified pipeline.</p>
    */
   public deletePipeline(
     args: DeletePipelineCommandInput,
@@ -614,9 +588,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a channel.</p>
-   *
+   * <p>Retrieves information about a channel.</p>
    */
   public describeChannel(
     args: DescribeChannelCommandInput,
@@ -651,9 +623,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a data set.</p>
-   *
+   * <p>Retrieves information about a data set.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -688,9 +658,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a data store.</p>
-   *
+   * <p>Retrieves information about a data store.</p>
    */
   public describeDatastore(
     args: DescribeDatastoreCommandInput,
@@ -725,9 +693,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the current settings of the AWS IoT Analytics logging options.</p>
-   *
+   * <p>Retrieves the current settings of the AWS IoT Analytics logging options.</p>
    */
   public describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
@@ -762,9 +728,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about a pipeline.</p>
-   *
+   * <p>Retrieves information about a pipeline.</p>
    */
   public describePipeline(
     args: DescribePipelineCommandInput,
@@ -799,9 +763,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the contents of a data set as pre-signed URIs.</p>
-   *
+   * <p>Retrieves the contents of a data set as pre-signed URIs.</p>
    */
   public getDatasetContent(
     args: GetDatasetContentCommandInput,
@@ -836,9 +798,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of channels.</p>
-   *
+   * <p>Retrieves a list of channels.</p>
    */
   public listChannels(
     args: ListChannelsCommandInput,
@@ -873,9 +833,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Lists information about data set contents that have been created.</p>
-   *
+   * <p>Lists information about data set contents that have been created.</p>
    */
   public listDatasetContents(
     args: ListDatasetContentsCommandInput,
@@ -910,9 +868,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves information about data sets.</p>
-   *
+   * <p>Retrieves information about data sets.</p>
    */
   public listDatasets(
     args: ListDatasetsCommandInput,
@@ -947,9 +903,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of data stores.</p>
-   *
+   * <p>Retrieves a list of data stores.</p>
    */
   public listDatastores(
     args: ListDatastoresCommandInput,
@@ -984,9 +938,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of pipelines.</p>
-   *
+   * <p>Retrieves a list of pipelines.</p>
    */
   public listPipelines(
     args: ListPipelinesCommandInput,
@@ -1021,9 +973,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags (metadata) which you have assigned to the resource.</p>
-   *
+   * <p>Lists the tags (metadata) which you have assigned to the resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1058,14 +1008,12 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Sets or updates the AWS IoT Analytics logging options.</p>
+   * <p>Sets or updates the AWS IoT Analytics logging options.</p>
    *          <p>Note that if you update the value of any <code>loggingOptions</code> field, it takes up to one
    *           minute for the change to take effect. Also, if you change the policy attached to the role
    *           you specified in the roleArn field (for example, to correct an invalid policy) it takes
    *           up to 5 minutes for that change to take effect.
    *       </p>
-   *
    */
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
@@ -1100,9 +1048,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Simulates the results of running a pipeline activity on a message payload.</p>
-   *
+   * <p>Simulates the results of running a pipeline activity on a message payload.</p>
    */
   public runPipelineActivity(
     args: RunPipelineActivityCommandInput,
@@ -1137,10 +1083,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a sample of messages from the specified channel ingested during the specified
+   * <p>Retrieves a sample of messages from the specified channel ingested during the specified
    *           timeframe. Up to 10 messages can be retrieved.</p>
-   *
    */
   public sampleChannelData(
     args: SampleChannelDataCommandInput,
@@ -1175,9 +1119,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Starts the reprocessing of raw message data through the pipeline.</p>
-   *
+   * <p>Starts the reprocessing of raw message data through the pipeline.</p>
    */
   public startPipelineReprocessing(
     args: StartPipelineReprocessingCommandInput,
@@ -1212,10 +1154,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Adds to or modifies the tags of the given resource.  Tags are metadata
+   * <p>Adds to or modifies the tags of the given resource.  Tags are metadata
    *           which can be used to manage a resource.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1250,9 +1190,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Removes the given tags (metadata) from the resource.</p>
-   *
+   * <p>Removes the given tags (metadata) from the resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1287,9 +1225,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Updates the settings of a channel.</p>
-   *
+   * <p>Updates the settings of a channel.</p>
    */
   public updateChannel(
     args: UpdateChannelCommandInput,
@@ -1324,9 +1260,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Updates the settings of a data set.</p>
-   *
+   * <p>Updates the settings of a data set.</p>
    */
   public updateDataset(
     args: UpdateDatasetCommandInput,
@@ -1361,9 +1295,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Updates the settings of a data store.</p>
-   *
+   * <p>Updates the settings of a data store.</p>
    */
   public updateDatastore(
     args: UpdateDatastoreCommandInput,
@@ -1398,11 +1330,9 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Updates the settings of a pipeline. You must specify both a
+   * <p>Updates the settings of a pipeline. You must specify both a
    *           <code>channel</code> and a <code>datastore</code> activity and, optionally, as many
    *           as 23 additional activities in the <code>pipelineActivities</code> array.</p>
-   *
    */
   public updatePipeline(
     args: UpdatePipelineCommandInput,
@@ -1437,9 +1367,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   *
-   *          <p>Sends messages to a channel.</p>
-   *
+   * <p>Sends messages to a channel.</p>
    */
   public batchPutMessage(
     args: BatchPutMessageCommandInput,

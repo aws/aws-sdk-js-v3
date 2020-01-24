@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { CopyOptionGroupMessage, OptionGroup } from "../models/index";
+import { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/index";
 import {
   deserializeAws_queryCopyOptionGroupCommand,
   serializeAws_queryCopyOptionGroupCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyOptionGroupCommandInput = CopyOptionGroupMessage;
-export type CopyOptionGroupCommandOutput = OptionGroup;
+export type CopyOptionGroupCommandOutput = CopyOptionGroupResult;
 
 export class CopyOptionGroupCommand extends $Command<
   CopyOptionGroupCommandInput,

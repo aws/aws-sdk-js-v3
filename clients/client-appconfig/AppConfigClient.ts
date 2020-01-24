@@ -258,8 +258,7 @@ export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS AppConfig</fullname>
+ * <fullname>AWS AppConfig</fullname>
  *          <p>Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy
  *          application configurations. AppConfig supports controlled deployments to applications of any size
  *          and includes built-in validation checks and monitoring. You can use AppConfig with applications
@@ -306,7 +305,6 @@ export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *          </ul>
  *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html">AWS AppConfig User Guide</a>.</p>
- *
  */
 export class AppConfigClient extends __Client<
   __HttpHandlerOptions,

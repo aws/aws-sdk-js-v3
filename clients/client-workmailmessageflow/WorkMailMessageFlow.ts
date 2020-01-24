@@ -7,19 +7,15 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The WorkMail Message Flow API provides access to email messages as they are
+ * <p>The WorkMail Message Flow API provides access to email messages as they are
  *       being
  *       sent and received by
  *       a
  *       WorkMail organization.</p>
- *
  */
 export class WorkMailMessageFlow extends WorkMailMessageFlowClient {
   /**
-   *
-   *          <p>Retrieves the raw content of an in-transit email message, in MIME format. </p>
-   *
+   * <p>Retrieves the raw content of an in-transit email message, in MIME format. </p>
    */
   public getRawMessageContent(
     args: GetRawMessageContentCommandInput,

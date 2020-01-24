@@ -272,16 +272,13 @@ export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS DataSync</fullname>
+ * <fullname>AWS DataSync</fullname>
  *
  *          <p>AWS DataSync is a managed data transfer service that makes it simpler for you to
  *       automate moving data between on-premises storage and Amazon Simple Storage Service (Amazon S3)
  *       or Amazon Elastic File System (Amazon EFS). </p>
  *          <p>This API interface reference for AWS DataSync contains documentation for a
  *       programming interface that you can use to manage AWS DataSync.</p>
- *
- *
  */
 export class DataSyncClient extends __Client<
   __HttpHandlerOptions,

@@ -23,10 +23,16 @@ import {
   DisassociateNodeResponse,
   ExportServerEngineAttributeRequest,
   ExportServerEngineAttributeResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   RestoreServerRequest,
   RestoreServerResponse,
   StartMaintenanceRequest,
   StartMaintenanceResponse,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateServerEngineAttributesRequest,
   UpdateServerEngineAttributesResponse,
   UpdateServerRequest,
@@ -97,8 +103,11 @@ export type ServiceInputTypes =
   | DescribeServersRequest
   | DisassociateNodeRequest
   | ExportServerEngineAttributeRequest
+  | ListTagsForResourceRequest
   | RestoreServerRequest
   | StartMaintenanceRequest
+  | TagResourceRequest
+  | UntagResourceRequest
   | UpdateServerEngineAttributesRequest
   | UpdateServerRequest;
 
@@ -115,8 +124,11 @@ export type ServiceOutputTypes =
   | DescribeServersResponse
   | DisassociateNodeResponse
   | ExportServerEngineAttributeResponse
+  | ListTagsForResourceResponse
   | RestoreServerResponse
   | StartMaintenanceResponse
+  | TagResourceResponse
+  | UntagResourceResponse
   | UpdateServerEngineAttributesResponse
   | UpdateServerResponse;
 
@@ -228,8 +240,7 @@ export type OpsWorksCMClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS OpsWorks CM</fullname>
+ * <fullname>AWS OpsWorks CM</fullname>
  *          <p>AWS OpsWorks for configuration management (CM) is a service that runs and manages
  *       configuration management servers. You can use AWS OpsWorks CM to create and manage AWS
  *       OpsWorks for Chef Automate and AWS OpsWorks for Puppet Enterprise servers, and add or remove
@@ -316,8 +327,6 @@ export type OpsWorksCMClientResolvedConfig = __SmithyResolvedConfiguration<
  *             <b>Throttling limits</b>
  *          </p>
  *          <p>All API operations allow for five requests per second with a burst of 10 requests per second.</p>
- *
- *
  */
 export class OpsWorksCMClient extends __Client<
   __HttpHandlerOptions,

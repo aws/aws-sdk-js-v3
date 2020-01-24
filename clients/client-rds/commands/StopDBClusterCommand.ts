@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBCluster, StopDBClusterMessage } from "../models/index";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopDBClusterCommandInput = StopDBClusterMessage;
-export type StopDBClusterCommandOutput = DBCluster;
+export type StopDBClusterCommandOutput = StopDBClusterResult;
 
 export class StopDBClusterCommand extends $Command<
   StopDBClusterCommandInput,

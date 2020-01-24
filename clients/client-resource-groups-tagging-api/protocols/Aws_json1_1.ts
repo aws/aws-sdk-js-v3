@@ -1,4 +1,12 @@
 import {
+  DescribeReportCreationCommandInput,
+  DescribeReportCreationCommandOutput
+} from "../commands/DescribeReportCreationCommand";
+import {
+  GetComplianceSummaryCommandInput,
+  GetComplianceSummaryCommandOutput
+} from "../commands/GetComplianceSummaryCommand";
+import {
   GetResourcesCommandInput,
   GetResourcesCommandOutput
 } from "../commands/GetResourcesCommand";
@@ -11,6 +19,10 @@ import {
   GetTagValuesCommandOutput
 } from "../commands/GetTagValuesCommand";
 import {
+  StartReportCreationCommandInput,
+  StartReportCreationCommandOutput
+} from "../commands/StartReportCreationCommand";
+import {
   TagResourcesCommandInput,
   TagResourcesCommandOutput
 } from "../commands/TagResourcesCommand";
@@ -20,17 +32,27 @@ import {
 } from "../commands/UntagResourcesCommand";
 import {
   ComplianceDetails,
+  ConcurrentModificationException,
+  ConstraintViolationException,
+  DescribeReportCreationInput,
+  DescribeReportCreationOutput,
   FailureInfo,
+  GetComplianceSummaryInput,
+  GetComplianceSummaryOutput,
   GetResourcesInput,
   GetResourcesOutput,
   GetTagKeysInput,
   GetTagKeysOutput,
   GetTagValuesInput,
   GetTagValuesOutput,
+  GroupByAttribute,
   InternalServiceException,
   InvalidParameterException,
   PaginationTokenExpiredException,
   ResourceTagMapping,
+  StartReportCreationInput,
+  StartReportCreationOutput,
+  Summary,
   Tag,
   TagFilter,
   TagResourcesInput,
@@ -50,6 +72,50 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+
+export async function serializeAws_json1_1DescribeReportCreationCommand(
+  input: DescribeReportCreationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeReportCreationInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeReportCreation",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetComplianceSummaryCommand(
+  input: GetComplianceSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1GetComplianceSummaryInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetComplianceSummary",
+    headers: headers,
+    body: body
+  });
+}
 
 export async function serializeAws_json1_1GetResourcesCommand(
   input: GetResourcesCommandInput,
@@ -108,6 +174,28 @@ export async function serializeAws_json1_1GetTagValuesCommand(
   });
 }
 
+export async function serializeAws_json1_1StartReportCreationCommand(
+  input: StartReportCreationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "ResourceGroupsTaggingAPI_20170126.StartReportCreation";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1StartReportCreationInput(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/StartReportCreation",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1TagResourcesCommand(
   input: TagResourcesCommandInput,
   context: __SerdeContext
@@ -146,6 +234,162 @@ export async function serializeAws_json1_1UntagResourcesCommand(
     headers: headers,
     body: body
   });
+}
+
+export async function deserializeAws_json1_1DescribeReportCreationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReportCreationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeReportCreationCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeReportCreationOutput(data, context);
+  const response: DescribeReportCreationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeReportCreationOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeReportCreationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReportCreationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConstraintViolationException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
+      response = await deserializeAws_json1_1ConstraintViolationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+      response = await deserializeAws_json1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1GetComplianceSummaryCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceSummaryCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetComplianceSummaryCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetComplianceSummaryOutput(data, context);
+  const response: GetComplianceSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetComplianceSummaryOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetComplianceSummaryCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceSummaryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConstraintViolationException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
+      response = await deserializeAws_json1_1ConstraintViolationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+      response = await deserializeAws_json1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetResourcesCommand(
@@ -373,6 +617,91 @@ async function deserializeAws_json1_1GetTagValuesCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1StartReportCreationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReportCreationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartReportCreationCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartReportCreationOutput(data, context);
+  const response: StartReportCreationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartReportCreationOutput",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1StartReportCreationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReportCreationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#ConcurrentModificationException":
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ConstraintViolationException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
+      response = await deserializeAws_json1_1ConstraintViolationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
+      response = await deserializeAws_json1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1TagResourcesCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -509,6 +838,44 @@ async function deserializeAws_json1_1UntagResourcesCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConcurrentModificationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
+    body,
+    context
+  );
+  const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
+    __type: "ConcurrentModificationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConstraintViolationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConstraintViolationException(
+    body,
+    context
+  );
+  const contents: ConstraintViolationException = {
+    name: "ConstraintViolationException",
+    __type: "ConstraintViolationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -585,6 +952,57 @@ const deserializeAws_json1_1ThrottledExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1DescribeReportCreationInput = (
+  input: DescribeReportCreationInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetComplianceSummaryInput = (
+  input: GetComplianceSummaryInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.GroupBy !== undefined) {
+    bodyParams["GroupBy"] = serializeAws_json1_1GroupBy(input.GroupBy, context);
+  }
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.PaginationToken !== undefined) {
+    bodyParams["PaginationToken"] = input.PaginationToken;
+  }
+  if (input.RegionFilters !== undefined) {
+    bodyParams["RegionFilters"] = serializeAws_json1_1RegionFilterList(
+      input.RegionFilters,
+      context
+    );
+  }
+  if (input.ResourceTypeFilters !== undefined) {
+    bodyParams[
+      "ResourceTypeFilters"
+    ] = serializeAws_json1_1ResourceTypeFilterList(
+      input.ResourceTypeFilters,
+      context
+    );
+  }
+  if (input.TagKeyFilters !== undefined) {
+    bodyParams["TagKeyFilters"] = serializeAws_json1_1TagKeyFilterList(
+      input.TagKeyFilters,
+      context
+    );
+  }
+  if (input.TargetIdFilters !== undefined) {
+    bodyParams["TargetIdFilters"] = serializeAws_json1_1TargetIdFilterList(
+      input.TargetIdFilters,
+      context
+    );
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1GetResourcesInput = (
   input: GetResourcesInput,
   context: __SerdeContext
@@ -653,6 +1071,20 @@ const serializeAws_json1_1GetTagValuesInput = (
   return bodyParams;
 };
 
+const serializeAws_json1_1GroupBy = (
+  input: Array<GroupByAttribute | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1RegionFilterList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
 const serializeAws_json1_1ResourceARNList = (
   input: Array<string>,
   context: __SerdeContext
@@ -665,6 +1097,17 @@ const serializeAws_json1_1ResourceTypeFilterList = (
   context: __SerdeContext
 ): any => {
   return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1StartReportCreationInput = (
+  input: StartReportCreationInput,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.S3Bucket !== undefined) {
+    bodyParams["S3Bucket"] = input.S3Bucket;
+  }
+  return bodyParams;
 };
 
 const serializeAws_json1_1TagFilter = (
@@ -691,6 +1134,13 @@ const serializeAws_json1_1TagFilterList = (
   return (input || []).map(entry =>
     serializeAws_json1_1TagFilter(entry, context)
   );
+};
+
+const serializeAws_json1_1TagKeyFilterList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_json1_1TagKeyListForUntag = (
@@ -729,6 +1179,13 @@ const serializeAws_json1_1TagResourcesInput = (
 };
 
 const serializeAws_json1_1TagValueList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1TargetIdFilterList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
@@ -783,6 +1240,60 @@ const deserializeAws_json1_1ComplianceDetails = (
   return contents;
 };
 
+const deserializeAws_json1_1ConcurrentModificationException = (
+  output: any,
+  context: __SerdeContext
+): ConcurrentModificationException => {
+  let contents: any = {
+    __type: "ConcurrentModificationException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConstraintViolationException = (
+  output: any,
+  context: __SerdeContext
+): ConstraintViolationException => {
+  let contents: any = {
+    __type: "ConstraintViolationException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeReportCreationOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeReportCreationOutput => {
+  let contents: any = {
+    __type: "DescribeReportCreationOutput",
+    ErrorMessage: undefined,
+    S3Location: undefined,
+    StartDate: undefined,
+    Status: undefined
+  };
+  if (output.ErrorMessage !== undefined) {
+    contents.ErrorMessage = output.ErrorMessage;
+  }
+  if (output.S3Location !== undefined) {
+    contents.S3Location = output.S3Location;
+  }
+  if (output.StartDate !== undefined) {
+    contents.StartDate = output.StartDate;
+  }
+  if (output.Status !== undefined) {
+    contents.Status = output.Status;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1FailedResourcesMap = (
   output: any,
   context: __SerdeContext
@@ -812,6 +1323,27 @@ const deserializeAws_json1_1FailureInfo = (
   }
   if (output.StatusCode !== undefined) {
     contents.StatusCode = output.StatusCode;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetComplianceSummaryOutput = (
+  output: any,
+  context: __SerdeContext
+): GetComplianceSummaryOutput => {
+  let contents: any = {
+    __type: "GetComplianceSummaryOutput",
+    PaginationToken: undefined,
+    SummaryList: undefined
+  };
+  if (output.PaginationToken !== undefined) {
+    contents.PaginationToken = output.PaginationToken;
+  }
+  if (output.SummaryList !== undefined) {
+    contents.SummaryList = deserializeAws_json1_1SummaryList(
+      output.SummaryList,
+      context
+    );
   }
   return contents;
 };
@@ -952,6 +1484,59 @@ const deserializeAws_json1_1ResourceTagMappingList = (
 ): Array<ResourceTagMapping> => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceTagMapping(entry, context)
+  );
+};
+
+const deserializeAws_json1_1StartReportCreationOutput = (
+  output: any,
+  context: __SerdeContext
+): StartReportCreationOutput => {
+  let contents: any = {
+    __type: "StartReportCreationOutput"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1Summary = (
+  output: any,
+  context: __SerdeContext
+): Summary => {
+  let contents: any = {
+    __type: "Summary",
+    LastUpdated: undefined,
+    NonCompliantResources: undefined,
+    Region: undefined,
+    ResourceType: undefined,
+    TargetId: undefined,
+    TargetIdType: undefined
+  };
+  if (output.LastUpdated !== undefined) {
+    contents.LastUpdated = output.LastUpdated;
+  }
+  if (output.NonCompliantResources !== undefined) {
+    contents.NonCompliantResources = output.NonCompliantResources;
+  }
+  if (output.Region !== undefined) {
+    contents.Region = output.Region;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  if (output.TargetId !== undefined) {
+    contents.TargetId = output.TargetId;
+  }
+  if (output.TargetIdType !== undefined) {
+    contents.TargetIdType = output.TargetIdType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1SummaryList = (
+  output: any,
+  context: __SerdeContext
+): Array<Summary> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Summary(entry, context)
   );
 };
 

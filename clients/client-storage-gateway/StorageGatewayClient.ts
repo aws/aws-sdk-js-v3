@@ -464,8 +464,7 @@ export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Storage Gateway Service</fullname>
+ * <fullname>AWS Storage Gateway Service</fullname>
  *
  *          <p>AWS Storage Gateway is the service that connects an on-premises software appliance
  *          with cloud-based storage to provide seamless and secure integration between an
@@ -528,7 +527,6 @@ export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<
  *             <p>For more information, see <a href="https://forums.aws.amazon.com/ann.jspa?annID=3557">Announcement: Heads-up –
  *                Longer AWS Storage Gateway volume and snapshot IDs coming in 2016</a>.</p>
  *          </important>
- *
  */
 export class StorageGatewayClient extends __Client<
   __HttpHandlerOptions,

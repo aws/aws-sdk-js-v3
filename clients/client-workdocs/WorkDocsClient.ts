@@ -304,8 +304,7 @@ export type WorkDocsClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>The WorkDocs API is designed for the following use cases:</p>
+ * <p>The WorkDocs API is designed for the following use cases:</p>
  *         <ul>
  *             <li>
  *                 <p>File Migration: File migration applications are supported for users who
@@ -338,7 +337,6 @@ export type WorkDocsClientResolvedConfig = __SmithyResolvedConfiguration<
  *             permissions and upload any file to any user. This allows developers to perform the three
  *             use cases above, as well as give users the ability to grant access on a selective basis
  *             using the IAM model.</p>
- *
  */
 export class WorkDocsClient extends __Client<
   __HttpHandlerOptions,

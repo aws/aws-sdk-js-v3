@@ -35,6 +35,10 @@ import {
   ImportMigrationTaskCommandOutput
 } from "../commands/ImportMigrationTaskCommand";
 import {
+  ListApplicationStatesCommandInput,
+  ListApplicationStatesCommandOutput
+} from "../commands/ListApplicationStatesCommand";
+import {
   ListCreatedArtifactsCommandInput,
   ListCreatedArtifactsCommandOutput
 } from "../commands/ListCreatedArtifactsCommand";
@@ -64,6 +68,7 @@ import {
 } from "../commands/PutResourceAttributesCommand";
 import {
   AccessDeniedException,
+  ApplicationState,
   AssociateCreatedArtifactRequest,
   AssociateCreatedArtifactResult,
   AssociateDiscoveredResourceRequest,
@@ -88,6 +93,8 @@ import {
   ImportMigrationTaskResult,
   InternalServerError,
   InvalidInputException,
+  ListApplicationStatesRequest,
+  ListApplicationStatesResult,
   ListCreatedArtifactsRequest,
   ListCreatedArtifactsResult,
   ListDiscoveredResourcesRequest,
@@ -308,6 +315,27 @@ export async function serializeAws_json1_1ImportMigrationTaskCommand(
     protocol: "https",
     method: "POST",
     path: "/ImportMigrationTask",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListApplicationStatesCommand(
+  input: ListApplicationStatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSMigrationHub.ListApplicationStates";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListApplicationStatesRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListApplicationStates",
     headers: headers,
     body: body
   });
@@ -1414,6 +1442,91 @@ async function deserializeAws_json1_1ImportMigrationTaskCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1ListApplicationStatesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationStatesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListApplicationStatesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListApplicationStatesResult(data, context);
+  const response: ListApplicationStatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListApplicationStatesResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListApplicationStatesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationStatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazon.aws.migration#AccessDeniedException":
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "HomeRegionNotSetException":
+    case "com.amazon.aws.migration#HomeRegionNotSetException":
+      response = await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazon.aws.migration#InternalServerError":
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidInputException":
+    case "com.amazon.aws.migration#InvalidInputException":
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazon.aws.migration#ServiceUnavailableException":
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazon.aws.migration#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1ListCreatedArtifactsCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -2284,6 +2397,13 @@ const deserializeAws_json1_1UnauthorizedOperationResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1ApplicationIds = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
 const serializeAws_json1_1AssociateCreatedArtifactRequest = (
   input: AssociateCreatedArtifactRequest,
   context: __SerdeContext
@@ -2464,6 +2584,26 @@ const serializeAws_json1_1ImportMigrationTaskRequest = (
   }
   if (input.ProgressUpdateStream !== undefined) {
     bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListApplicationStatesRequest = (
+  input: ListApplicationStatesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ApplicationIds !== undefined) {
+    bodyParams["ApplicationIds"] = serializeAws_json1_1ApplicationIds(
+      input.ApplicationIds,
+      context
+    );
+  }
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
 };
@@ -2666,6 +2806,41 @@ const deserializeAws_json1_1AccessDeniedException = (
     contents.Message = output.Message;
   }
   return contents;
+};
+
+const deserializeAws_json1_1ApplicationState = (
+  output: any,
+  context: __SerdeContext
+): ApplicationState => {
+  let contents: any = {
+    __type: "ApplicationState",
+    ApplicationId: undefined,
+    ApplicationStatus: undefined,
+    LastUpdatedTime: undefined
+  };
+  if (output.ApplicationId !== undefined) {
+    contents.ApplicationId = output.ApplicationId;
+  }
+  if (output.ApplicationStatus !== undefined) {
+    contents.ApplicationStatus = output.ApplicationStatus;
+  }
+  if (output.LastUpdatedTime !== undefined) {
+    contents.LastUpdatedTime = new Date(
+      output.LastUpdatedTime % 1 != 0
+        ? Math.round(output.LastUpdatedTime * 1000)
+        : output.LastUpdatedTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ApplicationStateList = (
+  output: any,
+  context: __SerdeContext
+): Array<ApplicationState> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ApplicationState(entry, context)
+  );
 };
 
 const deserializeAws_json1_1AssociateCreatedArtifactResult = (
@@ -2894,6 +3069,27 @@ const deserializeAws_json1_1LatestResourceAttributeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceAttribute(entry, context)
   );
+};
+
+const deserializeAws_json1_1ListApplicationStatesResult = (
+  output: any,
+  context: __SerdeContext
+): ListApplicationStatesResult => {
+  let contents: any = {
+    __type: "ListApplicationStatesResult",
+    ApplicationStateList: undefined,
+    NextToken: undefined
+  };
+  if (output.ApplicationStateList !== undefined) {
+    contents.ApplicationStateList = deserializeAws_json1_1ApplicationStateList(
+      output.ApplicationStateList,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
 };
 
 const deserializeAws_json1_1ListCreatedArtifactsResult = (

@@ -402,16 +402,12 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>This is the <i>AWS WAF Regional API Reference</i> for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balancers. The AWS WAF actions and data types listed in the reference are available for protecting Application Load Balancers. You can use these actions and data types by means of the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Regions and Endpoints</a>. This guide is for developers who need detailed information about the AWS WAF API actions, data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the
+ * <p>This is the <i>AWS WAF Regional API Reference</i> for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balancers. The AWS WAF actions and data types listed in the reference are available for protecting Application Load Balancers. You can use these actions and data types by means of the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Regions and Endpoints</a>. This guide is for developers who need detailed information about the AWS WAF API actions, data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
- *
  */
 export class WAFRegional extends WAFRegionalClient {
   /**
-   *
-   *          <p>Associates a web ACL with a resource, either an application load balancer or Amazon API Gateway stage.</p>
-   *
+   * <p>Associates a web ACL with a resource, either an application load balancer or Amazon API Gateway stage.</p>
    */
   public associateWebACL(
     args: AssociateWebACLCommandInput,
@@ -446,9 +442,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Removes a web ACL from the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
-   *
+   * <p>Removes a web ACL from the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
    */
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
@@ -483,9 +477,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
-   *
+   * <p>Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
    */
   public getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
@@ -520,9 +512,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of resources associated with the specified web ACL.</p>
-   *
+   * <p>Returns an array of resources associated with the specified web ACL.</p>
    */
   public listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
@@ -557,8 +547,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a <code>ByteMatchSet</code>. You then use <a>UpdateByteMatchSet</a> to identify the part of a
+   * <p>Creates a <code>ByteMatchSet</code>. You then use <a>UpdateByteMatchSet</a> to identify the part of a
    * 			web request that you want AWS WAF to inspect, such as the values of the <code>User-Agent</code> header or the query string.
    * 			For example, you can create a <code>ByteMatchSet</code> that matches any requests with <code>User-Agent</code> headers
    * 			that contain the string <code>BadBot</code>. You can then configure AWS WAF to reject those requests.</p>
@@ -582,7 +571,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
@@ -617,8 +605,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Creates an <a>GeoMatchSet</a>, which you use to specify which web requests you want to allow or block based on the country
+   * <p>Creates an <a>GeoMatchSet</a>, which you use to specify which web requests you want to allow or block based on the country
    * 			that the requests originate from. For example, if you're receiving a lot of requests from one or more countries and you want to block the requests, you can create an <code>GeoMatchSet</code> that contains those countries and then configure AWS WAF to block the requests. </p>
    * 		       <p>To create and configure a <code>GeoMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
@@ -639,7 +626,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
@@ -674,8 +660,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Creates an <a>IPSet</a>, which you use to specify which web requests
+   * <p>Creates an <a>IPSet</a>, which you use to specify which web requests
    *          that
    *          you want to allow or block based on the IP addresses that the requests
    *          originate from. For example, if you're receiving a lot of requests from one or more
@@ -701,7 +686,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createIPSet(
     args: CreateIPSetCommandInput,
@@ -736,8 +720,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Creates a <a>RateBasedRule</a>. The <code>RateBasedRule</code> contains a
+   * <p>Creates a <a>RateBasedRule</a>. The <code>RateBasedRule</code> contains a
    *             <code>RateLimit</code>, which specifies the maximum number of requests that AWS WAF allows
    *          from a specified IP address in a five-minute period. The <code>RateBasedRule</code> also
    *          contains the <code>IPSet</code> objects, <code>ByteMatchSet</code> objects, and other
@@ -823,7 +806,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests,
    *          see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
    *             Guide</a>.</p>
-   *
    */
   public createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
@@ -858,8 +840,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify the part of a
+   * <p>Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify the part of a
    *          web request that you want AWS WAF to inspect, such as the values of the <code>User-Agent</code> header or the query string.
    *          For example, you can create a <code>RegexMatchSet</code> that contains a <code>RegexMatchTuple</code> that looks for any requests with <code>User-Agent</code> headers
    *          that match a <code>RegexPatternSet</code> with pattern <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
@@ -883,7 +864,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
@@ -918,8 +898,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>RegexPatternSet</code>. You then use <a>UpdateRegexPatternSet</a> to specify the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
+   * <p>Creates a <code>RegexPatternSet</code>. You then use <a>UpdateRegexPatternSet</a> to specify the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
    * 		       <p>To create and configure a <code>RegexPatternSet</code>, perform the following steps:</p>
    *          <ol>
    *             <li>
@@ -939,7 +918,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -974,8 +952,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects,
+   * <p>Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects,
    *             <code>ByteMatchSet</code> objects, and other predicates that identify the requests that
    *          you want to block. If you add more than one predicate to a <code>Rule</code>, a request
    *          must match all of the specifications to be allowed or blocked. For example, suppose
@@ -1019,7 +996,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createRule(
     args: CreateRuleCommandInput,
@@ -1054,8 +1030,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Creates a <code>RuleGroup</code>. A rule group is a collection of predefined rules that you add to a web ACL. You use <a>UpdateRuleGroup</a> to add rules to the rule group.</p>
+   * <p>Creates a <code>RuleGroup</code>. A rule group is a collection of predefined rules that you add to a web ACL. You use <a>UpdateRuleGroup</a> to add rules to the rule group.</p>
    * 	        <p>Rule groups are subject to the following limits:</p>
    * 	        <ul>
    *             <li>
@@ -1070,7 +1045,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ul>
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
@@ -1105,8 +1079,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a <code>SizeConstraintSet</code>. You then use <a>UpdateSizeConstraintSet</a> to identify the part of a
+   * <p>Creates a <code>SizeConstraintSet</code>. You then use <a>UpdateSizeConstraintSet</a> to identify the part of a
    * 			web request that you want AWS WAF to check for length, such as the length of the <code>User-Agent</code> header or the length of the query string.
    * 			For example, you can create a <code>SizeConstraintSet</code> that matches any requests that have a query string that is longer than 100 bytes.
    * 			You can then configure AWS WAF to reject those requests.</p>
@@ -1130,7 +1103,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
@@ -1165,8 +1137,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a <a>SqlInjectionMatchSet</a>, which you use to allow, block, or count requests that contain snippets of SQL code in a
+   * <p>Creates a <a>SqlInjectionMatchSet</a>, which you use to allow, block, or count requests that contain snippets of SQL code in a
    * 			specified part of web requests. AWS WAF searches for character sequences that are likely to be malicious strings.</p>
    * 		       <p>To create and configure a <code>SqlInjectionMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
@@ -1188,7 +1159,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
@@ -1223,8 +1193,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a <code>WebACL</code>, which contains the <code>Rules</code> that identify the CloudFront web requests that you want to allow, block, or count.
+   * <p>Creates a <code>WebACL</code>, which contains the <code>Rules</code> that identify the CloudFront web requests that you want to allow, block, or count.
    * 			AWS WAF evaluates <code>Rules</code> in order based on the value of <code>Priority</code> for each <code>Rule</code>.</p>
    * 		       <p>You also specify a default action, either <code>ALLOW</code> or <code>BLOCK</code>. If a web request doesn't match
    * 			any of the <code>Rules</code> in a <code>WebACL</code>, AWS WAF responds to the request with the default action. </p>
@@ -1256,7 +1225,6 @@ export class WAFRegional extends WAFRegionalClient {
    *             </li>
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createWebACL(
     args: CreateWebACLCommandInput,
@@ -1291,8 +1259,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Creates an <a>XssMatchSet</a>, which you use to allow, block, or count requests that contain cross-site scripting attacks
+   * <p>Creates an <a>XssMatchSet</a>, which you use to allow, block, or count requests that contain cross-site scripting attacks
    * 			in the specified part of web requests. AWS WAF searches for character sequences that are likely to be malicious strings.</p>
    * 		       <p>To create and configure an <code>XssMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
@@ -1314,7 +1281,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
@@ -1349,8 +1315,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <code>ByteMatchSet</code> if it's still used in any <code>Rules</code>
+   * <p>Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <code>ByteMatchSet</code> if it's still used in any <code>Rules</code>
    * 			or if it still includes any <a>ByteMatchTuple</a> objects (any filters).</p>
    * 		       <p>If you just want to remove a <code>ByteMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>ByteMatchSet</code>, perform the following steps:</p>
@@ -1366,7 +1331,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteByteMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
@@ -1401,8 +1365,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <code>GeoMatchSet</code> if it's still used in any <code>Rules</code> or
+   * <p>Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <code>GeoMatchSet</code> if it's still used in any <code>Rules</code> or
    * 			if it still includes any countries.</p>
    * 		       <p>If you just want to remove a <code>GeoMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>GeoMatchSet</code> from AWS WAF, perform the following steps:</p>
@@ -1418,7 +1381,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteGeoMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
@@ -1453,8 +1415,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Permanently deletes an <a>IPSet</a>. You can't delete an <code>IPSet</code> if it's still used in any <code>Rules</code> or
+   * <p>Permanently deletes an <a>IPSet</a>. You can't delete an <code>IPSet</code> if it's still used in any <code>Rules</code> or
    * 			if it still includes any IP addresses.</p>
    * 		       <p>If you just want to remove an <code>IPSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete an <code>IPSet</code> from AWS WAF, perform the following steps:</p>
@@ -1470,7 +1431,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteIPSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
@@ -1505,10 +1465,8 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Permanently deletes the <a>LoggingConfiguration</a> from the specified web
+   * <p>Permanently deletes the <a>LoggingConfiguration</a> from the specified web
    *          ACL.</p>
-   *
    */
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -1543,10 +1501,8 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Permanently deletes an IAM policy from the specified RuleGroup.</p>
+   * <p>Permanently deletes an IAM policy from the specified RuleGroup.</p>
    *          <p>The user making the request must be the owner of the RuleGroup.</p>
-   *
    */
   public deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
@@ -1581,8 +1537,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Permanently deletes a <a>RateBasedRule</a>. You can't delete a rule if
+   * <p>Permanently deletes a <a>RateBasedRule</a>. You can't delete a rule if
    *          it's still used in any <code>WebACL</code> objects or if it still includes any predicates,
    *          such as <code>ByteMatchSet</code> objects.</p>
    *          <p>If you just want to remove a rule from a <code>WebACL</code>, use <a>UpdateWebACL</a>.</p>
@@ -1602,7 +1557,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteRateBasedRule</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
@@ -1637,8 +1591,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code> if it's still used in any <code>Rules</code>
+   * <p>Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code> if it's still used in any <code>Rules</code>
    *         or if it still includes any <code>RegexMatchTuples</code> objects (any filters).</p>
    * 		       <p>If you just want to remove a <code>RegexMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>RegexMatchSet</code>, perform the following steps:</p>
@@ -1654,7 +1607,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteRegexMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
@@ -1689,10 +1641,8 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code> if it's still used in any <code>RegexMatchSet</code>
+   * <p>Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code> if it's still used in any <code>RegexMatchSet</code>
    *          or if the <code>RegexPatternSet</code> is not empty. </p>
-   *
    */
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
@@ -1727,8 +1677,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Permanently deletes a <a>Rule</a>. You can't delete a <code>Rule</code> if it's still used in any <code>WebACL</code>
+   * <p>Permanently deletes a <a>Rule</a>. You can't delete a <code>Rule</code> if it's still used in any <code>WebACL</code>
    * 			objects or if it still includes any predicates, such as <code>ByteMatchSet</code> objects.</p>
    * 		       <p>If you just want to remove a <code>Rule</code> from a <code>WebACL</code>, use <a>UpdateWebACL</a>.</p>
    * 		       <p>To permanently delete a <code>Rule</code> from AWS WAF, perform the following steps:</p>
@@ -1744,7 +1693,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteRule</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteRule(
     args: DeleteRuleCommandInput,
@@ -1779,8 +1727,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Permanently deletes a <a>RuleGroup</a>. You can't delete a <code>RuleGroup</code> if it's still used in any <code>WebACL</code>
+   * <p>Permanently deletes a <a>RuleGroup</a>. You can't delete a <code>RuleGroup</code> if it's still used in any <code>WebACL</code>
    *          objects or if it still includes any rules.</p>
    *          <p>If you just want to remove a <code>RuleGroup</code> from a <code>WebACL</code>, use <a>UpdateWebACL</a>.</p>
    *          <p>To permanently delete a <code>RuleGroup</code> from AWS WAF, perform the following steps:</p>
@@ -1796,7 +1743,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteRuleGroup</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
@@ -1831,8 +1777,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <code>SizeConstraintSet</code> if it's still used in any <code>Rules</code>
+   * <p>Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <code>SizeConstraintSet</code> if it's still used in any <code>Rules</code>
    * 			or if it still includes any <a>SizeConstraint</a> objects (any filters).</p>
    * 		       <p>If you just want to remove a <code>SizeConstraintSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>SizeConstraintSet</code>, perform the following steps:</p>
@@ -1848,7 +1793,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteSizeConstraintSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
@@ -1883,8 +1827,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Permanently deletes a <a>SqlInjectionMatchSet</a>. You can't delete a <code>SqlInjectionMatchSet</code> if it's
+   * <p>Permanently deletes a <a>SqlInjectionMatchSet</a>. You can't delete a <code>SqlInjectionMatchSet</code> if it's
    * 			still used in any <code>Rules</code> or if it still contains any <a>SqlInjectionMatchTuple</a> objects.</p>
    * 		       <p>If you just want to remove a <code>SqlInjectionMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>SqlInjectionMatchSet</code> from AWS WAF, perform the following steps:</p>
@@ -1901,7 +1844,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteSqlInjectionMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
@@ -1936,8 +1878,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Permanently deletes a <a>WebACL</a>. You can't delete a <code>WebACL</code> if it still contains any <code>Rules</code>.</p>
+   * <p>Permanently deletes a <a>WebACL</a>. You can't delete a <code>WebACL</code> if it still contains any <code>Rules</code>.</p>
    * 		       <p>To delete a <code>WebACL</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -1951,7 +1892,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteWebACL</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -1986,8 +1926,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Permanently deletes an <a>XssMatchSet</a>. You can't delete an <code>XssMatchSet</code> if it's
+   * <p>Permanently deletes an <a>XssMatchSet</a>. You can't delete an <code>XssMatchSet</code> if it's
    * 			still used in any <code>Rules</code> or if it still contains any <a>XssMatchTuple</a> objects.</p>
    * 		       <p>If you just want to remove an <code>XssMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete an <code>XssMatchSet</code> from AWS WAF, perform the following steps:</p>
@@ -2004,7 +1943,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                <p>Submit a <code>DeleteXssMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
    */
   public deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
@@ -2039,9 +1977,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.</p>
-   *
+   * <p>Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.</p>
    */
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
@@ -2076,15 +2012,13 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>When you want to create, update, or delete AWS WAF objects, get a change token and include the change token in the create, update, or delete request. Change tokens ensure that your application doesn't submit conflicting requests to AWS WAF.</p>
+   * <p>When you want to create, update, or delete AWS WAF objects, get a change token and include the change token in the create, update, or delete request. Change tokens ensure that your application doesn't submit conflicting requests to AWS WAF.</p>
    * 		       <p>Each create, update, or delete request must use a unique change token. If your application submits a <code>GetChangeToken</code> request
    * 			and then submits a second <code>GetChangeToken</code> request before submitting a create, update, or delete request, the second
    * 			<code>GetChangeToken</code> request returns the same value as the first <code>GetChangeToken</code> request.</p>
    * 		       <p>When you use a change token in a create, update, or delete request, the status of the change token changes to <code>PENDING</code>,
    * 			which indicates that AWS WAF is propagating the change to all AWS WAF servers. Use <code>GetChangeTokenStatus</code> to determine the
    * 			status of your change token.</p>
-   *
    */
   public getChangeToken(
     args: GetChangeTokenCommandInput,
@@ -2119,8 +2053,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the status of a <code>ChangeToken</code> that you got by calling <a>GetChangeToken</a>. <code>ChangeTokenStatus</code> is
+   * <p>Returns the status of a <code>ChangeToken</code> that you got by calling <a>GetChangeToken</a>. <code>ChangeTokenStatus</code> is
    * 			one of the following values:</p>
    * 		       <ul>
    *             <li>
@@ -2137,7 +2070,6 @@ export class WAFRegional extends WAFRegionalClient {
    *                   <code>INSYNC</code>: Propagation is complete.</p>
    *             </li>
    *          </ul>
-   *
    */
   public getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
@@ -2172,9 +2104,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns the <a>GeoMatchSet</a> that is specified by <code>GeoMatchSetId</code>.</p>
-   *
+   * <p>Returns the <a>GeoMatchSet</a> that is specified by <code>GeoMatchSetId</code>.</p>
    */
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
@@ -2209,9 +2139,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.</p>
-   *
+   * <p>Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.</p>
    */
   public getIPSet(
     args: GetIPSetCommandInput,
@@ -2246,9 +2174,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
-   *
+   * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
    */
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -2283,9 +2209,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns the IAM policy attached to the RuleGroup.</p>
-   *
+   * <p>Returns the IAM policy attached to the RuleGroup.</p>
    */
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
@@ -2320,11 +2244,9 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns the <a>RateBasedRule</a> that is specified by the
+   * <p>Returns the <a>RateBasedRule</a> that is specified by the
    *             <code>RuleId</code> that you included in the <code>GetRateBasedRule</code>
    *          request.</p>
-   *
    */
   public getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
@@ -2359,11 +2281,9 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of IP addresses currently being blocked by the <a>RateBasedRule</a> that is specified by the <code>RuleId</code>. The maximum
+   * <p>Returns an array of IP addresses currently being blocked by the <a>RateBasedRule</a> that is specified by the <code>RuleId</code>. The maximum
    *          number of managed keys that will be blocked is 10,000. If more than 10,000 addresses exceed
    *          the rate limit, the 10,000 addresses with the highest rates will be blocked.</p>
-   *
    */
   public getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
@@ -2398,9 +2318,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.</p>
-   *
+   * <p>Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.</p>
    */
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
@@ -2435,9 +2353,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *         <p>Returns the <a>RegexPatternSet</a> specified by <code>RegexPatternSetId</code>.</p>
-   *
+   * <p>Returns the <a>RegexPatternSet</a> specified by <code>RegexPatternSetId</code>.</p>
    */
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
@@ -2472,9 +2388,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the <a>Rule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRule</code> request.</p>
-   *
+   * <p>Returns the <a>Rule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRule</code> request.</p>
    */
   public getRule(
     args: GetRuleCommandInput,
@@ -2509,10 +2423,8 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns the <a>RuleGroup</a> that is specified by the <code>RuleGroupId</code> that you included in the <code>GetRuleGroup</code> request.</p>
+   * <p>Returns the <a>RuleGroup</a> that is specified by the <code>RuleGroupId</code> that you included in the <code>GetRuleGroup</code> request.</p>
    * 	        <p>To view the rules in a rule group, use <a>ListActivatedRulesInRuleGroup</a>.</p>
-   *
    */
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
@@ -2547,13 +2459,11 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Gets detailed information about a specified number of requests--a sample--that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received during a time range that you choose. You can specify a sample size of up to 500 requests, and you can specify any time range in the previous three hours.</p>
+   * <p>Gets detailed information about a specified number of requests--a sample--that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received during a time range that you choose. You can specify a sample size of up to 500 requests, and you can specify any time range in the previous three hours.</p>
    * 		       <p>
    *             <code>GetSampledRequests</code> returns a time range, which is usually the time range that you specified. However, if your resource
    * 			(such as a CloudFront distribution) received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
    * 			returns an updated time range. This new time range indicates the actual period during which AWS WAF selected the requests in the sample.</p>
-   *
    */
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
@@ -2588,9 +2498,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the <a>SizeConstraintSet</a> specified by <code>SizeConstraintSetId</code>.</p>
-   *
+   * <p>Returns the <a>SizeConstraintSet</a> specified by <code>SizeConstraintSetId</code>.</p>
    */
   public getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
@@ -2625,9 +2533,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.</p>
-   *
+   * <p>Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.</p>
    */
   public getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
@@ -2662,9 +2568,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
-   *
+   * <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
    */
   public getWebACL(
     args: GetWebACLCommandInput,
@@ -2699,9 +2603,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns the <a>XssMatchSet</a> that is specified by <code>XssMatchSetId</code>.</p>
-   *
+   * <p>Returns the <a>XssMatchSet</a> that is specified by <code>XssMatchSetId</code>.</p>
    */
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
@@ -2736,9 +2638,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>ActivatedRule</a> objects.</p>
-   *
+   * <p>Returns an array of <a>ActivatedRule</a> objects.</p>
    */
   public listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
@@ -2773,9 +2673,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an array of <a>ByteMatchSetSummary</a> objects.</p>
-   *
+   * <p>Returns an array of <a>ByteMatchSetSummary</a> objects.</p>
    */
   public listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
@@ -2810,9 +2708,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>GeoMatchSetSummary</a> objects in the response.</p>
-   *
+   * <p>Returns an array of <a>GeoMatchSetSummary</a> objects in the response.</p>
    */
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
@@ -2847,9 +2743,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an array of <a>IPSetSummary</a> objects in the response.</p>
-   *
+   * <p>Returns an array of <a>IPSetSummary</a> objects in the response.</p>
    */
   public listIPSets(
     args: ListIPSetsCommandInput,
@@ -2884,9 +2778,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>LoggingConfiguration</a> objects.</p>
-   *
+   * <p>Returns an array of <a>LoggingConfiguration</a> objects.</p>
    */
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -2921,9 +2813,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>RuleSummary</a> objects.</p>
-   *
+   * <p>Returns an array of <a>RuleSummary</a> objects.</p>
    */
   public listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
@@ -2958,9 +2848,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>RegexMatchSetSummary</a> objects.</p>
-   *
+   * <p>Returns an array of <a>RegexMatchSetSummary</a> objects.</p>
    */
   public listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
@@ -2995,9 +2883,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>RegexPatternSetSummary</a> objects.</p>
-   *
+   * <p>Returns an array of <a>RegexPatternSetSummary</a> objects.</p>
    */
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -3032,9 +2918,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>RuleGroup</a> objects.</p>
-   *
+   * <p>Returns an array of <a>RuleGroup</a> objects.</p>
    */
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -3069,9 +2953,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an array of <a>RuleSummary</a> objects.</p>
-   *
+   * <p>Returns an array of <a>RuleSummary</a> objects.</p>
    */
   public listRules(
     args: ListRulesCommandInput,
@@ -3106,9 +2988,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an array of <a>SizeConstraintSetSummary</a> objects.</p>
-   *
+   * <p>Returns an array of <a>SizeConstraintSetSummary</a> objects.</p>
    */
   public listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
@@ -3143,9 +3023,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an array of <a>SqlInjectionMatchSet</a> objects.</p>
-   *
+   * <p>Returns an array of <a>SqlInjectionMatchSet</a> objects.</p>
    */
   public listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
@@ -3180,9 +3058,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of <a>RuleGroup</a> objects that you are subscribed to.</p>
-   *
+   * <p>Returns an array of <a>RuleGroup</a> objects that you are subscribed to.</p>
    */
   public listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
@@ -3249,9 +3125,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an array of <a>WebACLSummary</a> objects in the response.</p>
-   *
+   * <p>Returns an array of <a>WebACLSummary</a> objects in the response.</p>
    */
   public listWebACLs(
     args: ListWebACLsCommandInput,
@@ -3286,9 +3160,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an array of <a>XssMatchSet</a> objects.</p>
-   *
+   * <p>Returns an array of <a>XssMatchSet</a> objects.</p>
    */
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
@@ -3323,8 +3195,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Associates a <a>LoggingConfiguration</a> with a specified web ACL.</p>
+   * <p>Associates a <a>LoggingConfiguration</a> with a specified web ACL.</p>
    * 	        <p>You can access information about all traffic that AWS WAF inspects using the following
    *          steps:</p>
    * 	        <ol>
@@ -3342,7 +3213,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    *
    *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.</p>
-   *
    */
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
@@ -3377,8 +3247,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Attaches a IAM policy to the specified resource. The only supported use for this action is to share a RuleGroup across accounts.</p>
+   * <p>Attaches a IAM policy to the specified resource. The only supported use for this action is to share a RuleGroup across accounts.</p>
    *          <p>The <code>PutPermissionPolicy</code> is subject to the following restrictions:</p>
    *          <ul>
    *             <li>
@@ -3411,8 +3280,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a>.  </p>
    *
    *          <p>An example of a valid policy parameter is shown in the Examples section below.</p>
-   *
-   *
    */
   public putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
@@ -3511,8 +3378,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Inserts or deletes <a>ByteMatchTuple</a> objects (filters) in a <a>ByteMatchSet</a>. For each <code>ByteMatchTuple</code> object,
+   * <p>Inserts or deletes <a>ByteMatchTuple</a> objects (filters) in a <a>ByteMatchSet</a>. For each <code>ByteMatchTuple</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3551,7 +3417,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
@@ -3586,8 +3451,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Inserts or deletes <a>GeoMatchConstraint</a> objects in an <code>GeoMatchSet</code>. For each <code>GeoMatchConstraint</code> object,
+   * <p>Inserts or deletes <a>GeoMatchConstraint</a> objects in an <code>GeoMatchSet</code>. For each <code>GeoMatchConstraint</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3618,7 +3482,6 @@ export class WAFRegional extends WAFRegionalClient {
    * 			If you want to change a country, you delete the existing country and add the new one.</p>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
@@ -3653,8 +3516,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Inserts or deletes <a>IPSetDescriptor</a> objects in an
+   * <p>Inserts or deletes <a>IPSetDescriptor</a> objects in an
    *          <code>IPSet</code>. For each <code>IPSetDescriptor</code> object, you specify the following
    *          values: </p>
    *          <ul>
@@ -3720,7 +3582,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP
    *          requests, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF
    *             Developer Guide</a>.</p>
-   *
    */
   public updateIPSet(
     args: UpdateIPSetCommandInput,
@@ -3755,8 +3616,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Inserts or deletes <a>Predicate</a> objects in a rule and updates the
+   * <p>Inserts or deletes <a>Predicate</a> objects in a rule and updates the
    *             <code>RateLimit</code> in the rule. </p>
    *          <p>Each <code>Predicate</code> object identifies a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests
    *          that you want to block or count. The <code>RateLimit</code> specifies the number of
@@ -3803,7 +3663,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ul>
    *          <p>Further, you specify a <code>RateLimit</code> of 15,000.</p>
    *          <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>
-   *
    */
   public updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
@@ -3838,8 +3697,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Inserts or deletes <a>RegexMatchTuple</a> objects (filters) in a <a>RegexMatchSet</a>. For each <code>RegexMatchSetUpdate</code> object,
+   * <p>Inserts or deletes <a>RegexMatchTuple</a> objects (filters) in a <a>RegexMatchSet</a>. For each <code>RegexMatchSetUpdate</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3874,7 +3732,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
@@ -3909,8 +3766,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Inserts or deletes <code>RegexPatternString</code> objects in a <a>RegexPatternSet</a>. For each <code>RegexPatternString</code> object,
+   * <p>Inserts or deletes <code>RegexPatternString</code> objects in a <a>RegexPatternSet</a>. For each <code>RegexPatternString</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3950,7 +3806,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
@@ -3985,8 +3840,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Inserts or deletes <a>Predicate</a> objects in a <code>Rule</code>. Each
+   * <p>Inserts or deletes <a>Predicate</a> objects in a <code>Rule</code>. Each
    *             <code>Predicate</code> object identifies a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests
    *          that you want to allow, block, or count. If you add more than one predicate to a
    *             <code>Rule</code>, a request must match all of the specifications to be allowed,
@@ -4028,7 +3882,6 @@ export class WAFRegional extends WAFRegionalClient {
    * 			add the new one.</p>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateRule(
     args: UpdateRuleCommandInput,
@@ -4063,8 +3916,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   *          <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>RuleGroup</code>.</p>
+   * <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>RuleGroup</code>.</p>
    * 	        <p>You can only insert <code>REGULAR</code> rules into a rule group.</p>
    *          <p>You can have a maximum of ten rules per rule group.</p>
    *
@@ -4089,7 +3941,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          add the new one.</p>
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
@@ -4124,8 +3975,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Inserts or deletes <a>SizeConstraint</a> objects (filters) in a <a>SizeConstraintSet</a>. For each <code>SizeConstraint</code> object,
+   * <p>Inserts or deletes <a>SizeConstraint</a> objects (filters) in a <a>SizeConstraintSet</a>. For each <code>SizeConstraint</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -4168,7 +4018,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
@@ -4203,8 +4052,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Inserts or deletes <a>SqlInjectionMatchTuple</a> objects (filters) in a <a>SqlInjectionMatchSet</a>.
+   * <p>Inserts or deletes <a>SqlInjectionMatchTuple</a> objects (filters) in a <a>SqlInjectionMatchSet</a>.
    * 			For each <code>SqlInjectionMatchTuple</code> object, you specify the following values:</p>
    * 		       <ul>
    *             <li>
@@ -4246,7 +4094,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
@@ -4281,8 +4128,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code> identifies
+   * <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code> identifies
    * 			web requests that you want to allow, block, or count. When you update a <code>WebACL</code>, you specify the following values:</p>
    * 		       <ul>
    *             <li>
@@ -4352,7 +4198,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    *          <p>Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist. 		</p>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateWebACL(
     args: UpdateWebACLCommandInput,
@@ -4387,8 +4232,7 @@ export class WAFRegional extends WAFRegionalClient {
   }
 
   /**
-   *
-   * 		       <p>Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
+   * <p>Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
    * 			For each <code>XssMatchTuple</code> object, you specify the following values:</p>
    * 		       <ul>
    *             <li>
@@ -4432,7 +4276,6 @@ export class WAFRegional extends WAFRegionalClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
    */
   public updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,

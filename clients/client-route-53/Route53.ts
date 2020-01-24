@@ -282,14 +282,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
- *
+ * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
  */
 export class Route53 extends Route53Client {
   /**
-   *
-   * 		       <p>Associates an Amazon VPC with a private hosted zone. </p>
+   * <p>Associates an Amazon VPC with a private hosted zone. </p>
    * 		       <important>
    *             <p>To perform the association, the VPC and the private hosted zone must already exist.
    * 			You can't convert a public hosted zone into a private hosted zone.</p>
@@ -300,9 +297,6 @@ export class Route53 extends Route53Client {
    * 			<code>CreateVPCAssociationAuthorization</code> request. Then the account that created the VPC must submit an
    * 			<code>AssociateVPCWithHostedZone</code> request.</p>
    *          </note>
-   *
-   *
-   *
    */
   public associateVPCWithHostedZone(
     args: AssociateVPCWithHostedZoneCommandInput,
@@ -337,8 +331,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified
+   * <p>Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified
    * 			domain name or subdomain name. For example, you can use <code>ChangeResourceRecordSets</code> to create a resource record set that
    * 			routes traffic for test.example.com to a web server that has an IP address of 192.0.2.44.</p>
    *
@@ -417,11 +410,6 @@ export class Route53 extends Route53Client {
    * 		       <p>For information about the limits on a <code>ChangeResourceRecordSets</code> request, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
    * 			<i>Amazon Route 53 Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public changeResourceRecordSets(
     args: ChangeResourceRecordSetsCommandInput,
@@ -456,14 +444,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
+   * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
    * 		       <p>For information about using tags for cost allocation, see
    * 			<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a>
    * 			in the <i>AWS Billing and Cost Management User Guide</i>.</p>
-   *
-   *
-   *
    */
   public changeTagsForResource(
     args: ChangeTagsForResourceCommandInput,
@@ -498,8 +482,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates a new health check.</p>
+   * <p>Creates a new health check.</p>
    * 		       <p>For information about adding health checks to resource record sets, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a>
    * 			in
@@ -532,10 +515,6 @@ export class Route53 extends Route53Client {
    * 					CloudWatch metrics and alarms by using the CloudWatch console, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon CloudWatch User Guide</a>.</p>
    * 			         </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public createHealthCheck(
     args: CreateHealthCheckCommandInput,
@@ -570,8 +549,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic
+   * <p>Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic
    * 			on the internet for a domain, such as example.com, and its subdomains (apex.example.com, acme.example.com). You create records in a
    * 			private hosted zone to define how you want to route traffic for a domain and its subdomains within one or more
    * 			Amazon Virtual Private Clouds (Amazon VPCs). </p>
@@ -603,11 +581,6 @@ export class Route53 extends Route53Client {
    * 		       <p>When you submit a <code>CreateHostedZone</code> request, the initial status of the hosted zone is <code>PENDING</code>.
    * 			For public hosted zones, this means that the NS and SOA records are not yet available on all Route 53 DNS servers. When the
    * 			NS and SOA records are available, the status of the zone changes to <code>INSYNC</code>.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public createHostedZone(
     args: CreateHostedZoneCommandInput,
@@ -642,8 +615,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish
+   * <p>Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish
    * 			log data to an Amazon CloudWatch Logs log group.</p>
    * 		       <p>DNS query logs contain information about the queries that Route 53 receives for a specified public hosted zone, such as the following:</p>
    * 		       <ul>
@@ -760,10 +732,6 @@ export class Route53 extends Route53Client {
    * 					<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html">DeleteQueryLoggingConfig</a>.</p>
    * 				        </dd>
    *          </dl>
-   *
-   *
-   *
-   *
    */
   public createQueryLoggingConfig(
     args: CreateQueryLoggingConfigCommandInput,
@@ -798,8 +766,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones. If a hosted zoned ID is
+   * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones. If a hosted zoned ID is
    * 			specified, <code>CreateReusableDelegationSet</code> marks the delegation set associated with that zone as reusable.</p>
    * 		       <note>
    * 			         <p>You can't associate a reusable delegation set with a private hosted zone.</p>
@@ -848,10 +815,6 @@ export class Route53 extends Route53Client {
    * 				reusable delegation set.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public createReusableDelegationSet(
     args: CreateReusableDelegationSetCommandInput,
@@ -886,12 +849,8 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or
+   * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or
    * 			one subdomain name (such as www.example.com).</p>
-   *
-   *
-   *
    */
   public createTrafficPolicy(
     args: CreateTrafficPolicyCommandInput,
@@ -926,14 +885,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version.
+   * <p>Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version.
    * 			In addition, <code>CreateTrafficPolicyInstance</code> associates the resource record sets with a specified domain name (such as example.com) or
    * 			subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for the domain or subdomain name by using the resource record sets
    * 			that <code>CreateTrafficPolicyInstance</code> created.</p>
-   *
-   *
-   *
    */
   public createTrafficPolicyInstance(
     args: CreateTrafficPolicyInstanceCommandInput,
@@ -968,16 +923,11 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the
+   * <p>Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the
    * 			traffic policy that you want to update and a JSON-formatted document that describes the new version. You use traffic policies to create
    * 			multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com). You can
    * 			create a maximum of 1000 versions of a traffic policy. If you reach the limit and need to create another version, you'll need to start a new
    * 			traffic policy.</p>
-   *
-   *
-   *
-   *
    */
   public createTrafficPolicyVersion(
     args: CreateTrafficPolicyVersionCommandInput,
@@ -1012,8 +962,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Authorizes the AWS account that created a specified VPC to submit an <code>AssociateVPCWithHostedZone</code>
+   * <p>Authorizes the AWS account that created a specified VPC to submit an <code>AssociateVPCWithHostedZone</code>
    * 			request to associate the VPC with a specified hosted zone that was created by a different account.
    * 			To submit a <code>CreateVPCAssociationAuthorization</code> request, you must use the account that created the
    * 			hosted zone. After you authorize the association, use the account that created the VPC to submit an
@@ -1022,8 +971,6 @@ export class Route53 extends Route53Client {
    *             <p>If you want to associate multiple VPCs that you created by using one account with a hosted zone
    * 			that you created by using a different account, you must submit one authorization request for each VPC.</p>
    *          </note>
-   *
-   *
    */
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
@@ -1070,8 +1017,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Deletes a health check.</p>
+   * <p>Deletes a health check.</p>
    * 		       <important>
    * 			         <p>Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more
    * 				resource record sets. If you delete a health check and you don't update the associated resource record sets, the future status
@@ -1080,9 +1026,6 @@ export class Route53 extends Route53Client {
    * 				<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html">Replacing and Deleting Health Checks</a>
    * 				in the <i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       </important>
-   *
-   *
-   *
    */
   public deleteHealthCheck(
     args: DeleteHealthCheckCommandInput,
@@ -1117,8 +1060,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Deletes a hosted zone.</p>
+   * <p>Deletes a hosted zone.</p>
    *
    * 		       <p>If the hosted zone was created by another service, such as AWS Cloud Map, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting
@@ -1157,10 +1099,6 @@ export class Route53 extends Route53Client {
    * 				AWS account.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public deleteHostedZone(
     args: DeleteHostedZoneCommandInput,
@@ -1195,16 +1133,11 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query logs to CloudWatch Logs.
+   * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query logs to CloudWatch Logs.
    * 			Route 53 doesn't delete any logs that are already in CloudWatch Logs.</p>
    *
    * 		       <p>For more information about DNS query logs, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.</p>
-   *
-   *
-   *
-   *
    */
   public deleteQueryLoggingConfig(
     args: DeleteQueryLoggingConfigCommandInput,
@@ -1239,17 +1172,13 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Deletes a reusable delegation set.</p>
+   * <p>Deletes a reusable delegation set.</p>
    * 		       <important>
    * 			         <p>You can delete a reusable delegation set only if it isn't associated with any hosted zones.</p>
    * 		       </important>
    * 		       <p>To verify that the reusable delegation set is not associated with any hosted zones, submit a
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html">GetReusableDelegationSet</a>
    * 			request and specify the ID of the reusable delegation set that you want to delete.</p>
-   *
-   *
-   *
    */
   public deleteReusableDelegationSet(
     args: DeleteReusableDelegationSetCommandInput,
@@ -1284,12 +1213,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Deletes a traffic policy.</p>
-   *
-   *
-   *
-   *
+   * <p>Deletes a traffic policy.</p>
    */
   public deleteTrafficPolicy(
     args: DeleteTrafficPolicyCommandInput,
@@ -1324,14 +1248,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.</p>
+   * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.</p>
    * 		       <note>
    * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
    * 		       </note>
-   *
-   *
-   *
    */
   public deleteTrafficPolicyInstance(
     args: DeleteTrafficPolicyInstanceCommandInput,
@@ -1366,8 +1286,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to associate a specified VPC
+   * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to associate a specified VPC
    * 			with a hosted zone that was created by a different account. You must use the account that created the hosted zone
    * 			to submit a <code>DeleteVPCAssociationAuthorization</code> request.</p>
    * 		       <important>
@@ -1376,10 +1295,6 @@ export class Route53 extends Route53Client {
    * 				<code>DeleteVPCAssociationAuthorization</code> won't disassociate the VPC from the hosted zone.
    * 				If you want to delete an existing association, use <code>DisassociateVPCFromHostedZone</code>.</p>
    * 		       </important>
-   *
-   *
-   *
-   *
    */
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
@@ -1426,8 +1341,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:</p>
+   * <p>Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:</p>
    * 		       <ul>
    *             <li>
    *                <p>You can't disassociate the last VPC from a private hosted zone.</p>
@@ -1440,10 +1354,6 @@ export class Route53 extends Route53Client {
    * 				that created the hosted zone or the account that created the VPC.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public disassociateVPCFromHostedZone(
     args: DisassociateVPCFromHostedZoneCommandInput,
@@ -1478,8 +1388,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets the specified limit for the current account, for example, the maximum number of health checks that you
+   * <p>Gets the specified limit for the current account, for example, the maximum number of health checks that you
    * 			can create using the account.</p>
    * 		       <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>. To request a higher limit,
@@ -1489,7 +1398,6 @@ export class Route53 extends Route53Client {
    * 			<a href="https://console.aws.amazon.com/trustedadvisor">https://console.aws.amazon.com/trustedadvisor/</a>. Then choose
    * 			<b>Service limits</b> in the navigation pane.</p>
    * 		       </note>
-   *
    */
   public getAccountLimit(
     args: GetAccountLimitCommandInput,
@@ -1524,8 +1432,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Returns the current status of a change batch request. The status is one of the
+   * <p>Returns the current status of a change batch request. The status is one of the
    * 			following values:</p>
    * 		       <ul>
    *             <li>
@@ -1538,9 +1445,6 @@ export class Route53 extends Route53Client {
    *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53 DNS servers. </p>
    * 			         </li>
    *          </ul>
-   *
-   *
-   *
    */
   public getChange(
     args: GetChangeCommandInput,
@@ -1575,15 +1479,13 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <important>
+   * <important>
    * 			         <p>
    *                <code>GetCheckerIpRanges</code> still works, but we recommend that you download
    * 			ip-ranges.json, which includes IP address ranges for all AWS services. For more information, see
    * 			<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges of Amazon Route 53 Servers</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       </important>
-   *
    */
   public getCheckerIpRanges(
     args: GetCheckerIpRangesCommandInput,
@@ -1618,8 +1520,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation
+   * <p>Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation
    * 			resource record sets.</p>
    *
    * 		       <p>Use the following syntax to determine whether a continent is supported for geolocation:</p>
@@ -1639,9 +1540,6 @@ export class Route53 extends Route53Client {
    *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&subdivisioncode=<i>subdivision code</i>
    *             </code>
    *          </p>
-   *
-   *
-   *
    */
   public getGeoLocation(
     args: GetGeoLocationCommandInput,
@@ -1676,11 +1574,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a specified health check.</p>
-   *
-   *
-   *
+   * <p>Gets information about a specified health check.</p>
    */
   public getHealthCheck(
     args: GetHealthCheckCommandInput,
@@ -1715,12 +1609,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieves the number of health checks that are associated with the current AWS account.</p>
-   *
-   *
-   *
-   *
+   * <p>Retrieves the number of health checks that are associated with the current AWS account.</p>
    */
   public getHealthCheckCount(
     args: GetHealthCheckCountCommandInput,
@@ -1755,11 +1644,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets the reason that a specified health check failed most recently.</p>
-   *
-   *
-   *
+   * <p>Gets the reason that a specified health check failed most recently.</p>
    */
   public getHealthCheckLastFailureReason(
     args: GetHealthCheckLastFailureReasonCommandInput,
@@ -1797,12 +1682,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets status of a specified health check. </p>
-   *
-   *
-   *
-   *
+   * <p>Gets status of a specified health check. </p>
    */
   public getHealthCheckStatus(
     args: GetHealthCheckStatusCommandInput,
@@ -1837,11 +1717,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.</p>
-   *
-   *
-   *
+   * <p>Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.</p>
    */
   public getHostedZone(
     args: GetHostedZoneCommandInput,
@@ -1876,11 +1752,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieves the number of hosted zones that are associated with the current AWS account.</p>
-   *
-   *
-   *
+   * <p>Retrieves the number of hosted zones that are associated with the current AWS account.</p>
    */
   public getHostedZoneCount(
     args: GetHostedZoneCountCommandInput,
@@ -1915,13 +1787,11 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets the specified limit for a specified hosted zone, for example, the maximum number of records that you
+   * <p>Gets the specified limit for a specified hosted zone, for example, the maximum number of records that you
    * 			can create in the hosted zone. </p>
    * 		       <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>. To request a higher limit,
    * 			<a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53">open a case</a>.</p>
-   *
    */
   public getHostedZoneLimit(
     args: GetHostedZoneLimitCommandInput,
@@ -1956,17 +1826,12 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a specified configuration for DNS query logging.</p>
+   * <p>Gets information about a specified configuration for DNS query logging.</p>
    *
    * 		       <p>For more information about DNS query logs, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>
    * 			and
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a>.</p>
-   *
-   *
-   *
-   *
    */
   public getQueryLoggingConfig(
     args: GetQueryLoggingConfigCommandInput,
@@ -2001,12 +1866,8 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieves information about a specified reusable delegation set, including the four name servers that are assigned
+   * <p>Retrieves information about a specified reusable delegation set, including the four name servers that are assigned
    * 			to the delegation set.</p>
-   *
-   *
-   *
    */
   public getReusableDelegationSet(
     args: GetReusableDelegationSetCommandInput,
@@ -2041,12 +1902,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets the maximum number of hosted zones that you can associate with the specified reusable delegation set.</p>
+   * <p>Gets the maximum number of hosted zones that you can associate with the specified reusable delegation set.</p>
    * 		       <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>. To request a higher limit,
    * 			<a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53">open a case</a>.</p>
-   *
    */
   public getReusableDelegationSetLimit(
     args: GetReusableDelegationSetLimitCommandInput,
@@ -2081,11 +1940,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a specific traffic policy version.</p>
-   *
-   *
-   *
+   * <p>Gets information about a specific traffic policy version.</p>
    */
   public getTrafficPolicy(
     args: GetTrafficPolicyCommandInput,
@@ -2120,8 +1975,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a specified traffic policy instance.</p>
+   * <p>Gets information about a specified traffic policy instance.</p>
    * 		       <note>
    * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code> request,
    * 				there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For
@@ -2130,9 +1984,6 @@ export class Route53 extends Route53Client {
    * 		       <note>
    * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
    * 		       </note>
-   *
-   *
-   *
    */
   public getTrafficPolicyInstance(
     args: GetTrafficPolicyInstanceCommandInput,
@@ -2167,11 +2018,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets the number of traffic policy instances that are associated with the current AWS account.</p>
-   *
-   *
-   *
+   * <p>Gets the number of traffic policy instances that are associated with the current AWS account.</p>
    */
   public getTrafficPolicyInstanceCount(
     args: GetTrafficPolicyInstanceCountCommandInput,
@@ -2206,13 +2053,9 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieves a list of supported geographic locations.</p>
+   * <p>Retrieves a list of supported geographic locations.</p>
    * 		       <p>Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a country (for example, states or provinces),
    * 			the subdivisions for that country are listed in alphabetical order immediately after the corresponding country.</p>
-   *
-   *
-   *
    */
   public listGeoLocations(
     args: ListGeoLocationsCommandInput,
@@ -2247,11 +2090,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieve a list of the health checks that are associated with the current AWS account. </p>
-   *
-   *
-   *
+   * <p>Retrieve a list of the health checks that are associated with the current AWS account. </p>
    */
   public listHealthChecks(
     args: ListHealthChecksCommandInput,
@@ -2286,15 +2125,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieves a list of the public and private hosted zones that are associated with the current AWS account. The response
+   * <p>Retrieves a list of the public and private hosted zones that are associated with the current AWS account. The response
    * 			includes a <code>HostedZones</code> child element for each hosted zone.</p>
    * 		       <p>Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the
    * 			<code>maxitems</code> parameter to list them in groups of up to 100.</p>
-   *
-   *
-   *
-   *
    */
   public listHostedZones(
     args: ListHostedZonesCommandInput,
@@ -2329,8 +2163,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a <code>HostedZones</code> child element
+   * <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a <code>HostedZones</code> child element
    * 			for each hosted zone created by the current AWS account. </p>
    * 		       <p>
    *             <code>ListHostedZonesByName</code> sorts hosted zones by name with the labels reversed. For example:</p>
@@ -2375,10 +2208,6 @@ export class Route53 extends Route53Client {
    * 					<code>NextHostedZoneId</code> in the <code>dnsname</code> and <code>hostedzoneid</code> parameters, respectively.</p>
    * 			         </li>
    *          </ul>
-   *
-   *
-   *
-   *
    */
   public listHostedZonesByName(
     args: ListHostedZonesByNameCommandInput,
@@ -2413,8 +2242,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Lists the configurations for DNS query logging that are associated with the current AWS account or the configuration
+   * <p>Lists the configurations for DNS query logging that are associated with the current AWS account or the configuration
    * 			that is associated with a specified hosted zone.</p>
    *
    * 		       <p>For more information about DNS query logs, see
@@ -2422,10 +2250,6 @@ export class Route53 extends Route53Client {
    * 			Additional information, including the format of DNS query logs, appears in
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
-   *
-   *
-   *
-   *
    */
   public listQueryLoggingConfigs(
     args: ListQueryLoggingConfigsCommandInput,
@@ -2460,8 +2284,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Lists the resource record sets in a specified hosted zone.</p>
+   * <p>Lists the resource record sets in a specified hosted zone.</p>
    * 		       <p>
    *             <code>ListResourceRecordSets</code> returns up to 100 resource record sets at a time in ASCII order,
    * 			beginning at a position specified by the <code>name</code> and <code>type</code> elements.</p>
@@ -2525,9 +2348,6 @@ export class Route53 extends Route53Client {
    * 				is <code>true</code>. To display the next page of results, get the values of <code>NextRecordName</code>, <code>NextRecordType</code>,
    * 				and <code>NextRecordIdentifier</code> (if any) from the response. Then submit another <code>ListResourceRecordSets</code> request, and
    * 				specify those values for <code>StartRecordName</code>, <code>StartRecordType</code>, and <code>StartRecordIdentifier</code>.</p>
-   *
-   *
-   *
    */
   public listResourceRecordSets(
     args: ListResourceRecordSetsCommandInput,
@@ -2562,11 +2382,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Retrieves a list of the reusable delegation sets that are associated with the current AWS account.</p>
-   *
-   *
-   *
+   * <p>Retrieves a list of the reusable delegation sets that are associated with the current AWS account.</p>
    */
   public listReusableDelegationSets(
     args: ListReusableDelegationSetsCommandInput,
@@ -2601,14 +2417,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Lists tags for one health check or hosted zone. </p>
+   * <p>Lists tags for one health check or hosted zone. </p>
    * 		       <p>For information about using tags for cost allocation, see
    * 			<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a>
    * 			in the <i>AWS Billing and Cost Management User Guide</i>.</p>
-   *
-   *
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2643,14 +2455,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Lists tags for up to 10 health checks or hosted zones.</p>
+   * <p>Lists tags for up to 10 health checks or hosted zones.</p>
    * 		       <p>For information about using tags for cost allocation, see
    * 			<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a>
    * 			in the <i>AWS Billing and Cost Management User Guide</i>.</p>
-   *
-   *
-   *
    */
   public listTagsForResources(
     args: ListTagsForResourcesCommandInput,
@@ -2685,12 +2493,8 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about the latest version for every traffic policy that is associated with the current AWS account.
+   * <p>Gets information about the latest version for every traffic policy that is associated with the current AWS account.
    * 			Policies are listed in the order that they were created in. </p>
-   *
-   *
-   *
    */
   public listTrafficPolicies(
     args: ListTrafficPoliciesCommandInput,
@@ -2725,17 +2529,13 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about the traffic policy instances that you created by using the current AWS account.</p>
+   * <p>Gets information about the traffic policy instances that you created by using the current AWS account.</p>
    * 		       <note>
    * 			         <p>After you submit an <code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while Amazon Route 53 creates the
    * 				resource record sets that are specified in the traffic policy definition. For more information, see the <code>State</code> response element.</p>
    * 		       </note>
    * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the
    * 			<code>MaxItems</code> parameter to list them in groups of up to 100.</p>
-   *
-   *
-   *
    */
   public listTrafficPolicyInstances(
     args: ListTrafficPolicyInstancesCommandInput,
@@ -2770,8 +2570,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about the traffic policy instances that you created in a specified hosted zone.</p>
+   * <p>Gets information about the traffic policy instances that you created in a specified hosted zone.</p>
    * 		       <note>
    * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code> request, there's a
    * 				brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information,
@@ -2779,9 +2578,6 @@ export class Route53 extends Route53Client {
    * 		       </note>
    * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the
    * 			<code>MaxItems</code> parameter to list them in groups of up to 100.</p>
-   *
-   *
-   *
    */
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
@@ -2828,8 +2624,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about the traffic policy instances that you created by using a specify traffic policy version.</p>
+   * <p>Gets information about the traffic policy instances that you created by using a specify traffic policy version.</p>
    * 		       <note>
    * 			         <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code> request,
    * 				there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For
@@ -2837,9 +2632,6 @@ export class Route53 extends Route53Client {
    * 		       </note>
    * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the
    * 			<code>MaxItems</code> parameter to list them in groups of up to 100.</p>
-   *
-   *
-   *
    */
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
@@ -2886,12 +2678,8 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets information about all of the versions for a specified traffic policy.</p>
+   * <p>Gets information about all of the versions for a specified traffic policy.</p>
    * 		       <p>Traffic policy versions are listed in numerical order by <code>VersionNumber</code>.</p>
-   *
-   *
-   *
    */
   public listTrafficPolicyVersions(
     args: ListTrafficPolicyVersionsCommandInput,
@@ -2926,14 +2714,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets a list of the VPCs that were created by other accounts and that can be associated with a
+   * <p>Gets a list of the VPCs that were created by other accounts and that can be associated with a
    * 			specified hosted zone because you've submitted one or more <code>CreateVPCAssociationAuthorization</code> requests. </p>
    * 		       <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child element for each VPC
    * 			that can be associated with the hosted zone.</p>
-   *
-   *
-   *
    */
   public listVPCAssociationAuthorizations(
     args: ListVPCAssociationAuthorizationsCommandInput,
@@ -2974,12 +2758,8 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify
+   * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify
    * 			the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
-   *
-   *
-   *
    */
   public testDNSAnswer(
     args: TestDNSAnswerCommandInput,
@@ -3014,14 +2794,10 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Updates an existing health check. Note that some values can't be updated. </p>
+   * <p>Updates an existing health check. Note that some values can't be updated. </p>
    * 		       <p>For more information about updating health checks, see
    * 			<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating, Updating, and Deleting Health Checks</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
-   *
-   *
-   *
    */
   public updateHealthCheck(
     args: UpdateHealthCheckCommandInput,
@@ -3056,11 +2832,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Updates the comment for a specified hosted zone.</p>
-   *
-   *
-   *
+   * <p>Updates the comment for a specified hosted zone.</p>
    */
   public updateHostedZoneComment(
     args: UpdateHostedZoneCommentCommandInput,
@@ -3095,11 +2867,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Updates the comment for a specified traffic policy version.</p>
-   *
-   *
-   *
+   * <p>Updates the comment for a specified traffic policy version.</p>
    */
   public updateTrafficPolicyComment(
     args: UpdateTrafficPolicyCommentCommandInput,
@@ -3134,8 +2902,7 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   *
-   * 		       <p>Updates the resource record sets in a specified hosted zone that were created based on the settings in a specified traffic policy version.</p>
+   * <p>Updates the resource record sets in a specified hosted zone that were created based on the settings in a specified traffic policy version.</p>
    * 		       <p>When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root resource record set name
    * 			(such as example.com) while it replaces one group of resource record sets with another. Route 53 performs the following operations:</p>
    * 		       <ol>
@@ -3151,9 +2918,6 @@ export class Route53 extends Route53Client {
    * 				           <p>Route 53 deletes the old group of resource record sets that are associated with the root resource record set name.</p>
    * 			         </li>
    *          </ol>
-   *
-   *
-   *
    */
   public updateTrafficPolicyInstance(
     args: UpdateTrafficPolicyInstanceCommandInput,

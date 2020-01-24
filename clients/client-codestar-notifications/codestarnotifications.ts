@@ -67,8 +67,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
+ * <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
  *       operations and data types for the AWS CodeStar Notifications API. You can use the AWS CodeStar Notifications API
  *       to work with the following objects:</p>
  *
@@ -152,15 +151,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *          <p> For information about how to use AWS CodeStar Notifications, see link in the CodeStarNotifications User Guide.
  *     </p>
- *
  */
 export class codestarnotifications extends codestarnotificationsClient {
   /**
-   *
-   *          <p>Creates a notification rule for a resource. The rule specifies the events you want
+   * <p>Creates a notification rule for a resource. The rule specifies the events you want
    *             notifications about and the targets (such as SNS topics) where you want to receive
    *             them.</p>
-   *
    */
   public createNotificationRule(
     args: CreateNotificationRuleCommandInput,
@@ -195,9 +191,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Deletes a notification rule for a resource.</p>
-   *
+   * <p>Deletes a notification rule for a resource.</p>
    */
   public deleteNotificationRule(
     args: DeleteNotificationRuleCommandInput,
@@ -232,9 +226,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Deletes a specified target for notifications.</p>
-   *
+   * <p>Deletes a specified target for notifications.</p>
    */
   public deleteTarget(
     args: DeleteTargetCommandInput,
@@ -269,9 +261,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Returns information about a specified notification rule.</p>
-   *
+   * <p>Returns information about a specified notification rule.</p>
    */
   public describeNotificationRule(
     args: DescribeNotificationRuleCommandInput,
@@ -306,9 +296,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the event types available for configuring notifications.</p>
-   *
+   * <p>Returns information about the event types available for configuring notifications.</p>
    */
   public listEventTypes(
     args: ListEventTypesCommandInput,
@@ -343,9 +331,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the notification rules for an AWS account.</p>
-   *
+   * <p>Returns a list of the notification rules for an AWS account.</p>
    */
   public listNotificationRules(
     args: ListNotificationRulesCommandInput,
@@ -380,9 +366,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the tags associated with a notification rule.</p>
-   *
+   * <p>Returns a list of the tags associated with a notification rule.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -417,9 +401,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the notification rule targets for an AWS account.</p>
-   *
+   * <p>Returns a list of the notification rule targets for an AWS account.</p>
    */
   public listTargets(
     args: ListTargetsCommandInput,
@@ -454,11 +436,9 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Creates an association between a notification rule and an SNS topic so that the
+   * <p>Creates an association between a notification rule and an SNS topic so that the
    *             associated target can receive notifications when the events described in the rule are
    *             triggered.</p>
-   *
    */
   public subscribe(
     args: SubscribeCommandInput,
@@ -493,9 +473,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Associates a set of provided tags with a notification rule.</p>
-   *
+   * <p>Associates a set of provided tags with a notification rule.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -530,11 +508,9 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Removes an association between a notification rule and an Amazon SNS topic so that
+   * <p>Removes an association between a notification rule and an Amazon SNS topic so that
    *             subscribers to that topic stop receiving notifications when the events described in the
    *             rule are triggered.</p>
-   *
    */
   public unsubscribe(
     args: UnsubscribeCommandInput,
@@ -569,10 +545,8 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Removes the association between one or more provided tags and a notification
+   * <p>Removes the association between one or more provided tags and a notification
    *             rule.</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -607,14 +581,12 @@ export class codestarnotifications extends codestarnotificationsClient {
   }
 
   /**
-   *
-   *          <p>Updates a notification rule for a resource. You can change the events that trigger the
+   * <p>Updates a notification rule for a resource. You can change the events that trigger the
    *             notification rule, the status of the rule, and the targets that receive the
    *             notifications.</p>
    *          <note>
    *             <p>To add or remove tags for a notification rule, you must use <a>TagResource</a> and <a>UntagResource</a>.</p>
    *          </note>
-   *
    */
   public updateNotificationRule(
     args: UpdateNotificationRuleCommandInput,
