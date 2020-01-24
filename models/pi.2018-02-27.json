@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -31,20 +36,20 @@
         "Timestamp": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time, in epoch format, associated with a particular <code>Value</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The time, in epoch format, associated with a particular <code>Value</code>.</p>",
             "smithy.api#required": true
           }
         },
         "Value": {
           "target": "amazonaws.pi.v20180227#Double",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The actual value associated with a particular <code>Timestamp</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The actual value associated with a particular <code>Timestamp</code>.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>\n      "
+        "smithy.api#documentation": "<p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>"
       }
     },
     "amazonaws.pi.v20180227#DataPointsList": {
@@ -73,7 +78,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a\n      metric.</p>\n      \n      "
+        "smithy.api#documentation": "<p>For a specific time period, retrieve the top <code>N</code> dimension keys for a\n      metric.</p>"
       }
     },
     "amazonaws.pi.v20180227#DescribeDimensionKeysRequest": {
@@ -82,72 +87,72 @@
         "EndTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time specifying the end of the requested time series data. The value\n      specified is <i>exclusive</i> - data points less than (but not equal to)\n        <code>EndTime</code> will be returned.</p>\n         <p>The value for <code>EndTime</code> must be later than the value for\n        <code>StartTime</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The date and time specifying the end of the requested time series data. The value\n      specified is <i>exclusive</i> - data points less than (but not equal to)\n        <code>EndTime</code> will be returned.</p>\n         <p>The value for <code>EndTime</code> must be later than the value for\n        <code>StartTime</code>.</p>",
             "smithy.api#required": true
           }
         },
         "Filter": {
           "target": "amazonaws.pi.v20180227#MetricQueryFilterMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>One or more filters to apply in the request.  Restrictions:</p>\n         <ul>\n            <li>\n               <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> or\n          <code>Partition</code> parameters.</p>\n            </li>\n            <li>\n               <p>A single filter for any other dimension in this dimension group.</p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "<p>One or more filters to apply in the request.  Restrictions:</p>\n         <ul>\n            <li>\n               <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> or\n          <code>Partition</code> parameters.</p>\n            </li>\n            <li>\n               <p>A single filter for any other dimension in this dimension group.</p>\n            </li>\n         </ul>"
           }
         },
         "GroupBy": {
           "target": "amazonaws.pi.v20180227#DimensionGroup",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A specification for how to aggregate the data points from a query result. You must\n      specify a valid dimension group. Performance Insights will return all of the dimensions within that group,\n      unless you provide the names of specific dimensions within that group. You can also request\n      that Performance Insights return a limited number of values for a dimension.</p>\n      ",
+            "smithy.api#documentation": "<p>A specification for how to aggregate the data points from a query result. You must\n      specify a valid dimension group. Performance Insights will return all of the dimensions within that group,\n      unless you provide the names of specific dimensions within that group. You can also request\n      that Performance Insights return a limited number of values for a dimension.</p>",
             "smithy.api#required": true
           }
         },
         "Identifier": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from\n      this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its\n        <code>DbiResourceId</code> value - for example:\n      <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from\n      this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its\n        <code>DbiResourceId</code> value - for example:\n      <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "MaxResults": {
           "target": "amazonaws.pi.v20180227#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return in the response. \n      If more items exist than the specified <code>MaxRecords</code> value, a pagination \n      token is included in the response so that the remaining \n      results can be retrieved.\n    </p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of items to return in the response. \n      If more items exist than the specified <code>MaxRecords</code> value, a pagination \n      token is included in the response so that the remaining \n      results can be retrieved.\n    </p>"
           }
         },
         "Metric": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n     \n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - a scaled representation of the number of active sessions\n          for the database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - the raw number of active sessions for the\n          database engine.</p>\n            </li>\n         </ul>\n    \n      ",
+            "smithy.api#documentation": "<p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n     \n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - a scaled representation of the number of active sessions\n          for the database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - the raw number of active sessions for the\n          database engine.</p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         },
         "NextToken": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p> \n      "
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p>"
           }
         },
         "PartitionBy": {
           "target": "amazonaws.pi.v20180227#DimensionGroup",
           "traits": {
-            "smithy.api#documentation": "\n         <p>For each dimension specified in \n      <code>GroupBy</code>, specify a secondary dimension to further subdivide the partition keys in the response.</p>\n      "
+            "smithy.api#documentation": "<p>For each dimension specified in \n      <code>GroupBy</code>, specify a secondary dimension to further subdivide the partition keys in the response.</p>"
           }
         },
         "PeriodInSeconds": {
           "target": "amazonaws.pi.v20180227#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as\n      one second, or as long as one day (86400 seconds).  Valid values are:</p>\n    \n        <ul>\n            <li>\n               <p>\n                  <code>1</code> (one second)</p>\n            </li>\n            <li>\n               <p>\n                  <code>60</code> (one minute)</p>\n            </li>\n            <li>\n               <p>\n                  <code>300</code> (five minutes)</p>\n            </li>\n            <li>\n               <p>\n                  <code>3600</code> (one hour)</p>\n            </li>\n            <li>\n               <p>\n                  <code>86400</code> (twenty-four hours)</p>\n            </li>\n         </ul>\n    \n         <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights will choose a value for\n      you, with a goal of returning roughly 100-200 data points in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as\n      one second, or as long as one day (86400 seconds).  Valid values are:</p>\n    \n        <ul>\n            <li>\n               <p>\n                  <code>1</code> (one second)</p>\n            </li>\n            <li>\n               <p>\n                  <code>60</code> (one minute)</p>\n            </li>\n            <li>\n               <p>\n                  <code>300</code> (five minutes)</p>\n            </li>\n            <li>\n               <p>\n                  <code>3600</code> (one hour)</p>\n            </li>\n            <li>\n               <p>\n                  <code>86400</code> (twenty-four hours)</p>\n            </li>\n         </ul>\n    \n         <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights will choose a value for\n      you, with a goal of returning roughly 100-200 data points in the response.</p>"
           }
         },
         "ServiceType": {
           "target": "amazonaws.pi.shared#ServiceType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS service for which Performance Insights will return metrics. The only valid value for\n        <i>ServiceType</i> is: <code>RDS</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The AWS service for which Performance Insights will return metrics. The only valid value for\n        <i>ServiceType</i> is: <code>RDS</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "StartTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time specifying the beginning of the requested time series data. \n      You can't specify a <code>StartTime</code> that's earlier than 7 days ago.  The value\n      specified is <i>inclusive</i> - data points equal to or greater than\n        <code>StartTime</code> will be returned.</p>\n         <p>The value for <code>StartTime</code> must be earlier than the value for\n        <code>EndTime</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The date and time specifying the beginning of the requested time series data. \n      You can't specify a <code>StartTime</code> that's earlier than 7 days ago.  The value\n      specified is <i>inclusive</i> - data points equal to or greater than\n        <code>StartTime</code> will be returned.</p>\n         <p>The value for <code>StartTime</code> must be earlier than the value for\n        <code>EndTime</code>.</p>",
             "smithy.api#required": true
           }
         }
@@ -159,31 +164,31 @@
         "AlignedEndTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The end time for the returned dimension keys, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than\n      or equal to the value of the user-specified <code>Endtime</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The end time for the returned dimension keys, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than\n      or equal to the value of the user-specified <code>Endtime</code>.</p>"
           }
         },
         "AlignedStartTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The start time for the returned dimension keys, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedStartTime</code> will be less than or\n      equal to the value of the user-specified <code>StartTime</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The start time for the returned dimension keys, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedStartTime</code> will be less than or\n      equal to the value of the user-specified <code>StartTime</code>.</p>"
           }
         },
         "Keys": {
           "target": "amazonaws.pi.v20180227#DimensionKeyDescriptionList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The dimension keys that were requested.</p>\n      "
+            "smithy.api#documentation": "<p>The dimension keys that were requested.</p>"
           }
         },
         "NextToken": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p> \n      "
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p>"
           }
         },
         "PartitionKeys": {
           "target": "amazonaws.pi.v20180227#ResponsePartitionKeyList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the specified partitions.</p>\n      "
+            "smithy.api#documentation": "<p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the specified partitions.</p>"
           }
         }
       }
@@ -194,25 +199,25 @@
         "Dimensions": {
           "target": "amazonaws.pi.v20180227#StringList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of specific dimensions from a dimension group. If this parameter is not present,\n      then it signifies that all of the dimensions in the group were requested, or are present in\n      the response.</p>\n         <p>Valid values for elements in the <code>Dimensions</code> array are:</p>\n         <ul>\n            <li>\n               <p>db.user.id</p>\n            </li>\n            <li>\n               <p>db.user.name</p>\n            </li>\n            <li>\n               <p>db.host.id</p>\n            </li>\n            <li>\n               <p>db.host.name</p>\n            </li>\n            <li>\n               <p>db.sql.id</p>\n            </li>\n            <li>\n               <p>db.sql.db_id</p>\n            </li>\n            <li>\n               <p>db.sql.statement</p>\n            </li>\n            <li>\n               <p>db.sql.tokenized_id</p>\n            </li>\n            <li>\n               <p>db.sql_tokenized.id</p>\n            </li>\n            <li>\n               <p>db.sql_tokenized.db_id</p>\n            </li>\n            <li>\n               <p>db.sql_tokenized.statement</p>\n            </li>\n            <li>\n               <p>db.wait_event.name</p>\n            </li>\n            <li>\n               <p>db.wait_event.type</p>\n            </li>\n            <li>\n               <p>db.wait_event_type.name</p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "<p>A list of specific dimensions from a dimension group. If this parameter is not present,\n      then it signifies that all of the dimensions in the group were requested, or are present in\n      the response.</p>\n         <p>Valid values for elements in the <code>Dimensions</code> array are:</p>\n         <ul>\n            <li>\n               <p>db.user.id</p>\n            </li>\n            <li>\n               <p>db.user.name</p>\n            </li>\n            <li>\n               <p>db.host.id</p>\n            </li>\n            <li>\n               <p>db.host.name</p>\n            </li>\n            <li>\n               <p>db.sql.id</p>\n            </li>\n            <li>\n               <p>db.sql.db_id</p>\n            </li>\n            <li>\n               <p>db.sql.statement</p>\n            </li>\n            <li>\n               <p>db.sql.tokenized_id</p>\n            </li>\n            <li>\n               <p>db.sql_tokenized.id</p>\n            </li>\n            <li>\n               <p>db.sql_tokenized.db_id</p>\n            </li>\n            <li>\n               <p>db.sql_tokenized.statement</p>\n            </li>\n            <li>\n               <p>db.wait_event.name</p>\n            </li>\n            <li>\n               <p>db.wait_event.type</p>\n            </li>\n            <li>\n               <p>db.wait_event_type.name</p>\n            </li>\n         </ul>"
           }
         },
         "Group": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the dimension group.  Valid values are:</p>\n    \n         <ul>\n            <li>\n               <p>\n                  <code>db.user</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.host</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event_type</code>\n               </p>\n            </li>\n         </ul>\n    \n      ",
+            "smithy.api#documentation": "<p>The name of the dimension group.  Valid values are:</p>\n    \n         <ul>\n            <li>\n               <p>\n                  <code>db.user</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.host</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sql_tokenized</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>db.wait_event_type</code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         },
         "Limit": {
           "target": "amazonaws.pi.v20180227#Limit",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to fetch for this dimension group.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of items to fetch for this dimension group.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the\n        <code>db.sql</code> dimension group consists of the following dimensions:\n        <code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>, and\n        <code>db.sql.tokenized_id</code>.</p>\n      "
+        "smithy.api#documentation": "<p>A logical grouping of Performance Insights metrics for a related subject area. For example, the\n        <code>db.sql</code> dimension group consists of the following dimensions:\n        <code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>, and\n        <code>db.sql.tokenized_id</code>.</p>"
       }
     },
     "amazonaws.pi.v20180227#DimensionKeyDescription": {
@@ -221,24 +226,24 @@
         "Dimensions": {
           "target": "amazonaws.pi.v20180227#DimensionMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A map of name-value pairs for the dimensions in the group.</p>\n      "
+            "smithy.api#documentation": "<p>A map of name-value pairs for the dimensions in the group.</p>"
           }
         },
         "Partitions": {
           "target": "amazonaws.pi.v20180227#MetricValuesList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>\n      "
+            "smithy.api#documentation": "<p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>"
           }
         },
         "Total": {
           "target": "amazonaws.pi.v20180227#Double",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The aggregated metric value for the dimension(s), over the requested time range.</p>\n      "
+            "smithy.api#documentation": "<p>The aggregated metric value for the dimension(s), over the requested time range.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An array of descriptions and aggregated values for\n      each dimension within a dimension group.</p>\n      "
+        "smithy.api#documentation": "<p>An array of descriptions and aggregated values for\n      each dimension within a dimension group.</p>"
       }
     },
     "amazonaws.pi.v20180227#DimensionKeyDescriptionList": {
@@ -282,7 +287,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide\n      specific dimension groups and dimensions, and provide aggregation and filtering criteria for\n      each group.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide\n      specific dimension groups and dimensions, and provide aggregation and filtering criteria for\n      each group.</p>"
       }
     },
     "amazonaws.pi.v20180227#GetResourceMetricsRequest": {
@@ -291,53 +296,53 @@
         "EndTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time specifiying the end of the requested time series data.  The value specified is \n      <i>exclusive</i> - data points less than (but not equal to) <code>EndTime</code> will be returned.</p>\n         <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The date and time specifiying the end of the requested time series data.  The value specified is \n      <i>exclusive</i> - data points less than (but not equal to) <code>EndTime</code> will be returned.</p>\n         <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>",
             "smithy.api#required": true
           }
         },
         "Identifier": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from\n      this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its\n        <code>DbiResourceId</code> value - for example:\n      <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from\n      this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its\n        <code>DbiResourceId</code> value - for example:\n      <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "MaxResults": {
           "target": "amazonaws.pi.v20180227#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return in the response. \n      If more items exist than the specified <code>MaxRecords</code> value, a pagination \n      token is included in the response so that the remaining \n      results can be retrieved.\n    </p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of items to return in the response. \n      If more items exist than the specified <code>MaxRecords</code> value, a pagination \n      token is included in the response so that the remaining \n      results can be retrieved.\n    </p>"
           }
         },
         "MetricQueries": {
           "target": "amazonaws.pi.v20180227#MetricQueryList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of one or more queries to perform. Each query must specify a Performance Insights metric, and\n      can optionally specify aggregation and filtering criteria.</p>\n      ",
+            "smithy.api#documentation": "<p>An array of one or more queries to perform. Each query must specify a Performance Insights metric, and\n      can optionally specify aggregation and filtering criteria.</p>",
             "smithy.api#required": true
           }
         },
         "NextToken": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p> \n    \n      "
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p>"
           }
         },
         "PeriodInSeconds": {
           "target": "amazonaws.pi.v20180227#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as\n      one second, or as long as one day (86400 seconds).  Valid values are:</p>\n    \n        <ul>\n            <li>\n               <p>\n                  <code>1</code> (one second)</p>\n            </li>\n            <li>\n               <p>\n                  <code>60</code> (one minute)</p>\n            </li>\n            <li>\n               <p>\n                  <code>300</code> (five minutes)</p>\n            </li>\n            <li>\n               <p>\n                  <code>3600</code> (one hour)</p>\n            </li>\n            <li>\n               <p>\n                  <code>86400</code> (twenty-four hours)</p>\n            </li>\n         </ul>\n    \n         <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights will choose a value for\n      you, with a goal of returning roughly 100-200 data points in the response.</p>\n      "
+            "smithy.api#documentation": "<p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as\n      one second, or as long as one day (86400 seconds).  Valid values are:</p>\n    \n        <ul>\n            <li>\n               <p>\n                  <code>1</code> (one second)</p>\n            </li>\n            <li>\n               <p>\n                  <code>60</code> (one minute)</p>\n            </li>\n            <li>\n               <p>\n                  <code>300</code> (five minutes)</p>\n            </li>\n            <li>\n               <p>\n                  <code>3600</code> (one hour)</p>\n            </li>\n            <li>\n               <p>\n                  <code>86400</code> (twenty-four hours)</p>\n            </li>\n         </ul>\n    \n         <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights will choose a value for\n      you, with a goal of returning roughly 100-200 data points in the response.</p>"
           }
         },
         "ServiceType": {
           "target": "amazonaws.pi.shared#ServiceType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS service for which Performance Insights will return metrics. The only valid value for\n        <i>ServiceType</i> is: <code>RDS</code>\n         </p>\n      ",
+            "smithy.api#documentation": "<p>The AWS service for which Performance Insights will return metrics. The only valid value for\n        <i>ServiceType</i> is: <code>RDS</code>\n         </p>",
             "smithy.api#required": true
           }
         },
         "StartTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time specifying the beginning of the requested time series data. You can't\n      specify a <code>StartTime</code> that's earlier than 7 days ago. The value specified is\n        <i>inclusive</i> - data points equal to or greater than <code>StartTime</code>\n      will be returned.</p>\n         <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The date and time specifying the beginning of the requested time series data. You can't\n      specify a <code>StartTime</code> that's earlier than 7 days ago. The value specified is\n        <i>inclusive</i> - data points equal to or greater than <code>StartTime</code>\n      will be returned.</p>\n         <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.</p>",
             "smithy.api#required": true
           }
         }
@@ -349,31 +354,31 @@
         "AlignedEndTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The end time for the returned metrics, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than\n      or equal to the value of the user-specified <code>Endtime</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The end time for the returned metrics, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than\n      or equal to the value of the user-specified <code>Endtime</code>.</p>"
           }
         },
         "AlignedStartTime": {
           "target": "amazonaws.pi.v20180227#ISOTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The start time for the returned metrics, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedStartTime</code> will be less than or\n      equal to the value of the user-specified <code>StartTime</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The start time for the returned metrics, after alignment to a granular boundary (as\n      specified by <code>PeriodInSeconds</code>). <code>AlignedStartTime</code> will be less than or\n      equal to the value of the user-specified <code>StartTime</code>.</p>"
           }
         },
         "Identifier": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from\n      this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its \n      <code>DbiResourceId</code> value - for example:  \n      <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>\n         </p>\n      "
+            "smithy.api#documentation": "<p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from\n      this data source.</p>\n         <p>To use an Amazon RDS instance as a data source, you specify its \n      <code>DbiResourceId</code> value - for example:  \n      <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>\n         </p>"
           }
         },
         "MetricList": {
           "target": "amazonaws.pi.v20180227#MetricKeyDataPointsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of metric results,, where each array element contains all of the data points for a particular dimension.</p>\n      "
+            "smithy.api#documentation": "<p>An array of metric results,, where each array element contains all of the data points for a particular dimension.</p>"
           }
         },
         "NextToken": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p> \n      "
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If\n      this parameter is specified, the response includes only records beyond the token, up to the\n      value specified by <code>MaxRecords</code>.</p>"
           }
         }
       }
@@ -395,7 +400,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The request failed due to an unknown error.</p>\n      ",
+        "smithy.api#documentation": "<p>The request failed due to an unknown error.</p>",
         "smithy.api#error": "server"
       }
     },
@@ -407,7 +412,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>One of the arguments provided is invalid for this request.</p>\n      ",
+        "smithy.api#documentation": "<p>One of the arguments provided is invalid for this request.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -437,18 +442,18 @@
         "DataPoints": {
           "target": "amazonaws.pi.v20180227#DataPointsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of timestamp-value pairs, representing measurements over a period of time.</p>\n      "
+            "smithy.api#documentation": "<p>An array of timestamp-value pairs, representing measurements over a period of time.</p>"
           }
         },
         "Key": {
           "target": "amazonaws.pi.v20180227#ResponseResourceMetricKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The dimension(s) to which the data points apply.</p>\n      "
+            "smithy.api#documentation": "<p>The dimension(s) to which the data points apply.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A time-ordered series of data points, correpsonding to a dimension of a Performance Insights\n      metric.</p>\n      "
+        "smithy.api#documentation": "<p>A time-ordered series of data points, correpsonding to a dimension of a Performance Insights\n      metric.</p>"
       }
     },
     "amazonaws.pi.v20180227#MetricKeyDataPointsList": {
@@ -463,25 +468,25 @@
         "Filter": {
           "target": "amazonaws.pi.v20180227#MetricQueryFilterMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>One or more filters to apply in the request.  Restrictions:</p>\n         <ul>\n            <li>\n               <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> parameter.</p>\n            </li>\n            <li>\n               <p>A single filter for any other dimension in this dimension group.</p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "<p>One or more filters to apply in the request.  Restrictions:</p>\n         <ul>\n            <li>\n               <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> parameter.</p>\n            </li>\n            <li>\n               <p>A single filter for any other dimension in this dimension group.</p>\n            </li>\n         </ul>"
           }
         },
         "GroupBy": {
           "target": "amazonaws.pi.v20180227#DimensionGroup",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A specification for how to aggregate the data points from a query result. You must\n      specify a valid dimension group.  Performance Insights will return all of the dimensions within that group,\n      unless you provide the names of specific dimensions within that group. You can also request\n      that Performance Insights return a limited number of values for a dimension.</p>\n      "
+            "smithy.api#documentation": "<p>A specification for how to aggregate the data points from a query result. You must\n      specify a valid dimension group.  Performance Insights will return all of the dimensions within that group,\n      unless you provide the names of specific dimensions within that group. You can also request\n      that Performance Insights return a limited number of values for a dimension.</p>"
           }
         },
         "Metric": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n    \n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - a scaled representation of the number of active sessions\n          for the database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - the raw number of active sessions for the\n          database engine.</p>\n            </li>\n         </ul>\n    \n      ",
+            "smithy.api#documentation": "<p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n    \n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - a scaled representation of the number of active sessions\n          for the database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - the raw number of active sessions for the\n          database engine.</p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A single query to be processed. You must provide the metric to query. If no other\n      parameters are specified, Performance Insights returns all of the data points for that metric. You can\n      optionally request that the data points be aggregated by dimension group (\n      <code>GroupBy</code>), and return only those data points that match your criteria (<code>Filter</code>).</p>\n      "
+        "smithy.api#documentation": "<p>A single query to be processed. You must provide the metric to query. If no other\n      parameters are specified, Performance Insights returns all of the data points for that metric. You can\n      optionally request that the data points be aggregated by dimension group (\n      <code>GroupBy</code>), and return only those data points that match your criteria (<code>Filter</code>).</p>"
       }
     },
     "amazonaws.pi.v20180227#MetricQueryFilterMap": {
@@ -519,7 +524,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The user is not authorized to perform this request.</p>\n      ",
+        "smithy.api#documentation": "<p>The user is not authorized to perform this request.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -541,7 +546,7 @@
           "cloudFormationName": "PI",
           "cloudTrailEventSource": "v20180227.pi.amazonaws"
         },
-        "smithy.api#documentation": "\n         <p>AWS Performance Insights enables you to monitor and explore different dimensions of\n      database load based on data captured from a running RDS instance. The guide provides detailed\n      information about Performance Insights data types, parameters and errors. For more information\n      about Performance Insights capabilities see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon RDS Performance\n        Insights </a> in the <i>Amazon RDS User Guide</i>.</p>\n\n         <p> The AWS Performance Insights API provides visibility into the performance of your RDS\n      instance, when Performance Insights is enabled for supported engine types. While Amazon\n      CloudWatch provides the authoritative source for AWS service vended monitoring metrics, AWS\n      Performance Insights offers a domain-specific view of database load measured as Average Active\n      Sessions and provided to API consumers as a 2-dimensional time-series dataset. The time\n      dimension of the data provides DB load data for each time point in the queried time range, and\n      each time point decomposes overall load in relation to the requested dimensions, such as SQL,\n      Wait-event, User or Host, measured at that time point.</p>\n\n      ",
+        "smithy.api#documentation": "<p>AWS Performance Insights enables you to monitor and explore different dimensions of\n      database load based on data captured from a running RDS instance. The guide provides detailed\n      information about Performance Insights data types, parameters and errors. For more information\n      about Performance Insights capabilities see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html\">Using Amazon RDS Performance\n        Insights </a> in the <i>Amazon RDS User Guide</i>.</p>\n\n         <p> The AWS Performance Insights API provides visibility into the performance of your RDS\n      instance, when Performance Insights is enabled for supported engine types. While Amazon\n      CloudWatch provides the authoritative source for AWS service vended monitoring metrics, AWS\n      Performance Insights offers a domain-specific view of database load measured as Average Active\n      Sessions and provided to API consumers as a 2-dimensional time-series dataset. The time\n      dimension of the data provides DB load data for each time point in the queried time range, and\n      each time point decomposes overall load in relation to the requested dimensions, such as SQL,\n      Wait-event, User or Host, measured at that time point.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -562,13 +567,13 @@
         "Dimensions": {
           "target": "amazonaws.pi.v20180227#DimensionMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A dimension map that contains the dimension(s) for this partition.</p>\n      ",
+            "smithy.api#documentation": "<p>A dimension map that contains the dimension(s) for this partition.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code>\n      request, the dimensions are returned in an array. Each element in the array specifies one\n      dimension. </p>\n      "
+        "smithy.api#documentation": "<p>If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code>\n      request, the dimensions are returned in an array. Each element in the array specifies one\n      dimension. </p>"
       }
     },
     "amazonaws.pi.v20180227#ResponsePartitionKeyList": {
@@ -583,19 +588,19 @@
         "Dimensions": {
           "target": "amazonaws.pi.v20180227#DimensionMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The valid dimensions for the metric.</p>\n      "
+            "smithy.api#documentation": "<p>The valid dimensions for the metric.</p>"
           }
         },
         "Metric": {
           "target": "amazonaws.pi.v20180227#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n    \n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - a scaled representation of the number of active sessions\n          for the database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - the raw number of active sessions for the\n          database engine.</p>\n            </li>\n         </ul>\n    \n      ",
+            "smithy.api#documentation": "<p>The name of a Performance Insights metric to be measured.</p>\n         <p>Valid values for <code>Metric</code> are:</p>\n    \n         <ul>\n            <li>\n               <p>\n                  <code>db.load.avg</code> - a scaled representation of the number of active sessions\n          for the database engine.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db.sampledload.avg</code> - the raw number of active sessions for the\n          database engine.</p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object describing a Performance Insights metric and one or more dimensions for that metric.</p>\n      "
+        "smithy.api#documentation": "<p>An object describing a Performance Insights metric and one or more dimensions for that metric.</p>"
       }
     },
     "amazonaws.pi.shared#ServiceType": {

@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -33,7 +38,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>You do not have permission to perform this operation.</p>\n      ",
+        "smithy.api#documentation": "<p>You do not have permission to perform this operation.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -41,7 +46,7 @@
     "com.amazonaws.outposts.olaf.service.model#AccountId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The ID of the AWS account.</p>\n      ",
+        "smithy.api#documentation": "<p>The ID of the AWS account.</p>",
         "smithy.api#length": {
           "min": 12,
           "max": 12
@@ -51,7 +56,7 @@
     "com.amazonaws.outposts.olaf.service.model#AvailabilityZone": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The Availability Zone.</p>\n      ",
+        "smithy.api#documentation": "<p>The Availability Zone.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 1000
@@ -62,7 +67,7 @@
     "com.amazonaws.outposts.olaf.service.model#AvailabilityZoneId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The ID of the Availability Zone.</p>\n      ",
+        "smithy.api#documentation": "<p>The ID of the Availability Zone.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 255
@@ -96,7 +101,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates an Outpost.</p>\n      ",
+        "smithy.api#documentation": "<p>Creates an Outpost.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/outposts",
@@ -168,7 +173,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets information about the specified Outpost.</p>\n      ",
+        "smithy.api#documentation": "<p>Gets information about the specified Outpost.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/outposts/{OutpostId}",
@@ -211,7 +216,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the instance types for the specified Outpost.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the instance types for the specified Outpost.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/outposts/{OutpostId}/instanceTypes",
@@ -271,7 +276,7 @@
     "com.amazonaws.outposts.olaf.service.model#InstanceType": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The instance type.</p>\n      "
+        "smithy.api#documentation": "<p>The instance type.</p>"
       }
     },
     "com.amazonaws.outposts.olaf.service.model#InstanceTypeItem": {
@@ -282,7 +287,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about an instance type.</p>\n      "
+        "smithy.api#documentation": "<p>Information about an instance type.</p>"
       }
     },
     "com.amazonaws.outposts.olaf.service.model#InstanceTypeListDefinition": {
@@ -291,7 +296,7 @@
         "target": "com.amazonaws.outposts.olaf.service.model#InstanceTypeItem"
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the instance types.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the instance types.</p>"
       }
     },
     "com.amazonaws.outposts.olaf.service.model#InternalServerException": {
@@ -302,7 +307,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An internal error has occurred.</p>\n      ",
+        "smithy.api#documentation": "<p>An internal error has occurred.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -310,7 +315,7 @@
     "com.amazonaws.outposts.olaf.service.model#LifeCycleStatus": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The life cycle status.</p>\n      "
+        "smithy.api#documentation": "<p>The life cycle status.</p>"
       }
     },
     "com.amazonaws.outposts.olaf.service.model#ListOutposts": {
@@ -333,7 +338,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>List the Outposts for your AWS account.</p>\n      ",
+        "smithy.api#documentation": "<p>List the Outposts for your AWS account.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/outposts",
@@ -394,7 +399,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the sites for the specified AWS account.</p>\n      ",
+        "smithy.api#documentation": "<p>Lists the sites for the specified AWS account.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/sites",
@@ -439,7 +444,7 @@
       "type": "integer",
       "traits": {
         "smithy.api#box": true,
-        "smithy.api#documentation": "\n         <p>The maximum page size.</p>\n      ",
+        "smithy.api#documentation": "<p>The maximum page size.</p>",
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -454,7 +459,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The specified request is not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified request is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -491,13 +496,13 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about an Outpost.</p>\n      "
+        "smithy.api#documentation": "<p>Information about an Outpost.</p>"
       }
     },
     "com.amazonaws.outposts.olaf.service.model#OutpostArn": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the Outpost.</p>\n      ",
+        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Outpost.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 255
@@ -508,7 +513,7 @@
     "com.amazonaws.outposts.olaf.service.model#OutpostDescription": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The Outpost description.</p>\n      ",
+        "smithy.api#documentation": "<p>The Outpost description.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 1000
@@ -519,7 +524,7 @@
     "com.amazonaws.outposts.olaf.service.model#OutpostId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The ID of the Outpost.</p>\n      ",
+        "smithy.api#documentation": "<p>The ID of the Outpost.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 180
@@ -530,7 +535,7 @@
     "com.amazonaws.outposts.olaf.service.model#OutpostName": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The name of the Outpost.</p>\n      ",
+        "smithy.api#documentation": "<p>The name of the Outpost.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 255
@@ -565,7 +570,7 @@
           "cloudFormationName": "Outposts",
           "cloudTrailEventSource": "model.service.olaf.outposts.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <p>AWS Outposts is a fully-managed service that extends AWS infrastructure, \n      APIs, and tools to customer premises. By providing local access to AWS-managed \n      infrastructure, AWS Outposts enables customers to build and run applications \n      on premises using the same programming interfaces as in AWS Regions, while \n      using local compute and storage resources for lower latency and local data \n      processing needs.</p>\n      ",
+        "smithy.api#documentation": "<p>AWS Outposts is a fully-managed service that extends AWS infrastructure, \n      APIs, and tools to customer premises. By providing local access to AWS-managed \n      infrastructure, AWS Outposts enables customers to build and run applications \n      on premises using the same programming interfaces as in AWS Regions, while \n      using local compute and storage resources for lower latency and local data \n      processing needs.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -580,7 +585,7 @@
     "com.amazonaws.outposts.olaf.service.model#OwnerId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The AWS account ID of the Outpost owner.</p>\n      ",
+        "smithy.api#documentation": "<p>The AWS account ID of the Outpost owner.</p>",
         "smithy.api#length": {
           "min": 12,
           "max": 12
@@ -596,7 +601,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>You have exceeded a service quota.</p>\n      ",
+        "smithy.api#documentation": "<p>You have exceeded a service quota.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 402
       }
@@ -618,13 +623,13 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about a site.</p>\n      "
+        "smithy.api#documentation": "<p>Information about a site.</p>"
       }
     },
     "com.amazonaws.outposts.olaf.service.model#SiteDescription": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The description of the site.</p>\n      ",
+        "smithy.api#documentation": "<p>The description of the site.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 1000
@@ -635,7 +640,7 @@
     "com.amazonaws.outposts.olaf.service.model#SiteId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The ID of the site.</p>\n      ",
+        "smithy.api#documentation": "<p>The ID of the site.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 255
@@ -646,7 +651,7 @@
     "com.amazonaws.outposts.olaf.service.model#SiteName": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The name of the site.</p>\n      ",
+        "smithy.api#documentation": "<p>The name of the site.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 1000
@@ -657,7 +662,7 @@
     "com.amazonaws.outposts.olaf.service.model#Token": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "\n         <p>The pagination token.</p>\n      ",
+        "smithy.api#documentation": "<p>The pagination token.</p>",
         "smithy.api#length": {
           "min": 1,
           "max": 1005
@@ -673,7 +678,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A parameter is not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>A parameter is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -684,7 +689,7 @@
         "target": "com.amazonaws.outposts.olaf.service.model#Outpost"
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the Outposts.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the Outposts.</p>"
       }
     },
     "com.amazonaws.outposts.olaf.service.model#siteListDefinition": {
@@ -693,7 +698,7 @@
         "target": "com.amazonaws.outposts.olaf.service.model#Site"
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the sites.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the sites.</p>"
       }
     }
   }

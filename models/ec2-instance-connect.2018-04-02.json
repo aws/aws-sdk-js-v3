@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -40,7 +45,7 @@
           "cloudFormationName": "EC2InstanceConnect",
           "cloudTrailEventSource": "sshaccessproxyservice.aws.amazon.com"
         },
-        "smithy.api#documentation": "\n        <p>AWS EC2 Connect Service is a service that enables system administrators to publish\n            temporary SSH keys to their EC2 instances in order to establish connections to their\n            instances without leaving a permanent authentication option.</p>\n      ",
+        "smithy.api#documentation": "<p>AWS EC2 Connect Service is a service that enables system administrators to publish\n            temporary SSH keys to their EC2 instances in order to establish connections to their\n            instances without leaving a permanent authentication option.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -60,7 +65,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Indicates that either your AWS credentials are invalid or you do not have access to the EC2 instance.</p>\n      ",
+        "smithy.api#documentation": "<p>Indicates that either your AWS credentials are invalid or you do not have access to the EC2 instance.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -83,7 +88,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Indicates that the instance requested was not found in the given zone.  Check that you have provided a valid instance ID and the correct zone.</p>\n      ",
+        "smithy.api#documentation": "<p>Indicates that the instance requested was not found in the given zone.  Check that you have provided a valid instance ID and the correct zone.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -116,7 +121,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Indicates that you provided bad input.  Ensure you have a valid instance ID, the correct zone, and a valid SSH public key.</p>\n      ",
+        "smithy.api#documentation": "<p>Indicates that you provided bad input.  Ensure you have a valid instance ID, the correct zone, and a valid SSH public key.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -159,7 +164,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Pushes an SSH public key to a particular OS user on a given EC2 instance for 60 seconds.</p>\n      "
+        "smithy.api#documentation": "<p>Pushes an SSH public key to a particular OS user on a given EC2 instance for 60 seconds.</p>"
       }
     },
     "com.amazon.aws.sshaccessproxyservice#SendSSHPublicKeyRequest": {
@@ -168,28 +173,28 @@
         "AvailabilityZone": {
           "target": "com.amazon.aws.sshaccessproxyservice#AvailabilityZone",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The availability zone the EC2 instance was launched in.</p>\n      ",
+            "smithy.api#documentation": "<p>The availability zone the EC2 instance was launched in.</p>",
             "smithy.api#required": true
           }
         },
         "InstanceId": {
           "target": "com.amazon.aws.sshaccessproxyservice#InstanceId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The EC2 instance you wish to publish the SSH key to.</p>\n      ",
+            "smithy.api#documentation": "<p>The EC2 instance you wish to publish the SSH key to.</p>",
             "smithy.api#required": true
           }
         },
         "InstanceOSUser": {
           "target": "com.amazon.aws.sshaccessproxyservice#InstanceOSUser",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>\n      ",
+            "smithy.api#documentation": "<p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>",
             "smithy.api#required": true
           }
         },
         "SSHPublicKey": {
           "target": "com.amazon.aws.sshaccessproxyservice#SSHPublicKey",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>\n      ",
+            "smithy.api#documentation": "<p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>",
             "smithy.api#required": true
           }
         }
@@ -201,13 +206,13 @@
         "RequestId": {
           "target": "com.amazon.aws.sshaccessproxyservice#RequestId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>\n      "
+            "smithy.api#documentation": "<p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>"
           }
         },
         "Success": {
           "target": "com.amazon.aws.sshaccessproxyservice#Success",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Indicates request success.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates request success.</p>"
           }
         }
       }
@@ -220,7 +225,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Indicates that the service encountered an error.  Follow the message's instructions and try again.</p>\n      ",
+        "smithy.api#documentation": "<p>Indicates that the service encountered an error.  Follow the message's instructions and try again.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -239,7 +244,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Indicates you have been making requests too frequently and have been throttled.  Wait for a while and try again.  If higher call volume is warranted contact AWS Support.</p>\n      ",
+        "smithy.api#documentation": "<p>Indicates you have been making requests too frequently and have been throttled.  Wait for a while and try again.  If higher call volume is warranted contact AWS Support.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }

@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -49,7 +54,7 @@
           "cloudFormationName": "MarketplaceMetering",
           "cloudTrailEventSource": "metering.marketplace.amazonaws.com"
         },
-        "smithy.api#documentation": "\n        <fullname>AWS Marketplace Metering Service</fullname>\n        <p>This reference provides descriptions of the low-level AWS Marketplace Metering\n            Service API.</p>\n        <p>AWS Marketplace sellers can use this API to submit usage data for custom usage\n            dimensions.</p>\n        <p>\n            <b>Submitting Metering Records</b>\n        </p>\n        <ul>\n            <li>\n                <p>\n                    <i>MeterUsage</i>- Submits the metering record for a Marketplace\n                    product. MeterUsage is called from an EC2 instance or a container running on EKS\n                    or ECS.</p>\n            </li>\n            <li>\n                <p>\n                    <i>BatchMeterUsage</i>- Submits the metering record for a set of\n                    customers. BatchMeterUsage is called from a software-as-a-service (SaaS)\n                    application.</p>\n            </li>\n         </ul>\n        <p>\n            <b>Accepting New Customers</b>\n        </p>\n        <ul>\n            <li>\n                <p>\n                    <i>ResolveCustomer</i>- Called by a SaaS application during the\n                    registration process. When a buyer visits your website during the registration\n                    process, the buyer submits a Registration Token through the browser. The\n                    Registration Token is resolved through this API to obtain a CustomerIdentifier\n                    and Product Code.</p>\n            </li>\n         </ul>\n        <p>\n            <b>Entitlement and Metering for Paid Container Products</b>\n        </p>\n        <ul>\n            <li>\n                <p> Paid container software products sold through AWS Marketplace must\n                    integrate with the AWS Marketplace Metering Service and call the RegisterUsage\n                    operation for software entitlement and metering. Free and BYOL products for\n                    Amazon ECS or Amazon EKS aren't required to call RegisterUsage, but you can do\n                    so if you want to receive usage data in your seller reports. For more\n                    information on using the RegisterUsage operation, see <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/container-based-products.html\">Container-Based Products</a>. </p>\n            </li>\n         </ul>\n        <p>BatchMeterUsage API calls are captured by AWS CloudTrail. You can use Cloudtrail to\n            verify that the SaaS metering records that you sent are accurate by searching for\n            records with the eventName of BatchMeterUsage. You can also use CloudTrail to audit\n            records over time. For more information, see the <i>\n               <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html\">AWS CloudTrail User Guide</a>\n            </i>.</p>\n\n      ",
+        "smithy.api#documentation": "<fullname>AWS Marketplace Metering Service</fullname>\n        <p>This reference provides descriptions of the low-level AWS Marketplace Metering\n            Service API.</p>\n        <p>AWS Marketplace sellers can use this API to submit usage data for custom usage\n            dimensions.</p>\n        <p>\n            <b>Submitting Metering Records</b>\n        </p>\n        <ul>\n            <li>\n                <p>\n                    <i>MeterUsage</i>- Submits the metering record for a Marketplace\n                    product. MeterUsage is called from an EC2 instance or a container running on EKS\n                    or ECS.</p>\n            </li>\n            <li>\n                <p>\n                    <i>BatchMeterUsage</i>- Submits the metering record for a set of\n                    customers. BatchMeterUsage is called from a software-as-a-service (SaaS)\n                    application.</p>\n            </li>\n         </ul>\n        <p>\n            <b>Accepting New Customers</b>\n        </p>\n        <ul>\n            <li>\n                <p>\n                    <i>ResolveCustomer</i>- Called by a SaaS application during the\n                    registration process. When a buyer visits your website during the registration\n                    process, the buyer submits a Registration Token through the browser. The\n                    Registration Token is resolved through this API to obtain a CustomerIdentifier\n                    and Product Code.</p>\n            </li>\n         </ul>\n        <p>\n            <b>Entitlement and Metering for Paid Container Products</b>\n        </p>\n        <ul>\n            <li>\n                <p> Paid container software products sold through AWS Marketplace must\n                    integrate with the AWS Marketplace Metering Service and call the RegisterUsage\n                    operation for software entitlement and metering. Free and BYOL products for\n                    Amazon ECS or Amazon EKS aren't required to call RegisterUsage, but you can do\n                    so if you want to receive usage data in your seller reports. For more\n                    information on using the RegisterUsage operation, see <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/container-based-products.html\">Container-Based Products</a>. </p>\n            </li>\n         </ul>\n        <p>BatchMeterUsage API calls are captured by AWS CloudTrail. You can use Cloudtrail to\n            verify that the SaaS metering records that you sent are accurate by searching for\n            records with the eventName of BatchMeterUsage. You can also use CloudTrail to audit\n            records over time. For more information, see the <i>\n               <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html\">AWS CloudTrail User Guide</a>\n            </i>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -93,7 +98,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace to\n            post metering records for a set of customers.</p>\n        <p>For identical requests, the API is idempotent; requests can be retried with the\n            same records or a subset of the input records.</p>\n        <p>Every request to BatchMeterUsage is for one product. If you need to meter usage for\n            multiple products, you must make multiple calls to BatchMeterUsage.</p>\n        <p>BatchMeterUsage can process up to 25 UsageRecords at a time.</p>\n      "
+        "smithy.api#documentation": "<p>BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace to\n            post metering records for a set of customers.</p>\n        <p>For identical requests, the API is idempotent; requests can be retried with the\n            same records or a subset of the input records.</p>\n        <p>Every request to BatchMeterUsage is for one product. If you need to meter usage for\n            multiple products, you must make multiple calls to BatchMeterUsage.</p>\n        <p>BatchMeterUsage can process up to 25 UsageRecords at a time.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#BatchMeterUsageRequest": {
@@ -102,20 +107,20 @@
         "ProductCode": {
           "target": "com.amazonaws.marketplace.metering#ProductCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Product code is used to uniquely identify a product in AWS Marketplace. The product\n            code should be the same as the one used during the publishing of a new\n            product.</p>\n      ",
+            "smithy.api#documentation": "<p>Product code is used to uniquely identify a product in AWS Marketplace. The product\n            code should be the same as the one used during the publishing of a new\n            product.</p>",
             "smithy.api#required": true
           }
         },
         "UsageRecords": {
           "target": "com.amazonaws.marketplace.metering#UsageRecordList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at\n            a time.</p>\n      ",
+            "smithy.api#documentation": "<p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at\n            a time.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A BatchMeterUsageRequest contains UsageRecords, which indicate quantities of usage\n            within your application.</p>\n      "
+        "smithy.api#documentation": "<p>A BatchMeterUsageRequest contains UsageRecords, which indicate quantities of usage\n            within your application.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#BatchMeterUsageResult": {
@@ -124,18 +129,18 @@
         "Results": {
           "target": "com.amazonaws.marketplace.metering#UsageRecordResultList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Contains all UsageRecords processed by BatchMeterUsage. These records were either\n            honored by AWS Marketplace Metering Service or were invalid.</p>\n      "
+            "smithy.api#documentation": "<p>Contains all UsageRecords processed by BatchMeterUsage. These records were either\n            honored by AWS Marketplace Metering Service or were invalid.</p>"
           }
         },
         "UnprocessedRecords": {
           "target": "com.amazonaws.marketplace.metering#UsageRecordList",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Contains all UsageRecords that were not processed by BatchMeterUsage. This is a\n            list of UsageRecords. You can retry the failed request by making another BatchMeterUsage\n            call with this list as input in the BatchMeterUsageRequest.</p>\n      "
+            "smithy.api#documentation": "<p>Contains all UsageRecords that were not processed by BatchMeterUsage. This is a\n            list of UsageRecords. You can retry the failed request by making another BatchMeterUsage\n            call with this list as input in the BatchMeterUsageRequest.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Contains the UsageRecords processed by BatchMeterUsage and any records that have\n            failed due to transient error.</p>\n      "
+        "smithy.api#documentation": "<p>Contains the UsageRecords processed by BatchMeterUsage and any records that have\n            failed due to transient error.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#Boolean": {
@@ -161,7 +166,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Exception thrown when the customer does not have a valid subscription for the\n            product.</p>\n      ",
+        "smithy.api#documentation": "<p>Exception thrown when the customer does not have a valid subscription for the\n            product.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -173,7 +178,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The API is disabled in the Region.</p>\n      ",
+        "smithy.api#documentation": "<p>The API is disabled in the Region.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -185,7 +190,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A metering record has already been emitted by the same EC2 instance, ECS task, or\n            EKS pod for the given {usageDimension, timestamp} with a different\n            usageQuantity.</p>\n      ",
+        "smithy.api#documentation": "<p>A metering record has already been emitted by the same EC2 instance, ECS task, or\n            EKS pod for the given {usageDimension, timestamp} with a different\n            usageQuantity.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -197,7 +202,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The submitted registration token has expired. This can happen if the buyer's\n            browser takes too long to redirect to your page, the buyer has resubmitted the\n            registration token, or your application has held on to the registration token for too\n            long. Your SaaS registration website should redeem this token as soon as it is submitted\n            by the buyer's browser.</p>\n      ",
+        "smithy.api#documentation": "<p>The submitted registration token has expired. This can happen if the buyer's\n            browser takes too long to redirect to your page, the buyer has resubmitted the\n            registration token, or your application has held on to the registration token for too\n            long. Your SaaS registration website should redeem this token as soon as it is submitted\n            by the buyer's browser.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -209,7 +214,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>An internal error has occurred. Retry your request. If the problem persists, post a\n            message with details on the AWS forums.</p>\n      ",
+        "smithy.api#documentation": "<p>An internal error has occurred. Retry your request. If the problem persists, post a\n            message with details on the AWS forums.</p>",
         "smithy.api#error": "server"
       }
     },
@@ -221,7 +226,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>You have metered usage for a CustomerIdentifier that does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>You have metered usage for a CustomerIdentifier that does not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -233,7 +238,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The endpoint being called is in a AWS Region different from your EC2 instance, ECS\n            task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the\n            resource must match.</p>\n      ",
+        "smithy.api#documentation": "<p>The endpoint being called is in a AWS Region different from your EC2 instance, ECS\n            task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the\n            resource must match.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -245,7 +250,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The product code passed does not match the product code used for publishing the\n            product.</p>\n      ",
+        "smithy.api#documentation": "<p>The product code passed does not match the product code used for publishing the\n            product.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -257,7 +262,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Public Key version is invalid.</p>\n      ",
+        "smithy.api#documentation": "<p>Public Key version is invalid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -269,7 +274,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>RegisterUsage must be called in the same AWS Region the ECS task was launched in.\n            This prevents a container from hardcoding a Region (e.g. withRegion(“us-east-1”) when\n            calling RegisterUsage.</p>\n      ",
+        "smithy.api#documentation": "<p>RegisterUsage must be called in the same AWS Region the ECS task was launched in.\n            This prevents a container from hardcoding a Region (e.g. withRegion(“us-east-1”) when\n            calling RegisterUsage.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -281,7 +286,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Registration token is invalid.</p>\n      ",
+        "smithy.api#documentation": "<p>Registration token is invalid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -293,7 +298,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The usage dimension does not match one of the UsageDimensions associated with\n            products.</p>\n      ",
+        "smithy.api#documentation": "<p>The usage dimension does not match one of the UsageDimensions associated with\n            products.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -332,7 +337,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>API to emit metering records. For identical requests, the API is idempotent. It\n            simply returns the metering record ID.</p>\n        <p>MeterUsage is authenticated on the buyer's AWS account using credentials from the\n            EC2 instance, ECS task, or EKS pod.</p>\n      "
+        "smithy.api#documentation": "<p>API to emit metering records. For identical requests, the API is idempotent. It\n            simply returns the metering record ID.</p>\n        <p>MeterUsage is authenticated on the buyer's AWS account using credentials from the\n            EC2 instance, ECS task, or EKS pod.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#MeterUsageRequest": {
@@ -341,34 +346,34 @@
         "DryRun": {
           "target": "com.amazonaws.marketplace.metering#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Checks whether you have the permissions required for the action, but does not make\n            the request. If you have the permissions, the request returns DryRunOperation;\n            otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not\n            specified.</p>\n      "
+            "smithy.api#documentation": "<p>Checks whether you have the permissions required for the action, but does not make\n            the request. If you have the permissions, the request returns DryRunOperation;\n            otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not\n            specified.</p>"
           }
         },
         "ProductCode": {
           "target": "com.amazonaws.marketplace.metering#ProductCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Product code is used to uniquely identify a product in AWS Marketplace. The product\n            code should be the same as the one used during the publishing of a new\n            product.</p>\n      ",
+            "smithy.api#documentation": "<p>Product code is used to uniquely identify a product in AWS Marketplace. The product\n            code should be the same as the one used during the publishing of a new\n            product.</p>",
             "smithy.api#required": true
           }
         },
         "Timestamp": {
           "target": "com.amazonaws.marketplace.metering#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Timestamp, in UTC, for which the usage is being reported. Your application can\n            meter usage for up to one hour in the past. Make sure the timestamp value is not before\n            the start of the software usage.</p>\n      ",
+            "smithy.api#documentation": "<p>Timestamp, in UTC, for which the usage is being reported. Your application can\n            meter usage for up to one hour in the past. Make sure the timestamp value is not before\n            the start of the software usage.</p>",
             "smithy.api#required": true
           }
         },
         "UsageDimension": {
           "target": "com.amazonaws.marketplace.metering#UsageDimension",
           "traits": {
-            "smithy.api#documentation": "\n        <p>It will be one of the fcp dimension name provided during the publishing of the\n            product.</p>\n      ",
+            "smithy.api#documentation": "<p>It will be one of the fcp dimension name provided during the publishing of the\n            product.</p>",
             "smithy.api#required": true
           }
         },
         "UsageQuantity": {
           "target": "com.amazonaws.marketplace.metering#UsageQuantity",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Consumption value for the hour. Defaults to <code>0</code> if not\n            specified.</p>\n      "
+            "smithy.api#documentation": "<p>Consumption value for the hour. Defaults to <code>0</code> if not\n            specified.</p>"
           }
         }
       }
@@ -379,7 +384,7 @@
         "MeteringRecordId": {
           "target": "com.amazonaws.marketplace.metering#String",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Metering record id.</p>\n      "
+            "smithy.api#documentation": "<p>Metering record id.</p>"
           }
         }
       }
@@ -407,7 +412,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>AWS Marketplace does not support metering usage from the underlying platform.\n            Currently, only Amazon ECS is supported.</p>\n      ",
+        "smithy.api#documentation": "<p>AWS Marketplace does not support metering usage from the underlying platform.\n            Currently, only Amazon ECS is supported.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -455,7 +460,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Paid container software products sold through AWS Marketplace must integrate with\n            the AWS Marketplace Metering Service and call the RegisterUsage operation for software\n            entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS aren't\n            required to call RegisterUsage, but you may choose to do so if you would like to receive\n            usage data in your seller reports. The sections below explain the behavior of\n            RegisterUsage. RegisterUsage performs two primary functions: metering and\n            entitlement.</p>\n\n        <ul>\n            <li>\n                <p>\n                    <i>Entitlement</i>: RegisterUsage allows you to verify that the\n                    customer running your paid software is subscribed to your product on AWS\n                    Marketplace, enabling you to guard against unauthorized use. Your container\n                    image that integrates with RegisterUsage is only required to guard against\n                    unauthorized use at container startup, as such a\n                    CustomerNotSubscribedException/PlatformNotSupportedException will only be thrown\n                    on the initial call to RegisterUsage. Subsequent calls from the same Amazon ECS\n                    task instance (e.g. task-id) or Amazon EKS pod will not throw a\n                    CustomerNotSubscribedException, even if the customer unsubscribes while the\n                    Amazon ECS task or Amazon EKS pod is still running.</p>\n            </li>\n            <li>\n                <p>\n                    <i>Metering</i>: RegisterUsage meters software use per ECS task,\n                    per hour, or per pod for Amazon EKS with usage prorated to the second. A minimum\n                    of 1 minute of usage applies to tasks that are short lived. For example, if a\n                    customer has a 10 node Amazon ECS or Amazon EKS cluster and a service configured\n                    as a Daemon Set, then Amazon ECS or Amazon EKS will launch a task on all 10\n                    cluster nodes and the customer will be charged: (10 * hourly_rate). Metering for\n                    software use is automatically handled by the AWS Marketplace Metering Control\n                    Plane -- your software is not required to perform any metering specific actions,\n                    other than call RegisterUsage once for metering of software use to commence. The\n                    AWS Marketplace Metering Control Plane will also continue to bill customers for\n                    running ECS tasks and Amazon EKS pods, regardless of the customers subscription\n                    state, removing the need for your software to perform entitlement checks at\n                    runtime.</p>\n            </li>\n         </ul>\n        \n      "
+        "smithy.api#documentation": "<p>Paid container software products sold through AWS Marketplace must integrate with\n            the AWS Marketplace Metering Service and call the RegisterUsage operation for software\n            entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS aren't\n            required to call RegisterUsage, but you may choose to do so if you would like to receive\n            usage data in your seller reports. The sections below explain the behavior of\n            RegisterUsage. RegisterUsage performs two primary functions: metering and\n            entitlement.</p>\n\n        <ul>\n            <li>\n                <p>\n                    <i>Entitlement</i>: RegisterUsage allows you to verify that the\n                    customer running your paid software is subscribed to your product on AWS\n                    Marketplace, enabling you to guard against unauthorized use. Your container\n                    image that integrates with RegisterUsage is only required to guard against\n                    unauthorized use at container startup, as such a\n                    CustomerNotSubscribedException/PlatformNotSupportedException will only be thrown\n                    on the initial call to RegisterUsage. Subsequent calls from the same Amazon ECS\n                    task instance (e.g. task-id) or Amazon EKS pod will not throw a\n                    CustomerNotSubscribedException, even if the customer unsubscribes while the\n                    Amazon ECS task or Amazon EKS pod is still running.</p>\n            </li>\n            <li>\n                <p>\n                    <i>Metering</i>: RegisterUsage meters software use per ECS task,\n                    per hour, or per pod for Amazon EKS with usage prorated to the second. A minimum\n                    of 1 minute of usage applies to tasks that are short lived. For example, if a\n                    customer has a 10 node Amazon ECS or Amazon EKS cluster and a service configured\n                    as a Daemon Set, then Amazon ECS or Amazon EKS will launch a task on all 10\n                    cluster nodes and the customer will be charged: (10 * hourly_rate). Metering for\n                    software use is automatically handled by the AWS Marketplace Metering Control\n                    Plane -- your software is not required to perform any metering specific actions,\n                    other than call RegisterUsage once for metering of software use to commence. The\n                    AWS Marketplace Metering Control Plane will also continue to bill customers for\n                    running ECS tasks and Amazon EKS pods, regardless of the customers subscription\n                    state, removing the need for your software to perform entitlement checks at\n                    runtime.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.marketplace.metering#RegisterUsageRequest": {
@@ -464,20 +469,20 @@
         "Nonce": {
           "target": "com.amazonaws.marketplace.metering#Nonce",
           "traits": {
-            "smithy.api#documentation": "\n        <p>(Optional) To scope down the registration to a specific running software instance\n            and guard against replay attacks.</p>\n      "
+            "smithy.api#documentation": "<p>(Optional) To scope down the registration to a specific running software instance\n            and guard against replay attacks.</p>"
           }
         },
         "ProductCode": {
           "target": "com.amazonaws.marketplace.metering#ProductCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Product code is used to uniquely identify a product in AWS Marketplace. The product\n            code should be the same as the one used during the publishing of a new\n            product.</p>\n      ",
+            "smithy.api#documentation": "<p>Product code is used to uniquely identify a product in AWS Marketplace. The product\n            code should be the same as the one used during the publishing of a new\n            product.</p>",
             "smithy.api#required": true
           }
         },
         "PublicKeyVersion": {
           "target": "com.amazonaws.marketplace.metering#VersionInteger",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Public Key Version provided by AWS Marketplace</p>\n      ",
+            "smithy.api#documentation": "<p>Public Key Version provided by AWS Marketplace</p>",
             "smithy.api#required": true
           }
         }
@@ -489,13 +494,13 @@
         "PublicKeyRotationTimestamp": {
           "target": "com.amazonaws.marketplace.metering#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n        <p>(Optional) Only included when public key version has expired</p>\n      "
+            "smithy.api#documentation": "<p>(Optional) Only included when public key version has expired</p>"
           }
         },
         "Signature": {
           "target": "com.amazonaws.marketplace.metering#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n        <p>JWT Token</p>\n      "
+            "smithy.api#documentation": "<p>JWT Token</p>"
           }
         }
       }
@@ -526,7 +531,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>ResolveCustomer is called by a SaaS application during the registration process.\n            When a buyer visits your website during the registration process, the buyer submits a\n            registration token through their browser. The registration token is resolved through\n            this API to obtain a CustomerIdentifier and product code.</p>\n      "
+        "smithy.api#documentation": "<p>ResolveCustomer is called by a SaaS application during the registration process.\n            When a buyer visits your website during the registration process, the buyer submits a\n            registration token through their browser. The registration token is resolved through\n            this API to obtain a CustomerIdentifier and product code.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#ResolveCustomerRequest": {
@@ -535,13 +540,13 @@
         "RegistrationToken": {
           "target": "com.amazonaws.marketplace.metering#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "\n        <p>When a buyer visits your website during the registration process, the buyer submits\n            a registration token through the browser. The registration token is resolved to obtain a\n            CustomerIdentifier and product code.</p>\n      ",
+            "smithy.api#documentation": "<p>When a buyer visits your website during the registration process, the buyer submits\n            a registration token through the browser. The registration token is resolved to obtain a\n            CustomerIdentifier and product code.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>Contains input to the ResolveCustomer operation.</p>\n      "
+        "smithy.api#documentation": "<p>Contains input to the ResolveCustomer operation.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#ResolveCustomerResult": {
@@ -550,18 +555,18 @@
         "CustomerIdentifier": {
           "target": "com.amazonaws.marketplace.metering#CustomerIdentifier",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The CustomerIdentifier is used to identify an individual customer in your\n            application. Calls to BatchMeterUsage require CustomerIdentifiers for each\n            UsageRecord.</p>\n      "
+            "smithy.api#documentation": "<p>The CustomerIdentifier is used to identify an individual customer in your\n            application. Calls to BatchMeterUsage require CustomerIdentifiers for each\n            UsageRecord.</p>"
           }
         },
         "ProductCode": {
           "target": "com.amazonaws.marketplace.metering#ProductCode",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The product code is returned to confirm that the buyer is registering for your\n            product. Subsequent BatchMeterUsage calls should be made using this product\n            code.</p>\n      "
+            "smithy.api#documentation": "<p>The product code is returned to confirm that the buyer is registering for your\n            product. Subsequent BatchMeterUsage calls should be made using this product\n            code.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The result of the ResolveCustomer operation. Contains the CustomerIdentifier and\n            product code.</p>\n      "
+        "smithy.api#documentation": "<p>The result of the ResolveCustomer operation. Contains the CustomerIdentifier and\n            product code.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#String": {
@@ -575,7 +580,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The calls to the API are throttled.</p>\n      ",
+        "smithy.api#documentation": "<p>The calls to the API are throttled.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -590,7 +595,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The timestamp value passed in the meterUsage() is out of allowed range.</p>\n      ",
+        "smithy.api#documentation": "<p>The timestamp value passed in the meterUsage() is out of allowed range.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -619,33 +624,33 @@
         "CustomerIdentifier": {
           "target": "com.amazonaws.marketplace.metering#CustomerIdentifier",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and\n            represents an individual buyer in your application.</p>\n      ",
+            "smithy.api#documentation": "<p>The CustomerIdentifier is obtained through the ResolveCustomer operation and\n            represents an individual buyer in your application.</p>",
             "smithy.api#required": true
           }
         },
         "Dimension": {
           "target": "com.amazonaws.marketplace.metering#UsageDimension",
           "traits": {
-            "smithy.api#documentation": "\n        <p>During the process of registering a product on AWS Marketplace, up to eight\n            dimensions are specified. These represent different units of value in your\n            application.</p>\n      ",
+            "smithy.api#documentation": "<p>During the process of registering a product on AWS Marketplace, up to eight\n            dimensions are specified. These represent different units of value in your\n            application.</p>",
             "smithy.api#required": true
           }
         },
         "Quantity": {
           "target": "com.amazonaws.marketplace.metering#UsageQuantity",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The quantity of usage consumed by the customer for the given dimension and time.\n            Defaults to <code>0</code> if not specified.</p>\n      "
+            "smithy.api#documentation": "<p>The quantity of usage consumed by the customer for the given dimension and time.\n            Defaults to <code>0</code> if not specified.</p>"
           }
         },
         "Timestamp": {
           "target": "com.amazonaws.marketplace.metering#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n        <p>Timestamp, in UTC, for which the usage is being reported.</p>\n        <p>Your application can meter usage for up to one hour in the past. Make sure the\n            timestamp value is not before the start of the software usage.</p>\n      ",
+            "smithy.api#documentation": "<p>Timestamp, in UTC, for which the usage is being reported.</p>\n        <p>Your application can meter usage for up to one hour in the past. Make sure the\n            timestamp value is not before the start of the software usage.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A UsageRecord indicates a quantity of usage for a given product, customer,\n            dimension and time.</p>\n        <p>Multiple requests with the same UsageRecords as input will be deduplicated to\n            prevent double charges.</p>\n      "
+        "smithy.api#documentation": "<p>A UsageRecord indicates a quantity of usage for a given product, customer,\n            dimension and time.</p>\n        <p>Multiple requests with the same UsageRecords as input will be deduplicated to\n            prevent double charges.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#UsageRecordList": {
@@ -666,24 +671,24 @@
         "MeteringRecordId": {
           "target": "com.amazonaws.marketplace.metering#String",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The MeteringRecordId is a unique identifier for this metering event.</p>\n      "
+            "smithy.api#documentation": "<p>The MeteringRecordId is a unique identifier for this metering event.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.marketplace.metering#UsageRecordResultStatus",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The UsageRecordResult Status indicates the status of an individual UsageRecord\n            processed by BatchMeterUsage.</p>\n        <ul>\n            <li>\n                <p>\n                    <i>Success</i>- The UsageRecord was accepted and honored by\n                    BatchMeterUsage.</p>\n            </li>\n            <li>\n                <p>\n                    <i>CustomerNotSubscribed</i>- The CustomerIdentifier specified is\n                    not subscribed to your product. The UsageRecord was not honored. Future\n                    UsageRecords for this customer will fail until the customer subscribes to your\n                    product.</p>\n            </li>\n            <li>\n                <p>\n                    <i>DuplicateRecord</i>- Indicates that the UsageRecord was invalid\n                    and not honored. A previously metered UsageRecord had the same customer,\n                    dimension, and time, but a different quantity.</p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "<p>The UsageRecordResult Status indicates the status of an individual UsageRecord\n            processed by BatchMeterUsage.</p>\n        <ul>\n            <li>\n                <p>\n                    <i>Success</i>- The UsageRecord was accepted and honored by\n                    BatchMeterUsage.</p>\n            </li>\n            <li>\n                <p>\n                    <i>CustomerNotSubscribed</i>- The CustomerIdentifier specified is\n                    not subscribed to your product. The UsageRecord was not honored. Future\n                    UsageRecords for this customer will fail until the customer subscribes to your\n                    product.</p>\n            </li>\n            <li>\n                <p>\n                    <i>DuplicateRecord</i>- Indicates that the UsageRecord was invalid\n                    and not honored. A previously metered UsageRecord had the same customer,\n                    dimension, and time, but a different quantity.</p>\n            </li>\n         </ul>"
           }
         },
         "UsageRecord": {
           "target": "com.amazonaws.marketplace.metering#UsageRecord",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The UsageRecord that was part of the BatchMeterUsage request.</p>\n      "
+            "smithy.api#documentation": "<p>The UsageRecord that was part of the BatchMeterUsage request.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A UsageRecordResult indicates the status of a given UsageRecord processed by\n            BatchMeterUsage.</p>\n      "
+        "smithy.api#documentation": "<p>A UsageRecordResult indicates the status of a given UsageRecord processed by\n            BatchMeterUsage.</p>"
       }
     },
     "com.amazonaws.marketplace.metering#UsageRecordResultList": {

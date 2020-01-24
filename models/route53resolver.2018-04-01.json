@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -75,7 +80,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Adds IP addresses to an inbound or an outbound resolver endpoint. If you want to adding more than one IP address, \n\t\t\tsubmit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p>\n\t\t       <p>To remove an IP address from an endpoint, see <a>DisassociateResolverEndpointIpAddress</a>.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Adds IP addresses to an inbound or an outbound resolver endpoint. If you want to adding more than one IP address, \n\t\t\tsubmit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p>\n\t\t       <p>To remove an IP address from an endpoint, see <a>DisassociateResolverEndpointIpAddress</a>.</p>"
       }
     },
     "com.amazonaws.route53resolver#AssociateResolverEndpointIpAddressRequest": {
@@ -84,14 +89,14 @@
         "IpAddress": {
           "target": "com.amazonaws.route53resolver#IpAddressUpdate",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Either the IPv4 address that you want to add to a resolver endpoint or a subnet ID. If you specify a subnet ID, \n\t\t\tResolver chooses an IP address for you from the available IPs in the specified subnet.</p>\n\t     ",
+            "smithy.api#documentation": "<p>Either the IPv4 address that you want to add to a resolver endpoint or a subnet ID. If you specify a subnet ID, \n\t\t\tResolver chooses an IP address for you from the available IPs in the specified subnet.</p>",
             "smithy.api#required": true
           }
         },
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver endpoint that you want to associate IP addresses with.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver endpoint that you want to associate IP addresses with.</p>",
             "smithy.api#required": true
           }
         }
@@ -103,7 +108,7 @@
         "ResolverEndpoint": {
           "target": "com.amazonaws.route53resolver#ResolverEndpoint",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>"
           }
         }
       }
@@ -140,7 +145,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Associates a resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries \n\t\t\tfor the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the \n\t\t\tIP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see \n\t\t\t<a>CreateResolverRule</a>. </p>\n\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Associates a resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries \n\t\t\tfor the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the \n\t\t\tIP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see \n\t\t\t<a>CreateResolverRule</a>. </p>"
       }
     },
     "com.amazonaws.route53resolver#AssociateResolverRuleRequest": {
@@ -149,20 +154,20 @@
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A name for the association that you're creating between a resolver rule and a VPC.</p>\n\t     "
+            "smithy.api#documentation": "<p>A name for the association that you're creating between a resolver rule and a VPC.</p>"
           }
         },
         "ResolverRuleId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule that you want to associate with the VPC. To list the existing resolver rules, use \n\t\t\t<a>ListResolverRules</a>.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver rule that you want to associate with the VPC. To list the existing resolver rules, use \n\t\t\t<a>ListResolverRules</a>.</p>",
             "smithy.api#required": true
           }
         },
         "VPCId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the VPC that you want to associate the resolver rule with.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the VPC that you want to associate the resolver rule with.</p>",
             "smithy.api#required": true
           }
         }
@@ -174,7 +179,7 @@
         "ResolverRuleAssociation": {
           "target": "com.amazonaws.route53resolver#ResolverRuleAssociation",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>"
           }
         }
       }
@@ -214,7 +219,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Creates a resolver endpoint. There are two types of resolver endpoints, inbound and outbound:</p>\n\t\t       <ul>\n            <li>\n               <p>An <i>inbound resolver endpoint</i> forwards DNS queries to the DNS service for a VPC \n\t\t\t\tfrom your network or another VPC.</p>\n            </li>\n            <li>\n               <p>An <i>outbound resolver endpoint</i> forwards DNS queries from the DNS service for a VPC \n\t\t\t\tto your network or another VPC.</p>\n            </li>\n         </ul>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Creates a resolver endpoint. There are two types of resolver endpoints, inbound and outbound:</p>\n\t\t       <ul>\n            <li>\n               <p>An <i>inbound resolver endpoint</i> forwards DNS queries to the DNS service for a VPC \n\t\t\t\tfrom your network or another VPC.</p>\n            </li>\n            <li>\n               <p>An <i>outbound resolver endpoint</i> forwards DNS queries from the DNS service for a VPC \n\t\t\t\tto your network or another VPC.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.route53resolver#CreateResolverEndpointRequest": {
@@ -223,41 +228,41 @@
         "CreatorRequestId": {
           "target": "com.amazonaws.route53resolver#CreatorRequestId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. \n\t\t\t<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>\n\t     ",
+            "smithy.api#documentation": "<p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. \n\t\t\t<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>",
             "smithy.api#required": true
           }
         },
         "Direction": {
           "target": "com.amazonaws.route53resolver#ResolverEndpointDirection",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Specify the applicable value:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC</p>\n            </li>\n         </ul>\n\t     ",
+            "smithy.api#documentation": "<p>Specify the applicable value:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC</p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         },
         "IpAddresses": {
           "target": "com.amazonaws.route53resolver#IpAddressesRequest",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs to your network \n\t\t\t(for outbound endpoints) or on the way from your network to your VPCs (for inbound resolver endpoints). </p>\n\t     ",
+            "smithy.api#documentation": "<p>The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs to your network \n\t\t\t(for outbound endpoints) or on the way from your network to your VPCs (for inbound resolver endpoints). </p>",
             "smithy.api#required": true
           }
         },
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.</p>\n\t     "
+            "smithy.api#documentation": "<p>A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.</p>"
           }
         },
         "SecurityGroupIds": {
           "target": "com.amazonaws.route53resolver#SecurityGroupIds",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of one or more security groups that you want to use to control access to this VPC. The security group that you specify \n\t\t\tmust include one or more inbound rules (for inbound resolver endpoints) or outbound rules (for outbound resolver endpoints).</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of one or more security groups that you want to use to control access to this VPC. The security group that you specify \n\t\t\tmust include one or more inbound rules (for inbound resolver endpoints) or outbound rules (for outbound resolver endpoints).</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.route53resolver#TagList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A list of the tag keys and values that you want to associate with the endpoint.</p>\n\t     "
+            "smithy.api#documentation": "<p>A list of the tag keys and values that you want to associate with the endpoint.</p>"
           }
         }
       }
@@ -268,7 +273,7 @@
         "ResolverEndpoint": {
           "target": "com.amazonaws.route53resolver#ResolverEndpoint",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>"
           }
         }
       }
@@ -308,7 +313,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>For DNS queries that originate in your VPCs, specifies which resolver endpoint the queries pass through, \n\t\t\tone domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>For DNS queries that originate in your VPCs, specifies which resolver endpoint the queries pass through, \n\t\t\tone domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>"
       }
     },
     "com.amazonaws.route53resolver#CreateResolverRuleRequest": {
@@ -317,46 +322,46 @@
         "CreatorRequestId": {
           "target": "com.amazonaws.route53resolver#CreatorRequestId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. \n\t\t\t<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>\n\t     ",
+            "smithy.api#documentation": "<p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. \n\t\t\t<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>",
             "smithy.api#required": true
           }
         },
         "DomainName": {
           "target": "com.amazonaws.route53resolver#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>DNS queries for this domain name are forwarded to the IP addresses that you specify in <code>TargetIps</code>. If a query matches \n\t\t\tmultiple resolver rules (example.com and www.example.com), outbound DNS queries are routed using the resolver rule that contains \n\t\t\tthe most specific domain name (www.example.com).</p>\n\t     ",
+            "smithy.api#documentation": "<p>DNS queries for this domain name are forwarded to the IP addresses that you specify in <code>TargetIps</code>. If a query matches \n\t\t\tmultiple resolver rules (example.com and www.example.com), outbound DNS queries are routed using the resolver rule that contains \n\t\t\tthe most specific domain name (www.example.com).</p>",
             "smithy.api#required": true
           }
         },
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.</p>\n\t     "
+            "smithy.api#documentation": "<p>A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.</p>"
           }
         },
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify \n\t\t\tin <code>TargetIps</code>.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify \n\t\t\tin <code>TargetIps</code>.</p>"
           }
         },
         "RuleType": {
           "target": "com.amazonaws.route53resolver#RuleTypeOption",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Specify <code>FORWARD</code>. Other resolver rule types aren't supported.</p>\n\t     ",
+            "smithy.api#documentation": "<p>Specify <code>FORWARD</code>. Other resolver rule types aren't supported.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.route53resolver#TagList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A list of the tag keys and values that you want to associate with the endpoint.</p>\n\t     "
+            "smithy.api#documentation": "<p>A list of the tag keys and values that you want to associate with the endpoint.</p>"
           }
         },
         "TargetIps": {
           "target": "com.amazonaws.route53resolver#TargetList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a comma.</p>\n\t     "
+            "smithy.api#documentation": "<p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a comma.</p>"
           }
         }
       }
@@ -367,7 +372,7 @@
         "ResolverRule": {
           "target": "com.amazonaws.route53resolver#ResolverRule",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>"
           }
         }
       }
@@ -407,7 +412,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Deletes a resolver endpoint. The effect of deleting a resolver endpoint depends on whether it's an inbound or an outbound \n\t\t\tresolver endpoint:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <b>Inbound</b>: DNS queries from your network or another VPC are no longer routed \n\t\t\t\tto the DNS service for the specified VPC.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network or \n\t\t\t\tto another VPC.</p>\n            </li>\n         </ul>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Deletes a resolver endpoint. The effect of deleting a resolver endpoint depends on whether it's an inbound or an outbound \n\t\t\tresolver endpoint:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <b>Inbound</b>: DNS queries from your network or another VPC are no longer routed \n\t\t\t\tto the DNS service for the specified VPC.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network or \n\t\t\t\tto another VPC.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.route53resolver#DeleteResolverEndpointRequest": {
@@ -416,7 +421,7 @@
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver endpoint that you want to delete.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver endpoint that you want to delete.</p>",
             "smithy.api#required": true
           }
         }
@@ -428,7 +433,7 @@
         "ResolverEndpoint": {
           "target": "com.amazonaws.route53resolver#ResolverEndpoint",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>"
           }
         }
       }
@@ -459,7 +464,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Deletes a resolver rule. Before you can delete a resolver rule, you must disassociate it from all the VPCs that you \n\t\t\tassociated the resolver rule with. For more infomation, see <a>DisassociateResolverRule</a>.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Deletes a resolver rule. Before you can delete a resolver rule, you must disassociate it from all the VPCs that you \n\t\t\tassociated the resolver rule with. For more infomation, see <a>DisassociateResolverRule</a>.</p>"
       }
     },
     "com.amazonaws.route53resolver#DeleteResolverRuleRequest": {
@@ -468,7 +473,7 @@
         "ResolverRuleId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule that you want to delete.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver rule that you want to delete.</p>",
             "smithy.api#required": true
           }
         }
@@ -480,7 +485,7 @@
         "ResolverRule": {
           "target": "com.amazonaws.route53resolver#ResolverRule",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>"
           }
         }
       }
@@ -514,7 +519,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Removes IP addresses from an inbound or an outbound resolver endpoint. If you want to remove more than one IP address, \n\t\t\tsubmit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>\n\t\t       <p>To add an IP address to an endpoint, see <a>AssociateResolverEndpointIpAddress</a>.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Removes IP addresses from an inbound or an outbound resolver endpoint. If you want to remove more than one IP address, \n\t\t\tsubmit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>\n\t\t       <p>To add an IP address to an endpoint, see <a>AssociateResolverEndpointIpAddress</a>.</p>"
       }
     },
     "com.amazonaws.route53resolver#DisassociateResolverEndpointIpAddressRequest": {
@@ -523,14 +528,14 @@
         "IpAddress": {
           "target": "com.amazonaws.route53resolver#IpAddressUpdate",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The IPv4 address that you want to remove from a resolver endpoint.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The IPv4 address that you want to remove from a resolver endpoint.</p>",
             "smithy.api#required": true
           }
         },
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver endpoint that you want to disassociate an IP address from.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver endpoint that you want to disassociate an IP address from.</p>",
             "smithy.api#required": true
           }
         }
@@ -542,7 +547,7 @@
         "ResolverEndpoint": {
           "target": "com.amazonaws.route53resolver#ResolverEndpoint",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>"
           }
         }
       }
@@ -570,7 +575,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Removes the association between a specified resolver rule and a specified VPC.</p>\n\t\t       <important>\n\t\t\t         <p>If you disassociate a resolver rule from a VPC, Resolver stops forwarding DNS queries for the \n\t\t\t\tdomain name that you specified in the resolver rule. </p>\n\t\t       </important>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Removes the association between a specified resolver rule and a specified VPC.</p>\n\t\t       <important>\n\t\t\t         <p>If you disassociate a resolver rule from a VPC, Resolver stops forwarding DNS queries for the \n\t\t\t\tdomain name that you specified in the resolver rule. </p>\n\t\t       </important>"
       }
     },
     "com.amazonaws.route53resolver#DisassociateResolverRuleRequest": {
@@ -579,14 +584,14 @@
         "ResolverRuleId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule that you want to disassociate from the specified VPC.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver rule that you want to disassociate from the specified VPC.</p>",
             "smithy.api#required": true
           }
         },
         "VPCId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the VPC that you want to disassociate the resolver rule from.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the VPC that you want to disassociate the resolver rule from.</p>",
             "smithy.api#required": true
           }
         }
@@ -598,7 +603,7 @@
         "ResolverRuleAssociation": {
           "target": "com.amazonaws.route53resolver#ResolverRuleAssociation",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>"
           }
         }
       }
@@ -621,18 +626,18 @@
         "Name": {
           "target": "com.amazonaws.route53resolver#FilterName",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,\n\t\t\tthe name of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify \n\t\t\t<code>Direction</code> for the value of <code>Name</code>.</p>\n\t     "
+            "smithy.api#documentation": "<p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,\n\t\t\tthe name of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify \n\t\t\t<code>Direction</code> for the value of <code>Name</code>.</p>"
           }
         },
         "Values": {
           "target": "com.amazonaws.route53resolver#FilterValues",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,\n\t\t\tthe value of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify \n\t\t\t<code>INBOUND</code> for the value of <code>Values</code>.</p>\n\t     "
+            "smithy.api#documentation": "<p>When you're using a <code>List</code> operation and you want the operation to return a subset of objects, such as resolver endpoints or resolver rules,\n\t\t\tthe value of the parameter that you want to use to filter objects. For example, to list only inbound resolver endpoints, specify \n\t\t\t<code>INBOUND</code> for the value of <code>Values</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>For <code>List</code> operations, an optional specification to return a subset of objects, such as resolver endpoints or resolver rules.</p>\n\t     "
+        "smithy.api#documentation": "<p>For <code>List</code> operations, an optional specification to return a subset of objects, such as resolver endpoints or resolver rules.</p>"
       }
     },
     "com.amazonaws.route53resolver#FilterName": {
@@ -688,7 +693,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Gets information about a specified resolver endpoint, such as whether it's an inbound or an outbound resolver endpoint, and the \n\t\t\tcurrent status of the endpoint.</p>\n\t\t\n\t\t    \n\n\t     "
+        "smithy.api#documentation": "<p>Gets information about a specified resolver endpoint, such as whether it's an inbound or an outbound resolver endpoint, and the \n\t\t\tcurrent status of the endpoint.</p>"
       }
     },
     "com.amazonaws.route53resolver#GetResolverEndpointRequest": {
@@ -697,7 +702,7 @@
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver endpoint that you want to get information about.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver endpoint that you want to get information about.</p>",
             "smithy.api#required": true
           }
         }
@@ -709,7 +714,7 @@
         "ResolverEndpoint": {
           "target": "com.amazonaws.route53resolver#ResolverEndpoint",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>"
           }
         }
       }
@@ -737,7 +742,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Gets information about a specified resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the \n\t\t\toutbound resolver endpoint that the rule is associated with.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Gets information about a specified resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the \n\t\t\toutbound resolver endpoint that the rule is associated with.</p>"
       }
     },
     "com.amazonaws.route53resolver#GetResolverRuleAssociation": {
@@ -763,7 +768,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Gets information about an association between a specified resolver rule and a VPC. You associate a resolver rule and a VPC using \n\t\t\t<a>AssociateResolverRule</a>. </p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Gets information about an association between a specified resolver rule and a VPC. You associate a resolver rule and a VPC using \n\t\t\t<a>AssociateResolverRule</a>. </p>"
       }
     },
     "com.amazonaws.route53resolver#GetResolverRuleAssociationRequest": {
@@ -772,7 +777,7 @@
         "ResolverRuleAssociationId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule association that you want to get information about.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver rule association that you want to get information about.</p>",
             "smithy.api#required": true
           }
         }
@@ -784,7 +789,7 @@
         "ResolverRuleAssociation": {
           "target": "com.amazonaws.route53resolver#ResolverRuleAssociation",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>"
           }
         }
       }
@@ -809,7 +814,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Gets information about a resolver rule policy. A resolver rule policy specifies the Resolver operations and resources \n\t\t\tthat you want to allow another AWS account to be able to use. </p>\n\t\t\n\t\t    \n\n\t     "
+        "smithy.api#documentation": "<p>Gets information about a resolver rule policy. A resolver rule policy specifies the Resolver operations and resources \n\t\t\tthat you want to allow another AWS account to be able to use. </p>"
       }
     },
     "com.amazonaws.route53resolver#GetResolverRulePolicyRequest": {
@@ -818,7 +823,7 @@
         "Arn": {
           "target": "com.amazonaws.route53resolver#Arn",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule policy that you want to get information about.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver rule policy that you want to get information about.</p>",
             "smithy.api#required": true
           }
         }
@@ -830,7 +835,7 @@
         "ResolverRulePolicy": {
           "target": "com.amazonaws.route53resolver#ResolverRulePolicy",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the resolver rule policy that you specified in a <code>GetResolverRulePolicy</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the resolver rule policy that you specified in a <code>GetResolverRulePolicy</code> request.</p>"
           }
         }
       }
@@ -841,7 +846,7 @@
         "ResolverRuleId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule that you want to get information about.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver rule that you want to get information about.</p>",
             "smithy.api#required": true
           }
         }
@@ -853,7 +858,7 @@
         "ResolverRule": {
           "target": "com.amazonaws.route53resolver#ResolverRule",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Information about the resolver rule that you specified in a <code>GetResolverRule</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>Information about the resolver rule that you specified in a <code>GetResolverRule</code> request.</p>"
           }
         }
       }
@@ -866,7 +871,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>We encountered an unknown error. Try again in a few minutes.</p>\n\t     ",
+        "smithy.api#documentation": "<p>We encountered an unknown error. Try again in a few minutes.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -878,7 +883,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -888,7 +893,7 @@
         "FieldName": {
           "target": "com.amazonaws.route53resolver#String",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For an <code>InvalidParameterException</code> error, the name of the parameter that's invalid.</p>\n\t     "
+            "smithy.api#documentation": "<p>For an <code>InvalidParameterException</code> error, the name of the parameter that's invalid.</p>"
           }
         },
         "Message": {
@@ -899,7 +904,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>One or more parameters in this request are not valid.</p>\n\t     ",
+        "smithy.api#documentation": "<p>One or more parameters in this request are not valid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -911,7 +916,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The specified resolver rule policy is invalid.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The specified resolver rule policy is invalid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -923,7 +928,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The request is invalid.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The request is invalid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -935,7 +940,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The specified tag is invalid.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The specified tag is invalid.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -960,19 +965,19 @@
         "Ip": {
           "target": "com.amazonaws.route53resolver#Ip",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The IP address that you want to use for DNS queries.</p>\n\t     "
+            "smithy.api#documentation": "<p>The IP address that you want to use for DNS queries.</p>"
           }
         },
         "SubnetId": {
           "target": "com.amazonaws.route53resolver#SubnetId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The subnet that contains the IP address.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The subnet that contains the IP address.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>In an <a>CreateResolverEndpoint</a> request, a subnet and IP address that you want to use for DNS queries.</p>\n\t     "
+        "smithy.api#documentation": "<p>In an <a>CreateResolverEndpoint</a> request, a subnet and IP address that you want to use for DNS queries.</p>"
       }
     },
     "com.amazonaws.route53resolver#IpAddressResponse": {
@@ -981,48 +986,48 @@
         "CreationTime": {
           "target": "com.amazonaws.route53resolver#Rfc3339TimeString",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The date and time that the IP address was created, in Unix time format and Coordinated Universal Time (UTC).</p>\n\t     "
+            "smithy.api#documentation": "<p>The date and time that the IP address was created, in Unix time format and Coordinated Universal Time (UTC).</p>"
           }
         },
         "Ip": {
           "target": "com.amazonaws.route53resolver#Ip",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>One IP address that the resolver endpoint uses for DNS queries.</p>\n\t     "
+            "smithy.api#documentation": "<p>One IP address that the resolver endpoint uses for DNS queries.</p>"
           }
         },
         "IpId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of one IP address.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of one IP address.</p>"
           }
         },
         "ModificationTime": {
           "target": "com.amazonaws.route53resolver#Rfc3339TimeString",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The date and time that the IP address was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>\n\t     "
+            "smithy.api#documentation": "<p>The date and time that the IP address was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.route53resolver#IpAddressStatus",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A status code that gives the current status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>A status code that gives the current status of the request.</p>"
           }
         },
         "StatusMessage": {
           "target": "com.amazonaws.route53resolver#StatusMessage",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A message that provides additional information about the status of the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>A message that provides additional information about the status of the request.</p>"
           }
         },
         "SubnetId": {
           "target": "com.amazonaws.route53resolver#SubnetId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of one subnet.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of one subnet.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>In the response to a <a>GetResolverEndpoint</a> request, information about the IP addresses that \n\t\t\tthe resolver endpoint uses for DNS queries.</p>\n\t     "
+        "smithy.api#documentation": "<p>In the response to a <a>GetResolverEndpoint</a> request, information about the IP addresses that \n\t\t\tthe resolver endpoint uses for DNS queries.</p>"
       }
     },
     "com.amazonaws.route53resolver#IpAddressStatus": {
@@ -1068,24 +1073,24 @@
         "Ip": {
           "target": "com.amazonaws.route53resolver#Ip",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The new IP address.</p>\n\t     "
+            "smithy.api#documentation": "<p>The new IP address.</p>"
           }
         },
         "IpId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>\n            <i>Only when removing an IP address from a resolver endpoint</i>: The ID of the IP address that you want to remove. \n\t\t\tTo get this ID, use <a>GetResolverEndpoint</a>.</p>\n\t     "
+            "smithy.api#documentation": "<p>\n            <i>Only when removing an IP address from a resolver endpoint</i>: The ID of the IP address that you want to remove. \n\t\t\tTo get this ID, use <a>GetResolverEndpoint</a>.</p>"
           }
         },
         "SubnetId": {
           "target": "com.amazonaws.route53resolver#SubnetId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use <a>GetResolverEndpoint</a>.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the subnet that includes the IP address that you want to update. To get this ID, use <a>GetResolverEndpoint</a>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>In an <a>UpdateResolverEndpoint</a> request, information about an IP address to update.</p>\n\t     "
+        "smithy.api#documentation": "<p>In an <a>UpdateResolverEndpoint</a> request, information about an IP address to update.</p>"
       }
     },
     "com.amazonaws.route53resolver#IpAddressesRequest": {
@@ -1115,12 +1120,12 @@
         "ResourceType": {
           "target": "com.amazonaws.route53resolver#String",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>\n\t     "
+            "smithy.api#documentation": "<p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The request caused one or more limits to be exceeded.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The request caused one or more limits to be exceeded.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1150,7 +1155,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Gets the IP addresses for a specified resolver endpoint.</p>\n\t\t\n\t\t    \n\t\t\n\t     ",
+        "smithy.api#documentation": "<p>Gets the IP addresses for a specified resolver endpoint.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1165,19 +1170,19 @@
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>The maximum number of IP addresses that you want to return in the response to a <code>ListResolverEndpointIpAddresses</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 IP addresses. </p>\n\t     "
+            "smithy.api#documentation": "<p>The maximum number of IP addresses that you want to return in the response to a <code>ListResolverEndpointIpAddresses</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 IP addresses. </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p>\n\t\t       <p>If the specified resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another \n\t\t\t<code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p>\n\t\t       <p>If the specified resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another \n\t\t\t<code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>"
           }
         },
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver endpoint that you want to get IP addresses for.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver endpoint that you want to get IP addresses for.</p>",
             "smithy.api#required": true
           }
         }
@@ -1189,19 +1194,19 @@
         "IpAddresses": {
           "target": "com.amazonaws.route53resolver#IpAddressesResponse",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The IP addresses that DNS queries pass through on their way to your network (outbound endpoint) or on the way to \n\t\t\tResolver (inbound endpoint).</p>\n\t     "
+            "smithy.api#documentation": "<p>The IP addresses that DNS queries pass through on their way to your network (outbound endpoint) or on the way to \n\t\t\tResolver (inbound endpoint).</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The value that you specified for <code>MaxResults</code> in the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The value that you specified for <code>MaxResults</code> in the request.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>If the specified endpoint has more than <code>MaxResults</code> IP addresses, you can submit another \n\t\t\t<code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, \n\t\t\tspecify the value of <code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>If the specified endpoint has more than <code>MaxResults</code> IP addresses, you can submit another \n\t\t\t<code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, \n\t\t\tspecify the value of <code>NextToken</code> from the previous response. </p>"
           }
         }
       }
@@ -1232,7 +1237,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Lists all the resolver endpoints that were created using the current AWS account.</p>\n\n\t\t    \n\t\t\n\t     ",
+        "smithy.api#documentation": "<p>Lists all the resolver endpoints that were created using the current AWS account.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1246,20 +1251,20 @@
         "Filters": {
           "target": "com.amazonaws.route53resolver#Filters",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>An optional specification to return a subset of resolver endpoints, such as all inbound resolver endpoints.</p>\n\t\t       <note>\n            <p>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and specify the <code>NextToken</code> parameter, \n\t\t\tyou must use the same values for <code>Filters</code>, if any, as in the previous request.</p>\n         </note>\n      \n\t\t\n\t     "
+            "smithy.api#documentation": "<p>An optional specification to return a subset of resolver endpoints, such as all inbound resolver endpoints.</p>\n\t\t       <note>\n            <p>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and specify the <code>NextToken</code> parameter, \n\t\t\tyou must use the same values for <code>Filters</code>, if any, as in the previous request.</p>\n         </note>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>The maximum number of resolver endpoints that you want to return in the response to a <code>ListResolverEndpoints</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 resolver endpoints. </p>\n\t     "
+            "smithy.api#documentation": "<p>The maximum number of resolver endpoints that you want to return in the response to a <code>ListResolverEndpoints</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 resolver endpoints. </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For the first <code>ListResolverEndpoints</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request \n\t\t\tto get the next group of resolver endpoints. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>For the first <code>ListResolverEndpoints</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request \n\t\t\tto get the next group of resolver endpoints. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"
           }
         }
       }
@@ -1270,19 +1275,19 @@
         "MaxResults": {
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The value that you specified for <code>MaxResults</code> in the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The value that you specified for <code>MaxResults</code> in the request.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>If more than <code>MaxResults</code> IP addresses match the specified criteria, you can submit another <code>ListResolverEndpoint</code> request \n\t\t\tto get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>If more than <code>MaxResults</code> IP addresses match the specified criteria, you can submit another <code>ListResolverEndpoint</code> request \n\t\t\tto get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"
           }
         },
         "ResolverEndpoints": {
           "target": "com.amazonaws.route53resolver#ResolverEndpoints",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The resolver endpoints that were created by using the current AWS account, and that match the specified filters, if any.</p>\n\t     "
+            "smithy.api#documentation": "<p>The resolver endpoints that were created by using the current AWS account, and that match the specified filters, if any.</p>"
           }
         }
       }
@@ -1313,7 +1318,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Lists the associations that were created between resolver rules and VPCs using the current AWS account.</p>\n\t\t\n\t\t    \n\n\t     ",
+        "smithy.api#documentation": "<p>Lists the associations that were created between resolver rules and VPCs using the current AWS account.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1327,20 +1332,20 @@
         "Filters": {
           "target": "com.amazonaws.route53resolver#Filters",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>An optional specification to return a subset of resolver rules, such as resolver rules that are associated with the same VPC ID.</p>\n\t\t       <note>\n            <p>If you submit a second or subsequent <code>ListResolverRuleAssociations</code> request and specify the <code>NextToken</code> parameter, \n\t\t\tyou must use the same values for <code>Filters</code>, if any, as in the previous request.</p>\n         </note>\n      \t\t\n\n\t     "
+            "smithy.api#documentation": "<p>An optional specification to return a subset of resolver rules, such as resolver rules that are associated with the same VPC ID.</p>\n\t\t       <note>\n            <p>If you submit a second or subsequent <code>ListResolverRuleAssociations</code> request and specify the <code>NextToken</code> parameter, \n\t\t\tyou must use the same values for <code>Filters</code>, if any, as in the previous request.</p>\n         </note>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>\n\t     "
+            "smithy.api#documentation": "<p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request \n\t\t\tto get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request \n\t\t\tto get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"
           }
         }
       }
@@ -1351,19 +1356,19 @@
         "MaxResults": {
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The value that you specified for <code>MaxResults</code> in the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The value that you specified for <code>MaxResults</code> in the request.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>If more than <code>MaxResults</code> rule associations match the specified criteria, you can submit another \n\t\t\t<code>ListResolverRuleAssociation</code> request to get the next group of results. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>If more than <code>MaxResults</code> rule associations match the specified criteria, you can submit another \n\t\t\t<code>ListResolverRuleAssociation</code> request to get the next group of results. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>"
           }
         },
         "ResolverRuleAssociations": {
           "target": "com.amazonaws.route53resolver#ResolverRuleAssociations",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The associations that were created between resolver rules and VPCs using the current AWS account, and that match the \n\t\t\tspecified filters, if any.</p>\n\t     "
+            "smithy.api#documentation": "<p>The associations that were created between resolver rules and VPCs using the current AWS account, and that match the \n\t\t\tspecified filters, if any.</p>"
           }
         }
       }
@@ -1394,7 +1399,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Lists the resolver rules that were created using the current AWS account.</p>\n\n\t\t    \n\t\t\n\t     ",
+        "smithy.api#documentation": "<p>Lists the resolver rules that were created using the current AWS account.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1408,20 +1413,20 @@
         "Filters": {
           "target": "com.amazonaws.route53resolver#Filters",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>An optional specification to return a subset of resolver rules, such as all resolver rules that are associated with the same resolver endpoint.</p>\n\t\t       <note>\n            <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter, \n\t\t\tyou must use the same values for <code>Filters</code>, if any, as in the previous request.</p>\n         </note>\n\n      \n\t\t\n\t     "
+            "smithy.api#documentation": "<p>An optional specification to return a subset of resolver rules, such as all resolver rules that are associated with the same resolver endpoint.</p>\n\t\t       <note>\n            <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter, \n\t\t\tyou must use the same values for <code>Filters</code>, if any, as in the previous request.</p>\n         </note>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>The maximum number of resolver rules that you want to return in the response to a <code>ListResolverRules</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 resolver rules.</p>\n\t     "
+            "smithy.api#documentation": "<p>The maximum number of resolver rules that you want to return in the response to a <code>ListResolverRules</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 resolver rules.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For the first <code>ListResolverRules</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> resolver rules, you can submit another <code>ListResolverRules</code> request \n\t\t\tto get the next group of resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>For the first <code>ListResolverRules</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> resolver rules, you can submit another <code>ListResolverRules</code> request \n\t\t\tto get the next group of resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"
           }
         }
       }
@@ -1432,19 +1437,19 @@
         "MaxResults": {
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The value that you specified for <code>MaxResults</code> in the request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The value that you specified for <code>MaxResults</code> in the request.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>If more than <code>MaxResults</code> resolver rules match the specified criteria, you can submit another \n\t\t\t<code>ListResolverRules</code> request to get the next group of results. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>If more than <code>MaxResults</code> resolver rules match the specified criteria, you can submit another \n\t\t\t<code>ListResolverRules</code> request to get the next group of results. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>"
           }
         },
         "ResolverRules": {
           "target": "com.amazonaws.route53resolver#ResolverRules",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The resolver rules that were created using the current AWS account and that match the specified filters, if any.</p>\n\t     "
+            "smithy.api#documentation": "<p>The resolver rules that were created using the current AWS account and that match the specified filters, if any.</p>"
           }
         }
       }
@@ -1478,7 +1483,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Lists the tags that you associated with the specified resource.</p>\n\t\t\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Lists the tags that you associated with the specified resource.</p>"
       }
     },
     "com.amazonaws.route53resolver#ListTagsForResourceRequest": {
@@ -1488,19 +1493,19 @@
           "target": "com.amazonaws.route53resolver#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>The maximum number of tags that you want to return in the response to a <code>ListTagsForResource</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 tags.</p>\n\t     "
+            "smithy.api#documentation": "<p>The maximum number of tags that you want to return in the response to a <code>ListTagsForResource</code> request. \n\t\t\tIf you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 tags.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For the first <code>ListTagsForResource</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request \n\t\t\tto get the next group of tags for the resource. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>For the first <code>ListTagsForResource</code> request, omit this value.</p>\n\t\t       <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request \n\t\t\tto get the next group of tags for the resource. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.route53resolver#Arn",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) for the resource that you want to list tags for.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the resource that you want to list tags for.</p>",
             "smithy.api#required": true
           }
         }
@@ -1512,13 +1517,13 @@
         "NextToken": {
           "target": "com.amazonaws.route53resolver#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>If more than <code>MaxResults</code> tags match the specified criteria, you can submit another \n\t\t\t<code>ListTagsForResource</code> request to get the next group of results. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>\n\t     "
+            "smithy.api#documentation": "<p>If more than <code>MaxResults</code> tags match the specified criteria, you can submit another \n\t\t\t<code>ListTagsForResource</code> request to get the next group of results. In the next request, specify the value of \n\t\t\t<code>NextToken</code> from the previous response. </p>"
           }
         },
         "Tags": {
           "target": "com.amazonaws.route53resolver#TagList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request.</p>"
           }
         }
       }
@@ -1579,7 +1584,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Specifies the Resolver operations and resources that you want to allow another AWS account to be able to use.</p>\n\n\t\t    \n\t\t\n\t\t\n\n\t     "
+        "smithy.api#documentation": "<p>Specifies the Resolver operations and resources that you want to allow another AWS account to be able to use.</p>"
       }
     },
     "com.amazonaws.route53resolver#PutResolverRulePolicyRequest": {
@@ -1588,14 +1593,14 @@
         "Arn": {
           "target": "com.amazonaws.route53resolver#Arn",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the account that you want to grant permissions to.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the account that you want to grant permissions to.</p>",
             "smithy.api#required": true
           }
         },
         "ResolverRulePolicy": {
           "target": "com.amazonaws.route53resolver#ResolverRulePolicy",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>An AWS Identity and Access Management policy statement that lists the permissions that you want to grant to another AWS account.</p>\n\t     ",
+            "smithy.api#documentation": "<p>An AWS Identity and Access Management policy statement that lists the permissions that you want to grant to another AWS account.</p>",
             "smithy.api#required": true
           }
         }
@@ -1607,12 +1612,12 @@
         "ReturnValue": {
           "target": "com.amazonaws.route53resolver#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Whether the <code>PutResolverRulePolicy</code> request was successful.</p>\n\t     "
+            "smithy.api#documentation": "<p>Whether the <code>PutResolverRulePolicy</code> request was successful.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The response to a <code>PutResolverRulePolicy</code> request.</p>\n\t     "
+        "smithy.api#documentation": "<p>The response to a <code>PutResolverRulePolicy</code> request.</p>"
       }
     },
     "com.amazonaws.route53resolver#ResolverEndpoint": {
@@ -1621,78 +1626,78 @@
         "Arn": {
           "target": "com.amazonaws.route53resolver#Arn",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ARN (Amazon Resource Name) for the resolver endpoint.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) for the resolver endpoint.</p>"
           }
         },
         "CreationTime": {
           "target": "com.amazonaws.route53resolver#Rfc3339TimeString",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The date and time that the endpoint was created, in Unix time format and Coordinated Universal Time (UTC).</p>\n\t     "
+            "smithy.api#documentation": "<p>The date and time that the endpoint was created, in Unix time format and Coordinated Universal Time (UTC).</p>"
           }
         },
         "CreatorRequestId": {
           "target": "com.amazonaws.route53resolver#CreatorRequestId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A unique string that identifies the request that created the resolver endpoint. The <code>CreatorRequestId</code> allows failed requests \n\t\t\tto be retried without the risk of executing the operation twice.</p>\n\t     "
+            "smithy.api#documentation": "<p>A unique string that identifies the request that created the resolver endpoint. The <code>CreatorRequestId</code> allows failed requests \n\t\t\tto be retried without the risk of executing the operation twice.</p>"
           }
         },
         "Direction": {
           "target": "com.amazonaws.route53resolver#ResolverEndpointDirection",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Indicates whether the resolver endpoint allows inbound or outbound DNS queries:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>INBOUND</code>: allows DNS queries to your VPC from your network or another VPC</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUTBOUND</code>: allows DNS queries from your VPC to your network or another VPC</p>\n            </li>\n         </ul>\n\t     "
+            "smithy.api#documentation": "<p>Indicates whether the resolver endpoint allows inbound or outbound DNS queries:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>INBOUND</code>: allows DNS queries to your VPC from your network or another VPC</p>\n            </li>\n            <li>\n               <p>\n                  <code>OUTBOUND</code>: allows DNS queries from your VPC to your network or another VPC</p>\n            </li>\n         </ul>"
           }
         },
         "HostVPCId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the VPC that you want to create the resolver endpoint in.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the VPC that you want to create the resolver endpoint in.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver endpoint.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the resolver endpoint.</p>"
           }
         },
         "IpAddressCount": {
           "target": "com.amazonaws.route53resolver#IpAddressCount",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The number of IP addresses that the resolver endpoint can use for DNS queries.</p>\n\t     "
+            "smithy.api#documentation": "<p>The number of IP addresses that the resolver endpoint can use for DNS queries.</p>"
           }
         },
         "ModificationTime": {
           "target": "com.amazonaws.route53resolver#Rfc3339TimeString",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>\n\t     "
+            "smithy.api#documentation": "<p>The date and time that the endpoint was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The name that you assigned to the resolver endpoint when you submitted a <a>CreateResolverEndpoint</a> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The name that you assigned to the resolver endpoint when you submitted a <a>CreateResolverEndpoint</a> request.</p>"
           }
         },
         "SecurityGroupIds": {
           "target": "com.amazonaws.route53resolver#SecurityGroupIds",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound resolver rules.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound resolver rules.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.route53resolver#ResolverEndpointStatus",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A code that specifies the current status of the resolver endpoint.</p>\n\t     "
+            "smithy.api#documentation": "<p>A code that specifies the current status of the resolver endpoint.</p>"
           }
         },
         "StatusMessage": {
           "target": "com.amazonaws.route53resolver#StatusMessage",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A detailed description of the status of the resolver endpoint.</p>\n\t     "
+            "smithy.api#documentation": "<p>A detailed description of the status of the resolver endpoint.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>In the response to a <a>CreateResolverEndpoint</a>, <a>DeleteResolverEndpoint</a>, <a>GetResolverEndpoint</a>,\n\t\t\t<a>ListResolverEndpoints</a>, or <a>UpdateResolverEndpoint</a> request, a complex type that contains settings \n\t\t\tfor an existing inbound or outbound resolver endpoint.</p>\n\t     "
+        "smithy.api#documentation": "<p>In the response to a <a>CreateResolverEndpoint</a>, <a>DeleteResolverEndpoint</a>, <a>GetResolverEndpoint</a>,\n\t\t\t<a>ListResolverEndpoints</a>, or <a>UpdateResolverEndpoint</a> request, a complex type that contains settings \n\t\t\tfor an existing inbound or outbound resolver endpoint.</p>"
       }
     },
     "com.amazonaws.route53resolver#ResolverEndpointDirection": {
@@ -1745,78 +1750,78 @@
         "Arn": {
           "target": "com.amazonaws.route53resolver#Arn",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ARN (Amazon Resource Name) for the resolver rule specified by <code>Id</code>.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) for the resolver rule specified by <code>Id</code>.</p>"
           }
         },
         "CreatorRequestId": {
           "target": "com.amazonaws.route53resolver#CreatorRequestId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A unique string that you specified when you created the resolver rule. <code>CreatorRequestId</code>identifies the request and allows failed requests \n\t\t\tto be retried without the risk of executing the operation twice. </p>\n\t     "
+            "smithy.api#documentation": "<p>A unique string that you specified when you created the resolver rule. <code>CreatorRequestId</code>identifies the request and allows failed requests \n\t\t\tto be retried without the risk of executing the operation twice. </p>"
           }
         },
         "DomainName": {
           "target": "com.amazonaws.route53resolver#DomainName",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>DNS queries for this domain name are forwarded to the IP addresses that are specified in <code>TargetIps</code>. If a query matches \n\t\t\tmultiple resolver rules (example.com and www.example.com), the query is routed using the resolver rule that contains the most specific domain name \n\t\t\t(www.example.com).</p>\n\t     "
+            "smithy.api#documentation": "<p>DNS queries for this domain name are forwarded to the IP addresses that are specified in <code>TargetIps</code>. If a query matches \n\t\t\tmultiple resolver rules (example.com and www.example.com), the query is routed using the resolver rule that contains the most specific domain name \n\t\t\t(www.example.com).</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID that Resolver assigned to the resolver rule when you created it.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID that Resolver assigned to the resolver rule when you created it.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The name for the resolver rule, which you specified when you created the resolver rule.</p>\n\t     "
+            "smithy.api#documentation": "<p>The name for the resolver rule, which you specified when you created the resolver rule.</p>"
           }
         },
         "OwnerId": {
           "target": "com.amazonaws.route53resolver#AccountId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.</p>\n\t     "
+            "smithy.api#documentation": "<p>When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.</p>"
           }
         },
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the endpoint that the rule is associated with.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the endpoint that the rule is associated with.</p>"
           }
         },
         "RuleType": {
           "target": "com.amazonaws.route53resolver#RuleTypeOption",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>This value is always <code>FORWARD</code>. Other resolver rule types aren't supported.</p>\n\t     "
+            "smithy.api#documentation": "<p>This value is always <code>FORWARD</code>. Other resolver rule types aren't supported.</p>"
           }
         },
         "ShareStatus": {
           "target": "com.amazonaws.route53resolver#ShareStatus",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or \n\t\t\tanother account is sharing the rule with the current account.</p>\n\t     "
+            "smithy.api#documentation": "<p>Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or \n\t\t\tanother account is sharing the rule with the current account.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.route53resolver#ResolverRuleStatus",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A code that specifies the current status of the resolver rule.</p>\n\t     "
+            "smithy.api#documentation": "<p>A code that specifies the current status of the resolver rule.</p>"
           }
         },
         "StatusMessage": {
           "target": "com.amazonaws.route53resolver#StatusMessage",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A detailed description of the status of a resolver rule.</p>\n\t     "
+            "smithy.api#documentation": "<p>A detailed description of the status of a resolver rule.</p>"
           }
         },
         "TargetIps": {
           "target": "com.amazonaws.route53resolver#TargetList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>An array that contains the IP addresses and ports that you want to forward </p>\n\t     "
+            "smithy.api#documentation": "<p>An array that contains the IP addresses and ports that you want to forward </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>For queries that originate in your VPC, detailed information about a resolver rule, which specifies how to route DNS queries \n\t\t\tout of the VPC. The <code>ResolverRule</code> parameter appears in the response to a <a>CreateResolverRule</a>, \n\t\t\t<a>DeleteResolverRule</a>, <a>GetResolverRule</a>, <a>ListResolverRules</a>, or <a>UpdateResolverRule</a> \n\t\t\trequest.</p>\n\t     "
+        "smithy.api#documentation": "<p>For queries that originate in your VPC, detailed information about a resolver rule, which specifies how to route DNS queries \n\t\t\tout of the VPC. The <code>ResolverRule</code> parameter appears in the response to a <a>CreateResolverRule</a>, \n\t\t\t<a>DeleteResolverRule</a>, <a>GetResolverRule</a>, <a>ListResolverRules</a>, or <a>UpdateResolverRule</a> \n\t\t\trequest.</p>"
       }
     },
     "com.amazonaws.route53resolver#ResolverRuleAssociation": {
@@ -1825,42 +1830,42 @@
         "Id": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the association between a resolver rule and a VPC. Resolver assigns this value when you submit an \n\t\t\t<a>AssociateResolverRule</a> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the association between a resolver rule and a VPC. Resolver assigns this value when you submit an \n\t\t\t<a>AssociateResolverRule</a> request.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The name of an association between a resolver rule and a VPC.</p>\n\t     "
+            "smithy.api#documentation": "<p>The name of an association between a resolver rule and a VPC.</p>"
           }
         },
         "ResolverRuleId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule that you associated with the VPC that is specified by <code>VPCId</code>.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the resolver rule that you associated with the VPC that is specified by <code>VPCId</code>.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.route53resolver#ResolverRuleAssociationStatus",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A code that specifies the current status of the association between a resolver rule and a VPC.</p>\n\t     "
+            "smithy.api#documentation": "<p>A code that specifies the current status of the association between a resolver rule and a VPC.</p>"
           }
         },
         "StatusMessage": {
           "target": "com.amazonaws.route53resolver#StatusMessage",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A detailed description of the status of the association between a resolver rule and a VPC.</p>\n\t     "
+            "smithy.api#documentation": "<p>A detailed description of the status of the association between a resolver rule and a VPC.</p>"
           }
         },
         "VPCId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the VPC that you associated the resolver rule with.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the VPC that you associated the resolver rule with.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>In the response to an <a>AssociateResolverRule</a>,  \n\t\t\t<a>DisassociateResolverRule</a>, or <a>ListResolverRuleAssociations</a> request, \n\t\t\tinformation about an association between a resolver rule and a VPC.</p>\n\t     "
+        "smithy.api#documentation": "<p>In the response to an <a>AssociateResolverRule</a>,  \n\t\t\t<a>DisassociateResolverRule</a>, or <a>ListResolverRuleAssociations</a> request, \n\t\t\tinformation about an association between a resolver rule and a VPC.</p>"
       }
     },
     "com.amazonaws.route53resolver#ResolverRuleAssociationStatus": {
@@ -1897,24 +1902,24 @@
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The new name for the resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p>\n\t     "
+            "smithy.api#documentation": "<p>The new name for the resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p>"
           }
         },
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the new outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in \n\t\t\t<code>TargetIps</code>.</p>\n\t     "
+            "smithy.api#documentation": "<p>The ID of the new outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in \n\t\t\t<code>TargetIps</code>.</p>"
           }
         },
         "TargetIps": {
           "target": "com.amazonaws.route53resolver#TargetList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For DNS queries that originate in your VPC, the new IP addresses that you want to route outbound DNS queries to.</p>\n\t     "
+            "smithy.api#documentation": "<p>For DNS queries that originate in your VPC, the new IP addresses that you want to route outbound DNS queries to.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>In an <a>UpdateResolverRule</a> request, information about the changes that you want to make.</p>\n\t     "
+        "smithy.api#documentation": "<p>In an <a>UpdateResolverRule</a> request, information about the changes that you want to make.</p>"
       }
     },
     "com.amazonaws.route53resolver#ResolverRulePolicy": {
@@ -1960,12 +1965,12 @@
         "ResourceType": {
           "target": "com.amazonaws.route53resolver#String",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For a <code>ResourceExistsException</code> error, the type of resource that the error applies to.</p>\n\t     "
+            "smithy.api#documentation": "<p>For a <code>ResourceExistsException</code> error, the type of resource that the error applies to.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The resource that you tried to create already exists.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The resource that you tried to create already exists.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1987,12 +1992,12 @@
         "ResourceType": {
           "target": "com.amazonaws.route53resolver#String",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For a <code>ResourceInUseException</code> error, the type of resource that is currently in use.</p>\n\t     "
+            "smithy.api#documentation": "<p>For a <code>ResourceInUseException</code> error, the type of resource that is currently in use.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The resource that you tried to update or delete is currently in use.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The resource that you tried to update or delete is currently in use.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -2005,12 +2010,12 @@
         "ResourceType": {
           "target": "com.amazonaws.route53resolver#String",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>\n\t     "
+            "smithy.api#documentation": "<p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The specified resource doesn't exist.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The specified resource doesn't exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -2023,12 +2028,12 @@
         "ResourceType": {
           "target": "com.amazonaws.route53resolver#String",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>For a <code>ResourceUnavailableException</code> error, the type of resource that isn't available.</p>\n\t     "
+            "smithy.api#documentation": "<p>For a <code>ResourceUnavailableException</code> error, the type of resource that isn't available.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The specified resource isn't available.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The specified resource isn't available.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -2119,7 +2124,7 @@
           "cloudFormationName": "Route53Resolver",
           "cloudTrailEventSource": "route53resolver.amazonaws.com"
         },
-        "smithy.api#documentation": "\n\t\t       <p>Here's how you set up to query an Amazon Route 53 private hosted zone from your network:</p>\n\t\t\n\t\t       <ol>\n            <li>\n               <p>Connect your network to a VPC using AWS Direct Connect or a VPN.</p>\n            </li>\n            <li>\n               <p>Run the following AWS CLI command to create a Resolver endpoint:</p>\n\t\t\t\t           <p>\n                  <code>create-resolver-endpoint --name [endpoint_name] --direction INBOUND \n\t\t\t\t\t--creator-request-id [unique_string] --security-group-ids [security_group_with_inbound_rules] \n\t\t\t\t\t--ip-addresses SubnetId=[subnet_id] SubnetId=[subnet_id_in_different_AZ]</code>\n               </p>\n\t\t\t\t           <p>Note the resolver endpoint ID that appears in the response. You'll use it in step 3.</p>\n\t\t\t         </li>\n            <li>\n               <p>Get the IP addresses for the Resolver endpoints:</p>\n\t\t\t\t           <p>\n                  <code>get-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code>\n               </p>\n\t\t\t         </li>\n            <li>\n               <p>In your network configuration, define the IP addresses that you got in step 3 as DNS servers.</p>\n\t\t\t\t           <p>You can now query instance names in your VPCs and the names of records in your private hosted zone.</p>\n\t\t\t         </li>\n         </ol>\n\n\t\t       <p>You can also perform the following operations using the AWS CLI:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>list-resolver-endpoints</code>: List all endpoints. The syntax includes options for pagination and filtering.</p>\n            </li>\n            <li>\n               <p>\n                  <code>update-resolver-endpoints</code>: Add IP addresses to an endpoint or remove IP addresses from an endpoint. </p>\n            </li>\n         </ul>\n\n\t\t       <p>To delete an endpoint, use the following AWS CLI command:</p>\n\t\t       <p>\n            <code>delete-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code>\n         </p>\n\n\t     ",
+        "smithy.api#documentation": "<p>Here's how you set up to query an Amazon Route 53 private hosted zone from your network:</p>\n\t\t\n\t\t       <ol>\n            <li>\n               <p>Connect your network to a VPC using AWS Direct Connect or a VPN.</p>\n            </li>\n            <li>\n               <p>Run the following AWS CLI command to create a Resolver endpoint:</p>\n\t\t\t\t           <p>\n                  <code>create-resolver-endpoint --name [endpoint_name] --direction INBOUND \n\t\t\t\t\t--creator-request-id [unique_string] --security-group-ids [security_group_with_inbound_rules] \n\t\t\t\t\t--ip-addresses SubnetId=[subnet_id] SubnetId=[subnet_id_in_different_AZ]</code>\n               </p>\n\t\t\t\t           <p>Note the resolver endpoint ID that appears in the response. You'll use it in step 3.</p>\n\t\t\t         </li>\n            <li>\n               <p>Get the IP addresses for the Resolver endpoints:</p>\n\t\t\t\t           <p>\n                  <code>get-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code>\n               </p>\n\t\t\t         </li>\n            <li>\n               <p>In your network configuration, define the IP addresses that you got in step 3 as DNS servers.</p>\n\t\t\t\t           <p>You can now query instance names in your VPCs and the names of records in your private hosted zone.</p>\n\t\t\t         </li>\n         </ol>\n\n\t\t       <p>You can also perform the following operations using the AWS CLI:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <code>list-resolver-endpoints</code>: List all endpoints. The syntax includes options for pagination and filtering.</p>\n            </li>\n            <li>\n               <p>\n                  <code>update-resolver-endpoints</code>: Add IP addresses to an endpoint or remove IP addresses from an endpoint. </p>\n            </li>\n         </ul>\n\n\t\t       <p>To delete an endpoint, use the following AWS CLI command:</p>\n\t\t       <p>\n            <code>delete-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code>\n         </p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -2196,18 +2201,18 @@
         "Key": {
           "target": "com.amazonaws.route53resolver#TagKey",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes, \n\t\t\tthe value of <code>Key</code> might be <code>account-id</code>.</p>\n\t     "
+            "smithy.api#documentation": "<p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes, \n\t\t\tthe value of <code>Key</code> might be <code>account-id</code>.</p>"
           }
         },
         "Value": {
           "target": "com.amazonaws.route53resolver#TagValue",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The value for the tag. For example, if <code>Key</code> is <code>account-id</code>, then <code>Value</code> might be the ID of the \n\t\t\tcustomer account that you're creating the resource for.</p>\n\t     "
+            "smithy.api#documentation": "<p>The value for the tag. For example, if <code>Key</code> is <code>account-id</code>, then <code>Value</code> might be the ID of the \n\t\t\tcustomer account that you're creating the resource for.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.</p>\n\t     "
+        "smithy.api#documentation": "<p>One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.</p>"
       }
     },
     "com.amazonaws.route53resolver#TagKey": {
@@ -2254,7 +2259,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Adds one or more tags to a specified resource.</p>\n\t\t\n\t\t    \n\n\t     "
+        "smithy.api#documentation": "<p>Adds one or more tags to a specified resource.</p>"
       }
     },
     "com.amazonaws.route53resolver#TagResourceRequest": {
@@ -2263,14 +2268,14 @@
         "ResourceArn": {
           "target": "com.amazonaws.route53resolver#Arn",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get the ARN for a resource, use the applicable \n\t\t\t<code>Get</code> or <code>List</code> command: </p>\n\t\t\t      <ul>\n            <li>\n               <p>\n                  <a>GetResolverEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRule</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRuleAssociation</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverEndpoints</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRuleAssociations</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRules</a>\n               </p>\n            </li>\n         </ul>\n\t     ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get the ARN for a resource, use the applicable \n\t\t\t<code>Get</code> or <code>List</code> command: </p>\n\t\t\t      <ul>\n            <li>\n               <p>\n                  <a>GetResolverEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRule</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRuleAssociation</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverEndpoints</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRuleAssociations</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRules</a>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.route53resolver#TagList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The tags that you want to add to the specified resource.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The tags that you want to add to the specified resource.</p>",
             "smithy.api#required": true
           }
         }
@@ -2289,7 +2294,7 @@
         "Ip": {
           "target": "com.amazonaws.route53resolver#Ip",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.</p>\n\t     ",
+            "smithy.api#documentation": "<p>One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.</p>",
             "smithy.api#required": true
           }
         },
@@ -2297,12 +2302,12 @@
           "target": "com.amazonaws.route53resolver#Port",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>\n\t     "
+            "smithy.api#documentation": "<p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>In a <a>CreateResolverRule</a> request, an array of the IPs that you want to forward DNS queries to.</p>\n\t     "
+        "smithy.api#documentation": "<p>In a <a>CreateResolverRule</a> request, an array of the IPs that you want to forward DNS queries to.</p>"
       }
     },
     "com.amazonaws.route53resolver#TargetList": {
@@ -2324,7 +2329,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The request was throttled. Try again in a few minutes.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The request was throttled. Try again in a few minutes.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -2336,7 +2341,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>The specified resource doesn't exist.</p>\n\t     ",
+        "smithy.api#documentation": "<p>The specified resource doesn't exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -2363,7 +2368,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Removes one or more tags from a specified resource.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Removes one or more tags from a specified resource.</p>"
       }
     },
     "com.amazonaws.route53resolver#UntagResourceRequest": {
@@ -2372,14 +2377,14 @@
         "ResourceArn": {
           "target": "com.amazonaws.route53resolver#Arn",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable \n\t\t\t<code>Get</code> or <code>List</code> command: </p>\n\t\t\t      <ul>\n            <li>\n               <p>\n                  <a>GetResolverEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRule</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRuleAssociation</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverEndpoints</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRuleAssociations</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRules</a>\n               </p>\n            </li>\n         </ul>\n\t     ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable \n\t\t\t<code>Get</code> or <code>List</code> command: </p>\n\t\t\t      <ul>\n            <li>\n               <p>\n                  <a>GetResolverEndpoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRule</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetResolverRuleAssociation</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverEndpoints</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRuleAssociations</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListResolverRules</a>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.route53resolver#TagKeyList",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The tags that you want to remove to the specified resource.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The tags that you want to remove to the specified resource.</p>",
             "smithy.api#required": true
           }
         }
@@ -2415,7 +2420,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Updates the name of an inbound or an outbound resolver endpoint.  </p>\n\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Updates the name of an inbound or an outbound resolver endpoint.  </p>"
       }
     },
     "com.amazonaws.route53resolver#UpdateResolverEndpointRequest": {
@@ -2424,13 +2429,13 @@
         "Name": {
           "target": "com.amazonaws.route53resolver#Name",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The name of the resolver endpoint that you want to update.</p>\n\t     "
+            "smithy.api#documentation": "<p>The name of the resolver endpoint that you want to update.</p>"
           }
         },
         "ResolverEndpointId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver endpoint that you want to update.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver endpoint that you want to update.</p>",
             "smithy.api#required": true
           }
         }
@@ -2442,7 +2447,7 @@
         "ResolverEndpoint": {
           "target": "com.amazonaws.route53resolver#ResolverEndpoint",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The response to an <code>UpdateResolverEndpoint</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The response to an <code>UpdateResolverEndpoint</code> request.</p>"
           }
         }
       }
@@ -2479,7 +2484,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Updates settings for a specified resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional. \n\t\t\tIf you don't specify a parameter, it retains its current value.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+        "smithy.api#documentation": "<p>Updates settings for a specified resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional. \n\t\t\tIf you don't specify a parameter, it retains its current value.</p>"
       }
     },
     "com.amazonaws.route53resolver#UpdateResolverRuleRequest": {
@@ -2488,14 +2493,14 @@
         "Config": {
           "target": "com.amazonaws.route53resolver#ResolverRuleConfig",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The new settings for the resolver rule.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The new settings for the resolver rule.</p>",
             "smithy.api#required": true
           }
         },
         "ResolverRuleId": {
           "target": "com.amazonaws.route53resolver#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The ID of the resolver rule that you want to update.</p>\n\t     ",
+            "smithy.api#documentation": "<p>The ID of the resolver rule that you want to update.</p>",
             "smithy.api#required": true
           }
         }
@@ -2507,7 +2512,7 @@
         "ResolverRule": {
           "target": "com.amazonaws.route53resolver#ResolverRule",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The response to an <code>UpdateResolverRule</code> request.</p>\n\t     "
+            "smithy.api#documentation": "<p>The response to an <code>UpdateResolverRule</code> request.</p>"
           }
         }
       }

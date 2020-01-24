@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -31,18 +36,18 @@
         "BlockIndex": {
           "target": "com.amazon.zeppelindataservice#BlockIndex",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block index.</p>\n      "
+            "smithy.api#documentation": "<p>The block index.</p>"
           }
         },
         "BlockToken": {
           "target": "com.amazon.zeppelindataservice#BlockToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block token for the block index.</p>\n      "
+            "smithy.api#documentation": "<p>The block token for the block index.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A block of data in an Amazon Elastic Block Store snapshot.</p>\n      "
+        "smithy.api#documentation": "<p>A block of data in an Amazon Elastic Block Store snapshot.</p>"
       }
     },
     "com.amazon.zeppelindataservice#BlockData": {
@@ -88,24 +93,24 @@
         "BlockIndex": {
           "target": "com.amazon.zeppelindataservice#BlockIndex",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block index.</p>\n      "
+            "smithy.api#documentation": "<p>The block index.</p>"
           }
         },
         "FirstBlockToken": {
           "target": "com.amazon.zeppelindataservice#BlockToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block token for the block index of the <code>first snapshot ID</code> specified in\n            the <code>list changed blocks</code> operation. This value is absent if the first\n            snapshot does not have the changed block that is on the second snapshot.</p>\n      "
+            "smithy.api#documentation": "<p>The block token for the block index of the <code>first snapshot ID</code> specified in\n            the <code>list changed blocks</code> operation. This value is absent if the first\n            snapshot does not have the changed block that is on the second snapshot.</p>"
           }
         },
         "SecondBlockToken": {
           "target": "com.amazon.zeppelindataservice#BlockToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block token for the block index of the <code>second snapshot ID</code> specified\n            in the <code>list changed blocks</code> operation.</p>\n      "
+            "smithy.api#documentation": "<p>The block token for the block index of the <code>second snapshot ID</code> specified\n            in the <code>list changed blocks</code> operation.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of\n            the same volume/snapshot lineage.</p>\n      ",
+        "smithy.api#documentation": "<p>A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of\n            the same volume/snapshot lineage.</p>",
         "smithy.api#sensitive": true
       }
     },
@@ -165,7 +170,7 @@
           "cloudFormationName": "EBS",
           "cloudTrailEventSource": "zeppelindataservice.amazon.com"
         },
-        "smithy.api#documentation": "\n        <p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS\n            snapshots, and identify the difference between two snapshots. You can view the details\n            of blocks in an EBS snapshot, compare the block difference between two snapshots, and\n            directly access the data in a snapshot. If you’re an independent software vendor (ISV)\n            who offers backup services for EBS, the EBS direct APIs makes it easier and more\n            cost-effective to track incremental changes on your EBS volumes via EBS snapshots. This\n            can be done without having to create new volumes from EBS snapshots, and then use EC2\n            instances to compare the differences.</p>\n\n\n        <p>This API reference provides detailed information about the actions, data types,\n            parameters, and errors of the EBS direct APIs. For more information about the elements that\n            make up the EBS direct APIs, and examples of how to use them effectively, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html\">Accessing the Contents of an EBS Snapshot</a>. For more information about how\n            to use the EBS direct APIs, see the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshots.html\">EBS direct APIs User Guide</a>. To view the currently supported AWS Regions and\n            endpoints for the EBS direct APIs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#ebs_region\">AWS\n                Service Endpoints</a> in the <i>AWS General\n            Reference</i>.</p>\n      ",
+        "smithy.api#documentation": "<p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS\n            snapshots, and identify the difference between two snapshots. You can view the details\n            of blocks in an EBS snapshot, compare the block difference between two snapshots, and\n            directly access the data in a snapshot. If you’re an independent software vendor (ISV)\n            who offers backup services for EBS, the EBS direct APIs makes it easier and more\n            cost-effective to track incremental changes on your EBS volumes via EBS snapshots. This\n            can be done without having to create new volumes from EBS snapshots, and then use EC2\n            instances to compare the differences.</p>\n\n\n        <p>This API reference provides detailed information about the actions, data types,\n            parameters, and errors of the EBS direct APIs. For more information about the elements that\n            make up the EBS direct APIs, and examples of how to use them effectively, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html\">Accessing the Contents of an EBS Snapshot</a>. For more information about how\n            to use the EBS direct APIs, see the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshots.html\">EBS direct APIs User Guide</a>. To view the currently supported AWS Regions and\n            endpoints for the EBS direct APIs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#ebs_region\">AWS\n                Service Endpoints</a> in the <i>AWS General\n            Reference</i>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -203,7 +208,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/snapshots/{SnapshotId}/blocks/{BlockIndex}",
@@ -217,7 +222,7 @@
         "BlockIndex": {
           "target": "com.amazon.zeppelindataservice#BlockIndex",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block index of the block from which to get data.</p>\n\n\n        <p>Obtain the <code>block index</code> by running the <code>list changed blocks</code> or\n                <code>list snapshot blocks</code> operations.</p>\n      ",
+            "smithy.api#documentation": "<p>The block index of the block from which to get data.</p>\n\n\n        <p>Obtain the <code>block index</code> by running the <code>list changed blocks</code> or\n                <code>list snapshot blocks</code> operations.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -225,7 +230,7 @@
         "BlockToken": {
           "target": "com.amazon.zeppelindataservice#BlockToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block token of the block from which to get data.</p>\n\n\n        <p>Obtain the <code>block token</code> by running the <code>list changed blocks</code> or\n                <code>list snapshot blocks</code> operations.</p>\n      ",
+            "smithy.api#documentation": "<p>The block token of the block from which to get data.</p>\n\n\n        <p>Obtain the <code>block token</code> by running the <code>list changed blocks</code> or\n                <code>list snapshot blocks</code> operations.</p>",
             "smithy.api#httpQuery": "blockToken",
             "smithy.api#required": true
           }
@@ -233,7 +238,7 @@
         "SnapshotId": {
           "target": "com.amazon.zeppelindataservice#SnapshotId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the snapshot containing the block from which to get data.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the snapshot containing the block from which to get data.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -246,7 +251,7 @@
         "BlockData": {
           "target": "com.amazon.zeppelindataservice#BlockData",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The data content of the block.</p>\n      ",
+            "smithy.api#documentation": "<p>The data content of the block.</p>",
             "smithy.api#httpPayload": true,
             "smithy.api#streaming": { }
           }
@@ -254,21 +259,21 @@
         "Checksum": {
           "target": "com.amazon.zeppelindataservice#Checksum",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The checksum generated for the block.</p>\n      ",
+            "smithy.api#documentation": "<p>The checksum generated for the block.</p>",
             "smithy.api#httpHeader": "x-amz-Checksum"
           }
         },
         "ChecksumAlgorithm": {
           "target": "com.amazon.zeppelindataservice#ChecksumAlgorithm",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>\n      ",
+            "smithy.api#documentation": "<p>The algorithm used to generate the checksum for the block, such as SHA256.</p>",
             "smithy.api#httpHeader": "x-amz-Checksum-Algorithm"
           }
         },
         "DataLength": {
           "target": "com.amazon.zeppelindataservice#DataLength",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the data in the block.</p>\n      ",
+            "smithy.api#documentation": "<p>The size of the data in the block.</p>",
             "smithy.api#httpHeader": "x-amz-Data-Length"
           }
         }
@@ -291,7 +296,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Returns the block indexes and block tokens for blocks that are different between two\n            Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns the block indexes and block tokens for blocks that are different between two\n            Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/snapshots/{SecondSnapshotId}/changedblocks",
@@ -310,28 +315,28 @@
         "FirstSnapshotId": {
           "target": "com.amazon.zeppelindataservice#SnapshotId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the first snapshot to use for the comparison.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the first snapshot to use for the comparison.</p>",
             "smithy.api#httpQuery": "firstSnapshotId"
           }
         },
         "MaxResults": {
           "target": "com.amazon.zeppelindataservice#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The number of results to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
           "target": "com.amazon.zeppelindataservice#PageToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The token to request the next page of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
             "smithy.api#httpQuery": "pageToken"
           }
         },
         "SecondSnapshotId": {
           "target": "com.amazon.zeppelindataservice#SnapshotId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the second snapshot to use for the comparison.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the second snapshot to use for the comparison.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -339,7 +344,7 @@
         "StartingBlockIndex": {
           "target": "com.amazon.zeppelindataservice#BlockIndex",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block index from which the comparison should start.</p>\n\n\n        <p>The list in the response will start from this block index or the next valid block\n            index in the snapshots.</p>\n      ",
+            "smithy.api#documentation": "<p>The block index from which the comparison should start.</p>\n\n\n        <p>The list in the response will start from this block index or the next valid block\n            index in the snapshots.</p>",
             "smithy.api#httpQuery": "startingBlockIndex"
           }
         }
@@ -351,31 +356,31 @@
         "BlockSize": {
           "target": "com.amazon.zeppelindataservice#BlockSize",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the block.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the block.</p>"
           }
         },
         "ChangedBlocks": {
           "target": "com.amazon.zeppelindataservice#ChangedBlocks",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An array of objects containing information about the changed blocks.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects containing information about the changed blocks.</p>"
           }
         },
         "ExpiryTime": {
           "target": "com.amazon.zeppelindataservice#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the <code>block token</code> expires.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the <code>block token</code> expires.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazon.zeppelindataservice#PageToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The token to use to retrieve the next page of results. This value is null when there\n            are no more results to return.</p>\n      "
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there\n            are no more results to return.</p>"
           }
         },
         "VolumeSize": {
           "target": "com.amazon.zeppelindataservice#VolumeSize",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the volume in GB.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the volume in GB.</p>"
           }
         }
       }
@@ -397,7 +402,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n        <p>Returns the block indexes and block tokens for blocks in an Amazon Elastic Block Store snapshot.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns the block indexes and block tokens for blocks in an Amazon Elastic Block Store snapshot.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/snapshots/{SnapshotId}/blocks",
@@ -416,21 +421,21 @@
         "MaxResults": {
           "target": "com.amazon.zeppelindataservice#MaxResults",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The number of results to return.</p>\n      ",
+            "smithy.api#documentation": "<p>The number of results to return.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
           "target": "com.amazon.zeppelindataservice#PageToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The token to request the next page of results.</p>\n      ",
+            "smithy.api#documentation": "<p>The token to request the next page of results.</p>",
             "smithy.api#httpQuery": "pageToken"
           }
         },
         "SnapshotId": {
           "target": "com.amazon.zeppelindataservice#SnapshotId",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The ID of the snapshot from which to get block indexes and block tokens.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the snapshot from which to get block indexes and block tokens.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -438,7 +443,7 @@
         "StartingBlockIndex": {
           "target": "com.amazon.zeppelindataservice#BlockIndex",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The block index from which the list should start. The list in the response will start\n            from this block index or the next valid block index in the snapshot.</p>\n      ",
+            "smithy.api#documentation": "<p>The block index from which the list should start. The list in the response will start\n            from this block index or the next valid block index in the snapshot.</p>",
             "smithy.api#httpQuery": "startingBlockIndex"
           }
         }
@@ -450,31 +455,31 @@
         "BlockSize": {
           "target": "com.amazon.zeppelindataservice#BlockSize",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the block.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the block.</p>"
           }
         },
         "Blocks": {
           "target": "com.amazon.zeppelindataservice#Blocks",
           "traits": {
-            "smithy.api#documentation": "\n        <p>An array of objects containing information about the blocks.</p>\n      "
+            "smithy.api#documentation": "<p>An array of objects containing information about the blocks.</p>"
           }
         },
         "ExpiryTime": {
           "target": "com.amazon.zeppelindataservice#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The time when the <code>block token</code> expires.</p>\n      "
+            "smithy.api#documentation": "<p>The time when the <code>block token</code> expires.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazon.zeppelindataservice#PageToken",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The token to use to retrieve the next page of results. This value is null when there\n            are no more results to return.</p>\n      "
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there\n            are no more results to return.</p>"
           }
         },
         "VolumeSize": {
           "target": "com.amazon.zeppelindataservice#VolumeSize",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The size of the volume in GB.</p>\n      "
+            "smithy.api#documentation": "<p>The size of the volume in GB.</p>"
           }
         }
       }
@@ -507,7 +512,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The specified resource does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified resource does not exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -534,12 +539,12 @@
         "Reason": {
           "target": "com.amazon.zeppelindataservice#ValidationExceptionReason",
           "traits": {
-            "smithy.api#documentation": "\n        <p>The reason for the validation exception.</p>\n      "
+            "smithy.api#documentation": "<p>The reason for the validation exception.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n        <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>\n      ",
+        "smithy.api#documentation": "<p>The input fails to satisfy the constraints of the EBS direct APIs.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
