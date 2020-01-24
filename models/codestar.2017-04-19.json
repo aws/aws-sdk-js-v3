@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -57,7 +62,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds an IAM user to the team for an AWS CodeStar project.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Adds an IAM user to the team for an AWS CodeStar project.</p>"
       }
     },
     "com.amazonaws.codestar#AssociateTeamMemberRequest": {
@@ -66,20 +71,20 @@
         "clientRequestToken": {
           "target": "com.amazonaws.codestar#ClientRequestToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A user- or system-generated token that identifies the entity that requested the team\n      member association to the project. This token can be used to repeat the request.</p>\n      "
+            "smithy.api#documentation": "<p>A user- or system-generated token that identifies the entity that requested the team\n      member association to the project. This token can be used to repeat the request.</p>"
           }
         },
         "projectId": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project to which you will add the IAM user.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project to which you will add the IAM user.</p>",
             "smithy.api#required": true
           }
         },
         "projectRole": {
           "target": "com.amazonaws.codestar#Role",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The AWS CodeStar project role that will apply to this user. This role determines what actions\n      a user can take in an AWS CodeStar project.</p>\n      ",
+            "smithy.api#documentation": "<p>The AWS CodeStar project role that will apply to this user. This role determines what actions\n      a user can take in an AWS CodeStar project.</p>",
             "smithy.api#required": true
           }
         },
@@ -87,13 +92,13 @@
           "target": "com.amazonaws.codestar#RemoteAccessAllowed",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>Whether the team member is allowed to use an SSH public/private key pair to remotely\n      access project resources, for example Amazon EC2 instances.</p>\n      "
+            "smithy.api#documentation": "<p>Whether the team member is allowed to use an SSH public/private key pair to remotely\n      access project resources, for example Amazon EC2 instances.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar\n      project.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar\n      project.</p>",
             "smithy.api#required": true
           }
         }
@@ -105,7 +110,7 @@
         "clientRequestToken": {
           "target": "com.amazonaws.codestar#ClientRequestToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The user- or system-generated token from the initial request that can be used to repeat\n      the request.</p>\n      "
+            "smithy.api#documentation": "<p>The user- or system-generated token from the initial request that can be used to repeat\n      the request.</p>"
           }
         }
       }
@@ -138,20 +143,20 @@
         "destination": {
           "target": "com.amazonaws.codestar#CodeDestination",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the\n      source code files provided with the project request are placed in the repository.</p>\n      ",
+            "smithy.api#documentation": "<p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the\n      source code files provided with the project request are placed in the repository.</p>",
             "smithy.api#required": true
           }
         },
         "source": {
           "target": "com.amazonaws.codestar#CodeSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The location where the source code files provided with the project request are\n      stored. AWS CodeStar retrieves the files during project creation.</p>\n      ",
+            "smithy.api#documentation": "<p>The location where the source code files provided with the project request are\n      stored. AWS CodeStar retrieves the files during project creation.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Location and destination information about the source code files provided with the\n      project request. The source code is uploaded to the new project source repository after\n      project creation.</p>\n      "
+        "smithy.api#documentation": "<p>Location and destination information about the source code files provided with the\n      project request. The source code is uploaded to the new project source repository after\n      project creation.</p>"
       }
     },
     "com.amazonaws.codestar#CodeCommitCodeDestination": {
@@ -160,13 +165,13 @@
         "name": {
           "target": "com.amazonaws.codestar#RepositoryName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the AWS CodeCommit repository to be created in AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the AWS CodeCommit repository to be created in AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided\n      with the project request will be uploaded after project creation.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided\n      with the project request will be uploaded after project creation.</p>"
       }
     },
     "com.amazonaws.codestar#CodeDestination": {
@@ -175,18 +180,18 @@
         "codeCommit": {
           "target": "com.amazonaws.codestar#CodeCommitCodeDestination",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided\n      with the project request will be uploaded after project creation.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided\n      with the project request will be uploaded after project creation.</p>"
           }
         },
         "gitHub": {
           "target": "com.amazonaws.codestar#GitHubCodeDestination",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the\n      project request will be uploaded after project creation.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the\n      project request will be uploaded after project creation.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the\n      source code files provided with the project request are placed in the repository.</p>\n      "
+        "smithy.api#documentation": "<p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the\n      source code files provided with the project request are placed in the repository.</p>"
       }
     },
     "com.amazonaws.codestar#CodeSource": {
@@ -195,13 +200,13 @@
         "s3": {
           "target": "com.amazonaws.codestar#S3Location",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the Amazon S3 location where the source code files provided with the\n      project request are stored. </p>\n      ",
+            "smithy.api#documentation": "<p>Information about the Amazon S3 location where the source code files provided with the\n      project request are stored. </p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The location where the source code files provided with the project request are\n      stored. AWS CodeStar retrieves the files during project creation.</p>\n      "
+        "smithy.api#documentation": "<p>The location where the source code files provided with the project request are\n      stored. AWS CodeStar retrieves the files during project creation.</p>"
       }
     },
     "com.amazonaws.codestar#CodeStar_20170419": {
@@ -270,7 +275,7 @@
           "cloudFormationName": "CodeStar",
           "cloudTrailEventSource": "codestar.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <fullname>AWS CodeStar</fullname>\n         <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the\n      operations and data types for the AWS CodeStar API along with usage examples.</p>\n         <p>You can use the AWS CodeStar API to work with:</p>\n         <p>Projects and their resources, by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>DeleteProject</code>, which deletes a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeProject</code>, which lists the attributes of a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListProjects</code>, which lists all projects associated with your AWS\n          account.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListResources</code>, which lists the resources associated with a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListTagsForProject</code>, which lists the tags associated with a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TagProject</code>, which adds tags to a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UntagProject</code>, which removes tags from a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateProject</code>, which updates the attributes of a project.</p>\n            </li>\n         </ul>\n         <p>Teams and team members, by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AssociateTeamMember</code>, which adds an IAM user to the team for a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListTeamMembers</code>, which lists all the IAM users in the team for a\n          project, including their roles and attributes.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateTeamMember</code>, which updates a team member's attributes in a\n          project.</p>\n            </li>\n         </ul>\n         <p>Users, by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateUserProfile</code>, which creates a user profile that contains data\n          associated with the user across all projects.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteUserProfile</code>, which deletes all user profile information across\n          all projects.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeUserProfile</code>, which describes the profile of a user.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListUserProfiles</code>, which lists all user profiles.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateUserProfile</code>, which updates the profile for a user.</p>\n            </li>\n         </ul>\n      ",
+        "smithy.api#documentation": "<fullname>AWS CodeStar</fullname>\n         <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the\n      operations and data types for the AWS CodeStar API along with usage examples.</p>\n         <p>You can use the AWS CodeStar API to work with:</p>\n         <p>Projects and their resources, by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>DeleteProject</code>, which deletes a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeProject</code>, which lists the attributes of a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListProjects</code>, which lists all projects associated with your AWS\n          account.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListResources</code>, which lists the resources associated with a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListTagsForProject</code>, which lists the tags associated with a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TagProject</code>, which adds tags to a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UntagProject</code>, which removes tags from a project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateProject</code>, which updates the attributes of a project.</p>\n            </li>\n         </ul>\n         <p>Teams and team members, by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AssociateTeamMember</code>, which adds an IAM user to the team for a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a\n          project.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListTeamMembers</code>, which lists all the IAM users in the team for a\n          project, including their roles and attributes.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateTeamMember</code>, which updates a team member's attributes in a\n          project.</p>\n            </li>\n         </ul>\n         <p>Users, by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateUserProfile</code>, which creates a user profile that contains data\n          associated with the user across all projects.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteUserProfile</code>, which deletes all user profile information across\n          all projects.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DescribeUserProfile</code>, which describes the profile of a user.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ListUserProfiles</code>, which lists all user profiles.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateUserProfile</code>, which updates the profile for a user.</p>\n            </li>\n         </ul>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -290,7 +295,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Another modification is being made. That modification must complete before you can make\n      your change.</p>\n      ",
+        "smithy.api#documentation": "<p>Another modification is being made. That modification must complete before you can make\n      your change.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -327,7 +332,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a project, including project resources. This action creates a project based on\n      a submitted project request. A set of source code files and a toolchain template file\n      can be included with the project request. If these are not provided, an empty project is created.</p>\n      "
+        "smithy.api#documentation": "<p>Creates a project, including project resources. This action creates a project based on\n      a submitted project request. A set of source code files and a toolchain template file\n      can be included with the project request. If these are not provided, an empty project is created.</p>"
       }
     },
     "com.amazonaws.codestar#CreateProjectRequest": {
@@ -336,45 +341,45 @@
         "clientRequestToken": {
           "target": "com.amazonaws.codestar#ClientRequestToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A user- or system-generated token that identifies the entity that requested project\n      creation. This token can be used to repeat the request.</p>\n      "
+            "smithy.api#documentation": "<p>A user- or system-generated token that identifies the entity that requested project\n      creation. This token can be used to repeat the request.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.codestar#ProjectDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the project, if any.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the project, if any.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project to be created in AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project to be created in AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         },
         "name": {
           "target": "com.amazonaws.codestar#ProjectName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The display name for the project to be created in AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The display name for the project to be created in AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         },
         "sourceCode": {
           "target": "com.amazonaws.codestar#SourceCode",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of the Code objects submitted with the project request. If this\n      parameter is specified, the request must also include the toolchain parameter.</p>\n      "
+            "smithy.api#documentation": "<p>A list of the Code objects submitted with the project request. If this\n      parameter is specified, the request must also include the toolchain parameter.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.codestar#Tags",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tags created for the project.</p>\n      "
+            "smithy.api#documentation": "<p>The tags created for the project.</p>"
           }
         },
         "toolchain": {
           "target": "com.amazonaws.codestar#Toolchain",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the toolchain template file submitted with the project request. If\n      this parameter is specified, the request must also include the sourceCode parameter.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the toolchain template file submitted with the project request. If\n      this parameter is specified, the request must also include the sourceCode parameter.</p>"
           }
         }
       }
@@ -385,27 +390,27 @@
         "arn": {
           "target": "com.amazonaws.codestar#ProjectArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the created project.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the created project.</p>",
             "smithy.api#required": true
           }
         },
         "clientRequestToken": {
           "target": "com.amazonaws.codestar#ClientRequestToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A user- or system-generated token that identifies the entity that requested project\n      creation.</p>\n      "
+            "smithy.api#documentation": "<p>A user- or system-generated token that identifies the entity that requested project\n      creation.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project.</p>",
             "smithy.api#required": true
           }
         },
         "projectTemplateId": {
           "target": "com.amazonaws.codestar#ProjectTemplateId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Reserved for future use.</p>\n      "
+            "smithy.api#documentation": "<p>Reserved for future use.</p>"
           }
         }
       }
@@ -427,7 +432,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a profile for a user that includes user preferences, such as the display name\n      and email address assocciated with the user, in AWS CodeStar. The user profile is not\n      project-specific. Information in the user profile is displayed wherever the user's information\n      appears to other users in AWS CodeStar.</p>\n      \n\n      "
+        "smithy.api#documentation": "<p>Creates a profile for a user that includes user preferences, such as the display name\n      and email address assocciated with the user, in AWS CodeStar. The user profile is not\n      project-specific. Information in the user profile is displayed wherever the user's information\n      appears to other users in AWS CodeStar.</p>"
       }
     },
     "com.amazonaws.codestar#CreateUserProfileRequest": {
@@ -436,27 +441,27 @@
         "displayName": {
           "target": "com.amazonaws.codestar#UserProfileDisplayName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name that will be displayed as the friendly name for the user in AWS CodeStar. </p>\n      ",
+            "smithy.api#documentation": "<p>The name that will be displayed as the friendly name for the user in AWS CodeStar. </p>",
             "smithy.api#required": true
           }
         },
         "emailAddress": {
           "target": "com.amazonaws.codestar#Email",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The email address that will be displayed as part of the user's profile in\n      AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The email address that will be displayed as part of the user's profile in\n      AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         },
         "sshPublicKey": {
           "target": "com.amazonaws.codestar#SshPublicKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the\n      user remote access to project resources, this public key will be used along with the user's\n      private key for SSH access.</p>\n      "
+            "smithy.api#documentation": "<p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the\n      user remote access to project resources, this public key will be used along with the user's\n      private key for SSH access.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user in IAM.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user in IAM.</p>",
             "smithy.api#required": true
           }
         }
@@ -468,37 +473,37 @@
         "createdTimestamp": {
           "target": "com.amazonaws.codestar#CreatedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date the user profile was created, in timestamp format.</p>\n      "
+            "smithy.api#documentation": "<p>The date the user profile was created, in timestamp format.</p>"
           }
         },
         "displayName": {
           "target": "com.amazonaws.codestar#UserProfileDisplayName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>\n      "
+            "smithy.api#documentation": "<p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>"
           }
         },
         "emailAddress": {
           "target": "com.amazonaws.codestar#Email",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The email address that is displayed as part of the user's profile in AWS CodeStar.</p>\n      "
+            "smithy.api#documentation": "<p>The email address that is displayed as part of the user's profile in AWS CodeStar.</p>"
           }
         },
         "lastModifiedTimestamp": {
           "target": "com.amazonaws.codestar#LastModifiedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date the user profile was last modified, in timestamp format.</p>\n      "
+            "smithy.api#documentation": "<p>The date the user profile was last modified, in timestamp format.</p>"
           }
         },
         "sshPublicKey": {
           "target": "com.amazonaws.codestar#SshPublicKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the\n      public/private keypair the user can use to access project resources if a project owner allows\n      the user remote access to those resources.</p>\n      "
+            "smithy.api#documentation": "<p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the\n      public/private keypair the user can use to access project resources if a project owner allows\n      the user remote access to those resources.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user in IAM.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user in IAM.</p>",
             "smithy.api#required": true
           }
         }
@@ -527,7 +532,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a project, including project resources. Does not delete users associated with\n      the project, but does delete the IAM roles that allowed access to the project.</p>\n\n      \n      "
+        "smithy.api#documentation": "<p>Deletes a project, including project resources. Does not delete users associated with\n      the project, but does delete the IAM roles that allowed access to the project.</p>"
       }
     },
     "com.amazonaws.codestar#DeleteProjectRequest": {
@@ -536,19 +541,19 @@
         "clientRequestToken": {
           "target": "com.amazonaws.codestar#ClientRequestToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A user- or system-generated token that identifies the entity that requested project\n      deletion. This token can be used to repeat the request. </p>\n      "
+            "smithy.api#documentation": "<p>A user- or system-generated token that identifies the entity that requested project\n      deletion. This token can be used to repeat the request. </p>"
           }
         },
         "deleteStack": {
           "target": "com.amazonaws.codestar#DeleteStack",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Whether to send a delete request for the primary stack in AWS CloudFormation originally\n      used to generate the project and its resources. This option will delete all AWS resources for\n      the project (except for any buckets in Amazon S3) as well as deleting the project itself.\n      Recommended for most use cases.</p>\n      "
+            "smithy.api#documentation": "<p>Whether to send a delete request for the primary stack in AWS CloudFormation originally\n      used to generate the project and its resources. This option will delete all AWS resources for\n      the project (except for any buckets in Amazon S3) as well as deleting the project itself.\n      Recommended for most use cases.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project to be deleted in AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project to be deleted in AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         }
@@ -560,13 +565,13 @@
         "projectArn": {
           "target": "com.amazonaws.codestar#ProjectArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the deleted project.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deleted project.</p>"
           }
         },
         "stackId": {
           "target": "com.amazonaws.codestar#StackId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the primary stack in AWS CloudFormation that will be deleted as part of\n      deleting the project and its resources.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the primary stack in AWS CloudFormation that will be deleted as part of\n      deleting the project and its resources.</p>"
           }
         }
       }
@@ -588,7 +593,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with\n      that profile, such as display name and email address. It does not delete the history of that\n      user, for example the history of commits made by that user.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with\n      that profile, such as display name and email address. It does not delete the history of that\n      user, for example the history of commits made by that user.</p>"
       }
     },
     "com.amazonaws.codestar#DeleteUserProfileRequest": {
@@ -597,7 +602,7 @@
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         }
@@ -609,7 +614,7 @@
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         }
@@ -641,7 +646,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes a project and its resources.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Describes a project and its resources.</p>"
       }
     },
     "com.amazonaws.codestar#DescribeProjectRequest": {
@@ -650,7 +655,7 @@
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project.</p>",
             "smithy.api#required": true
           }
         }
@@ -662,55 +667,55 @@
         "arn": {
           "target": "com.amazonaws.codestar#ProjectArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) for the project.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the project.</p>"
           }
         },
         "clientRequestToken": {
           "target": "com.amazonaws.codestar#ClientRequestToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A user- or system-generated token that identifies the entity that requested project\n      creation. </p>\n      "
+            "smithy.api#documentation": "<p>A user- or system-generated token that identifies the entity that requested project\n      creation. </p>"
           }
         },
         "createdTimeStamp": {
           "target": "com.amazonaws.codestar#CreatedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time the project was created, in timestamp format.</p>\n      "
+            "smithy.api#documentation": "<p>The date and time the project was created, in timestamp format.</p>"
           }
         },
         "description": {
           "target": "com.amazonaws.codestar#ProjectDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the project, if any.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the project, if any.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the project.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.codestar#ProjectName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The display name for the project.</p>\n      "
+            "smithy.api#documentation": "<p>The display name for the project.</p>"
           }
         },
         "projectTemplateId": {
           "target": "com.amazonaws.codestar#ProjectTemplateId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID for the AWS CodeStar project template used to create the project.</p>\n      "
+            "smithy.api#documentation": "<p>The ID for the AWS CodeStar project template used to create the project.</p>"
           }
         },
         "stackId": {
           "target": "com.amazonaws.codestar#StackId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the primary stack in AWS CloudFormation used to generate resources for the\n      project.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the primary stack in AWS CloudFormation used to generate resources for the\n      project.</p>"
           }
         },
         "status": {
           "target": "com.amazonaws.codestar#ProjectStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The project creation or deletion status.</p>\n      "
+            "smithy.api#documentation": "<p>The project creation or deletion status.</p>"
           }
         }
       }
@@ -732,7 +737,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>"
       }
     },
     "com.amazonaws.codestar#DescribeUserProfileRequest": {
@@ -741,7 +746,7 @@
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user.</p>",
             "smithy.api#required": true
           }
         }
@@ -753,39 +758,39 @@
         "createdTimestamp": {
           "target": "com.amazonaws.codestar#CreatedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time when the user profile was created in AWS CodeStar, in timestamp\n      format.</p>\n      ",
+            "smithy.api#documentation": "<p>The date and time when the user profile was created in AWS CodeStar, in timestamp\n      format.</p>",
             "smithy.api#required": true
           }
         },
         "displayName": {
           "target": "com.amazonaws.codestar#UserProfileDisplayName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The display name shown for the user in AWS CodeStar projects. For example, this could be set\n      to both first and last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also\n      used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are\n      included in the display name, the first character that appears after the space will be used as\n      the second character in the user initial icon. The initial icon displays a maximum of two\n      characters, so a display name with more than one space (for example \"Mary Jane Major\") would\n      generate an initial icon using the first character and the first character after the space\n      (\"MJ\", not \"MM\").</p>\n      "
+            "smithy.api#documentation": "<p>The display name shown for the user in AWS CodeStar projects. For example, this could be set\n      to both first and last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also\n      used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are\n      included in the display name, the first character that appears after the space will be used as\n      the second character in the user initial icon. The initial icon displays a maximum of two\n      characters, so a display name with more than one space (for example \"Mary Jane Major\") would\n      generate an initial icon using the first character and the first character after the space\n      (\"MJ\", not \"MM\").</p>"
           }
         },
         "emailAddress": {
           "target": "com.amazonaws.codestar#Email",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The email address for the user. Optional.</p>\n      "
+            "smithy.api#documentation": "<p>The email address for the user. Optional.</p>"
           }
         },
         "lastModifiedTimestamp": {
           "target": "com.amazonaws.codestar#LastModifiedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date and time when the user profile was last modified, in timestamp\n      format.</p>\n      ",
+            "smithy.api#documentation": "<p>The date and time when the user profile was last modified, in timestamp\n      format.</p>",
             "smithy.api#required": true
           }
         },
         "sshPublicKey": {
           "target": "com.amazonaws.codestar#SshPublicKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SSH public key associated with the user. This SSH public key is associated with the\n      user profile, and can be used in conjunction with the associated private key for access to\n      project resources, such as Amazon EC2 instances, if a project owner grants remote access to\n      those resources.</p>\n      "
+            "smithy.api#documentation": "<p>The SSH public key associated with the user. This SSH public key is associated with the\n      user profile, and can be used in conjunction with the associated private key for access to\n      project resources, such as Amazon EC2 instances, if a project owner grants remote access to\n      those resources.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user.</p>",
             "smithy.api#required": true
           }
         }
@@ -814,7 +819,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes a user from a project. Removing a user from a project also removes the IAM\n      policies from that user that allowed access to the project and its resources. Disassociating a\n      team member does not remove that user's profile from AWS CodeStar. It does not remove the user from\n      IAM.</p>\n\n      \n      "
+        "smithy.api#documentation": "<p>Removes a user from a project. Removing a user from a project also removes the IAM\n      policies from that user that allowed access to the project and its resources. Disassociating a\n      team member does not remove that user's profile from AWS CodeStar. It does not remove the user from\n      IAM.</p>"
       }
     },
     "com.amazonaws.codestar#DisassociateTeamMemberRequest": {
@@ -823,14 +828,14 @@
         "projectId": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the AWS CodeStar project from which you want to remove a team member.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the AWS CodeStar project from which you want to remove a team member.</p>",
             "smithy.api#required": true
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from\n      the project.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from\n      the project.</p>",
             "smithy.api#required": true
           }
         }
@@ -857,54 +862,54 @@
         "description": {
           "target": "com.amazonaws.codestar#RepositoryDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Description for the GitHub repository to be created in AWS CodeStar. This description displays in\n      GitHub after the repository is created.</p>\n      "
+            "smithy.api#documentation": "<p>Description for the GitHub repository to be created in AWS CodeStar. This description displays in\n      GitHub after the repository is created.</p>"
           }
         },
         "issuesEnabled": {
           "target": "com.amazonaws.codestar#RepositoryEnableIssues",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Whether to enable issues for the GitHub repository.</p>\n      ",
+            "smithy.api#documentation": "<p>Whether to enable issues for the GitHub repository.</p>",
             "smithy.api#required": true
           }
         },
         "name": {
           "target": "com.amazonaws.codestar#RepositoryName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Name of the GitHub repository to be created in AWS CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>Name of the GitHub repository to be created in AWS CodeStar.</p>",
             "smithy.api#required": true
           }
         },
         "owner": {
           "target": "com.amazonaws.codestar#RepositoryOwner",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should\n      be owned by a GitHub organization, provide its name.</p>\n      ",
+            "smithy.api#documentation": "<p>The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should\n      be owned by a GitHub organization, provide its name.</p>",
             "smithy.api#required": true
           }
         },
         "privateRepository": {
           "target": "com.amazonaws.codestar#RepositoryIsPrivate",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Whether the GitHub repository is to be a private repository.</p>\n      ",
+            "smithy.api#documentation": "<p>Whether the GitHub repository is to be a private repository.</p>",
             "smithy.api#required": true
           }
         },
         "token": {
           "target": "com.amazonaws.codestar#GitHubPersonalToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The GitHub user's personal access token for the GitHub repository.</p>\n      ",
+            "smithy.api#documentation": "<p>The GitHub user's personal access token for the GitHub repository.</p>",
             "smithy.api#required": true
           }
         },
         "type": {
           "target": "com.amazonaws.codestar#RepositoryType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.</p>\n      ",
+            "smithy.api#documentation": "<p>The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the\n      project request will be uploaded after project creation.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the\n      project request will be uploaded after project creation.</p>"
       }
     },
     "com.amazonaws.codestar#GitHubPersonalToken": {
@@ -924,7 +929,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The next token is not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The next token is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -937,7 +942,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The service role is not valid.</p>\n      ",
+        "smithy.api#documentation": "<p>The service role is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -953,7 +958,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A resource limit has been exceeded.</p>\n      ",
+        "smithy.api#documentation": "<p>A resource limit has been exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -975,7 +980,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>\n\n      \n      "
+        "smithy.api#documentation": "<p>Lists all projects in AWS CodeStar associated with your AWS account.</p>"
       }
     },
     "com.amazonaws.codestar#ListProjectsRequest": {
@@ -985,13 +990,13 @@
           "target": "com.amazonaws.codestar#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum amount of data that can be contained in a single set of results.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum amount of data that can be contained in a single set of results.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token to be used to return the next set of results, if the results\n      cannot be returned in one response.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token to be used to return the next set of results, if the results\n      cannot be returned in one response.</p>"
           }
         }
       }
@@ -1002,13 +1007,13 @@
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>"
           }
         },
         "projects": {
           "target": "com.amazonaws.codestar#ProjectsList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of projects.</p>\n      ",
+            "smithy.api#documentation": "<p>A list of projects.</p>",
             "smithy.api#required": true
           }
         }
@@ -1034,7 +1039,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists resources associated with a project in AWS CodeStar.</p>\n\n      \n      "
+        "smithy.api#documentation": "<p>Lists resources associated with a project in AWS CodeStar.</p>"
       }
     },
     "com.amazonaws.codestar#ListResourcesRequest": {
@@ -1044,19 +1049,19 @@
           "target": "com.amazonaws.codestar#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum amount of data that can be contained in a single set of results.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum amount of data that can be contained in a single set of results.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token for the next set of results, if the results cannot be returned\n      in one response.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token for the next set of results, if the results cannot be returned\n      in one response.</p>"
           }
         },
         "projectId": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project.</p>",
             "smithy.api#required": true
           }
         }
@@ -1068,13 +1073,13 @@
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>"
           }
         },
         "resources": {
           "target": "com.amazonaws.codestar#ResourcesResult",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of resources associated with the project. </p>\n      "
+            "smithy.api#documentation": "<p>An array of resources associated with the project. </p>"
           }
         }
       }
@@ -1099,7 +1104,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the tags for a project.</p>\n      "
+        "smithy.api#documentation": "<p>Gets the tags for a project.</p>"
       }
     },
     "com.amazonaws.codestar#ListTagsForProjectRequest": {
@@ -1108,7 +1113,7 @@
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project to get tags for.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project to get tags for.</p>",
             "smithy.api#required": true
           }
         },
@@ -1116,13 +1121,13 @@
           "target": "com.amazonaws.codestar#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>Reserved for future use.</p>\n      "
+            "smithy.api#documentation": "<p>Reserved for future use.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Reserved for future use.</p>\n      "
+            "smithy.api#documentation": "<p>Reserved for future use.</p>"
           }
         }
       }
@@ -1133,13 +1138,13 @@
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Reserved for future use.</p>\n      "
+            "smithy.api#documentation": "<p>Reserved for future use.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.codestar#Tags",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tags for the project.</p>\n      "
+            "smithy.api#documentation": "<p>The tags for the project.</p>"
           }
         }
       }
@@ -1164,7 +1169,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists all team members associated with a project.</p>\n\n      \n      "
+        "smithy.api#documentation": "<p>Lists all team members associated with a project.</p>"
       }
     },
     "com.amazonaws.codestar#ListTeamMembersRequest": {
@@ -1174,19 +1179,19 @@
           "target": "com.amazonaws.codestar#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum number of team members you want returned in a response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of team members you want returned in a response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token for the next set of results, if the results cannot be returned\n      in one response.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token for the next set of results, if the results cannot be returned\n      in one response.</p>"
           }
         },
         "projectId": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project for which you want to list team members.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project for which you want to list team members.</p>",
             "smithy.api#required": true
           }
         }
@@ -1198,13 +1203,13 @@
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>"
           }
         },
         "teamMembers": {
           "target": "com.amazonaws.codestar#TeamMemberResult",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of team member objects for the project.</p>\n      ",
+            "smithy.api#documentation": "<p>A list of team member objects for the project.</p>",
             "smithy.api#required": true
           }
         }
@@ -1227,7 +1232,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>"
       }
     },
     "com.amazonaws.codestar#ListUserProfilesRequest": {
@@ -1237,13 +1242,13 @@
           "target": "com.amazonaws.codestar#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The maximum number of results to return in a response.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to return in a response.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token for the next set of results, if the results cannot be returned\n      in one response.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token for the next set of results, if the results cannot be returned\n      in one response.</p>"
           }
         }
       }
@@ -1254,13 +1259,13 @@
         "nextToken": {
           "target": "com.amazonaws.codestar#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>\n      "
+            "smithy.api#documentation": "<p>The continuation token to use when requesting the next set of results, if there are\n      more results to be returned.</p>"
           }
         },
         "userProfiles": {
           "target": "com.amazonaws.codestar#UserProfilesList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>All the user profiles configured in AWS CodeStar for an AWS account.</p>\n      ",
+            "smithy.api#documentation": "<p>All the user profiles configured in AWS CodeStar for an AWS account.</p>",
             "smithy.api#required": true
           }
         }
@@ -1301,7 +1306,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An AWS CodeStar project with the same ID already exists in this region for the AWS account.\n      AWS CodeStar project IDs must be unique within a region for the AWS account.</p>\n      ",
+        "smithy.api#documentation": "<p>An AWS CodeStar project with the same ID already exists in this region for the AWS account.\n      AWS CodeStar project IDs must be unique within a region for the AWS account.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1320,7 +1325,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Project configuration information is required but not specified.</p>\n      ",
+        "smithy.api#documentation": "<p>Project configuration information is required but not specified.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1333,7 +1338,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The project creation request was valid, but a nonspecific exception or error occurred\n      during project creation. The project could not be created in AWS CodeStar.</p>\n      ",
+        "smithy.api#documentation": "<p>The project creation request was valid, but a nonspecific exception or error occurred\n      during project creation. The project could not be created in AWS CodeStar.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1378,7 +1383,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The specified AWS CodeStar project was not found.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified AWS CodeStar project was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1389,19 +1394,19 @@
         "reason": {
           "target": "com.amazonaws.codestar#Reason",
           "traits": {
-            "smithy.api#documentation": "\n         <p>In the case of a project creation or deletion failure, a reason for the\n      failure.</p>\n      "
+            "smithy.api#documentation": "<p>In the case of a project creation or deletion failure, a reason for the\n      failure.</p>"
           }
         },
         "state": {
           "target": "com.amazonaws.codestar#State",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The phase of completion for a project creation or deletion.</p>\n      ",
+            "smithy.api#documentation": "<p>The phase of completion for a project creation or deletion.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An indication of whether a project creation or deletion is failed or\n      successful.</p>\n      "
+        "smithy.api#documentation": "<p>An indication of whether a project creation or deletion is failed or\n      successful.</p>"
       }
     },
     "com.amazonaws.codestar#ProjectSummary": {
@@ -1410,18 +1415,18 @@
         "projectArn": {
           "target": "com.amazonaws.codestar#ProjectArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the project.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the project.</p>"
           }
         },
         "projectId": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project.</p>\n      "
+            "smithy.api#documentation": "<p>The ID of the project.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the metadata for a project.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the metadata for a project.</p>"
       }
     },
     "com.amazonaws.codestar#ProjectTemplateId": {
@@ -1500,13 +1505,13 @@
         "id": {
           "target": "com.amazonaws.codestar#ResourceId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the resource.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about a resource for a project.</p>\n      "
+        "smithy.api#documentation": "<p>Information about a resource for a project.</p>"
       }
     },
     "com.amazonaws.codestar#ResourceId": {
@@ -1545,18 +1550,18 @@
         "bucketKey": {
           "target": "com.amazonaws.codestar#BucketKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon S3 object key where the source code files provided with the project\n      request are stored.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon S3 object key where the source code files provided with the project\n      request are stored.</p>"
           }
         },
         "bucketName": {
           "target": "com.amazonaws.codestar#BucketName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon S3 bucket name where the source code files provided with the project\n      request are stored.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon S3 bucket name where the source code files provided with the project\n      request are stored.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The Amazon S3 location where the source code files provided with the project\n      request are stored.</p>\n      "
+        "smithy.api#documentation": "<p>The Amazon S3 location where the source code files provided with the project\n      request are stored.</p>"
       }
     },
     "com.amazonaws.codestar#SourceCode": {
@@ -1626,7 +1631,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds tags to a project.</p>\n      "
+        "smithy.api#documentation": "<p>Adds tags to a project.</p>"
       }
     },
     "com.amazonaws.codestar#TagProjectRequest": {
@@ -1635,14 +1640,14 @@
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project you want to add a tag to.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project you want to add a tag to.</p>",
             "smithy.api#required": true
           }
         },
         "tags": {
           "target": "com.amazonaws.codestar#Tags",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tags you want to add to the project.</p>\n      ",
+            "smithy.api#documentation": "<p>The tags you want to add to the project.</p>",
             "smithy.api#required": true
           }
         }
@@ -1654,7 +1659,7 @@
         "tags": {
           "target": "com.amazonaws.codestar#Tags",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tags for the project.</p>\n      "
+            "smithy.api#documentation": "<p>The tags for the project.</p>"
           }
         }
       }
@@ -1684,7 +1689,7 @@
         "projectRole": {
           "target": "com.amazonaws.codestar#Role",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The role assigned to the user in the project. Project roles have different levels of\n      access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with\n        Teams</a> in the <i>AWS CodeStar User Guide</i>. </p>\n      ",
+            "smithy.api#documentation": "<p>The role assigned to the user in the project. Project roles have different levels of\n      access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with\n        Teams</a> in the <i>AWS CodeStar User Guide</i>. </p>",
             "smithy.api#required": true
           }
         },
@@ -1692,19 +1697,19 @@
           "target": "com.amazonaws.codestar#RemoteAccessAllowed",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>Whether the user is allowed to remotely access project resources using an SSH\n      public/private key pair.</p>\n      "
+            "smithy.api#documentation": "<p>Whether the user is allowed to remotely access project resources using an SSH\n      public/private key pair.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user in IAM.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user in IAM.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about a team member in a project.</p>\n      "
+        "smithy.api#documentation": "<p>Information about a team member in a project.</p>"
       }
     },
     "com.amazonaws.codestar#TeamMemberAlreadyAssociatedException": {
@@ -1715,7 +1720,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The team member is already associated with a role in this project.</p>\n      ",
+        "smithy.api#documentation": "<p>The team member is already associated with a role in this project.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1728,7 +1733,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The specified team member was not found.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified team member was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1781,25 +1786,25 @@
         "roleArn": {
           "target": "com.amazonaws.codestar#RoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The service role ARN for AWS CodeStar to use for the toolchain template during stack\n      provisioning.</p>\n      "
+            "smithy.api#documentation": "<p>The service role ARN for AWS CodeStar to use for the toolchain template during stack\n      provisioning.</p>"
           }
         },
         "source": {
           "target": "com.amazonaws.codestar#ToolchainSource",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon S3 location where the toolchain template file provided with the\n      project request is stored. AWS CodeStar retrieves the file during project creation.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon S3 location where the toolchain template file provided with the\n      project request is stored. AWS CodeStar retrieves the file during project creation.</p>",
             "smithy.api#required": true
           }
         },
         "stackParameters": {
           "target": "com.amazonaws.codestar#TemplateParameterMap",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The list of parameter overrides to be passed into the toolchain template during stack\n      provisioning, if any.</p>\n      "
+            "smithy.api#documentation": "<p>The list of parameter overrides to be passed into the toolchain template during stack\n      provisioning, if any.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The toolchain template file provided with the project request. AWS CodeStar uses\n      the template to provision the toolchain stack in AWS CloudFormation.</p>\n      "
+        "smithy.api#documentation": "<p>The toolchain template file provided with the project request. AWS CodeStar uses\n      the template to provision the toolchain stack in AWS CloudFormation.</p>"
       }
     },
     "com.amazonaws.codestar#ToolchainSource": {
@@ -1808,13 +1813,13 @@
         "s3": {
           "target": "com.amazonaws.codestar#S3Location",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon S3 bucket where the toolchain template file provided with the project\n      request is stored.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon S3 bucket where the toolchain template file provided with the project\n      request is stored.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The Amazon S3 location where the toolchain template file provided with the\n      project request is stored. AWS CodeStar retrieves the file during project creation.</p>\n      "
+        "smithy.api#documentation": "<p>The Amazon S3 location where the toolchain template file provided with the\n      project request is stored. AWS CodeStar retrieves the file during project creation.</p>"
       }
     },
     "com.amazonaws.codestar#UntagProject": {
@@ -1840,7 +1845,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes tags from a project.</p>\n      "
+        "smithy.api#documentation": "<p>Removes tags from a project.</p>"
       }
     },
     "com.amazonaws.codestar#UntagProjectRequest": {
@@ -1849,14 +1854,14 @@
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project to remove tags from.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project to remove tags from.</p>",
             "smithy.api#required": true
           }
         },
         "tags": {
           "target": "com.amazonaws.codestar#TagKeys",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The tags to remove from the project.</p>\n      ",
+            "smithy.api#documentation": "<p>The tags to remove from the project.</p>",
             "smithy.api#required": true
           }
         }
@@ -1883,7 +1888,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a project in AWS CodeStar.</p>\n\n      \n      "
+        "smithy.api#documentation": "<p>Updates a project in AWS CodeStar.</p>"
       }
     },
     "com.amazonaws.codestar#UpdateProjectRequest": {
@@ -1892,20 +1897,20 @@
         "description": {
           "target": "com.amazonaws.codestar#ProjectDescription",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The description of the project, if any.</p>\n      "
+            "smithy.api#documentation": "<p>The description of the project, if any.</p>"
           }
         },
         "id": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project you want to update.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project you want to update.</p>",
             "smithy.api#required": true
           }
         },
         "name": {
           "target": "com.amazonaws.codestar#ProjectName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the project you want to update.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the project you want to update.</p>"
           }
         }
       }
@@ -1946,7 +1951,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a\n      team member's role in the project, or change whether they have remote access to project\n      resources.</p>\n\n      \n      "
+        "smithy.api#documentation": "<p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a\n      team member's role in the project, or change whether they have remote access to project\n      resources.</p>"
       }
     },
     "com.amazonaws.codestar#UpdateTeamMemberRequest": {
@@ -1955,27 +1960,27 @@
         "projectId": {
           "target": "com.amazonaws.codestar#ProjectId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ID of the project.</p>\n      ",
+            "smithy.api#documentation": "<p>The ID of the project.</p>",
             "smithy.api#required": true
           }
         },
         "projectRole": {
           "target": "com.amazonaws.codestar#Role",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The role assigned to the user in the project. Project roles have different levels of\n      access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with\n        Teams</a> in the <i>AWS CodeStar User Guide</i>.</p>\n      "
+            "smithy.api#documentation": "<p>The role assigned to the user in the project. Project roles have different levels of\n      access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with\n        Teams</a> in the <i>AWS CodeStar User Guide</i>.</p>"
           }
         },
         "remoteAccessAllowed": {
           "target": "com.amazonaws.codestar#RemoteAccessAllowed",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>Whether a team member is allowed to remotely access project resources using the SSH\n      public key associated with the user's profile. Even if this is set to True, the user must\n      associate a public key with their profile before the user can access resources.</p>\n      "
+            "smithy.api#documentation": "<p>Whether a team member is allowed to remotely access project resources using the SSH\n      public key associated with the user's profile. Even if this is set to True, the user must\n      associate a public key with their profile before the user can access resources.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user for whom you want to change team membership\n      attributes.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user for whom you want to change team membership\n      attributes.</p>",
             "smithy.api#required": true
           }
         }
@@ -1987,20 +1992,20 @@
         "projectRole": {
           "target": "com.amazonaws.codestar#Role",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The project role granted to the user.</p>\n      "
+            "smithy.api#documentation": "<p>The project role granted to the user.</p>"
           }
         },
         "remoteAccessAllowed": {
           "target": "com.amazonaws.codestar#RemoteAccessAllowed",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>Whether a team member is allowed to remotely access project resources using the SSH\n      public key associated with the user's profile.</p>\n      "
+            "smithy.api#documentation": "<p>Whether a team member is allowed to remotely access project resources using the SSH\n      public key associated with the user's profile.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user whose team membership attributes were\n      updated.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user whose team membership attributes were\n      updated.</p>"
           }
         }
       }
@@ -2022,7 +2027,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.\n      Information in the user profile is displayed wherever the user's information appears to other\n      users in AWS CodeStar. </p>\n      \n      "
+        "smithy.api#documentation": "<p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.\n      Information in the user profile is displayed wherever the user's information appears to other\n      users in AWS CodeStar. </p>"
       }
     },
     "com.amazonaws.codestar#UpdateUserProfileRequest": {
@@ -2031,25 +2036,25 @@
         "displayName": {
           "target": "com.amazonaws.codestar#UserProfileDisplayName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>\n      "
+            "smithy.api#documentation": "<p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>"
           }
         },
         "emailAddress": {
           "target": "com.amazonaws.codestar#Email",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The email address that is displayed as part of the user's profile in AWS\n      CodeStar.</p>\n      "
+            "smithy.api#documentation": "<p>The email address that is displayed as part of the user's profile in AWS\n      CodeStar.</p>"
           }
         },
         "sshPublicKey": {
           "target": "com.amazonaws.codestar#SshPublicKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the\n      user remote access to project resources, this public key will be used along with the user's\n      private key for SSH access.</p>\n      "
+            "smithy.api#documentation": "<p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the\n      user remote access to project resources, this public key will be used along with the user's\n      private key for SSH access.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name that will be displayed as the friendly name for the user in AWS\n      CodeStar.</p>\n      ",
+            "smithy.api#documentation": "<p>The name that will be displayed as the friendly name for the user in AWS\n      CodeStar.</p>",
             "smithy.api#required": true
           }
         }
@@ -2061,37 +2066,37 @@
         "createdTimestamp": {
           "target": "com.amazonaws.codestar#CreatedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date the user profile was created, in timestamp format.</p>\n      "
+            "smithy.api#documentation": "<p>The date the user profile was created, in timestamp format.</p>"
           }
         },
         "displayName": {
           "target": "com.amazonaws.codestar#UserProfileDisplayName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>\n      "
+            "smithy.api#documentation": "<p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>"
           }
         },
         "emailAddress": {
           "target": "com.amazonaws.codestar#Email",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The email address that is displayed as part of the user's profile in AWS\n      CodeStar.</p>\n      "
+            "smithy.api#documentation": "<p>The email address that is displayed as part of the user's profile in AWS\n      CodeStar.</p>"
           }
         },
         "lastModifiedTimestamp": {
           "target": "com.amazonaws.codestar#LastModifiedTimestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date the user profile was last modified, in timestamp format.</p>\n      "
+            "smithy.api#documentation": "<p>The date the user profile was last modified, in timestamp format.</p>"
           }
         },
         "sshPublicKey": {
           "target": "com.amazonaws.codestar#SshPublicKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the\n      public/private keypair the user can use to access project resources if a project owner allows\n      the user remote access to those resources.</p>\n      "
+            "smithy.api#documentation": "<p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the\n      public/private keypair the user can use to access project resources if a project owner allows\n      the user remote access to those resources.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user in IAM.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user in IAM.</p>",
             "smithy.api#required": true
           }
         }
@@ -2115,7 +2120,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A user profile with that name already exists in this region for the AWS account. AWS\n      CodeStar user profile names must be unique within a region for the AWS account. </p>\n      ",
+        "smithy.api#documentation": "<p>A user profile with that name already exists in this region for the AWS account. AWS\n      CodeStar user profile names must be unique within a region for the AWS account. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -2139,7 +2144,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The user profile was not found.</p>\n      ",
+        "smithy.api#documentation": "<p>The user profile was not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -2150,30 +2155,30 @@
         "displayName": {
           "target": "com.amazonaws.codestar#UserProfileDisplayName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The display name of a user in AWS CodeStar. For example, this could be set to both first and\n      last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also used to generate\n      the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the\n      display name, the first character that appears after the space will be used as the second\n      character in the user initial icon. The initial icon displays a maximum of two characters, so\n      a display name with more than one space (for example \"Mary Jane Major\") would generate an\n      initial icon using the first character and the first character after the space (\"MJ\", not\n      \"MM\").</p>\n      "
+            "smithy.api#documentation": "<p>The display name of a user in AWS CodeStar. For example, this could be set to both first and\n      last name (\"Mary Major\") or a single name (\"Mary\"). The display name is also used to generate\n      the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the\n      display name, the first character that appears after the space will be used as the second\n      character in the user initial icon. The initial icon displays a maximum of two characters, so\n      a display name with more than one space (for example \"Mary Jane Major\") would generate an\n      initial icon using the first character and the first character after the space (\"MJ\", not\n      \"MM\").</p>"
           }
         },
         "emailAddress": {
           "target": "com.amazonaws.codestar#Email",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The email address associated with the user.</p>\n      "
+            "smithy.api#documentation": "<p>The email address associated with the user.</p>"
           }
         },
         "sshPublicKey": {
           "target": "com.amazonaws.codestar#SshPublicKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the\n      user remote access to project resources, this public key will be used along with the user's\n      private key for SSH access.</p>\n      "
+            "smithy.api#documentation": "<p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the\n      user remote access to project resources, this public key will be used along with the user's\n      private key for SSH access.</p>"
           }
         },
         "userArn": {
           "target": "com.amazonaws.codestar#UserArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the user in IAM.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user in IAM.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about a user's profile in AWS CodeStar.</p>\n      "
+        "smithy.api#documentation": "<p>Information about a user's profile in AWS CodeStar.</p>"
       }
     },
     "com.amazonaws.codestar#UserProfilesList": {
@@ -2190,7 +2195,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The specified input is either not valid, or it could not be validated.</p>\n      ",
+        "smithy.api#documentation": "<p>The specified input is either not valid, or it could not be validated.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }

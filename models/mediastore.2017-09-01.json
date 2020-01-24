@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -67,42 +72,42 @@
         "ARN": {
           "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the container. The ARN has the following\n         format:</p>\n         <p>arn:aws:<region>:<account that owns this container>:container/<name of\n         container> </p>\n         <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the container. The ARN has the following\n         format:</p>\n         <p>arn:aws:<region>:<account that owns this container>:container/<name of\n         container> </p>\n         <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>"
           }
         },
         "AccessLoggingEnabled": {
           "target": "com.amazonaws.mediastore#ContainerAccessLoggingEnabled",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>\n     "
+            "smithy.api#documentation": "<p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>"
           }
         },
         "CreationTime": {
           "target": "com.amazonaws.mediastore#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Unix timestamp.</p>\n      "
+            "smithy.api#documentation": "<p>Unix timestamp.</p>"
           }
         },
         "Endpoint": {
           "target": "com.amazonaws.mediastore#Endpoint",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The DNS endpoint of the container. Use the endpoint to identify the specific\n         container when sending requests to the data plane. The service assigns this value when the\n         container is created. Once the value has been assigned, it does not change.</p>\n      "
+            "smithy.api#documentation": "<p>The DNS endpoint of the container. Use the endpoint to identify the specific\n         container when sending requests to the data plane. The service assigns this value when the\n         container is created. Once the value has been assigned, it does not change.</p>"
           }
         },
         "Name": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the container.</p>"
           }
         },
         "Status": {
           "target": "com.amazonaws.mediastore#ContainerStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of container creation or deletion. The status is one of the following:\n            <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service\n         is creating the container, the status is <code>CREATING</code>. When the endpoint is\n         available, the status changes to <code>ACTIVE</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The status of container creation or deletion. The status is one of the following:\n            <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service\n         is creating the container, the status is <code>CREATING</code>. When the endpoint is\n         available, the status changes to <code>ACTIVE</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>This section describes operations that you can perform on an AWS Elemental MediaStore\n         container.</p>\n      "
+        "smithy.api#documentation": "<p>This section describes operations that you can perform on an AWS Elemental MediaStore\n         container.</p>"
       }
     },
     "com.amazonaws.mediastore#ContainerARN": {
@@ -129,7 +134,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The container that you specified in the request already exists or is being\n         updated.</p>\n      ",
+        "smithy.api#documentation": "<p>The container that you specified in the request already exists or is being\n         updated.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -167,7 +172,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The container that you specified in the request does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>The container that you specified in the request does not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -207,7 +212,7 @@
         "target": "com.amazonaws.mediastore#CorsRule"
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The CORS policy of the container. </p>\n      ",
+        "smithy.api#documentation": "<p>The CORS policy of the container. </p>",
         "smithy.api#length": {
           "min": 1,
           "max": 100
@@ -222,7 +227,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The CORS policy that you specified in the request does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>The CORS policy that you specified in the request does not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -232,38 +237,38 @@
         "AllowedHeaders": {
           "target": "com.amazonaws.mediastore#AllowedHeaders",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request\n         through the <code>Access-Control-Request-Headers</code> header. Each header name that is\n         specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in\n         the rule. Only the headers that were requested are sent back. </p>\n         <p>This element can contain only one wildcard character (*).</p>\n      ",
+            "smithy.api#documentation": "<p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request\n         through the <code>Access-Control-Request-Headers</code> header. Each header name that is\n         specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in\n         the rule. Only the headers that were requested are sent back. </p>\n         <p>This element can contain only one wildcard character (*).</p>",
             "smithy.api#required": true
           }
         },
         "AllowedMethods": {
           "target": "com.amazonaws.mediastore#AllowedMethods",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Identifies an HTTP method that the origin that is specified in the rule is allowed to\n         execute.</p>\n         <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one\n            <code>AllowedOrigins</code> element.</p>\n      "
+            "smithy.api#documentation": "<p>Identifies an HTTP method that the origin that is specified in the rule is allowed to\n         execute.</p>\n         <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one\n            <code>AllowedOrigins</code> element.</p>"
           }
         },
         "AllowedOrigins": {
           "target": "com.amazonaws.mediastore#AllowedOrigins",
           "traits": {
-            "smithy.api#documentation": "\n         <p>One or more response headers that you want users to be able to access from their\n         applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>\n         <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string\n         value can include only one wildcard character (*), for example, http://*.example.com.\n         Additionally, you can specify only one wildcard character to allow cross-origin access for\n         all origins.</p>\n      ",
+            "smithy.api#documentation": "<p>One or more response headers that you want users to be able to access from their\n         applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>\n         <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string\n         value can include only one wildcard character (*), for example, http://*.example.com.\n         Additionally, you can specify only one wildcard character to allow cross-origin access for\n         all origins.</p>",
             "smithy.api#required": true
           }
         },
         "ExposeHeaders": {
           "target": "com.amazonaws.mediastore#ExposeHeaders",
           "traits": {
-            "smithy.api#documentation": "\n         <p>One or more headers in the response that you want users to be able to access from\n         their applications (for example, from a JavaScript <code>XMLHttpRequest</code>\n         object).</p>\n         <p>This element is optional for each rule.</p>\n      "
+            "smithy.api#documentation": "<p>One or more headers in the response that you want users to be able to access from\n         their applications (for example, from a JavaScript <code>XMLHttpRequest</code>\n         object).</p>\n         <p>This element is optional for each rule.</p>"
           }
         },
         "MaxAgeSeconds": {
           "target": "com.amazonaws.mediastore#MaxAgeSeconds",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The time in seconds that your browser caches the preflight response for the specified\n         resource.</p>\n         <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>\n      "
+            "smithy.api#documentation": "<p>The time in seconds that your browser caches the preflight response for the specified\n         resource.</p>\n         <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than\n         one rule applies, the service uses the first applicable rule listed.</p>\n      "
+        "smithy.api#documentation": "<p>A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than\n         one rule applies, the service uses the first applicable rule listed.</p>"
       }
     },
     "com.amazonaws.mediastore#CreateContainer": {
@@ -286,7 +291,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a storage container to hold objects. A container is similar to a bucket in\n         the Amazon S3 service.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Creates a storage container to hold objects. A container is similar to a bucket in\n         the Amazon S3 service.</p>"
       }
     },
     "com.amazonaws.mediastore#CreateContainerInput": {
@@ -295,14 +300,14 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name for the container. The name must be from 1 to 255 characters. Container\n         names must be unique to your AWS account within a specific region. As an example, you could\n         create a container named <code>movies</code> in every region, as long as you don’t have an\n         existing container with that name.</p>\n      ",
+            "smithy.api#documentation": "<p>The name for the container. The name must be from 1 to 255 characters. Container\n         names must be unique to your AWS account within a specific region. As an example, you could\n         create a container named <code>movies</code> in every region, as long as you don’t have an\n         existing container with that name.</p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.mediastore#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as\n           \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 \n           tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.</p>\n      "
+            "smithy.api#documentation": "<p>An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as\n           \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 \n           tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.</p>"
           }
         }
       }
@@ -313,7 +318,7 @@
         "Container": {
           "target": "com.amazonaws.mediastore#Container",
           "traits": {
-            "smithy.api#documentation": "\n         <p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN\n         has the following format: arn:aws:<region>:<account that owns this\n         container>:container/<name of container>. For example:\n         arn:aws:mediastore:us-west-2:111122223333:container/movies </p>\n         <p>ContainerName: The container name as specified in the request.</p>\n         <p>CreationTime: Unix time stamp.</p>\n         <p>Status: The status of container creation or deletion. The status is one of the\n         following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the\n         service is creating the container, the status is <code>CREATING</code>. When an endpoint is\n         available, the status changes to <code>ACTIVE</code>.</p>\n         <p>The return value does not include the container's endpoint. To make downstream\n         requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>\n      ",
+            "smithy.api#documentation": "<p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN\n         has the following format: arn:aws:<region>:<account that owns this\n         container>:container/<name of container>. For example:\n         arn:aws:mediastore:us-west-2:111122223333:container/movies </p>\n         <p>ContainerName: The container name as specified in the request.</p>\n         <p>CreationTime: Unix time stamp.</p>\n         <p>Status: The status of container creation or deletion. The status is one of the\n         following: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the\n         service is creating the container, the status is <code>CREATING</code>. When an endpoint is\n         available, the status changes to <code>ACTIVE</code>.</p>\n         <p>The return value does not include the container's endpoint. To make downstream\n         requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>",
             "smithy.api#required": true
           }
         }
@@ -339,7 +344,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>\n         request, delete any objects in the container or in any folders in the container. You can\n         delete only empty containers. </p>\n      \n      "
+        "smithy.api#documentation": "<p>Deletes the specified container. Before you make a <code>DeleteContainer</code>\n         request, delete any objects in the container or in any folders in the container. You can\n         delete only empty containers. </p>"
       }
     },
     "com.amazonaws.mediastore#DeleteContainerInput": {
@@ -348,7 +353,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container to delete. </p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container to delete. </p>",
             "smithy.api#required": true
           }
         }
@@ -381,7 +386,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the access policy that is associated with the specified container.</p>\n      "
+        "smithy.api#documentation": "<p>Deletes the access policy that is associated with the specified container.</p>"
       }
     },
     "com.amazonaws.mediastore#DeleteContainerPolicyInput": {
@@ -390,7 +395,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that holds the policy.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container that holds the policy.</p>",
             "smithy.api#required": true
           }
         }
@@ -423,7 +428,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the cross-origin resource sharing (CORS) configuration information that is\n         set for the container.</p>\n         <p>To use this operation, you must have permission to perform the\n            <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission\n         by default and can grant this permission to others.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Deletes the cross-origin resource sharing (CORS) configuration information that is\n         set for the container.</p>\n         <p>To use this operation, you must have permission to perform the\n            <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission\n         by default and can grant this permission to others.</p>"
       }
     },
     "com.amazonaws.mediastore#DeleteCorsPolicyInput": {
@@ -432,7 +437,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container to remove the policy from.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container to remove the policy from.</p>",
             "smithy.api#required": true
           }
         }
@@ -465,7 +470,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.</p>\n      "
+        "smithy.api#documentation": "<p>Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.</p>"
       }
     },
     "com.amazonaws.mediastore#DeleteLifecyclePolicyInput": {
@@ -474,7 +479,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that holds the object lifecycle policy.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container that holds the object lifecycle policy.</p>",
             "smithy.api#required": true
           }
         }
@@ -501,7 +506,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieves the properties of the requested container. This request is commonly used to\n         retrieve the endpoint of a container. An endpoint is a value assigned by the service when a\n         new container is created. A container's endpoint does not change after it has been\n         assigned. The <code>DescribeContainer</code> request returns a single\n            <code>Container</code> object based on <code>ContainerName</code>. To return all\n            <code>Container</code> objects that are associated with a specified AWS account, use\n            <a>ListContainers</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Retrieves the properties of the requested container. This request is commonly used to\n         retrieve the endpoint of a container. An endpoint is a value assigned by the service when a\n         new container is created. A container's endpoint does not change after it has been\n         assigned. The <code>DescribeContainer</code> request returns a single\n            <code>Container</code> object based on <code>ContainerName</code>. To return all\n            <code>Container</code> objects that are associated with a specified AWS account, use\n            <a>ListContainers</a>.</p>"
       }
     },
     "com.amazonaws.mediastore#DescribeContainerInput": {
@@ -510,7 +515,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container to query.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the container to query.</p>"
           }
         }
       }
@@ -521,7 +526,7 @@
         "Container": {
           "target": "com.amazonaws.mediastore#Container",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the queried container.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the queried container.</p>"
           }
         }
       }
@@ -581,7 +586,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieves the access policy for the specified container. For information about the\n         data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User\n            Guide</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Retrieves the access policy for the specified container. For information about the\n         data that is included in an access policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and Access Management User\n            Guide</a>.</p>"
       }
     },
     "com.amazonaws.mediastore#GetContainerPolicyInput": {
@@ -590,7 +595,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container. </p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container. </p>",
             "smithy.api#required": true
           }
         }
@@ -602,7 +607,7 @@
         "Policy": {
           "target": "com.amazonaws.mediastore#ContainerPolicy",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The contents of the access policy.</p>\n      ",
+            "smithy.api#documentation": "<p>The contents of the access policy.</p>",
             "smithy.api#required": true
           }
         }
@@ -631,7 +636,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the cross-origin resource sharing (CORS) configuration information that is\n         set for the container.</p>\n         <p>To use this operation, you must have permission to perform the\n            <code>MediaStore:GetCorsPolicy</code> action. By default, the container owner has this\n         permission and can grant it to others.</p>\n      \n      "
+        "smithy.api#documentation": "<p>Returns the cross-origin resource sharing (CORS) configuration information that is\n         set for the container.</p>\n         <p>To use this operation, you must have permission to perform the\n            <code>MediaStore:GetCorsPolicy</code> action. By default, the container owner has this\n         permission and can grant it to others.</p>"
       }
     },
     "com.amazonaws.mediastore#GetCorsPolicyInput": {
@@ -640,7 +645,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that the policy is assigned to.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container that the policy is assigned to.</p>",
             "smithy.api#required": true
           }
         }
@@ -652,7 +657,7 @@
         "CorsPolicy": {
           "target": "com.amazonaws.mediastore#CorsPolicy",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The CORS policy assigned to the container.</p>\n      ",
+            "smithy.api#documentation": "<p>The CORS policy assigned to the container.</p>",
             "smithy.api#required": true
           }
         }
@@ -681,7 +686,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Retrieves the object lifecycle policy that is assigned to a container.</p>\n      "
+        "smithy.api#documentation": "<p>Retrieves the object lifecycle policy that is assigned to a container.</p>"
       }
     },
     "com.amazonaws.mediastore#GetLifecyclePolicyInput": {
@@ -690,7 +695,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that the object lifecycle policy is assigned to.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container that the object lifecycle policy is assigned to.</p>",
             "smithy.api#required": true
           }
         }
@@ -702,7 +707,7 @@
         "LifecyclePolicy": {
           "target": "com.amazonaws.mediastore#LifecyclePolicy",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The object lifecycle policy that is assigned to the container.</p>\n      ",
+            "smithy.api#documentation": "<p>The object lifecycle policy that is assigned to the container.</p>",
             "smithy.api#required": true
           }
         }
@@ -726,7 +731,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The service is temporarily unavailable.</p>\n      ",
+        "smithy.api#documentation": "<p>The service is temporarily unavailable.</p>",
         "smithy.api#error": "server"
       }
     },
@@ -748,7 +753,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A service limit has been exceeded.</p>\n      ",
+        "smithy.api#documentation": "<p>A service limit has been exceeded.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -766,7 +771,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists the properties of all containers in AWS Elemental MediaStore. </p>\n         <p>You can query to receive all the containers in one response. Or you can include the\n            <code>MaxResults</code> parameter to receive a limited number of containers in each\n         response. In this case, the response includes a token. To get the next set of containers,\n         send the command again, this time with the <code>NextToken</code> parameter (with the\n         returned token as its value). The next set of responses appears, with a token if there are\n         still more containers to receive. </p>\n         <p>See also <a>DescribeContainer</a>, which gets the properties of one\n         container. </p>\n      ",
+        "smithy.api#documentation": "<p>Lists the properties of all containers in AWS Elemental MediaStore. </p>\n         <p>You can query to receive all the containers in one response. Or you can include the\n            <code>MaxResults</code> parameter to receive a limited number of containers in each\n         response. In this case, the response includes a token. To get the next set of containers,\n         send the command again, this time with the <code>NextToken</code> parameter (with the\n         returned token as its value). The next set of responses appears, with a token if there are\n         still more containers to receive. </p>\n         <p>See also <a>DescribeContainer</a>, which gets the properties of one\n         container. </p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -780,13 +785,13 @@
         "MaxResults": {
           "target": "com.amazonaws.mediastore#ContainerListLimit",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.\n      </p>\n      "
+            "smithy.api#documentation": "<p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.\n      </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.mediastore#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Only if you used <code>MaxResults</code> in the first command, enter the token (which\n         was included in the previous response) to obtain the next set of containers. This token is\n         included in a response only if there actually are more containers to list.</p>\n      "
+            "smithy.api#documentation": "<p>Only if you used <code>MaxResults</code> in the first command, enter the token (which\n         was included in the previous response) to obtain the next set of containers. This token is\n         included in a response only if there actually are more containers to list.</p>"
           }
         }
       }
@@ -797,14 +802,14 @@
         "Containers": {
           "target": "com.amazonaws.mediastore#ContainerList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The names of the containers.</p>\n      ",
+            "smithy.api#documentation": "<p>The names of the containers.</p>",
             "smithy.api#required": true
           }
         },
         "NextToken": {
           "target": "com.amazonaws.mediastore#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>\n            <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>.\n         This token is returned only if you included the <code>MaxResults</code> tag in the original\n         command, and only if there are still containers to return. </p>\n      "
+            "smithy.api#documentation": "<p>\n            <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>.\n         This token is returned only if you included the <code>MaxResults</code> tag in the original\n         command, and only if there are still containers to return. </p>"
           }
         }
       }
@@ -829,7 +834,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of the tags assigned to the specified container. </p>\n      "
+        "smithy.api#documentation": "<p>Returns a list of the tags assigned to the specified container. </p>"
       }
     },
     "com.amazonaws.mediastore#ListTagsForResourceInput": {
@@ -838,7 +843,7 @@
         "Resource": {
           "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) for the container.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the container.</p>",
             "smithy.api#required": true
           }
         }
@@ -850,7 +855,7 @@
         "Tags": {
           "target": "com.amazonaws.mediastore#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of key:value pairs that are assigned to the container.</p>\n      "
+            "smithy.api#documentation": "<p>An array of key:value pairs that are assigned to the container.</p>"
           }
         }
       }
@@ -930,7 +935,7 @@
           "cloudFormationName": "MediaStore",
           "cloudTrailEventSource": "mediastore.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.\n         You use a container endpoint to create, read, and delete objects. </p>\n      ",
+        "smithy.api#documentation": "<p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.\n         You use a container endpoint to create, read, and delete objects. </p>",
         "smithy.api#protocols": [
           {
             "name": "aws.json-1.1",
@@ -992,7 +997,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The policy that you specified in the request does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>The policy that you specified in the request does not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1016,7 +1021,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates an access policy for the specified container to restrict the users and\n         clients that can access it. For information about the data that is included in an access\n         policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and\n            Access Management User Guide</a>.</p>\n         <p>For this release of the REST API, you can create only one policy for a container. If\n         you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing\n         policy. </p>\n      "
+        "smithy.api#documentation": "<p>Creates an access policy for the specified container to restrict the users and\n         clients that can access it. For information about the data that is included in an access\n         policy, see the <a href=\"https://aws.amazon.com/documentation/iam/\">AWS Identity and\n            Access Management User Guide</a>.</p>\n         <p>For this release of the REST API, you can create only one policy for a container. If\n         you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing\n         policy. </p>"
       }
     },
     "com.amazonaws.mediastore#PutContainerPolicyInput": {
@@ -1025,14 +1030,14 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container.</p>",
             "smithy.api#required": true
           }
         },
         "Policy": {
           "target": "com.amazonaws.mediastore#ContainerPolicy",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The contents of the policy, which includes the following: </p>\n         <ul>\n            <li>\n               <p>One <code>Version</code> tag</p>\n            </li>\n            <li>\n               <p>One <code>Statement</code> tag that contains the standard tags for the\n               policy.</p>\n            </li>\n         </ul>\n      ",
+            "smithy.api#documentation": "<p>The contents of the policy, which includes the following: </p>\n         <ul>\n            <li>\n               <p>One <code>Version</code> tag</p>\n            </li>\n            <li>\n               <p>One <code>Statement</code> tag that contains the standard tags for the\n               policy.</p>\n            </li>\n         </ul>",
             "smithy.api#required": true
           }
         }
@@ -1062,7 +1067,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Sets the cross-origin resource sharing (CORS) configuration on a container so that\n         the container can service cross-origin requests. For example, you might want to enable a\n         request whose origin is http://www.example.com to access your AWS Elemental MediaStore\n         container at my.example.container.com by using the browser's XMLHttpRequest\n         capability.</p>\n         <p>To enable CORS on a container, you attach a CORS policy to the container. In the CORS\n         policy, you configure rules that identify origins and the HTTP methods that can be executed\n         on your container. The policy can contain up to 398,000 characters. You can add up to 100\n         rules to a CORS policy. If more than one rule applies, the service uses the first\n         applicable rule listed.</p>\n         <p>To learn more about CORS, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html\">Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Sets the cross-origin resource sharing (CORS) configuration on a container so that\n         the container can service cross-origin requests. For example, you might want to enable a\n         request whose origin is http://www.example.com to access your AWS Elemental MediaStore\n         container at my.example.container.com by using the browser's XMLHttpRequest\n         capability.</p>\n         <p>To enable CORS on a container, you attach a CORS policy to the container. In the CORS\n         policy, you configure rules that identify origins and the HTTP methods that can be executed\n         on your container. The policy can contain up to 398,000 characters. You can add up to 100\n         rules to a CORS policy. If more than one rule applies, the service uses the first\n         applicable rule listed.</p>\n         <p>To learn more about CORS, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html\">Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore</a>.</p>"
       }
     },
     "com.amazonaws.mediastore#PutCorsPolicyInput": {
@@ -1071,14 +1076,14 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that you want to assign the CORS policy to.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container that you want to assign the CORS policy to.</p>",
             "smithy.api#required": true
           }
         },
         "CorsPolicy": {
           "target": "com.amazonaws.mediastore#CorsPolicy",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The CORS policy to apply to the container.  </p>\n      ",
+            "smithy.api#documentation": "<p>The CORS policy to apply to the container.  </p>",
             "smithy.api#required": true
           }
         }
@@ -1108,7 +1113,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>\n         <p>For information about how to construct an object lifecycle policy, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html\">Components of an Object Lifecycle Policy</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>\n         <p>For information about how to construct an object lifecycle policy, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html\">Components of an Object Lifecycle Policy</a>.</p>"
       }
     },
     "com.amazonaws.mediastore#PutLifecyclePolicyInput": {
@@ -1117,14 +1122,14 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that you want to assign the object lifecycle policy to.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the container that you want to assign the object lifecycle policy to.</p>",
             "smithy.api#required": true
           }
         },
         "LifecyclePolicy": {
           "target": "com.amazonaws.mediastore#LifecyclePolicy",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The object lifecycle policy to apply to the container.</p>\n      ",
+            "smithy.api#documentation": "<p>The object lifecycle policy to apply to the container.</p>",
             "smithy.api#required": true
           }
         }
@@ -1154,7 +1159,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>\n     "
+        "smithy.api#documentation": "<p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>"
       }
     },
     "com.amazonaws.mediastore#StartAccessLoggingInput": {
@@ -1163,7 +1168,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that you want to start access logging on.</p>\n     ",
+            "smithy.api#documentation": "<p>The name of the container that you want to start access logging on.</p>",
             "smithy.api#required": true
           }
         }
@@ -1193,7 +1198,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>\n     "
+        "smithy.api#documentation": "<p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>"
       }
     },
     "com.amazonaws.mediastore#StopAccessLoggingInput": {
@@ -1202,7 +1207,7 @@
         "ContainerName": {
           "target": "com.amazonaws.mediastore#ContainerName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the container that you want to stop access logging on.</p>\n     ",
+            "smithy.api#documentation": "<p>The name of the container that you want to stop access logging on.</p>",
             "smithy.api#required": true
           }
         }
@@ -1218,19 +1223,19 @@
         "Key": {
           "target": "com.amazonaws.mediastore#TagKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are\n            case-sensitive.</p>\n      ",
+            "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are\n            case-sensitive.</p>",
             "smithy.api#required": true
           }
         },
         "Value": {
           "target": "com.amazonaws.mediastore#TagValue",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as \"companyA\" or\n            \"companyB.\" Tag values are case-sensitive.</p>\n      "
+            "smithy.api#documentation": "<p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as \"companyA\" or\n            \"companyB.\" Tag values are case-sensitive.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A collection of tags associated with a container. Each tag consists of a key:value pair, which can be anything you define. Typically, the tag key\n            represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or\n            \"production\"). You can add up to 50 \n            tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.</p>\n      "
+        "smithy.api#documentation": "<p>A collection of tags associated with a container. Each tag consists of a key:value pair, which can be anything you define. Typically, the tag key\n            represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or\n            \"production\"). You can add up to 50 \n            tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.</p>"
       }
     },
     "com.amazonaws.mediastore#TagKey": {
@@ -1274,7 +1279,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds tags to the specified AWS Elemental MediaStore container. Tags are key:value pairs that you can associate with AWS resources. For example, the\n            tag key might be \"customer\" and the tag value might be \"companyA.\" You can specify one or more tags to add to each container. You can add up to 50\n            tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.</p>\n      "
+        "smithy.api#documentation": "<p>Adds tags to the specified AWS Elemental MediaStore container. Tags are key:value pairs that you can associate with AWS resources. For example, the\n            tag key might be \"customer\" and the tag value might be \"companyA.\" You can specify one or more tags to add to each container. You can add up to 50\n            tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.</p>"
       }
     },
     "com.amazonaws.mediastore#TagResourceInput": {
@@ -1283,14 +1288,14 @@
         "Resource": {
           "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) for the container. </p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the container. </p>",
             "smithy.api#required": true
           }
         },
         "Tags": {
           "target": "com.amazonaws.mediastore#TagList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of key:value pairs that you want to add to the container. You need to specify only the tags that you want to add or update. For example,\n            suppose a container already has two tags (customer:CompanyA and priority:High). You want to change the priority tag and also add a third tag\n            (type:Contract). For TagResource, you specify the following tags: priority:Medium, type:Contract. The result is that your container has three tags:\n            customer:CompanyA, priority:Medium, and type:Contract.</p>\n      ",
+            "smithy.api#documentation": "<p>An array of key:value pairs that you want to add to the container. You need to specify only the tags that you want to add or update. For example,\n            suppose a container already has two tags (customer:CompanyA and priority:High). You want to change the priority tag and also add a third tag\n            (type:Contract). For TagResource, you specify the following tags: priority:Medium, type:Contract. The result is that your container has three tags:\n            customer:CompanyA, priority:Medium, and type:Contract.</p>",
             "smithy.api#required": true
           }
         }
@@ -1332,7 +1337,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Removes tags from the specified container. You can specify one or more tags to remove. </p>\n      "
+        "smithy.api#documentation": "<p>Removes tags from the specified container. You can specify one or more tags to remove. </p>"
       }
     },
     "com.amazonaws.mediastore#UntagResourceInput": {
@@ -1341,14 +1346,14 @@
         "Resource": {
           "target": "com.amazonaws.mediastore#ContainerARN",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) for the container.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the container.</p>",
             "smithy.api#required": true
           }
         },
         "TagKeys": {
           "target": "com.amazonaws.mediastore#TagKeyList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA\n            and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove\n            (priority).</p>\n      ",
+            "smithy.api#documentation": "<p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA\n            and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove\n            (priority).</p>",
             "smithy.api#required": true
           }
         }
