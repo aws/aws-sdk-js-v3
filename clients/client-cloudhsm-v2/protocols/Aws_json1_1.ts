@@ -58,6 +58,7 @@ import {
   CloudHsmInvalidRequestException,
   CloudHsmResourceNotFoundException,
   CloudHsmServiceException,
+  CloudHsmTagException,
   Cluster,
   CopyBackupToRegionRequest,
   CopyBackupToRegionResponse,
@@ -436,6 +437,13 @@ async function deserializeAws_json1_1CopyBackupToRegionCommandError(
         context
       );
       break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -514,6 +522,13 @@ async function deserializeAws_json1_1CreateClusterCommandError(
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
         parsedOutput,
         context
       );
@@ -764,6 +779,13 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
         context
       );
       break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -928,6 +950,13 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
         context
       );
       break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -999,6 +1028,13 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
         parsedOutput,
         context
       );
@@ -1167,6 +1203,13 @@ async function deserializeAws_json1_1ListTagsCommandError(
         context
       );
       break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -1331,6 +1374,13 @@ async function deserializeAws_json1_1TagResourceCommandError(
         context
       );
       break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = errorCode || "UnknownError";
@@ -1409,6 +1459,13 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "CloudHsmTagException":
+    case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
+      response = await deserializeAws_json1_1CloudHsmTagExceptionResponse(
         parsedOutput,
         context
       );
@@ -1523,6 +1580,25 @@ const deserializeAws_json1_1CloudHsmServiceExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1CloudHsmTagExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CloudHsmTagException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1CloudHsmTagException(
+    body,
+    context
+  );
+  const contents: CloudHsmTagException = {
+    name: "CloudHsmTagException",
+    __type: "CloudHsmTagException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const serializeAws_json1_1CopyBackupToRegionRequest = (
   input: CopyBackupToRegionRequest,
   context: __SerdeContext
@@ -1533,6 +1609,9 @@ const serializeAws_json1_1CopyBackupToRegionRequest = (
   }
   if (input.DestinationRegion !== undefined) {
     bodyParams["DestinationRegion"] = input.DestinationRegion;
+  }
+  if (input.TagList !== undefined) {
+    bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
   return bodyParams;
 };
@@ -1553,6 +1632,9 @@ const serializeAws_json1_1CreateClusterRequest = (
       input.SubnetIds,
       context
     );
+  }
+  if (input.TagList !== undefined) {
+    bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
   }
   return bodyParams;
 };
@@ -1793,7 +1875,8 @@ const deserializeAws_json1_1Backup = (
     DeleteTimestamp: undefined,
     SourceBackup: undefined,
     SourceCluster: undefined,
-    SourceRegion: undefined
+    SourceRegion: undefined,
+    TagList: undefined
   };
   if (output.BackupId !== undefined) {
     contents.BackupId = output.BackupId;
@@ -1833,6 +1916,9 @@ const deserializeAws_json1_1Backup = (
   }
   if (output.SourceRegion !== undefined) {
     contents.SourceRegion = output.SourceRegion;
+  }
+  if (output.TagList !== undefined) {
+    contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
 };
@@ -1895,6 +1981,7 @@ const deserializeAws_json1_1Cluster = (
     State: undefined,
     StateMessage: undefined,
     SubnetMapping: undefined,
+    TagList: undefined,
     VpcId: undefined
   };
   if (output.BackupPolicy !== undefined) {
@@ -1942,6 +2029,9 @@ const deserializeAws_json1_1Cluster = (
       output.SubnetMapping,
       context
     );
+  }
+  if (output.TagList !== undefined) {
+    contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   if (output.VpcId !== undefined) {
     contents.VpcId = output.VpcId;
@@ -2335,6 +2425,20 @@ const deserializeAws_json1_1CloudHsmServiceException = (
 ): CloudHsmServiceException => {
   let contents: any = {
     __type: "CloudHsmServiceException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CloudHsmTagException = (
+  output: any,
+  context: __SerdeContext
+): CloudHsmTagException => {
+  let contents: any = {
+    __type: "CloudHsmTagException",
     Message: undefined
   };
   if (output.Message !== undefined) {

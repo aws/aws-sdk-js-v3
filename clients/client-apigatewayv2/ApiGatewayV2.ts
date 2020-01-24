@@ -70,6 +70,11 @@ import {
   DeleteAuthorizerCommandOutput
 } from "./commands/DeleteAuthorizerCommand";
 import {
+  DeleteCorsConfigurationCommand,
+  DeleteCorsConfigurationCommandInput,
+  DeleteCorsConfigurationCommandOutput
+} from "./commands/DeleteCorsConfigurationCommand";
+import {
   DeleteDeploymentCommand,
   DeleteDeploymentCommandInput,
   DeleteDeploymentCommandOutput
@@ -104,6 +109,11 @@ import {
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput
 } from "./commands/DeleteRouteResponseCommand";
+import {
+  DeleteRouteSettingsCommand,
+  DeleteRouteSettingsCommandInput,
+  DeleteRouteSettingsCommandOutput
+} from "./commands/DeleteRouteSettingsCommand";
 import {
   DeleteStageCommand,
   DeleteStageCommandInput,
@@ -224,6 +234,31 @@ import {
   GetStagesCommandInput,
   GetStagesCommandOutput
 } from "./commands/GetStagesCommand";
+import {
+  GetTagsCommand,
+  GetTagsCommandInput,
+  GetTagsCommandOutput
+} from "./commands/GetTagsCommand";
+import {
+  ImportApiCommand,
+  ImportApiCommandInput,
+  ImportApiCommandOutput
+} from "./commands/ImportApiCommand";
+import {
+  ReimportApiCommand,
+  ReimportApiCommandInput,
+  ReimportApiCommandOutput
+} from "./commands/ReimportApiCommand";
+import {
+  TagResourceCommand,
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import {
   UpdateApiCommand,
   UpdateApiCommandInput,
@@ -776,6 +811,41 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * <p>Deletes a CORS configuration.</p>
+   */
+  public deleteCorsConfiguration(
+    args: DeleteCorsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCorsConfigurationCommandOutput>;
+  public deleteCorsConfiguration(
+    args: DeleteCorsConfigurationCommandInput,
+    cb: (err: any, data?: DeleteCorsConfigurationCommandOutput) => void
+  ): void;
+  public deleteCorsConfiguration(
+    args: DeleteCorsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCorsConfigurationCommandOutput) => void
+  ): void;
+  public deleteCorsConfiguration(
+    args: DeleteCorsConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCorsConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCorsConfigurationCommandOutput) => void
+  ): Promise<DeleteCorsConfigurationCommandOutput> | void {
+    const command = new DeleteCorsConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a Deployment.</p>
    */
   public deleteDeployment(
@@ -1021,6 +1091,41 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
+   * <p>Deletes the RouteSettings for a stage.</p>
+   */
+  public deleteRouteSettings(
+    args: DeleteRouteSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouteSettingsCommandOutput>;
+  public deleteRouteSettings(
+    args: DeleteRouteSettingsCommandInput,
+    cb: (err: any, data?: DeleteRouteSettingsCommandOutput) => void
+  ): void;
+  public deleteRouteSettings(
+    args: DeleteRouteSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRouteSettingsCommandOutput) => void
+  ): void;
+  public deleteRouteSettings(
+    args: DeleteRouteSettingsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRouteSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRouteSettingsCommandOutput) => void
+  ): Promise<DeleteRouteSettingsCommandOutput> | void {
+    const command = new DeleteRouteSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a Stage.</p>
    */
   public deleteStage(
@@ -1091,7 +1196,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
-   * <p>The API mapping.</p>
+   * <p>Gets an API mapping.</p>
    */
   public getApiMapping(
     args: GetApiMappingCommandInput,
@@ -1126,7 +1231,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   }
 
   /**
-   * <p>The API mappings.</p>
+   * <p>Gets API mappings.</p>
    */
   public getApiMappings(
     args: GetApiMappingsCommandInput,
@@ -1849,6 +1954,181 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
     cb?: (err: any, data?: GetStagesCommandOutput) => void
   ): Promise<GetStagesCommandOutput> | void {
     const command = new GetStagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a collection of Tag resources.</p>
+   */
+  public getTags(
+    args: GetTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTagsCommandOutput>;
+  public getTags(
+    args: GetTagsCommandInput,
+    cb: (err: any, data?: GetTagsCommandOutput) => void
+  ): void;
+  public getTags(
+    args: GetTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTagsCommandOutput) => void
+  ): void;
+  public getTags(
+    args: GetTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTagsCommandOutput) => void),
+    cb?: (err: any, data?: GetTagsCommandOutput) => void
+  ): Promise<GetTagsCommandOutput> | void {
+    const command = new GetTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Imports an API.</p>
+   */
+  public importApi(
+    args: ImportApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportApiCommandOutput>;
+  public importApi(
+    args: ImportApiCommandInput,
+    cb: (err: any, data?: ImportApiCommandOutput) => void
+  ): void;
+  public importApi(
+    args: ImportApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportApiCommandOutput) => void
+  ): void;
+  public importApi(
+    args: ImportApiCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ImportApiCommandOutput) => void),
+    cb?: (err: any, data?: ImportApiCommandOutput) => void
+  ): Promise<ImportApiCommandOutput> | void {
+    const command = new ImportApiCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Puts an Api resource.</p>
+   */
+  public reimportApi(
+    args: ReimportApiCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReimportApiCommandOutput>;
+  public reimportApi(
+    args: ReimportApiCommandInput,
+    cb: (err: any, data?: ReimportApiCommandOutput) => void
+  ): void;
+  public reimportApi(
+    args: ReimportApiCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReimportApiCommandOutput) => void
+  ): void;
+  public reimportApi(
+    args: ReimportApiCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ReimportApiCommandOutput) => void),
+    cb?: (err: any, data?: ReimportApiCommandOutput) => void
+  ): Promise<ReimportApiCommandOutput> | void {
+    const command = new ReimportApiCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new Tag resource to represent a tag.</p>
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Tag.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

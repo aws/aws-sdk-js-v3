@@ -167,8 +167,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>
+ * <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>
  *
  *          <p>Glacier is an extremely low-cost storage service that provides secure,
  *          durable, and easy-to-use storage for data backup and archival. With Glacier,
@@ -206,12 +205,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                retrieving the job output, and deleting archives.</p>
  *             </li>
  *          </ul>
- *
  */
 export class Glacier extends GlacierClient {
   /**
-   *
-   *          <p>This operation aborts a multipart upload identified by the upload ID.</p>
+   * <p>This operation aborts a multipart upload identified by the upload ID.</p>
    *
    *
    *          <p>After the Abort Multipart Upload request succeeds, you cannot upload any more parts
@@ -229,7 +226,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in
    *             Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html">Abort Multipart
    *             Upload</a> in the <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
@@ -264,8 +260,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation aborts the vault locking process if the vault lock is not in the
+   * <p>This operation aborts the vault locking process if the vault lock is not in the
    *             <code>Locked</code> state. If the vault lock is in the <code>Locked</code> state when
    *          this operation is requested, the operation returns an <code>AccessDeniedException</code>
    *          error. Aborting the vault locking process removes the vault lock policy from the specified
@@ -279,7 +274,6 @@ export class Glacier extends GlacierClient {
    *          <p>This operation is idempotent. You can successfully invoke this operation multiple
    *          times, if the vault lock is in the <code>InProgress</code> state or if there is no policy
    *          associated with the vault.</p>
-   *
    */
   public abortVaultLock(
     args: AbortVaultLockCommandInput,
@@ -314,14 +308,12 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation adds the specified tags to a vault. Each tag is composed of a key and
+   * <p>This operation adds the specified tags to a vault. Each tag is composed of a key and
    *          a value. Each vault can have up to 10 tags. If your request would cause the tag limit for
    *          the vault to be exceeded, the operation throws the <code>LimitExceededException</code>
    *          error. If a tag already exists on the vault under a specified key, the existing key value
    *          will be overwritten. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
    *       </p>
-   *
    */
   public addTagsToVault(
     args: AddTagsToVaultCommandInput,
@@ -356,8 +348,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>You call this operation to inform Amazon S3 Glacier (Glacier) that all the archive parts have been
+   * <p>You call this operation to inform Amazon S3 Glacier (Glacier) that all the archive parts have been
    *          uploaded and that Glacier can now assemble the archive from the uploaded parts.
    *          After assembling and saving the archive to the vault, Glacier returns the URI path
    *          of the newly created archive resource. Using the URI path, you can then access the archive.
@@ -395,7 +386,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html">Uploading Large Archives in
    *             Parts (Multipart Upload)</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html">Complete Multipart
    *             Upload</a> in the <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
@@ -430,8 +420,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation completes the vault locking process by transitioning the vault lock
+   * <p>This operation completes the vault locking process by transitioning the vault lock
    *          from the <code>InProgress</code> state to the <code>Locked</code> state, which causes the
    *          vault lock policy to become unchangeable. A vault lock is put into the
    *             <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. You can
@@ -445,7 +434,6 @@ export class Glacier extends GlacierClient {
    *          error. If an invalid lock ID is passed in the request when the vault lock is in the
    *             <code>InProgress</code> state, the operation throws an <code>InvalidParameter</code>
    *          error.</p>
-   *
    */
   public completeVaultLock(
     args: CompleteVaultLockCommandInput,
@@ -480,8 +468,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation creates a new vault with the specified name. The name of the vault
+   * <p>This operation creates a new vault with the specified name. The name of the vault
    *          must be unique within a region for an AWS account. You can create up to 1,000 vaults per
    *          account. If you need to create more vaults, contact Amazon S3 Glacier.</p>
    *          <p>You must use the following guidelines when naming a vault.</p>
@@ -505,7 +492,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html">Creating a Vault in Amazon
    *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html">Create Vault </a> in the
    *             <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public createVault(
     args: CreateVaultCommandInput,
@@ -540,8 +526,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation deletes an archive from a vault. Subsequent requests to initiate a
+   * <p>This operation deletes an archive from a vault. Subsequent requests to initiate a
    *          retrieval of this archive will fail. Archive retrievals that are in progress for this
    *          archive ID may or may not succeed according to the following scenarios:</p>
    *          <ul>
@@ -568,7 +553,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html">Deleting an Archive in Amazon
    *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html">Delete Archive</a> in the
    *             <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public deleteArchive(
     args: DeleteArchiveCommandInput,
@@ -603,8 +587,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation deletes a vault. Amazon S3 Glacier will delete a vault only if there are
+   * <p>This operation deletes a vault. Amazon S3 Glacier will delete a vault only if there are
    *          no archives in the vault as of the last inventory and there have been no writes to the
    *          vault since the last inventory. If either of these conditions is not satisfied, the vault
    *          deletion fails (that is, the vault is not removed) and Amazon S3 Glacier returns an error. You
@@ -624,7 +607,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html">Deleting a Vault in Amazon
    *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html">Delete Vault </a> in the
    *             <i>Amazon S3 Glacier Developer Guide</i>. </p>
-   *
    */
   public deleteVault(
     args: DeleteVaultCommandInput,
@@ -659,15 +641,13 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation deletes the access policy associated with the specified vault. The
+   * <p>This operation deletes the access policy associated with the specified vault. The
    *          operation is eventually consistent; that is, it might take some time for Amazon S3 Glacier to
    *          completely remove the access policy, and you might still see the effect of the policy for a
    *          short time after you send the delete request.</p>
    *          <p>This operation is idempotent. You can invoke delete multiple times, even if there is
    *          no policy associated with the vault. For more information about vault access policies, see
    *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon Glacier Access Control with Vault Access Policies</a>. </p>
-   *
    */
   public deleteVaultAccessPolicy(
     args: DeleteVaultAccessPolicyCommandInput,
@@ -702,8 +682,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation deletes the notification configuration set for a vault. The operation
+   * <p>This operation deletes the notification configuration set for a vault. The operation
    *          is eventually consistent; that is, it might take some time for Amazon S3 Glacier to completely
    *          disable the notifications and you might still receive some notifications for a short time
    *          after you send the delete request.</p>
@@ -716,7 +695,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
    *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html">Delete Vault
    *             Notification Configuration </a> in the Amazon S3 Glacier Developer Guide. </p>
-   *
    */
   public deleteVaultNotifications(
     args: DeleteVaultNotificationsCommandInput,
@@ -751,8 +729,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation returns information about a job you previously initiated, including
+   * <p>This operation returns information about a job you previously initiated, including
    *          the job initiation date, the user who initiated the job, the job status code/message and
    *          the Amazon SNS topic to notify after Amazon S3 Glacier (Glacier) completes the job. For more information
    *          about initiating a job, see <a>InitiateJob</a>. </p>
@@ -776,8 +753,6 @@ export class Glacier extends GlacierClient {
    *          <p> For more information about using this operation,
    *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html">Describe Job</a>
    *          in the <i>Amazon Glacier Developer Guide</i>. </p>
-   *
-   *
    */
   public describeJob(
     args: DescribeJobCommandInput,
@@ -812,8 +787,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation returns information about a vault, including the vault's Amazon
+   * <p>This operation returns information about a vault, including the vault's Amazon
    *          Resource Name (ARN), the date the vault was created, the number of archives it contains,
    *          and the total size of all the archives in the vault. The number of archives and their total
    *          size are as of the last inventory generation. This means that if you add or remove an
@@ -831,7 +805,6 @@ export class Glacier extends GlacierClient {
    *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving Vault Metadata in
    *             Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html">Describe Vault </a> in the
    *             <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public describeVault(
     args: DescribeVaultCommandInput,
@@ -866,11 +839,9 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation returns the current data retrieval policy for the account and region
+   * <p>This operation returns the current data retrieval policy for the account and region
    *          specified in the GET request. For more information about data retrieval policies, see
    *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html">Amazon Glacier Data Retrieval Policies</a>.</p>
-   *
    */
   public getDataRetrievalPolicy(
     args: GetDataRetrievalPolicyCommandInput,
@@ -905,8 +876,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
+   * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
    *          job, the output will be either the content of an archive or a vault inventory.</p>
    *
    *          <p>You can download all the job output or download a portion of the output by specifying
@@ -943,7 +913,6 @@ export class Glacier extends GlacierClient {
    *             Vault Inventory</a>, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html">Downloading an
    *             Archive</a>, and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html">Get Job Output </a>
    *          </p>
-   *
    */
   public getJobOutput(
     args: GetJobOutputCommandInput,
@@ -978,14 +947,12 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation retrieves the <code>access-policy</code> subresource set on the vault;
+   * <p>This operation retrieves the <code>access-policy</code> subresource set on the vault;
    *          for more information on setting this subresource, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html">Set Vault Access Policy
    *             (PUT access-policy)</a>. If there is no access policy set on the vault, the
    *          operation returns a <code>404 Not found</code> error. For more information about vault
    *          access policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon Glacier Access Control
    *             with Vault Access Policies</a>.</p>
-   *
    */
   public getVaultAccessPolicy(
     args: GetVaultAccessPolicyCommandInput,
@@ -1020,8 +987,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation retrieves the following attributes from the <code>lock-policy</code>
+   * <p>This operation retrieves the following attributes from the <code>lock-policy</code>
    *          subresource set on the specified vault: </p>
    *          <ul>
    *             <li>
@@ -1049,7 +1015,6 @@ export class Glacier extends GlacierClient {
    *          <p>If there is no vault lock policy set on the vault, the operation returns a <code>404
    *             Not found</code> error. For more information about vault lock policies, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html">Amazon
    *             Glacier Access Control with Vault Lock Policies</a>. </p>
-   *
    */
   public getVaultLock(
     args: GetVaultLockCommandInput,
@@ -1084,8 +1049,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation retrieves the <code>notification-configuration</code> subresource of
+   * <p>This operation retrieves the <code>notification-configuration</code> subresource of
    *          the specified vault.</p>
    *
    *          <p>For information about setting a notification configuration on a vault, see <a>SetVaultNotifications</a>. If a notification configuration for a vault is not
@@ -1101,7 +1065,6 @@ export class Glacier extends GlacierClient {
    *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
    *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html">Get Vault Notification
    *             Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public getVaultNotifications(
     args: GetVaultNotificationsCommandInput,
@@ -1136,14 +1099,11 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,
+   * <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,
    *          or a vault retrieval. For more information about using this operation,
    *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate
    *             a Job</a>.
    *       </p>
-   *
-   *
    */
   public initiateJob(
     args: InitiateJobCommandInput,
@@ -1178,8 +1138,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation initiates a multipart upload. Amazon S3 Glacier creates a multipart
+   * <p>This operation initiates a multipart upload. Amazon S3 Glacier creates a multipart
    *          upload resource and returns its ID in the response. The multipart upload ID is used in
    *          subsequent requests to upload parts of an archive (see <a>UploadMultipartPart</a>).</p>
    *
@@ -1213,7 +1172,6 @@ export class Glacier extends GlacierClient {
    *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html">Uploading Large Archives in
    *             Parts (Multipart Upload)</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html">Initiate Multipart
    *             Upload</a> in the <i>Amazon Glacier Developer Guide</i>.</p>
-   *
    */
   public initiateMultipartUpload(
     args: InitiateMultipartUploadCommandInput,
@@ -1248,8 +1206,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation initiates the vault locking process by doing the following:</p>
+   * <p>This operation initiates the vault locking process by doing the following:</p>
    *          <ul>
    *             <li>
    *                <p>Installing a vault lock policy on the specified vault.</p>
@@ -1284,7 +1241,6 @@ export class Glacier extends GlacierClient {
    *          state, the operation returns an <code>AccessDeniedException</code> error. When the vault
    *          lock is in the <code>InProgress</code> state you must call <a>AbortVaultLock</a>
    *          before you can initiate a new vault lock policy. </p>
-   *
    */
   public initiateVaultLock(
     args: InitiateVaultLockCommandInput,
@@ -1319,8 +1275,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation lists jobs for a vault, including jobs that are in-progress and jobs
+   * <p>This operation lists jobs for a vault, including jobs that are in-progress and jobs
    *          that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation
    *          time.</p>
    *
@@ -1356,7 +1311,6 @@ export class Glacier extends GlacierClient {
    *
    *          <p>For more information about using this operation,
    *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html">List Jobs</a>. </p>
-   *
    */
   public listJobs(
     args: ListJobsCommandInput,
@@ -1391,8 +1345,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation lists in-progress multipart uploads for the specified vault. An
+   * <p>This operation lists in-progress multipart uploads for the specified vault. An
    *          in-progress multipart upload is a multipart upload that has been initiated by an <a>InitiateMultipartUpload</a> request, but has not yet been completed or aborted.
    *          The list returned in the List Multipart Upload response has no guaranteed order. </p>
    *
@@ -1418,7 +1371,6 @@ export class Glacier extends GlacierClient {
    *          <p>For conceptual information and the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working
    *             with Archives in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html">List Multipart Uploads
    *          </a> in the <i>Amazon Glacier Developer Guide</i>.</p>
-   *
    */
   public listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
@@ -1453,8 +1405,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation lists the parts of an archive that have been uploaded in a specific
+   * <p>This operation lists the parts of an archive that have been uploaded in a specific
    *          multipart upload. You can make this request at any time during an in-progress multipart
    *          upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List
    *          Parts returns an error for completed uploads. The list returned in the List Parts response
@@ -1476,7 +1427,6 @@ export class Glacier extends GlacierClient {
    *          <p>For conceptual information and the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working
    *             with Archives in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html">List Parts</a> in the
    *             <i>Amazon Glacier Developer Guide</i>.</p>
-   *
    */
   public listParts(
     args: ListPartsCommandInput,
@@ -1511,10 +1461,8 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation lists the provisioned capacity units for the specified AWS
+   * <p>This operation lists the provisioned capacity units for the specified AWS
    *          account.</p>
-   *
    */
   public listProvisionedCapacity(
     args: ListProvisionedCapacityCommandInput,
@@ -1549,11 +1497,9 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation lists all the tags attached to a vault. The operation returns an empty
+   * <p>This operation lists all the tags attached to a vault. The operation returns an empty
    *          map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier
    *          Resources</a>.</p>
-   *
    */
   public listTagsForVault(
     args: ListTagsForVaultCommandInput,
@@ -1588,8 +1534,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation lists all vaults owned by the calling user's account. The list
+   * <p>This operation lists all vaults owned by the calling user's account. The list
    *          returned in the response is ASCII-sorted by vault name.</p>
    *
    *          <p>By default, this operation returns up to 10 items. If there are more vaults to
@@ -1608,7 +1553,6 @@ export class Glacier extends GlacierClient {
    *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving Vault Metadata in
    *             Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html">List Vaults </a> in the
    *             <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public listVaults(
     args: ListVaultsCommandInput,
@@ -1643,9 +1587,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation purchases a provisioned capacity unit for an AWS account. </p>
-   *
+   * <p>This operation purchases a provisioned capacity unit for an AWS account. </p>
    */
   public purchaseProvisionedCapacity(
     args: PurchaseProvisionedCapacityCommandInput,
@@ -1680,12 +1622,10 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation removes one or more tags from the set of tags attached to a vault. For
+   * <p>This operation removes one or more tags from the set of tags attached to a vault. For
    *          more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
    *          This operation is idempotent. The operation will be successful, even if there are no tags
    *          attached to the vault. </p>
-   *
    */
   public removeTagsFromVault(
     args: RemoveTagsFromVaultCommandInput,
@@ -1720,14 +1660,12 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation sets and then enacts a data retrieval policy in the region specified
+   * <p>This operation sets and then enacts a data retrieval policy in the region specified
    *          in the PUT request. You can set one policy per region for an AWS account. The policy is
    *          enacted within a few minutes of a successful PUT operation.</p>
    *          <p>The set policy operation does not affect retrieval jobs that were in progress before
    *          the policy was enacted. For more information about data retrieval policies, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html">Amazon
    *             Glacier Data Retrieval Policies</a>. </p>
-   *
    */
   public setDataRetrievalPolicy(
     args: SetDataRetrievalPolicyCommandInput,
@@ -1762,14 +1700,12 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation configures an access policy for a vault and will overwrite an existing
+   * <p>This operation configures an access policy for a vault and will overwrite an existing
    *          policy. To configure a vault access policy, send a PUT request to the
    *             <code>access-policy</code> subresource of the vault. An access policy is specific to a
    *          vault and is also called a vault subresource. You can set one access policy per vault and
    *          the policy can be up to 20 KB in size. For more information about vault access policies,
    *          see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon Glacier Access Control with Vault Access Policies</a>. </p>
-   *
    */
   public setVaultAccessPolicy(
     args: SetVaultAccessPolicyCommandInput,
@@ -1804,8 +1740,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation configures notifications that will be sent when specific events happen
+   * <p>This operation configures notifications that will be sent when specific events happen
    *          to a vault. By default, you don't get any notifications.</p>
    *
    *          <p>To configure vault notifications, send a PUT request to the
@@ -1843,7 +1778,6 @@ export class Glacier extends GlacierClient {
    *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
    *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html">Set Vault Notification
    *             Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public setVaultNotifications(
     args: SetVaultNotificationsCommandInput,
@@ -1878,8 +1812,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation adds an archive to a vault. This is a synchronous operation, and for a
+   * <p>This operation adds an archive to a vault. This is a synchronous operation, and for a
    *          successful upload, your data is durably persisted. Amazon S3 Glacier returns the archive ID in
    *          the <code>x-amz-archive-id</code> header of the response. </p>
    *
@@ -1911,7 +1844,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html">Uploading an Archive in Amazon
    *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a> in the
    *             <i>Amazon Glacier Developer Guide</i>. </p>
-   *
    */
   public uploadArchive(
     args: UploadArchiveCommandInput,
@@ -1946,8 +1878,7 @@ export class Glacier extends GlacierClient {
   }
 
   /**
-   *
-   *          <p>This operation uploads a part of an archive. You can upload archive parts in any
+   * <p>This operation uploads a part of an archive. You can upload archive parts in any
    *          order. You can also upload them in parallel. You can upload up to 10,000 parts for a
    *          multipart upload.</p>
    *
@@ -1998,7 +1929,6 @@ export class Glacier extends GlacierClient {
    *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html">Uploading Large Archives in
    *             Parts (Multipart Upload)</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html">Upload Part </a> in the
    *             <i>Amazon Glacier Developer Guide</i>.</p>
-   *
    */
   public uploadMultipartPart(
     args: UploadMultipartPartCommandInput,

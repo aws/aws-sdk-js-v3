@@ -17,15 +17,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         Elastic Inference public APIs.
- *
+ * Elastic Inference public APIs.
  */
 export class ElasticInference extends ElasticInferenceClient {
   /**
-   *
-   *         Returns all tags of an Elastic Inference Accelerator.
-   *
+   * Returns all tags of an Elastic Inference Accelerator.
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -60,9 +56,7 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
-   *
-   *         Adds the specified tag(s) to an Elastic Inference Accelerator.
-   *
+   * Adds the specified tag(s) to an Elastic Inference Accelerator.
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -97,9 +91,7 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
-   *
-   *         Removes the specified tag(s) from an Elastic Inference Accelerator.
-   *
+   * Removes the specified tag(s) from an Elastic Inference Accelerator.
    */
   public untagResource(
     args: UntagResourceCommandInput,

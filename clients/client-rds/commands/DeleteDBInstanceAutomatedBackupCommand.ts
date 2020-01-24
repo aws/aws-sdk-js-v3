@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RDSClient";
 import {
-  DBInstanceAutomatedBackup,
-  DeleteDBInstanceAutomatedBackupMessage
+  DeleteDBInstanceAutomatedBackupMessage,
+  DeleteDBInstanceAutomatedBackupResult
 } from "../models/index";
 import {
   deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBInstanceAutomatedBackupCommandInput = DeleteDBInstanceAutomatedBackupMessage;
-export type DeleteDBInstanceAutomatedBackupCommandOutput = DBInstanceAutomatedBackup;
+export type DeleteDBInstanceAutomatedBackupCommandOutput = DeleteDBInstanceAutomatedBackupResult;
 
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
   DeleteDBInstanceAutomatedBackupCommandInput,

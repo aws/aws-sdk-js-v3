@@ -272,8 +272,7 @@ export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Amazon EventBridge helps you to respond to state changes in your AWS
+ * <p>Amazon EventBridge helps you to respond to state changes in your AWS
  *             resources. When your resources change state, they automatically send events into an
  *             event stream. You can create rules that match selected events in the stream and route
  *             them to targets to take action. You can also use rules to take action on a predetermined
@@ -294,7 +293,6 @@ export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<
  *          </ul>
  *         <p>For more information about the features of Amazon EventBridge, see the
  *             <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/">Amazon EventBridge User Guide</a>.</p>
- *
  */
 export class EventBridgeClient extends __Client<
   __HttpHandlerOptions,

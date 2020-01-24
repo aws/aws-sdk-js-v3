@@ -176,9 +176,7 @@ export type ElasticInferenceClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- *
- *         Elastic Inference public APIs.
- *
+ * Elastic Inference public APIs.
  */
 export class ElasticInferenceClient extends __Client<
   __HttpHandlerOptions,

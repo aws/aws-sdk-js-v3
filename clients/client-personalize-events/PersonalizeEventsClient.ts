@@ -164,9 +164,7 @@ export type PersonalizeEventsClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p></p>
- *
+ * <p></p>
  */
 export class PersonalizeEventsClient extends __Client<
   __HttpHandlerOptions,

@@ -102,8 +102,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
+ * <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing private certificate authorities (CA) for your organization.</p>
  * 		       <p>The documentation for each action shows the Query API request parameters and the XML
@@ -116,12 +115,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 				the action can be called per second. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Limits in ACM Private CA</a>
  * 				in the ACM Private CA user guide.</p>
  * 		       </note>
- *
  */
 export class ACMPCA extends ACMPCAClient {
   /**
-   *
-   * 		       <p>Creates a root or subordinate private certificate authority (CA). You must specify the CA
+   * <p>Creates a root or subordinate private certificate authority (CA). You must specify the CA
    * 			configuration, the certificate revocation list (CRL) configuration, the CA type, and an
    * 			optional idempotency token to avoid accidental creation of multiple CAs. The CA
    * 			configuration specifies the name of the algorithm and key size to be used to create the
@@ -130,8 +127,6 @@ export class ACMPCA extends ACMPCAClient {
    * 			validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME
    * 			alias for the S3 bucket that is included in certificates issued by the CA. If
    * 			successful, this action returns the Amazon Resource Name (ARN) of the CA.</p>
-   *
-   *
    */
   public createCertificateAuthority(
     args: CreateCertificateAuthorityCommandInput,
@@ -166,12 +161,9 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Creates an audit report that lists every time that your CA private key is used. The report
+   * <p>Creates an audit report that lists every time that your CA private key is used. The report
    * 			is saved in the Amazon S3 bucket that you specify on input. The <a>IssueCertificate</a> and <a>RevokeCertificate</a> actions use the
    * 			private key.</p>
-   *
-   *
    */
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
@@ -218,8 +210,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Assigns permissions from a private CA to a designated AWS service. Services are
+   * <p>Assigns permissions from a private CA to a designated AWS service. Services are
    * 			specified by their service principals and can be given permission to create and retrieve
    * 			certificates on a private CA. Services can also be given permission to list the active
    * 			permissions that the private CA has granted. For ACM to automatically renew your
@@ -228,8 +219,6 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <p>At this time, you can only assign permissions to ACM (<code>acm.amazonaws.com</code>).
    * 			Permissions can be revoked with the <a>DeletePermission</a> action and listed
    * 			with the <a>ListPermissions</a> action.</p>
-   *
-   *
    */
   public createPermission(
     args: CreatePermissionCommandInput,
@@ -264,8 +253,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource
+   * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource
    * 			Name (ARN) of the private CA that you want to delete. You can find the ARN by calling
    * 			the <a>ListCertificateAuthorities</a> action. </p>
    * 		       <note>
@@ -287,8 +275,6 @@ export class ACMPCA extends ACMPCAClient {
    * 			days. You can set the parameter from 7 to 30 days. The <a>DescribeCertificateAuthority</a> action returns the time remaining in the
    * 			restoration window of a private CA in the <code>DELETED</code> state. To restore an
    * 			eligible CA, call the <a>RestoreCertificateAuthority</a> action.</p>
-   *
-   *
    */
   public deleteCertificateAuthority(
     args: DeleteCertificateAuthorityCommandInput,
@@ -323,12 +309,9 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Revokes permissions that a private CA assigned to a designated AWS service. Permissions
+   * <p>Revokes permissions that a private CA assigned to a designated AWS service. Permissions
    * 			can be created with the <a>CreatePermission</a> action and listed with the
    * 				<a>ListPermissions</a> action. </p>
-   *
-   *
    */
   public deletePermission(
     args: DeletePermissionCommandInput,
@@ -363,8 +346,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Lists information about your private certificate authority (CA). You specify the
+   * <p>Lists information about your private certificate authority (CA). You specify the
    * 			private CA on input by its ARN (Amazon Resource Name). The output contains the status of
    * 			your CA. This can be any of the following: </p>
    * 		       <ul>
@@ -405,8 +387,6 @@ export class ACMPCA extends ACMPCAClient {
    * 					is also included in this action's output.</p>
    * 			         </li>
    *          </ul>
-   *
-   *
    */
   public describeCertificateAuthority(
     args: DescribeCertificateAuthorityCommandInput,
@@ -441,12 +421,9 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Lists information about a specific audit report created by calling the <a>CreateCertificateAuthorityAuditReport</a> action. Audit information is
+   * <p>Lists information about a specific audit report created by calling the <a>CreateCertificateAuthorityAuditReport</a> action. Audit information is
    * 			created every time the certificate authority (CA) private key is used. The private key
    * 			is used when you call the <a>IssueCertificate</a> action or the <a>RevokeCertificate</a> action. </p>
-   *
-   *
    */
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
@@ -493,15 +470,12 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Retrieves a certificate from your private CA. The ARN of the certificate is returned when
+   * <p>Retrieves a certificate from your private CA. The ARN of the certificate is returned when
    * 			you call the <a>IssueCertificate</a> action. You must specify both the ARN of
    * 			your private CA and the ARN of the issued certificate when calling the <b>GetCertificate</b> action. You can retrieve the certificate if it
    * 			is in the <b>ISSUED</b> state. You can call the <a>CreateCertificateAuthorityAuditReport</a> action to create a report that
    * 			contains information about all of the certificates issued and revoked by your private
    * 			CA. </p>
-   *
-   *
    */
   public getCertificate(
     args: GetCertificateCommandInput,
@@ -536,12 +510,9 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Retrieves the certificate and certificate chain for your private certificate authority
+   * <p>Retrieves the certificate and certificate chain for your private certificate authority
    * 			(CA). Both the certificate and the chain are base64 PEM-encoded. The chain does not
    * 			include the CA certificate. Each certificate in the chain signs the one before it. </p>
-   *
-   *
    */
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
@@ -588,14 +559,11 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Retrieves the certificate signing request (CSR) for your private certificate authority (CA).
+   * <p>Retrieves the certificate signing request (CSR) for your private certificate authority (CA).
    * 			The CSR is created when you call the <a>CreateCertificateAuthority</a>
    * 			action. Sign the CSR with your ACM Private CA-hosted or on-premises root or subordinate CA. Then
    * 			import the signed certificate back into ACM Private CA by calling the <a>ImportCertificateAuthorityCertificate</a> action. The CSR is returned as a
    * 			base64 PEM-encoded string. </p>
-   *
-   *
    */
   public getCertificateAuthorityCsr(
     args: GetCertificateAuthorityCsrCommandInput,
@@ -630,8 +598,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Imports a signed
+   * <p>Imports a signed
    * 			private CA certificate into ACM Private CA. This action is used when you are using a chain of
    * 			trust whose root is located outside ACM Private CA. Before you can call this action, the
    * 			following preparations must in place:</p>
@@ -679,8 +646,6 @@ export class ACMPCA extends ACMPCAClient {
    * 				           <p>The chain must be PEM-encoded.</p>
    * 			         </li>
    *          </ul>
-   *
-   *
    */
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
@@ -727,8 +692,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Uses your private certificate authority (CA) to issue a client certificate. This action
+   * <p>Uses your private certificate authority (CA) to issue a client certificate. This action
    * 			returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the
    * 			certificate by calling the <a>GetCertificate</a> action and specifying the
    * 			ARN. </p>
@@ -736,8 +700,6 @@ export class ACMPCA extends ACMPCAClient {
    * 			         <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action
    * 				to retrieve the ARNs of the certificates that you issue by using ACM Private CA.</p>
    * 		       </note>
-   *
-   *
    */
   public issueCertificate(
     args: IssueCertificateCommandInput,
@@ -772,10 +734,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the private certificate authorities that you created by using the <a>CreateCertificateAuthority</a> action.</p>
-   *
-   *
+   * <p>Lists the private certificate authorities that you created by using the <a>CreateCertificateAuthority</a> action.</p>
    */
   public listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
@@ -810,11 +769,8 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all the permissions, if any, that have been assigned by a private CA. Permissions can
+   * <p>Lists all the permissions, if any, that have been assigned by a private CA. Permissions can
    * 			be granted with the <a>CreatePermission</a> action and revoked with the <a>DeletePermission</a> action.</p>
-   *
-   *
    */
   public listPermissions(
     args: ListPermissionsCommandInput,
@@ -849,13 +805,10 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the tags, if any, that are associated with your private CA. Tags are labels that you
+   * <p>Lists the tags, if any, that are associated with your private CA. Tags are labels that you
    * 			can use to identify and organize your CAs. Each tag consists of a key and an optional
    * 			value. Call the <a>TagCertificateAuthority</a> action to add one or more tags
    * 			to your CA. Call the <a>UntagCertificateAuthority</a> action to remove tags. </p>
-   *
-   *
    */
   public listTags(
     args: ListTagsCommandInput,
@@ -890,8 +843,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Restores a certificate authority (CA) that is in the <code>DELETED</code> state. You can
+   * <p>Restores a certificate authority (CA) that is in the <code>DELETED</code> state. You can
    * 			restore a CA during the period that you defined in the <b>PermanentDeletionTimeInDays</b> parameter of the <a>DeleteCertificateAuthority</a> action. Currently, you can specify 7 to 30
    * 			days. If you did not specify a <b>PermanentDeletionTimeInDays</b> value, by default you can restore the CA at
    * 			any time in a 30 day period. You can check the time remaining in the restoration period
@@ -902,8 +854,6 @@ export class ACMPCA extends ACMPCAClient {
    * 			must use the <a>ImportCertificateAuthorityCertificate</a> action to import a
    * 			certificate authority into the private CA before it can be activated. You cannot restore
    * 			a CA after the restoration period has ended.</p>
-   *
-   *
    */
   public restoreCertificateAuthority(
     args: RestoreCertificateAuthorityCommandInput,
@@ -938,8 +888,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Revokes a certificate that was issued inside ACM Private CA. If you enable a certificate
+   * <p>Revokes a certificate that was issued inside ACM Private CA. If you enable a certificate
    * 			revocation list (CRL) when you create or update your private CA, information about the
    * 			revoked certificates will be included in the CRL. ACM Private CA writes the CRL to an S3 bucket
    * 			that you specify. For more information about revocation, see the <a>CrlConfiguration</a> structure. ACM Private CA also writes revocation information to
@@ -947,8 +896,6 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <note>
    * 			         <p>You cannot revoke a root CA self-signed certificate.</p>
    * 		       </note>
-   *
-   *
    */
   public revokeCertificate(
     args: RevokeCertificateCommandInput,
@@ -983,8 +930,7 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify and
+   * <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify and
    * 			organize your AWS resources. Each tag consists of a key and an optional value. You
    * 			specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag
    * 			by using a key-value pair. You can apply a tag to just one private CA if you want to
@@ -992,8 +938,6 @@ export class ACMPCA extends ACMPCAClient {
    * 			private CAs if you want to filter for a common relationship among those CAs. To remove
    * 			one or more tags, use the <a>UntagCertificateAuthority</a> action. Call the
    * 				<a>ListTags</a> action to see what tags are associated with your CA. </p>
-   *
-   *
    */
   public tagCertificateAuthority(
     args: TagCertificateAuthorityCommandInput,
@@ -1028,14 +972,11 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If you do
+   * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If you do
    * 			not specify the value portion of the tag when calling this action, the tag will be
    * 			removed regardless of value. If you specify a value, the tag is removed only if it is
    * 			associated with the specified value. To add tags to a private CA, use the <a>TagCertificateAuthority</a>. Call the <a>ListTags</a> action to
    * 			see what tags are associated with your CA. </p>
-   *
-   *
    */
   public untagCertificateAuthority(
     args: UntagCertificateAuthorityCommandInput,
@@ -1070,13 +1011,10 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the status or configuration of a private certificate authority (CA). Your
+   * <p>Updates the status or configuration of a private certificate authority (CA). Your
    * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
    * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
    * 			make a CA that is in the <code>DISABLED</code> state active again.</p>
-   *
-   *
    */
   public updateCertificateAuthority(
     args: UpdateCertificateAuthorityCommandInput,

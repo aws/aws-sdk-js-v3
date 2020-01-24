@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RedshiftClient";
 import {
-  ClusterSubnetGroup,
-  CreateClusterSubnetGroupMessage
+  CreateClusterSubnetGroupMessage,
+  CreateClusterSubnetGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateClusterSubnetGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClusterSubnetGroupCommandInput = CreateClusterSubnetGroupMessage;
-export type CreateClusterSubnetGroupCommandOutput = ClusterSubnetGroup;
+export type CreateClusterSubnetGroupCommandOutput = CreateClusterSubnetGroupResult;
 
 export class CreateClusterSubnetGroupCommand extends $Command<
   CreateClusterSubnetGroupCommandInput,

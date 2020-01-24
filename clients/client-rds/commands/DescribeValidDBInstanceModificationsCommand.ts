@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   DescribeValidDBInstanceModificationsMessage,
-  ValidDBInstanceModificationsMessage
+  DescribeValidDBInstanceModificationsResult
 } from "../models/index";
 import {
   deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeValidDBInstanceModificationsCommandInput = DescribeValidDBInstanceModificationsMessage;
-export type DescribeValidDBInstanceModificationsCommandOutput = ValidDBInstanceModificationsMessage;
+export type DescribeValidDBInstanceModificationsCommandOutput = DescribeValidDBInstanceModificationsResult;
 
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
   DescribeValidDBInstanceModificationsCommandInput,

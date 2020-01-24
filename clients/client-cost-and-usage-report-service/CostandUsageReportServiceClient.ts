@@ -180,8 +180,7 @@ export type CostandUsageReportServiceClientResolvedConfig = __SmithyResolvedConf
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
+ * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
  *         AWS Cost and Usage report definitions.</p>
  *          <p>AWS Cost and Usage reports track the monthly AWS costs and usage
  *    associated with your AWS account.
@@ -200,8 +199,6 @@ export type CostandUsageReportServiceClientResolvedConfig = __SmithyResolvedConf
  *                <p>cur.us-east-1.amazonaws.com</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class CostandUsageReportServiceClient extends __Client<
   __HttpHandlerOptions,

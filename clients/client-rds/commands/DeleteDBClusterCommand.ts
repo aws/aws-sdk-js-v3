@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBCluster, DeleteDBClusterMessage } from "../models/index";
+import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryDeleteDBClusterCommand,
   serializeAws_queryDeleteDBClusterCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterCommandInput = DeleteDBClusterMessage;
-export type DeleteDBClusterCommandOutput = DBCluster;
+export type DeleteDBClusterCommandOutput = DeleteDBClusterResult;
 
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,

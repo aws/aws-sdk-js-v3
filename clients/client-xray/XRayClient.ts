@@ -244,10 +244,8 @@ export type XRayClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps
+ * <p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps
  *       and other data created by processing those traces.</p>
- *
  */
 export class XRayClient extends __Client<
   __HttpHandlerOptions,

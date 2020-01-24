@@ -354,7 +354,9 @@ import {
   AuthorizationNotFoundFault,
   AuthorizationQuotaExceededFault,
   AuthorizeClusterSecurityGroupIngressMessage,
+  AuthorizeClusterSecurityGroupIngressResult,
   AuthorizeSnapshotAccessMessage,
+  AuthorizeSnapshotAccessResult,
   AvailabilityZone,
   BatchDeleteClusterSnapshotsRequest,
   BatchDeleteClusterSnapshotsResult,
@@ -404,17 +406,27 @@ import {
   ClusterVersionsMessage,
   ClustersMessage,
   CopyClusterSnapshotMessage,
+  CopyClusterSnapshotResult,
   CopyToRegionDisabledFault,
   CreateClusterMessage,
   CreateClusterParameterGroupMessage,
+  CreateClusterParameterGroupResult,
+  CreateClusterResult,
   CreateClusterSecurityGroupMessage,
+  CreateClusterSecurityGroupResult,
   CreateClusterSnapshotMessage,
+  CreateClusterSnapshotResult,
   CreateClusterSubnetGroupMessage,
+  CreateClusterSubnetGroupResult,
   CreateEventSubscriptionMessage,
+  CreateEventSubscriptionResult,
   CreateHsmClientCertificateMessage,
+  CreateHsmClientCertificateResult,
   CreateHsmConfigurationMessage,
+  CreateHsmConfigurationResult,
   CreateScheduledActionMessage,
   CreateSnapshotCopyGrantMessage,
+  CreateSnapshotCopyGrantResult,
   CreateSnapshotScheduleMessage,
   CreateTagsMessage,
   CustomerStorageMessage,
@@ -423,8 +435,10 @@ import {
   DeferredMaintenanceWindow,
   DeleteClusterMessage,
   DeleteClusterParameterGroupMessage,
+  DeleteClusterResult,
   DeleteClusterSecurityGroupMessage,
   DeleteClusterSnapshotMessage,
+  DeleteClusterSnapshotResult,
   DeleteClusterSubnetGroupMessage,
   DeleteEventSubscriptionMessage,
   DeleteHsmClientCertificateMessage,
@@ -446,6 +460,7 @@ import {
   DescribeClusterVersionsMessage,
   DescribeClustersMessage,
   DescribeDefaultClusterParametersMessage,
+  DescribeDefaultClusterParametersResult,
   DescribeEventCategoriesMessage,
   DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
@@ -465,10 +480,12 @@ import {
   DescribeTagsMessage,
   DisableLoggingMessage,
   DisableSnapshotCopyMessage,
+  DisableSnapshotCopyResult,
   EC2SecurityGroup,
   ElasticIpStatus,
   EnableLoggingMessage,
   EnableSnapshotCopyMessage,
+  EnableSnapshotCopyResult,
   Endpoint,
   Event,
   EventCategoriesMap,
@@ -525,16 +542,24 @@ import {
   LoggingStatus,
   MaintenanceTrack,
   ModifyClusterDbRevisionMessage,
+  ModifyClusterDbRevisionResult,
   ModifyClusterIamRolesMessage,
+  ModifyClusterIamRolesResult,
   ModifyClusterMaintenanceMessage,
+  ModifyClusterMaintenanceResult,
   ModifyClusterMessage,
   ModifyClusterParameterGroupMessage,
+  ModifyClusterResult,
   ModifyClusterSnapshotMessage,
+  ModifyClusterSnapshotResult,
   ModifyClusterSnapshotScheduleMessage,
   ModifyClusterSubnetGroupMessage,
+  ModifyClusterSubnetGroupResult,
   ModifyEventSubscriptionMessage,
+  ModifyEventSubscriptionResult,
   ModifyScheduledActionMessage,
   ModifySnapshotCopyRetentionPeriodMessage,
+  ModifySnapshotCopyRetentionPeriodResult,
   ModifySnapshotScheduleMessage,
   NodeConfigurationOption,
   NodeConfigurationOptionsFilter,
@@ -546,7 +571,9 @@ import {
   Parameter,
   PendingModifiedValues,
   PurchaseReservedNodeOfferingMessage,
+  PurchaseReservedNodeOfferingResult,
   RebootClusterMessage,
+  RebootClusterResult,
   RecurringCharge,
   ReservedNode,
   ReservedNodeAlreadyExistsFault,
@@ -559,17 +586,23 @@ import {
   ReservedNodesMessage,
   ResetClusterParameterGroupMessage,
   ResizeClusterMessage,
+  ResizeClusterResult,
   ResizeInfo,
   ResizeNotFoundFault,
   ResizeProgressMessage,
   ResourceNotFoundFault,
   RestoreFromClusterSnapshotMessage,
+  RestoreFromClusterSnapshotResult,
   RestoreStatus,
   RestoreTableFromClusterSnapshotMessage,
+  RestoreTableFromClusterSnapshotResult,
   RevisionTarget,
   RevokeClusterSecurityGroupIngressMessage,
+  RevokeClusterSecurityGroupIngressResult,
   RevokeSnapshotAccessMessage,
+  RevokeSnapshotAccessResult,
   RotateEncryptionKeyMessage,
+  RotateEncryptionKeyResult,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
   SNSTopicArnNotFoundFault,
@@ -2918,13 +2951,13 @@ export async function deserializeAws_queryAuthorizeClusterSecurityGroupIngressCo
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryClusterSecurityGroup(
+  contents = deserializeAws_queryAuthorizeClusterSecurityGroupIngressResult(
     data.AuthorizeClusterSecurityGroupIngressResult,
     context
   );
   const response: AuthorizeClusterSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterSecurityGroup",
+    __type: "AuthorizeClusterSecurityGroupIngressResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -2997,13 +3030,13 @@ export async function deserializeAws_queryAuthorizeSnapshotAccessCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(
+  contents = deserializeAws_queryAuthorizeSnapshotAccessResult(
     data.AuthorizeSnapshotAccessResult,
     context
   );
   const response: AuthorizeSnapshotAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "AuthorizeSnapshotAccessResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3286,13 +3319,13 @@ export async function deserializeAws_queryCopyClusterSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(
+  contents = deserializeAws_queryCopyClusterSnapshotResult(
     data.CopyClusterSnapshotResult,
     context
   );
   const response: CopyClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "CopyClusterSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3369,10 +3402,13 @@ export async function deserializeAws_queryCreateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(data.CreateClusterResult, context);
+  contents = deserializeAws_queryCreateClusterResult(
+    data.CreateClusterResult,
+    context
+  );
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "CreateClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3571,13 +3607,13 @@ export async function deserializeAws_queryCreateClusterParameterGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryClusterParameterGroup(
+  contents = deserializeAws_queryCreateClusterParameterGroupResult(
     data.CreateClusterParameterGroupResult,
     context
   );
   const response: CreateClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterParameterGroup",
+    __type: "CreateClusterParameterGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3650,13 +3686,13 @@ export async function deserializeAws_queryCreateClusterSecurityGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryClusterSecurityGroup(
+  contents = deserializeAws_queryCreateClusterSecurityGroupResult(
     data.CreateClusterSecurityGroupResult,
     context
   );
   const response: CreateClusterSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterSecurityGroup",
+    __type: "CreateClusterSecurityGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3729,13 +3765,13 @@ export async function deserializeAws_queryCreateClusterSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(
+  contents = deserializeAws_queryCreateClusterSnapshotResult(
     data.CreateClusterSnapshotResult,
     context
   );
   const response: CreateClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "CreateClusterSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3829,13 +3865,13 @@ export async function deserializeAws_queryCreateClusterSubnetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryClusterSubnetGroup(
+  contents = deserializeAws_queryCreateClusterSubnetGroupResult(
     data.CreateClusterSubnetGroupResult,
     context
   );
   const response: CreateClusterSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterSubnetGroup",
+    __type: "CreateClusterSubnetGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -3936,13 +3972,13 @@ export async function deserializeAws_queryCreateEventSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryEventSubscription(
+  contents = deserializeAws_queryCreateEventSubscriptionResult(
     data.CreateEventSubscriptionResult,
     context
   );
   const response: CreateEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventSubscription",
+    __type: "CreateEventSubscriptionResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4064,13 +4100,13 @@ export async function deserializeAws_queryCreateHsmClientCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryHsmClientCertificate(
+  contents = deserializeAws_queryCreateHsmClientCertificateResult(
     data.CreateHsmClientCertificateResult,
     context
   );
   const response: CreateHsmClientCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HsmClientCertificate",
+    __type: "CreateHsmClientCertificateResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4143,13 +4179,13 @@ export async function deserializeAws_queryCreateHsmConfigurationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryHsmConfiguration(
+  contents = deserializeAws_queryCreateHsmConfigurationResult(
     data.CreateHsmConfigurationResult,
     context
   );
   const response: CreateHsmConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HsmConfiguration",
+    __type: "CreateHsmConfigurationResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4315,13 +4351,13 @@ export async function deserializeAws_queryCreateSnapshotCopyGrantCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshotCopyGrant(
+  contents = deserializeAws_queryCreateSnapshotCopyGrantResult(
     data.CreateSnapshotCopyGrantResult,
     context
   );
   const response: CreateSnapshotCopyGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SnapshotCopyGrant",
+    __type: "CreateSnapshotCopyGrantResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4552,10 +4588,13 @@ export async function deserializeAws_queryDeleteClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(data.DeleteClusterResult, context);
+  contents = deserializeAws_queryDeleteClusterResult(
+    data.DeleteClusterResult,
+    context
+  );
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "DeleteClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -4749,13 +4788,13 @@ export async function deserializeAws_queryDeleteClusterSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(
+  contents = deserializeAws_queryDeleteClusterSnapshotResult(
     data.DeleteClusterSnapshotResult,
     context
   );
   const response: DeleteClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "DeleteClusterSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -5893,13 +5932,13 @@ export async function deserializeAws_queryDescribeDefaultClusterParametersComman
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefaultClusterParameters(
+  contents = deserializeAws_queryDescribeDefaultClusterParametersResult(
     data.DescribeDefaultClusterParametersResult,
     context
   );
   const response: DescribeDefaultClusterParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DefaultClusterParameters",
+    __type: "DescribeDefaultClusterParametersResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -7033,13 +7072,13 @@ export async function deserializeAws_queryDisableSnapshotCopyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryDisableSnapshotCopyResult(
     data.DisableSnapshotCopyResult,
     context
   );
   const response: DisableSnapshotCopyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "DisableSnapshotCopyResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -7192,13 +7231,13 @@ export async function deserializeAws_queryEnableSnapshotCopyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryEnableSnapshotCopyResult(
     data.EnableSnapshotCopyResult,
     context
   );
   const response: EnableSnapshotCopyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "EnableSnapshotCopyResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -7475,10 +7514,13 @@ export async function deserializeAws_queryModifyClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(data.ModifyClusterResult, context);
+  contents = deserializeAws_queryModifyClusterResult(
+    data.ModifyClusterResult,
+    context
+  );
   const response: ModifyClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "ModifyClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -7656,13 +7698,13 @@ export async function deserializeAws_queryModifyClusterDbRevisionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryModifyClusterDbRevisionResult(
     data.ModifyClusterDbRevisionResult,
     context
   );
   const response: ModifyClusterDbRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "ModifyClusterDbRevisionResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -7728,13 +7770,13 @@ export async function deserializeAws_queryModifyClusterIamRolesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryModifyClusterIamRolesResult(
     data.ModifyClusterIamRolesResult,
     context
   );
   const response: ModifyClusterIamRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "ModifyClusterIamRolesResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -7793,13 +7835,13 @@ export async function deserializeAws_queryModifyClusterMaintenanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryModifyClusterMaintenanceResult(
     data.ModifyClusterMaintenanceResult,
     context
   );
   const response: ModifyClusterMaintenanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "ModifyClusterMaintenanceResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -7916,13 +7958,13 @@ export async function deserializeAws_queryModifyClusterSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(
+  contents = deserializeAws_queryModifyClusterSnapshotResult(
     data.ModifyClusterSnapshotResult,
     context
   );
   const response: ModifyClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "ModifyClusterSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -8052,13 +8094,13 @@ export async function deserializeAws_queryModifyClusterSubnetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryClusterSubnetGroup(
+  contents = deserializeAws_queryModifyClusterSubnetGroupResult(
     data.ModifyClusterSubnetGroupResult,
     context
   );
   const response: ModifyClusterSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterSubnetGroup",
+    __type: "ModifyClusterSubnetGroupResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -8145,13 +8187,13 @@ export async function deserializeAws_queryModifyEventSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryEventSubscription(
+  contents = deserializeAws_queryModifyEventSubscriptionResult(
     data.ModifyEventSubscriptionResult,
     context
   );
   const response: ModifyEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EventSubscription",
+    __type: "ModifyEventSubscriptionResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -8345,13 +8387,13 @@ export async function deserializeAws_queryModifySnapshotCopyRetentionPeriodComma
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryModifySnapshotCopyRetentionPeriodResult(
     data.ModifySnapshotCopyRetentionPeriodResult,
     context
   );
   const response: ModifySnapshotCopyRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "ModifySnapshotCopyRetentionPeriodResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -8503,13 +8545,13 @@ export async function deserializeAws_queryPurchaseReservedNodeOfferingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReservedNode(
+  contents = deserializeAws_queryPurchaseReservedNodeOfferingResult(
     data.PurchaseReservedNodeOfferingResult,
     context
   );
   const response: PurchaseReservedNodeOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReservedNode",
+    __type: "PurchaseReservedNodeOfferingResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -8579,10 +8621,13 @@ export async function deserializeAws_queryRebootClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(data.RebootClusterResult, context);
+  contents = deserializeAws_queryRebootClusterResult(
+    data.RebootClusterResult,
+    context
+  );
   const response: RebootClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "RebootClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -8703,10 +8748,13 @@ export async function deserializeAws_queryResizeClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(data.ResizeClusterResult, context);
+  contents = deserializeAws_queryResizeClusterResult(
+    data.ResizeClusterResult,
+    context
+  );
   const response: ResizeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "ResizeClusterResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -8814,13 +8862,13 @@ export async function deserializeAws_queryRestoreFromClusterSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryRestoreFromClusterSnapshotResult(
     data.RestoreFromClusterSnapshotResult,
     context
   );
   const response: RestoreFromClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "RestoreFromClusterSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -9040,13 +9088,13 @@ export async function deserializeAws_queryRestoreTableFromClusterSnapshotCommand
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryTableRestoreStatus(
+  contents = deserializeAws_queryRestoreTableFromClusterSnapshotResult(
     data.RestoreTableFromClusterSnapshotResult,
     context
   );
   const response: RestoreTableFromClusterSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TableRestoreStatus",
+    __type: "RestoreTableFromClusterSnapshotResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -9140,13 +9188,13 @@ export async function deserializeAws_queryRevokeClusterSecurityGroupIngressComma
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryClusterSecurityGroup(
+  contents = deserializeAws_queryRevokeClusterSecurityGroupIngressResult(
     data.RevokeClusterSecurityGroupIngressResult,
     context
   );
   const response: RevokeClusterSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClusterSecurityGroup",
+    __type: "RevokeClusterSecurityGroupIngressResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -9212,13 +9260,13 @@ export async function deserializeAws_queryRevokeSnapshotAccessCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySnapshot(
+  contents = deserializeAws_queryRevokeSnapshotAccessResult(
     data.RevokeSnapshotAccessResult,
     context
   );
   const response: RevokeSnapshotAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
+    __type: "RevokeSnapshotAccessResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -9281,13 +9329,13 @@ export async function deserializeAws_queryRotateEncryptionKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCluster(
+  contents = deserializeAws_queryRotateEncryptionKeyResult(
     data.RotateEncryptionKeyResult,
     context
   );
   const response: RotateEncryptionKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Cluster",
+    __type: "RotateEncryptionKeyResult",
     ...contents
   };
   return Promise.resolve(response);
@@ -15495,6 +15543,40 @@ const deserializeAws_queryAttributeValueTarget = (
   return contents;
 };
 
+const deserializeAws_queryAuthorizeClusterSecurityGroupIngressResult = (
+  output: any,
+  context: __SerdeContext
+): AuthorizeClusterSecurityGroupIngressResult => {
+  let contents: any = {
+    __type: "AuthorizeClusterSecurityGroupIngressResult",
+    ClusterSecurityGroup: undefined
+  };
+  if (output["ClusterSecurityGroup"] !== undefined) {
+    contents.ClusterSecurityGroup = deserializeAws_queryClusterSecurityGroup(
+      output["ClusterSecurityGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthorizeSnapshotAccessResult = (
+  output: any,
+  context: __SerdeContext
+): AuthorizeSnapshotAccessResult => {
+  let contents: any = {
+    __type: "AuthorizeSnapshotAccessResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryAvailabilityZone = (
   output: any,
   context: __SerdeContext
@@ -16600,6 +16682,173 @@ const deserializeAws_queryClustersMessage = (
   return contents;
 };
 
+const deserializeAws_queryCopyClusterSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): CopyClusterSnapshotResult => {
+  let contents: any = {
+    __type: "CopyClusterSnapshotResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateClusterParameterGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateClusterParameterGroupResult => {
+  let contents: any = {
+    __type: "CreateClusterParameterGroupResult",
+    ClusterParameterGroup: undefined
+  };
+  if (output["ClusterParameterGroup"] !== undefined) {
+    contents.ClusterParameterGroup = deserializeAws_queryClusterParameterGroup(
+      output["ClusterParameterGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateClusterResult = (
+  output: any,
+  context: __SerdeContext
+): CreateClusterResult => {
+  let contents: any = {
+    __type: "CreateClusterResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateClusterSecurityGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateClusterSecurityGroupResult => {
+  let contents: any = {
+    __type: "CreateClusterSecurityGroupResult",
+    ClusterSecurityGroup: undefined
+  };
+  if (output["ClusterSecurityGroup"] !== undefined) {
+    contents.ClusterSecurityGroup = deserializeAws_queryClusterSecurityGroup(
+      output["ClusterSecurityGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateClusterSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): CreateClusterSnapshotResult => {
+  let contents: any = {
+    __type: "CreateClusterSnapshotResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateClusterSubnetGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateClusterSubnetGroupResult => {
+  let contents: any = {
+    __type: "CreateClusterSubnetGroupResult",
+    ClusterSubnetGroup: undefined
+  };
+  if (output["ClusterSubnetGroup"] !== undefined) {
+    contents.ClusterSubnetGroup = deserializeAws_queryClusterSubnetGroup(
+      output["ClusterSubnetGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateEventSubscriptionResult = (
+  output: any,
+  context: __SerdeContext
+): CreateEventSubscriptionResult => {
+  let contents: any = {
+    __type: "CreateEventSubscriptionResult",
+    EventSubscription: undefined
+  };
+  if (output["EventSubscription"] !== undefined) {
+    contents.EventSubscription = deserializeAws_queryEventSubscription(
+      output["EventSubscription"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateHsmClientCertificateResult = (
+  output: any,
+  context: __SerdeContext
+): CreateHsmClientCertificateResult => {
+  let contents: any = {
+    __type: "CreateHsmClientCertificateResult",
+    HsmClientCertificate: undefined
+  };
+  if (output["HsmClientCertificate"] !== undefined) {
+    contents.HsmClientCertificate = deserializeAws_queryHsmClientCertificate(
+      output["HsmClientCertificate"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateHsmConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): CreateHsmConfigurationResult => {
+  let contents: any = {
+    __type: "CreateHsmConfigurationResult",
+    HsmConfiguration: undefined
+  };
+  if (output["HsmConfiguration"] !== undefined) {
+    contents.HsmConfiguration = deserializeAws_queryHsmConfiguration(
+      output["HsmConfiguration"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateSnapshotCopyGrantResult = (
+  output: any,
+  context: __SerdeContext
+): CreateSnapshotCopyGrantResult => {
+  let contents: any = {
+    __type: "CreateSnapshotCopyGrantResult",
+    SnapshotCopyGrant: undefined
+  };
+  if (output["SnapshotCopyGrant"] !== undefined) {
+    contents.SnapshotCopyGrant = deserializeAws_querySnapshotCopyGrant(
+      output["SnapshotCopyGrant"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryCustomerStorageMessage = (
   output: any,
   context: __SerdeContext
@@ -16729,6 +16978,54 @@ const deserializeAws_queryDeferredMaintenanceWindowsList = (
   );
 };
 
+const deserializeAws_queryDeleteClusterResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteClusterResult => {
+  let contents: any = {
+    __type: "DeleteClusterResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDeleteClusterSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteClusterSnapshotResult => {
+  let contents: any = {
+    __type: "DeleteClusterSnapshotResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeDefaultClusterParametersResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeDefaultClusterParametersResult => {
+  let contents: any = {
+    __type: "DescribeDefaultClusterParametersResult",
+    DefaultClusterParameters: undefined
+  };
+  if (output["DefaultClusterParameters"] !== undefined) {
+    contents.DefaultClusterParameters = deserializeAws_queryDefaultClusterParameters(
+      output["DefaultClusterParameters"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeSnapshotSchedulesOutputMessage = (
   output: any,
   context: __SerdeContext
@@ -16753,6 +17050,20 @@ const deserializeAws_queryDescribeSnapshotSchedulesOutputMessage = (
       wrappedItem,
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryDisableSnapshotCopyResult = (
+  output: any,
+  context: __SerdeContext
+): DisableSnapshotCopyResult => {
+  let contents: any = {
+    __type: "DisableSnapshotCopyResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
   }
   return contents;
 };
@@ -16821,6 +17132,20 @@ const deserializeAws_queryEligibleTracksToUpdateList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryUpdateTarget(entry, context)
   );
+};
+
+const deserializeAws_queryEnableSnapshotCopyResult = (
+  output: any,
+  context: __SerdeContext
+): EnableSnapshotCopyResult => {
+  let contents: any = {
+    __type: "EnableSnapshotCopyResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_queryEndpoint = (
@@ -17464,6 +17789,127 @@ const deserializeAws_queryMaintenanceTrack = (
   return contents;
 };
 
+const deserializeAws_queryModifyClusterDbRevisionResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyClusterDbRevisionResult => {
+  let contents: any = {
+    __type: "ModifyClusterDbRevisionResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyClusterIamRolesResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyClusterIamRolesResult => {
+  let contents: any = {
+    __type: "ModifyClusterIamRolesResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyClusterMaintenanceResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyClusterMaintenanceResult => {
+  let contents: any = {
+    __type: "ModifyClusterMaintenanceResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyClusterResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyClusterResult => {
+  let contents: any = {
+    __type: "ModifyClusterResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyClusterSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyClusterSnapshotResult => {
+  let contents: any = {
+    __type: "ModifyClusterSnapshotResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyClusterSubnetGroupResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyClusterSubnetGroupResult => {
+  let contents: any = {
+    __type: "ModifyClusterSubnetGroupResult",
+    ClusterSubnetGroup: undefined
+  };
+  if (output["ClusterSubnetGroup"] !== undefined) {
+    contents.ClusterSubnetGroup = deserializeAws_queryClusterSubnetGroup(
+      output["ClusterSubnetGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyEventSubscriptionResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyEventSubscriptionResult => {
+  let contents: any = {
+    __type: "ModifyEventSubscriptionResult",
+    EventSubscription: undefined
+  };
+  if (output["EventSubscription"] !== undefined) {
+    contents.EventSubscription = deserializeAws_queryEventSubscription(
+      output["EventSubscription"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifySnapshotCopyRetentionPeriodResult = (
+  output: any,
+  context: __SerdeContext
+): ModifySnapshotCopyRetentionPeriodResult => {
+  let contents: any = {
+    __type: "ModifySnapshotCopyRetentionPeriodResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryNodeConfigurationOption = (
   output: any,
   context: __SerdeContext
@@ -17733,6 +18179,37 @@ const deserializeAws_queryPendingModifiedValues = (
   return contents;
 };
 
+const deserializeAws_queryPurchaseReservedNodeOfferingResult = (
+  output: any,
+  context: __SerdeContext
+): PurchaseReservedNodeOfferingResult => {
+  let contents: any = {
+    __type: "PurchaseReservedNodeOfferingResult",
+    ReservedNode: undefined
+  };
+  if (output["ReservedNode"] !== undefined) {
+    contents.ReservedNode = deserializeAws_queryReservedNode(
+      output["ReservedNode"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryRebootClusterResult = (
+  output: any,
+  context: __SerdeContext
+): RebootClusterResult => {
+  let contents: any = {
+    __type: "RebootClusterResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryRecurringCharge = (
   output: any,
   context: __SerdeContext
@@ -17994,6 +18471,20 @@ const deserializeAws_queryResizeClusterMessage = (
   return contents;
 };
 
+const deserializeAws_queryResizeClusterResult = (
+  output: any,
+  context: __SerdeContext
+): ResizeClusterResult => {
+  let contents: any = {
+    __type: "ResizeClusterResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryResizeInfo = (
   output: any,
   context: __SerdeContext
@@ -18131,6 +18622,20 @@ const deserializeAws_queryRestorableNodeTypeList = (
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_queryRestoreFromClusterSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): RestoreFromClusterSnapshotResult => {
+  let contents: any = {
+    __type: "RestoreFromClusterSnapshotResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryRestoreStatus = (
   output: any,
   context: __SerdeContext
@@ -18171,6 +18676,23 @@ const deserializeAws_queryRestoreStatus = (
   return contents;
 };
 
+const deserializeAws_queryRestoreTableFromClusterSnapshotResult = (
+  output: any,
+  context: __SerdeContext
+): RestoreTableFromClusterSnapshotResult => {
+  let contents: any = {
+    __type: "RestoreTableFromClusterSnapshotResult",
+    TableRestoreStatus: undefined
+  };
+  if (output["TableRestoreStatus"] !== undefined) {
+    contents.TableRestoreStatus = deserializeAws_queryTableRestoreStatus(
+      output["TableRestoreStatus"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryRevisionTarget = (
   output: any,
   context: __SerdeContext
@@ -18202,6 +18724,54 @@ const deserializeAws_queryRevisionTargetsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_queryRevisionTarget(entry, context)
   );
+};
+
+const deserializeAws_queryRevokeClusterSecurityGroupIngressResult = (
+  output: any,
+  context: __SerdeContext
+): RevokeClusterSecurityGroupIngressResult => {
+  let contents: any = {
+    __type: "RevokeClusterSecurityGroupIngressResult",
+    ClusterSecurityGroup: undefined
+  };
+  if (output["ClusterSecurityGroup"] !== undefined) {
+    contents.ClusterSecurityGroup = deserializeAws_queryClusterSecurityGroup(
+      output["ClusterSecurityGroup"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryRevokeSnapshotAccessResult = (
+  output: any,
+  context: __SerdeContext
+): RevokeSnapshotAccessResult => {
+  let contents: any = {
+    __type: "RevokeSnapshotAccessResult",
+    Snapshot: undefined
+  };
+  if (output["Snapshot"] !== undefined) {
+    contents.Snapshot = deserializeAws_querySnapshot(
+      output["Snapshot"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryRotateEncryptionKeyResult = (
+  output: any,
+  context: __SerdeContext
+): RotateEncryptionKeyResult => {
+  let contents: any = {
+    __type: "RotateEncryptionKeyResult",
+    Cluster: undefined
+  };
+  if (output["Cluster"] !== undefined) {
+    contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_queryScheduleDefinitionList = (

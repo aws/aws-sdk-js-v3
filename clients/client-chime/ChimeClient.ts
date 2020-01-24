@@ -5,6 +5,8 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
   AssociatePhoneNumbersWithVoiceConnectorRequest,
   AssociatePhoneNumbersWithVoiceConnectorResponse,
+  AssociateSigninDelegateGroupsWithAccountRequest,
+  AssociateSigninDelegateGroupsWithAccountResponse,
   BatchCreateAttendeeRequest,
   BatchCreateAttendeeResponse,
   BatchCreateRoomMembershipRequest,
@@ -33,6 +35,8 @@ import {
   CreateRoomMembershipResponse,
   CreateRoomRequest,
   CreateRoomResponse,
+  CreateUserRequest,
+  CreateUserResponse,
   CreateVoiceConnectorGroupRequest,
   CreateVoiceConnectorGroupResponse,
   CreateVoiceConnectorRequest,
@@ -57,6 +61,8 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
   DisassociatePhoneNumbersFromVoiceConnectorResponse,
+  DisassociateSigninDelegateGroupsFromAccountRequest,
+  DisassociateSigninDelegateGroupsFromAccountResponse,
   GetAccountRequest,
   GetAccountResponse,
   GetAccountSettingsRequest,
@@ -222,6 +228,7 @@ export type ServiceInputTypes =
   | AssociatePhoneNumberWithUserRequest
   | AssociatePhoneNumbersWithVoiceConnectorGroupRequest
   | AssociatePhoneNumbersWithVoiceConnectorRequest
+  | AssociateSigninDelegateGroupsWithAccountRequest
   | BatchCreateAttendeeRequest
   | BatchCreateRoomMembershipRequest
   | BatchDeletePhoneNumberRequest
@@ -236,6 +243,7 @@ export type ServiceInputTypes =
   | CreatePhoneNumberOrderRequest
   | CreateRoomMembershipRequest
   | CreateRoomRequest
+  | CreateUserRequest
   | CreateVoiceConnectorGroupRequest
   | CreateVoiceConnectorRequest
   | DeleteAccountRequest
@@ -254,6 +262,7 @@ export type ServiceInputTypes =
   | DisassociatePhoneNumberFromUserRequest
   | DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
   | DisassociatePhoneNumbersFromVoiceConnectorRequest
+  | DisassociateSigninDelegateGroupsFromAccountRequest
   | GetAccountRequest
   | GetAccountSettingsRequest
   | GetAttendeeRequest
@@ -314,6 +323,7 @@ export type ServiceOutputTypes =
   | AssociatePhoneNumberWithUserResponse
   | AssociatePhoneNumbersWithVoiceConnectorGroupResponse
   | AssociatePhoneNumbersWithVoiceConnectorResponse
+  | AssociateSigninDelegateGroupsWithAccountResponse
   | BatchCreateAttendeeResponse
   | BatchCreateRoomMembershipResponse
   | BatchDeletePhoneNumberResponse
@@ -328,12 +338,14 @@ export type ServiceOutputTypes =
   | CreatePhoneNumberOrderResponse
   | CreateRoomMembershipResponse
   | CreateRoomResponse
+  | CreateUserResponse
   | CreateVoiceConnectorGroupResponse
   | CreateVoiceConnectorResponse
   | DeleteAccountResponse
   | DisassociatePhoneNumberFromUserResponse
   | DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
   | DisassociatePhoneNumbersFromVoiceConnectorResponse
+  | DisassociateSigninDelegateGroupsFromAccountResponse
   | GetAccountResponse
   | GetAccountSettingsResponse
   | GetAttendeeResponse
@@ -495,8 +507,7 @@ export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>The Amazon Chime API (application programming interface) is designed for developers to
+ * <p>The Amazon Chime API (application programming interface) is designed for developers to
  *       perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice
  *       Connectors. This guide provides detailed information about the Amazon Chime API, including
  *       operations, types, inputs and outputs, and error codes. It also includes some server-side API
@@ -533,7 +544,6 @@ export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<
  *
  *          <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a> in the
  *        <i>Amazon Chime Administration Guide</i>.</p>
- *
  */
 export class ChimeClient extends __Client<
   __HttpHandlerOptions,

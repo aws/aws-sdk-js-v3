@@ -86,6 +86,7 @@ export * from "./commands/DownloadDBLogFilePortionCommand";
 export * from "./commands/FailoverDBClusterCommand";
 export * from "./commands/ImportInstallationMediaCommand";
 export * from "./commands/ListTagsForResourceCommand";
+export * from "./commands/ModifyCertificatesCommand";
 export * from "./commands/ModifyCurrentDBClusterCapacityCommand";
 export * from "./commands/ModifyDBClusterCommand";
 export * from "./commands/ModifyDBClusterEndpointCommand";

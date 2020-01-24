@@ -308,8 +308,7 @@ export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <note>
+ * <note>
  *             <p>This is the latest version of the <b>AWS WAF</b> API, released in
  *             November, 2019. The names of the entities that you use to access this API, like
  *             endpoints and namespaces, all have the versioning information added, like "V2" or "v2",
@@ -365,8 +364,6 @@ export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<
  *                maximum cost of a rule group when you use it.</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class WAFV2Client extends __Client<
   __HttpHandlerOptions,

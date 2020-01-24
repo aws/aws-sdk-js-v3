@@ -12,5 +12,8 @@ export * from "./commands/GetProtectionStatusCommand";
 export * from "./commands/ListComplianceStatusCommand";
 export * from "./commands/ListMemberAccountsCommand";
 export * from "./commands/ListPoliciesCommand";
+export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/PutNotificationChannelCommand";
 export * from "./commands/PutPolicyCommand";
+export * from "./commands/TagResourceCommand";
+export * from "./commands/UntagResourceCommand";

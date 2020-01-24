@@ -60,6 +60,11 @@ import {
   ExportServerEngineAttributeCommandOutput
 } from "./commands/ExportServerEngineAttributeCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
   RestoreServerCommand,
   RestoreServerCommandInput,
   RestoreServerCommandOutput
@@ -69,6 +74,16 @@ import {
   StartMaintenanceCommandInput,
   StartMaintenanceCommandOutput
 } from "./commands/StartMaintenanceCommand";
+import {
+  TagResourceCommand,
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import {
   UpdateServerCommand,
   UpdateServerCommandInput,
@@ -82,8 +97,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS OpsWorks CM</fullname>
+ * <fullname>AWS OpsWorks CM</fullname>
  *          <p>AWS OpsWorks for configuration management (CM) is a service that runs and manages
  *       configuration management servers. You can use AWS OpsWorks CM to create and manage AWS
  *       OpsWorks for Chef Automate and AWS OpsWorks for Puppet Enterprise servers, and add or remove
@@ -170,13 +184,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             <b>Throttling limits</b>
  *          </p>
  *          <p>All API operations allow for five requests per second with a burst of 10 requests per second.</p>
- *
- *
  */
 export class OpsWorksCM extends OpsWorksCMClient {
   /**
-   *
-   *          <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>
+   * <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>
    *          <p>
    *       On a Chef server: This command is an alternative to  <code>knife bootstrap</code>.</p>
    *          <p>
@@ -193,7 +204,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *       The AssociateNode API call can be integrated into Auto Scaling configurations, AWS Cloudformation templates, or the user data of a server's instance.
    *     </p>
-   *
    */
   public associateNode(
     args: AssociateNodeCommandInput,
@@ -228,8 +238,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Creates an application-level backup of a server. While the
    *       server is in the <code>BACKING_UP</code> state, the server cannot be
    *       changed, and no additional backup can be created.
@@ -247,7 +256,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       A <code>ResourceNotFoundException</code> is thrown when the server is not found.
    *       A <code>ValidationException</code> is thrown when parameters of the request are not valid.
    *     </p>
-   *
    */
   public createBackup(
     args: CreateBackupCommandInput,
@@ -282,8 +290,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Creates and immedately starts a new server. The server is ready to use when it is in the <code>HEALTHY</code> state. By default, you can create a maximum of 10 servers.
    *     </p>
    *          <p>
@@ -311,7 +318,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *     </p>
    *          <p>To specify your own domain for a server, and provide your own self-signed or CA-signed certificate and private key, specify values for <code>CustomDomain</code>,
    *       <code>CustomCertificate</code>, and <code>CustomPrivateKey</code>.</p>
-   *
    */
   public createServer(
     args: CreateServerCommandInput,
@@ -346,8 +352,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Deletes a backup. You can delete both manual and automated backups. This operation is asynchronous.
    *     </p>
    *          <p>
@@ -355,7 +360,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       A <code>ResourceNotFoundException</code> is thrown when the backup does not exist.
    *       A <code>ValidationException</code> is thrown when parameters of the request are not valid.
    *     </p>
-   *
    */
   public deleteBackup(
     args: DeleteBackupCommandInput,
@@ -390,8 +394,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Deletes the server and the underlying AWS CloudFormation stacks
    *       (including the server's EC2 instance). When you run this command, the server state is updated
    *       to <code>DELETING</code>. After the server is deleted, it is no longer returned by
@@ -407,7 +410,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *     </p>
    *          <p>
    *     </p>
-   *
    */
   public deleteServer(
     args: DeleteServerCommandInput,
@@ -442,14 +444,12 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Describes your OpsWorks-CM account attributes.
    *     </p>
    *          <p>
    *       This operation is synchronous.
    *     </p>
-   *
    */
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -484,8 +484,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Describes backups. The results are ordered by time, with newest backups first.
    *       If you do not specify a BackupId or ServerName, the command returns all backups.
    *     </p>
@@ -496,7 +495,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       A <code>ResourceNotFoundException</code> is thrown when the backup does not exist.
    *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
    */
   public describeBackups(
     args: DescribeBackupsCommandInput,
@@ -531,8 +529,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Describes events for a specified server. Results are ordered by time, with newest events first.
    *     </p>
    *          <p>
@@ -542,7 +539,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
    *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -577,15 +573,13 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Returns the current status of an existing association or disassociation request.
    *     </p>
    *          <p>
    *       A <code>ResourceNotFoundException</code> is thrown when no recent association or disassociation request with the specified token is found,
    *       or when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
    */
   public describeNodeAssociationStatus(
     args: DescribeNodeAssociationStatusCommandInput,
@@ -620,8 +614,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Lists all configuration management servers that are identified with your account.
    *       Only the stored results from Amazon DynamoDB
    *       are returned. AWS OpsWorks CM does not query other services.
@@ -633,7 +626,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
    *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
    */
   public describeServers(
     args: DescribeServersCommandInput,
@@ -668,8 +660,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Disassociates a node from an AWS OpsWorks CM server, and removes the node from the server's managed nodes. After a node is disassociated,
    *       the node key pair is no longer valid for accessing the configuration manager's API. For more information about how to associate a node, see <a>AssociateNode</a>.
    *     </p>
@@ -677,7 +668,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
    *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
    */
   public disassociateNode(
     args: DisassociateNodeCommandInput,
@@ -712,8 +702,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Exports a specified server engine attribute as a base64-encoded string. For example, you can export user data that you can use in EC2 to associate nodes with a server.
    *     </p>
    *          <p>
@@ -725,7 +714,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       An <code>InvalidStateException</code> is thrown when the server is in any of the following states: CREATING, TERMINATED,
    *       FAILED or DELETING.
    *     </p>
-   *
    */
   public exportServerEngineAttribute(
     args: ExportServerEngineAttributeCommandInput,
@@ -760,12 +748,50 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>Returns a list of tags that are applied to the specified AWS OpsWorks for Chef Automate or
+   *       AWS OpsWorks for Puppet Enterprise servers or backups.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
    *       Restores a backup to a server that is in a <code>CONNECTION_LOST</code>, <code>HEALTHY</code>, <code>RUNNING</code>, <code>UNHEALTHY</code>, or <code>TERMINATED</code> state.
    *       When you run RestoreServer, the server's EC2 instance is deleted, and a new EC2 instance is configured. RestoreServer maintains
    *       the existing server endpoint, so configuration management of the server's client devices (nodes) should continue to work.
    *     </p>
+   *          <p>Restoring from a backup is performed by creating a new EC2 instance. If restoration is successful, and the server is in a <code>HEALTHY</code> state,
+   *       AWS OpsWorks CM switches traffic over to the new instance. After restoration is finished, the old EC2 instance is maintained in a
+   *       <code>Running</code> or <code>Stopped</code> state, but is eventually terminated.</p>
    *          <p>
    *       This operation is asynchronous.
    *     </p>
@@ -773,7 +799,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       An <code>InvalidStateException</code> is thrown when the server is not in a valid state. A <code>ResourceNotFoundException</code> is thrown
    *       when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
    */
   public restoreServer(
     args: RestoreServerCommandInput,
@@ -808,8 +833,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Manually starts server maintenance. This command can be useful if an earlier maintenance attempt failed, and the underlying
    *       cause of maintenance failure has been resolved. The server is in an <code>UNDER_MAINTENANCE</code> state while maintenance is in progress.
    *     </p>
@@ -817,8 +841,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       Maintenance can only be started on servers in <code>HEALTHY</code> and <code>UNHEALTHY</code> states. Otherwise, an <code>InvalidStateException</code> is thrown.
    *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
-   *
    */
   public startMaintenance(
     args: StartMaintenanceCommandInput,
@@ -853,14 +875,82 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server, or to server backups.</p>
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes specified tags from an AWS OpsWorks-CM server or backup.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
    *       Updates settings for a server.
    *     </p>
    *          <p>
    *       This operation is synchronous.
    *     </p>
-   *
    */
   public updateServer(
     args: UpdateServerCommandInput,
@@ -895,8 +985,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *       Updates engine-specific attributes on a specified server. The server
    *       enters the <code>MODIFYING</code> state when this operation
    *       is in progress. Only one update can occur at a time.
@@ -910,7 +999,6 @@ export class OpsWorksCM extends OpsWorksCMClient {
    *       This operation can only be called for servers in <code>HEALTHY</code> or <code>UNHEALTHY</code> states. Otherwise, an <code>InvalidStateException</code> is raised.
    *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
    *     </p>
-   *
    */
   public updateServerEngineAttributes(
     args: UpdateServerEngineAttributesCommandInput,

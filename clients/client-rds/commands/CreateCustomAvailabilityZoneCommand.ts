@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   CreateCustomAvailabilityZoneMessage,
-  CustomAvailabilityZone
+  CreateCustomAvailabilityZoneResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateCustomAvailabilityZoneCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCustomAvailabilityZoneCommandInput = CreateCustomAvailabilityZoneMessage;
-export type CreateCustomAvailabilityZoneCommandOutput = CustomAvailabilityZone;
+export type CreateCustomAvailabilityZoneCommandOutput = CreateCustomAvailabilityZoneResult;
 
 export class CreateCustomAvailabilityZoneCommand extends $Command<
   CreateCustomAvailabilityZoneCommandInput,

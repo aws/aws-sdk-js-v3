@@ -117,22 +117,18 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *       <fullname>Amazon Elasticsearch Configuration Service</fullname>
+ * <fullname>Amazon Elasticsearch Configuration Service</fullname>
  *       <p>Use the Amazon Elasticsearch Configuration API to create, configure, and manage Elasticsearch domains.</p>
  *       <p>For sample code that uses the Configuration API, see the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-samples.html">Amazon Elasticsearch Service Developer Guide</a>.
  *       The guide also contains <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-request-signing.html">sample code for sending signed HTTP requests to the Elasticsearch APIs</a>.</p>
  *       <p>The endpoint for configuration service requests is region-specific: es.<i>region</i>.amazonaws.com.
  *          For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints,
  *          see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions" target="_blank">Regions and Endpoints</a>.</p>
- *
  */
 export class ElasticsearchService extends ElasticsearchServiceClient {
   /**
-   *
-   *        <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
+   * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
    *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
-   *
    */
   public addTags(
     args: AddTagsCommandInput,
@@ -167,9 +163,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *     <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
-   *
+   * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
    */
   public cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
@@ -216,10 +210,8 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Creates a new Elasticsearch domain. For more information,
+   * <p>Creates a new Elasticsearch domain. For more information,
    *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
-   *
    */
   public createElasticsearchDomain(
     args: CreateElasticsearchDomainCommandInput,
@@ -254,9 +246,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
-   *
+   * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
    */
   public deleteElasticsearchDomain(
     args: DeleteElasticsearchDomainCommandInput,
@@ -291,9 +281,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *        <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
-   *
+   * <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
    */
   public deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
@@ -331,9 +319,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
-   *
+   * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
    */
   public describeElasticsearchDomain(
     args: DescribeElasticsearchDomainCommandInput,
@@ -368,9 +354,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
-   *
+   * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
    */
   public describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
@@ -417,9 +401,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *        <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
-   *
+   * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
    */
   public describeElasticsearchDomains(
     args: DescribeElasticsearchDomainsCommandInput,
@@ -454,8 +436,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *   <p>
+   * <p>
    *     Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
    *     When modifying existing Domain, specify the
    *     <code>
@@ -463,7 +444,6 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    *     </code>
    *     to know what Limits are supported for modifying.
    *   </p>
-   *
    */
   public describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
@@ -510,9 +490,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   * 		<p>Lists available reserved Elasticsearch instance offerings.</p>
-   *
+   * <p>Lists available reserved Elasticsearch instance offerings.</p>
    */
   public describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
@@ -563,9 +541,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   * 		<p>Returns information about reserved Elasticsearch instances for this account.</p>
-   *
+   * <p>Returns information about reserved Elasticsearch instances for this account.</p>
    */
   public describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
@@ -612,8 +588,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   * 	  <p>
+   * <p>
    *         Returns a list of upgrade compatible Elastisearch versions.
    *         You can optionally pass a
    *         <code>
@@ -621,7 +596,6 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    *         </code>
    *         to get all upgrade compatible Elasticsearch versions for that specific domain.
    *       </p>
-   *
    */
   public getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
@@ -668,9 +642,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   * 		<p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
-   *
+   * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
    */
   public getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
@@ -705,9 +677,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   * 		<p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
-   *
+   * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
    */
   public getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
@@ -742,9 +712,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
-   *
+   * <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
    */
   public listDomainNames(
     args: ListDomainNamesCommandInput,
@@ -779,9 +747,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
-   *
+   * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
    */
   public listElasticsearchInstanceTypes(
     args: ListElasticsearchInstanceTypesCommandInput,
@@ -819,9 +785,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>List all supported Elasticsearch versions</p>
-   *
+   * <p>List all supported Elasticsearch versions</p>
    */
   public listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
@@ -856,9 +820,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Returns all tags for the given Elasticsearch domain.</p>
-   *
+   * <p>Returns all tags for the given Elasticsearch domain.</p>
    */
   public listTags(
     args: ListTagsCommandInput,
@@ -893,9 +855,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   * 		<p>Allows you to purchase reserved Elasticsearch instances.</p>
-   *
+   * <p>Allows you to purchase reserved Elasticsearch instances.</p>
    */
   public purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
@@ -946,9 +906,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
-   *
+   * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
    */
   public removeTags(
     args: RemoveTagsCommandInput,
@@ -983,9 +941,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *     <p>Schedules a service software update for an Amazon ES domain.</p>
-   *
+   * <p>Schedules a service software update for an Amazon ES domain.</p>
    */
   public startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
@@ -1032,9 +988,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   *       <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
-   *
+   * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
    */
   public updateElasticsearchDomainConfig(
     args: UpdateElasticsearchDomainConfigCommandInput,
@@ -1072,9 +1026,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   }
 
   /**
-   *
-   * 		<p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
-   *
+   * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
    */
   public upgradeElasticsearchDomain(
     args: UpgradeElasticsearchDomainCommandInput,

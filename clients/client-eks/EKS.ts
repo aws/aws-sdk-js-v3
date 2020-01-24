@@ -107,8 +107,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on
+ * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on
  *             AWS without needing to stand up or maintain your own Kubernetes control plane.
  *             Kubernetes is an open-source system for automating the deployment, scaling, and
  *             management of containerized applications. </p>
@@ -118,12 +117,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             environment, whether running in on-premises data centers or public clouds. This means
  *             that you can easily migrate any standard Kubernetes application to Amazon EKS without any
  *             code modification required.</p>
- *
  */
 export class EKS extends EKSClient {
   /**
-   *
-   *         <p>Creates an Amazon EKS control plane. </p>
+   * <p>Creates an Amazon EKS control plane. </p>
    *         <p>The Amazon EKS control plane consists of control plane instances that run the Kubernetes
    *             software, such as <code>etcd</code> and the API server. The control plane runs in an
    *             account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server
@@ -160,8 +157,6 @@ export class EKS extends EKSClient {
    *             and launch worker nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
    *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS Worker Nodes</a> in the
    *             <i>Amazon EKS User Guide</i>.</p>
-   *
-   *
    */
   public createCluster(
     args: CreateClusterCommandInput,
@@ -196,25 +191,23 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Creates an AWS Fargate profile for your Amazon EKS cluster. You must have at least one Fargate
-   *             profile in a cluster to be able to schedule pods on Fargate infrastructure.</p>
-   *         <p>The Fargate profile allows an administrator to declare which pods run on Fargate
-   *             infrastructure and specify which pods run on which Fargate profile. This declaration is
-   *             done through the profile’s selectors. Each profile can have up to five selectors that
-   *             contain a namespace and labels. A namespace is required for every selector. The label
-   *             field consists of multiple optional key-value pairs. Pods that match the selectors are
-   *             scheduled on Fargate infrastructure. If a to-be-scheduled pod matches any of the selectors
-   *             in the Fargate profile, then that pod is scheduled on Fargate infrastructure.</p>
+   * <p>Creates an AWS Fargate profile for your Amazon EKS cluster. You must have at least one Fargate
+   *             profile in a cluster to be able to run pods on Fargate.</p>
+   *         <p>The Fargate profile allows an administrator to declare which pods run on Fargate and specify
+   *             which pods run on which Fargate profile. This declaration is done through the profile’s
+   *             selectors. Each profile can have up to five selectors that contain a namespace and
+   *             labels. A namespace is required for every selector. The label field consists of multiple
+   *             optional key-value pairs. Pods that match the selectors are scheduled on Fargate. If a
+   *             to-be-scheduled pod matches any of the selectors in the Fargate profile, then that pod is
+   *             run on Fargate.</p>
    *         <p>When you create a Fargate profile, you must specify a pod execution role to use with the
    *             pods that are scheduled with the profile. This role is added to the cluster's Kubernetes
    *                 <a href="https://kubernetes.io/docs/admin/authorization/rbac/">Role Based Access
    *                 Control</a> (RBAC) for authorization so that the <code>kubelet</code> that is
-   *             running on the Fargate infrastructure can register with your Amazon EKS cluster. This role is
-   *             what allows Fargate infrastructure to appear in your cluster as nodes. The pod execution
-   *             role also provides IAM permissions to the Fargate infrastructure to allow read access to
-   *             Amazon ECR image repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod
-   *                 Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             running on the Fargate infrastructure can register with your Amazon EKS cluster so that it can
+   *             appear in your cluster as a node. The pod execution role also provides IAM permissions
+   *             to the Fargate infrastructure to allow read access to Amazon ECR image repositories. For more
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>
    *         <p>Fargate profiles are immutable. However, you can create a new updated profile to replace
    *             an existing profile and then delete the original after the updated profile has finished
    *             creating.</p>
@@ -222,8 +215,6 @@ export class EKS extends EKSClient {
    *             wait for that Fargate profile to finish deleting before you can create any other profiles
    *             in that cluster.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">AWS Fargate Profile</a> in the <i>Amazon EKS User Guide</i>.</p>
-   *
-   *
    */
   public createFargateProfile(
     args: CreateFargateProfileCommandInput,
@@ -258,8 +249,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Creates a managed worker node group for an Amazon EKS cluster. You can only create a node
+   * <p>Creates a managed worker node group for an Amazon EKS cluster. You can only create a node
    *             group for your cluster that is equal to the current Kubernetes version for the cluster.
    *             All node groups are created with the latest AMI release version for the respective minor
    *             Kubernetes version of the cluster.</p>
@@ -267,8 +257,6 @@ export class EKS extends EKSClient {
    *             are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the
    *             Amazon EKS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
    *                 Node Groups</a> in the <i>Amazon EKS User Guide</i>. </p>
-   *
-   *
    */
   public createNodegroup(
     args: CreateNodegroupCommandInput,
@@ -303,8 +291,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Deletes the Amazon EKS cluster control plane.</p>
+   * <p>Deletes the Amazon EKS cluster control plane.</p>
    *         <p>If you have active services in your cluster that are associated with a load balancer,
    *             you must delete those services before deleting the cluster so that the load balancers
    *             are deleted properly. Otherwise, you can have orphaned resources in your VPC that
@@ -312,8 +299,6 @@ export class EKS extends EKSClient {
    *                 Cluster</a> in the <i>Amazon EKS User Guide</i>.</p>
    *         <p>If you have managed node groups or Fargate profiles attached to the cluster, you must
    *             delete them first. For more information, see <a>DeleteNodegroup</a> and<a>DeleteFargateProfile</a>.</p>
-   *
-   *
    */
   public deleteCluster(
     args: DeleteClusterCommandInput,
@@ -348,17 +333,14 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Deletes an AWS Fargate profile.</p>
-   *         <p>When you delete a Fargate profile, any pods that were scheduled onto Fargate infrastructure
-   *             with the profile are deleted. If those pods match another Fargate profile, then they are
-   *             scheduled on Fargate infrastructure with that profile. If they no longer match any Fargate
-   *             profiles, then they are not scheduled on Fargate infrastructure.</p>
+   * <p>Deletes an AWS Fargate profile.</p>
+   *         <p>When you delete a Fargate profile, any pods running on Fargate that were created with the
+   *             profile are deleted. If those pods match another Fargate profile, then they are scheduled
+   *             on Fargate with that profile. If they no longer match any Fargate profiles, then they are not
+   *             scheduled on Fargate and they may remain in a pending state.</p>
    *         <p>Only one Fargate profile in a cluster can be in the <code>DELETING</code> status at a
    *             time. You must wait for a Fargate profile to finish deleting before you can delete any
    *             other profiles in that cluster.</p>
-   *
-   *
    */
   public deleteFargateProfile(
     args: DeleteFargateProfileCommandInput,
@@ -393,10 +375,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Deletes an Amazon EKS node group for a cluster.</p>
-   *
-   *
+   * <p>Deletes an Amazon EKS node group for a cluster.</p>
    */
   public deleteNodegroup(
     args: DeleteNodegroupCommandInput,
@@ -431,8 +410,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Returns descriptive information about an Amazon EKS cluster.</p>
+   * <p>Returns descriptive information about an Amazon EKS cluster.</p>
    *         <p>The API server endpoint and certificate authority data returned by this operation are
    *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
    *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create a
@@ -441,8 +419,6 @@ export class EKS extends EKSClient {
    *             <p>The API server endpoint and certificate authority data aren't available until the
    *                 cluster reaches the <code>ACTIVE</code> state.</p>
    *         </note>
-   *
-   *
    */
   public describeCluster(
     args: DescribeClusterCommandInput,
@@ -477,10 +453,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Returns descriptive information about an AWS Fargate profile.</p>
-   *
-   *
+   * <p>Returns descriptive information about an AWS Fargate profile.</p>
    */
   public describeFargateProfile(
     args: DescribeFargateProfileCommandInput,
@@ -515,10 +488,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Returns descriptive information about an Amazon EKS node group.</p>
-   *
-   *
+   * <p>Returns descriptive information about an Amazon EKS node group.</p>
    */
   public describeNodegroup(
     args: DescribeNodegroupCommandInput,
@@ -553,14 +523,11 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Returns descriptive information about an update against your Amazon EKS cluster or
+   * <p>Returns descriptive information about an update against your Amazon EKS cluster or
    *             associated managed node group.</p>
    *         <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
    *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
    *             for the failure.</p>
-   *
-   *
    */
   public describeUpdate(
     args: DescribeUpdateCommandInput,
@@ -595,10 +562,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Lists the Amazon EKS clusters in your AWS account in the specified Region.</p>
-   *
-   *
+   * <p>Lists the Amazon EKS clusters in your AWS account in the specified Region.</p>
    */
   public listClusters(
     args: ListClustersCommandInput,
@@ -633,11 +597,8 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Lists the AWS Fargate profiles associated with the specified cluster in your AWS
+   * <p>Lists the AWS Fargate profiles associated with the specified cluster in your AWS
    *             account in the specified Region.</p>
-   *
-   *
    */
   public listFargateProfiles(
     args: ListFargateProfilesCommandInput,
@@ -672,11 +633,8 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Lists the Amazon EKS node groups associated with the specified cluster in your AWS
+   * <p>Lists the Amazon EKS node groups associated with the specified cluster in your AWS
    *             account in the specified Region.</p>
-   *
-   *
    */
   public listNodegroups(
     args: ListNodegroupsCommandInput,
@@ -711,9 +669,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>List the tags for an Amazon EKS resource.</p>
-   *
+   * <p>List the tags for an Amazon EKS resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -748,11 +704,8 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS
+   * <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS
    *             account, in the specified Region.</p>
-   *
-   *
    */
   public listUpdates(
     args: ListUpdatesCommandInput,
@@ -787,15 +740,13 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Associates the specified tags to a resource with the specified
+   * <p>Associates the specified tags to a resource with the specified
    *                 <code>resourceArn</code>. If existing tags on a resource are not specified in the
    *             request parameters, they are not changed. When a resource is deleted, the tags
    *             associated with that resource are deleted as well. Tags that you create for Amazon EKS
-   *             resources do not propagate to any other resources associated with the cluster.  For
+   *             resources do not propagate to any other resources associated with the cluster. For
    *             example, if you tag a cluster with this operation, that tag does not automatically
    *             propagate to the subnets and worker nodes associated with the cluster.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -830,9 +781,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Deletes specified tags from a resource.</p>
-   *
+   * <p>Deletes specified tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -867,11 +816,9 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Updates an Amazon EKS cluster configuration. Your cluster continues to function during
-   *             the update. The response output includes an update ID that you can use to track the
-   *             status of your cluster update with the <a>DescribeUpdate</a> API
-   *             operation.</p>
+   * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to function during the
+   *             update. The response output includes an update ID that you can use to track the status
+   *             of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
    *         <p>You can use this API operation to enable or disable exporting the Kubernetes control
    *             plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't
    *             exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS
@@ -883,9 +830,9 @@ export class EKS extends EKSClient {
    *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
    *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
    *         </note>
-   *         <p>You can also use this API operation to enable or disable public and private access
-   *             to your cluster's Kubernetes API server endpoint. By default, public access is enabled,
-   *             and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
+   *         <p>You can also use this API operation to enable or disable public and private access to
+   *             your cluster's Kubernetes API server endpoint. By default, public access is enabled, and
+   *             private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
    *                 Endpoint Access Control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>. </p>
@@ -893,13 +840,10 @@ export class EKS extends EKSClient {
    *             <p>At this time, you can not update the subnets or security group IDs for an existing
    *                 cluster.</p>
    *         </important>
-   *         <p>Cluster updates are asynchronous, and they should finish within a few minutes.
-   *             During an update, the cluster status moves to <code>UPDATING</code> (this status
-   *             transition is eventually consistent). When the update is complete (either
-   *                 <code>Failed</code> or <code>Successful</code>), the cluster status moves to
-   *                 <code>Active</code>.</p>
-   *
-   *
+   *         <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
+   *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
+   *             eventually consistent). When the update is complete (either <code>Failed</code> or
+   *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
    */
   public updateClusterConfig(
     args: UpdateClusterConfigCommandInput,
@@ -934,20 +878,17 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster
-   *             continues to function during the update. The response output includes an update ID that
-   *             you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
-   *         <p>Cluster updates are asynchronous, and they should finish within a few minutes.
-   *             During an update, the cluster status moves to <code>UPDATING</code> (this status
-   *             transition is eventually consistent). When the update is complete (either
-   *                 <code>Failed</code> or <code>Successful</code>), the cluster status moves to
-   *                 <code>Active</code>.</p>
+   * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues
+   *             to function during the update. The response output includes an update ID that you can
+   *             use to track the status of your cluster update with the <a>DescribeUpdate</a>
+   *             API operation.</p>
+   *         <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
+   *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
+   *             eventually consistent). When the update is complete (either <code>Failed</code> or
+   *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
    *         <p>If your cluster has managed node groups attached to it, all of your node groups’
    *             Kubernetes versions must match the cluster’s Kubernetes version in order to update the
    *             cluster to a new Kubernetes version.</p>
-   *
-   *
    */
   public updateClusterVersion(
     args: UpdateClusterVersionCommandInput,
@@ -982,14 +923,11 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Updates an Amazon EKS managed node group configuration. Your node group continues to
+   * <p>Updates an Amazon EKS managed node group configuration. Your node group continues to
    *             function during the update. The response output includes an update ID that you can use
    *             to track the status of your node group update with the <a>DescribeUpdate</a>
    *             API operation. Currently you can update the Kubernetes labels for a node group or the
    *             scaling configuration.</p>
-   *
-   *
    */
   public updateNodegroupConfig(
     args: UpdateNodegroupConfigCommandInput,
@@ -1024,8 +962,7 @@ export class EKS extends EKSClient {
   }
 
   /**
-   *
-   *         <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node group.</p>
+   * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node group.</p>
    *         <p>You can update to the latest available AMI version of a node group's current
    *             Kubernetes version by not specifying a Kubernetes version in the request. You can update
    *             to the latest AMI version of your cluster's current Kubernetes version by specifying
@@ -1036,8 +973,6 @@ export class EKS extends EKSClient {
    *             the pods in that node are drained first. Amazon EKS attempts to drain the nodes gracefully
    *             and will fail if it is unable to do so. You can <code>force</code> the update if Amazon EKS
    *             is unable to drain the nodes as a result of a pod disruption budget issue.</p>
-   *
-   *
    */
   public updateNodegroupVersion(
     args: UpdateNodegroupVersionCommandInput,

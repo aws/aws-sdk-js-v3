@@ -187,19 +187,15 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>
+ * <p>
  *             Amplify is a fully managed continuous deployment and hosting service for modern web apps.
  *         </p>
- *
  */
 export class Amplify extends AmplifyClient {
   /**
-   *
-   *         <p>
+   * <p>
    *             Creates a new Amplify App.
    *         </p>
-   *
    */
   public createApp(
     args: CreateAppCommandInput,
@@ -234,11 +230,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Creates a new backend environment for an Amplify App.
    *         </p>
-   *
    */
   public createBackendEnvironment(
     args: CreateBackendEnvironmentCommandInput,
@@ -273,11 +267,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Creates a new Branch for an Amplify App.
    *         </p>
-   *
    */
   public createBranch(
     args: CreateBranchCommandInput,
@@ -312,11 +304,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Create a deployment for manual deploy apps. (Apps are not connected to repository)
    *         </p>
-   *
    */
   public createDeployment(
     args: CreateDeploymentCommandInput,
@@ -351,11 +341,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Create a new DomainAssociation on an App
    *         </p>
-   *
    */
   public createDomainAssociation(
     args: CreateDomainAssociationCommandInput,
@@ -390,11 +378,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Create a new webhook on an App.
    *         </p>
-   *
    */
   public createWebhook(
     args: CreateWebhookCommandInput,
@@ -429,11 +415,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Delete an existing Amplify App by appId.
    *         </p>
-   *
    */
   public deleteApp(
     args: DeleteAppCommandInput,
@@ -468,11 +452,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Delete backend environment for an Amplify App.
    *         </p>
-   *
    */
   public deleteBackendEnvironment(
     args: DeleteBackendEnvironmentCommandInput,
@@ -507,11 +489,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Deletes a branch for an Amplify App.
    *         </p>
-   *
    */
   public deleteBranch(
     args: DeleteBranchCommandInput,
@@ -546,11 +526,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Deletes a DomainAssociation.
    *         </p>
-   *
    */
   public deleteDomainAssociation(
     args: DeleteDomainAssociationCommandInput,
@@ -585,11 +563,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Delete a job, for an Amplify branch, part of Amplify App.
    *         </p>
-   *
    */
   public deleteJob(
     args: DeleteJobCommandInput,
@@ -624,11 +600,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Deletes a webhook.
    *         </p>
-   *
    */
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
@@ -663,11 +637,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Retrieve website access logs for a specific time range via a pre-signed URL.
    *         </p>
-   *
    */
   public generateAccessLogs(
     args: GenerateAccessLogsCommandInput,
@@ -702,11 +674,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Retrieves an existing Amplify App by appId.
    *         </p>
-   *
    */
   public getApp(
     args: GetAppCommandInput,
@@ -741,11 +711,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Retrieves artifact info that corresponds to a artifactId.
    *         </p>
-   *
    */
   public getArtifactUrl(
     args: GetArtifactUrlCommandInput,
@@ -780,11 +748,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Retrieves a backend environment for an Amplify App.
    *         </p>
-   *
    */
   public getBackendEnvironment(
     args: GetBackendEnvironmentCommandInput,
@@ -819,11 +785,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Retrieves a branch for an Amplify App.
    *         </p>
-   *
    */
   public getBranch(
     args: GetBranchCommandInput,
@@ -858,11 +822,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Retrieves domain info that corresponds to an appId and domainName.
    *         </p>
-   *
    */
   public getDomainAssociation(
     args: GetDomainAssociationCommandInput,
@@ -897,11 +859,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Get a job for a branch, part of an Amplify App.
    *         </p>
-   *
    */
   public getJob(
     args: GetJobCommandInput,
@@ -936,11 +896,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Retrieves webhook info that corresponds to a webhookId.
    *         </p>
-   *
    */
   public getWebhook(
     args: GetWebhookCommandInput,
@@ -975,11 +933,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Lists existing Amplify Apps.
    *         </p>
-   *
    */
   public listApps(
     args: ListAppsCommandInput,
@@ -1014,11 +970,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             List artifacts with an app, a branch, a job and an artifact type.
    *         </p>
-   *
    */
   public listArtifacts(
     args: ListArtifactsCommandInput,
@@ -1053,11 +1007,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Lists backend environments for an Amplify App.
    *         </p>
-   *
    */
   public listBackendEnvironments(
     args: ListBackendEnvironmentsCommandInput,
@@ -1092,11 +1044,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Lists branches for an Amplify App.
    *         </p>
-   *
    */
   public listBranches(
     args: ListBranchesCommandInput,
@@ -1131,11 +1081,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             List domains with an app
    *         </p>
-   *
    */
   public listDomainAssociations(
     args: ListDomainAssociationsCommandInput,
@@ -1170,11 +1118,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             List Jobs for a branch, part of an Amplify App.
    *         </p>
-   *
    */
   public listJobs(
     args: ListJobsCommandInput,
@@ -1209,11 +1155,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             List tags for resource.
    *         </p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1248,11 +1192,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             List webhooks with an app.
    *         </p>
-   *
    */
   public listWebhooks(
     args: ListWebhooksCommandInput,
@@ -1287,11 +1229,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Start a deployment for manual deploy apps. (Apps are not connected to repository)
    *         </p>
-   *
    */
   public startDeployment(
     args: StartDeploymentCommandInput,
@@ -1326,11 +1266,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Starts a new job for a branch, part of an Amplify App.
    *         </p>
-   *
    */
   public startJob(
     args: StartJobCommandInput,
@@ -1365,11 +1303,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Stop a job that is in progress, for an Amplify branch, part of Amplify App.
    *         </p>
-   *
    */
   public stopJob(
     args: StopJobCommandInput,
@@ -1404,11 +1340,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Tag resource with tag key and value.
    *         </p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1443,11 +1377,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Untag resource with resourceArn.
    *         </p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1482,11 +1414,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Updates an existing Amplify App.
    *         </p>
-   *
    */
   public updateApp(
     args: UpdateAppCommandInput,
@@ -1521,11 +1451,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Updates a branch for an Amplify App.
    *         </p>
-   *
    */
   public updateBranch(
     args: UpdateBranchCommandInput,
@@ -1560,11 +1488,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Create a new DomainAssociation on an App
    *         </p>
-   *
    */
   public updateDomainAssociation(
     args: UpdateDomainAssociationCommandInput,
@@ -1599,11 +1525,9 @@ export class Amplify extends AmplifyClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Update a webhook.
    *         </p>
-   *
    */
   public updateWebhook(
     args: UpdateWebhookCommandInput,

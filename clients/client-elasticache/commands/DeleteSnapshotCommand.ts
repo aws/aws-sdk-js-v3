@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { DeleteSnapshotMessage, Snapshot } from "../models/index";
+import { DeleteSnapshotMessage, DeleteSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryDeleteSnapshotCommand,
   serializeAws_queryDeleteSnapshotCommand
@@ -24,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSnapshotCommandInput = DeleteSnapshotMessage;
-export type DeleteSnapshotCommandOutput = Snapshot;
+export type DeleteSnapshotCommandOutput = DeleteSnapshotResult;
 
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,

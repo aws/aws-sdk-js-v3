@@ -33,6 +33,7 @@ export * from "./commands/PutWebhookCommand";
 export * from "./commands/RegisterWebhookWithThirdPartyCommand";
 export * from "./commands/RetryStageExecutionCommand";
 export * from "./commands/StartPipelineExecutionCommand";
+export * from "./commands/StopPipelineExecutionCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdatePipelineCommand";

@@ -2,9 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>You do not have sufficient access to perform this action.</p>
- *
+ * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
   extends _smithy.SmithyException,
@@ -24,8 +22,7 @@ export namespace AccessDeniedException {
 export interface AssociateRepositoryRequest {
   __type?: "AssociateRepositoryRequest";
   /**
-   *
-   *          <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    *          <p>If you want to add a new repository association, this parameter specifies a unique
    *         identifier for the new repository association that helps ensure idempotency.</p>
    *
@@ -42,14 +39,11 @@ export interface AssociateRepositoryRequest {
    *
    *          <p>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate repository
    *         associations if there are failures and retries. </p>
-   *
    */
   ClientRequestToken?: string;
 
   /**
-   *
-   *          <p>The repository to associate.</p>
-   *
+   * <p>The repository to associate.</p>
    */
   Repository: Repository | undefined;
 }
@@ -63,9 +57,7 @@ export namespace AssociateRepositoryRequest {
 export interface AssociateRepositoryResponse extends $MetadataBearer {
   __type?: "AssociateRepositoryResponse";
   /**
-   *
-   *          <p>Information about the repository association.</p>
-   *
+   * <p>Information about the repository association.</p>
    */
   RepositoryAssociation?: RepositoryAssociation;
 }
@@ -77,16 +69,12 @@ export namespace AssociateRepositoryResponse {
 }
 
 /**
- *
- *          <p>Information about an AWS CodeCommit repository.</p>
- *
+ * <p>Information about an AWS CodeCommit repository.</p>
  */
 export interface CodeCommitRepository {
   __type?: "CodeCommitRepository";
   /**
-   *
-   *          <p>The name of the AWS CodeCommit repository.</p>
-   *
+   * <p>The name of the AWS CodeCommit repository.</p>
    */
   Name: string | undefined;
 }
@@ -98,12 +86,10 @@ export namespace CodeCommitRepository {
 }
 
 /**
- *
- *          <p>The requested operation would cause a conflict with the current state
+ * <p>The requested operation would cause a conflict with the current state
  *         of a service resource associated with the request. Resolve the conflict
  *         before retrying this request.
  *       </p>
- *
  */
 export interface ConflictException
   extends _smithy.SmithyException,
@@ -123,9 +109,7 @@ export namespace ConflictException {
 export interface DescribeRepositoryAssociationRequest {
   __type?: "DescribeRepositoryAssociationRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) identifying the association.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) identifying the association.</p>
    */
   AssociationArn: string | undefined;
 }
@@ -139,9 +123,7 @@ export namespace DescribeRepositoryAssociationRequest {
 export interface DescribeRepositoryAssociationResponse extends $MetadataBearer {
   __type?: "DescribeRepositoryAssociationResponse";
   /**
-   *
-   *          <p>Information about the repository association.</p>
-   *
+   * <p>Information about the repository association.</p>
    */
   RepositoryAssociation?: RepositoryAssociation;
 }
@@ -155,9 +137,7 @@ export namespace DescribeRepositoryAssociationResponse {
 export interface DisassociateRepositoryRequest {
   __type?: "DisassociateRepositoryRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) identifying the association.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) identifying the association.</p>
    */
   AssociationArn: string | undefined;
 }
@@ -171,9 +151,7 @@ export namespace DisassociateRepositoryRequest {
 export interface DisassociateRepositoryResponse extends $MetadataBearer {
   __type?: "DisassociateRepositoryResponse";
   /**
-   *
-   *          <p>Information about the disassociated repository.</p>
-   *
+   * <p>Information about the disassociated repository.</p>
    */
   RepositoryAssociation?: RepositoryAssociation;
 }
@@ -185,9 +163,7 @@ export namespace DisassociateRepositoryResponse {
 }
 
 /**
- *
- *          <p>The server encountered an internal error and is unable to complete the request.</p>
- *
+ * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
 export interface InternalServerException
   extends _smithy.SmithyException,
@@ -207,8 +183,7 @@ export namespace InternalServerException {
 export interface ListRepositoryAssociationsRequest {
   __type?: "ListRepositoryAssociationsRequest";
   /**
-   *
-   *          <p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code>
+   * <p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code>
    *          in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
    *          element. The remaining results of the initial request
@@ -216,20 +191,16 @@ export interface ListRepositoryAssociationsRequest {
    *          <code>nextToken</code> value.
    *          This value can be between 1 and 100. If this parameter is not used, then <code>ListRepositoryAssociations</code>
    *          returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>List of names to use as a filter.</p>
-   *
+   * <p>List of names to use as a filter.</p>
    */
   Names?: Array<string>;
 
   /**
-   *
-   *          <p>The <code>nextToken</code> value returned from a previous paginated
+   * <p>The <code>nextToken</code> value returned from a previous paginated
    *          <code>ListRepositoryAssociations</code> request where <code>maxResults</code> was used and the results
    *          exceeded the value of that parameter. Pagination continues from the end of the previous results
    *          that returned the <code>nextToken</code> value.
@@ -238,29 +209,22 @@ export interface ListRepositoryAssociationsRequest {
    *             <p>This token should be treated as an opaque identifier that is only used to retrieve
    *          the next items in a list and not for other programmatic purposes.</p>
    *          </note>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>List of owners to use as a filter. For AWS CodeCommit, the owner is the AWS
+   * <p>List of owners to use as a filter. For AWS CodeCommit, the owner is the AWS
    *         account id. For GitHub, it is the GitHub account name.</p>
-   *
    */
   Owners?: Array<string>;
 
   /**
-   *
-   *          <p>List of provider types to use as a filter.</p>
-   *
+   * <p>List of provider types to use as a filter.</p>
    */
   ProviderTypes?: Array<ProviderType | string>;
 
   /**
-   *
-   *          <p>List of states to use as a filter.</p>
-   *
+   * <p>List of states to use as a filter.</p>
    */
   States?: Array<RepositoryAssociationState | string>;
 }
@@ -274,19 +238,15 @@ export namespace ListRepositoryAssociationsRequest {
 export interface ListRepositoryAssociationsResponse extends $MetadataBearer {
   __type?: "ListRepositoryAssociationsResponse";
   /**
-   *
-   *          <p>The <code>nextToken</code> value to include in a future <code>ListRecommendations</code> request.
+   * <p>The <code>nextToken</code> value to include in a future <code>ListRecommendations</code> request.
    *          When the results of a <code>ListRecommendations</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of repository associations that meet the criteria of the request.</p>
-   *
+   * <p>A list of repository associations that meet the criteria of the request.</p>
    */
   RepositoryAssociationSummaries?: Array<RepositoryAssociationSummary>;
 }
@@ -298,9 +258,7 @@ export namespace ListRepositoryAssociationsResponse {
 }
 
 /**
- *
- *          <p>The resource specified in the request was not found.</p>
- *
+ * <p>The resource specified in the request was not found.</p>
  */
 export interface NotFoundException
   extends _smithy.SmithyException,
@@ -323,16 +281,12 @@ export enum ProviderType {
 }
 
 /**
- *
- *          <p>Information about a repository.</p>
- *
+ * <p>Information about a repository.</p>
  */
 export interface Repository {
   __type?: "Repository";
   /**
-   *
-   *          <p>Information about an AWS CodeCommit repository.</p>
-   *
+   * <p>Information about an AWS CodeCommit repository.</p>
    */
   CodeCommit?: CodeCommitRepository;
 }
@@ -344,72 +298,52 @@ export namespace Repository {
 }
 
 /**
- *
- *          <p>Information about a repository association.</p>
- *
+ * <p>Information about a repository association.</p>
  */
 export interface RepositoryAssociation {
   __type?: "RepositoryAssociation";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
    */
   AssociationArn?: string;
 
   /**
-   *
-   *          <p>The id of the repository association.</p>
-   *
+   * <p>The id of the repository association.</p>
    */
   AssociationId?: string;
 
   /**
-   *
-   *          <p>The time, in milliseconds since the epoch, when the repository association was created.</p>
-   *
+   * <p>The time, in milliseconds since the epoch, when the repository association was created.</p>
    */
   CreatedTimeStamp?: Date;
 
   /**
-   *
-   *          <p>The time, in milliseconds since the epoch, when the repository association was last updated.</p>
-   *
+   * <p>The time, in milliseconds since the epoch, when the repository association was last updated.</p>
    */
   LastUpdatedTimeStamp?: Date;
 
   /**
-   *
-   *          <p>The name of the repository.</p>
-   *
+   * <p>The name of the repository.</p>
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The owner of the repository.</p>
-   *
+   * <p>The owner of the repository.</p>
    */
   Owner?: string;
 
   /**
-   *
-   *          <p>The provider type of the repository association.</p>
-   *
+   * <p>The provider type of the repository association.</p>
    */
   ProviderType?: ProviderType | string;
 
   /**
-   *
-   *          <p>The state of the repository association.</p>
-   *
+   * <p>The state of the repository association.</p>
    */
   State?: RepositoryAssociationState | string;
 
   /**
-   *
-   *          <p>A description of why the repository association is in the current state.</p>
-   *
+   * <p>A description of why the repository association is in the current state.</p>
    */
   StateReason?: string;
 }
@@ -428,59 +362,44 @@ export enum RepositoryAssociationState {
 }
 
 /**
- *
- *          <p>Information about a repository association.</p>
- *
+ * <p>Information about a repository association.</p>
  */
 export interface RepositoryAssociationSummary {
   __type?: "RepositoryAssociationSummary";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
    */
   AssociationArn?: string;
 
   /**
-   *
-   *          <p>The repository association ID.</p>
-   *
+   * <p>The repository association ID.</p>
    */
   AssociationId?: string;
 
   /**
-   *
-   *          <p>The time, in milliseconds since the epoch, since the repository association
+   * <p>The time, in milliseconds since the epoch, since the repository association
    *         was last updated.
    *       </p>
-   *
    */
   LastUpdatedTimeStamp?: Date;
 
   /**
-   *
-   *          <p>The name of the repository association.</p>
-   *
+   * <p>The name of the repository association.</p>
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The owner of the repository association.</p>
-   *
+   * <p>The owner of the repository association.</p>
    */
   Owner?: string;
 
   /**
-   *
-   *          <p>The provider type of the repository association.</p>
-   *
+   * <p>The provider type of the repository association.</p>
    */
   ProviderType?: ProviderType | string;
 
   /**
-   *
-   *          <p>The state of the repository association.</p>
+   * <p>The state of the repository association.</p>
    *          <dl>
    *             <dt>Associated</dt>
    *             <dd>
@@ -504,7 +423,6 @@ export interface RepositoryAssociationSummary {
    *                </p>
    *             </dd>
    *          </dl>
-   *
    */
   State?: RepositoryAssociationState | string;
 }
@@ -516,9 +434,7 @@ export namespace RepositoryAssociationSummary {
 }
 
 /**
- *
- *          <p>The request was denied due to request throttling.</p>
- *
+ * <p>The request was denied due to request throttling.</p>
  */
 export interface ThrottlingException
   extends _smithy.SmithyException,
@@ -536,9 +452,7 @@ export namespace ThrottlingException {
 }
 
 /**
- *
- *          <p>The input fails to satisfy the specified constraints.</p>
- *
+ * <p>The input fails to satisfy the specified constraints.</p>
  */
 export interface ValidationException
   extends _smithy.SmithyException,

@@ -2,10 +2,8 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Your account isn't a member of an organization. To make this request, you must use the
+ * <p>Your account isn't a member of an organization. To make this request, you must use the
  *       credentials of an account that belongs to an organization.</p>
- *
  */
 export interface AWSOrganizationsNotInUseException
   extends _smithy.SmithyException,
@@ -25,11 +23,9 @@ export namespace AWSOrganizationsNotInUseException {
 export interface AcceptHandshakeRequest {
   __type?: "AcceptHandshakeRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the handshake that you want to accept.</p>
+   * <p>The unique identifier (ID) of the handshake that you want to accept.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
-   *
    */
   HandshakeId: string | undefined;
 }
@@ -43,9 +39,7 @@ export namespace AcceptHandshakeRequest {
 export interface AcceptHandshakeResponse extends $MetadataBearer {
   __type?: "AcceptHandshakeResponse";
   /**
-   *
-   *          <p>A structure that contains details about the accepted handshake.</p>
-   *
+   * <p>A structure that contains details about the accepted handshake.</p>
    */
   Handshake?: Handshake;
 }
@@ -57,13 +51,11 @@ export namespace AcceptHandshakeResponse {
 }
 
 /**
- *
- *          <p>You don't have permissions to perform the requested operation. The user or role that is
+ * <p>You don't have permissions to perform the requested operation. The user or role that is
  *       making the request must have at least one IAM permissions policy attached that grants the
  *       required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
  *         <i>IAM User Guide.</i>
  *          </p>
- *
  */
 export interface AccessDeniedException
   extends _smithy.SmithyException,
@@ -81,12 +73,10 @@ export namespace AccessDeniedException {
 }
 
 /**
- *
- *          <p>The operation that you attempted requires you to have the
+ * <p>The operation that you attempted requires you to have the
  *         <code>iam:CreateServiceLinkedRole</code> for <code>organizations.amazonaws.com</code>
  *       permission so that AWS Organizations can create the required service-linked role. You don't have that
  *       permission.</p>
- *
  */
 export interface AccessDeniedForDependencyException
   extends _smithy.SmithyException,
@@ -109,67 +99,51 @@ export enum AccessDeniedForDependencyExceptionReason {
 }
 
 /**
- *
- *          <p>Contains information about an AWS account that is a member of an organization.</p>
- *
+ * <p>Contains information about an AWS account that is a member of an organization.</p>
  */
 export interface Account {
   __type?: "Account";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the account.</p>
+   * <p>The Amazon Resource Name (ARN) of the account.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The email address associated with the AWS account.</p>
+   * <p>The email address associated with the AWS account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter is a string of characters that represents a
    *       standard internet email address.</p>
-   *
    */
   Email?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the account.</p>
+   * <p>The unique identifier (ID) of the account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The method by which the account joined the organization.</p>
-   *
+   * <p>The method by which the account joined the organization.</p>
    */
   JoinedMethod?: AccountJoinedMethod | string;
 
   /**
-   *
-   *          <p>The date the account became a part of the organization.</p>
-   *
+   * <p>The date the account became a part of the organization.</p>
    */
   JoinedTimestamp?: Date;
 
   /**
-   *
-   *          <p>The friendly name of the account.</p>
+   * <p>The friendly name of the account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The status of the account in the organization.</p>
-   *
+   * <p>The status of the account in the organization.</p>
    */
   Status?: AccountStatus | string;
 }
@@ -186,11 +160,9 @@ export enum AccountJoinedMethod {
 }
 
 /**
- *
- *          <p> We can't find an AWS account with the <code>AccountId</code> that you specified. Or the
+ * <p> We can't find an AWS account with the <code>AccountId</code> that you specified. Or the
  *       account whose credentials you used to make this request isn't a member of an
  *       organization.</p>
- *
  */
 export interface AccountNotFoundException
   extends _smithy.SmithyException,
@@ -208,12 +180,10 @@ export namespace AccountNotFoundException {
 }
 
 /**
- *
- *          <p>You can't invite an existing account to your organization until you verify that you own
+ * <p>You can't invite an existing account to your organization until you verify that you own
  *       the email address associated with the master account. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email Address
  *         Verification</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
- *
  */
 export interface AccountOwnerNotVerifiedException
   extends _smithy.SmithyException,
@@ -243,10 +213,8 @@ export enum ActionType {
 }
 
 /**
- *
- *          <p>This account is already a member of an organization. An account can belong to only one
+ * <p>This account is already a member of an organization. An account can belong to only one
  *       organization at a time.</p>
- *
  */
 export interface AlreadyInOrganizationException
   extends _smithy.SmithyException,
@@ -266,18 +234,15 @@ export namespace AlreadyInOrganizationException {
 export interface AttachPolicyRequest {
   __type?: "AttachPolicyRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy that you want to attach to the target. You can
+   * <p>The unique identifier (ID) of the policy that you want to attach to the target. You can
    *       get the ID for the policy by calling the <a>ListPolicies</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
-   *     by from 8 to 128 lowercase letters or digits.</p>
-   *
+   *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root, OU, or account that you want to attach the policy
+   * <p>The unique identifier (ID) of the root, OU, or account that you want to attach the policy
    *       to. You can get the ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *       operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
@@ -299,7 +264,6 @@ export interface AttachPolicyRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   TargetId: string | undefined;
 }
@@ -313,12 +277,10 @@ export namespace AttachPolicyRequest {
 export interface CancelHandshakeRequest {
   __type?: "CancelHandshakeRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the handshake that you want to cancel. You can get the ID
+   * <p>The unique identifier (ID) of the handshake that you want to cancel. You can get the ID
    *       from the <a>ListHandshakesForOrganization</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
-   *
    */
   HandshakeId: string | undefined;
 }
@@ -332,9 +294,7 @@ export namespace CancelHandshakeRequest {
 export interface CancelHandshakeResponse extends $MetadataBearer {
   __type?: "CancelHandshakeResponse";
   /**
-   *
-   *          <p>A structure that contains details about the handshake that you canceled.</p>
-   *
+   * <p>A structure that contains details about the handshake that you canceled.</p>
    */
   Handshake?: Handshake;
 }
@@ -346,15 +306,12 @@ export namespace CancelHandshakeResponse {
 }
 
 /**
- *
- *          <p>Contains a list of child entities, either OUs or accounts.</p>
- *
+ * <p>Contains a list of child entities, either OUs or accounts.</p>
  */
 export interface Child {
   __type?: "Child";
   /**
-   *
-   *          <p>The unique identifier (ID) of this child entity.</p>
+   * <p>The unique identifier (ID) of this child entity.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -367,14 +324,11 @@ export interface Child {
    *           "-" dash and from 8 to 32 additional lower-case letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The type of this child entity.</p>
-   *
+   * <p>The type of this child entity.</p>
    */
   Type?: ChildType | string;
 }
@@ -386,10 +340,8 @@ export namespace Child {
 }
 
 /**
- *
- *          <p>We can't find an organizational unit (OU) or AWS account with the <code>ChildId</code>
+ * <p>We can't find an organizational unit (OU) or AWS account with the <code>ChildId</code>
  *       that you specified.</p>
- *
  */
 export interface ChildNotFoundException
   extends _smithy.SmithyException,
@@ -412,10 +364,8 @@ export enum ChildType {
 }
 
 /**
- *
- *          <p>The target of the operation is currently being modified by a different request. Try again
+ * <p>The target of the operation is currently being modified by a different request. Try again
  *       later.</p>
- *
  */
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
@@ -433,8 +383,7 @@ export namespace ConcurrentModificationException {
 }
 
 /**
- *
- *          <p>Performing this operation violates a minimum or maximum value limit. Examples include
+ * <p>Performing this operation violates a minimum or maximum value limit. Examples include
  *       attempting to remove the last service control policy (SCP) from an OU or root, or  attaching
  *       too many policies to an account, OU, or root. This exception includes a reason that contains
  *       additional information about the violated limit.</p>
@@ -546,11 +495,16 @@ export namespace ConcurrentModificationException {
  *           in an organization.</p>
  *             </li>
  *             <li>
- *                <p>POLICY_NUMBER_LIMIT_EXCEEDED. You attempted to exceed the number of policies that you
+ *                <p>POLICY_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the number of policies that you
  *           can have in an organization.</p>
  *             </li>
+ *             <li>
+ *                <p>TAG_POLICY_VIOLATION: Tags associated with the resource must be compliant with the tag policy that’s in effect for the account. For more information,
+ *           see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
+ *           the <i>AWS Organizations User Guide.</i>
+ *                </p>
+ *             </li>
  *          </ul>
- *
  */
 export interface ConstraintViolationException
   extends _smithy.SmithyException,
@@ -607,25 +561,20 @@ export enum CreateAccountFailureReason {
 export interface CreateAccountRequest {
   __type?: "CreateAccountRequest";
   /**
-   *
-   *          <p>The friendly name of the member account.</p>
-   *
+   * <p>The friendly name of the member account.</p>
    */
   AccountName: string | undefined;
 
   /**
-   *
-   *          <p>The email address of the owner to assign to the new member account. This email address
+   * <p>The email address of the owner to assign to the new member account. This email address
    *       must not already be associated with another AWS account. You must use a valid email address
    *       to complete account creation. You can't access the root user of the account or remove an
    *       account that was created with an invalid email address.</p>
-   *
    */
   Email: string | undefined;
 
   /**
-   *
-   *          <p>If set to <code>ALLOW</code>, the new account enables IAM users to access account
+   * <p>If set to <code>ALLOW</code>, the new account enables IAM users to access account
    *       billing information <i>if</i> they have the required permissions. If set to
    *         <code>DENY</code>, only the root user of the new account can access account billing
    *       information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating Access to
@@ -634,13 +583,11 @@ export interface CreateAccountRequest {
    *          <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>. This value
    *       allows IAM users and roles with the required permissions to access billing information for
    *       the new account.</p>
-   *
    */
   IamUserAccessToBilling?: IAMUserAccessToBilling | string;
 
   /**
-   *
-   *          <p>(Optional)</p>
+   * <p>(Optional)</p>
    *          <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
    *       account. This role trusts the master account, allowing users in the master account to assume
    *       the role, as permitted by the master account administrator. The role has administrator
@@ -654,7 +601,6 @@ export interface CreateAccountRequest {
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that
    *     is used to validate this parameter. The pattern can include uppercase
    *     letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>
-   *
    */
   RoleName?: string;
 }
@@ -668,15 +614,13 @@ export namespace CreateAccountRequest {
 export interface CreateAccountResponse extends $MetadataBearer {
   __type?: "CreateAccountResponse";
   /**
-   *
-   *          <p>A structure that contains details about the request to create an account. This response
+   * <p>A structure that contains details about the request to create an account. This response
    *       structure might not be fully populated when you first receive it because account creation is
    *       an asynchronous process. You can pass the returned <code>CreateAccountStatus</code> ID as a
    *       parameter to <a>DescribeCreateAccountStatus</a> to get status about the progress of
    *       the request at later times. You can also check the AWS CloudTrail log for the
    *         <code>CreateAccountResult</code> event. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the Activity in Your Organization</a>
    *       in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
@@ -694,40 +638,31 @@ export enum CreateAccountState {
 }
 
 /**
- *
- *          <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS GovCloud
+ * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS GovCloud
  *       (US) account in an organization.</p>
- *
  */
 export interface CreateAccountStatus {
   __type?: "CreateAccountStatus";
   /**
-   *
-   *          <p>If the account was created successfully, the unique identifier (ID) of the new
+   * <p>If the account was created successfully, the unique identifier (ID) of the new
    *       account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
-   *
    */
   AccountId?: string;
 
   /**
-   *
-   *          <p>The account name given to the account when it was created.</p>
-   *
+   * <p>The account name given to the account when it was created.</p>
    */
   AccountName?: string;
 
   /**
-   *
-   *          <p>The date and time that the account was created and the request completed.</p>
-   *
+   * <p>The date and time that the account was created and the request completed.</p>
    */
   CompletedTimestamp?: Date;
 
   /**
-   *
-   *          <p>If the request failed, a description of the reason for the failure.</p>
+   * <p>If the request failed, a description of the reason for the failure.</p>
    *          <ul>
    *             <li>
    *                <p>ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the
@@ -754,39 +689,30 @@ export interface CreateAccountStatus {
    *           again later. If the problem persists, contact AWS Support.</p>
    *             </li>
    *          </ul>
-   *
    */
   FailureReason?: CreateAccountFailureReason | string;
 
   /**
-   *
-   *          <p>If the account was created successfully, the unique identifier (ID) of the new account in
+   * <p>If the account was created successfully, the unique identifier (ID) of the new account in
    *       the AWS GovCloud (US) Region.</p>
-   *
    */
   GovCloudAccountId?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) that references this request. You get this value from the
+   * <p>The unique identifier (ID) that references this request. You get this value from the
    *       response of the initial <a>CreateAccount</a> request to create the account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
    *     requires "car-" followed by from 8 to 32 lower-case letters or digits.</p>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The date and time that the request was made for the account creation.</p>
-   *
+   * <p>The date and time that the request was made for the account creation.</p>
    */
   RequestedTimestamp?: Date;
 
   /**
-   *
-   *          <p>The status of the request.</p>
-   *
+   * <p>The status of the request.</p>
    */
   State?: CreateAccountState | string;
 }
@@ -798,10 +724,8 @@ export namespace CreateAccountStatus {
 }
 
 /**
- *
- *          <p>We can't find a create account request with the <code>CreateAccountRequestId</code> that
+ * <p>We can't find a create account request with the <code>CreateAccountRequestId</code> that
  *       you specified.</p>
- *
  */
 export interface CreateAccountStatusNotFoundException
   extends _smithy.SmithyException,
@@ -821,28 +745,23 @@ export namespace CreateAccountStatusNotFoundException {
 export interface CreateGovCloudAccountRequest {
   __type?: "CreateGovCloudAccountRequest";
   /**
-   *
-   *          <p>The friendly name of the member account.</p>
-   *
+   * <p>The friendly name of the member account.</p>
    */
   AccountName: string | undefined;
 
   /**
-   *
-   *          <p>The email address of the owner to assign to the new member account in the commercial
+   * <p>The email address of the owner to assign to the new member account in the commercial
    *       Region. This email address must not already be associated with another AWS account. You must
    *       use a valid email address to complete account creation. You can't access the root user of the
    *       account or remove an account that was created with an invalid email address. Like all request
    *       parameters for <code>CreateGovCloudAccount</code>, the request for the email address for the
    *       AWS GovCloud (US) account originates from the commercial Region. It does not come from the
    *       AWS GovCloud (US) Region.</p>
-   *
    */
   Email: string | undefined;
 
   /**
-   *
-   *          <p>If set to <code>ALLOW</code>, the new linked account in the commercial Region enables
+   * <p>If set to <code>ALLOW</code>, the new linked account in the commercial Region enables
    *       IAM users to access account billing information <i>if</i> they have the
    *       required permissions. If set to <code>DENY</code>, only the root user of the new account can
    *       access account billing information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating Access to
@@ -852,13 +771,11 @@ export interface CreateGovCloudAccountRequest {
    *          <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and IAM
    *       users and roles with the required permissions can access billing information for the new
    *       account.</p>
-   *
    */
   IamUserAccessToBilling?: IAMUserAccessToBilling | string;
 
   /**
-   *
-   *          <p>(Optional)</p>
+   * <p>(Optional)</p>
    *          <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
    *       accounts in both the AWS GovCloud (US) Region and in the commercial Region. This role trusts
    *       the master account, allowing users in the master account to assume the role, as permitted by
@@ -874,7 +791,6 @@ export interface CreateGovCloudAccountRequest {
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that
    *     is used to validate this parameter. The pattern can include uppercase
    *     letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>
-   *
    */
   RoleName?: string;
 }
@@ -888,10 +804,8 @@ export namespace CreateGovCloudAccountRequest {
 export interface CreateGovCloudAccountResponse extends $MetadataBearer {
   __type?: "CreateGovCloudAccountResponse";
   /**
-   *
-   *          <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS GovCloud
+   * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS GovCloud
    *       (US) account in an organization.</p>
-   *
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
@@ -905,8 +819,7 @@ export namespace CreateGovCloudAccountResponse {
 export interface CreateOrganizationRequest {
   __type?: "CreateOrganizationRequest";
   /**
-   *
-   *          <p>Specifies the feature set supported by the new organization. Each feature set supports
+   * <p>Specifies the feature set supported by the new organization. Each feature set supports
    *       different levels of functionality.</p>
    *          <ul>
    *             <li>
@@ -927,7 +840,6 @@ export interface CreateOrganizationRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    */
   FeatureSet?: OrganizationFeatureSet | string;
 }
@@ -941,9 +853,7 @@ export namespace CreateOrganizationRequest {
 export interface CreateOrganizationResponse extends $MetadataBearer {
   __type?: "CreateOrganizationResponse";
   /**
-   *
-   *          <p>A structure that contains details about the newly created organization.</p>
-   *
+   * <p>A structure that contains details about the newly created organization.</p>
    */
   Organization?: Organization;
 }
@@ -957,15 +867,12 @@ export namespace CreateOrganizationResponse {
 export interface CreateOrganizationalUnitRequest {
   __type?: "CreateOrganizationalUnitRequest";
   /**
-   *
-   *          <p>The friendly name to assign to the new OU.</p>
-   *
+   * <p>The friendly name to assign to the new OU.</p>
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the parent root or OU that you want to create the new OU
+   * <p>The unique identifier (ID) of the parent root or OU that you want to create the new OU
    *       in.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
@@ -982,7 +889,6 @@ export interface CreateOrganizationalUnitRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   ParentId: string | undefined;
 }
@@ -996,9 +902,7 @@ export namespace CreateOrganizationalUnitRequest {
 export interface CreateOrganizationalUnitResponse extends $MetadataBearer {
   __type?: "CreateOrganizationalUnitResponse";
   /**
-   *
-   *          <p>A structure that contains details about the newly created OU.</p>
-   *
+   * <p>A structure that contains details about the newly created OU.</p>
    */
   OrganizationalUnit?: OrganizationalUnit;
 }
@@ -1012,38 +916,30 @@ export namespace CreateOrganizationalUnitResponse {
 export interface CreatePolicyRequest {
   __type?: "CreatePolicyRequest";
   /**
-   *
-   *          <p>The policy content to add to the new policy. For example, you could create a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">service control
+   * <p>The policy content to add to the new policy. For example, you could create a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">service control
    *         policy</a> (SCP) that specifies the permissions that administrators in attached accounts
    *       can delegate to their users, groups, and roles. The string for this SCP must be JSON text. For
    *       more information about the SCP syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service Control
    *         Policy Syntax</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
-   *
    */
   Content: string | undefined;
 
   /**
-   *
-   *          <p>An optional description to assign to the policy.</p>
-   *
+   * <p>An optional description to assign to the policy.</p>
    */
   Description: string | undefined;
 
   /**
-   *
-   *          <p>The friendly name to assign to the policy.</p>
+   * <p>The friendly name to assign to the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name: string | undefined;
 
   /**
-   *
-   *          <p>The type of policy to create.</p>
-   *
+   * <p>The type of policy to create.</p>
    */
   Type: PolicyType | string | undefined;
 }
@@ -1057,9 +953,7 @@ export namespace CreatePolicyRequest {
 export interface CreatePolicyResponse extends $MetadataBearer {
   __type?: "CreatePolicyResponse";
   /**
-   *
-   *          <p>A structure that contains details about the newly created policy.</p>
-   *
+   * <p>A structure that contains details about the newly created policy.</p>
    */
   Policy?: Policy;
 }
@@ -1073,12 +967,10 @@ export namespace CreatePolicyResponse {
 export interface DeclineHandshakeRequest {
   __type?: "DeclineHandshakeRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID
+   * <p>The unique identifier (ID) of the handshake that you want to decline. You can get the ID
    *       from the <a>ListHandshakesForAccount</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
-   *
    */
   HandshakeId: string | undefined;
 }
@@ -1092,10 +984,8 @@ export namespace DeclineHandshakeRequest {
 export interface DeclineHandshakeResponse extends $MetadataBearer {
   __type?: "DeclineHandshakeResponse";
   /**
-   *
-   *          <p>A structure that contains details about the declined handshake. The state is updated to
+   * <p>A structure that contains details about the declined handshake. The state is updated to
    *       show the value <code>DECLINED</code>.</p>
-   *
    */
   Handshake?: Handshake;
 }
@@ -1109,14 +999,12 @@ export namespace DeclineHandshakeResponse {
 export interface DeleteOrganizationalUnitRequest {
   __type?: "DeleteOrganizationalUnitRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the organizational unit that you want to delete. You can get
+   * <p>The unique identifier (ID) of the organizational unit that you want to delete. You can get
    *       the ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or
    *     digits.</p>
-   *
    */
   OrganizationalUnitId: string | undefined;
 }
@@ -1130,13 +1018,11 @@ export namespace DeleteOrganizationalUnitRequest {
 export interface DeletePolicyRequest {
   __type?: "DeletePolicyRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy that you want to delete. You can get the ID from
+   * <p>The unique identifier (ID) of the policy that you want to delete. You can get the ID from
    *       the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *       operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
-   *     by from 8 to 128 lowercase letters or digits.</p>
-   *
+   *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
 }
@@ -1150,13 +1036,11 @@ export namespace DeletePolicyRequest {
 export interface DescribeAccountRequest {
   __type?: "DescribeAccountRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the AWS account that you want information about. You can
+   * <p>The unique identifier (ID) of the AWS account that you want information about. You can
    *       get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a>
    *       operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
-   *
    */
   AccountId: string | undefined;
 }
@@ -1170,9 +1054,7 @@ export namespace DescribeAccountRequest {
 export interface DescribeAccountResponse extends $MetadataBearer {
   __type?: "DescribeAccountResponse";
   /**
-   *
-   *          <p>A structure that contains information about the requested account.</p>
-   *
+   * <p>A structure that contains information about the requested account.</p>
    */
   Account?: Account;
 }
@@ -1186,13 +1068,11 @@ export namespace DescribeAccountResponse {
 export interface DescribeCreateAccountStatusRequest {
   __type?: "DescribeCreateAccountStatusRequest";
   /**
-   *
-   *          <p>Specifies the <code>operationId</code> that uniquely identifies the request. You can get
+   * <p>Specifies the <code>operationId</code> that uniquely identifies the request. You can get
    *       the ID from the response to an earlier <a>CreateAccount</a> request, or from the
    *         <a>ListCreateAccountStatus</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
    *     requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
-   *
    */
   CreateAccountRequestId: string | undefined;
 }
@@ -1206,9 +1086,7 @@ export namespace DescribeCreateAccountStatusRequest {
 export interface DescribeCreateAccountStatusResponse extends $MetadataBearer {
   __type?: "DescribeCreateAccountStatusResponse";
   /**
-   *
-   *          <p>A structure that contains the current status of an account creation request.</p>
-   *
+   * <p>A structure that contains the current status of an account creation request.</p>
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
@@ -1222,17 +1100,13 @@ export namespace DescribeCreateAccountStatusResponse {
 export interface DescribeEffectivePolicyRequest {
   __type?: "DescribeEffectivePolicyRequest";
   /**
-   *
-   *          <p>The type of policy that you want information about.</p>
-   *
+   * <p>The type of policy that you want information about.</p>
    */
   PolicyType: EffectivePolicyType | string | undefined;
 
   /**
-   *
-   *          <p>When you're signed in as the master account, specify the ID of the account that you want
+   * <p>When you're signed in as the master account, specify the ID of the account that you want
    *       details about. Specifying an organization root or OU as the target is not supported. </p>
-   *
    */
   TargetId?: string;
 }
@@ -1246,9 +1120,7 @@ export namespace DescribeEffectivePolicyRequest {
 export interface DescribeEffectivePolicyResponse extends $MetadataBearer {
   __type?: "DescribeEffectivePolicyResponse";
   /**
-   *
-   *          <p>The contents of the effective policy.</p>
-   *
+   * <p>The contents of the effective policy.</p>
    */
   EffectivePolicy?: EffectivePolicy;
 }
@@ -1262,13 +1134,11 @@ export namespace DescribeEffectivePolicyResponse {
 export interface DescribeHandshakeRequest {
   __type?: "DescribeHandshakeRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the handshake that you want information about. You can get
+   * <p>The unique identifier (ID) of the handshake that you want information about. You can get
    *       the ID from the original call to <a>InviteAccountToOrganization</a>, or from a call
    *       to <a>ListHandshakesForAccount</a> or <a>ListHandshakesForOrganization</a>.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
-   *
    */
   HandshakeId: string | undefined;
 }
@@ -1282,9 +1152,7 @@ export namespace DescribeHandshakeRequest {
 export interface DescribeHandshakeResponse extends $MetadataBearer {
   __type?: "DescribeHandshakeResponse";
   /**
-   *
-   *          <p>A structure that contains information about the specified handshake.</p>
-   *
+   * <p>A structure that contains information about the specified handshake.</p>
    */
   Handshake?: Handshake;
 }
@@ -1298,9 +1166,7 @@ export namespace DescribeHandshakeResponse {
 export interface DescribeOrganizationResponse extends $MetadataBearer {
   __type?: "DescribeOrganizationResponse";
   /**
-   *
-   *          <p>A structure that contains information about the organization.</p>
-   *
+   * <p>A structure that contains information about the organization.</p>
    */
   Organization?: Organization;
 }
@@ -1314,14 +1180,12 @@ export namespace DescribeOrganizationResponse {
 export interface DescribeOrganizationalUnitRequest {
   __type?: "DescribeOrganizationalUnitRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the organizational unit that you want details about. You can
+   * <p>The unique identifier (ID) of the organizational unit that you want details about. You can
    *       get the ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or
    *     digits.</p>
-   *
    */
   OrganizationalUnitId: string | undefined;
 }
@@ -1335,9 +1199,7 @@ export namespace DescribeOrganizationalUnitRequest {
 export interface DescribeOrganizationalUnitResponse extends $MetadataBearer {
   __type?: "DescribeOrganizationalUnitResponse";
   /**
-   *
-   *          <p>A structure that contains details about the specified OU.</p>
-   *
+   * <p>A structure that contains details about the specified OU.</p>
    */
   OrganizationalUnit?: OrganizationalUnit;
 }
@@ -1351,13 +1213,11 @@ export namespace DescribeOrganizationalUnitResponse {
 export interface DescribePolicyRequest {
   __type?: "DescribePolicyRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy that you want details about. You can get the ID
+   * <p>The unique identifier (ID) of the policy that you want details about. You can get the ID
    *       from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *       operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
-   *     by from 8 to 128 lowercase letters or digits.</p>
-   *
+   *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
 }
@@ -1371,9 +1231,7 @@ export namespace DescribePolicyRequest {
 export interface DescribePolicyResponse extends $MetadataBearer {
   __type?: "DescribePolicyResponse";
   /**
-   *
-   *          <p>A structure that contains details about the specified policy.</p>
-   *
+   * <p>A structure that contains details about the specified policy.</p>
    */
   Policy?: Policy;
 }
@@ -1385,10 +1243,8 @@ export namespace DescribePolicyResponse {
 }
 
 /**
- *
- *          <p>We can't find the destination container (a root or OU) with the <code>ParentId</code> that
+ * <p>We can't find the destination container (a root or OU) with the <code>ParentId</code> that
  *       you specified.</p>
- *
  */
 export interface DestinationParentNotFoundException
   extends _smithy.SmithyException,
@@ -1408,18 +1264,15 @@ export namespace DestinationParentNotFoundException {
 export interface DetachPolicyRequest {
   __type?: "DetachPolicyRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy you want to detach. You can get the ID from the
+   * <p>The unique identifier (ID) of the policy you want to detach. You can get the ID from the
    *         <a>ListPolicies</a> or <a>ListPoliciesForTarget</a> operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
-   *     by from 8 to 128 lowercase letters or digits.</p>
-   *
+   *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root, OU, or account that you want to detach the policy
+   * <p>The unique identifier (ID) of the root, OU, or account that you want to detach the policy
    *       from. You can get the ID from the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *       operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
@@ -1441,7 +1294,6 @@ export interface DetachPolicyRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   TargetId: string | undefined;
 }
@@ -1455,12 +1307,10 @@ export namespace DetachPolicyRequest {
 export interface DisableAWSServiceAccessRequest {
   __type?: "DisableAWSServiceAccessRequest";
   /**
-   *
-   *          <p>The service principal name of the AWS service for which you want to disable integration
+   * <p>The service principal name of the AWS service for which you want to disable integration
    *       with your organization. This is typically in the form of a URL, such as
    *           <code>
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
-   *
    */
   ServicePrincipal: string | undefined;
 }
@@ -1474,19 +1324,15 @@ export namespace DisableAWSServiceAccessRequest {
 export interface DisablePolicyTypeRequest {
   __type?: "DisablePolicyTypeRequest";
   /**
-   *
-   *          <p>The policy type that you want to disable in this root.</p>
-   *
+   * <p>The policy type that you want to disable in this root.</p>
    */
   PolicyType: PolicyType | string | undefined;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root in which you want to disable a policy type. You can
+   * <p>The unique identifier (ID) of the root in which you want to disable a policy type. You can
    *       get the ID from the <a>ListRoots</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
-   *
    */
   RootId: string | undefined;
 }
@@ -1500,9 +1346,7 @@ export namespace DisablePolicyTypeRequest {
 export interface DisablePolicyTypeResponse extends $MetadataBearer {
   __type?: "DisablePolicyTypeResponse";
   /**
-   *
-   *          <p>A structure that shows the root with the updated list of enabled policy types.</p>
-   *
+   * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    */
   Root?: Root;
 }
@@ -1514,9 +1358,7 @@ export namespace DisablePolicyTypeResponse {
 }
 
 /**
- *
- *          <p>That account is already present in the specified destination.</p>
- *
+ * <p>That account is already present in the specified destination.</p>
  */
 export interface DuplicateAccountException
   extends _smithy.SmithyException,
@@ -1534,12 +1376,10 @@ export namespace DuplicateAccountException {
 }
 
 /**
- *
- *          <p>A handshake with the same action and target already exists. For example, if you invited an
+ * <p>A handshake with the same action and target already exists. For example, if you invited an
  *       account to join your organization, the invited account might already have a pending invitation
  *       from this organization. If you intend to resend an invitation to an account, ensure that
  *       existing handshakes that might be considered duplicates are canceled or declined.</p>
- *
  */
 export interface DuplicateHandshakeException
   extends _smithy.SmithyException,
@@ -1557,9 +1397,7 @@ export namespace DuplicateHandshakeException {
 }
 
 /**
- *
- *          <p>An OU with the same name already exists.</p>
- *
+ * <p>An OU with the same name already exists.</p>
  */
 export interface DuplicateOrganizationalUnitException
   extends _smithy.SmithyException,
@@ -1577,9 +1415,7 @@ export namespace DuplicateOrganizationalUnitException {
 }
 
 /**
- *
- *          <p>The selected policy is already attached to the specified target.</p>
- *
+ * <p>The selected policy is already attached to the specified target.</p>
  */
 export interface DuplicatePolicyAttachmentException
   extends _smithy.SmithyException,
@@ -1597,9 +1433,7 @@ export namespace DuplicatePolicyAttachmentException {
 }
 
 /**
- *
- *          <p>A policy with the same name already exists.</p>
- *
+ * <p>A policy with the same name already exists.</p>
  */
 export interface DuplicatePolicyException
   extends _smithy.SmithyException,
@@ -1617,39 +1451,29 @@ export namespace DuplicatePolicyException {
 }
 
 /**
- *
- *          <p>Contains rules to be applied to the affected accounts. The effective policy is the
+ * <p>Contains rules to be applied to the affected accounts. The effective policy is the
  *       aggregation of any policies the account inherits, plus any policy directly attached to the
  *       account.</p>
- *
  */
 export interface EffectivePolicy {
   __type?: "EffectivePolicy";
   /**
-   *
-   *          <p>The time of the last update to this policy.</p>
-   *
+   * <p>The time of the last update to this policy.</p>
    */
   LastUpdatedTimestamp?: Date;
 
   /**
-   *
-   *          <p>The text content of the policy.</p>
-   *
+   * <p>The text content of the policy.</p>
    */
   PolicyContent?: string;
 
   /**
-   *
-   *          <p>The policy type.</p>
-   *
+   * <p>The policy type.</p>
    */
   PolicyType?: EffectivePolicyType | string;
 
   /**
-   *
-   *          <p>The account ID of the policy target. </p>
-   *
+   * <p>The account ID of the policy target. </p>
    */
   TargetId?: string;
 }
@@ -1661,12 +1485,10 @@ export namespace EffectivePolicy {
 }
 
 /**
- *
- *          <p>If you ran this action on the master account, this policy type is not enabled. If you ran
+ * <p>If you ran this action on the master account, this policy type is not enabled. If you ran
  *       the action on a member account, the account doesn't have an effective policy of this type.
  *       Contact the administrator of your organization about attaching a policy of this type to the
  *       account. </p>
- *
  */
 export interface EffectivePolicyNotFoundException
   extends _smithy.SmithyException,
@@ -1690,12 +1512,10 @@ export enum EffectivePolicyType {
 export interface EnableAWSServiceAccessRequest {
   __type?: "EnableAWSServiceAccessRequest";
   /**
-   *
-   *          <p>The service principal name of the AWS service for which you want to enable integration
+   * <p>The service principal name of the AWS service for which you want to enable integration
    *       with your organization. This is typically in the form of a URL, such as
    *           <code>
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
-   *
    */
   ServicePrincipal: string | undefined;
 }
@@ -1719,10 +1539,8 @@ export namespace EnableAllFeaturesRequest {
 export interface EnableAllFeaturesResponse extends $MetadataBearer {
   __type?: "EnableAllFeaturesResponse";
   /**
-   *
-   *          <p>A structure that contains details about the handshake created to support this request to
+   * <p>A structure that contains details about the handshake created to support this request to
    *       enable all features in the organization.</p>
-   *
    */
   Handshake?: Handshake;
 }
@@ -1736,19 +1554,15 @@ export namespace EnableAllFeaturesResponse {
 export interface EnablePolicyTypeRequest {
   __type?: "EnablePolicyTypeRequest";
   /**
-   *
-   *          <p>The policy type that you want to enable.</p>
-   *
+   * <p>The policy type that you want to enable.</p>
    */
   PolicyType: PolicyType | string | undefined;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root in which you want to enable a policy type. You can
+   * <p>The unique identifier (ID) of the root in which you want to enable a policy type. You can
    *       get the ID from the <a>ListRoots</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
-   *
    */
   RootId: string | undefined;
 }
@@ -1762,9 +1576,7 @@ export namespace EnablePolicyTypeRequest {
 export interface EnablePolicyTypeResponse extends $MetadataBearer {
   __type?: "EnablePolicyTypeResponse";
   /**
-   *
-   *          <p>A structure that shows the root with the updated list of enabled policy types.</p>
-   *
+   * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    */
   Root?: Root;
 }
@@ -1776,26 +1588,20 @@ export namespace EnablePolicyTypeResponse {
 }
 
 /**
- *
- *          <p>A structure that contains details of a service principal that is enabled to integrate with
+ * <p>A structure that contains details of a service principal that is enabled to integrate with
  *       AWS Organizations.</p>
- *
  */
 export interface EnabledServicePrincipal {
   __type?: "EnabledServicePrincipal";
   /**
-   *
-   *          <p>The date that the service principal was enabled for integration with AWS Organizations.</p>
-   *
+   * <p>The date that the service principal was enabled for integration with AWS Organizations.</p>
    */
   DateEnabled?: Date;
 
   /**
-   *
-   *          <p>The name of the service principal. This is typically in the form of a URL, such as:
+   * <p>The name of the service principal. This is typically in the form of a URL, such as:
    *           <code>
    *                <i>servicename</i>.amazonaws.com</code>.</p>
-   *
    */
   ServicePrincipal?: string;
 }
@@ -1807,12 +1613,10 @@ export namespace EnabledServicePrincipal {
 }
 
 /**
- *
- *          <p>AWS Organizations couldn't perform the operation because your organization hasn't finished
+ * <p>AWS Organizations couldn't perform the operation because your organization hasn't finished
  *       initializing. This can take up to an hour. Try again later. If after one hour you continue to
  *       receive this error, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
  *       Support</a>.</p>
- *
  */
 export interface FinalizingOrganizationException
   extends _smithy.SmithyException,
@@ -1830,8 +1634,7 @@ export namespace FinalizingOrganizationException {
 }
 
 /**
- *
- *          <p>Contains information that must be exchanged to securely establish a relationship between
+ * <p>Contains information that must be exchanged to securely establish a relationship between
  *       two accounts (an <i>originator</i> and a <i>recipient</i>). For
  *       example, assume that a master account (the originator) invites another account (the recipient)
  *       to join its organization. In that case, the two accounts exchange information as a series of
@@ -1840,13 +1643,11 @@ export namespace FinalizingOrganizationException {
  *             <b>Note:</b> Handshakes that are CANCELED, ACCEPTED, or DECLINED
  *       show up in lists for only 30 days after entering that state. After that, they are
  *       deleted.</p>
- *
  */
 export interface Handshake {
   __type?: "Handshake";
   /**
-   *
-   *          <p>The type of handshake, indicating what action occurs when the recipient accepts the
+   * <p>The type of handshake, indicating what action occurs when the recipient accepts the
    *       handshake. The following handshake types are supported:</p>
    *          <ul>
    *             <li>
@@ -1871,62 +1672,48 @@ export interface Handshake {
    *           signals the master that it can finalize the process to enable all features.</p>
    *             </li>
    *          </ul>
-   *
    */
   Action?: ActionType | string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of a handshake.</p>
+   * <p>The Amazon Resource Name (ARN) of a handshake.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The date and time that the handshake expires. If the recipient of the handshake request
+   * <p>The date and time that the handshake expires. If the recipient of the handshake request
    *       fails to respond before the specified date and time, the handshake becomes inactive and is no
    *       longer valid.</p>
-   *
    */
   ExpirationTimestamp?: Date;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of a handshake. The originating account creates the ID when it
+   * <p>The unique identifier (ID) of a handshake. The originating account creates the ID when it
    *       initiates the handshake.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lower-case letters or digits.</p>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>Information about the two accounts that are participating in the handshake.</p>
-   *
+   * <p>Information about the two accounts that are participating in the handshake.</p>
    */
   Parties?: Array<HandshakeParty>;
 
   /**
-   *
-   *          <p>The date and time that the handshake request was made.</p>
-   *
+   * <p>The date and time that the handshake request was made.</p>
    */
   RequestedTimestamp?: Date;
 
   /**
-   *
-   *          <p>Additional information that is needed to process the handshake.</p>
-   *
+   * <p>Additional information that is needed to process the handshake.</p>
    */
   Resources?: Array<HandshakeResource>;
 
   /**
-   *
-   *          <p>The current state of the handshake. Use the state to trace the flow of the handshake
+   * <p>The current state of the handshake. Use the state to trace the flow of the handshake
    *       through the process from its creation to its acceptance. The meaning of each of the valid
    *       values is as follows:</p>
    *          <ul>
@@ -1964,7 +1751,6 @@ export interface Handshake {
    *           expiration time (15 days).</p>
    *             </li>
    *          </ul>
-   *
    */
   State?: HandshakeState | string;
 }
@@ -1976,10 +1762,8 @@ export namespace Handshake {
 }
 
 /**
- *
- *          <p>The specified handshake is already in the requested state. For example, you can't accept a
+ * <p>The specified handshake is already in the requested state. For example, you can't accept a
  *       handshake that was already accepted.</p>
- *
  */
 export interface HandshakeAlreadyInStateException
   extends _smithy.SmithyException,
@@ -1997,8 +1781,7 @@ export namespace HandshakeAlreadyInStateException {
 }
 
 /**
- *
- *          <p>The requested operation would violate the constraint identified in the reason code.</p>
+ * <p>The requested operation would violate the constraint identified in the reason code.</p>
  *          <note>
  *             <p>Some of the reasons in the following list might not be applicable to this specific API
  *         or operation:</p>
@@ -2046,7 +1829,6 @@ export namespace HandshakeAlreadyInStateException {
  *           doesn't have a payment instrument, such as a credit card, associated with it.</p>
  *             </li>
  *          </ul>
- *
  */
 export interface HandshakeConstraintViolationException
   extends _smithy.SmithyException,
@@ -2076,30 +1858,24 @@ export enum HandshakeConstraintViolationExceptionReason {
 }
 
 /**
- *
- *          <p>Specifies the criteria that are used to select the handshakes for the operation.</p>
- *
+ * <p>Specifies the criteria that are used to select the handshakes for the operation.</p>
  */
 export interface HandshakeFilter {
   __type?: "HandshakeFilter";
   /**
-   *
-   *          <p>Specifies the type of handshake action.</p>
+   * <p>Specifies the type of handshake action.</p>
    *          <p>If you specify <code>ActionType</code>, you cannot also specify
    *         <code>ParentHandshakeId</code>.</p>
-   *
    */
   ActionType?: ActionType | string;
 
   /**
-   *
-   *          <p>Specifies the parent handshake. Only used for handshake types that are a child of another
+   * <p>Specifies the parent handshake. Only used for handshake types that are a child of another
    *       type.</p>
    *          <p>If you specify <code>ParentHandshakeId</code>, you cannot also specify
    *         <code>ActionType</code>.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lower-case letters or digits.</p>
-   *
    */
   ParentHandshakeId?: string;
 }
@@ -2111,9 +1887,7 @@ export namespace HandshakeFilter {
 }
 
 /**
- *
- *          <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
- *
+ * <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
  */
 export interface HandshakeNotFoundException
   extends _smithy.SmithyException,
@@ -2131,25 +1905,19 @@ export namespace HandshakeNotFoundException {
 }
 
 /**
- *
- *          <p>Identifies a participant in a handshake.</p>
- *
+ * <p>Identifies a participant in a handshake.</p>
  */
 export interface HandshakeParty {
   __type?: "HandshakeParty";
   /**
-   *
-   *          <p>The unique identifier (ID) for the party.</p>
+   * <p>The unique identifier (ID) for the party.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lower-case letters or digits.</p>
-   *
    */
   Id: string | undefined;
 
   /**
-   *
-   *          <p>The type of party.</p>
-   *
+   * <p>The type of party.</p>
    */
   Type: HandshakePartyType | string | undefined;
 }
@@ -2167,23 +1935,18 @@ export enum HandshakePartyType {
 }
 
 /**
- *
- *          <p>Contains additional data that is needed to process a handshake.</p>
- *
+ * <p>Contains additional data that is needed to process a handshake.</p>
  */
 export interface HandshakeResource {
   __type?: "HandshakeResource";
   /**
-   *
-   *          <p>When needed, contains an additional array of <code>HandshakeResource</code>
+   * <p>When needed, contains an additional array of <code>HandshakeResource</code>
    *       objects.</p>
-   *
    */
   Resources?: Array<HandshakeResource>;
 
   /**
-   *
-   *          <p>The type of information being passed, specifying how the value is to be interpreted by the
+   * <p>The type of information being passed, specifying how the value is to be interpreted by the
    *       other party:</p>
    *          <ul>
    *             <li>
@@ -2215,15 +1978,12 @@ export interface HandshakeResource {
    *           for the recipient to read.</p>
    *             </li>
    *          </ul>
-   *
    */
   Type?: HandshakeResourceType | string;
 
   /**
-   *
-   *          <p>The information that is passed to the other party in the handshake. The format of the
+   * <p>The information that is passed to the other party in the handshake. The format of the
    *       value string must match the requirements of the specified type.</p>
-   *
    */
   Value?: string;
 }
@@ -2260,11 +2020,9 @@ export enum IAMUserAccessToBilling {
 }
 
 /**
- *
- *          <p>You can't perform the operation on the handshake in its current state. For example, you
+ * <p>You can't perform the operation on the handshake in its current state. For example, you
  *       can't cancel a handshake that was already accepted or accept a handshake that was already
  *       declined.</p>
- *
  */
 export interface InvalidHandshakeTransitionException
   extends _smithy.SmithyException,
@@ -2282,8 +2040,7 @@ export namespace InvalidHandshakeTransitionException {
 }
 
 /**
- *
- *          <p>The requested operation failed because you provided invalid values for one or more of the
+ * <p>The requested operation failed because you provided invalid values for one or more of the
  *       request parameters. This exception includes a reason that contains additional information
  *       about the violated limit:</p>
  *          <note>
@@ -2368,7 +2125,6 @@ export namespace InvalidHandshakeTransitionException {
  *           in the same root.</p>
  *             </li>
  *          </ul>
- *
  */
 export interface InvalidInputException
   extends _smithy.SmithyException,
@@ -2414,16 +2170,13 @@ export enum InvalidInputExceptionReason {
 export interface InviteAccountToOrganizationRequest {
   __type?: "InviteAccountToOrganizationRequest";
   /**
-   *
-   *          <p>Additional information that you want to include in the generated email to the recipient
+   * <p>Additional information that you want to include in the generated email to the recipient
    *       account owner.</p>
-   *
    */
   Notes?: string;
 
   /**
-   *
-   *          <p>The identifier (ID) of the AWS account that you want to invite to join your
+   * <p>The identifier (ID) of the AWS account that you want to invite to join your
    *       organization. This is a JSON object that contains the following elements: </p>
    *          <p>
    *             <code>{ "Type": "ACCOUNT", "Id": "<<i>
@@ -2442,7 +2195,6 @@ export interface InviteAccountToOrganizationRequest {
    *          <p>
    *             <code>--target Id=diego@example.com,Type=EMAIL</code>
    *          </p>
-   *
    */
   Target: HandshakeParty | undefined;
 }
@@ -2456,10 +2208,8 @@ export namespace InviteAccountToOrganizationRequest {
 export interface InviteAccountToOrganizationResponse extends $MetadataBearer {
   __type?: "InviteAccountToOrganizationResponse";
   /**
-   *
-   *          <p>A structure that contains details about the handshake that is created to support this
+   * <p>A structure that contains details about the handshake that is created to support this
    *       invitation request.</p>
-   *
    */
   Handshake?: Handshake;
 }
@@ -2473,8 +2223,7 @@ export namespace InviteAccountToOrganizationResponse {
 export interface ListAWSServiceAccessForOrganizationRequest {
   __type?: "ListAWSServiceAccessForOrganizationRequest";
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2482,17 +2231,14 @@ export interface ListAWSServiceAccessForOrganizationRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2507,22 +2253,18 @@ export interface ListAWSServiceAccessForOrganizationResponse
   extends $MetadataBearer {
   __type?: "ListAWSServiceAccessForOrganizationResponse";
   /**
-   *
-   *          <p>A list of the service principals for the services that are enabled to integrate with your
+   * <p>A list of the service principals for the services that are enabled to integrate with your
    *       organization. Each principal is a structure that includes the name and the date that it was
    *       enabled for integration with AWS Organizations.</p>
-   *
    */
   EnabledServicePrincipals?: Array<EnabledServicePrincipal>;
 
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2538,8 +2280,7 @@ export namespace ListAWSServiceAccessForOrganizationResponse {
 export interface ListAccountsForParentRequest {
   __type?: "ListAccountsForParentRequest";
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2547,25 +2288,20 @@ export interface ListAccountsForParentRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) for the parent root or organization unit (OU) whose accounts
+   * <p>The unique identifier (ID) for the parent root or organization unit (OU) whose accounts
    *       you want to list.</p>
-   *
    */
   ParentId: string | undefined;
 }
@@ -2579,20 +2315,16 @@ export namespace ListAccountsForParentRequest {
 export interface ListAccountsForParentResponse extends $MetadataBearer {
   __type?: "ListAccountsForParentResponse";
   /**
-   *
-   *          <p>A list of the accounts in the specified root or OU.</p>
-   *
+   * <p>A list of the accounts in the specified root or OU.</p>
    */
   Accounts?: Array<Account>;
 
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2606,8 +2338,7 @@ export namespace ListAccountsForParentResponse {
 export interface ListAccountsRequest {
   __type?: "ListAccountsRequest";
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2615,17 +2346,14 @@ export interface ListAccountsRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2639,20 +2367,16 @@ export namespace ListAccountsRequest {
 export interface ListAccountsResponse extends $MetadataBearer {
   __type?: "ListAccountsResponse";
   /**
-   *
-   *          <p>A list of objects in the organization.</p>
-   *
+   * <p>A list of objects in the organization.</p>
    */
   Accounts?: Array<Account>;
 
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2666,15 +2390,12 @@ export namespace ListAccountsResponse {
 export interface ListChildrenRequest {
   __type?: "ListChildrenRequest";
   /**
-   *
-   *          <p>Filters the output to include only the specified child type.</p>
-   *
+   * <p>Filters the output to include only the specified child type.</p>
    */
   ChildType: ChildType | string | undefined;
 
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2682,23 +2403,19 @@ export interface ListChildrenRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) for the parent root or OU whose children you want to
+   * <p>The unique identifier (ID) for the parent root or OU whose children you want to
    *       list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
@@ -2715,7 +2432,6 @@ export interface ListChildrenRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   ParentId: string | undefined;
 }
@@ -2729,20 +2445,16 @@ export namespace ListChildrenRequest {
 export interface ListChildrenResponse extends $MetadataBearer {
   __type?: "ListChildrenResponse";
   /**
-   *
-   *          <p>The list of children of the specified parent container.</p>
-   *
+   * <p>The list of children of the specified parent container.</p>
    */
   Children?: Array<Child>;
 
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2756,8 +2468,7 @@ export namespace ListChildrenResponse {
 export interface ListCreateAccountStatusRequest {
   __type?: "ListCreateAccountStatusRequest";
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2765,25 +2476,20 @@ export interface ListCreateAccountStatusRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of one or more states that you want included in the response. If this parameter
+   * <p>A list of one or more states that you want included in the response. If this parameter
    *       isn't present, all requests are included in the response.</p>
-   *
    */
   States?: Array<CreateAccountState | string>;
 }
@@ -2797,21 +2503,17 @@ export namespace ListCreateAccountStatusRequest {
 export interface ListCreateAccountStatusResponse extends $MetadataBearer {
   __type?: "ListCreateAccountStatusResponse";
   /**
-   *
-   *          <p>A list of objects with details about the requests. Certain elements, such as the accountId
+   * <p>A list of objects with details about the requests. Certain elements, such as the accountId
    *       number, are present in the output only after the account has been successfully created.</p>
-   *
    */
   CreateAccountStatuses?: Array<CreateAccountStatus>;
 
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2825,21 +2527,18 @@ export namespace ListCreateAccountStatusResponse {
 export interface ListHandshakesForAccountRequest {
   __type?: "ListHandshakesForAccountRequest";
   /**
-   *
-   *          <p>Filters the handshakes that you want included in the response. The default is all types.
+   * <p>Filters the handshakes that you want included in the response. The default is all types.
    *       Use the <code>ActionType</code> element to limit the output to only a specified type, such as
    *         <code>INVITE</code>, <code>ENABLE_ALL_FEATURES</code>, or <code>APPROVE_ALL_FEATURES</code>.
    *       Alternatively, you can specify  the <code>ENABLE_ALL_FEATURES</code> handshake, which
    *       generates a separate child handshake for each member account. When you do specify
    *         <code>ParentHandshakeId</code> to see only the handshakes that were generated by that parent
    *       request.</p>
-   *
    */
   Filter?: HandshakeFilter;
 
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2847,17 +2546,14 @@ export interface ListHandshakesForAccountRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2871,21 +2567,17 @@ export namespace ListHandshakesForAccountRequest {
 export interface ListHandshakesForAccountResponse extends $MetadataBearer {
   __type?: "ListHandshakesForAccountResponse";
   /**
-   *
-   *          <p>A list of <a>Handshake</a> objects with details about each of the handshakes
+   * <p>A list of <a>Handshake</a> objects with details about each of the handshakes
    *       that is associated with the specified account.</p>
-   *
    */
   Handshakes?: Array<Handshake>;
 
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2899,21 +2591,18 @@ export namespace ListHandshakesForAccountResponse {
 export interface ListHandshakesForOrganizationRequest {
   __type?: "ListHandshakesForOrganizationRequest";
   /**
-   *
-   *          <p>A filter of the handshakes that you want included in the response. The default is all
+   * <p>A filter of the handshakes that you want included in the response. The default is all
    *       types. Use the <code>ActionType</code> element to limit the output to only a specified type,
    *       such as <code>INVITE</code>, <code>ENABLE-ALL-FEATURES</code>, or
    *         <code>APPROVE-ALL-FEATURES</code>. Alternatively, you can specify the
    *         <code>ENABLE-ALL-FEATURES</code> handshake, which generates a separate child handshake for
    *       each member account. When you do, specify the <code>ParentHandshakeId</code> to see only the
    *       handshakes that were generated by that parent request.</p>
-   *
    */
   Filter?: HandshakeFilter;
 
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2921,17 +2610,14 @@ export interface ListHandshakesForOrganizationRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2945,21 +2631,17 @@ export namespace ListHandshakesForOrganizationRequest {
 export interface ListHandshakesForOrganizationResponse extends $MetadataBearer {
   __type?: "ListHandshakesForOrganizationResponse";
   /**
-   *
-   *          <p>A list of <a>Handshake</a> objects with details about each of the handshakes
+   * <p>A list of <a>Handshake</a> objects with details about each of the handshakes
    *       that are associated with an organization.</p>
-   *
    */
   Handshakes?: Array<Handshake>;
 
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 }
@@ -2973,8 +2655,7 @@ export namespace ListHandshakesForOrganizationResponse {
 export interface ListOrganizationalUnitsForParentRequest {
   __type?: "ListOrganizationalUnitsForParentRequest";
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -2982,23 +2663,19 @@ export interface ListOrganizationalUnitsForParentRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root or OU whose child OUs you want to list.</p>
+   * <p>The unique identifier (ID) of the root or OU whose child OUs you want to list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -3014,7 +2691,6 @@ export interface ListOrganizationalUnitsForParentRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   ParentId: string | undefined;
 }
@@ -3029,20 +2705,16 @@ export interface ListOrganizationalUnitsForParentResponse
   extends $MetadataBearer {
   __type?: "ListOrganizationalUnitsForParentResponse";
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of the OUs in the specified root or parent OU.</p>
-   *
+   * <p>A list of the OUs in the specified root or parent OU.</p>
    */
   OrganizationalUnits?: Array<OrganizationalUnit>;
 }
@@ -3056,8 +2728,7 @@ export namespace ListOrganizationalUnitsForParentResponse {
 export interface ListParentsRequest {
   __type?: "ListParentsRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the OU or account whose parent containers you want to list.
+   * <p>The unique identifier (ID) of the OU or account whose parent containers you want to list.
    *       Don't specify a root.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
    *     following:</p>
@@ -3073,13 +2744,11 @@ export interface ListParentsRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   ChildId: string | undefined;
 
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -3087,17 +2756,14 @@ export interface ListParentsRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -3111,20 +2777,16 @@ export namespace ListParentsRequest {
 export interface ListParentsResponse extends $MetadataBearer {
   __type?: "ListParentsResponse";
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of parents for the specified child account or OU.</p>
-   *
+   * <p>A list of parents for the specified child account or OU.</p>
    */
   Parents?: Array<Parent>;
 }
@@ -3138,15 +2800,12 @@ export namespace ListParentsResponse {
 export interface ListPoliciesForTargetRequest {
   __type?: "ListPoliciesForTargetRequest";
   /**
-   *
-   *          <p>The type of policy that you want to include in the returned list.</p>
-   *
+   * <p>The type of policy that you want to include in the returned list.</p>
    */
   Filter: PolicyType | string | undefined;
 
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -3154,23 +2813,19 @@ export interface ListPoliciesForTargetRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root, organizational unit, or account whose policies you
+   * <p>The unique identifier (ID) of the root, organizational unit, or account whose policies you
    *       want to list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
@@ -3191,7 +2846,6 @@ export interface ListPoliciesForTargetRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   TargetId: string | undefined;
 }
@@ -3205,20 +2859,16 @@ export namespace ListPoliciesForTargetRequest {
 export interface ListPoliciesForTargetResponse extends $MetadataBearer {
   __type?: "ListPoliciesForTargetResponse";
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The list of policies that match the criteria in the request.</p>
-   *
+   * <p>The list of policies that match the criteria in the request.</p>
    */
   Policies?: Array<PolicySummary>;
 }
@@ -3232,15 +2882,12 @@ export namespace ListPoliciesForTargetResponse {
 export interface ListPoliciesRequest {
   __type?: "ListPoliciesRequest";
   /**
-   *
-   *          <p>Specifies the type of policy that you want to include in the response.</p>
-   *
+   * <p>Specifies the type of policy that you want to include in the response.</p>
    */
   Filter: PolicyType | string | undefined;
 
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -3248,17 +2895,14 @@ export interface ListPoliciesRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -3272,21 +2916,17 @@ export namespace ListPoliciesRequest {
 export interface ListPoliciesResponse extends $MetadataBearer {
   __type?: "ListPoliciesResponse";
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of policies that match the filter criteria in the request. The output list doesn't
+   * <p>A list of policies that match the filter criteria in the request. The output list doesn't
    *       include the policy contents. To see the content for a policy, see <a>DescribePolicy</a>.</p>
-   *
    */
   Policies?: Array<PolicySummary>;
 }
@@ -3300,8 +2940,7 @@ export namespace ListPoliciesResponse {
 export interface ListRootsRequest {
   __type?: "ListRootsRequest";
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -3309,17 +2948,14 @@ export interface ListRootsRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -3333,20 +2969,16 @@ export namespace ListRootsRequest {
 export interface ListRootsResponse extends $MetadataBearer {
   __type?: "ListRootsResponse";
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of roots that are defined in an organization.</p>
-   *
+   * <p>A list of roots that are defined in an organization.</p>
    */
   Roots?: Array<Root>;
 }
@@ -3360,19 +2992,15 @@ export namespace ListRootsResponse {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The ID of the resource that you want to retrieve tags for. </p>
-   *
+   * <p>The ID of the resource that you want to retrieve tags for. </p>
    */
   ResourceId: string | undefined;
 }
@@ -3386,20 +3014,16 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse extends $MetadataBearer {
   __type?: "ListTagsForResourceResponse";
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The tags that are assigned to the resource.</p>
-   *
+   * <p>The tags that are assigned to the resource.</p>
    */
   Tags?: Array<Tag>;
 }
@@ -3413,8 +3037,7 @@ export namespace ListTagsForResourceResponse {
 export interface ListTargetsForPolicyRequest {
   __type?: "ListTargetsForPolicyRequest";
   /**
-   *
-   *          <p>(Optional) Use this to limit the number of results you want included
+   * <p>(Optional) Use this to limit the number of results you want included
    *     per page in the response. If you do not include this parameter, it defaults to a value that is specific
    *     to the operation. If additional items exist beyond the maximum you specify, the
    *     <code>NextToken</code> response element is present and has a value (is not null). Include that
@@ -3422,26 +3045,21 @@ export interface ListTargetsForPolicyRequest {
    *     the next part of the results. Note that Organizations might return fewer results than the maximum even
    *     when there are more results available. You should check <code>NextToken</code> after every
    *     operation to ensure that you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>Use this parameter if you receive a <code>NextToken</code>
+   * <p>Use this parameter if you receive a <code>NextToken</code>
    *     response in a previous request that indicates that there is more output available. Set it to the
    *     value of the previous call's <code>NextToken</code> response to indicate where the output should
    *     continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy whose attachments you want to know.</p>
+   * <p>The unique identifier (ID) of the policy whose attachments you want to know.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
-   *     by from 8 to 128 lowercase letters or digits.</p>
-   *
+   *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
 }
@@ -3455,21 +3073,17 @@ export namespace ListTargetsForPolicyRequest {
 export interface ListTargetsForPolicyResponse extends $MetadataBearer {
   __type?: "ListTargetsForPolicyResponse";
   /**
-   *
-   *          <p>If present, this value indicates that there is more output
+   * <p>If present, this value indicates that there is more output
    *     available than is included in the current response. Use this value in the <code>NextToken</code>
    *     request parameter in a subsequent call to the operation to get the next part of the output. You
    *     should repeat this until the <code>NextToken</code> response element comes back as
    *     <code>null</code>.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of structures, each of which contains details about one of the entities to which
+   * <p>A list of structures, each of which contains details about one of the entities to which
    *       the specified policy is attached.</p>
-   *
    */
   Targets?: Array<PolicyTargetSummary>;
 }
@@ -3481,13 +3095,11 @@ export namespace ListTargetsForPolicyResponse {
 }
 
 /**
- *
- *          <p>The provided policy document doesn't meet the requirements of the specified policy type.
+ * <p>The provided policy document doesn't meet the requirements of the specified policy type.
  *       For example, the syntax might be incorrect. For details about service control policy syntax,
  *       see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
  *         Control Policy Syntax</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
- *
  */
 export interface MalformedPolicyDocumentException
   extends _smithy.SmithyException,
@@ -3505,11 +3117,9 @@ export namespace MalformedPolicyDocumentException {
 }
 
 /**
- *
- *          <p>You can't remove a master account from an organization. If you want the master account to
+ * <p>You can't remove a master account from an organization. If you want the master account to
  *       become a member account in another organization, you must first delete the current
  *       organization of the master account.</p>
- *
  */
 export interface MasterCannotLeaveOrganizationException
   extends _smithy.SmithyException,
@@ -3529,17 +3139,14 @@ export namespace MasterCannotLeaveOrganizationException {
 export interface MoveAccountRequest {
   __type?: "MoveAccountRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the account that you want to move.</p>
+   * <p>The unique identifier (ID) of the account that you want to move.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
-   *
    */
   AccountId: string | undefined;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root or organizational unit that you want to move the
+   * <p>The unique identifier (ID) of the root or organizational unit that you want to move the
    *       account to.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
@@ -3556,13 +3163,11 @@ export interface MoveAccountRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   DestinationParentId: string | undefined;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the root or organizational unit that you want to move the
+   * <p>The unique identifier (ID) of the root or organizational unit that you want to move the
    *       account from.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
@@ -3579,7 +3184,6 @@ export interface MoveAccountRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   SourceParentId: string | undefined;
 }
@@ -3591,26 +3195,21 @@ export namespace MoveAccountRequest {
 }
 
 /**
- *
- *          <p>Contains details about an organization. An organization is a collection of accounts that
+ * <p>Contains details about an organization. An organization is a collection of accounts that
  *       are centrally managed together using consolidated billing, organized hierarchically with
  *       organizational units (OUs), and controlled with policies.</p>
- *
  */
 export interface Organization {
   __type?: "Organization";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of an organization.</p>
+   * <p>The Amazon Resource Name (ARN) of an organization.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>A list of policy types that are enabled for this organization. For example, if your
+   * <p>A list of policy types that are enabled for this organization. For example, if your
    *       organization has all features enabled, then service control policies (SCPs) are included in
    *       the list.</p>
    *          <note>
@@ -3619,54 +3218,43 @@ export interface Organization {
    *           <a>DisablePolicyType</a>. Use <a>ListRoots</a> to see the status of
    *         a policy type in that root.</p>
    *          </note>
-   *
    */
   AvailablePolicyTypes?: Array<PolicyTypeSummary>;
 
   /**
-   *
-   *          <p>Specifies the functionality that currently is available to the organization. If set to
+   * <p>Specifies the functionality that currently is available to the organization. If set to
    *       "ALL", then all features are enabled and policies can be applied to accounts in the
    *       organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality
    *       is available. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features in Your
    *         Organization</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   FeatureSet?: OrganizationFeatureSet | string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of an organization.</p>
+   * <p>The unique identifier (ID) of an organization.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organization ID string requires "o-"
    *     followed by from 10 to 32 lower-case letters or digits.</p>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the account that is designated as the master account for
+   * <p>The Amazon Resource Name (ARN) of the account that is designated as the master account for
    *       the organization.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   MasterAccountArn?: string;
 
   /**
-   *
-   *          <p>The email address that is associated with the AWS account that is designated as the
+   * <p>The email address that is associated with the AWS account that is designated as the
    *       master account for the organization.</p>
-   *
    */
   MasterAccountEmail?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the master account of an organization.</p>
+   * <p>The unique identifier (ID) of the master account of an organization.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
-   *
    */
   MasterAccountId?: string;
 }
@@ -3683,10 +3271,8 @@ export enum OrganizationFeatureSet {
 }
 
 /**
- *
- *          <p>The organization isn't empty. To delete an organization, you must first remove all
+ * <p>The organization isn't empty. To delete an organization, you must first remove all
  *       accounts except the master account, delete all OUs, and delete all policies.</p>
- *
  */
 export interface OrganizationNotEmptyException
   extends _smithy.SmithyException,
@@ -3704,41 +3290,33 @@ export namespace OrganizationNotEmptyException {
 }
 
 /**
- *
- *          <p>Contains details about an organizational unit (OU). An OU is a container of AWS accounts
+ * <p>Contains details about an organizational unit (OU). An OU is a container of AWS accounts
  *       within a root of an organization. Policies that are attached to an OU apply to all accounts
  *       contained in that OU and in any child OUs.</p>
- *
  */
 export interface OrganizationalUnit {
   __type?: "OrganizationalUnit";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of this OU.</p>
+   * <p>The Amazon Resource Name (ARN) of this OU.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) associated with this OU.</p>
+   * <p>The unique identifier (ID) associated with this OU.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lower-case letters or
    *     digits.</p>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The friendly name of this OU.</p>
+   * <p>The friendly name of this OU.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name?: string;
 }
@@ -3750,10 +3328,8 @@ export namespace OrganizationalUnit {
 }
 
 /**
- *
- *          <p>The specified OU is not empty. Move all accounts to another root or to other OUs, remove
+ * <p>The specified OU is not empty. Move all accounts to another root or to other OUs, remove
  *       all child OUs, and try the operation again.</p>
- *
  */
 export interface OrganizationalUnitNotEmptyException
   extends _smithy.SmithyException,
@@ -3771,9 +3347,7 @@ export namespace OrganizationalUnitNotEmptyException {
 }
 
 /**
- *
- *          <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you specified.</p>
- *
+ * <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you specified.</p>
  */
 export interface OrganizationalUnitNotFoundException
   extends _smithy.SmithyException,
@@ -3791,16 +3365,13 @@ export namespace OrganizationalUnitNotFoundException {
 }
 
 /**
- *
- *          <p>Contains information about either a root or an organizational unit (OU) that can contain
+ * <p>Contains information about either a root or an organizational unit (OU) that can contain
  *       OUs or accounts in an organization.</p>
- *
  */
 export interface Parent {
   __type?: "Parent";
   /**
-   *
-   *          <p>The unique identifier (ID) of the parent entity.</p>
+   * <p>The unique identifier (ID) of the parent entity.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -3814,14 +3385,11 @@ export interface Parent {
    *           "-" dash and from 8 to 32 additional lower-case letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The type of the parent entity.</p>
-   *
+   * <p>The type of the parent entity.</p>
    */
   Type?: ParentType | string;
 }
@@ -3833,9 +3401,7 @@ export namespace Parent {
 }
 
 /**
- *
- *          <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
- *
+ * <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
  */
 export interface ParentNotFoundException
   extends _smithy.SmithyException,
@@ -3858,24 +3424,18 @@ export enum ParentType {
 }
 
 /**
- *
- *          <p>Contains rules to be applied to the affected accounts. Policies can be attached directly
+ * <p>Contains rules to be applied to the affected accounts. Policies can be attached directly
  *       to accounts, or to roots and OUs to affect all accounts in those hierarchies.</p>
- *
  */
 export interface Policy {
   __type?: "Policy";
   /**
-   *
-   *          <p>The text content of the policy.</p>
-   *
+   * <p>The text content of the policy.</p>
    */
   Content?: string;
 
   /**
-   *
-   *          <p>A structure that contains additional details about the policy.</p>
-   *
+   * <p>A structure that contains additional details about the policy.</p>
    */
   PolicySummary?: PolicySummary;
 }
@@ -3887,10 +3447,8 @@ export namespace Policy {
 }
 
 /**
- *
- *          <p>Changes to the effective policy are in progress, and its contents can't be returned. Try
+ * <p>Changes to the effective policy are in progress, and its contents can't be returned. Try
  *       the operation again later. </p>
- *
  */
 export interface PolicyChangesInProgressException
   extends _smithy.SmithyException,
@@ -3908,10 +3466,8 @@ export namespace PolicyChangesInProgressException {
 }
 
 /**
- *
- *          <p>The policy is attached to one or more entities. You must detach it from all roots, OUs,
+ * <p>The policy is attached to one or more entities. You must detach it from all roots, OUs,
  *       and accounts before performing this operation.</p>
- *
  */
 export interface PolicyInUseException
   extends _smithy.SmithyException,
@@ -3929,9 +3485,7 @@ export namespace PolicyInUseException {
 }
 
 /**
- *
- *          <p>The policy isn't attached to the specified target in the specified root.</p>
- *
+ * <p>The policy isn't attached to the specified target in the specified root.</p>
  */
 export interface PolicyNotAttachedException
   extends _smithy.SmithyException,
@@ -3949,9 +3503,7 @@ export namespace PolicyNotAttachedException {
 }
 
 /**
- *
- *          <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
- *
+ * <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
  */
 export interface PolicyNotFoundException
   extends _smithy.SmithyException,
@@ -3969,61 +3521,47 @@ export namespace PolicyNotFoundException {
 }
 
 /**
- *
- *          <p>Contains information about a policy, but does not include the content. To see the content
+ * <p>Contains information about a policy, but does not include the content. To see the content
  *       of a policy, see <a>DescribePolicy</a>.</p>
- *
  */
 export interface PolicySummary {
   __type?: "PolicySummary";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the policy.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>A Boolean value that indicates whether the specified policy is an AWS managed policy. If
+   * <p>A Boolean value that indicates whether the specified policy is an AWS managed policy. If
    *       true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit
    *       it.</p>
-   *
    */
   AwsManaged?: boolean;
 
   /**
-   *
-   *          <p>The description of the policy.</p>
-   *
+   * <p>The description of the policy.</p>
    */
   Description?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy.</p>
+   * <p>The unique identifier (ID) of the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lower-case letters or digits.</p>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The friendly name of the policy.</p>
+   * <p>The friendly name of the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The type of policy.</p>
-   *
+   * <p>The type of policy.</p>
    */
   Type?: PolicyType | string;
 }
@@ -4035,34 +3573,27 @@ export namespace PolicySummary {
 }
 
 /**
- *
- *          <p>Contains information about a root, OU, or account that a policy is attached to.</p>
- *
+ * <p>Contains information about a root, OU, or account that a policy is attached to.</p>
  */
 export interface PolicyTargetSummary {
   __type?: "PolicyTargetSummary";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the policy target.</p>
+   * <p>The Amazon Resource Name (ARN) of the policy target.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The friendly name of the policy target.</p>
+   * <p>The friendly name of the policy target.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy target.</p>
+   * <p>The unique identifier (ID) of the policy target.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
    *          <ul>
@@ -4079,14 +3610,11 @@ export interface PolicyTargetSummary {
    *           "-" dash and from 8 to 32 additional lower-case letters or digits.</p>
    *             </li>
    *          </ul>
-   *
    */
   TargetId?: string;
 
   /**
-   *
-   *          <p>The type of the policy target.</p>
-   *
+   * <p>The type of the policy target.</p>
    */
   Type?: TargetType | string;
 }
@@ -4103,9 +3631,7 @@ export enum PolicyType {
 }
 
 /**
- *
- *          <p>The specified policy type is already enabled in the specified root.</p>
- *
+ * <p>The specified policy type is already enabled in the specified root.</p>
  */
 export interface PolicyTypeAlreadyEnabledException
   extends _smithy.SmithyException,
@@ -4123,13 +3649,11 @@ export namespace PolicyTypeAlreadyEnabledException {
 }
 
 /**
- *
- *          <p>You can't use the specified policy type with the feature set currently enabled for this
+ * <p>You can't use the specified policy type with the feature set currently enabled for this
  *       organization. For example, you can enable SCPs only after you enable all features in the
  *       organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root">Enabling and Disabling
  *         a Policy Type on a Root</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
- *
  */
 export interface PolicyTypeNotAvailableForOrganizationException
   extends _smithy.SmithyException,
@@ -4149,13 +3673,11 @@ export namespace PolicyTypeNotAvailableForOrganizationException {
 }
 
 /**
- *
- *          <p>The specified policy type isn't currently enabled in this root. You can't attach policies
+ * <p>The specified policy type isn't currently enabled in this root. You can't attach policies
  *       of the specified type to entities in a root until you enable that type in the root. For more
  *       information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features in Your
  *         Organization</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
- *
  */
 export interface PolicyTypeNotEnabledException
   extends _smithy.SmithyException,
@@ -4179,25 +3701,19 @@ export enum PolicyTypeStatus {
 }
 
 /**
- *
- *          <p>Contains information about a policy type and its status in the associated root.</p>
- *
+ * <p>Contains information about a policy type and its status in the associated root.</p>
  */
 export interface PolicyTypeSummary {
   __type?: "PolicyTypeSummary";
   /**
-   *
-   *          <p>The status of the policy type as it relates to the associated root. You can attach a
+   * <p>The status of the policy type as it relates to the associated root. You can attach a
    *       policy of the specified type to a root or to an OU or account in that root. To do so, the
    *       policy must be available in the organization and enabled for that root.</p>
-   *
    */
   Status?: PolicyTypeStatus | string;
 
   /**
-   *
-   *          <p>The name of the policy type.</p>
-   *
+   * <p>The name of the policy type.</p>
    */
   Type?: PolicyType | string;
 }
@@ -4211,12 +3727,10 @@ export namespace PolicyTypeSummary {
 export interface RemoveAccountFromOrganizationRequest {
   __type?: "RemoveAccountFromOrganizationRequest";
   /**
-   *
-   *          <p>The unique identifier (ID) of the member account that you want to remove from the
+   * <p>The unique identifier (ID) of the member account that you want to remove from the
    *       organization.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
-   *
    */
   AccountId: string | undefined;
 }
@@ -4228,46 +3742,37 @@ export namespace RemoveAccountFromOrganizationRequest {
 }
 
 /**
- *
- *          <p>Contains details about a root. A root is a top-level parent node in the hierarchy of an
+ * <p>Contains details about a root. A root is a top-level parent node in the hierarchy of an
  *       organization that can contain organizational units (OUs) and accounts. Every root contains
  *       every AWS account in the organization. Each root enables the accounts to be organized in a
  *       different way and to have different policy types enabled for use in that root.</p>
- *
  */
 export interface Root {
   __type?: "Root";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the root.</p>
+   * <p>The Amazon Resource Name (ARN) of the root.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
-   *
    */
   Arn?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) for the root.</p>
+   * <p>The unique identifier (ID) for the root.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lower-case letters or digits.</p>
-   *
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The friendly name of the root.</p>
+   * <p>The friendly name of the root.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The types of policies that are currently enabled for the root and therefore can be
+   * <p>The types of policies that are currently enabled for the root and therefore can be
    *       attached to the root or to its OUs or accounts.</p>
    *          <note>
    *             <p>Even if a policy type is shown as available in the organization, you can separately
@@ -4275,7 +3780,6 @@ export interface Root {
    *           <a>DisablePolicyType</a>. Use <a>DescribeOrganization</a> to see the
    *         availability of the policy types in that organization.</p>
    *          </note>
-   *
    */
   PolicyTypes?: Array<PolicyTypeSummary>;
 }
@@ -4287,9 +3791,7 @@ export namespace Root {
 }
 
 /**
- *
- *          <p>We can't find a root with the <code>RootId</code> that you specified.</p>
- *
+ * <p>We can't find a root with the <code>RootId</code> that you specified.</p>
  */
 export interface RootNotFoundException
   extends _smithy.SmithyException,
@@ -4307,10 +3809,8 @@ export namespace RootNotFoundException {
 }
 
 /**
- *
- *          <p>AWS Organizations can't complete your request because of an internal service error. Try again
+ * <p>AWS Organizations can't complete your request because of an internal service error. Try again
  *       later.</p>
- *
  */
 export interface ServiceException
   extends _smithy.SmithyException,
@@ -4328,10 +3828,8 @@ export namespace ServiceException {
 }
 
 /**
- *
- *          <p>We can't find a source root or OU with the <code>ParentId</code> that you
+ * <p>We can't find a source root or OU with the <code>ParentId</code> that you
  *       specified.</p>
- *
  */
 export interface SourceParentNotFoundException
   extends _smithy.SmithyException,
@@ -4349,25 +3847,19 @@ export namespace SourceParentNotFoundException {
 }
 
 /**
- *
- *          <p>A custom key-value pair associated with a resource such as an account within your
+ * <p>A custom key-value pair associated with a resource such as an account within your
  *       organization. </p>
- *
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *          <p>The key identifier, or name, of the tag.</p>
-   *
+   * <p>The key identifier, or name, of the tag.</p>
    */
   Key: string | undefined;
 
   /**
-   *
-   *          <p>The string value that's associated with the key of the tag. You can set the value of a tag
+   * <p>The string value that's associated with the key of the tag. You can set the value of a tag
    *       to an empty string, but you can't set the value of a tag to null.</p>
-   *
    */
   Value: string | undefined;
 }
@@ -4381,17 +3873,13 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *          <p>The ID of the resource to add a tag to.</p>
-   *
+   * <p>The ID of the resource to add a tag to.</p>
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The tag to add to the specified resource. Specifying the tag key is required. You can set
+   * <p>The tag to add to the specified resource. Specifying the tag key is required. You can set
    *       the value of a tag to an empty string, but you can't set the value of a tag to null.</p>
-   *
    */
   Tags: Array<Tag> | undefined;
 }
@@ -4403,10 +3891,8 @@ export namespace TagResourceRequest {
 }
 
 /**
- *
- *          <p>We can't find a root, OU, or account with the <code>TargetId</code> that you
+ * <p>We can't find a root, OU, or account with the <code>TargetId</code> that you
  *       specified.</p>
- *
  */
 export interface TargetNotFoundException
   extends _smithy.SmithyException,
@@ -4430,13 +3916,11 @@ export enum TargetType {
 }
 
 /**
- *
- *          <p>You have sent too many requests in too short a period of time. The limit helps protect
+ * <p>You have sent too many requests in too short a period of time. The limit helps protect
  *       against denial-of-service attacks. Try again later.</p>
  *          <p>For information on limits that affect AWS Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Limits of AWS Organizations</a> in the
  *         <i>AWS Organizations User Guide.</i>
  *          </p>
- *
  */
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
@@ -4455,9 +3939,7 @@ export namespace TooManyRequestsException {
 }
 
 /**
- *
- *          <p>This action isn't available in the current Region.</p>
- *
+ * <p>This action isn't available in the current Region.</p>
  */
 export interface UnsupportedAPIEndpointException
   extends _smithy.SmithyException,
@@ -4477,16 +3959,12 @@ export namespace UnsupportedAPIEndpointException {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *          <p>The ID of the resource to remove the tag from.</p>
-   *
+   * <p>The ID of the resource to remove the tag from.</p>
    */
   ResourceId: string | undefined;
 
   /**
-   *
-   *          <p>The tag to remove from the specified resource.</p>
-   *
+   * <p>The tag to remove from the specified resource.</p>
    */
   TagKeys: Array<string> | undefined;
 }
@@ -4500,24 +3978,20 @@ export namespace UntagResourceRequest {
 export interface UpdateOrganizationalUnitRequest {
   __type?: "UpdateOrganizationalUnitRequest";
   /**
-   *
-   *          <p>The new name that you want to assign to the OU.</p>
+   * <p>The new name that you want to assign to the OU.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the
+   * <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from the
    *         <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or
    *     digits.</p>
-   *
    */
   OrganizationalUnitId: string | undefined;
 }
@@ -4531,10 +4005,8 @@ export namespace UpdateOrganizationalUnitRequest {
 export interface UpdateOrganizationalUnitResponse extends $MetadataBearer {
   __type?: "UpdateOrganizationalUnitResponse";
   /**
-   *
-   *          <p>A structure that contains the details about the specified OU, including its new
+   * <p>A structure that contains the details about the specified OU, including its new
    *       name.</p>
-   *
    */
   OrganizationalUnit?: OrganizationalUnit;
 }
@@ -4548,38 +4020,30 @@ export namespace UpdateOrganizationalUnitResponse {
 export interface UpdatePolicyRequest {
   __type?: "UpdatePolicyRequest";
   /**
-   *
-   *          <p>If provided, the new content for the policy. The text must be correctly formatted JSON
+   * <p>If provided, the new content for the policy. The text must be correctly formatted JSON
    *       that complies with the syntax for the policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service Control
    *         Policy Syntax</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
-   *
    */
   Content?: string;
 
   /**
-   *
-   *          <p>If provided, the new description for the policy.</p>
-   *
+   * <p>If provided, the new description for the policy.</p>
    */
   Description?: string;
 
   /**
-   *
-   *          <p>If provided, the new name for the policy.</p>
+   * <p>If provided, the new name for the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *          <p>The unique identifier (ID) of the policy that you want to update.</p>
+   * <p>The unique identifier (ID) of the policy that you want to update.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
-   *     by from 8 to 128 lowercase letters or digits.</p>
-   *
+   *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
 }
@@ -4593,10 +4057,8 @@ export namespace UpdatePolicyRequest {
 export interface UpdatePolicyResponse extends $MetadataBearer {
   __type?: "UpdatePolicyResponse";
   /**
-   *
-   *          <p>A structure that contains details about the updated policy, showing the requested
+   * <p>A structure that contains details about the updated policy, showing the requested
    *       changes.</p>
-   *
    */
   Policy?: Policy;
 }

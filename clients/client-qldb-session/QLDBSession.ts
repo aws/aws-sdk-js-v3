@@ -7,15 +7,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The transactional data APIs for Amazon QLDB</p>
- *
+ * <p>The transactional data APIs for Amazon QLDB</p>
  */
 export class QLDBSession extends QLDBSessionClient {
   /**
-   *
-   *          <p>Sends a command to an Amazon QLDB ledger.</p>
-   *
+   * <p>Sends a command to an Amazon QLDB ledger.</p>
    */
   public sendCommand(
     args: SendCommandCommandInput,

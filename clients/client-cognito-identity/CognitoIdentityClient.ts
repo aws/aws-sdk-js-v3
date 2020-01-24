@@ -239,8 +239,7 @@ export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Amazon Cognito Federated Identities</fullname>
+ * <fullname>Amazon Cognito Federated Identities</fullname>
  *          <p>Amazon Cognito Federated Identities is a web service that delivers scoped temporary
  *          credentials to mobile devices and other untrusted environments. It uniquely identifies a
  *          device and supplies the user with a consistent identity over the lifetime of an
@@ -254,7 +253,6 @@ export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<
  *          <p>For a description of the authentication flow from the Amazon Cognito Developer Guide
  *          see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Authentication Flow</a>.</p>
  *          <p>For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon Cognito Federated Identities</a>.</p>
- *
  */
 export class CognitoIdentityClient extends __Client<
   __HttpHandlerOptions,

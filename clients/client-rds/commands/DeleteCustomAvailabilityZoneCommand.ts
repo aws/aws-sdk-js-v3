@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../RDSClient";
 import {
-  CustomAvailabilityZone,
-  DeleteCustomAvailabilityZoneMessage
+  DeleteCustomAvailabilityZoneMessage,
+  DeleteCustomAvailabilityZoneResult
 } from "../models/index";
 import {
   deserializeAws_queryDeleteCustomAvailabilityZoneCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCustomAvailabilityZoneCommandInput = DeleteCustomAvailabilityZoneMessage;
-export type DeleteCustomAvailabilityZoneCommandOutput = CustomAvailabilityZone;
+export type DeleteCustomAvailabilityZoneCommandOutput = DeleteCustomAvailabilityZoneResult;
 
 export class DeleteCustomAvailabilityZoneCommand extends $Command<
   DeleteCustomAvailabilityZoneCommandInput,

@@ -32,17 +32,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *
- *          <p>Amazon Textract detects and analyzes text in documents and converts it
+ * <p>Amazon Textract detects and analyzes text in documents and converts it
  *          into machine-readable text. This is the API reference documentation for
  *          Amazon Textract.</p>
- *
  */
 export class Textract extends TextractClient {
   /**
-   *
-   *          <p>Analyzes an input document for relationships between detected items.  </p>
+   * <p>Analyzes an input document for relationships between detected items.  </p>
    *          <p>The types of information returned are as follows: </p>
    *          <ul>
    *             <li>
@@ -73,8 +69,6 @@ export class Textract extends TextractClient {
    *             <code>AnalyzeDocument</code> is a synchronous operation. To analyze documents
    *       asynchronously, use <a>StartDocumentAnalysis</a>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
-   *
-   *
    */
   public analyzeDocument(
     args: AnalyzeDocumentCommandInput,
@@ -109,8 +103,7 @@ export class Textract extends TextractClient {
   }
 
   /**
-   *
-   *          <p>Detects text in the input document. Amazon Textract can detect lines of text and the
+   * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
    *          words that make up a line of text. The input document must be an image in JPEG or PNG
    *          format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p>
    *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
@@ -121,8 +114,6 @@ export class Textract extends TextractClient {
    *             <code>DetectDocumentText</code> is a synchronous operation. To analyze documents
    *          asynchronously, use <a>StartDocumentTextDetection</a>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
-   *
-   *
    */
   public detectDocumentText(
     args: DetectDocumentTextCommandInput,
@@ -157,8 +148,7 @@ export class Textract extends TextractClient {
   }
 
   /**
-   *
-   *          <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a document.</p>
+   * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a document.</p>
    *          <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>, which returns a job identifier
    *             (<code>JobId</code>). When the text analysis operation finishes, Amazon Textract publishes a
    *          completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to
@@ -203,8 +193,6 @@ export class Textract extends TextractClient {
    *          parameter with the token value that's returned from the previous call to
    *             <code>GetDocumentAnalysis</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
-   *
-   *
    */
   public getDocumentAnalysis(
     args: GetDocumentAnalysisCommandInput,
@@ -239,9 +227,7 @@ export class Textract extends TextractClient {
   }
 
   /**
-   *
-   *
-   *          <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
+   * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
    *      Amazon Textract can detect lines of text and the words that make up a line of text.</p>
    *          <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier
    *             (<code>JobId</code>). When the text detection operation finishes, Amazon Textract publishes a
@@ -266,8 +252,6 @@ export class Textract extends TextractClient {
    *          parameter with the token value that's returned from the previous call to
    *             <code>GetDocumentTextDetection</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
-   *
-   *
    */
   public getDocumentTextDetection(
     args: GetDocumentTextDetectionCommandInput,
@@ -302,8 +286,7 @@ export class Textract extends TextractClient {
   }
 
   /**
-   *
-   *          <p>Starts the asynchronous analysis of an input document for relationships between detected
+   * <p>Starts the asynchronous analysis of an input document for relationships between detected
    *          items such as key-value pairs, tables, and selection elements.</p>
    *
    *          <p>
@@ -321,9 +304,6 @@ export class Textract extends TextractClient {
    *          the job identifier (<code>JobId</code>) from the initial call to
    *             <code>StartDocumentAnalysis</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
-   *
-   *
-   *
    */
   public startDocumentAnalysis(
     args: StartDocumentAnalysisCommandInput,
@@ -358,8 +338,7 @@ export class Textract extends TextractClient {
   }
 
   /**
-   *
-   *          <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
+   * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
    *          text and the words that make up a line of text.</p>
    *          <p>
    *             <code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The
@@ -376,10 +355,6 @@ export class Textract extends TextractClient {
    *          pass the job identifier (<code>JobId</code>) from the initial call to
    *             <code>StartDocumentTextDetection</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
-   *
-   *
-   *
-   *
    */
   public startDocumentTextDetection(
     args: StartDocumentTextDetectionCommandInput,

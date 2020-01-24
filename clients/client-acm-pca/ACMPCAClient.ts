@@ -228,8 +228,7 @@ export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- * 		       <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
+ * <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing private certificate authorities (CA) for your organization.</p>
  * 		       <p>The documentation for each action shows the Query API request parameters and the XML
@@ -242,7 +241,6 @@ export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<
  * 				the action can be called per second. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Limits in ACM Private CA</a>
  * 				in the ACM Private CA user guide.</p>
  * 		       </note>
- *
  */
 export class ACMPCAClient extends __Client<
   __HttpHandlerOptions,

@@ -325,12 +325,13 @@ export enum AudioCodec {
   EAC3 = "EAC3",
   EAC3_ATMOS = "EAC3_ATMOS",
   MP2 = "MP2",
+  MP3 = "MP3",
   PASSTHROUGH = "PASSTHROUGH",
   WAV = "WAV"
 }
 
 /**
- * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+ * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
  */
 export interface AudioCodecSettings {
   __type?: "AudioCodecSettings";
@@ -368,6 +369,11 @@ export interface AudioCodecSettings {
    * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
    */
   Mp2Settings?: Mp2Settings;
+
+  /**
+   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
+   */
+  Mp3Settings?: Mp3Settings;
 
   /**
    * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
@@ -412,7 +418,7 @@ export interface AudioDescription {
   AudioTypeControl?: AudioTypeControl | string;
 
   /**
-   * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+   * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
    */
   CodecSettings?: AudioCodecSettings;
 
@@ -1229,6 +1235,13 @@ export interface CmafGroupSettings {
    * When set to ENABLED, an Apple HLS manifest will be generated for this output.
    */
   WriteHlsManifest?: CmafWriteHLSManifest | string;
+
+  /**
+   * When you enable Precise segment duration in DASH manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
+   */
+  WriteSegmentTimelineInRepresentation?:
+    | CmafWriteSegmentTimelineInRepresentation
+    | string;
 }
 
 export namespace CmafGroupSettings {
@@ -1280,6 +1293,43 @@ export enum CmafWriteDASHManifest {
 export enum CmafWriteHLSManifest {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED"
+}
+
+export enum CmafWriteSegmentTimelineInRepresentation {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum CmfcScte35Esam {
+  INSERT = "INSERT",
+  NONE = "NONE"
+}
+
+export enum CmfcScte35Source {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH"
+}
+
+/**
+ * Settings for MP4 segments in CMAF
+ */
+export interface CmfcSettings {
+  __type?: "CmfcSettings";
+  /**
+   * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
+   */
+  Scte35Esam?: CmfcScte35Esam | string;
+
+  /**
+   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
+   */
+  Scte35Source?: CmfcScte35Source | string;
+}
+
+export namespace CmfcSettings {
+  export function isa(o: any): o is CmfcSettings {
+    return _smithy.isa(o, "CmfcSettings");
+  }
 }
 
 /**
@@ -1377,6 +1427,11 @@ export namespace ConflictException {
  */
 export interface ContainerSettings {
   __type?: "ContainerSettings";
+  /**
+   * Settings for MP4 segments in CMAF
+   */
+  CmfcSettings?: CmfcSettings;
+
   /**
    * Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
    */
@@ -6071,6 +6126,48 @@ export namespace Mp2Settings {
   }
 }
 
+export enum Mp3RateControlMode {
+  CBR = "CBR",
+  VBR = "VBR"
+}
+
+/**
+ * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
+ */
+export interface Mp3Settings {
+  __type?: "Mp3Settings";
+  /**
+   * Specify the average bitrate in bits per second.
+   */
+  Bitrate?: number;
+
+  /**
+   * Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
+   */
+  Channels?: number;
+
+  /**
+   * Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
+   */
+  RateControlMode?: Mp3RateControlMode | string;
+
+  /**
+   * Sample rate in hz.
+   */
+  SampleRate?: number;
+
+  /**
+   * Required when you set Bitrate control mode (rateControlMode) to VBR. Specify the audio quality of this MP3 output from 0 (highest quality) to 9 (lowest quality).
+   */
+  VbrQuality?: number;
+}
+
+export namespace Mp3Settings {
+  export function isa(o: any): o is Mp3Settings {
+    return _smithy.isa(o, "Mp3Settings");
+  }
+}
+
 export enum Mp4CslgAtom {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE"
@@ -6095,6 +6192,11 @@ export interface Mp4Settings {
    * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
    */
   CslgAtom?: Mp4CslgAtom | string;
+
+  /**
+   * Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
+   */
+  CttsVersion?: number;
 
   /**
    * Inserts a free-space box immediately after the moov box.
@@ -8026,7 +8128,7 @@ export enum VideoCodec {
 }
 
 /**
- * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * FRAME_CAPTURE, FrameCaptureSettings
+ * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings
  */
 export interface VideoCodecSettings {
   __type?: "VideoCodecSettings";
@@ -8083,7 +8185,7 @@ export interface VideoDescription {
   AntiAlias?: AntiAlias | string;
 
   /**
-   * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * FRAME_CAPTURE, FrameCaptureSettings
+   * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings
    */
   CodecSettings?: VideoCodecSettings;
 
@@ -8224,7 +8326,7 @@ export namespace VideoPreprocessor {
 export interface VideoSelector {
   __type?: "VideoSelector";
   /**
-   * Ignore this setting unless this input is a QuickTime animation. Specify which part of this input MediaConvert uses for your outputs. Leave this setting set to DISCARD in order to delete the alpha channel and preserve the video. Use REMAP_TO_LUMA for this setting to delete the video and map the alpha channel to the luma channel of your outputs.
+   * Ignore this setting unless this input is a QuickTime animation with an alpha channel. Use this setting to create separate Key and Fill outputs. In each output, specify which part of the input MediaConvert uses. Leave this setting at the default value DISCARD to delete the alpha channel and preserve the video. Set it to REMAP_TO_LUMA to delete the video and map the alpha channel to the luma channel of your outputs.
    */
   AlphaBehavior?: AlphaBehavior | string;
 

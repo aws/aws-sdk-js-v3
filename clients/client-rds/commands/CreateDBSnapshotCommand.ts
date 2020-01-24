@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { CreateDBSnapshotMessage, DBSnapshot } from "../models/index";
+import {
+  CreateDBSnapshotMessage,
+  CreateDBSnapshotResult
+} from "../models/index";
 import {
   deserializeAws_queryCreateDBSnapshotCommand,
   serializeAws_queryCreateDBSnapshotCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBSnapshotCommandInput = CreateDBSnapshotMessage;
-export type CreateDBSnapshotCommandOutput = DBSnapshot;
+export type CreateDBSnapshotCommandOutput = CreateDBSnapshotResult;
 
 export class CreateDBSnapshotCommand extends $Command<
   CreateDBSnapshotCommandInput,

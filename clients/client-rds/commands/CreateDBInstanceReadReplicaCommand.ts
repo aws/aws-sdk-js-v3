@@ -5,7 +5,7 @@ import {
 } from "../RDSClient";
 import {
   CreateDBInstanceReadReplicaMessage,
-  DBInstance
+  CreateDBInstanceReadReplicaResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateDBInstanceReadReplicaCommand,
@@ -28,7 +28,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBInstanceReadReplicaCommandInput = CreateDBInstanceReadReplicaMessage;
-export type CreateDBInstanceReadReplicaCommandOutput = DBInstance;
+export type CreateDBInstanceReadReplicaCommandOutput = CreateDBInstanceReadReplicaResult;
 
 export class CreateDBInstanceReadReplicaCommand extends $Command<
   CreateDBInstanceReadReplicaCommandInput,

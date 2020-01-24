@@ -184,8 +184,7 @@ export type LexRuntimeServiceClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of
+ * <p>Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of
  *       operations (API). Your conversational bot uses the runtime API to understand user utterances
  *       (user input text or voice). For example, suppose a user says "I want pizza", your bot sends
  *       this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is
@@ -194,8 +193,6 @@ export type LexRuntimeServiceClientResolvedConfig = __SmithyResolvedConfiguratio
  *       pizza size and crust type), and then performs fulfillment activity (that you configured when
  *       you created the bot). You use the build-time API to create and manage your Amazon Lex bot. For
  *       a list of build-time operations, see the build-time API, . </p>
- *
- *
  */
 export class LexRuntimeServiceClient extends __Client<
   __HttpHandlerOptions,

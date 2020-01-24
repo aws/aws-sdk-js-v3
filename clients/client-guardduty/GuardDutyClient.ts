@@ -364,8 +364,7 @@ export type GuardDutyClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
+ * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses
  *       threat intelligence feeds, such as lists of malicious IPs and domains, and machine learning to
  *       identify unexpected and potentially unauthorized and malicious activity within your AWS
@@ -378,7 +377,6 @@ export type GuardDutyClientResolvedConfig = __SmithyResolvedConfiguration<
  *       status of your AWS environment by producing security findings that you can view in the
  *       GuardDuty console or through Amazon CloudWatch events. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
  *         GuardDuty User Guide</a>. </p>
- *
  */
 export class GuardDutyClient extends __Client<
   __HttpHandlerOptions,

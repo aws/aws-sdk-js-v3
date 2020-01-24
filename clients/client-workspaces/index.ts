@@ -24,6 +24,7 @@ export * from "./commands/DescribeWorkspacesConnectionStatusCommand";
 export * from "./commands/DisassociateIpGroupsCommand";
 export * from "./commands/ImportWorkspaceImageCommand";
 export * from "./commands/ListAvailableManagementCidrRangesCommand";
+export * from "./commands/MigrateWorkspaceCommand";
 export * from "./commands/ModifyAccountCommand";
 export * from "./commands/ModifyClientPropertiesCommand";
 export * from "./commands/ModifySelfservicePermissionsCommand";

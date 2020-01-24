@@ -377,8 +377,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Storage Gateway Service</fullname>
+ * <fullname>AWS Storage Gateway Service</fullname>
  *
  *          <p>AWS Storage Gateway is the service that connects an on-premises software appliance
  *          with cloud-based storage to provide seamless and secure integration between an
@@ -441,12 +440,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             <p>For more information, see <a href="https://forums.aws.amazon.com/ann.jspa?annID=3557">Announcement: Heads-up –
  *                Longer AWS Storage Gateway volume and snapshot IDs coming in 2016</a>.</p>
  *          </important>
- *
  */
 export class StorageGateway extends StorageGatewayClient {
   /**
-   *
-   *          <p>Activates the gateway you previously deployed on your host. In the activation
+   * <p>Activates the gateway you previously deployed on your host. In the activation
    *          process, you specify information such as the AWS Region that you want to use for storing
    *          snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot schedule
    *          window, an activation key, and a name for your gateway. The activation process also
@@ -454,8 +451,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          <note>
    *             <p>You must turn on the gateway VM before you can activate your gateway.</p>
    *          </note>
-   *
-   *
    */
   public activateGateway(
     args: ActivateGatewayCommandInput,
@@ -490,13 +485,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Configures one or more gateway local disks as cache for a gateway. This operation is
+   * <p>Configures one or more gateway local disks as cache for a gateway. This operation is
    *          only supported in the cached volume, tape and file gateway type (see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">Storage Gateway Concepts</a>).</p>
    *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want
    *          to add cache, and one or more disk IDs that you want to configure as cache.</p>
-   *
-   *
    */
   public addCache(
     args: AddCacheCommandInput,
@@ -531,8 +523,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more tags to the specified resource. You use tags to add metadata to
+   * <p>Adds one or more tags to the specified resource. You use tags to add metadata to
    *          resources, which you can use to categorize these resources. For example, you can categorize
    *          resources by purpose, owner, environment, or team. Each tag consists of a key and a value,
    *          which you define. You can add tags to the following AWS Storage Gateway
@@ -554,7 +545,6 @@ export class StorageGateway extends StorageGatewayClient {
    *
    *          <p>You can create a maximum of 50 tags for each resource. Virtual tapes and storage
    *          volumes that are recovered to a new gateway maintain their tags.</p>
-   *
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -589,14 +579,12 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Configures one or more gateway local disks as upload buffer for a specified gateway.
+   * <p>Configures one or more gateway local disks as upload buffer for a specified gateway.
    *          This operation is supported for the stored volume, cached volume and tape gateway
    *          types.</p>
    *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want
    *          to add upload buffer, and one or more disk IDs that you want to configure as upload
    *          buffer.</p>
-   *
    */
   public addUploadBuffer(
     args: AddUploadBufferCommandInput,
@@ -631,8 +619,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Configures one or more gateway local disks as working storage for a gateway. This
+   * <p>Configures one or more gateway local disks as working storage for a gateway. This
    *          operation is only supported in the stored volume gateway type. This operation is deprecated
    *          in cached volume API version 20120630. Use <a>AddUploadBuffer</a>
    *          instead.</p>
@@ -643,8 +630,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want
    *          to add working storage, and one or more disk IDs that you want to configure as working
    *          storage.</p>
-   *
-   *
    */
   public addWorkingStorage(
     args: AddWorkingStorageCommandInput,
@@ -679,14 +664,11 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in
+   * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in
    *          the S3 storage class that is associated with the pool. When you use your backup application
    *          to eject the tape, the tape is archived directly into the S3 storage class (Glacier or Deep
    *          Archive) that corresponds to the pool.</p>
    *          <p>Valid values: "GLACIER", "DEEP_ARCHIVE"</p>
-   *
-   *
    */
   public assignTapePool(
     args: AssignTapePoolCommandInput,
@@ -721,15 +703,11 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Connects a volume to an iSCSI connection and then attaches the volume to the
+   * <p>Connects a volume to an iSCSI connection and then attaches the volume to the
    *          specified gateway. Detaching and attaching a volume enables you to recover your data from
    *          one gateway to a different gateway without creating a snapshot. It also makes it easier to
    *          move your volumes from an on-premises gateway to a gateway hosted on an Amazon EC2
    *          instance.</p>
-   *
-   *
-   *
    */
   public attachVolume(
     args: AttachVolumeCommandInput,
@@ -764,11 +742,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the
+   * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the
    *          archiving process is initiated. This operation is only supported in the tape gateway
    *          type.</p>
-   *
    */
   public cancelArchival(
     args: CancelArchivalCommandInput,
@@ -803,11 +779,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway
+   * <p>Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway
    *          after the retrieval process is initiated. The virtual tape is returned to the VTS. This
    *          operation is only supported in the tape gateway type.</p>
-   *
    */
   public cancelRetrieval(
     args: CancelRetrievalCommandInput,
@@ -842,8 +816,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Creates a cached volume on a specified cached volume gateway. This operation is only
+   * <p>Creates a cached volume on a specified cached volume gateway. This operation is only
    *          supported in the cached volume gateway type.</p>
    *          <note>
    *             <p>Cache storage must be allocated to the gateway before you can create a cached
@@ -860,9 +833,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             <code>SourceVolumeARN</code> for this cached volume, which creates an exact copy of the
    *          existing volume’s latest recovery point. The <code>VolumeSizeInBytes</code> value must be
    *          equal to or larger than the size of the copied volume, in bytes.</p>
-   *
-   *
-   *
    */
   public createCachediSCSIVolume(
     args: CreateCachediSCSIVolumeCommandInput,
@@ -897,9 +867,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates a Network File System (NFS) file share on an existing file gateway. In
+   * <p>Creates a Network File System (NFS) file share on an existing file gateway. In
    *          Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud
    *          storage. Storage Gateway exposes file shares using a NFS interface. This operation is only
    *          supported for file gateways.</p>
@@ -913,10 +881,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             <p>File gateway does not support creating hard or symbolic links on a file
    *             share.</p>
    *          </important>
-   *
-   *
-   *
-   *
    */
   public createNFSFileShare(
     args: CreateNFSFileShareCommandInput,
@@ -951,9 +915,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *
-   *          <p>Creates a Server Message Block (SMB) file share on an existing file gateway. In
+   * <p>Creates a Server Message Block (SMB) file share on an existing file gateway. In
    *          Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud
    *          storage. Storage Gateway expose file shares using a SMB interface. This operation is only
    *          supported for file gateways.</p>
@@ -969,10 +931,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             <p>File gateways don't support creating hard or symbolic links on a file
    *             share.</p>
    *          </important>
-   *
-   *
-   *
-   *
    */
   public createSMBFileShare(
     args: CreateSMBFileShareCommandInput,
@@ -1007,8 +965,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Initiates a snapshot of a volume.</p>
+   * <p>Initiates a snapshot of a volume.</p>
    *          <p>AWS Storage Gateway provides the ability to back up point-in-time snapshots of your
    *          data to Amazon Simple Storage (S3) for durable off-site recovery, as well as import the
    *          data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2).
@@ -1032,8 +989,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             <p>Volume and snapshot IDs are changing to a longer length ID format. For more
    *             information, see the important note on the <a href="https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html">Welcome</a> page.</p>
    *          </important>
-   *
-   *
    */
   public createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -1068,8 +1023,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is
+   * <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is
    *          only supported in the cached volume gateway type.</p>
    *          <p>A volume recovery point is a point in time at which all data of the volume is
    *          consistent and from which you can create a snapshot. To get a list of volume recovery point
@@ -1086,8 +1040,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             information, in <i>Amazon Elastic Compute Cloud API
    *             Reference</i>.</p>
    *          </note>
-   *
-   *
    */
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
@@ -1134,8 +1086,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Creates a volume on a specified gateway. This operation is only supported in the
+   * <p>Creates a volume on a specified gateway. This operation is only supported in the
    *          stored volume gateway type.</p>
    *          <p>The size of the volume to create is inferred from the disk size. You can choose to
    *          preserve existing data on the disk, create volume from an existing snapshot, or create an
@@ -1145,8 +1096,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          creating the volume. In response, the gateway creates the volume and returns volume
    *          information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target
    *          ARN that initiators can use to connect to the volume target.</p>
-   *
-   *
    */
   public createStorediSCSIVolume(
     args: CreateStorediSCSIVolumeCommandInput,
@@ -1181,8 +1130,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape
+   * <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape
    *          and then archive the tape. A barcode is unique and can not be reused if it has already been
    *          used on a tape . This applies to barcodes used on deleted tapes. This operation is only
    *          supported in the tape gateway type.</p>
@@ -1191,11 +1139,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             tape. Use the <a>AddCache</a> operation to add cache storage to a
    *             gateway.</p>
    *          </note>
-   *
-   *
-   *
-   *
-   *
    */
   public createTapeWithBarcode(
     args: CreateTapeWithBarcodeCommandInput,
@@ -1230,16 +1173,13 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Creates one or more virtual tapes. You write data to the virtual tapes and then
+   * <p>Creates one or more virtual tapes. You write data to the virtual tapes and then
    *          archive the tapes. This operation is only supported in the tape gateway type.</p>
    *          <note>
    *             <p>Cache storage must be allocated to the gateway before you can create virtual
    *             tapes. Use the <a>AddCache</a> operation to add cache storage to a gateway.
    *          </p>
    *          </note>
-   *
-   *
    */
   public createTapes(
     args: CreateTapesCommandInput,
@@ -1274,13 +1214,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
+   * <p>Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
    *          download bandwidth rate limit, or you can delete both. If you delete only one of the
    *          limits, the other limit remains unchanged. To specify which gateway to work with, use the
    *          Amazon Resource Name (ARN) of the gateway in your request. This operation is supported for the stored volume, cached volume and tape gateway types.</p>
-   *
-   *
    */
   public deleteBandwidthRateLimit(
     args: DeleteBandwidthRateLimitCommandInput,
@@ -1315,11 +1252,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a
+   * <p>Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a
    *          specified iSCSI target and initiator pair. This operation is supported in volume and tape gateway types.</p>
-   *
-   *
    */
   public deleteChapCredentials(
     args: DeleteChapCredentialsCommandInput,
@@ -1354,11 +1288,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes a file share from a file gateway. This operation is only supported for file
+   * <p>Deletes a file share from a file gateway. This operation is only supported for file
    *          gateways.</p>
-   *
-   *
    */
   public deleteFileShare(
     args: DeleteFileShareCommandInput,
@@ -1393,8 +1324,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
+   * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
    *          (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
    *          not delete the gateway virtual machine (VM) from your host computer.</p>
    *          <p>After you delete a gateway, you cannot reactivate it. Completed snapshots of the
@@ -1410,8 +1340,6 @@ export class StorageGateway extends StorageGatewayClient {
    *                <a href="http://aws.amazon.com/storagegateway"> AWS Storage Gateway Detail
    *             Page</a>. </p>
    *          </important>
-   *
-   *
    */
   public deleteGateway(
     args: DeleteGatewayCommandInput,
@@ -1446,8 +1374,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes a snapshot of a volume.</p>
+   * <p>Deletes a snapshot of a volume.</p>
    *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This
    *          API action enables you to delete a snapshot schedule for a volume. For more information,
    *          see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html">Working with
@@ -1458,8 +1385,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             <p>To list or delete a snapshot, you must use the Amazon EC2 API. in <i>Amazon
    *                Elastic Compute Cloud API Reference</i>.</p>
    *          </note>
-   *
-   *
    */
   public deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
@@ -1494,11 +1419,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified virtual tape. This operation is only supported in the tape
+   * <p>Deletes the specified virtual tape. This operation is only supported in the tape
    *          gateway type.</p>
-   *
-   *
    */
   public deleteTape(
     args: DeleteTapeCommandInput,
@@ -1533,10 +1455,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation
+   * <p>Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation
    *          is only supported in the tape gateway type.</p>
-   *
    */
   public deleteTapeArchive(
     args: DeleteTapeArchiveCommandInput,
@@ -1571,8 +1491,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
+   * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
    *          This operation is only supported in the cached volume and stored volume types. For stored
    *          volume gateways, the local disk that was configured as the storage volume is not deleted.
    *          You can reuse the local disk to create another storage volume. </p>
@@ -1583,8 +1502,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             Reference</i>.</p>
    *          <p>In the request, you must provide the Amazon Resource Name (ARN) of the storage volume
    *          you want to delete.</p>
-   *
-   *
    */
   public deleteVolume(
     args: DeleteVolumeCommandInput,
@@ -1619,11 +1536,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the most recent High Availability monitoring test that was
+   * <p>Returns information about the most recent High Availability monitoring test that was
    *          performed on the host in a cluster. If a test isn't performed, the status and start time in
    *          the response would be null.</p>
-   *
    */
   public describeAvailabilityMonitorTest(
     args: DescribeAvailabilityMonitorTestCommandInput,
@@ -1661,15 +1576,12 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
+   * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
    *          which means no bandwidth rate limiting is in effect. This operation is supported for the stored volume, cached volume and tape gateway types.'</p>
    *          <p>This operation only returns a value for a bandwidth rate limit only if the limit is
    *          set. If no limits are set for the gateway, then this operation returns only the gateway ARN
    *          in the response body. To specify which gateway to describe, use the Amazon Resource Name
    *          (ARN) of the gateway in your request.</p>
-   *
-   *
    */
   public describeBandwidthRateLimit(
     args: DescribeBandwidthRateLimitCommandInput,
@@ -1704,13 +1616,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the cache of a gateway. This operation is only supported in
+   * <p>Returns information about the cache of a gateway. This operation is only supported in
    *          the cached volume, tape and file gateway types.</p>
    *          <p>The response includes disk IDs that are configured as cache, and it includes the
    *          amount of cache allocated and used.</p>
-   *
-   *
    */
   public describeCache(
     args: DescribeCacheCommandInput,
@@ -1745,14 +1654,11 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns a description of the gateway volumes specified in the request. This operation
+   * <p>Returns a description of the gateway volumes specified in the request. This operation
    *          is only supported in the cached volume gateway types.</p>
    *          <p>The list of gateway volumes in the request must be from one gateway. In the response
    *          Amazon Storage Gateway returns volume information sorted by volume Amazon Resource Name
    *          (ARN).</p>
-   *
-   *
    */
   public describeCachediSCSIVolumes(
     args: DescribeCachediSCSIVolumesCommandInput,
@@ -1787,12 +1693,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials
+   * <p>Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials
    *          information for a specified iSCSI target, one for each target-initiator pair.
    *          This operation is supported in the volume and tape gateway types.</p>
-   *
-   *
    */
   public describeChapCredentials(
     args: DescribeChapCredentialsCommandInput,
@@ -1827,12 +1730,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns metadata about a gateway such as its name, network interfaces, configured
+   * <p>Returns metadata about a gateway such as its name, network interfaces, configured
    *          time zone, and the state (whether the gateway is running or not). To specify which gateway
    *          to describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
-   *
-   *
    */
   public describeGatewayInformation(
     args: DescribeGatewayInformationCommandInput,
@@ -1867,11 +1767,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns your gateway's weekly maintenance start time including the day and time of
+   * <p>Returns your gateway's weekly maintenance start time including the day and time of
    *          the week. Note that values are in terms of the gateway's time zone.</p>
-   *
-   *
    */
   public describeMaintenanceStartTime(
     args: DescribeMaintenanceStartTimeCommandInput,
@@ -1906,11 +1803,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Gets a description for one or more Network File System (NFS) file shares from a file
+   * <p>Gets a description for one or more Network File System (NFS) file shares from a file
    *          gateway. This operation is only supported for file gateways.</p>
-   *
-   *
    */
   public describeNFSFileShares(
     args: DescribeNFSFileSharesCommandInput,
@@ -1945,11 +1839,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Gets a description for one or more Server Message Block (SMB) file shares from a file
+   * <p>Gets a description for one or more Server Message Block (SMB) file shares from a file
    *          gateway. This operation is only supported for file gateways.</p>
-   *
-   *
    */
   public describeSMBFileShares(
     args: DescribeSMBFileSharesCommandInput,
@@ -1984,10 +1875,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Gets a description of a Server Message Block (SMB) file share settings from a file
+   * <p>Gets a description of a Server Message Block (SMB) file share settings from a file
    *          gateway. This operation is only supported for file gateways.</p>
-   *
    */
   public describeSMBSettings(
     args: DescribeSMBSettingsCommandInput,
@@ -2022,13 +1911,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Describes the snapshot schedule for the specified gateway volume. The snapshot
+   * <p>Describes the snapshot schedule for the specified gateway volume. The snapshot
    *          schedule information includes intervals at which snapshots are automatically initiated on
    *          the volume. This operation is only supported in the cached volume and stored volume
    *          types.</p>
-   *
-   *
    */
   public describeSnapshotSchedule(
     args: DescribeSnapshotScheduleCommandInput,
@@ -2063,13 +1949,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns the description of the gateway volumes specified in the request. The list of
+   * <p>Returns the description of the gateway volumes specified in the request. The list of
    *          gateway volumes in the request must be from one gateway. In the response Amazon Storage
    *          Gateway returns volume information sorted by volume ARNs. This operation is only supported
    *          in stored volume gateway type.</p>
-   *
-   *
    */
   public describeStorediSCSIVolumes(
     args: DescribeStorediSCSIVolumesCommandInput,
@@ -2104,15 +1987,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *
-   *          <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS).
+   * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS).
    *          This operation is only supported in the tape gateway type.</p>
    *          <p>If a specific <code>TapeARN</code> is not specified, AWS Storage Gateway returns a
    *          description of all virtual tapes found in the VTS associated with your account.</p>
-   *
-   *
-   *
    */
   public describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
@@ -2147,15 +2025,12 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of virtual tape recovery points that are available for the specified
+   * <p>Returns a list of virtual tape recovery points that are available for the specified
    *          tape gateway.</p>
    *          <p>A recovery point is a point-in-time view of a virtual tape at which all the data on
    *          the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery
    *          points can be recovered to a new gateway. This operation is only supported in the tape
    *          gateway type.</p>
-   *
-   *
    */
   public describeTapeRecoveryPoints(
     args: DescribeTapeRecoveryPointsCommandInput,
@@ -2190,14 +2065,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes.
+   * <p>Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes.
    *          If a <code>TapeARN</code> is not specified, returns a description of all virtual tapes
    *          associated with the specified gateway. This operation is only supported in the tape gateway
    *          type.</p>
-   *
-   *
-   *
    */
   public describeTapes(
     args: DescribeTapesCommandInput,
@@ -2232,13 +2103,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the upload buffer of a gateway. This operation is supported
+   * <p>Returns information about the upload buffer of a gateway. This operation is supported
    *          for the stored volume, cached volume and tape gateway types.</p>
    *          <p>The response includes disk IDs that are configured as upload buffer space, and it
    *          includes the amount of upload buffer space allocated and used.</p>
-   *
-   *
    */
   public describeUploadBuffer(
     args: DescribeUploadBufferCommandInput,
@@ -2273,13 +2141,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns a description of virtual tape library (VTL) devices for the specified tape
+   * <p>Returns a description of virtual tape library (VTL) devices for the specified tape
    *          gateway. In the response, AWS Storage Gateway returns VTL device information.</p>
    *          <p>This operation is only supported in the tape gateway type.</p>
-   *
-   *
-   *
    */
   public describeVTLDevices(
     args: DescribeVTLDevicesCommandInput,
@@ -2314,8 +2178,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the working storage of a gateway. This operation is only
+   * <p>Returns information about the working storage of a gateway. This operation is only
    *          supported in the stored volumes gateway type. This operation is deprecated in cached
    *          volumes API version (20120630). Use DescribeUploadBuffer instead.</p>
    *          <note>
@@ -2325,8 +2188,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          </note>
    *          <p>The response includes disk IDs that are configured as working storage, and it
    *          includes the amount of working storage allocated and used.</p>
-   *
-   *
    */
   public describeWorkingStorage(
     args: DescribeWorkingStorageCommandInput,
@@ -2361,15 +2222,11 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Disconnects a volume from an iSCSI connection and then detaches the volume from the
+   * <p>Disconnects a volume from an iSCSI connection and then detaches the volume from the
    *          specified gateway. Detaching and attaching a volume enables you to recover your data from
    *          one gateway to a different gateway without creating a snapshot. It also makes it easier to
    *          move your volumes from an on-premises gateway to a gateway hosted on an Amazon EC2
    *          instance. This operation is only supported in the volume gateway type.</p>
-   *
-   *
-   *
    */
   public detachVolume(
     args: DetachVolumeCommandInput,
@@ -2404,8 +2261,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Disables a tape gateway when the gateway is no longer functioning. For example, if
+   * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if
    *          your gateway VM is damaged, you can disable the gateway so you can recover virtual
    *          tapes.</p>
    *          <p>Use this operation for a tape gateway that is not reachable or not functioning. This
@@ -2413,7 +2269,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          <important>
    *             <p>Once a gateway is disabled it cannot be enabled.</p>
    *          </important>
-   *
    */
   public disableGateway(
     args: DisableGatewayCommandInput,
@@ -2448,10 +2303,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Adds a file gateway to an Active Directory domain. This operation is only supported
+   * <p>Adds a file gateway to an Active Directory domain. This operation is only supported
    *          for file gateways that support the SMB file protocol.</p>
-   *
    */
   public joinDomain(
     args: JoinDomainCommandInput,
@@ -2486,12 +2339,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Gets a list of the file shares for a specific file gateway, or the list of file
+   * <p>Gets a list of the file shares for a specific file gateway, or the list of file
    *          shares that belong to the calling user account. This operation is only supported for file
    *          gateways.</p>
-   *
-   *
    */
   public listFileShares(
     args: ListFileSharesCommandInput,
@@ -2526,8 +2376,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Lists gateways owned by an AWS account in an AWS Region specified in the request. The
+   * <p>Lists gateways owned by an AWS account in an AWS Region specified in the request. The
    *          returned list is ordered by gateway Amazon Resource Name (ARN).</p>
    *          <p>By default, the operation returns a maximum of 100 gateways. This operation supports
    *          pagination that allows you to optionally reduce the number of gateways returned in a
@@ -2535,8 +2384,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          <p>If you have more gateways than are returned in a response (that is, the response
    *          returns only a truncated list of your gateways), the response contains a marker that you
    *          can specify in your next request to fetch the next page of gateways.</p>
-   *
-   *
    */
   public listGateways(
     args: ListGatewaysCommandInput,
@@ -2571,8 +2418,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of the gateway's local disks. To specify which gateway to describe,
+   * <p>Returns a list of the gateway's local disks. To specify which gateway to describe,
    *          you use the Amazon Resource Name (ARN) of the gateway in the body of the request.</p>
    *          <p>The request returns a list of all disks, specifying which are configured as working
    *          storage, cache storage, or stored volume or not configured at all. The response includes a
@@ -2580,8 +2426,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          available to use), missing (the disk is no longer connected to the gateway), or mismatch
    *          (the disk node is occupied by a disk that has incorrect metadata or the disk content is
    *          corrupted).</p>
-   *
-   *
    */
   public listLocalDisks(
     args: ListLocalDisksCommandInput,
@@ -2616,10 +2460,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Lists the tags that have been added to the specified resource. This operation is
+   * <p>Lists the tags that have been added to the specified resource. This operation is
    *          supported in storage gateways of all types.</p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2654,8 +2496,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
+   * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
    *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
    *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both your
    *          VTL and VTS.</p>
@@ -2665,8 +2506,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          is truncated, the response includes a <code>Marker</code> element that you can use in your
    *          subsequent request to retrieve the next set of tapes. This operation is only supported in
    *          the tape gateway type.</p>
-   *
-   *
    */
   public listTapes(
     args: ListTapesCommandInput,
@@ -2701,13 +2540,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *
-   *          <p>Lists iSCSI initiators that are connected to a volume. You can use this operation to
+   * <p>Lists iSCSI initiators that are connected to a volume. You can use this operation to
    *          determine whether a volume is being used or not. This operation is only supported in the
    *          cached volume and stored volume gateway types.</p>
-   *
-   *
    */
   public listVolumeInitiators(
     args: ListVolumeInitiatorsCommandInput,
@@ -2742,15 +2577,12 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Lists the recovery points for a specified gateway. This operation is only supported
+   * <p>Lists the recovery points for a specified gateway. This operation is only supported
    *          in the cached volume gateway type.</p>
    *          <p>Each cache volume has one recovery point. A volume recovery point is a point in time
    *          at which all data of the volume is consistent and from which you can create a snapshot or
    *          clone a new cached volume from a source volume. To create a snapshot from a volume recovery
    *          point use the <a>CreateSnapshotFromVolumeRecoveryPoint</a> operation.</p>
-   *
-   *
    */
   public listVolumeRecoveryPoints(
     args: ListVolumeRecoveryPointsCommandInput,
@@ -2785,9 +2617,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *
-   *          <p>Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The
+   * <p>Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The
    *          response includes only the volume ARNs. If you want additional volume information, use the
    *             <a>DescribeStorediSCSIVolumes</a> or the <a>DescribeCachediSCSIVolumes</a> API.</p>
    *          <p>The operation supports pagination. By default, the operation returns a maximum of up
@@ -2796,9 +2626,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          response is truncated, the response includes a Marker field. You can use this Marker value
    *          in your subsequent request to retrieve the next set of volumes. This operation is only
    *          supported in the cached volume and stored volume gateway types.</p>
-   *
-   *
-   *
    */
   public listVolumes(
     args: ListVolumesCommandInput,
@@ -2833,8 +2660,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Sends you notification through CloudWatch Events when all files written to your file
+   * <p>Sends you notification through CloudWatch Events when all files written to your file
    *          share have been uploaded to Amazon S3.</p>
    *          <p>AWS Storage Gateway can send a notification through Amazon CloudWatch Events when all
    *          files written to your file share up to that point in time have been uploaded to Amazon S3.
@@ -2848,7 +2674,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          Gateway User Guide
    *          (https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification).
    *       </p>
-   *
    */
   public notifyWhenUploaded(
     args: NotifyWhenUploadedCommandInput,
@@ -2883,8 +2708,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Refreshes the cache for the specified file share. This operation finds objects in the
+   * <p>Refreshes the cache for the specified file share. This operation finds objects in the
    *          Amazon S3 bucket that were added, removed or replaced since the gateway last listed the
    *          bucket's contents and cached the results. This operation is only supported in the file
    *          gateway type. You can subscribe to be notified through an Amazon CloudWatch event when your
@@ -2906,7 +2730,6 @@ export class StorageGateway extends StorageGatewayClient {
    *
    *
    *          <p>For more information, see "https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification".</p>
-   *
    */
   public refreshCache(
     args: RefreshCacheCommandInput,
@@ -2941,10 +2764,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Removes one or more tags from the specified resource. This operation is
+   * <p>Removes one or more tags from the specified resource. This operation is
    *          supported in storage gateways of all types.</p>
-   *
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -2979,8 +2800,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Resets all cache disks that have encountered a error and makes the disks available
+   * <p>Resets all cache disks that have encountered a error and makes the disks available
    *          for reconfiguration as cache storage. If your cache disk encounters a error, the gateway
    *          prevents read and write operations on virtual tapes in the gateway. For example, an error
    *          can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the
@@ -2992,7 +2812,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             configured cache disks left in the gateway, so you must configure at least one new cache
    *             disk for your gateway to function properly.</p>
    *          </important>
-   *
    */
   public resetCache(
     args: ResetCacheCommandInput,
@@ -3027,8 +2846,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape
+   * <p>Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape
    *          gateway. Virtual tapes archived in the VTS are not associated with any gateway. However
    *          after a tape is retrieved, it is associated with a gateway, even though it is also listed
    *          in the VTS, that is, archive. This operation is only supported in the tape gateway
@@ -3036,8 +2854,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          <p>Once a tape is successfully retrieved to a gateway, it cannot be retrieved again to
    *          another gateway. You must archive the tape again before you can retrieve it to another
    *          gateway. This operation is only supported in the tape gateway type.</p>
-   *
-   *
    */
   public retrieveTapeArchive(
     args: RetrieveTapeArchiveCommandInput,
@@ -3072,8 +2888,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Retrieves the recovery point for the specified virtual tape. This operation is only
+   * <p>Retrieves the recovery point for the specified virtual tape. This operation is only
    *          supported in the tape gateway type.</p>
    *          <p>A recovery point is a point in time view of a virtual tape at which all the data on
    *          the tape is consistent. If your gateway crashes, virtual tapes that have recovery points
@@ -3083,7 +2898,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             read-only. The virtual tape can be retrieved to only a tape gateway. There is no charge
    *             for retrieving recovery points.</p>
    *          </note>
-   *
    */
   public retrieveTapeRecoveryPoint(
     args: RetrieveTapeRecoveryPointCommandInput,
@@ -3118,12 +2932,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Sets the password for your VM local console. When you log in to the local console for
+   * <p>Sets the password for your VM local console. When you log in to the local console for
    *          the first time, you log in to the VM with the default credentials. We recommend that you
    *          set a new password. You don't need to know the default password to set a new
    *          password.</p>
-   *
    */
   public setLocalConsolePassword(
     args: SetLocalConsolePasswordCommandInput,
@@ -3158,11 +2970,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
+   * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
    *          user is the user when the authentication method for the file share is set to
    *             <code>GuestAccess</code>.</p>
-   *
    */
   public setSMBGuestPassword(
     args: SetSMBGuestPasswordCommandInput,
@@ -3197,8 +3007,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource
+   * <p>Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource
    *          Name (ARN) of the gateway in the body of your request.</p>
    *          <p>The operation shuts down the gateway service component running in the gateway's
    *          virtual machine (VM) and not the host VM.</p>
@@ -3217,8 +3026,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          </note>
    *          <p>If do not intend to use the gateway again, you must delete the gateway (using <a>DeleteGateway</a>) to no longer pay software charges associated with the
    *          gateway.</p>
-   *
-   *
    */
   public shutdownGateway(
     args: ShutdownGatewayCommandInput,
@@ -3253,8 +3060,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Start a test that verifies that the specified gateway is configured for High
+   * <p>Start a test that verifies that the specified gateway is configured for High
    *          Availability monitoring in your host environment. This request only initiates the test and
    *          that a successful response only indicates that the test was started. It doesn't indicate
    *          that the test passed. For the status of the test, invoke the
@@ -3262,7 +3068,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          <note>
    *             <p>Starting this test will cause your gateway to go offline for a brief period.</p>
    *          </note>
-   *
    */
   public startAvailabilityMonitorTest(
     args: StartAvailabilityMonitorTestCommandInput,
@@ -3297,8 +3102,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>). After the gateway starts, you can then make other API calls, your applications can
+   * <p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>). After the gateway starts, you can then make other API calls, your applications can
    *          read from or write to the gateway's storage volumes and you will be able to take snapshot
    *          backups.</p>
    *          <note>
@@ -3308,8 +3112,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          </note>
    *          <p>To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway
    *          in your request.</p>
-   *
-   *
    */
   public startGateway(
     args: StartGatewayCommandInput,
@@ -3344,8 +3146,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates the bandwidth rate limits of a gateway. You can update both the upload and
+   * <p>Updates the bandwidth rate limits of a gateway. You can update both the upload and
    *          download bandwidth rate limit or specify only one of the two. If you don't set a bandwidth
    *          rate limit, the existing rate limit remains. This operation is supported for the stored volume, cached volume and tape gateway types.'</p>
    *          <p>By default, a gateway's bandwidth rate limits are not set. If you don't set any
@@ -3353,8 +3154,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          potentially use the maximum available bandwidth.</p>
    *          <p>To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway
    *          in your request.</p>
-   *
-   *
    */
   public updateBandwidthRateLimit(
     args: UpdateBandwidthRateLimitCommandInput,
@@ -3389,17 +3188,13 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
+   * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
    *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
    *          added security, you might use it. This operation is supported in the volume and tape gateway types.</p>
    *          <important>
    *             <p>When you update CHAP credentials, all existing connections on the target are
    *             closed and initiators must reconnect with the new credentials.</p>
    *          </important>
-   *
-   *
-   *
    */
   public updateChapCredentials(
     args: UpdateChapCredentialsCommandInput,
@@ -3434,8 +3229,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates a gateway's metadata, which includes the gateway's name and time zone. To
+   * <p>Updates a gateway's metadata, which includes the gateway's name and time zone. To
    *          specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your
    *          request.</p>
    *          <note>
@@ -3443,8 +3237,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             gateway ID rather than the gateway name. However, changing the name of the gateway has
    *             no effect on the gateway's ARN.</p>
    *          </note>
-   *
-   *
    */
   public updateGatewayInformation(
     args: UpdateGatewayInformationCommandInput,
@@ -3479,8 +3271,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates the gateway virtual machine (VM) software. The request immediately triggers
+   * <p>Updates the gateway virtual machine (VM) software. The request immediately triggers
    *          the software update.</p>
    *          <note>
    *             <p>When you make this request, you get a <code>200 OK</code> success response
@@ -3494,8 +3285,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and
    *             Linux, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings">Customizing Your Windows iSCSI Settings</a> and <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings">Customizing Your Linux iSCSI Settings</a>, respectively.</p>
    *          </important>
-   *
-   *
    */
   public updateGatewaySoftwareNow(
     args: UpdateGatewaySoftwareNowCommandInput,
@@ -3530,11 +3319,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates a gateway's weekly maintenance start time information, including day and time
+   * <p>Updates a gateway's weekly maintenance start time information, including day and time
    *          of the week. The maintenance time is the time in your gateway's time zone.</p>
-   *
-   *
    */
   public updateMaintenanceStartTime(
     args: UpdateMaintenanceStartTimeCommandInput,
@@ -3569,9 +3355,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *
-   *          <p>Updates a Network File System (NFS) file share. This operation is only supported in
+   * <p>Updates a Network File System (NFS) file share. This operation is only supported in
    *          the file gateway type.</p>
    *          <note>
    *             <p>To leave a file share field unchanged, set the corresponding input field to
@@ -3600,9 +3384,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             <p>To leave a file share field unchanged, set the corresponding input field to null.
    *             This operation is only supported in file gateways.</p>
    *          </note>
-   *
-   *
-   *
    */
   public updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
@@ -3637,9 +3418,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *
-   *          <p>Updates a Server Message Block (SMB) file share.</p>
+   * <p>Updates a Server Message Block (SMB) file share.</p>
    *          <note>
    *             <p>To leave a file share field unchanged, set the corresponding input field to null.
    *             This operation is only supported for file gateways.</p>
@@ -3655,10 +3434,6 @@ export class StorageGateway extends StorageGatewayClient {
    *             <p>File gateways don't support creating hard or symbolic links on a file
    *             share.</p>
    *          </important>
-   *
-   *
-   *
-   *
    */
   public updateSMBFileShare(
     args: UpdateSMBFileShareCommandInput,
@@ -3693,13 +3468,11 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates the SMB security strategy on a file gateway. This action is only supported in file gateways.</p>
+   * <p>Updates the SMB security strategy on a file gateway. This action is only supported in file gateways.</p>
    *          <note>
    *             <p>This API is called Security level in the User Guide.</p>
    *             <p>A higher security level can affect performance of the gateway.</p>
    *          </note>
-   *
    */
   public updateSMBSecurityStrategy(
     args: UpdateSMBSecurityStrategyCommandInput,
@@ -3734,8 +3507,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates a snapshot schedule configured for a gateway volume. This operation is only
+   * <p>Updates a snapshot schedule configured for a gateway volume. This operation is only
    *          supported in the cached volume and stored volume gateway types.</p>
    *          <p>The default snapshot schedule for volume is once every 24 hours, starting at the
    *          creation time of the volume. You can use this API to change the snapshot schedule
@@ -3743,8 +3515,6 @@ export class StorageGateway extends StorageGatewayClient {
    *          <p>In the request you must identify the gateway volume whose snapshot schedule you want
    *          to update, and the schedule information, including when you want the snapshot to begin on a
    *          day and the frequency (in hours) of snapshots.</p>
-   *
-   *
    */
   public updateSnapshotSchedule(
     args: UpdateSnapshotScheduleCommandInput,
@@ -3779,12 +3549,10 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   *
-   *          <p>Updates the type of medium changer in a tape gateway. When you activate a tape
+   * <p>Updates the type of medium changer in a tape gateway. When you activate a tape
    *          gateway, you select a medium changer type for the tape gateway. This operation enables you
    *          to select a different type of medium changer after a tape gateway is activated. This
    *          operation is only supported in the tape gateway type.</p>
-   *
    */
   public updateVTLDeviceType(
     args: UpdateVTLDeviceTypeCommandInput,

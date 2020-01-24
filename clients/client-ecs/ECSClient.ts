@@ -356,8 +356,7 @@ export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Amazon Elastic Container Service</fullname>
+ * <fullname>Amazon Elastic Container Service</fullname>
  *         <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes
  *             it easy to run, stop, and manage Docker containers on a cluster. You can host your
  *             cluster on a serverless infrastructure that is managed by Amazon ECS by launching your
@@ -372,7 +371,6 @@ export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<
  *             your resource needs, isolation policies, and availability requirements. Amazon ECS eliminates
  *             the need for you to operate your own cluster management and configuration management
  *             systems or worry about scaling your management infrastructure.</p>
- *
  */
 export class ECSClient extends __Client<
   __HttpHandlerOptions,

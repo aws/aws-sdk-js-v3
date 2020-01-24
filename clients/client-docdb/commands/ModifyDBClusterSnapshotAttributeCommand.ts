@@ -4,8 +4,8 @@ import {
   ServiceOutputTypes
 } from "../DocDBClient";
 import {
-  DBClusterSnapshotAttributesResult,
-  ModifyDBClusterSnapshotAttributeMessage
+  ModifyDBClusterSnapshotAttributeMessage,
+  ModifyDBClusterSnapshotAttributeResult
 } from "../models/index";
 import {
   deserializeAws_queryModifyDBClusterSnapshotAttributeCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBClusterSnapshotAttributeCommandInput = ModifyDBClusterSnapshotAttributeMessage;
-export type ModifyDBClusterSnapshotAttributeCommandOutput = DBClusterSnapshotAttributesResult;
+export type ModifyDBClusterSnapshotAttributeCommandOutput = ModifyDBClusterSnapshotAttributeResult;
 
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
   ModifyDBClusterSnapshotAttributeCommandInput,

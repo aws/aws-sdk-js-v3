@@ -1,7 +1,15 @@
 import {
+  CancelDataRepositoryTaskCommandInput,
+  CancelDataRepositoryTaskCommandOutput
+} from "../commands/CancelDataRepositoryTaskCommand";
+import {
   CreateBackupCommandInput,
   CreateBackupCommandOutput
 } from "../commands/CreateBackupCommand";
+import {
+  CreateDataRepositoryTaskCommandInput,
+  CreateDataRepositoryTaskCommandOutput
+} from "../commands/CreateDataRepositoryTaskCommand";
 import {
   CreateFileSystemCommandInput,
   CreateFileSystemCommandOutput
@@ -22,6 +30,10 @@ import {
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput
 } from "../commands/DescribeBackupsCommand";
+import {
+  DescribeDataRepositoryTasksCommandInput,
+  DescribeDataRepositoryTasksCommandOutput
+} from "../commands/DescribeDataRepositoryTasksCommand";
 import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput
@@ -51,8 +63,13 @@ import {
   BackupNotFound,
   BackupRestoring,
   BadRequest,
+  CancelDataRepositoryTaskRequest,
+  CancelDataRepositoryTaskResponse,
+  CompletionReport,
   CreateBackupRequest,
   CreateBackupResponse,
+  CreateDataRepositoryTaskRequest,
+  CreateDataRepositoryTaskResponse,
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupResponse,
   CreateFileSystemLustreConfiguration,
@@ -60,6 +77,13 @@ import {
   CreateFileSystemResponse,
   CreateFileSystemWindowsConfiguration,
   DataRepositoryConfiguration,
+  DataRepositoryTask,
+  DataRepositoryTaskEnded,
+  DataRepositoryTaskExecuting,
+  DataRepositoryTaskFailureDetails,
+  DataRepositoryTaskFilter,
+  DataRepositoryTaskNotFound,
+  DataRepositoryTaskStatus,
   DeleteBackupRequest,
   DeleteBackupResponse,
   DeleteFileSystemRequest,
@@ -68,6 +92,8 @@ import {
   DeleteFileSystemWindowsResponse,
   DescribeBackupsRequest,
   DescribeBackupsResponse,
+  DescribeDataRepositoryTasksRequest,
+  DescribeDataRepositoryTasksResponse,
   DescribeFileSystemsRequest,
   DescribeFileSystemsResponse,
   FileSystem,
@@ -115,6 +141,28 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
+export async function serializeAws_json1_1CancelDataRepositoryTaskCommand(
+  input: CancelDataRepositoryTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1CancelDataRepositoryTaskRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CancelDataRepositoryTask",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1CreateBackupCommand(
   input: CreateBackupCommandInput,
   context: __SerdeContext
@@ -131,6 +179,28 @@ export async function serializeAws_json1_1CreateBackupCommand(
     protocol: "https",
     method: "POST",
     path: "/CreateBackup",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CreateDataRepositoryTaskCommand(
+  input: CreateDataRepositoryTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDataRepositoryTaskRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CreateDataRepositoryTask",
     headers: headers,
     body: body
   });
@@ -242,6 +312,28 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
   });
 }
 
+export async function serializeAws_json1_1DescribeDataRepositoryTasksCommand(
+  input: DescribeDataRepositoryTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDataRepositoryTasksRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeDataRepositoryTasks",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1DescribeFileSystemsCommand(
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
@@ -345,6 +437,94 @@ export async function serializeAws_json1_1UpdateFileSystemCommand(
   });
 }
 
+export async function deserializeAws_json1_1CancelDataRepositoryTaskCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelDataRepositoryTaskCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CancelDataRepositoryTaskCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CancelDataRepositoryTaskResponse(
+    data,
+    context
+  );
+  const response: CancelDataRepositoryTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CancelDataRepositoryTaskResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CancelDataRepositoryTaskCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelDataRepositoryTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.simba.api.v20180301#BadRequest":
+      response = await deserializeAws_json1_1BadRequestResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "DataRepositoryTaskEnded":
+    case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskEnded":
+      response = await deserializeAws_json1_1DataRepositoryTaskEndedResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "DataRepositoryTaskNotFound":
+    case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound":
+      response = await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.simba.api.v20180301#InternalServerError":
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
+      response = await deserializeAws_json1_1UnsupportedOperationResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1CreateBackupCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -387,6 +567,108 @@ async function deserializeAws_json1_1CreateBackupCommandError(
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = await deserializeAws_json1_1BadRequestResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
+      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "IncompatibleParameterError":
+    case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
+      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.simba.api.v20180301#InternalServerError":
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
+      response = await deserializeAws_json1_1ServiceLimitExceededResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
+      response = await deserializeAws_json1_1UnsupportedOperationResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1CreateDataRepositoryTaskCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataRepositoryTaskCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateDataRepositoryTaskCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateDataRepositoryTaskResponse(
+    data,
+    context
+  );
+  const response: CreateDataRepositoryTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateDataRepositoryTaskResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CreateDataRepositoryTaskCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataRepositoryTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.simba.api.v20180301#BadRequest":
+      response = await deserializeAws_json1_1BadRequestResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "DataRepositoryTaskExecuting":
+    case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskExecuting":
+      response = await deserializeAws_json1_1DataRepositoryTaskExecutingResponse(
         parsedOutput,
         context
       );
@@ -873,6 +1155,87 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = await deserializeAws_json1_1BadRequestResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
+      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.simba.api.v20180301#InternalServerError":
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1DescribeDataRepositoryTasksCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataRepositoryTasksCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeDataRepositoryTasksCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeDataRepositoryTasksResponse(
+    data,
+    context
+  );
+  const response: DescribeDataRepositoryTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeDataRepositoryTasksResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeDataRepositoryTasksCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataRepositoryTasksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.simba.api.v20180301#BadRequest":
+      response = await deserializeAws_json1_1BadRequestResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "DataRepositoryTaskNotFound":
+    case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound":
+      response = await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
         parsedOutput,
         context
       );
@@ -1404,6 +1767,63 @@ const deserializeAws_json1_1BadRequestResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1DataRepositoryTaskEndedResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DataRepositoryTaskEnded> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskEnded(
+    body,
+    context
+  );
+  const contents: DataRepositoryTaskEnded = {
+    name: "DataRepositoryTaskEnded",
+    __type: "DataRepositoryTaskEnded",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTaskExecutingResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DataRepositoryTaskExecuting> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskExecuting(
+    body,
+    context
+  );
+  const contents: DataRepositoryTaskExecuting = {
+    name: "DataRepositoryTaskExecuting",
+    __type: "DataRepositoryTaskExecuting",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTaskNotFoundResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DataRepositoryTaskNotFound> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskNotFound(
+    body,
+    context
+  );
+  const contents: DataRepositoryTaskNotFound = {
+    name: "DataRepositoryTaskNotFound",
+    __type: "DataRepositoryTaskNotFound",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1FileSystemNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1639,6 +2059,37 @@ const serializeAws_json1_1BackupIds = (
   return (input || []).map(entry => entry);
 };
 
+const serializeAws_json1_1CancelDataRepositoryTaskRequest = (
+  input: CancelDataRepositoryTaskRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.TaskId !== undefined) {
+    bodyParams["TaskId"] = input.TaskId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CompletionReport = (
+  input: CompletionReport,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Enabled !== undefined) {
+    bodyParams["Enabled"] = input.Enabled;
+  }
+  if (input.Format !== undefined) {
+    bodyParams["Format"] = input.Format;
+  }
+  if (input.Path !== undefined) {
+    bodyParams["Path"] = input.Path;
+  }
+  if (input.Scope !== undefined) {
+    bodyParams["Scope"] = input.Scope;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1CreateBackupRequest = (
   input: CreateBackupRequest,
   context: __SerdeContext
@@ -1652,6 +2103,38 @@ const serializeAws_json1_1CreateBackupRequest = (
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CreateDataRepositoryTaskRequest = (
+  input: CreateDataRepositoryTaskRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ClientRequestToken !== undefined) {
+    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
+  }
+  if (input.FileSystemId !== undefined) {
+    bodyParams["FileSystemId"] = input.FileSystemId;
+  }
+  if (input.Paths !== undefined) {
+    bodyParams["Paths"] = serializeAws_json1_1DataRepositoryTaskPaths(
+      input.Paths,
+      context
+    );
+  }
+  if (input.Report !== undefined) {
+    bodyParams["Report"] = serializeAws_json1_1CompletionReport(
+      input.Report,
+      context
+    );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
+  }
+  if (input.Type !== undefined) {
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
 };
@@ -1806,6 +2289,46 @@ const serializeAws_json1_1CreateFileSystemWindowsConfiguration = (
   return bodyParams;
 };
 
+const serializeAws_json1_1DataRepositoryTaskFilter = (
+  input: DataRepositoryTaskFilter,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Name !== undefined) {
+    bodyParams["Name"] = input.Name;
+  }
+  if (input.Values !== undefined) {
+    bodyParams["Values"] = serializeAws_json1_1DataRepositoryTaskFilterValues(
+      input.Values,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DataRepositoryTaskFilterValues = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1DataRepositoryTaskFilters = (
+  input: Array<DataRepositoryTaskFilter>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1DataRepositoryTaskFilter(entry, context)
+  );
+};
+
+const serializeAws_json1_1DataRepositoryTaskPaths = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
 const serializeAws_json1_1DeleteBackupRequest = (
   input: DeleteBackupRequest,
   context: __SerdeContext
@@ -1878,6 +2401,29 @@ const serializeAws_json1_1DescribeBackupsRequest = (
   }
   if (input.NextToken !== undefined) {
     bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeDataRepositoryTasksRequest = (
+  input: DescribeDataRepositoryTasksRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Filters !== undefined) {
+    bodyParams["Filters"] = serializeAws_json1_1DataRepositoryTaskFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.TaskIds !== undefined) {
+    bodyParams["TaskIds"] = serializeAws_json1_1TaskIds(input.TaskIds, context);
   }
   return bodyParams;
 };
@@ -2060,6 +2606,13 @@ const serializeAws_json1_1Tags = (
   context: __SerdeContext
 ): any => {
   return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1TaskIds = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -2334,6 +2887,50 @@ const deserializeAws_json1_1BadRequest = (
   return contents;
 };
 
+const deserializeAws_json1_1CancelDataRepositoryTaskResponse = (
+  output: any,
+  context: __SerdeContext
+): CancelDataRepositoryTaskResponse => {
+  let contents: any = {
+    __type: "CancelDataRepositoryTaskResponse",
+    Lifecycle: undefined,
+    TaskId: undefined
+  };
+  if (output.Lifecycle !== undefined) {
+    contents.Lifecycle = output.Lifecycle;
+  }
+  if (output.TaskId !== undefined) {
+    contents.TaskId = output.TaskId;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CompletionReport = (
+  output: any,
+  context: __SerdeContext
+): CompletionReport => {
+  let contents: any = {
+    __type: "CompletionReport",
+    Enabled: undefined,
+    Format: undefined,
+    Path: undefined,
+    Scope: undefined
+  };
+  if (output.Enabled !== undefined) {
+    contents.Enabled = output.Enabled;
+  }
+  if (output.Format !== undefined) {
+    contents.Format = output.Format;
+  }
+  if (output.Path !== undefined) {
+    contents.Path = output.Path;
+  }
+  if (output.Scope !== undefined) {
+    contents.Scope = output.Scope;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1CreateBackupResponse = (
   output: any,
   context: __SerdeContext
@@ -2344,6 +2941,23 @@ const deserializeAws_json1_1CreateBackupResponse = (
   };
   if (output.Backup !== undefined) {
     contents.Backup = deserializeAws_json1_1Backup(output.Backup, context);
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CreateDataRepositoryTaskResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateDataRepositoryTaskResponse => {
+  let contents: any = {
+    __type: "CreateDataRepositoryTaskResponse",
+    DataRepositoryTask: undefined
+  };
+  if (output.DataRepositoryTask !== undefined) {
+    contents.DataRepositoryTask = deserializeAws_json1_1DataRepositoryTask(
+      output.DataRepositoryTask,
+      context
+    );
   }
   return contents;
 };
@@ -2402,6 +3016,194 @@ const deserializeAws_json1_1DataRepositoryConfiguration = (
     contents.ImportedFileChunkSize = output.ImportedFileChunkSize;
   }
   return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTask = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryTask => {
+  let contents: any = {
+    __type: "DataRepositoryTask",
+    CreationTime: undefined,
+    EndTime: undefined,
+    FailureDetails: undefined,
+    FileSystemId: undefined,
+    Lifecycle: undefined,
+    Paths: undefined,
+    Report: undefined,
+    ResourceARN: undefined,
+    StartTime: undefined,
+    Status: undefined,
+    Tags: undefined,
+    TaskId: undefined,
+    Type: undefined
+  };
+  if (output.CreationTime !== undefined) {
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
+  }
+  if (output.EndTime !== undefined) {
+    contents.EndTime = new Date(
+      output.EndTime % 1 != 0
+        ? Math.round(output.EndTime * 1000)
+        : output.EndTime
+    );
+  }
+  if (output.FailureDetails !== undefined) {
+    contents.FailureDetails = deserializeAws_json1_1DataRepositoryTaskFailureDetails(
+      output.FailureDetails,
+      context
+    );
+  }
+  if (output.FileSystemId !== undefined) {
+    contents.FileSystemId = output.FileSystemId;
+  }
+  if (output.Lifecycle !== undefined) {
+    contents.Lifecycle = output.Lifecycle;
+  }
+  if (output.Paths !== undefined) {
+    contents.Paths = deserializeAws_json1_1DataRepositoryTaskPaths(
+      output.Paths,
+      context
+    );
+  }
+  if (output.Report !== undefined) {
+    contents.Report = deserializeAws_json1_1CompletionReport(
+      output.Report,
+      context
+    );
+  }
+  if (output.ResourceARN !== undefined) {
+    contents.ResourceARN = output.ResourceARN;
+  }
+  if (output.StartTime !== undefined) {
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
+    );
+  }
+  if (output.Status !== undefined) {
+    contents.Status = deserializeAws_json1_1DataRepositoryTaskStatus(
+      output.Status,
+      context
+    );
+  }
+  if (output.Tags !== undefined) {
+    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
+  }
+  if (output.TaskId !== undefined) {
+    contents.TaskId = output.TaskId;
+  }
+  if (output.Type !== undefined) {
+    contents.Type = output.Type;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTaskEnded = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryTaskEnded => {
+  let contents: any = {
+    __type: "DataRepositoryTaskEnded",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTaskExecuting = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryTaskExecuting => {
+  let contents: any = {
+    __type: "DataRepositoryTaskExecuting",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTaskFailureDetails = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryTaskFailureDetails => {
+  let contents: any = {
+    __type: "DataRepositoryTaskFailureDetails",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTaskNotFound = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryTaskNotFound => {
+  let contents: any = {
+    __type: "DataRepositoryTaskNotFound",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTaskPaths = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1DataRepositoryTaskStatus = (
+  output: any,
+  context: __SerdeContext
+): DataRepositoryTaskStatus => {
+  let contents: any = {
+    __type: "DataRepositoryTaskStatus",
+    FailedCount: undefined,
+    LastUpdatedTime: undefined,
+    SucceededCount: undefined,
+    TotalCount: undefined
+  };
+  if (output.FailedCount !== undefined) {
+    contents.FailedCount = output.FailedCount;
+  }
+  if (output.LastUpdatedTime !== undefined) {
+    contents.LastUpdatedTime = new Date(
+      output.LastUpdatedTime % 1 != 0
+        ? Math.round(output.LastUpdatedTime * 1000)
+        : output.LastUpdatedTime
+    );
+  }
+  if (output.SucceededCount !== undefined) {
+    contents.SucceededCount = output.SucceededCount;
+  }
+  if (output.TotalCount !== undefined) {
+    contents.TotalCount = output.TotalCount;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DataRepositoryTasks = (
+  output: any,
+  context: __SerdeContext
+): Array<DataRepositoryTask> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DataRepositoryTask(entry, context)
+  );
 };
 
 const deserializeAws_json1_1DeleteBackupResponse = (
@@ -2479,6 +3281,27 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
   };
   if (output.Backups !== undefined) {
     contents.Backups = deserializeAws_json1_1Backups(output.Backups, context);
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeDataRepositoryTasksResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDataRepositoryTasksResponse => {
+  let contents: any = {
+    __type: "DescribeDataRepositoryTasksResponse",
+    DataRepositoryTasks: undefined,
+    NextToken: undefined
+  };
+  if (output.DataRepositoryTasks !== undefined) {
+    contents.DataRepositoryTasks = deserializeAws_json1_1DataRepositoryTasks(
+      output.DataRepositoryTasks,
+      context
+    );
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { CreateDBSecurityGroupMessage, DBSecurityGroup } from "../models/index";
+import {
+  CreateDBSecurityGroupMessage,
+  CreateDBSecurityGroupResult
+} from "../models/index";
 import {
   deserializeAws_queryCreateDBSecurityGroupCommand,
   serializeAws_queryCreateDBSecurityGroupCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBSecurityGroupCommandInput = CreateDBSecurityGroupMessage;
-export type CreateDBSecurityGroupCommandOutput = DBSecurityGroup;
+export type CreateDBSecurityGroupCommandOutput = CreateDBSecurityGroupResult;
 
 export class CreateDBSecurityGroupCommand extends $Command<
   CreateDBSecurityGroupCommandInput,

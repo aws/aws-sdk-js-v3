@@ -4,33 +4,25 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AddPermissionInput {
   __type?: "AddPermissionInput";
   /**
-   *
-   *         <p>The AWS account IDs of the users (principals) who will be given access to the
+   * <p>The AWS account IDs of the users (principals) who will be given access to the
    *             specified actions. The users must have AWS accounts, but do not need to be signed up for
    *             this service.</p>
-   *
    */
   AWSAccountId: Array<string> | undefined;
 
   /**
-   *
-   *         <p>The action you want to allow for the specified principal(s).</p>
+   * <p>The action you want to allow for the specified principal(s).</p>
    *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
-   *
    */
   ActionName: Array<string> | undefined;
 
   /**
-   *
-   *         <p>A unique identifier for the new policy statement.</p>
-   *
+   * <p>A unique identifier for the new policy statement.</p>
    */
   Label: string | undefined;
 
   /**
-   *
-   *         <p>The ARN of the topic whose access control policy you wish to modify.</p>
-   *
+   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
 }
@@ -42,9 +34,7 @@ export namespace AddPermissionInput {
 }
 
 /**
- *
- *         <p>Indicates that the user has been denied access to the requested resource.</p>
- *
+ * <p>Indicates that the user has been denied access to the requested resource.</p>
  */
 export interface AuthorizationErrorException
   extends _smithy.SmithyException,
@@ -62,16 +52,12 @@ export namespace AuthorizationErrorException {
 }
 
 /**
- *
- *         <p>The input for the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
- *
+ * <p>The input for the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
  */
 export interface CheckIfPhoneNumberIsOptedOutInput {
   __type?: "CheckIfPhoneNumberIsOptedOutInput";
   /**
-   *
-   *         <p>The phone number for which you want to check the opt out status.</p>
-   *
+   * <p>The phone number for which you want to check the opt out status.</p>
    */
   phoneNumber: string | undefined;
 }
@@ -83,15 +69,12 @@ export namespace CheckIfPhoneNumberIsOptedOutInput {
 }
 
 /**
- *
- *         <p>The response from the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
- *
+ * <p>The response from the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
  */
 export interface CheckIfPhoneNumberIsOptedOutResponse extends $MetadataBearer {
   __type?: "CheckIfPhoneNumberIsOptedOutResponse";
   /**
-   *
-   *         <p>Indicates whether the phone number is opted out:</p>
+   * <p>Indicates whether the phone number is opted out:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -104,7 +87,6 @@ export interface CheckIfPhoneNumberIsOptedOutResponse extends $MetadataBearer {
    *                     messages to it.</p>
    *             </li>
    *          </ul>
-   *
    */
   isOptedOut?: boolean;
 }
@@ -116,10 +98,8 @@ export namespace CheckIfPhoneNumberIsOptedOutResponse {
 }
 
 /**
- *
- *         <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
+ * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
  *             sequentially.</p>
- *
  */
 export interface ConcurrentAccessException
   extends _smithy.SmithyException,
@@ -137,33 +117,25 @@ export namespace ConcurrentAccessException {
 }
 
 /**
- *
- *         <p>Input for ConfirmSubscription action.</p>
- *
+ * <p>Input for ConfirmSubscription action.</p>
  */
 export interface ConfirmSubscriptionInput {
   __type?: "ConfirmSubscriptionInput";
   /**
-   *
-   *         <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
+   * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
    *             parameter is <code>true</code> and the request has an AWS signature, then only the topic
    *             owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action
    *             requires AWS authentication. </p>
-   *
    */
   AuthenticateOnUnsubscribe?: string;
 
   /**
-   *
-   *         <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
-   *
+   * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
    */
   Token: string | undefined;
 
   /**
-   *
-   *         <p>The ARN of the topic for which you wish to confirm a subscription.</p>
-   *
+   * <p>The ARN of the topic for which you wish to confirm a subscription.</p>
    */
   TopicArn: string | undefined;
 }
@@ -175,16 +147,12 @@ export namespace ConfirmSubscriptionInput {
 }
 
 /**
- *
- *         <p>Response for ConfirmSubscriptions action.</p>
- *
+ * <p>Response for ConfirmSubscriptions action.</p>
  */
 export interface ConfirmSubscriptionResponse extends $MetadataBearer {
   __type?: "ConfirmSubscriptionResponse";
   /**
-   *
-   *         <p>The ARN of the created subscription.</p>
-   *
+   * <p>The ARN of the created subscription.</p>
    */
   SubscriptionArn?: string;
 }
@@ -196,16 +164,12 @@ export namespace ConfirmSubscriptionResponse {
 }
 
 /**
- *
- *         <p>Response from CreateEndpoint action.</p>
- *
+ * <p>Response from CreateEndpoint action.</p>
  */
 export interface CreateEndpointResponse extends $MetadataBearer {
   __type?: "CreateEndpointResponse";
   /**
-   *
-   *         <p>EndpointArn returned from CreateEndpoint action.</p>
-   *
+   * <p>EndpointArn returned from CreateEndpoint action.</p>
    */
   EndpointArn?: string;
 }
@@ -217,34 +181,26 @@ export namespace CreateEndpointResponse {
 }
 
 /**
- *
- *         <p>Input for CreatePlatformApplication action.</p>
- *
+ * <p>Input for CreatePlatformApplication action.</p>
  */
 export interface CreatePlatformApplicationInput {
   __type?: "CreatePlatformApplicationInput";
   /**
-   *
-   *         <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>
    *         </p>
-   *
    */
   Attributes: { [key: string]: string } | undefined;
 
   /**
-   *
-   *         <p>Application names must be made up of only uppercase and lowercase ASCII letters,
+   * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
    *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
    *             long.</p>
-   *
    */
   Name: string | undefined;
 
   /**
-   *
-   *         <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
+   * <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
    *             Notification Service), APNS_SANDBOX, and FCM (Firebase Cloud Messaging).</p>
-   *
    */
   Platform: string | undefined;
 }
@@ -256,16 +212,12 @@ export namespace CreatePlatformApplicationInput {
 }
 
 /**
- *
- *         <p>Response from CreatePlatformApplication action.</p>
- *
+ * <p>Response from CreatePlatformApplication action.</p>
  */
 export interface CreatePlatformApplicationResponse extends $MetadataBearer {
   __type?: "CreatePlatformApplicationResponse";
   /**
-   *
-   *         <p>PlatformApplicationArn is returned.</p>
-   *
+   * <p>PlatformApplicationArn is returned.</p>
    */
   PlatformApplicationArn?: string;
 }
@@ -277,43 +229,33 @@ export namespace CreatePlatformApplicationResponse {
 }
 
 /**
- *
- *         <p>Input for CreatePlatformEndpoint action.</p>
- *
+ * <p>Input for CreatePlatformEndpoint action.</p>
  */
 export interface CreatePlatformEndpointInput {
   __type?: "CreatePlatformEndpointInput";
   /**
-   *
-   *         <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
-   *
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
+   * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
    *             data must be in UTF-8 format and less than 2KB.</p>
-   *
    */
   CustomUserData?: string;
 
   /**
-   *
-   *         <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
+   * <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
    *             endpoint.</p>
-   *
    */
   PlatformApplicationArn: string | undefined;
 
   /**
-   *
-   *         <p>Unique identifier created by the notification service for an app on a device. The
+   * <p>Unique identifier created by the notification service for an app on a device. The
    *             specific name for Token will vary, depending on which notification service is being
    *             used. For example, when using APNS as the notification service, you need the device
    *             token. Alternatively, when using FCM or ADM, the device token equivalent is called the
    *             registration ID.</p>
-   *
    */
   Token: string | undefined;
 }
@@ -325,15 +267,12 @@ export namespace CreatePlatformEndpointInput {
 }
 
 /**
- *
- *         <p>Input for CreateTopic action.</p>
- *
+ * <p>Input for CreateTopic action.</p>
  */
 export interface CreateTopicInput {
   __type?: "CreateTopicInput";
   /**
-   *
-   *         <p>A map of attributes with their corresponding values.</p>
+   * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>CreateTopic</code> action uses:</p>
    *         <ul>
@@ -365,28 +304,22 @@ export interface CreateTopicInput {
    *                         Reference</i>. </p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   Attributes?: { [key: string]: string };
 
   /**
-   *
-   *         <p>The name of the topic you want to create.</p>
+   * <p>The name of the topic you want to create.</p>
    *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
    *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
    *             long.</p>
-   *
    */
   Name: string | undefined;
 
   /**
-   *
-   *         <p>The list of tags to add to a new topic.</p>
+   * <p>The list of tags to add to a new topic.</p>
    *         <note>
    *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
    *         </note>
-   *
    */
   Tags?: Array<Tag>;
 }
@@ -398,16 +331,12 @@ export namespace CreateTopicInput {
 }
 
 /**
- *
- *         <p>Response from CreateTopic action.</p>
- *
+ * <p>Response from CreateTopic action.</p>
  */
 export interface CreateTopicResponse extends $MetadataBearer {
   __type?: "CreateTopicResponse";
   /**
-   *
-   *         <p>The Amazon Resource Name (ARN) assigned to the created topic.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) assigned to the created topic.</p>
    */
   TopicArn?: string;
 }
@@ -419,16 +348,12 @@ export namespace CreateTopicResponse {
 }
 
 /**
- *
- *         <p>Input for DeleteEndpoint action.</p>
- *
+ * <p>Input for DeleteEndpoint action.</p>
  */
 export interface DeleteEndpointInput {
   __type?: "DeleteEndpointInput";
   /**
-   *
-   *         <p>EndpointArn of endpoint to delete.</p>
-   *
+   * <p>EndpointArn of endpoint to delete.</p>
    */
   EndpointArn: string | undefined;
 }
@@ -440,16 +365,12 @@ export namespace DeleteEndpointInput {
 }
 
 /**
- *
- *         <p>Input for DeletePlatformApplication action.</p>
- *
+ * <p>Input for DeletePlatformApplication action.</p>
  */
 export interface DeletePlatformApplicationInput {
   __type?: "DeletePlatformApplicationInput";
   /**
-   *
-   *         <p>PlatformApplicationArn of platform application object to delete.</p>
-   *
+   * <p>PlatformApplicationArn of platform application object to delete.</p>
    */
   PlatformApplicationArn: string | undefined;
 }
@@ -463,10 +384,7 @@ export namespace DeletePlatformApplicationInput {
 export interface DeleteTopicInput {
   __type?: "DeleteTopicInput";
   /**
-   *
-   *         <p>The ARN of the topic you want to delete.</p>
-   *
-   *
+   * <p>The ARN of the topic you want to delete.</p>
    */
   TopicArn: string | undefined;
 }
@@ -478,23 +396,17 @@ export namespace DeleteTopicInput {
 }
 
 /**
- *
- *         <p>Endpoint for mobile app and device.</p>
- *
+ * <p>Endpoint for mobile app and device.</p>
  */
 export interface Endpoint {
   __type?: "Endpoint";
   /**
-   *
-   *         <p>Attributes for endpoint.</p>
-   *
+   * <p>Attributes for endpoint.</p>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   *
-   *         <p>EndpointArn for mobile app and device.</p>
-   *
+   * <p>EndpointArn for mobile app and device.</p>
    */
   EndpointArn?: string;
 }
@@ -506,9 +418,7 @@ export namespace Endpoint {
 }
 
 /**
- *
- *         <p>Exception error indicating endpoint disabled.</p>
- *
+ * <p>Exception error indicating endpoint disabled.</p>
  */
 export interface EndpointDisabledException
   extends _smithy.SmithyException,
@@ -517,9 +427,7 @@ export interface EndpointDisabledException
   name: "EndpointDisabledException";
   $fault: "client";
   /**
-   *
-   *         <p>Message for endpoint disabled.</p>
-   *
+   * <p>Message for endpoint disabled.</p>
    */
   message?: string;
 }
@@ -531,11 +439,9 @@ export namespace EndpointDisabledException {
 }
 
 /**
- *
- *         <p>Indicates that the number of filter polices in your AWS account exceeds the limit. To
+ * <p>Indicates that the number of filter polices in your AWS account exceeds the limit. To
  *             add more filter polices, submit an SNS Limit Increase case in the AWS Support
  *             Center.</p>
- *
  */
 export interface FilterPolicyLimitExceededException
   extends _smithy.SmithyException,
@@ -553,16 +459,12 @@ export namespace FilterPolicyLimitExceededException {
 }
 
 /**
- *
- *         <p>Input for GetEndpointAttributes action.</p>
- *
+ * <p>Input for GetEndpointAttributes action.</p>
  */
 export interface GetEndpointAttributesInput {
   __type?: "GetEndpointAttributesInput";
   /**
-   *
-   *         <p>EndpointArn for GetEndpointAttributes input.</p>
-   *
+   * <p>EndpointArn for GetEndpointAttributes input.</p>
    */
   EndpointArn: string | undefined;
 }
@@ -574,15 +476,12 @@ export namespace GetEndpointAttributesInput {
 }
 
 /**
- *
- *         <p>Response from GetEndpointAttributes of the EndpointArn.</p>
- *
+ * <p>Response from GetEndpointAttributes of the EndpointArn.</p>
  */
 export interface GetEndpointAttributesResponse extends $MetadataBearer {
   __type?: "GetEndpointAttributesResponse";
   /**
-   *
-   *         <p>Attributes include the following:</p>
+   * <p>Attributes include the following:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -608,7 +507,6 @@ export interface GetEndpointAttributesResponse extends $MetadataBearer {
    *                     </note>
    *             </li>
    *          </ul>
-   *
    */
   Attributes?: { [key: string]: string };
 }
@@ -620,16 +518,12 @@ export namespace GetEndpointAttributesResponse {
 }
 
 /**
- *
- *         <p>Input for GetPlatformApplicationAttributes action.</p>
- *
+ * <p>Input for GetPlatformApplicationAttributes action.</p>
  */
 export interface GetPlatformApplicationAttributesInput {
   __type?: "GetPlatformApplicationAttributesInput";
   /**
-   *
-   *         <p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>
-   *
+   * <p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>
    */
   PlatformApplicationArn: string | undefined;
 }
@@ -641,16 +535,13 @@ export namespace GetPlatformApplicationAttributesInput {
 }
 
 /**
- *
- *         <p>Response for GetPlatformApplicationAttributes action.</p>
- *
+ * <p>Response for GetPlatformApplicationAttributes action.</p>
  */
 export interface GetPlatformApplicationAttributesResponse
   extends $MetadataBearer {
   __type?: "GetPlatformApplicationAttributesResponse";
   /**
-   *
-   *         <p>Attributes include the following:</p>
+   * <p>Attributes include the following:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -674,7 +565,6 @@ export interface GetPlatformApplicationAttributesResponse
    *                     (permanent) to one of the application's endpoints.</p>
    *             </li>
    *          </ul>
-   *
    */
   Attributes?: { [key: string]: string };
 }
@@ -686,19 +576,15 @@ export namespace GetPlatformApplicationAttributesResponse {
 }
 
 /**
- *
- *         <p>The input for the <code>GetSMSAttributes</code> request.</p>
- *
+ * <p>The input for the <code>GetSMSAttributes</code> request.</p>
  */
 export interface GetSMSAttributesInput {
   __type?: "GetSMSAttributesInput";
   /**
-   *
-   *         <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for
+   * <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for
    *             which you want values.</p>
    *         <p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p>
    *         <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
-   *
    */
   attributes?: Array<string>;
 }
@@ -710,16 +596,12 @@ export namespace GetSMSAttributesInput {
 }
 
 /**
- *
- *         <p>The response from the <code>GetSMSAttributes</code> request.</p>
- *
+ * <p>The response from the <code>GetSMSAttributes</code> request.</p>
  */
 export interface GetSMSAttributesResponse extends $MetadataBearer {
   __type?: "GetSMSAttributesResponse";
   /**
-   *
-   *         <p>The SMS attribute names and their values.</p>
-   *
+   * <p>The SMS attribute names and their values.</p>
    */
   attributes?: { [key: string]: string };
 }
@@ -731,16 +613,12 @@ export namespace GetSMSAttributesResponse {
 }
 
 /**
- *
- *         <p>Input for GetSubscriptionAttributes.</p>
- *
+ * <p>Input for GetSubscriptionAttributes.</p>
  */
 export interface GetSubscriptionAttributesInput {
   __type?: "GetSubscriptionAttributesInput";
   /**
-   *
-   *         <p>The ARN of the subscription whose properties you want to get.</p>
-   *
+   * <p>The ARN of the subscription whose properties you want to get.</p>
    */
   SubscriptionArn: string | undefined;
 }
@@ -752,15 +630,12 @@ export namespace GetSubscriptionAttributesInput {
 }
 
 /**
- *
- *         <p>Response for GetSubscriptionAttributes action.</p>
- *
+ * <p>Response for GetSubscriptionAttributes action.</p>
  */
 export interface GetSubscriptionAttributesResponse extends $MetadataBearer {
   __type?: "GetSubscriptionAttributesResponse";
   /**
-   *
-   *         <p>A map of the subscription's attributes. Attributes in this map include the
+   * <p>A map of the subscription's attributes. Attributes in this map include the
    *             following:</p>
    *         <ul>
    *             <li>
@@ -818,7 +693,6 @@ export interface GetSubscriptionAttributesResponse extends $MetadataBearer {
    *                     with.</p>
    *             </li>
    *          </ul>
-   *
    */
   Attributes?: { [key: string]: string };
 }
@@ -830,16 +704,12 @@ export namespace GetSubscriptionAttributesResponse {
 }
 
 /**
- *
- *         <p>Input for GetTopicAttributes action.</p>
- *
+ * <p>Input for GetTopicAttributes action.</p>
  */
 export interface GetTopicAttributesInput {
   __type?: "GetTopicAttributesInput";
   /**
-   *
-   *         <p>The ARN of the topic whose properties you want to get.</p>
-   *
+   * <p>The ARN of the topic whose properties you want to get.</p>
    */
   TopicArn: string | undefined;
 }
@@ -851,15 +721,12 @@ export namespace GetTopicAttributesInput {
 }
 
 /**
- *
- *         <p>Response for GetTopicAttributes action.</p>
- *
+ * <p>Response for GetTopicAttributes action.</p>
  */
 export interface GetTopicAttributesResponse extends $MetadataBearer {
   __type?: "GetTopicAttributesResponse";
   /**
-   *
-   *         <p>A map of the topic's attributes. Attributes in this map include the following:</p>
+   * <p>A map of the topic's attributes. Attributes in this map include the following:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -916,8 +783,6 @@ export interface GetTopicAttributesResponse extends $MetadataBearer {
    *                     For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>.</p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   Attributes?: { [key: string]: string };
 }
@@ -929,9 +794,7 @@ export namespace GetTopicAttributesResponse {
 }
 
 /**
- *
- *         <p>Indicates an internal service error.</p>
- *
+ * <p>Indicates an internal service error.</p>
  */
 export interface InternalErrorException
   extends _smithy.SmithyException,
@@ -949,10 +812,8 @@ export namespace InternalErrorException {
 }
 
 /**
- *
- *         <p>Indicates that a request parameter does not comply with the associated
+ * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
- *
  */
 export interface InvalidParameterException
   extends _smithy.SmithyException,
@@ -970,10 +831,8 @@ export namespace InvalidParameterException {
 }
 
 /**
- *
- *         <p>Indicates that a request parameter does not comply with the associated
+ * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
- *
  */
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
@@ -982,9 +841,7 @@ export interface InvalidParameterValueException
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
-   *
-   *         <p>The parameter value is invalid.</p>
-   *
+   * <p>The parameter value is invalid.</p>
    */
   message?: string;
 }
@@ -996,10 +853,8 @@ export namespace InvalidParameterValueException {
 }
 
 /**
- *
- *         <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
+ * <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
  *             request using Signature Version 4.</p>
- *
  */
 export interface InvalidSecurityException
   extends _smithy.SmithyException,
@@ -1017,10 +872,8 @@ export namespace InvalidSecurityException {
 }
 
 /**
- *
- *         <p>The ciphertext references a key that doesn't exist or that you don't have access
+ * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
- *
  */
 export interface KMSAccessDeniedException
   extends _smithy.SmithyException,
@@ -1038,10 +891,8 @@ export namespace KMSAccessDeniedException {
 }
 
 /**
- *
- *         <p>The request was rejected because the specified customer master key (CMK) isn't
+ * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
- *
  */
 export interface KMSDisabledException
   extends _smithy.SmithyException,
@@ -1059,12 +910,10 @@ export namespace KMSDisabledException {
 }
 
 /**
- *
- *         <p>The request was rejected because the state of the specified resource isn't valid for
+ * <p>The request was rejected because the state of the specified resource isn't valid for
  *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
  *                 Customer Master Key</a> in the <i>AWS Key Management Service Developer
  *                 Guide</i>.</p>
- *
  */
 export interface KMSInvalidStateException
   extends _smithy.SmithyException,
@@ -1082,10 +931,8 @@ export namespace KMSInvalidStateException {
 }
 
 /**
- *
- *         <p>The request was rejected because the specified entity or resource can't be
+ * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
- *
  */
 export interface KMSNotFoundException
   extends _smithy.SmithyException,
@@ -1103,9 +950,7 @@ export namespace KMSNotFoundException {
 }
 
 /**
- *
- *         <p>The AWS access key ID needs a subscription for the service.</p>
- *
+ * <p>The AWS access key ID needs a subscription for the service.</p>
  */
 export interface KMSOptInRequired
   extends _smithy.SmithyException,
@@ -1123,12 +968,10 @@ export namespace KMSOptInRequired {
 }
 
 /**
- *
- *         <p>The request was denied due to request throttling. For more information about
+ * <p>The request was denied due to request throttling. For more information about
  *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
  *             the <i>AWS Key Management Service Developer Guide.</i>
  *          </p>
- *
  */
 export interface KMSThrottlingException
   extends _smithy.SmithyException,
@@ -1146,24 +989,18 @@ export namespace KMSThrottlingException {
 }
 
 /**
- *
- *         <p>Input for ListEndpointsByPlatformApplication action.</p>
- *
+ * <p>Input for ListEndpointsByPlatformApplication action.</p>
  */
 export interface ListEndpointsByPlatformApplicationInput {
   __type?: "ListEndpointsByPlatformApplicationInput";
   /**
-   *
-   *         <p>NextToken string is used when calling ListEndpointsByPlatformApplication action to
+   * <p>NextToken string is used when calling ListEndpointsByPlatformApplication action to
    *             retrieve additional records that are available after the first page results.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
-   *
+   * <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
    */
   PlatformApplicationArn: string | undefined;
 }
@@ -1175,25 +1012,19 @@ export namespace ListEndpointsByPlatformApplicationInput {
 }
 
 /**
- *
- *         <p>Response for ListEndpointsByPlatformApplication action.</p>
- *
+ * <p>Response for ListEndpointsByPlatformApplication action.</p>
  */
 export interface ListEndpointsByPlatformApplicationResponse
   extends $MetadataBearer {
   __type?: "ListEndpointsByPlatformApplicationResponse";
   /**
-   *
-   *         <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
-   *
+   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
    */
   Endpoints?: Array<Endpoint>;
 
   /**
-   *
-   *         <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
+   * <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
    *             additional records are available after the first page results.</p>
-   *
    */
   NextToken?: string;
 }
@@ -1205,18 +1036,14 @@ export namespace ListEndpointsByPlatformApplicationResponse {
 }
 
 /**
- *
- *         <p>The input for the <code>ListPhoneNumbersOptedOut</code> action.</p>
- *
+ * <p>The input for the <code>ListPhoneNumbersOptedOut</code> action.</p>
  */
 export interface ListPhoneNumbersOptedOutInput {
   __type?: "ListPhoneNumbersOptedOutInput";
   /**
-   *
-   *         <p>A <code>NextToken</code> string is used when you call the
+   * <p>A <code>NextToken</code> string is used when you call the
    *                 <code>ListPhoneNumbersOptedOut</code> action to retrieve additional records that are
    *             available after the first page of results.</p>
-   *
    */
   nextToken?: string;
 }
@@ -1228,26 +1055,20 @@ export namespace ListPhoneNumbersOptedOutInput {
 }
 
 /**
- *
- *         <p>The response from the <code>ListPhoneNumbersOptedOut</code> action.</p>
- *
+ * <p>The response from the <code>ListPhoneNumbersOptedOut</code> action.</p>
  */
 export interface ListPhoneNumbersOptedOutResponse extends $MetadataBearer {
   __type?: "ListPhoneNumbersOptedOutResponse";
   /**
-   *
-   *         <p>A <code>NextToken</code> string is returned when you call the
+   * <p>A <code>NextToken</code> string is returned when you call the
    *                 <code>ListPhoneNumbersOptedOut</code> action if additional records are available
    *             after the first page of results.</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *         <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
+   * <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
    *             paginated, and each page can contain up to 100 phone numbers.</p>
-   *
    */
   phoneNumbers?: Array<string>;
 }
@@ -1259,17 +1080,13 @@ export namespace ListPhoneNumbersOptedOutResponse {
 }
 
 /**
- *
- *         <p>Input for ListPlatformApplications action.</p>
- *
+ * <p>Input for ListPlatformApplications action.</p>
  */
 export interface ListPlatformApplicationsInput {
   __type?: "ListPlatformApplicationsInput";
   /**
-   *
-   *         <p>NextToken string is used when calling ListPlatformApplications action to retrieve
+   * <p>NextToken string is used when calling ListPlatformApplications action to retrieve
    *             additional records that are available after the first page results.</p>
-   *
    */
   NextToken?: string;
 }
@@ -1281,24 +1098,18 @@ export namespace ListPlatformApplicationsInput {
 }
 
 /**
- *
- *         <p>Response for ListPlatformApplications action.</p>
- *
+ * <p>Response for ListPlatformApplications action.</p>
  */
 export interface ListPlatformApplicationsResponse extends $MetadataBearer {
   __type?: "ListPlatformApplicationsResponse";
   /**
-   *
-   *         <p>NextToken string is returned when calling ListPlatformApplications action if
+   * <p>NextToken string is returned when calling ListPlatformApplications action if
    *             additional records are available after the first page results.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>Platform applications returned when calling ListPlatformApplications action.</p>
-   *
+   * <p>Platform applications returned when calling ListPlatformApplications action.</p>
    */
   PlatformApplications?: Array<PlatformApplication>;
 }
@@ -1310,23 +1121,17 @@ export namespace ListPlatformApplicationsResponse {
 }
 
 /**
- *
- *         <p>Input for ListSubscriptionsByTopic action.</p>
- *
+ * <p>Input for ListSubscriptionsByTopic action.</p>
  */
 export interface ListSubscriptionsByTopicInput {
   __type?: "ListSubscriptionsByTopicInput";
   /**
-   *
-   *         <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
-   *
+   * <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The ARN of the topic for which you wish to find subscriptions.</p>
-   *
+   * <p>The ARN of the topic for which you wish to find subscriptions.</p>
    */
   TopicArn: string | undefined;
 }
@@ -1338,24 +1143,18 @@ export namespace ListSubscriptionsByTopicInput {
 }
 
 /**
- *
- *         <p>Response for ListSubscriptionsByTopic action.</p>
- *
+ * <p>Response for ListSubscriptionsByTopic action.</p>
  */
 export interface ListSubscriptionsByTopicResponse extends $MetadataBearer {
   __type?: "ListSubscriptionsByTopicResponse";
   /**
-   *
-   *         <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
+   * <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
    *             element is returned if there are more subscriptions to retrieve.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>A list of subscriptions.</p>
-   *
+   * <p>A list of subscriptions.</p>
    */
   Subscriptions?: Array<Subscription>;
 }
@@ -1367,16 +1166,12 @@ export namespace ListSubscriptionsByTopicResponse {
 }
 
 /**
- *
- *         <p>Input for ListSubscriptions action.</p>
- *
+ * <p>Input for ListSubscriptions action.</p>
  */
 export interface ListSubscriptionsInput {
   __type?: "ListSubscriptionsInput";
   /**
-   *
-   *         <p>Token returned by the previous <code>ListSubscriptions</code> request.</p>
-   *
+   * <p>Token returned by the previous <code>ListSubscriptions</code> request.</p>
    */
   NextToken?: string;
 }
@@ -1388,24 +1183,18 @@ export namespace ListSubscriptionsInput {
 }
 
 /**
- *
- *         <p>Response for ListSubscriptions action</p>
- *
+ * <p>Response for ListSubscriptions action</p>
  */
 export interface ListSubscriptionsResponse extends $MetadataBearer {
   __type?: "ListSubscriptionsResponse";
   /**
-   *
-   *         <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
+   * <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
    *             is returned if there are more subscriptions to retrieve.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>A list of subscriptions.</p>
-   *
+   * <p>A list of subscriptions.</p>
    */
   Subscriptions?: Array<Subscription>;
 }
@@ -1419,9 +1208,7 @@ export namespace ListSubscriptionsResponse {
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   *
-   *         <p>The ARN of the topic for which to list tags.</p>
-   *
+   * <p>The ARN of the topic for which to list tags.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -1435,9 +1222,7 @@ export namespace ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse extends $MetadataBearer {
   __type?: "ListTagsForResourceResponse";
   /**
-   *
-   *         <p>The tags associated with the specified topic.</p>
-   *
+   * <p>The tags associated with the specified topic.</p>
    */
   Tags?: Array<Tag>;
 }
@@ -1451,9 +1236,7 @@ export namespace ListTagsForResourceResponse {
 export interface ListTopicsInput {
   __type?: "ListTopicsInput";
   /**
-   *
-   *         <p>Token returned by the previous <code>ListTopics</code> request.</p>
-   *
+   * <p>Token returned by the previous <code>ListTopics</code> request.</p>
    */
   NextToken?: string;
 }
@@ -1465,24 +1248,18 @@ export namespace ListTopicsInput {
 }
 
 /**
- *
- *         <p>Response for ListTopics action.</p>
- *
+ * <p>Response for ListTopics action.</p>
  */
 export interface ListTopicsResponse extends $MetadataBearer {
   __type?: "ListTopicsResponse";
   /**
-   *
-   *         <p>Token to pass along to the next <code>ListTopics</code> request. This element is
+   * <p>Token to pass along to the next <code>ListTopics</code> request. This element is
    *             returned if there are additional topics to retrieve.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>A list of topic ARNs.</p>
-   *
+   * <p>A list of topic ARNs.</p>
    */
   Topics?: Array<Topic>;
 }
@@ -1494,8 +1271,7 @@ export namespace ListTopicsResponse {
 }
 
 /**
- *
- *         <p>The user-specified message attribute value. For string data types, the value attribute
+ * <p>The user-specified message attribute value. For string data types, the value attribute
  *             has the same restrictions on the content as the message body. For more information, see
  *                 <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p>
  *         <p>Name, type, and value must not be empty or null. In addition, the message body should
@@ -1503,32 +1279,25 @@ export namespace ListTopicsResponse {
  *             value, are included in the message size restriction, which is currently 256 KB (262,144
  *             bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Using Amazon SNS Message
  *             Attributes</a>.</p>
- *
  */
 export interface MessageAttributeValue {
   __type?: "MessageAttributeValue";
   /**
-   *
-   *         <p>Binary type attributes can store any binary data, for example, compressed data,
+   * <p>Binary type attributes can store any binary data, for example, compressed data,
    *             encrypted data, or images.</p>
-   *
    */
   BinaryValue?: Uint8Array;
 
   /**
-   *
-   *         <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
+   * <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
    *             Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
    *                 Attribute Data Types</a>.</p>
-   *
    */
   DataType: string | undefined;
 
   /**
-   *
-   *         <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
+   * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
    *                 Characters</a>.</p>
-   *
    */
   StringValue?: string;
 }
@@ -1540,9 +1309,7 @@ export namespace MessageAttributeValue {
 }
 
 /**
- *
- *         <p>Indicates that the requested resource does not exist.</p>
- *
+ * <p>Indicates that the requested resource does not exist.</p>
  */
 export interface NotFoundException
   extends _smithy.SmithyException,
@@ -1560,16 +1327,12 @@ export namespace NotFoundException {
 }
 
 /**
- *
- *         <p>Input for the OptInPhoneNumber action.</p>
- *
+ * <p>Input for the OptInPhoneNumber action.</p>
  */
 export interface OptInPhoneNumberInput {
   __type?: "OptInPhoneNumberInput";
   /**
-   *
-   *         <p>The phone number to opt in.</p>
-   *
+   * <p>The phone number to opt in.</p>
    */
   phoneNumber: string | undefined;
 }
@@ -1581,9 +1344,7 @@ export namespace OptInPhoneNumberInput {
 }
 
 /**
- *
- *         <p>The response for the OptInPhoneNumber action.</p>
- *
+ * <p>The response for the OptInPhoneNumber action.</p>
  */
 export interface OptInPhoneNumberResponse extends $MetadataBearer {
   __type?: "OptInPhoneNumberResponse";
@@ -1596,23 +1357,17 @@ export namespace OptInPhoneNumberResponse {
 }
 
 /**
- *
- *         <p>Platform application object.</p>
- *
+ * <p>Platform application object.</p>
  */
 export interface PlatformApplication {
   __type?: "PlatformApplication";
   /**
-   *
-   *         <p>Attributes for platform application object.</p>
-   *
+   * <p>Attributes for platform application object.</p>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   *
-   *         <p>PlatformApplicationArn for platform application object.</p>
-   *
+   * <p>PlatformApplicationArn for platform application object.</p>
    */
   PlatformApplicationArn?: string;
 }
@@ -1624,9 +1379,7 @@ export namespace PlatformApplication {
 }
 
 /**
- *
- *         <p>Exception error indicating platform application disabled.</p>
- *
+ * <p>Exception error indicating platform application disabled.</p>
  */
 export interface PlatformApplicationDisabledException
   extends _smithy.SmithyException,
@@ -1635,9 +1388,7 @@ export interface PlatformApplicationDisabledException
   name: "PlatformApplicationDisabledException";
   $fault: "client";
   /**
-   *
-   *         <p>Message for platform application disabled.</p>
-   *
+   * <p>Message for platform application disabled.</p>
    */
   message?: string;
 }
@@ -1649,15 +1400,12 @@ export namespace PlatformApplicationDisabledException {
 }
 
 /**
- *
- *         <p>Input for Publish action.</p>
- *
+ * <p>Input for Publish action.</p>
  */
 export interface PublishInput {
   __type?: "PublishInput";
   /**
-   *
-   *         <p>The message you want to send.</p>
+   * <p>The message you want to send.</p>
    *         <p>If you are publishing to a topic and you want to send the same message to all
    *             transport protocols, include the text of the message as a String value. If you want to
    *             send different messages for each transport protocol, set the value of the
@@ -1718,20 +1466,16 @@ export interface PublishInput {
    *                         <code>Publish</code> call to return an error (no partial delivery).</p>
    *             </li>
    *          </ul>
-   *
    */
   Message: string | undefined;
 
   /**
-   *
-   *         <p>Message attributes for Publish action.</p>
-   *
+   * <p>Message attributes for Publish action.</p>
    */
   MessageAttributes?: { [key: string]: MessageAttributeValue };
 
   /**
-   *
-   *         <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
+   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
    *             message for each protocol. For example, using one publish action, you can send a short
    *             message to your SMS subscribers and a longer message to your email subscribers. If you
    *             set <code>MessageStructure</code> to <code>json</code>, the value of the
@@ -1749,47 +1493,38 @@ export interface PublishInput {
    *             specific transport protocol (e.g., "http").</p>
    *         <p>Valid value: <code>json</code>
    *         </p>
-   *
    */
   MessageStructure?: string;
 
   /**
-   *
-   *         <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
+   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
    *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
    *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
    *             parameters.</p>
-   *
    */
   PhoneNumber?: string;
 
   /**
-   *
-   *         <p>Optional parameter to be used as the "Subject" line when the message is delivered to
+   * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
    *             email endpoints. This field will also be included, if present, in the standard JSON
    *             messages delivered to other endpoints.</p>
    *         <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
    *             punctuation mark; must not include line breaks or control characters; and must be less
    *             than 100 characters long.</p>
-   *
    */
   Subject?: string;
 
   /**
-   *
-   *         <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
+   * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
    *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
    *             parameters.</p>
-   *
    */
   TargetArn?: string;
 
   /**
-   *
-   *         <p>The topic you want to publish to.</p>
+   * <p>The topic you want to publish to.</p>
    *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
    *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
-   *
    */
   TopicArn?: string;
 }
@@ -1801,18 +1536,13 @@ export namespace PublishInput {
 }
 
 /**
- *
- *         <p>Response for Publish action.</p>
- *
+ * <p>Response for Publish action.</p>
  */
 export interface PublishResponse extends $MetadataBearer {
   __type?: "PublishResponse";
   /**
-   *
-   *         <p>Unique identifier assigned to the published message.</p>
+   * <p>Unique identifier assigned to the published message.</p>
    *         <p>Length Constraint: Maximum 100 characters</p>
-   *
-   *
    */
   MessageId?: string;
 }
@@ -1824,23 +1554,17 @@ export namespace PublishResponse {
 }
 
 /**
- *
- *         <p>Input for RemovePermission action.</p>
- *
+ * <p>Input for RemovePermission action.</p>
  */
 export interface RemovePermissionInput {
   __type?: "RemovePermissionInput";
   /**
-   *
-   *         <p>The unique label of the statement you want to remove.</p>
-   *
+   * <p>The unique label of the statement you want to remove.</p>
    */
   Label: string | undefined;
 
   /**
-   *
-   *         <p>The ARN of the topic whose access control policy you wish to modify.</p>
-   *
+   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
 }
@@ -1852,9 +1576,7 @@ export namespace RemovePermissionInput {
 }
 
 /**
- *
- *         <p>Can't tag resource. Verify that the topic exists.</p>
- *
+ * <p>Can't tag resource. Verify that the topic exists.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
@@ -1872,15 +1594,12 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- *
- *         <p>Input for SetEndpointAttributes action.</p>
- *
+ * <p>Input for SetEndpointAttributes action.</p>
  */
 export interface SetEndpointAttributesInput {
   __type?: "SetEndpointAttributesInput";
   /**
-   *
-   *         <p>A map of the endpoint attributes. Attributes in this map include the following:</p>
+   * <p>A map of the endpoint attributes. Attributes in this map include the following:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -1903,14 +1622,11 @@ export interface SetEndpointAttributesInput {
    *                     service.</p>
    *             </li>
    *          </ul>
-   *
    */
   Attributes: { [key: string]: string } | undefined;
 
   /**
-   *
-   *         <p>EndpointArn used for SetEndpointAttributes action.</p>
-   *
+   * <p>EndpointArn used for SetEndpointAttributes action.</p>
    */
   EndpointArn: string | undefined;
 }
@@ -1922,15 +1638,12 @@ export namespace SetEndpointAttributesInput {
 }
 
 /**
- *
- *         <p>Input for SetPlatformApplicationAttributes action.</p>
- *
+ * <p>Input for SetPlatformApplicationAttributes action.</p>
  */
 export interface SetPlatformApplicationAttributesInput {
   __type?: "SetPlatformApplicationAttributesInput";
   /**
-   *
-   *         <p>A map of the platform application attributes. Attributes in this map include the
+   * <p>A map of the platform application attributes. Attributes in this map include the
    *             following:</p>
    *         <ul>
    *             <li>
@@ -1984,14 +1697,11 @@ export interface SetPlatformApplicationAttributesInput {
    *                     of successfully delivered messages.</p>
    *             </li>
    *          </ul>
-   *
    */
   Attributes: { [key: string]: string } | undefined;
 
   /**
-   *
-   *         <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
-   *
+   * <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
    */
   PlatformApplicationArn: string | undefined;
 }
@@ -2003,15 +1713,12 @@ export namespace SetPlatformApplicationAttributesInput {
 }
 
 /**
- *
- *         <p>The input for the SetSMSAttributes action.</p>
- *
+ * <p>The input for the SetSMSAttributes action.</p>
  */
 export interface SetSMSAttributesInput {
   __type?: "SetSMSAttributesInput";
   /**
-   *
-   *         <p>The default settings for sending SMS messages from your account. You can set values
+   * <p>The default settings for sending SMS messages from your account. You can set values
    *             for the following attribute names:</p>
    *         <p>
    *             <code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend
@@ -2097,7 +1804,6 @@ export interface SetSMSAttributesInput {
    *             actions.</p>
    *         <p>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the
    *                 <i>Amazon SNS Developer Guide</i>.</p>
-   *
    */
   attributes: { [key: string]: string } | undefined;
 }
@@ -2109,9 +1815,7 @@ export namespace SetSMSAttributesInput {
 }
 
 /**
- *
- *         <p>The response for the SetSMSAttributes action.</p>
- *
+ * <p>The response for the SetSMSAttributes action.</p>
  */
 export interface SetSMSAttributesResponse extends $MetadataBearer {
   __type?: "SetSMSAttributesResponse";
@@ -2124,15 +1828,12 @@ export namespace SetSMSAttributesResponse {
 }
 
 /**
- *
- *         <p>Input for SetSubscriptionAttributes action.</p>
- *
+ * <p>Input for SetSubscriptionAttributes action.</p>
  */
 export interface SetSubscriptionAttributesInput {
   __type?: "SetSubscriptionAttributesInput";
   /**
-   *
-   *         <p>A map of attributes with their corresponding values.</p>
+   * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
    *         <ul>
@@ -2162,21 +1863,16 @@ export interface SetSubscriptionAttributesInput {
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
    *          </ul>
-   *
    */
   AttributeName: string | undefined;
 
   /**
-   *
-   *         <p>The new value for the attribute in JSON format.</p>
-   *
+   * <p>The new value for the attribute in JSON format.</p>
    */
   AttributeValue?: string;
 
   /**
-   *
-   *         <p>The ARN of the subscription to modify.</p>
-   *
+   * <p>The ARN of the subscription to modify.</p>
    */
   SubscriptionArn: string | undefined;
 }
@@ -2188,15 +1884,12 @@ export namespace SetSubscriptionAttributesInput {
 }
 
 /**
- *
- *         <p>Input for SetTopicAttributes action.</p>
- *
+ * <p>Input for SetTopicAttributes action.</p>
  */
 export interface SetTopicAttributesInput {
   __type?: "SetTopicAttributesInput";
   /**
-   *
-   *         <p>A map of attributes with their corresponding values.</p>
+   * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
    *         <ul>
@@ -2228,22 +1921,16 @@ export interface SetTopicAttributesInput {
    *                         Reference</i>. </p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   AttributeName: string | undefined;
 
   /**
-   *
-   *         <p>The new value for the attribute.</p>
-   *
+   * <p>The new value for the attribute.</p>
    */
   AttributeValue?: string;
 
   /**
-   *
-   *         <p>The ARN of the topic to modify.</p>
-   *
+   * <p>The ARN of the topic to modify.</p>
    */
   TopicArn: string | undefined;
 }
@@ -2255,10 +1942,8 @@ export namespace SetTopicAttributesInput {
 }
 
 /**
- *
- *         <p>A tag has been added to a resource with the same ARN as a deleted resource.
+ * <p>A tag has been added to a resource with the same ARN as a deleted resource.
  *             Wait a short while and then retry the operation.</p>
- *
  */
 export interface StaleTagException
   extends _smithy.SmithyException,
@@ -2276,15 +1961,12 @@ export namespace StaleTagException {
 }
 
 /**
- *
- *         <p>Input for Subscribe action.</p>
- *
+ * <p>Input for Subscribe action.</p>
  */
 export interface SubscribeInput {
   __type?: "SubscribeInput";
   /**
-   *
-   *         <p>A map of attributes with their corresponding values.</p>
+   * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
    *         <ul>
@@ -2314,13 +1996,11 @@ export interface SubscribeInput {
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
    *          </ul>
-   *
    */
   Attributes?: { [key: string]: string };
 
   /**
-   *
-   *         <p>The endpoint that you want to receive notifications. Endpoints vary by
+   * <p>The endpoint that you want to receive notifications. Endpoints vary by
    *             protocol:</p>
    *         <ul>
    *             <li>
@@ -2357,13 +2037,11 @@ export interface SubscribeInput {
    *                     function.</p>
    *             </li>
    *          </ul>
-   *
    */
   Endpoint?: string;
 
   /**
-   *
-   *         <p>The protocol you want to use. Supported protocols include:</p>
+   * <p>The protocol you want to use. Supported protocols include:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -2403,13 +2081,11 @@ export interface SubscribeInput {
    *                     function.</p>
    *             </li>
    *          </ul>
-   *
    */
   Protocol: string | undefined;
 
   /**
-   *
-   *         <p>Sets whether the response from the <code>Subscribe</code> request includes the
+   * <p>Sets whether the response from the <code>Subscribe</code> request includes the
    *             subscription ARN, even if the subscription is not yet confirmed.</p>
    *         <ul>
    *             <li>
@@ -2426,14 +2102,11 @@ export interface SubscribeInput {
    *          </ul>
    *         <p>If you set this parameter to <code>true</code>, .</p>
    *         <p>The default value is <code>false</code>.</p>
-   *
    */
   ReturnSubscriptionArn?: boolean;
 
   /**
-   *
-   *         <p>The ARN of the topic you want to subscribe to.</p>
-   *
+   * <p>The ARN of the topic you want to subscribe to.</p>
    */
   TopicArn: string | undefined;
 }
@@ -2445,19 +2118,15 @@ export namespace SubscribeInput {
 }
 
 /**
- *
- *         <p>Response for Subscribe action.</p>
- *
+ * <p>Response for Subscribe action.</p>
  */
 export interface SubscribeResponse extends $MetadataBearer {
   __type?: "SubscribeResponse";
   /**
-   *
-   *         <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation"
+   * <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation"
    *             if the subscription requires confirmation. However, if the API request parameter
    *                 <code>ReturnSubscriptionArn</code> is true, then the value is always the
    *             subscription ARN, even if the subscription requires confirmation.</p>
-   *
    */
   SubscriptionArn?: string;
 }
@@ -2469,44 +2138,32 @@ export namespace SubscribeResponse {
 }
 
 /**
- *
- *         <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
- *
+ * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
  */
 export interface Subscription {
   __type?: "Subscription";
   /**
-   *
-   *         <p>The subscription's endpoint (format depends on the protocol).</p>
-   *
+   * <p>The subscription's endpoint (format depends on the protocol).</p>
    */
   Endpoint?: string;
 
   /**
-   *
-   *         <p>The subscription's owner.</p>
-   *
+   * <p>The subscription's owner.</p>
    */
   Owner?: string;
 
   /**
-   *
-   *         <p>The subscription's protocol.</p>
-   *
+   * <p>The subscription's protocol.</p>
    */
   Protocol?: string;
 
   /**
-   *
-   *         <p>The subscription's ARN.</p>
-   *
+   * <p>The subscription's ARN.</p>
    */
   SubscriptionArn?: string;
 
   /**
-   *
-   *         <p>The ARN of the subscription's topic.</p>
-   *
+   * <p>The ARN of the subscription's topic.</p>
    */
   TopicArn?: string;
 }
@@ -2518,10 +2175,8 @@ export namespace Subscription {
 }
 
 /**
- *
- *         <p>Indicates that the customer already owns the maximum allowed number of
+ * <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
- *
  */
 export interface SubscriptionLimitExceededException
   extends _smithy.SmithyException,
@@ -2539,23 +2194,17 @@ export namespace SubscriptionLimitExceededException {
 }
 
 /**
- *
- *         <p>The list of tags to be added to the specified topic.</p>
- *
+ * <p>The list of tags to be added to the specified topic.</p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   *
-   *         <p>The required key portion of the tag.</p>
-   *
+   * <p>The required key portion of the tag.</p>
    */
   Key: string | undefined;
 
   /**
-   *
-   *         <p>The optional value portion of the tag.</p>
-   *
+   * <p>The optional value portion of the tag.</p>
    */
   Value: string | undefined;
 }
@@ -2567,9 +2216,7 @@ export namespace Tag {
 }
 
 /**
- *
- *         <p>Can't add more than 50 tags to a topic.</p>
- *
+ * <p>Can't add more than 50 tags to a topic.</p>
  */
 export interface TagLimitExceededException
   extends _smithy.SmithyException,
@@ -2587,10 +2234,8 @@ export namespace TagLimitExceededException {
 }
 
 /**
- *
- *         <p>The request doesn't comply with the IAM tag policy. Correct your request and then
+ * <p>The request doesn't comply with the IAM tag policy. Correct your request and then
  *             retry it.</p>
- *
  */
 export interface TagPolicyException
   extends _smithy.SmithyException,
@@ -2610,17 +2255,13 @@ export namespace TagPolicyException {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   *
-   *         <p>The ARN of the topic to which to add tags.</p>
-   *
+   * <p>The ARN of the topic to which to add tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   *
-   *         <p>The tags to be added to the specified topic. A tag consists of a required key
+   * <p>The tags to be added to the specified topic. A tag consists of a required key
    *             and an optional value.</p>
-   *
    */
   Tags: Array<Tag> | undefined;
 }
@@ -2642,10 +2283,8 @@ export namespace TagResourceResponse {
 }
 
 /**
- *
- *         <p>Indicates that the rate at which requests have been submitted for this action exceeds
+ * <p>Indicates that the rate at which requests have been submitted for this action exceeds
  *             the limit for your account.</p>
- *
  */
 export interface ThrottledException
   extends _smithy.SmithyException,
@@ -2654,9 +2293,7 @@ export interface ThrottledException
   name: "ThrottledException";
   $fault: "client";
   /**
-   *
-   *         <p>Throttled request.</p>
-   *
+   * <p>Throttled request.</p>
    */
   message?: string;
 }
@@ -2668,17 +2305,13 @@ export namespace ThrottledException {
 }
 
 /**
- *
- *         <p>A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's
+ * <p>A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's
  *             attributes, use <code>GetTopicAttributes</code>.</p>
- *
  */
 export interface Topic {
   __type?: "Topic";
   /**
-   *
-   *         <p>The topic's ARN.</p>
-   *
+   * <p>The topic's ARN.</p>
    */
   TopicArn?: string;
 }
@@ -2690,9 +2323,7 @@ export namespace Topic {
 }
 
 /**
- *
- *         <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
- *
+ * <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  */
 export interface TopicLimitExceededException
   extends _smithy.SmithyException,
@@ -2710,16 +2341,12 @@ export namespace TopicLimitExceededException {
 }
 
 /**
- *
- *         <p>Input for Unsubscribe action.</p>
- *
+ * <p>Input for Unsubscribe action.</p>
  */
 export interface UnsubscribeInput {
   __type?: "UnsubscribeInput";
   /**
-   *
-   *         <p>The ARN of the subscription to be deleted.</p>
-   *
+   * <p>The ARN of the subscription to be deleted.</p>
    */
   SubscriptionArn: string | undefined;
 }
@@ -2733,16 +2360,12 @@ export namespace UnsubscribeInput {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   *
-   *         <p>The ARN of the topic from which to remove tags.</p>
-   *
+   * <p>The ARN of the topic from which to remove tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   *
-   *         <p>The list of tag keys to remove from the specified topic.</p>
-   *
+   * <p>The list of tag keys to remove from the specified topic.</p>
    */
   TagKeys: Array<string> | undefined;
 }

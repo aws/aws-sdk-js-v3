@@ -200,13 +200,11 @@ export type MobileClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>
+ * <p>
  *             AWS Mobile Service provides mobile app and website developers with capabilities
  *             required to configure AWS resources and bootstrap their developer desktop projects
  *             with the necessary SDKs, constants, tools and samples to make use of those resources.
  *         </p>
- *
  */
 export class MobileClient extends __Client<
   __HttpHandlerOptions,

@@ -7,14 +7,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Operations and objects for transcribing streaming speech to text.</p>
- *
+ * <p>Operations and objects for transcribing streaming speech to text.</p>
  */
 export class TranscribeStreaming extends TranscribeStreamingClient {
   /**
-   *
-   *          <p>Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription
+   * <p>Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription
    *       results are streamed to your application.</p>
    *          <p>The following are encoded as HTTP2 headers:</p>
    *          <ul>
@@ -31,7 +28,6 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
    *                <p>x-amzn-transcribe-session-id</p>
    *             </li>
    *          </ul>
-   *
    */
   public startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,

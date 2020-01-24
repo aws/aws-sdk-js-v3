@@ -2,23 +2,17 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Access log settings, including the access log format and access log destination ARN.</p>
- *
+ * <p>Access log settings, including the access log format and access log destination ARN.</p>
  */
 export interface AccessLogSettings {
   __type?: "AccessLogSettings";
   /**
-   *
-   *       <p>The ARN of the CloudWatch Logs log group to receive access logs.</p>
-   *
+   * <p>The ARN of the CloudWatch Logs log group to receive access logs.</p>
    */
   destinationArn?: string;
 
   /**
-   *
-   *         <p>A single line format of the access logs of data, as specified by selected <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference">$context variables</a>. The format must include at least <code>$context.requestId</code>.</p>
-   *
+   * <p>A single line format of the access logs of data, as specified by selected <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference">$context variables</a>. The format must include at least <code>$context.requestId</code>.</p>
    */
   format?: string;
 }
@@ -30,8 +24,7 @@ export namespace AccessLogSettings {
 }
 
 /**
- *
- *         <p>Represents an AWS account that is associated with API Gateway.</p>
+ * <p>Represents an AWS account that is associated with API Gateway.</p>
  *         <div class="remarks">
  *           <p>To view the account info, call <code>GET</code> on this resource.</p>
  *           <h4>Error Codes</h4>
@@ -80,7 +73,6 @@ export namespace AccessLogSettings {
  *             <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html">Developer Guide</a>,
  *             <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html">AWS CLI</a>
  *         </div>
- *
  */
 export interface Account extends $MetadataBearer {
   __type?: "Account";
@@ -90,9 +82,7 @@ export interface Account extends $MetadataBearer {
   apiKeyVersion?: string;
 
   /**
-   *
-   *         <p>The ARN of an Amazon CloudWatch role for the current <a>Account</a>. </p>
-   *
+   * <p>The ARN of an Amazon CloudWatch role for the current <a>Account</a>. </p>
    */
   cloudwatchRoleArn?: string;
 
@@ -102,9 +92,7 @@ export interface Account extends $MetadataBearer {
   features?: Array<string>;
 
   /**
-   *
-   *         <p>Specifies the API request limits configured for the current <a>Account</a>.</p>
-   *
+   * <p>Specifies the API request limits configured for the current <a>Account</a>.</p>
    */
   throttleSettings?: ThrottleSettings;
 }
@@ -116,82 +104,60 @@ export namespace Account {
 }
 
 /**
- *
- *         <p>A resource that can be distributed to callers for executing <a>Method</a> resources that require an API key. API keys can be mapped to any <a>Stage</a> on any <a>RestApi</a>, which indicates that the callers with the API key can make requests to that stage.</p>
+ * <p>A resource that can be distributed to callers for executing <a>Method</a> resources that require an API key. API keys can be mapped to any <a>Stage</a> on any <a>RestApi</a>, which indicates that the callers with the API key can make requests to that stage.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a>
  *       </div>
- *
  */
 export interface ApiKey extends $MetadataBearer {
   __type?: "ApiKey";
   /**
-   *
-   *         <p>The timestamp when the API Key was created.</p>
-   *
+   * <p>The timestamp when the API Key was created.</p>
    */
   createdDate?: Date;
 
   /**
-   *
-   *       <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
-   *
+   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
    */
   customerId?: string;
 
   /**
-   *
-   *         <p>The description of the API Key.</p>
-   *
+   * <p>The description of the API Key.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>Specifies whether the API Key can be used by callers.</p>
-   *
+   * <p>Specifies whether the API Key can be used by callers.</p>
    */
   enabled?: boolean;
 
   /**
-   *
-   *         <p>The identifier of the API Key.</p>
-   *
+   * <p>The identifier of the API Key.</p>
    */
   id?: string;
 
   /**
-   *
-   *         <p>The timestamp when the API Key was last updated.</p>
-   *
+   * <p>The timestamp when the API Key was last updated.</p>
    */
   lastUpdatedDate?: Date;
 
   /**
-   *
-   *         <p>The name of the API Key.</p>
-   *
+   * <p>The name of the API Key.</p>
    */
   name?: string;
 
   /**
-   *
-   *         <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p>
-   *
+   * <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p>
    */
   stageKeys?: Array<string>;
 
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *       <p>The value of the API Key.</p>
-   *
+   * <p>The value of the API Key.</p>
    */
   value?: string;
 }
@@ -203,23 +169,17 @@ export namespace ApiKey {
 }
 
 /**
- *
- *     <p>The identifier of an <a>ApiKey</a> used in a <a>UsagePlan</a>.</p>
- *
+ * <p>The identifier of an <a>ApiKey</a> used in a <a>UsagePlan</a>.</p>
  */
 export interface ApiKeyIds extends $MetadataBearer {
   __type?: "ApiKeyIds";
   /**
-   *
-   *     <p>A list of all the <a>ApiKey</a> identifiers.</p>
-   *
+   * <p>A list of all the <a>ApiKey</a> identifiers.</p>
    */
   ids?: Array<string>;
 
   /**
-   *
-   *     <p>A list of warning messages.</p>
-   *
+   * <p>A list of warning messages.</p>
    */
   warnings?: Array<string>;
 }
@@ -236,19 +196,15 @@ export enum ApiKeySourceType {
 }
 
 /**
- *
- *         <p>Represents a collection of API keys as represented by an <a>ApiKeys</a> resource.</p>
+ * <p>Represents a collection of API keys as represented by an <a>ApiKeys</a> resource.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a>
  *       </div>
- *
  */
 export interface ApiKeys extends $MetadataBearer {
   __type?: "ApiKeys";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<ApiKey>;
 
@@ -274,30 +230,22 @@ export enum ApiKeysFormat {
 }
 
 /**
- *
- *       <p>API stage name of the associated API stage in a usage plan.</p>
- *
+ * <p>API stage name of the associated API stage in a usage plan.</p>
  */
 export interface ApiStage {
   __type?: "ApiStage";
   /**
-   *
-   *       <p>API Id of the associated API stage in a usage plan.</p>
-   *
+   * <p>API Id of the associated API stage in a usage plan.</p>
    */
   apiId?: string;
 
   /**
-   *
-   *       <p>API stage name of the associated API stage in a usage plan.</p>
-   *
+   * <p>API stage name of the associated API stage in a usage plan.</p>
    */
   stage?: string;
 
   /**
-   *
-   *     <p>Map containing method level throttling information for API stage in a usage plan.</p>
-   *
+   * <p>Map containing method level throttling information for API stage in a usage plan.</p>
    */
   throttle?: { [key: string]: ThrottleSettings };
 }
@@ -309,83 +257,61 @@ export namespace ApiStage {
 }
 
 /**
- *
- *         <p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p>
+ * <p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use Lambda Function as Authorizer</a>
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use Cognito User Pool as Authorizer</a>
  *       </div>
- *
  */
 export interface Authorizer extends $MetadataBearer {
   __type?: "Authorizer";
   /**
-   *
-   *         <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
-   *
+   * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
    */
   authType?: string;
 
   /**
-   *
-   *         <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
-   *
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
    */
   authorizerCredentials?: string;
 
   /**
-   *
-   *         <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
-   *
+   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
    */
   authorizerResultTtlInSeconds?: number;
 
   /**
-   *
-   *         <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
-   *
+   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
    */
   authorizerUri?: string;
 
   /**
-   *
-   *         <p>The identifier for the authorizer resource.</p>
-   *
+   * <p>The identifier for the authorizer resource.</p>
    */
   id?: string;
 
   /**
-   *
-   *         <p>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is  <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>.  These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul></p>
-   *
+   * <p>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is  <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>.  These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul></p>
    */
   identitySource?: string;
 
   /**
-   *
-   *         <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
-   *
+   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
    */
   identityValidationExpression?: string;
 
   /**
-   *
-   *         <p>[Required] The name of the authorizer.</p>
-   *
+   * <p>[Required] The name of the authorizer.</p>
    */
   name?: string;
 
   /**
-   *
-   *       <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
-   *
+   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
   providerARNs?: Array<string>;
 
   /**
-   *
-   *         <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
-   *
+   * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
    */
   type?: AuthorizerType | string;
 }
@@ -403,20 +329,16 @@ export enum AuthorizerType {
 }
 
 /**
- *
- *         <p>Represents a collection of <a>Authorizer</a> resources.</p>
+ * <p>Represents a collection of <a>Authorizer</a> resources.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html">Use Lambda Function as Authorizer</a>
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Use Cognito User Pool as Authorizer</a>
  *       </div>
- *
  */
 export interface Authorizers extends $MetadataBearer {
   __type?: "Authorizers";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<Authorizer>;
 
@@ -433,20 +355,16 @@ export namespace Authorizers {
 }
 
 /**
- *
- *         <p>Represents the base path that callers of the API must provide as part of the URL after the domain name.</p>
+ * <p>Represents the base path that callers of the API must provide as part of the URL after the domain name.</p>
  *         <div class="remarks">A custom domain name plus a <code>BasePathMapping</code> specification identifies a deployed <a>RestApi</a> in a given stage of the owner <a>Account</a>.</div>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a>
  *       </div>
- *
  */
 export interface BasePathMapping extends $MetadataBearer {
   __type?: "BasePathMapping";
   /**
-   *
-   *         <p>The base path name that callers of the API must provide as part of the URL after the domain name.</p>
-   *
+   * <p>The base path name that callers of the API must provide as part of the URL after the domain name.</p>
    */
   basePath?: string;
 
@@ -468,19 +386,15 @@ export namespace BasePathMapping {
 }
 
 /**
- *
- *         <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
+ * <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a>
  *       </div>
- *
  */
 export interface BasePathMappings extends $MetadataBearer {
   __type?: "BasePathMappings";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<BasePathMapping>;
 
@@ -516,37 +430,27 @@ export enum CacheClusterStatus {
 }
 
 /**
- *
- *         <p>Configuration settings of a canary deployment.</p>
- *
+ * <p>Configuration settings of a canary deployment.</p>
  */
 export interface CanarySettings {
   __type?: "CanarySettings";
   /**
-   *
-   *         <p>The ID of the canary deployment.</p>
-   *
+   * <p>The ID of the canary deployment.</p>
    */
   deploymentId?: string;
 
   /**
-   *
-   *         <p>The percent (0-100) of traffic diverted to a canary deployment.</p>
-   *
+   * <p>The percent (0-100) of traffic diverted to a canary deployment.</p>
    */
   percentTraffic?: number;
 
   /**
-   *
-   *         <p>Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
-   *
+   * <p>Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    */
   stageVariableOverrides?: { [key: string]: string };
 
   /**
-   *
-   *         <p>A Boolean flag to indicate whether the canary deployment uses the stage cache or not.</p>
-   *
+   * <p>A Boolean flag to indicate whether the canary deployment uses the stage cache or not.</p>
    */
   useStageCache?: boolean;
 }
@@ -558,55 +462,41 @@ export namespace CanarySettings {
 }
 
 /**
- *
- *         <p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p>
+ * <p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p>
  *         <div class="remarks">Client certificates are used to authenticate an API by the backend server. To authenticate an API client (or user), use IAM roles and policies, a custom <a>Authorizer</a> or an Amazon Cognito user pool.</div>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a>
  *       </div>
- *
  */
 export interface ClientCertificate extends $MetadataBearer {
   __type?: "ClientCertificate";
   /**
-   *
-   *         <p>The identifier of the client certificate.</p>
-   *
+   * <p>The identifier of the client certificate.</p>
    */
   clientCertificateId?: string;
 
   /**
-   *
-   *         <p>The timestamp when the client certificate was created.</p>
-   *
+   * <p>The timestamp when the client certificate was created.</p>
    */
   createdDate?: Date;
 
   /**
-   *
-   *         <p>The description of the client certificate.</p>
-   *
+   * <p>The description of the client certificate.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The timestamp when the client certificate will expire.</p>
-   *
+   * <p>The timestamp when the client certificate will expire.</p>
    */
   expirationDate?: Date;
 
   /**
-   *
-   *         <p>The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .</p>
-   *
+   * <p>The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .</p>
    */
   pemEncodedCertificate?: string;
 
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -618,19 +508,15 @@ export namespace ClientCertificate {
 }
 
 /**
- *
- *         <p>Represents a collection of <a>ClientCertificate</a> resources.</p>
+ * <p>Represents a collection of <a>ClientCertificate</a> resources.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a>
  *       </div>
- *
  */
 export interface ClientCertificates extends $MetadataBearer {
   __type?: "ClientCertificates";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<ClientCertificate>;
 
@@ -657,58 +543,42 @@ export enum ContentHandlingStrategy {
 }
 
 /**
- *
- *         <p>Request to create an <a>ApiKey</a> resource.</p>
- *
+ * <p>Request to create an <a>ApiKey</a> resource.</p>
  */
 export interface CreateApiKeyRequest {
   __type?: "CreateApiKeyRequest";
   /**
-   *
-   *       <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
-   *
+   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
    */
   customerId?: string;
 
   /**
-   *
-   *         <p>The description of the <a>ApiKey</a>.</p>
-   *
+   * <p>The description of the <a>ApiKey</a>.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>Specifies whether the <a>ApiKey</a> can be used by callers.</p>
-   *
+   * <p>Specifies whether the <a>ApiKey</a> can be used by callers.</p>
    */
   enabled?: boolean;
 
   /**
-   *
-   *       <p>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier is distinct from the created API key value.</p>
-   *
+   * <p>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier is distinct from the created API key value.</p>
    */
   generateDistinctId?: boolean;
 
   /**
-   *
-   *         <p>The name of the <a>ApiKey</a>.</p>
-   *
+   * <p>The name of the <a>ApiKey</a>.</p>
    */
   name?: string;
 
   /**
-   *
-   *         <p>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.</p>
-   *
+   * <p>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.</p>
    */
   stageKeys?: Array<StageKey>;
 
   /**
-   *
-   *         <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
@@ -716,9 +586,7 @@ export interface CreateApiKeyRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>Specifies a value of the API key.</p> <!-- Why is this declared as the input to create an API key? As a form of copying an existing key value into a new API key? -->
-   *
+   * <p>Specifies a value of the API key.</p> <!-- Why is this declared as the input to create an API key? As a form of copying an existing key value into a new API key? -->
    */
   value?: string;
 }
@@ -730,65 +598,47 @@ export namespace CreateApiKeyRequest {
 }
 
 /**
- *
- *         <p>Request to add a new <a>Authorizer</a> to an existing <a>RestApi</a> resource.</p>
- *
+ * <p>Request to add a new <a>Authorizer</a> to an existing <a>RestApi</a> resource.</p>
  */
 export interface CreateAuthorizerRequest {
   __type?: "CreateAuthorizerRequest";
   /**
-   *
-   *         <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
-   *
+   * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
    */
   authType?: string;
 
   /**
-   *
-   *         <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
-   *
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
    */
   authorizerCredentials?: string;
 
   /**
-   *
-   *         <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
-   *
+   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
    */
   authorizerResultTtlInSeconds?: number;
 
   /**
-   *
-   *         <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
-   *
+   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
    */
   authorizerUri?: string;
 
   /**
-   *
-   *         <p>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is  <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>.  These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul></p>
-   *
+   * <p>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is  <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>.  These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul></p>
    */
   identitySource?: string;
 
   /**
-   *
-   *         <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
-   *
+   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
    */
   identityValidationExpression?: string;
 
   /**
-   *
-   *         <p>[Required] The name of the authorizer.</p>
-   *
+   * <p>[Required] The name of the authorizer.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *       <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
-   *
+   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
   providerARNs?: Array<string>;
 
@@ -801,9 +651,7 @@ export interface CreateAuthorizerRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
-   *
+   * <p>[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
    */
   type: AuthorizerType | string | undefined;
 }
@@ -815,23 +663,17 @@ export namespace CreateAuthorizerRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to create a new <a>BasePathMapping</a> resource.</p>
- *
+ * <p>Requests API Gateway to create a new <a>BasePathMapping</a> resource.</p>
  */
 export interface CreateBasePathMappingRequest {
   __type?: "CreateBasePathMappingRequest";
   /**
-   *
-   *         <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>
-   *
+   * <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>
    */
   basePath?: string;
 
   /**
-   *
-   *         <p>[Required] The domain name of the <a>BasePathMapping</a> resource to create.</p>
-   *
+   * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to create.</p>
    */
   domainName: string | undefined;
 
@@ -842,9 +684,7 @@ export interface CreateBasePathMappingRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you do not want callers to explicitly specify the stage name after any base path name.</p>
-   *
+   * <p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you do not want callers to explicitly specify the stage name after any base path name.</p>
    */
   stage?: string;
 
@@ -860,37 +700,27 @@ export namespace CreateBasePathMappingRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to create a <a>Deployment</a> resource.</p>
- *
+ * <p>Requests API Gateway to create a <a>Deployment</a> resource.</p>
  */
 export interface CreateDeploymentRequest {
   __type?: "CreateDeploymentRequest";
   /**
-   *
-   *         <p>Enables a cache cluster for the <a>Stage</a> resource specified in the input.</p>
-   *
+   * <p>Enables a cache cluster for the <a>Stage</a> resource specified in the input.</p>
    */
   cacheClusterEnabled?: boolean;
 
   /**
-   *
-   *         <p>Specifies the cache cluster size for the <a>Stage</a> resource specified in the input, if a cache cluster is enabled.</p>
-   *
+   * <p>Specifies the cache cluster size for the <a>Stage</a> resource specified in the input, if a cache cluster is enabled.</p>
    */
   cacheClusterSize?: CacheClusterSize | string;
 
   /**
-   *
-   *         <p>The input configuration for the canary deployment when the deployment is a canary release deployment. </p>
-   *
+   * <p>The input configuration for the canary deployment when the deployment is a canary release deployment. </p>
    */
   canarySettings?: DeploymentCanarySettings;
 
   /**
-   *
-   *         <p>The description for the <a>Deployment</a> resource to create.</p>
-   *
+   * <p>The description for the <a>Deployment</a> resource to create.</p>
    */
   description?: string;
 
@@ -901,16 +731,12 @@ export interface CreateDeploymentRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>The description of the <a>Stage</a> resource for the <a>Deployment</a> resource to create.</p>
-   *
+   * <p>The description of the <a>Stage</a> resource for the <a>Deployment</a> resource to create.</p>
    */
   stageDescription?: string;
 
   /**
-   *
-   *         <p>The name of the <a>Stage</a> resource for the <a>Deployment</a> resource to create.</p>
-   *
+   * <p>The name of the <a>Stage</a> resource for the <a>Deployment</a> resource to create.</p>
    */
   stageName?: string;
 
@@ -918,18 +744,14 @@ export interface CreateDeploymentRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
-   *
+   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
    */
   tracingEnabled?: boolean;
 
   /**
-   *
-   *         <p>A map that defines the stage variables for the <a>Stage</a> resource that is associated
+   * <p>A map that defines the stage variables for the <a>Stage</a> resource that is associated
    *           with the new deployment. Variable names can have alphanumeric and underscore characters, and the values
    *           must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
-   *
    */
   variables?: { [key: string]: string };
 }
@@ -1010,87 +832,63 @@ export namespace CreateDocumentationVersionRequest {
 }
 
 /**
- *
- *         <p>A request to create a new domain name.</p>
- *
+ * <p>A request to create a new domain name.</p>
  */
 export interface CreateDomainNameRequest {
   __type?: "CreateDomainNameRequest";
   /**
-   *
-   *         <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
-   *
+   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
    */
   certificateArn?: string;
 
   /**
-   *
-   *         <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.</p>
-   *
+   * <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.</p>
    */
   certificateBody?: string;
 
   /**
-   *
-   *       <p>[Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.</p>
-   *
+   * <p>[Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.</p>
    */
   certificateChain?: string;
 
   /**
-   *
-   *         <p>The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
-   *
+   * <p>The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
    */
   certificateName?: string;
 
   /**
-   *
-   *         <p>[Deprecated] Your edge-optimized endpoint's domain name certificate's private key.</p>
-   *
+   * <p>[Deprecated] Your edge-optimized endpoint's domain name certificate's private key.</p>
    */
   certificatePrivateKey?: string;
 
   /**
-   *
-   *         <p>[Required] The name of the <a>DomainName</a> resource.</p>
-   *
+   * <p>[Required] The name of the <a>DomainName</a> resource.</p>
    */
   domainName: string | undefined;
 
   /**
-   *
-   *         <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>
-   *
+   * <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>
    */
   endpointConfiguration?: EndpointConfiguration;
 
   name?: string;
   /**
-   *
-   *       <p>The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
-   *
+   * <p>The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
    */
   regionalCertificateArn?: string;
 
   /**
-   *
-   *       <p>The user-friendly name of the certificate that will be used by regional endpoint for this domain name.</p>
-   *
+   * <p>The user-friendly name of the certificate that will be used by regional endpoint for this domain name.</p>
    */
   regionalCertificateName?: string;
 
   /**
-   *
-   *     <p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
-   *
+   * <p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
   securityPolicy?: SecurityPolicy | string;
 
   /**
-   *
-   *         <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1106,44 +904,32 @@ export namespace CreateDomainNameRequest {
 }
 
 /**
- *
- *         <p>Request to add a new <a>Model</a> to an existing <a>RestApi</a> resource.</p>
- *
+ * <p>Request to add a new <a>Model</a> to an existing <a>RestApi</a> resource.</p>
  */
 export interface CreateModelRequest {
   __type?: "CreateModelRequest";
   /**
-   *
-   *         <p>[Required] The content-type for the model.</p>
-   *
+   * <p>[Required] The content-type for the model.</p>
    */
   contentType: string | undefined;
 
   /**
-   *
-   *         <p>The description of the model.</p>
-   *
+   * <p>The description of the model.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>[Required] The name of the model. Must be alphanumeric.</p>
-   *
+   * <p>[Required] The name of the model. Must be alphanumeric.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</p>
-   *
+   * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</p>
    */
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>The schema for the model. For <code>application/json</code> models, this should be <a target="_blank" href="https://tools.ietf.org/html/draft-zyp-json-schema-04">JSON schema draft 4</a> model.</p>
-   *
+   * <p>The schema for the model. For <code>application/json</code> models, this should be <a target="_blank" href="https://tools.ietf.org/html/draft-zyp-json-schema-04">JSON schema draft 4</a> model.</p>
    */
   schema?: string;
 
@@ -1159,16 +945,12 @@ export namespace CreateModelRequest {
 }
 
 /**
- *
- *         <p>Creates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
- *
+ * <p>Creates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
  */
 export interface CreateRequestValidatorRequest {
   __type?: "CreateRequestValidatorRequest";
   /**
-   *
-   *         <p>The name of the to-be-created <a>RequestValidator</a>.</p>
-   *
+   * <p>The name of the to-be-created <a>RequestValidator</a>.</p>
    */
   name?: string;
 
@@ -1181,16 +963,12 @@ export interface CreateRequestValidatorRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (<code>true</code>) or not (<code>false</code>).</p>
-   *
+   * <p>A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (<code>true</code>) or not (<code>false</code>).</p>
    */
   validateRequestBody?: boolean;
 
   /**
-   *
-   *         <p>A Boolean flag to indicate whether to validate request parameters, <code>true</code>, or not <code>false</code>.</p>
-   *
+   * <p>A Boolean flag to indicate whether to validate request parameters, <code>true</code>, or not <code>false</code>.</p>
    */
   validateRequestParameters?: boolean;
 }
@@ -1202,24 +980,18 @@ export namespace CreateRequestValidatorRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to create a <a>Resource</a> resource.</p>
- *
+ * <p>Requests API Gateway to create a <a>Resource</a> resource.</p>
  */
 export interface CreateResourceRequest {
   __type?: "CreateResourceRequest";
   name?: string;
   /**
-   *
-   *         <p>[Required] The parent resource's identifier.</p>
-   *
+   * <p>[Required] The parent resource's identifier.</p>
    */
   parentId: string | undefined;
 
   /**
-   *
-   *         <p>The last path segment for this resource.</p>
-   *
+   * <p>The last path segment for this resource.</p>
    */
   pathPart: string | undefined;
 
@@ -1240,16 +1012,12 @@ export namespace CreateResourceRequest {
 }
 
 /**
- *
- *         <p>The POST Request to add a new <a>RestApi</a> resource to your collection.</p>
- *
+ * <p>The POST Request to add a new <a>RestApi</a> resource to your collection.</p>
  */
 export interface CreateRestApiRequest {
   __type?: "CreateRestApiRequest";
   /**
-   *
-   *         <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
-   *
+   * <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
    */
   apiKeySource?: ApiKeySourceType | string;
 
@@ -1259,23 +1027,17 @@ export interface CreateRestApiRequest {
   binaryMediaTypes?: Array<string>;
 
   /**
-   *
-   *         <p>The ID of the <a>RestApi</a> that you want to clone from.</p>
-   *
+   * <p>The ID of the <a>RestApi</a> that you want to clone from.</p>
    */
   cloneFrom?: string;
 
   /**
-   *
-   *         <p>The description of the <a>RestApi</a>.</p>
-   *
+   * <p>The description of the <a>RestApi</a>.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types of the API. </p>
-   *
+   * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types of the API. </p>
    */
   endpointConfiguration?: EndpointConfiguration;
 
@@ -1285,23 +1047,17 @@ export interface CreateRestApiRequest {
   minimumCompressionSize?: number;
 
   /**
-   *
-   *         <p>[Required] The name of the <a>RestApi</a>.</p>
-   *
+   * <p>[Required] The name of the <a>RestApi</a>.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *         A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration.
-   *
+   * A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration.
    */
   policy?: string;
 
   /**
-   *
-   *         <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1309,9 +1065,7 @@ export interface CreateRestApiRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>A version identifier for the API.</p>
-   *
+   * <p>A version identifier for the API.</p>
    */
   version?: string;
 }
@@ -1323,44 +1077,32 @@ export namespace CreateRestApiRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to create a <a>Stage</a> resource.</p>
- *
+ * <p>Requests API Gateway to create a <a>Stage</a> resource.</p>
  */
 export interface CreateStageRequest {
   __type?: "CreateStageRequest";
   /**
-   *
-   *         <p>Whether cache clustering is enabled for the stage.</p>
-   *
+   * <p>Whether cache clustering is enabled for the stage.</p>
    */
   cacheClusterEnabled?: boolean;
 
   /**
-   *
-   *         <p>The stage's cache cluster size.</p>
-   *
+   * <p>The stage's cache cluster size.</p>
    */
   cacheClusterSize?: CacheClusterSize | string;
 
   /**
-   *
-   *         <p>The canary deployment settings of this stage.</p>
-   *
+   * <p>The canary deployment settings of this stage.</p>
    */
   canarySettings?: CanarySettings;
 
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</p>
-   *
+   * <p>[Required] The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</p>
    */
   deploymentId: string | undefined;
 
   /**
-   *
-   *         <p>The description of the <a>Stage</a> resource.</p>
-   *
+   * <p>The description of the <a>Stage</a> resource.</p>
    */
   description?: string;
 
@@ -1376,16 +1118,12 @@ export interface CreateStageRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The name for the <a>Stage</a> resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-   *
+   * <p>[Required] The name for the <a>Stage</a> resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    */
   stageName: string | undefined;
 
   /**
-   *
-   *         <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1393,18 +1131,14 @@ export interface CreateStageRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
-   *
+   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
    */
   tracingEnabled?: boolean;
 
   /**
-   *
-   *         <p>A map that defines the stage variables for the new <a>Stage</a> resource. Variable names
+   * <p>A map that defines the stage variables for the new <a>Stage</a> resource. Variable names
    *           can have alphanumeric and underscore characters, and the values must match
    *           <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
-   *
    */
   variables?: { [key: string]: string };
 }
@@ -1416,23 +1150,17 @@ export namespace CreateStageRequest {
 }
 
 /**
- *
- *     <p>The POST request to create a usage plan key for adding an existing API key to a usage plan.</p>
- *
+ * <p>The POST request to create a usage plan key for adding an existing API key to a usage plan.</p>
  */
 export interface CreateUsagePlanKeyRequest {
   __type?: "CreateUsagePlanKeyRequest";
   /**
-   *
-   *       <p>[Required] The identifier of a <a>UsagePlanKey</a> resource for a plan customer.</p>
-   *
+   * <p>[Required] The identifier of a <a>UsagePlanKey</a> resource for a plan customer.</p>
    */
   keyId: string | undefined;
 
   /**
-   *
-   *       <p>[Required] The type of a <a>UsagePlanKey</a> resource for a plan customer.</p>
-   *
+   * <p>[Required] The type of a <a>UsagePlanKey</a> resource for a plan customer.</p>
    */
   keyType: string | undefined;
 
@@ -1441,9 +1169,7 @@ export interface CreateUsagePlanKeyRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-created <a>UsagePlanKey</a> resource representing a plan customer.</p>
-   *
+   * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-created <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -1455,9 +1181,7 @@ export namespace CreateUsagePlanKeyRequest {
 }
 
 /**
- *
- *     <p>The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.</p>
- *
+ * <p>The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.</p>
  */
 export interface CreateUsagePlanRequest {
   __type?: "CreateUsagePlanRequest";
@@ -1472,9 +1196,7 @@ export interface CreateUsagePlanRequest {
   description?: string;
 
   /**
-   *
-   *       <p>[Required] The name of the usage plan.</p>
-   *
+   * <p>[Required] The name of the usage plan.</p>
    */
   name: string | undefined;
 
@@ -1484,9 +1206,7 @@ export interface CreateUsagePlanRequest {
   quota?: QuotaSettings;
 
   /**
-   *
-   *     <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1507,37 +1227,27 @@ export namespace CreateUsagePlanRequest {
 }
 
 /**
- *
- *         <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
- *
+ * <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
  */
 export interface CreateVpcLinkRequest {
   __type?: "CreateVpcLinkRequest";
   /**
-   *
-   *         <p>The description of the VPC link.</p>
-   *
+   * <p>The description of the VPC link.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>[Required] The name used to label and identify the VPC link.</p>
-   *
+   * <p>[Required] The name used to label and identify the VPC link.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *         <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *         <p>[Required] The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
-   *
+   * <p>[Required] The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
    */
   targetArns: Array<string> | undefined;
 
@@ -1553,16 +1263,12 @@ export namespace CreateVpcLinkRequest {
 }
 
 /**
- *
- *         <p>A request to delete the <a>ApiKey</a> resource.</p>
- *
+ * <p>A request to delete the <a>ApiKey</a> resource.</p>
  */
 export interface DeleteApiKeyRequest {
   __type?: "DeleteApiKeyRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>ApiKey</a> resource to be deleted.</p>
-   *
+   * <p>[Required] The identifier of the <a>ApiKey</a> resource to be deleted.</p>
    */
   apiKey: string | undefined;
 
@@ -1579,16 +1285,12 @@ export namespace DeleteApiKeyRequest {
 }
 
 /**
- *
- *         <p>Request to delete an existing <a>Authorizer</a> resource.</p>
- *
+ * <p>Request to delete an existing <a>Authorizer</a> resource.</p>
  */
 export interface DeleteAuthorizerRequest {
   __type?: "DeleteAuthorizerRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
-   *
+   * <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
    */
   authorizerId: string | undefined;
 
@@ -1610,24 +1312,18 @@ export namespace DeleteAuthorizerRequest {
 }
 
 /**
- *
- *         <p>A request to delete the <a>BasePathMapping</a> resource.</p>
- *
+ * <p>A request to delete the <a>BasePathMapping</a> resource.</p>
  */
 export interface DeleteBasePathMappingRequest {
   __type?: "DeleteBasePathMappingRequest";
   /**
-   *
-   *         <p>[Required] The base path name of the <a>BasePathMapping</a> resource to delete.</p>
+   * <p>[Required] The base path name of the <a>BasePathMapping</a> resource to delete.</p>
    *         <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
-   *
    */
   basePath: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The domain name of the <a>BasePathMapping</a> resource to delete.</p>
-   *
+   * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to delete.</p>
    */
   domainName: string | undefined;
 
@@ -1644,16 +1340,12 @@ export namespace DeleteBasePathMappingRequest {
 }
 
 /**
- *
- *         <p>A request to delete the <a>ClientCertificate</a> resource.</p>
- *
+ * <p>A request to delete the <a>ClientCertificate</a> resource.</p>
  */
 export interface DeleteClientCertificateRequest {
   __type?: "DeleteClientCertificateRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be deleted.</p>
-   *
+   * <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be deleted.</p>
    */
   clientCertificateId: string | undefined;
 
@@ -1670,16 +1362,12 @@ export namespace DeleteClientCertificateRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to delete a <a>Deployment</a> resource.</p>
- *
+ * <p>Requests API Gateway to delete a <a>Deployment</a> resource.</p>
  */
 export interface DeleteDeploymentRequest {
   __type?: "DeleteDeploymentRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Deployment</a> resource to delete.</p>
-   *
+   * <p>[Required] The identifier of the <a>Deployment</a> resource to delete.</p>
    */
   deploymentId: string | undefined;
 
@@ -1755,16 +1443,12 @@ export namespace DeleteDocumentationVersionRequest {
 }
 
 /**
- *
- *         <p>A request to delete the <a>DomainName</a> resource.</p>
- *
+ * <p>A request to delete the <a>DomainName</a> resource.</p>
  */
 export interface DeleteDomainNameRequest {
   __type?: "DeleteDomainNameRequest";
   /**
-   *
-   *         <p>[Required] The name of the <a>DomainName</a> resource to be deleted.</p>
-   *
+   * <p>[Required] The name of the <a>DomainName</a> resource to be deleted.</p>
    */
   domainName: string | undefined;
 
@@ -1808,24 +1492,18 @@ export namespace DeleteGatewayResponseRequest {
 }
 
 /**
- *
- *         <p>Represents a delete integration request.</p>
- *
+ * <p>Represents a delete integration request.</p>
  */
 export interface DeleteIntegrationRequest {
   __type?: "DeleteIntegrationRequest";
   /**
-   *
-   *         <p>[Required] Specifies a delete integration request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies a delete integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] Specifies a delete integration request's resource identifier.</p>
-   *
+   * <p>[Required] Specifies a delete integration request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
@@ -1846,24 +1524,18 @@ export namespace DeleteIntegrationRequest {
 }
 
 /**
- *
- *         <p>Represents a delete integration response request.</p>
- *
+ * <p>Represents a delete integration response request.</p>
  */
 export interface DeleteIntegrationResponseRequest {
   __type?: "DeleteIntegrationResponseRequest";
   /**
-   *
-   *         <p>[Required] Specifies a delete integration response request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies a delete integration response request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] Specifies a delete integration response request's resource identifier.</p>
-   *
+   * <p>[Required] Specifies a delete integration response request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
@@ -1873,9 +1545,7 @@ export interface DeleteIntegrationResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] Specifies a delete integration response request's status code.</p>
-   *
+   * <p>[Required] Specifies a delete integration response request's status code.</p>
    */
   statusCode: string | undefined;
 
@@ -1891,24 +1561,18 @@ export namespace DeleteIntegrationResponseRequest {
 }
 
 /**
- *
- *         <p>Request to delete an existing <a>Method</a> resource.</p>
- *
+ * <p>Request to delete an existing <a>Method</a> resource.</p>
  */
 export interface DeleteMethodRequest {
   __type?: "DeleteMethodRequest";
   /**
-   *
-   *         <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -1929,24 +1593,18 @@ export namespace DeleteMethodRequest {
 }
 
 /**
- *
- *         <p>A request to delete an existing <a>MethodResponse</a> resource.</p>
- *
+ * <p>A request to delete an existing <a>MethodResponse</a> resource.</p>
  */
 export interface DeleteMethodResponseRequest {
   __type?: "DeleteMethodResponseRequest";
   /**
-   *
-   *         <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -1956,9 +1614,7 @@ export interface DeleteMethodResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The status code identifier for the <a>MethodResponse</a> resource.</p>
-   *
+   * <p>[Required] The status code identifier for the <a>MethodResponse</a> resource.</p>
    */
   statusCode: string | undefined;
 
@@ -1974,16 +1630,12 @@ export namespace DeleteMethodResponseRequest {
 }
 
 /**
- *
- *         <p>Request to delete an existing model in an existing <a>RestApi</a> resource.</p>
- *
+ * <p>Request to delete an existing model in an existing <a>RestApi</a> resource.</p>
  */
 export interface DeleteModelRequest {
   __type?: "DeleteModelRequest";
   /**
-   *
-   *         <p>[Required] The name of the model to delete.</p>
-   *
+   * <p>[Required] The name of the model to delete.</p>
    */
   modelName: string | undefined;
 
@@ -2005,17 +1657,13 @@ export namespace DeleteModelRequest {
 }
 
 /**
- *
- *         <p>Deletes a specified <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
- *
+ * <p>Deletes a specified <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
  */
 export interface DeleteRequestValidatorRequest {
   __type?: "DeleteRequestValidatorRequest";
   name?: string;
   /**
-   *
-   *         <p>[Required] The identifier of the <a>RequestValidator</a> to be deleted.</p>
-   *
+   * <p>[Required] The identifier of the <a>RequestValidator</a> to be deleted.</p>
    */
   requestValidatorId: string | undefined;
 
@@ -2036,17 +1684,13 @@ export namespace DeleteRequestValidatorRequest {
 }
 
 /**
- *
- *         <p>Request to delete a <a>Resource</a>.</p>
- *
+ * <p>Request to delete a <a>Resource</a>.</p>
  */
 export interface DeleteResourceRequest {
   __type?: "DeleteResourceRequest";
   name?: string;
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Resource</a> resource.</p>
-   *
+   * <p>[Required] The identifier of the <a>Resource</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -2067,9 +1711,7 @@ export namespace DeleteResourceRequest {
 }
 
 /**
- *
- *         <p>Request to delete the specified API from your collection.</p>
- *
+ * <p>Request to delete the specified API from your collection.</p>
  */
 export interface DeleteRestApiRequest {
   __type?: "DeleteRestApiRequest";
@@ -2091,9 +1733,7 @@ export namespace DeleteRestApiRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to delete a <a>Stage</a> resource.</p>
- *
+ * <p>Requests API Gateway to delete a <a>Stage</a> resource.</p>
  */
 export interface DeleteStageRequest {
   __type?: "DeleteStageRequest";
@@ -2104,9 +1744,7 @@ export interface DeleteStageRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The name of the <a>Stage</a> resource to delete.</p>
-   *
+   * <p>[Required] The name of the <a>Stage</a> resource to delete.</p>
    */
   stageName: string | undefined;
 
@@ -2122,16 +1760,12 @@ export namespace DeleteStageRequest {
 }
 
 /**
- *
- *     <p>The DELETE request to delete a usage plan key and remove the underlying API key from the associated usage plan.</p>
- *
+ * <p>The DELETE request to delete a usage plan key and remove the underlying API key from the associated usage plan.</p>
  */
 export interface DeleteUsagePlanKeyRequest {
   __type?: "DeleteUsagePlanKeyRequest";
   /**
-   *
-   *       <p>[Required] The Id of the <a>UsagePlanKey</a> resource to be deleted.</p>
-   *
+   * <p>[Required] The Id of the <a>UsagePlanKey</a> resource to be deleted.</p>
    */
   keyId: string | undefined;
 
@@ -2140,9 +1774,7 @@ export interface DeleteUsagePlanKeyRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-deleted <a>UsagePlanKey</a> resource representing a plan customer.</p>
-   *
+   * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-deleted <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -2154,9 +1786,7 @@ export namespace DeleteUsagePlanKeyRequest {
 }
 
 /**
- *
- *     <p>The DELETE request to delete a usage plan of a given plan Id.</p>
- *
+ * <p>The DELETE request to delete a usage plan of a given plan Id.</p>
  */
 export interface DeleteUsagePlanRequest {
   __type?: "DeleteUsagePlanRequest";
@@ -2165,9 +1795,7 @@ export interface DeleteUsagePlanRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>[Required] The Id of the to-be-deleted usage plan.</p>
-   *
+   * <p>[Required] The Id of the to-be-deleted usage plan.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -2179,9 +1807,7 @@ export namespace DeleteUsagePlanRequest {
 }
 
 /**
- *
- *         <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
- *
+ * <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
  */
 export interface DeleteVpcLinkRequest {
   __type?: "DeleteVpcLinkRequest";
@@ -2190,9 +1816,7 @@ export interface DeleteVpcLinkRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
-   *
+   * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
   vpcLinkId: string | undefined;
 }
@@ -2204,43 +1828,33 @@ export namespace DeleteVpcLinkRequest {
 }
 
 /**
- *
- *         <p>An immutable representation of a <a>RestApi</a> resource that can be called by users using <a>Stages</a>. A deployment must be associated with a <a>Stage</a> for it to be callable over the Internet.</p>
+ * <p>An immutable representation of a <a>RestApi</a> resource that can be called by users using <a>Stages</a>. A deployment must be associated with a <a>Stage</a> for it to be callable over the Internet.</p>
  *         <div class="remarks">To create a deployment, call <code>POST</code> on the <a>Deployments</a> resource of a <a>RestApi</a>.
  *             To view, update, or delete a deployment, call <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> on the specified deployment resource (<code>/restapis/{restapi_id}/deployments/{deployment_id}</code>).</div>
  *         <div class="seeAlso"><a>RestApi</a>, <a>Deployments</a>, <a>Stage</a>,
  *             <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>,
  *             <a href="https://aws.amazon.com/tools/">AWS SDKs</a>
  *         </div>
- *
  */
 export interface Deployment extends $MetadataBearer {
   __type?: "Deployment";
   /**
-   *
-   *         <p>A summary of the <a>RestApi</a> at the date and time that the deployment resource was created.</p>
-   *
+   * <p>A summary of the <a>RestApi</a> at the date and time that the deployment resource was created.</p>
    */
   apiSummary?: { [key: string]: { [key: string]: MethodSnapshot } };
 
   /**
-   *
-   *         <p>The date and time that the deployment resource was created.</p>
-   *
+   * <p>The date and time that the deployment resource was created.</p>
    */
   createdDate?: Date;
 
   /**
-   *
-   *         <p>The description for the deployment resource.</p>
-   *
+   * <p>The description for the deployment resource.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The identifier for the deployment resource.</p>
-   *
+   * <p>The identifier for the deployment resource.</p>
    */
   id?: string;
 }
@@ -2252,30 +1866,22 @@ export namespace Deployment {
 }
 
 /**
- *
- *         <p>The input configuration for a canary deployment.</p>
- *
+ * <p>The input configuration for a canary deployment.</p>
  */
 export interface DeploymentCanarySettings {
   __type?: "DeploymentCanarySettings";
   /**
-   *
-   *         <p>The percentage (0.0-100.0) of traffic routed to the canary deployment.</p>
-   *
+   * <p>The percentage (0.0-100.0) of traffic routed to the canary deployment.</p>
    */
   percentTraffic?: number;
 
   /**
-   *
-   *         <p>A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
-   *
+   * <p>A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    */
   stageVariableOverrides?: { [key: string]: string };
 
   /**
-   *
-   *         <p>A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.</p>
-   *
+   * <p>A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.</p>
    */
   useStageCache?: boolean;
 }
@@ -2287,8 +1893,7 @@ export namespace DeploymentCanarySettings {
 }
 
 /**
- *
- *         <p>Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.</p>
+ * <p>Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.</p>
  *         <div class="remarks">To create a new deployment of a <a>RestApi</a>, make a <code>POST</code> request against this resource. To view, update, or delete an existing
  *         deployment, make a <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> request, respectively, on a specified <a>Deployment</a> resource.</div>
  *         <div class="seeAlso">
@@ -2296,14 +1901,11 @@ export namespace DeploymentCanarySettings {
  *             <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>,
  *             <a href="https://aws.amazon.com/tools/">AWS SDKs</a>
  *         </div>
- *
  */
 export interface Deployments extends $MetadataBearer {
   __type?: "Deployments";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<Deployment>;
 
@@ -2320,36 +1922,28 @@ export namespace Deployments {
 }
 
 /**
- *
- *     <p>A documentation part for a targeted API entity.</p>
+ * <p>A documentation part for a targeted API entity.</p>
  *     <div class="remarks">
  *       <p>A documentation part consists of a content map (<code>properties</code>) and a target (<code>location</code>). The target specifies an API entity to which the documentation content applies. The supported API entity types are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Valid <code>location</code> fields depend on the API entity type. All valid fields are not required.</p>
  *       <p>The content map is a JSON string of API-specific key-value pairs. Although an API can use any shape for the content map, only the OpenAPI-compliant documentation fields will be injected into the associated API entity definition in the exported OpenAPI definition file.</p></div>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationParts</a>
  *     </div>
- *
  */
 export interface DocumentationPart extends $MetadataBearer {
   __type?: "DocumentationPart";
   /**
-   *
-   *     <p>The <a>DocumentationPart</a> identifier, generated by API Gateway when the <code>DocumentationPart</code> is created.</p>
-   *
+   * <p>The <a>DocumentationPart</a> identifier, generated by API Gateway when the <code>DocumentationPart</code> is created.</p>
    */
   id?: string;
 
   /**
-   *
-   *     <p>The location of the API entity to which the documentation applies. Valid fields depend on the targeted API entity type. All the valid location fields are not required. If not explicitly specified, a valid location field is treated as a wildcard and associated documentation content may be inherited by matching entities, unless overridden.</p>
-   *
+   * <p>The location of the API entity to which the documentation applies. Valid fields depend on the targeted API entity type. All the valid location fields are not required. If not explicitly specified, a valid location field is treated as a wildcard and associated documentation content may be inherited by matching entities, unless overridden.</p>
    */
   location?: DocumentationPartLocation;
 
   /**
-   *
-   *     <p>A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., <code>"{ \"description\": \"The API does ...\" }"</code>.  Only OpenAPI-compliant documentation-related fields from the <literal>properties</literal> map are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of <code>x-amazon-apigateway-documentation</code>.</p>
-   *
+   * <p>A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., <code>"{ \"description\": \"The API does ...\" }"</code>.  Only OpenAPI-compliant documentation-related fields from the <literal>properties</literal> map are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of <code>x-amazon-apigateway-documentation</code>.</p>
    */
   properties?: string;
 }
@@ -2361,13 +1955,11 @@ export namespace DocumentationPart {
 }
 
 /**
- *
- *     <p>A collection of the imported  <a>DocumentationPart</a> identifiers.</p>
+ * <p>A collection of the imported  <a>DocumentationPart</a> identifiers.</p>
  *     <div class="remarks">This is used to return the result when documentation parts in an external (e.g., OpenAPI) file are imported into API Gateway</div>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a href="https://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/">documentationpart:import</a>, <a>DocumentationPart</a>
  *     </div>
- *
  */
 export interface DocumentationPartIds extends $MetadataBearer {
   __type?: "DocumentationPartIds";
@@ -2441,13 +2033,11 @@ export enum DocumentationPartType {
 }
 
 /**
- *
- *     <p>The collection of documentation parts of an API.</p>
+ * <p>The collection of documentation parts of an API.</p>
  *     <div class="remarks"></div>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>
  *     </div>
- *
  */
 export interface DocumentationParts extends $MetadataBearer {
   __type?: "DocumentationParts";
@@ -2469,34 +2059,26 @@ export namespace DocumentationParts {
 }
 
 /**
- *
- *     <p>A snapshot of the documentation of an API.</p>
+ * <p>A snapshot of the documentation of an API.</p>
  *     <div class="remarks"><p>Publishing API documentation involves creating a documentation version associated with an API stage and exporting the versioned documentation to an external (e.g., OpenAPI) file.</p></div>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersions</a>
  *     </div>
- *
  */
 export interface DocumentationVersion extends $MetadataBearer {
   __type?: "DocumentationVersion";
   /**
-   *
-   *     <p>The date when the API documentation snapshot is created.</p>
-   *
+   * <p>The date when the API documentation snapshot is created.</p>
    */
   createdDate?: Date;
 
   /**
-   *
-   *     <p>The description of the API documentation snapshot.</p>
-   *
+   * <p>The description of the API documentation snapshot.</p>
    */
   description?: string;
 
   /**
-   *
-   *     <p>The version identifier of the API documentation snapshot.</p>
-   *
+   * <p>The version identifier of the API documentation snapshot.</p>
    */
   version?: string;
 }
@@ -2508,13 +2090,11 @@ export namespace DocumentationVersion {
 }
 
 /**
- *
- *     <p>The collection of documentation snapshots of an API. </p>
+ * <p>The collection of documentation snapshots of an API. </p>
  *     <div class="remarks"><p>Use the <a>DocumentationVersions</a> to manage documentation snapshots associated with various API stages.</p></div>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersion</a>
  *     </div>
- *
  */
 export interface DocumentationVersions extends $MetadataBearer {
   __type?: "DocumentationVersions";
@@ -2536,8 +2116,7 @@ export namespace DocumentationVersions {
 }
 
 /**
- *
- *         <p>Represents a custom domain name as a user-friendly host name of an API (<a>RestApi</a>).</p>
+ * <p>Represents a custom domain name as a user-friendly host name of an API (<a>RestApi</a>).</p>
  *         <div class="Remarks">
  *             <p>When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the <code>{restapi-id}.execute-api.{region}.amazonaws.com</code> format. With the default host name, you can access the API's root resource with the URL of <code>https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/</code>. When you set up a custom domain name of <code>apis.example.com</code> for this API, you can then access the same resource using the URL of the <code>https://apis.examples.com/myApi</code>, where <code>myApi</code> is the base path mapping (<a>BasePathMapping</a>) of your API under the custom domain name.
  *             </p>
@@ -2545,113 +2124,81 @@ export namespace DocumentationVersions {
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Set a Custom Host Name for an API</a>
  *       </div>
- *
  */
 export interface DomainName extends $MetadataBearer {
   __type?: "DomainName";
   /**
-   *
-   *         <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
-   *
+   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
    */
   certificateArn?: string;
 
   /**
-   *
-   *         <p>The name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
-   *
+   * <p>The name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
    */
   certificateName?: string;
 
   /**
-   *
-   *         <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
-   *
+   * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
    */
   certificateUploadDate?: Date;
 
   /**
-   *
-   *         <p>The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <a target="_blank" href="https://aws.amazon.com/documentation/cloudfront/">Amazon CloudFront documentation</a>.</p>
-   *
+   * <p>The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <a target="_blank" href="https://aws.amazon.com/documentation/cloudfront/">Amazon CloudFront documentation</a>.</p>
    */
   distributionDomainName?: string;
 
   /**
-   *
-   *         <p>The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is <code>Z2FDTNDATAQYW2</code> for all the regions. For more information, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html">Set up a Regional Custom Domain Name</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region">AWS Regions and Endpoints for API Gateway</a>. </p>
-   *
+   * <p>The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is <code>Z2FDTNDATAQYW2</code> for all the regions. For more information, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html">Set up a Regional Custom Domain Name</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region">AWS Regions and Endpoints for API Gateway</a>. </p>
    */
   distributionHostedZoneId?: string;
 
   /**
-   *
-   *         <p>The custom domain name as an API host name, for example, <code>my-api.example.com</code>.</p>
-   *
+   * <p>The custom domain name as an API host name, for example, <code>my-api.example.com</code>.</p>
    */
   domainName?: string;
 
   /**
-   *
-   *     <p>The status of the <a>DomainName</a> migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
-   *
+   * <p>The status of the <a>DomainName</a> migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
    */
   domainNameStatus?: DomainNameStatus | string;
 
   /**
-   *
-   *     <p>An optional text message containing detailed information about status of the <a>DomainName</a> migration.</p>
-   *
+   * <p>An optional text message containing detailed information about status of the <a>DomainName</a> migration.</p>
    */
   domainNameStatusMessage?: string;
 
   /**
-   *
-   *         <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>
-   *
-   *
+   * <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>
    */
   endpointConfiguration?: EndpointConfiguration;
 
   /**
-   *
-   *       <p>The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.</p>
-   *
+   * <p>The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.</p>
    */
   regionalCertificateArn?: string;
 
   /**
-   *
-   *         <p>The name of the certificate that will be used for validating the regional domain name.</p>
-   *
+   * <p>The name of the certificate that will be used for validating the regional domain name.</p>
    */
   regionalCertificateName?: string;
 
   /**
-   *
-   *         <p>The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by API Gateway when you create a regional endpoint.</p>
-   *
+   * <p>The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by API Gateway when you create a regional endpoint.</p>
    */
   regionalDomainName?: string;
 
   /**
-   *
-   *         <p>The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html">Set up a Regional Custom Domain Name</a> and  <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region">AWS Regions and Endpoints for API Gateway</a>. </p>
-   *
+   * <p>The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html">Set up a Regional Custom Domain Name</a> and  <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region">AWS Regions and Endpoints for API Gateway</a>. </p>
    */
   regionalHostedZoneId?: string;
 
   /**
-   *
-   *     <p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
-   *
+   * <p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
   securityPolicy?: SecurityPolicy | string;
 
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -2669,19 +2216,15 @@ export enum DomainNameStatus {
 }
 
 /**
- *
- *         <p>Represents a collection of <a>DomainName</a> resources.</p>
+ * <p>Represents a collection of <a>DomainName</a> resources.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Client-Side Certificate</a>
  *       </div>
- *
  */
 export interface DomainNames extends $MetadataBearer {
   __type?: "DomainNames";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<DomainName>;
 
@@ -2698,23 +2241,17 @@ export namespace DomainNames {
 }
 
 /**
- *
- *         <p>The endpoint configuration to indicate the types of endpoints an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>) has. </p>
- *
+ * <p>The endpoint configuration to indicate the types of endpoints an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>) has. </p>
  */
 export interface EndpointConfiguration {
   __type?: "EndpointConfiguration";
   /**
-   *
-   *         <p>A list of endpoint types of an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>). For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>
-   *
+   * <p>A list of endpoint types of an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>). For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>
    */
   types?: Array<EndpointType | string>;
 
   /**
-   *
-   *         <p>A list of VpcEndpointIds of an API (<a>RestApi</a>) against which to create Route53 ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</p>
-   *
+   * <p>A list of VpcEndpointIds of an API (<a>RestApi</a>) against which to create Route53 ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</p>
    */
   vpcEndpointIds?: Array<string>;
 }
@@ -2728,30 +2265,22 @@ export namespace EndpointConfiguration {
 export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
 
 /**
- *
- *       <p>The binary blob response to <a>GetExport</a>, which contains the generated SDK.</p>
- *
+ * <p>The binary blob response to <a>GetExport</a>, which contains the generated SDK.</p>
  */
 export interface ExportResponse extends $MetadataBearer {
   __type?: "ExportResponse";
   /**
-   *
-   *       <p>The binary blob response to <a>GetExport</a>, which contains the export.</p>
-   *
+   * <p>The binary blob response to <a>GetExport</a>, which contains the export.</p>
    */
   body?: Uint8Array;
 
   /**
-   *
-   *       <p>The content-disposition header value in the HTTP response.</p>
-   *
+   * <p>The content-disposition header value in the HTTP response.</p>
    */
   contentDisposition?: string;
 
   /**
-   *
-   *       <p>The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.</p>
-   *
+   * <p>The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.</p>
    */
   contentType?: string;
 }
@@ -2763,9 +2292,7 @@ export namespace ExportResponse {
 }
 
 /**
- *
- *         <p>Request to flush authorizer cache entries on a specified stage.</p>
- *
+ * <p>Request to flush authorizer cache entries on a specified stage.</p>
  */
 export interface FlushStageAuthorizersCacheRequest {
   __type?: "FlushStageAuthorizersCacheRequest";
@@ -2776,9 +2303,7 @@ export interface FlushStageAuthorizersCacheRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>The name of the stage to flush.</p>
-   *
+   * <p>The name of the stage to flush.</p>
    */
   stageName: string | undefined;
 
@@ -2794,9 +2319,7 @@ export namespace FlushStageAuthorizersCacheRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to flush a stage's cache.</p>
- *
+ * <p>Requests API Gateway to flush a stage's cache.</p>
  */
 export interface FlushStageCacheRequest {
   __type?: "FlushStageCacheRequest";
@@ -2807,9 +2330,7 @@ export interface FlushStageCacheRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The name of the stage to flush its cache.</p>
-   *
+   * <p>[Required] The name of the stage to flush its cache.</p>
    */
   stageName: string | undefined;
 
@@ -2825,8 +2346,7 @@ export namespace FlushStageCacheRequest {
 }
 
 /**
- *
- *         <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p>
+ * <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p>
  *         <div class="remarks">
  *             For more information about valid gateway response types, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a>
  *
@@ -2886,7 +2406,6 @@ export namespace FlushStageCacheRequest {
  *         <div class="seeAlso">
  *           <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a>
  *         </div>
- *
  */
 export interface GatewayResponse extends $MetadataBearer {
   __type?: "GatewayResponse";
@@ -2946,8 +2465,7 @@ export enum GatewayResponseType {
 }
 
 /**
- *
- *         <p>The collection of the <a>GatewayResponse</a> instances of a <a>RestApi</a> as a <code>responseType</code>-to-<a>GatewayResponse</a> object map of key-value pairs. As such, pagination is not supported for querying this collection.</p>
+ * <p>The collection of the <a>GatewayResponse</a> instances of a <a>RestApi</a> as a <code>responseType</code>-to-<a>GatewayResponse</a> object map of key-value pairs. As such, pagination is not supported for querying this collection.</p>
  *         <div class="remarks">
  *             For more information about valid gateway response types, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a>
  *
@@ -3476,7 +2994,6 @@ export enum GatewayResponseType {
  *         <div class="seeAlso">
  *           <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a>
  *         </div>
- *
  */
 export interface GatewayResponses extends $MetadataBearer {
   __type?: "GatewayResponses";
@@ -3498,24 +3015,18 @@ export namespace GatewayResponses {
 }
 
 /**
- *
- *         <p>A request to generate a <a>ClientCertificate</a> resource.</p>
- *
+ * <p>A request to generate a <a>ClientCertificate</a> resource.</p>
  */
 export interface GenerateClientCertificateRequest {
   __type?: "GenerateClientCertificateRequest";
   /**
-   *
-   *         <p>The description of the <a>ClientCertificate</a>.</p>
-   *
+   * <p>The description of the <a>ClientCertificate</a>.</p>
    */
   description?: string;
 
   name?: string;
   /**
-   *
-   *         <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
@@ -3531,9 +3042,7 @@ export namespace GenerateClientCertificateRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to get information about the current <a>Account</a> resource.</p>
- *
+ * <p>Requests API Gateway to get information about the current <a>Account</a> resource.</p>
  */
 export interface GetAccountRequest {
   __type?: "GetAccountRequest";
@@ -3550,23 +3059,17 @@ export namespace GetAccountRequest {
 }
 
 /**
- *
- *         <p>A request to get information about the current <a>ApiKey</a> resource.</p>
- *
+ * <p>A request to get information about the current <a>ApiKey</a> resource.</p>
  */
 export interface GetApiKeyRequest {
   __type?: "GetApiKeyRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>ApiKey</a> resource.</p>
-   *
+   * <p>[Required] The identifier of the <a>ApiKey</a> resource.</p>
    */
   apiKey: string | undefined;
 
   /**
-   *
-   *       <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains the key value.</p>
-   *
+   * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains the key value.</p>
    */
   includeValue?: boolean;
 
@@ -3583,23 +3086,17 @@ export namespace GetApiKeyRequest {
 }
 
 /**
- *
- *         <p>A request to get information about the current <a>ApiKeys</a> resource.</p>
- *
+ * <p>A request to get information about the current <a>ApiKeys</a> resource.</p>
  */
 export interface GetApiKeysRequest {
   __type?: "GetApiKeysRequest";
   /**
-   *
-   *     <p>The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.</p>
-   *
+   * <p>The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.</p>
    */
   customerId?: string;
 
   /**
-   *
-   *       <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains key values.</p>
-   *
+   * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains key values.</p>
    */
   includeValues?: boolean;
 
@@ -3610,9 +3107,7 @@ export interface GetApiKeysRequest {
 
   name?: string;
   /**
-   *
-   *       <p>The name of queried API keys.</p>
-   *
+   * <p>The name of queried API keys.</p>
    */
   nameQuery?: string;
 
@@ -3633,16 +3128,12 @@ export namespace GetApiKeysRequest {
 }
 
 /**
- *
- *         <p>Request to describe an existing <a>Authorizer</a> resource.</p>
- *
+ * <p>Request to describe an existing <a>Authorizer</a> resource.</p>
  */
 export interface GetAuthorizerRequest {
   __type?: "GetAuthorizerRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
-   *
+   * <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
    */
   authorizerId: string | undefined;
 
@@ -3664,9 +3155,7 @@ export namespace GetAuthorizerRequest {
 }
 
 /**
- *
- *         <p>Request to describe an existing <a>Authorizers</a> resource.</p>
- *
+ * <p>Request to describe an existing <a>Authorizers</a> resource.</p>
  */
 export interface GetAuthorizersRequest {
   __type?: "GetAuthorizersRequest";
@@ -3683,7 +3172,6 @@ export interface GetAuthorizersRequest {
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   *
    */
   restApiId: string | undefined;
 
@@ -3699,23 +3187,17 @@ export namespace GetAuthorizersRequest {
 }
 
 /**
- *
- *         <p>Request to describe a <a>BasePathMapping</a> resource.</p>
- *
+ * <p>Request to describe a <a>BasePathMapping</a> resource.</p>
  */
 export interface GetBasePathMappingRequest {
   __type?: "GetBasePathMappingRequest";
   /**
-   *
-   *         <p>[Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>
-   *
+   * <p>[Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>
    */
   basePath: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The domain name of the <a>BasePathMapping</a> resource to be described.</p>
-   *
+   * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to be described.</p>
    */
   domainName: string | undefined;
 
@@ -3732,16 +3214,12 @@ export namespace GetBasePathMappingRequest {
 }
 
 /**
- *
- *         <p>A request to get information about a collection of <a>BasePathMapping</a> resources.</p>
- *
+ * <p>A request to get information about a collection of <a>BasePathMapping</a> resources.</p>
  */
 export interface GetBasePathMappingsRequest {
   __type?: "GetBasePathMappingsRequest";
   /**
-   *
-   *         <p>[Required] The domain name of a <a>BasePathMapping</a> resource.</p>
-   *
+   * <p>[Required] The domain name of a <a>BasePathMapping</a> resource.</p>
    */
   domainName: string | undefined;
 
@@ -3768,16 +3246,12 @@ export namespace GetBasePathMappingsRequest {
 }
 
 /**
- *
- *         <p>A request to get information about the current <a>ClientCertificate</a> resource.</p>
- *
+ * <p>A request to get information about the current <a>ClientCertificate</a> resource.</p>
  */
 export interface GetClientCertificateRequest {
   __type?: "GetClientCertificateRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be described.</p>
-   *
+   * <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be described.</p>
    */
   clientCertificateId: string | undefined;
 
@@ -3794,9 +3268,7 @@ export namespace GetClientCertificateRequest {
 }
 
 /**
- *
- *         <p>A request to get information about a collection of <a>ClientCertificate</a> resources.</p>
- *
+ * <p>A request to get information about a collection of <a>ClientCertificate</a> resources.</p>
  */
 export interface GetClientCertificatesRequest {
   __type?: "GetClientCertificatesRequest";
@@ -3823,23 +3295,17 @@ export namespace GetClientCertificatesRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to get information about a <a>Deployment</a> resource.</p>
- *
+ * <p>Requests API Gateway to get information about a <a>Deployment</a> resource.</p>
  */
 export interface GetDeploymentRequest {
   __type?: "GetDeploymentRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Deployment</a> resource to get information about.</p>
-   *
+   * <p>[Required] The identifier of the <a>Deployment</a> resource to get information about.</p>
    */
   deploymentId: string | undefined;
 
   /**
-   *
-   *         <p>A query parameter to retrieve the specified embedded resources of the returned <a>Deployment</a> resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>"apisummary"</code> string.  For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.</p>
-   *
+   * <p>A query parameter to retrieve the specified embedded resources of the returned <a>Deployment</a> resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>"apisummary"</code> string.  For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.</p>
    */
   embed?: Array<string>;
 
@@ -3861,9 +3327,7 @@ export namespace GetDeploymentRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to get information about a <a>Deployments</a> collection.</p>
- *
+ * <p>Requests API Gateway to get information about a <a>Deployments</a> collection.</p>
  */
 export interface GetDeploymentsRequest {
   __type?: "GetDeploymentsRequest";
@@ -4032,16 +3496,12 @@ export namespace GetDocumentationVersionsRequest {
 }
 
 /**
- *
- *         <p>Request to get the name of a <a>DomainName</a> resource.</p>
- *
+ * <p>Request to get the name of a <a>DomainName</a> resource.</p>
  */
 export interface GetDomainNameRequest {
   __type?: "GetDomainNameRequest";
   /**
-   *
-   *         <p>[Required] The name of the <a>DomainName</a> resource.</p>
-   *
+   * <p>[Required] The name of the <a>DomainName</a> resource.</p>
    */
   domainName: string | undefined;
 
@@ -4058,15 +3518,12 @@ export namespace GetDomainNameRequest {
 }
 
 /**
- *
- *         <p>Request to describe a collection of <a>DomainName</a> resources.</p>
- *
+ * <p>Request to describe a collection of <a>DomainName</a> resources.</p>
  */
 export interface GetDomainNamesRequest {
   __type?: "GetDomainNamesRequest";
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
-   *
    */
   limit?: number;
 
@@ -4088,30 +3545,22 @@ export namespace GetDomainNamesRequest {
 }
 
 /**
- *
- *       <p>Request a new export of a <a>RestApi</a> for a particular <a>Stage</a>.</p>
- *
+ * <p>Request a new export of a <a>RestApi</a> for a particular <a>Stage</a>.</p>
  */
 export interface GetExportRequest {
   __type?: "GetExportRequest";
   /**
-   *
-   *       <p>The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.</p>
-   *
+   * <p>The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.</p>
    */
   accepts?: string;
 
   /**
-   *
-   *         <p>[Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.</p>
-   *
+   * <p>[Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.</p>
    */
   exportType: string | undefined;
 
   /**
-   *
-   *       <p>A key-value map of query string parameters that specify properties of the export, depending on the requested <code>exportType</code>. For <code>exportType</code> <code>oas30</code> and <code>swagger</code>, any combination of the following parameters are supported: <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code> will export the API with  x-amazon-apigateway-authorizer extensions. <code>postman</code> will export the API with Postman extensions, allowing for import to the Postman tool</p>
-   *
+   * <p>A key-value map of query string parameters that specify properties of the export, depending on the requested <code>exportType</code>. For <code>exportType</code> <code>oas30</code> and <code>swagger</code>, any combination of the following parameters are supported: <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code> will export the API with  x-amazon-apigateway-authorizer extensions. <code>postman</code> will export the API with Postman extensions, allowing for import to the Postman tool</p>
    */
   parameters?: { [key: string]: string };
 
@@ -4121,9 +3570,7 @@ export interface GetExportRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The name of the <a>Stage</a> that will be exported.</p>
-   *
+   * <p>[Required] The name of the <a>Stage</a> that will be exported.</p>
    */
   stageName: string | undefined;
 }
@@ -4194,24 +3641,18 @@ export namespace GetGatewayResponsesRequest {
 }
 
 /**
- *
- *         <p>Represents a request to get the integration configuration.</p>
- *
+ * <p>Represents a request to get the integration configuration.</p>
  */
 export interface GetIntegrationRequest {
   __type?: "GetIntegrationRequest";
   /**
-   *
-   *         <p>[Required] Specifies a get integration request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies a get integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] Specifies a get integration request's resource identifier</p>
-   *
+   * <p>[Required] Specifies a get integration request's resource identifier</p>
    */
   resourceId: string | undefined;
 
@@ -4232,24 +3673,18 @@ export namespace GetIntegrationRequest {
 }
 
 /**
- *
- *         <p>Represents a get integration response request.</p>
- *
+ * <p>Represents a get integration response request.</p>
  */
 export interface GetIntegrationResponseRequest {
   __type?: "GetIntegrationResponseRequest";
   /**
-   *
-   *         <p>[Required] Specifies a get integration response request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies a get integration response request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] Specifies a get integration response request's resource identifier.</p>
-   *
+   * <p>[Required] Specifies a get integration response request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
@@ -4259,9 +3694,7 @@ export interface GetIntegrationResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] Specifies a get integration response request's status code.</p>
-   *
+   * <p>[Required] Specifies a get integration response request's status code.</p>
    */
   statusCode: string | undefined;
 
@@ -4277,24 +3710,18 @@ export namespace GetIntegrationResponseRequest {
 }
 
 /**
- *
- *         <p>Request to describe an existing <a>Method</a> resource.</p>
- *
+ * <p>Request to describe an existing <a>Method</a> resource.</p>
  */
 export interface GetMethodRequest {
   __type?: "GetMethodRequest";
   /**
-   *
-   *         <p>[Required] Specifies the method request's HTTP method type.</p>
-   *
+   * <p>[Required] Specifies the method request's HTTP method type.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -4315,24 +3742,18 @@ export namespace GetMethodRequest {
 }
 
 /**
- *
- *         <p>Request to describe a <a>MethodResponse</a> resource.</p>
- *
+ * <p>Request to describe a <a>MethodResponse</a> resource.</p>
  */
 export interface GetMethodResponseRequest {
   __type?: "GetMethodResponseRequest";
   /**
-   *
-   *         <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -4342,9 +3763,7 @@ export interface GetMethodResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The status code for the <a>MethodResponse</a> resource.</p>
-   *
+   * <p>[Required] The status code for the <a>MethodResponse</a> resource.</p>
    */
   statusCode: string | undefined;
 
@@ -4360,31 +3779,23 @@ export namespace GetMethodResponseRequest {
 }
 
 /**
- *
- *         <p>Request to list information about a model in an existing <a>RestApi</a> resource.</p>
- *
+ * <p>Request to list information about a model in an existing <a>RestApi</a> resource.</p>
  */
 export interface GetModelRequest {
   __type?: "GetModelRequest";
   /**
-   *
-   *         <p>A query parameter of a Boolean value to resolve (<code>true</code>) all external model references and returns a flattened model schema or not (<code>false</code>) The default is <code>false</code>.</p>
-   *
+   * <p>A query parameter of a Boolean value to resolve (<code>true</code>) all external model references and returns a flattened model schema or not (<code>false</code>) The default is <code>false</code>.</p>
    */
   flatten?: boolean;
 
   /**
-   *
-   *         <p>[Required] The name of the model as an identifier.</p>
-   *
+   * <p>[Required] The name of the model as an identifier.</p>
    */
   modelName: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> exists.</p>
-   *
+   * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> exists.</p>
    */
   restApiId: string | undefined;
 
@@ -4400,16 +3811,12 @@ export namespace GetModelRequest {
 }
 
 /**
- *
- *         <p>Request to generate a sample mapping template used to transform the payload.</p>
- *
+ * <p>Request to generate a sample mapping template used to transform the payload.</p>
  */
 export interface GetModelTemplateRequest {
   __type?: "GetModelTemplateRequest";
   /**
-   *
-   *         <p>[Required] The name of the model for which to generate a template.</p>
-   *
+   * <p>[Required] The name of the model for which to generate a template.</p>
    */
   modelName: string | undefined;
 
@@ -4431,9 +3838,7 @@ export namespace GetModelTemplateRequest {
 }
 
 /**
- *
- *         <p>Request to list existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
- *
+ * <p>Request to list existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
  */
 export interface GetModelsRequest {
   __type?: "GetModelsRequest";
@@ -4465,17 +3870,13 @@ export namespace GetModelsRequest {
 }
 
 /**
- *
- *         <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
- *
+ * <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
  */
 export interface GetRequestValidatorRequest {
   __type?: "GetRequestValidatorRequest";
   name?: string;
   /**
-   *
-   *         <p>[Required] The identifier of the <a>RequestValidator</a> to be retrieved.</p>
-   *
+   * <p>[Required] The identifier of the <a>RequestValidator</a> to be retrieved.</p>
    */
   requestValidatorId: string | undefined;
 
@@ -4496,9 +3897,7 @@ export namespace GetRequestValidatorRequest {
 }
 
 /**
- *
- *         <p>Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.</p>
- *
+ * <p>Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.</p>
  */
 export interface GetRequestValidatorsRequest {
   __type?: "GetRequestValidatorsRequest";
@@ -4530,24 +3929,18 @@ export namespace GetRequestValidatorsRequest {
 }
 
 /**
- *
- *         <p>Request to list information about a resource.</p>
- *
+ * <p>Request to list information about a resource.</p>
  */
 export interface GetResourceRequest {
   __type?: "GetResourceRequest";
   /**
-   *
-   *         <p>A query parameter to retrieve the specified resources embedded in the returned <a>Resource</a> representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
-   *
+   * <p>A query parameter to retrieve the specified resources embedded in the returned <a>Resource</a> representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
    */
   embed?: Array<string>;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] The identifier for the <a>Resource</a> resource.</p>
-   *
+   * <p>[Required] The identifier for the <a>Resource</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -4568,16 +3961,12 @@ export namespace GetResourceRequest {
 }
 
 /**
- *
- *         <p>Request to list information about a collection of resources.</p>
- *
+ * <p>Request to list information about a collection of resources.</p>
  */
 export interface GetResourcesRequest {
   __type?: "GetResourcesRequest";
   /**
-   *
-   *         <p>A query parameter used to retrieve the specified resources embedded in the returned <a>Resources</a> resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</p>
-   *
+   * <p>A query parameter used to retrieve the specified resources embedded in the returned <a>Resources</a> resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</p>
    */
   embed?: Array<string>;
 
@@ -4609,17 +3998,13 @@ export namespace GetResourcesRequest {
 }
 
 /**
- *
- *         <p>The GET request to list an existing <a>RestApi</a> defined for your collection. </p>
- *
+ * <p>The GET request to list an existing <a>RestApi</a> defined for your collection. </p>
  */
 export interface GetRestApiRequest {
   __type?: "GetRestApiRequest";
   name?: string;
   /**
-   *
-   *         <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   *
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
@@ -4635,9 +4020,7 @@ export namespace GetRestApiRequest {
 }
 
 /**
- *
- *         <p>The GET request to list existing <a>RestApis</a> defined for your collection.</p>
- *
+ * <p>The GET request to list existing <a>RestApis</a> defined for your collection.</p>
  */
 export interface GetRestApisRequest {
   __type?: "GetRestApisRequest";
@@ -4664,16 +4047,12 @@ export namespace GetRestApisRequest {
 }
 
 /**
- *
- *       <p>Request a new generated client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
- *
+ * <p>Request a new generated client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
  */
 export interface GetSdkRequest {
   __type?: "GetSdkRequest";
   /**
-   *
-   *       <p>A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>,  a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. </p>
-   *
+   * <p>A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>,  a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. </p>
    */
   parameters?: { [key: string]: string };
 
@@ -4683,16 +4062,12 @@ export interface GetSdkRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>, <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS), and <code>ruby</code>  are supported.</p>
-   *
+   * <p>[Required] The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>, <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS), and <code>ruby</code>  are supported.</p>
    */
   sdkType: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The name of the <a>Stage</a> that the SDK will use.</p>
-   *
+   * <p>[Required] The name of the <a>Stage</a> that the SDK will use.</p>
    */
   stageName: string | undefined;
 }
@@ -4704,16 +4079,12 @@ export namespace GetSdkRequest {
 }
 
 /**
- *
- *         <p>Get an <a>SdkType</a> instance.</p>
- *
+ * <p>Get an <a>SdkType</a> instance.</p>
  */
 export interface GetSdkTypeRequest {
   __type?: "GetSdkTypeRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the queried <a>SdkType</a> instance.</p>
-   *
+   * <p>[Required] The identifier of the queried <a>SdkType</a> instance.</p>
    */
   id: string | undefined;
 
@@ -4730,9 +4101,7 @@ export namespace GetSdkTypeRequest {
 }
 
 /**
- *
- *         <p>Get the <a>SdkTypes</a> collection.</p>
- *
+ * <p>Get the <a>SdkTypes</a> collection.</p>
  */
 export interface GetSdkTypesRequest {
   __type?: "GetSdkTypesRequest";
@@ -4759,9 +4128,7 @@ export namespace GetSdkTypesRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to get information about a <a>Stage</a> resource.</p>
- *
+ * <p>Requests API Gateway to get information about a <a>Stage</a> resource.</p>
  */
 export interface GetStageRequest {
   __type?: "GetStageRequest";
@@ -4772,9 +4139,7 @@ export interface GetStageRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The name of the <a>Stage</a> resource to get information about.</p>
-   *
+   * <p>[Required] The name of the <a>Stage</a> resource to get information about.</p>
    */
   stageName: string | undefined;
 
@@ -4790,16 +4155,12 @@ export namespace GetStageRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to get information about one or more <a>Stage</a> resources.</p>
- *
+ * <p>Requests API Gateway to get information about one or more <a>Stage</a> resources.</p>
  */
 export interface GetStagesRequest {
   __type?: "GetStagesRequest";
   /**
-   *
-   *         <p>The stages' deployment identifiers.</p>
-   *
+   * <p>The stages' deployment identifiers.</p>
    */
   deploymentId?: string;
 
@@ -4821,31 +4182,23 @@ export namespace GetStagesRequest {
 }
 
 /**
- *
- *         <p>Gets the <a>Tags</a> collection for a given resource.</p>
- *
+ * <p>Gets the <a>Tags</a> collection for a given resource.</p>
  */
 export interface GetTagsRequest {
   __type?: "GetTagsRequest";
   /**
-   *
-   *         <p>(Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
-   *
+   * <p>(Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
   name?: string;
   /**
-   *
-   *         <p>(Not currently supported) The current pagination position in the paged result set.</p>
-   *
+   * <p>(Not currently supported) The current pagination position in the paged result set.</p>
    */
   position?: string;
 
   /**
-   *
-   *         <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
-   *
+   * <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
    */
   resourceArn: string | undefined;
 
@@ -4861,16 +4214,12 @@ export namespace GetTagsRequest {
 }
 
 /**
- *
- *     <p>The GET request to get a usage plan key of a given key identifier.</p>
- *
+ * <p>The GET request to get a usage plan key of a given key identifier.</p>
  */
 export interface GetUsagePlanKeyRequest {
   __type?: "GetUsagePlanKeyRequest";
   /**
-   *
-   *       <p>[Required] The key Id of the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
-   *
+   * <p>[Required] The key Id of the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   keyId: string | undefined;
 
@@ -4879,9 +4228,7 @@ export interface GetUsagePlanKeyRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
-   *
+   * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -4893,9 +4240,7 @@ export namespace GetUsagePlanKeyRequest {
 }
 
 /**
- *
- *     <p>The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.</p>
- *
+ * <p>The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.</p>
  */
 export interface GetUsagePlanKeysRequest {
   __type?: "GetUsagePlanKeysRequest";
@@ -4906,9 +4251,7 @@ export interface GetUsagePlanKeysRequest {
 
   name?: string;
   /**
-   *
-   *     <p>A query parameter specifying the name of the to-be-returned usage plan keys.</p>
-   *
+   * <p>A query parameter specifying the name of the to-be-returned usage plan keys.</p>
    */
   nameQuery?: string;
 
@@ -4921,9 +4264,7 @@ export interface GetUsagePlanKeysRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
-   *
+   * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -4935,9 +4276,7 @@ export namespace GetUsagePlanKeysRequest {
 }
 
 /**
- *
- *     <p>The GET request to get a usage plan of a given plan identifier.</p>
- *
+ * <p>The GET request to get a usage plan of a given plan identifier.</p>
  */
 export interface GetUsagePlanRequest {
   __type?: "GetUsagePlanRequest";
@@ -4946,9 +4285,7 @@ export interface GetUsagePlanRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>[Required] The identifier of the <a>UsagePlan</a> resource to be retrieved.</p>
-   *
+   * <p>[Required] The identifier of the <a>UsagePlan</a> resource to be retrieved.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -4960,16 +4297,12 @@ export namespace GetUsagePlanRequest {
 }
 
 /**
- *
- *     <p>The GET request to get all the usage plans of the caller's account.</p>
- *
+ * <p>The GET request to get all the usage plans of the caller's account.</p>
  */
 export interface GetUsagePlansRequest {
   __type?: "GetUsagePlansRequest";
   /**
-   *
-   *     <p>The identifier of the API key associated with the usage plans.</p>
-   *
+   * <p>The identifier of the API key associated with the usage plans.</p>
    */
   keyId?: string;
 
@@ -4996,23 +4329,17 @@ export namespace GetUsagePlansRequest {
 }
 
 /**
- *
- *       <p>The GET request to get the usage data of a usage plan in a specified time interval.</p>
- *
+ * <p>The GET request to get the usage data of a usage plan in a specified time interval.</p>
  */
 export interface GetUsageRequest {
   __type?: "GetUsageRequest";
   /**
-   *
-   *         <p>[Required] The ending date (e.g., 2016-12-31) of the usage data.</p>
-   *
+   * <p>[Required] The ending date (e.g., 2016-12-31) of the usage data.</p>
    */
   endDate: string | undefined;
 
   /**
-   *
-   *         <p>The Id of the API key associated with the resultant usage data.</p>
-   *
+   * <p>The Id of the API key associated with the resultant usage data.</p>
    */
   keyId?: string;
 
@@ -5028,9 +4355,7 @@ export interface GetUsageRequest {
   position?: string;
 
   /**
-   *
-   *         <p>[Required] The starting date (e.g., 2016-01-01) of the usage data.</p>
-   *
+   * <p>[Required] The starting date (e.g., 2016-01-01) of the usage data.</p>
    */
   startDate: string | undefined;
 
@@ -5038,9 +4363,7 @@ export interface GetUsageRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>[Required] The Id of the usage plan associated with the usage data.</p>
-   *
+   * <p>[Required] The Id of the usage plan associated with the usage data.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -5052,9 +4375,7 @@ export namespace GetUsageRequest {
 }
 
 /**
- *
- *         <p>Gets a specified VPC link under the caller's account in a region.</p>
- *
+ * <p>Gets a specified VPC link under the caller's account in a region.</p>
  */
 export interface GetVpcLinkRequest {
   __type?: "GetVpcLinkRequest";
@@ -5063,9 +4384,7 @@ export interface GetVpcLinkRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
-   *
+   * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
   vpcLinkId: string | undefined;
 }
@@ -5077,24 +4396,18 @@ export namespace GetVpcLinkRequest {
 }
 
 /**
- *
- *         <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
- *
+ * <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
  */
 export interface GetVpcLinksRequest {
   __type?: "GetVpcLinksRequest";
   /**
-   *
-   *         <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
-   *
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
   name?: string;
   /**
-   *
-   *         <p>The current pagination position in the paged result set.</p>
-   *
+   * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
@@ -5110,23 +4423,17 @@ export namespace GetVpcLinksRequest {
 }
 
 /**
- *
- *     <p>The POST request to import API keys from an external source, such as a CSV-formatted file.</p>
- *
+ * <p>The POST request to import API keys from an external source, such as a CSV-formatted file.</p>
  */
 export interface ImportApiKeysRequest {
   __type?: "ImportApiKeysRequest";
   /**
-   *
-   *     <p>A query parameter to indicate whether to rollback <a>ApiKey</a> importation (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
-   *
+   * <p>A query parameter to indicate whether to rollback <a>ApiKey</a> importation (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
    */
   failOnWarnings?: boolean;
 
   /**
-   *
-   *     <p>A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.</p>
-   *
+   * <p>A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.</p>
    */
   format: ApiKeysFormat | string | undefined;
 
@@ -5175,24 +4482,19 @@ export namespace ImportDocumentationPartsRequest {
 }
 
 /**
- *
- *         <p>A POST request to import an API to API Gateway using an input of an API definition file.</p>
- *
+ * <p>A POST request to import an API to API Gateway using an input of an API definition file.</p>
  */
 export interface ImportRestApiRequest {
   __type?: "ImportRestApiRequest";
   /**
-   *
-   *         <p>A query parameter to indicate whether to rollback the API creation (<code>true</code>) or not (<code>false</code>)
+   * <p>A query parameter to indicate whether to rollback the API creation (<code>true</code>) or not (<code>false</code>)
    *             when a warning is encountered. The default value is <code>false</code>.</p>
-   *
    */
   failOnWarnings?: boolean;
 
   name?: string;
   /**
-   *
-   *         <p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p>
+   * <p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p>
    *         <p> To exclude <a>DocumentationParts</a> from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p>
    *       <p> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>, <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is <code>EDGE</code>.</p>
    *         <p> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>, <code>basepath=prepend</code> or <code>basepath=split</code>.</p>
@@ -5200,7 +4502,6 @@ export interface ImportRestApiRequest {
    *         <pre><code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code></pre>
    *         <p>The AWS CLI command to set the regional endpoint on the imported API is:</p>
    *         <pre><code>aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'</code></pre>
-   *
    */
   parameters?: { [key: string]: string };
 
@@ -5216,41 +4517,31 @@ export namespace ImportRestApiRequest {
 }
 
 /**
- *
- *         <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p>
+ * <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p>
  *         <div class="remarks">In the API Gateway console, the built-in Lambda integration is an AWS integration.</div>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a>
  *       </div>
- *
  */
 export interface Integration extends $MetadataBearer {
   __type?: "Integration";
   /**
-   *
-   *       <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
-   *
+   * <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
    */
   cacheKeyParameters?: Array<string>;
 
   /**
-   *
-   *       <p>An API-specific tag group of related cached parameters. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
-   *
+   * <p>An API-specific tag group of related cached parameters. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
    */
   cacheNamespace?: string;
 
   /**
-   *
-   *         <p>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>) of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
-   *
+   * <p>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>) of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
    */
   connectionId?: string;
 
   /**
-   *
-   *         <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
-   *
+   * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    */
   connectionType?: ConnectionType | string;
 
@@ -5261,27 +4552,21 @@ export interface Integration extends $MetadataBearer {
    *         <li><p><code>CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a Base64-encoded string.</p></li>
    *       </ul>
    *       <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
-   *
    */
   contentHandling?: ContentHandlingStrategy | string;
 
   /**
-   *
-   *         <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported AWS services, specify null.</p>
-   *
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported AWS services, specify null.</p>
    */
   credentials?: string;
 
   /**
-   *
-   *         <p>Specifies the integration's HTTP method type.</p>
-   *
+   * <p>Specifies the integration's HTTP method type.</p>
    */
   httpMethod?: string;
 
   /**
-   *
-   *         <p>Specifies the integration's responses.</p>
+   * <p>Specifies the integration's responses.</p>
    *         <div class="remarks">
    *     <p></p>
    *     <h4>Example: Get integration responses of a method</h4>
@@ -5326,13 +4611,11 @@ export interface Integration extends $MetadataBearer {
    *         <div class="seeAlso">
    *           <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a>
    *         </div>
-   *
    */
   integrationResponses?: { [key: string]: IntegrationResponse };
 
   /**
-   *
-   *       <div>
+   * <div>
    *         <p>
    *             Specifies how the method request body of an unmapped content type will be passed through the integration request
    *             to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration
@@ -5356,34 +4639,26 @@ export interface Integration extends $MetadataBearer {
    *           </li>
    *         </ul>
    *       </div>
-   *
    */
   passthroughBehavior?: string;
 
   /**
-   *
-   *       <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
-   *
+   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    */
   requestParameters?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
-   *
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
    */
   requestTemplates?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
-   *
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
    */
   timeoutInMillis?: number;
 
   /**
-   *
-   *         <p>Specifies an API method integration type. The valid value is one of the following:</p>
+   * <p>Specifies an API method integration type. The valid value is one of the following:</p>
    *         <ul>
    *             <li><code>AWS</code>: for integrating the API method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.</li>
    *             <li><code>AWS_PROXY</code>: for integrating the API method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as the Lambda proxy integration.</li>
@@ -5392,20 +4667,16 @@ export interface Integration extends $MetadataBearer {
    *             <li><code>MOCK</code>: for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.</li>
    *         </ul>
    *         <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a <a>VpcLink</a> to connect API Gateway to a network load balancer of a VPC.</p>
-   *
    */
   type?: IntegrationType | string;
 
   /**
-   *
-   *         <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
+   * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
    * <ul>
    * <li><p> For <code>HTTP</code> or <code>HTTP_PROXY</code> integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <a target="_blank" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">RFC-3986 specification</a>, for either standard integration, where <code>connectionType</code> is not <code>VPC_LINK</code>, or private integration, where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP integration, the URI is not used for routing. </p>
    * </li>
    * <li><p> For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}</code>. Here, <code>{Region}</code> is the API Gateway region (e.g., <code>us-east-1</code>); <code>{service}</code> is the name of the integrated AWS service (e.g., <code>s3</code>); and <code>{subdomain}</code> is a designated subdomain supported by certain AWS service for fast host-name lookup. <code>action</code> can be used for an AWS service action-based API, using an <code>Action={name}&{p1}={v1}&p2={v2}...</code> query string. The ensuing <code>{service_api}</code> refers to a supported action <code>{name}</code> plus any required input parameters. Alternatively, <code>path</code> can be used for an AWS service path-based API. The ensuing  <code>service_api</code> refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of <code><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html">GetObject</a></code>, the <code>uri</code> can be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}</code> or  <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code></p>
    * </li></ul>
-   *
-   *
    */
   uri?: string;
 }
@@ -5417,12 +4688,10 @@ export namespace Integration {
 }
 
 /**
- *
- *         <p>Represents an integration response. The status code must map to an existing <a>MethodResponse</a>, and parameters and templates can be used to transform the back-end response.</p>
+ * <p>Represents an integration response. The status code must map to an existing <a>MethodResponse</a>, and parameters and templates can be used to transform the back-end response.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a>
  *       </div>
- *
  */
 export interface IntegrationResponse extends $MetadataBearer {
   __type?: "IntegrationResponse";
@@ -5437,31 +4706,23 @@ export interface IntegrationResponse extends $MetadataBearer {
   contentHandling?: ContentHandlingStrategy | string;
 
   /**
-   *
-   *         <p>A key-value map specifying response parameters that are passed to the method response from the back end.
+   * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> is a valid and unique response header name and <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.</p>
-   *
    */
   responseParameters?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
-   *
+   * <p>Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
   responseTemplates?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.</p>
-   *
+   * <p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.</p>
    */
   selectionPattern?: string;
 
   /**
-   *
-   *         <p>Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
-   *
+   * <p>Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
    */
   statusCode?: string;
 }
@@ -5486,8 +4747,7 @@ export enum LocationStatusType {
 }
 
 /**
- *
- *         <p>
+ * <p>
  *             Represents a client-facing interface by which the client calls the API to access back-end resources. A <b>Method</b> resource is
  *             integrated with an <a>Integration</a> resource. Both consist of a request and one or more responses. The method request takes
  *             the client input that is passed to the back end through the integration request. A method response returns the output from
@@ -5651,14 +4911,11 @@ export enum LocationStatusType {
  *         <a>MethodResponse</a>, <a>Integration</a>, <a>IntegrationResponse</a>, <a>Resource</a>,
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html">Set up an API's method</a>
  *       </div>
- *
  */
 export interface Method extends $MetadataBearer {
   __type?: "Method";
   /**
-   *
-   *         <p>A boolean flag specifying whether a valid <a>ApiKey</a> is required to invoke this method.</p>
-   *
+   * <p>A boolean flag specifying whether a valid <a>ApiKey</a> is required to invoke this method.</p>
    */
   apiKeyRequired?: boolean;
 
@@ -5668,29 +4925,22 @@ export interface Method extends $MetadataBearer {
   authorizationScopes?: Array<string>;
 
   /**
-   *
-   *         <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
-   *
+   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
    */
   authorizationType?: string;
 
   /**
-   *
-   *         <p>The identifier of an <a>Authorizer</a> to use on this method. The <code>authorizationType</code> must be <code>CUSTOM</code>.</p>
-   *
+   * <p>The identifier of an <a>Authorizer</a> to use on this method. The <code>authorizationType</code> must be <code>CUSTOM</code>.</p>
    */
   authorizerId?: string;
 
   /**
-   *
-   *         <p>The method's HTTP verb.</p>
-   *
+   * <p>The method's HTTP verb.</p>
    */
   httpMethod?: string;
 
   /**
-   *
-   *         <p>Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.</p>
+   * <p>Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.</p>
    *       <div class="remarks">
    *         <p></p>
    *         <h4>Example: </h4>
@@ -5780,13 +5030,11 @@ export interface Method extends $MetadataBearer {
    *       <div class="seeAlso">
    *         <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html">AWS CLI</a>
    *       </div>
-   *
    */
   methodIntegration?: Integration;
 
   /**
-   *
-   *         <p>Gets a method response associated with a given HTTP status code. </p>
+   * <p>Gets a method response associated with a given HTTP status code. </p>
    *       <div class="remarks">
    *         <p>The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a <a>MethodResponse</a> resource that specifies the response returned to the caller from the back end through the integration response.</p>
    *         <h4>Example: Get a 200 OK response of a GET method</h4>
@@ -5833,34 +5081,26 @@ export interface Method extends $MetadataBearer {
    *       <div class="seeAlso">
    *         <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html">AWS CLI</a>
    *       </div>
-   *
    */
   methodResponses?: { [key: string]: MethodResponse };
 
   /**
    * <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
-   *
    */
   operationName?: string;
 
   /**
-   *
-   *         <p>A key-value map specifying data schemas, represented by <a>Model</a> resources, (as the mapped value) of the request payloads of given content types (as the mapping key).</p>
-   *
+   * <p>A key-value map specifying data schemas, represented by <a>Model</a> resources, (as the mapped value) of the request payloads of given content types (as the mapping key).</p>
    */
   requestModels?: { [key: string]: string };
 
   /**
-   *
-   *         <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or templates.</p>
-   *
+   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or templates.</p>
    */
   requestParameters?: { [key: string]: boolean };
 
   /**
-   *
-   *         <p>The identifier of a <a>RequestValidator</a> for request validation.</p>
-   *
+   * <p>The identifier of a <a>RequestValidator</a> for request validation.</p>
    */
   requestValidatorId?: string;
 }
@@ -5872,8 +5112,7 @@ export namespace Method {
 }
 
 /**
- *
- *         <p>Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template. <!-- &ABP; sends back the status code to the caller as the HTTP status code. Parameters and models can be used to transform the response from the method's integration.--></p>
+ * <p>Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template. <!-- &ABP; sends back the status code to the caller as the HTTP status code. Parameters and models can be used to transform the response from the method's integration.--></p>
  *         <div class="remarks">
  *           <p></p>
  *           <h4>Example: A <b>MethodResponse</b> instance of an API</h4>
@@ -5918,28 +5157,21 @@ export namespace Method {
  *         <a>Method</a>, <a>IntegrationResponse</a>, <a>Integration</a>
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a>
  *       </div>
- *
  */
 export interface MethodResponse extends $MetadataBearer {
   __type?: "MethodResponse";
   /**
-   *
-   *         <p>Specifies the <a>Model</a> resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a <a>Model</a> name as the value.</p>
-   *
+   * <p>Specifies the <a>Model</a> resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a <a>Model</a> name as the value.</p>
    */
   responseModels?: { [key: string]: string };
 
   /**
-   *
-   *         <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's <a>IntegrationResponse</a>. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
-   *
+   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's <a>IntegrationResponse</a>. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    */
   responseParameters?: { [key: string]: boolean };
 
   /**
-   *
-   *         <p>The method response's status code.</p>
-   *
+   * <p>The method response's status code.</p>
    */
   statusCode?: string;
 }
@@ -5951,79 +5183,57 @@ export namespace MethodResponse {
 }
 
 /**
- *
- *         <p>Specifies the method setting properties.</p>
- *
+ * <p>Specifies the method setting properties.</p>
  */
 export interface MethodSetting {
   __type?: "MethodSetting";
   /**
-   *
-   *         <p>Specifies whether the cached responses are encrypted. The PATCH path for this setting is <code>/{method_setting_key}/caching/dataEncrypted</code>, and the value is a Boolean.</p>
-   *
+   * <p>Specifies whether the cached responses are encrypted. The PATCH path for this setting is <code>/{method_setting_key}/caching/dataEncrypted</code>, and the value is a Boolean.</p>
    */
   cacheDataEncrypted?: boolean;
 
   /**
-   *
-   *         <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/ttlInSeconds</code>, and the value is an integer.</p>
-   *
+   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/ttlInSeconds</code>, and the value is an integer.</p>
    */
   cacheTtlInSeconds?: number;
 
   /**
-   *
-   *         <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/enabled</code>, and the value is a Boolean.</p>
-   *
+   * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/enabled</code>, and the value is a Boolean.</p>
    */
   cachingEnabled?: boolean;
 
   /**
-   *
-   *         <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/dataTrace</code>, and the value is a Boolean.</p>
-   *
+   * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/dataTrace</code>, and the value is a Boolean.</p>
    */
   dataTraceEnabled?: boolean;
 
   /**
-   *
-   *         <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/loglevel</code>, and the available levels are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>.</p>
-   *
+   * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/loglevel</code>, and the available levels are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>.</p>
    */
   loggingLevel?: string;
 
   /**
-   *
-   *         <p>Specifies whether Amazon CloudWatch metrics are enabled for this method. The PATCH path for this setting is <code>/{method_setting_key}/metrics/enabled</code>, and the value is a Boolean.</p>
-   *
+   * <p>Specifies whether Amazon CloudWatch metrics are enabled for this method. The PATCH path for this setting is <code>/{method_setting_key}/metrics/enabled</code>, and the value is a Boolean.</p>
    */
   metricsEnabled?: boolean;
 
   /**
-   *
-   *         <p>Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is <code>/{method_setting_key}/caching/requireAuthorizationForCacheControl</code>, and the value is a Boolean.</p>
-   *
+   * <p>Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is <code>/{method_setting_key}/caching/requireAuthorizationForCacheControl</code>, and the value is a Boolean.</p>
    */
   requireAuthorizationForCacheControl?: boolean;
 
   /**
-   *
-   *         <p>Specifies the throttling burst limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/burstLimit</code>, and the value is an integer.</p>
-   *
+   * <p>Specifies the throttling burst limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/burstLimit</code>, and the value is an integer.</p>
    */
   throttlingBurstLimit?: number;
 
   /**
-   *
-   *         <p>Specifies the throttling rate limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/rateLimit</code>, and the value is a double.</p>
-   *
+   * <p>Specifies the throttling rate limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/rateLimit</code>, and the value is a double.</p>
    */
   throttlingRateLimit?: number;
 
   /**
-   *
-   *         <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
-   *
+   * <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
    */
   unauthorizedCacheControlHeaderStrategy?:
     | UnauthorizedCacheControlHeaderStrategy
@@ -6037,23 +5247,17 @@ export namespace MethodSetting {
 }
 
 /**
- *
- *         <p>Represents a summary of a <a>Method</a> resource, given a particular date and time.</p>
- *
+ * <p>Represents a summary of a <a>Method</a> resource, given a particular date and time.</p>
  */
 export interface MethodSnapshot {
   __type?: "MethodSnapshot";
   /**
-   *
-   *         <p>Specifies whether the method requires a valid <a>ApiKey</a>.</p>
-   *
+   * <p>Specifies whether the method requires a valid <a>ApiKey</a>.</p>
    */
   apiKeyRequired?: boolean;
 
   /**
-   *
-   *         <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
-   *
+   * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
    */
   authorizationType?: string;
 }
@@ -6065,8 +5269,7 @@ export namespace MethodSnapshot {
 }
 
 /**
- *
- *         <p>Represents the data structure of a method's request or response payload.</p>
+ * <p>Represents the data structure of a method's request or response payload.</p>
  *       <div class="remarks">
  *         <p>A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.</p>
  *         <p>A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.</p>
@@ -6074,42 +5277,31 @@ export namespace MethodSnapshot {
  *       <div class="seeAlso">
  *         <a>Method</a>, <a>MethodResponse</a>, <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a>
  *       </div>
- *
  */
 export interface Model extends $MetadataBearer {
   __type?: "Model";
   /**
-   *
-   *         <p>The content-type for the model.</p>
-   *
+   * <p>The content-type for the model.</p>
    */
   contentType?: string;
 
   /**
-   *
-   *         <p>The description of the model.</p>
-   *
+   * <p>The description of the model.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The identifier for the model resource.</p>
-   *
+   * <p>The identifier for the model resource.</p>
    */
   id?: string;
 
   /**
-   *
-   *         <p>The name of the model. Must be an alphanumeric string.</p>
-   *
+   * <p>The name of the model. Must be an alphanumeric string.</p>
    */
   name?: string;
 
   /**
-   *
-   *         <p>The schema for the model. For <code>application/json</code> models, this should be <a target="_blank" href="https://tools.ietf.org/html/draft-zyp-json-schema-04">JSON schema draft 4</a> model. Do not include "\*\/" characters in the description of any properties because such "\*\/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.</p>
-   *
+   * <p>The schema for the model. For <code>application/json</code> models, this should be <a target="_blank" href="https://tools.ietf.org/html/draft-zyp-json-schema-04">JSON schema draft 4</a> model. Do not include "\*\/" characters in the description of any properties because such "\*\/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.</p>
    */
   schema?: string;
 }
@@ -6121,19 +5313,15 @@ export namespace Model {
 }
 
 /**
- *
- *         <p>Represents a collection of <a>Model</a> resources.</p>
+ * <p>Represents a collection of <a>Model</a> resources.</p>
  *       <div class="seeAlso">
  *         <a>Method</a>, <a>MethodResponse</a>, <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a>
  *       </div>
- *
  */
 export interface Models extends $MetadataBearer {
   __type?: "Models";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<Model>;
 
@@ -6192,37 +5380,27 @@ export namespace PutGatewayResponseRequest {
 }
 
 /**
- *
- *         <p>Sets up a method's integration.</p>
- *
+ * <p>Sets up a method's integration.</p>
  */
 export interface PutIntegrationRequest {
   __type?: "PutIntegrationRequest";
   /**
-   *
-   *         <p>An API-specific tag group of related cached parameters.</p>
-   *
+   * <p>An API-specific tag group of related cached parameters.</p>
    */
   cacheKeyParameters?: Array<string>;
 
   /**
-   *
-   *         <p>A list of request parameters whose values are to be cached.</p>
-   *
+   * <p>A list of request parameters whose values are to be cached.</p>
    */
   cacheNamespace?: string;
 
   /**
-   *
-   *         <p>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>) of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
-   *
+   * <p>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>) of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
    */
   connectionId?: string;
 
   /**
-   *
-   *         <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
-   *
+   * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    */
   connectionType?: ConnectionType | string;
 
@@ -6237,58 +5415,44 @@ export interface PutIntegrationRequest {
   contentHandling?: ContentHandlingStrategy | string;
 
   /**
-   *
-   *         <p>Specifies whether credentials are required for a put integration.</p>
-   *
+   * <p>Specifies whether credentials are required for a put integration.</p>
    */
   credentials?: string;
 
   /**
-   *
-   *         <p>[Required] Specifies a put integration request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies a put integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   /**
-   *
-   *         <p>Specifies a put integration HTTP method. When the integration type is HTTP or AWS, this field is required.</p>
-   *
+   * <p>Specifies a put integration HTTP method. When the integration type is HTTP or AWS, this field is required.</p>
    */
   integrationHttpMethod?: string;
 
   name?: string;
   /**
-   *
-   *         <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the <code>requestTemplates</code> property on the Integration resource. There are three valid values:  <code>WHEN_NO_MATCH</code>, <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>.
+   * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the <code>requestTemplates</code> property on the Integration resource. There are three valid values:  <code>WHEN_NO_MATCH</code>, <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>.
    *         </p>
    *         <ul>
    *            <li><p><code>WHEN_NO_MATCH</code> passes the request body for unmapped content types through to the integration back end without transformation.</p></li>
    *            <li><p><code>NEVER</code> rejects unmapped content types with an HTTP 415 'Unsupported Media Type' response.</p></li>
    *            <li><p><code>WHEN_NO_TEMPLATES</code> allows pass-through when the integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.</p></li>
    *         </ul>
-   *
    */
   passthroughBehavior?: string;
 
   /**
-   *
-   *         <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
-   *
+   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    */
   requestParameters?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
-   *
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
    */
   requestTemplates?: { [key: string]: string };
 
   /**
-   *
-   *         <p>[Required] Specifies a put integration request's resource ID.</p>
-   *
+   * <p>[Required] Specifies a put integration request's resource ID.</p>
    */
   resourceId: string | undefined;
 
@@ -6300,30 +5464,23 @@ export interface PutIntegrationRequest {
   template?: boolean;
   templateSkipList?: Array<string>;
   /**
-   *
-   *         <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
-   *
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
    */
   timeoutInMillis?: number;
 
   title?: string;
   /**
-   *
-   *         <p>[Required] Specifies a put integration input's type.</p>
-   *
+   * <p>[Required] Specifies a put integration input's type.</p>
    */
   type: IntegrationType | string | undefined;
 
   /**
-   *
-   *         <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
+   * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
    * <ul>
    * <li><p> For <code>HTTP</code> or <code>HTTP_PROXY</code> integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <a target="_blank" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">RFC-3986 specification</a>, for either standard integration, where <code>connectionType</code> is not <code>VPC_LINK</code>, or private integration, where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP integration, the URI is not used for routing. </p>
    * </li>
    * <li><p> For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}</code>. Here, <code>{Region}</code> is the API Gateway region (e.g., <code>us-east-1</code>); <code>{service}</code> is the name of the integrated AWS service (e.g., <code>s3</code>); and <code>{subdomain}</code> is a designated subdomain supported by certain AWS service for fast host-name lookup. <code>action</code> can be used for an AWS service action-based API, using an <code>Action={name}&{p1}={v1}&p2={v2}...</code> query string. The ensuing <code>{service_api}</code> refers to a supported action <code>{name}</code> plus any required input parameters. Alternatively, <code>path</code> can be used for an AWS service path-based API. The ensuing  <code>service_api</code> refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of <code><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html">GetObject</a></code>, the <code>uri</code> can be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}</code> or  <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code></p>
    * </li></ul>
-   *
-   *
    */
   uri?: string;
 }
@@ -6335,9 +5492,7 @@ export namespace PutIntegrationRequest {
 }
 
 /**
- *
- *         <p>Represents a put integration response request.</p>
- *
+ * <p>Represents a put integration response request.</p>
  */
 export interface PutIntegrationResponseRequest {
   __type?: "PutIntegrationResponseRequest";
@@ -6352,32 +5507,24 @@ export interface PutIntegrationResponseRequest {
   contentHandling?: ContentHandlingStrategy | string;
 
   /**
-   *
-   *         <p>[Required] Specifies a put integration response request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies a put integration response request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] Specifies a put integration response request's resource identifier.</p>
-   *
+   * <p>[Required] Specifies a put integration response request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
   /**
-   *
-   *             <p>A key-value map specifying response parameters that are passed to the method response from the back end.
+   * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> must be a valid and unique response header name and <code>JSON-expression</code> a valid JSON expression without the <code>$</code> prefix.</p>
-   *
    */
   responseParameters?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Specifies a put integration response's templates.</p>
-   *
+   * <p>Specifies a put integration response's templates.</p>
    */
   responseTemplates?: { [key: string]: string };
 
@@ -6387,16 +5534,12 @@ export interface PutIntegrationResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>Specifies the selection pattern of a put integration response.</p>
-   *
+   * <p>Specifies the selection pattern of a put integration response.</p>
    */
   selectionPattern?: string;
 
   /**
-   *
-   *         <p>[Required] Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
-   *
+   * <p>[Required] Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
    */
   statusCode: string | undefined;
 
@@ -6412,80 +5555,58 @@ export namespace PutIntegrationResponseRequest {
 }
 
 /**
- *
- *         <p>Request to add a method to an existing <a>Resource</a> resource.</p>
- *
+ * <p>Request to add a method to an existing <a>Resource</a> resource.</p>
  */
 export interface PutMethodRequest {
   __type?: "PutMethodRequest";
   /**
-   *
-   *         <p>Specifies whether the method required a valid <a>ApiKey</a>.</p>
-   *
+   * <p>Specifies whether the method required a valid <a>ApiKey</a>.</p>
    */
   apiKeyRequired?: boolean;
 
   /**
-   *
-   *         <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-   *
+   * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
   authorizationScopes?: Array<string>;
 
   /**
-   *
-   *         <p>[Required] The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
-   *
+   * <p>[Required] The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
    */
   authorizationType: string | undefined;
 
   /**
-   *
-   *         <p>Specifies the identifier of an <a>Authorizer</a> to use on this Method, if the type is CUSTOM or COGNITO_USER_POOLS. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
-   *
+   * <p>Specifies the identifier of an <a>Authorizer</a> to use on this Method, if the type is CUSTOM or COGNITO_USER_POOLS. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
    */
   authorizerId?: string;
 
   /**
-   *
-   *         <p>[Required] Specifies the method request's HTTP method type.</p>
-   *
+   * <p>[Required] Specifies the method request's HTTP method type.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *       <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
-   *
+   * <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
    */
   operationName?: string;
 
   /**
-   *
-   *         <p>Specifies the <a>Model</a> resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
-   *
+   * <p>Specifies the <a>Model</a> resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
    */
   requestModels?: { [key: string]: string };
 
   /**
-   *
-   *         <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or body-mapping templates.</p>
-   *
+   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or body-mapping templates.</p>
    */
   requestParameters?: { [key: string]: boolean };
 
   /**
-   *
-   *         <p>The identifier of a <a>RequestValidator</a> for validating the method request.</p>
-   *
+   * <p>The identifier of a <a>RequestValidator</a> for validating the method request.</p>
    */
   requestValidatorId?: string;
 
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the new <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the new <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -6506,38 +5627,28 @@ export namespace PutMethodRequest {
 }
 
 /**
- *
- *         <p>Request to add a <a>MethodResponse</a> to an existing <a>Method</a> resource.</p>
- *
+ * <p>Request to add a <a>MethodResponse</a> to an existing <a>Method</a> resource.</p>
  */
 export interface PutMethodResponseRequest {
   __type?: "PutMethodResponseRequest";
   /**
-   *
-   *         <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
   /**
-   *
-   *         <p>Specifies the <a>Model</a> resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
-   *
+   * <p>Specifies the <a>Model</a> resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
    */
   responseModels?: { [key: string]: string };
 
   /**
-   *
-   *         <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
-   *
+   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    */
   responseParameters?: { [key: string]: boolean };
 
@@ -6547,9 +5658,7 @@ export interface PutMethodResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The method response's status code.</p>
-   *
+   * <p>[Required] The method response's status code.</p>
    */
   statusCode: string | undefined;
 
@@ -6570,33 +5679,25 @@ export enum PutMode {
 }
 
 /**
- *
- *         <p>A PUT request to update an existing API, with external API definitions specified as the request body.</p>
- *
+ * <p>A PUT request to update an existing API, with external API definitions specified as the request body.</p>
  */
 export interface PutRestApiRequest {
   __type?: "PutRestApiRequest";
   /**
-   *
-   *         <p>A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>)
+   * <p>A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>)
    *             when a warning is encountered. The default value is <code>false</code>.</p>
-   *
    */
   failOnWarnings?: boolean;
 
   /**
-   *
-   *         <p>The <code>mode</code> query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default,
+   * <p>The <code>mode</code> query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default,
    *         the update mode is "merge".</p>
-   *
    */
   mode?: PutMode | string;
 
   name?: string;
   /**
-   *
-   *         <p>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a> from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
-   *
+   * <p>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a> from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
    */
   parameters?: { [key: string]: string };
 
@@ -6623,9 +5724,7 @@ export enum QuotaPeriodType {
 }
 
 /**
- *
- *     <p>Quotas configured for a usage plan.</p>
- *
+ * <p>Quotas configured for a usage plan.</p>
  */
 export interface QuotaSettings {
   __type?: "QuotaSettings";
@@ -6635,16 +5734,12 @@ export interface QuotaSettings {
   limit?: number;
 
   /**
-   *
-   *     <p>The number of requests subtracted from the given limit in the initial time period.</p>
-   *
+   * <p>The number of requests subtracted from the given limit in the initial time period.</p>
    */
   offset?: number;
 
   /**
-   *
-   *     <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
-   *
+   * <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
    */
   period?: QuotaPeriodType | string;
 }
@@ -6656,41 +5751,31 @@ export namespace QuotaSettings {
 }
 
 /**
- *
- *         <p>A set of validation rules for incoming <a>Method</a> requests.</p>
+ * <p>A set of validation rules for incoming <a>Method</a> requests.</p>
  *         <div class="remarks">
  *           <p>In OpenAPI, a <a>RequestValidator</a> of an API is defined by the <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.requestValidator.html">x-amazon-apigateway-request-validators.requestValidator</a> object. It the referenced using the <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validator">x-amazon-apigateway-request-validator</a> property.</p>
  *         </div>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
- *
  */
 export interface RequestValidator extends $MetadataBearer {
   __type?: "RequestValidator";
   /**
-   *
-   *         <p>The identifier of this <a>RequestValidator</a>.</p>
-   *
+   * <p>The identifier of this <a>RequestValidator</a>.</p>
    */
   id?: string;
 
   /**
-   *
-   *         <p>The name of this <a>RequestValidator</a></p>
-   *
+   * <p>The name of this <a>RequestValidator</a></p>
    */
   name?: string;
 
   /**
-   *
-   *         <p>A Boolean flag to indicate whether to validate a request body according to the configured <a>Model</a> schema.</p>
-   *
+   * <p>A Boolean flag to indicate whether to validate a request body according to the configured <a>Model</a> schema.</p>
    */
   validateRequestBody?: boolean;
 
   /**
-   *
-   *         <p>A Boolean flag to indicate whether to validate request parameters (<code>true</code>) or not (<code>false</code>).</p>
-   *
+   * <p>A Boolean flag to indicate whether to validate request parameters (<code>true</code>) or not (<code>false</code>).</p>
    */
   validateRequestParameters?: boolean;
 }
@@ -6702,20 +5787,16 @@ export namespace RequestValidator {
 }
 
 /**
- *
- *         <p>A collection of <a>RequestValidator</a> resources of a given <a>RestApi</a>.</p>
+ * <p>A collection of <a>RequestValidator</a> resources of a given <a>RestApi</a>.</p>
  *         <div class="remarks">
  *           <p>In OpenAPI, the <a>RequestValidators</a> of an API is defined by the <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.html">x-amazon-apigateway-request-validators</a> extension.</p>
  *         </div>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
- *
  */
 export interface RequestValidators extends $MetadataBearer {
   __type?: "RequestValidators";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<RequestValidator>;
 
@@ -6732,46 +5813,35 @@ export namespace RequestValidators {
 }
 
 /**
- *
- *         <p>Represents an API resource.</p>
+ * <p>Represents an API resource.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
- *
  */
 export interface Resource extends $MetadataBearer {
   __type?: "Resource";
   /**
-   *
-   *         <p>The resource's identifier.</p>
-   *
+   * <p>The resource's identifier.</p>
    */
   id?: string;
 
   /**
-   *
-   *         <p>The parent resource's identifier.</p>
-   *
+   * <p>The parent resource's identifier.</p>
    */
   parentId?: string;
 
   /**
-   *
-   *         <p>The full path for this resource.</p>
-   *
+   * <p>The full path for this resource.</p>
    */
   path?: string;
 
   /**
-   *
-   *         <p>The last path segment for this resource.</p>
-   *
+   * <p>The last path segment for this resource.</p>
    */
   pathPart?: string;
 
   /**
-   *
-   *         <p>Gets an API resource's method of a given HTTP verb.</p>
+   * <p>Gets an API resource's method of a given HTTP verb.</p>
    *       <div class="remarks">
    *         <p>The resource methods are a map of methods indexed by methods' HTTP verbs enabled on the resource. This method map is included in the <code>200 OK</code> response of the <code>GET /restapis/{restapi_id}/resources/{resource_id}</code> or <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code> request.</p>
    *         <h4>Example: Get the GET method of an API resource</h4>
@@ -6924,7 +5994,6 @@ export interface Resource extends $MetadataBearer {
    *       </div>
    *       <div class="seeAlso">
    *       </div>
-   *
    */
   resourceMethods?: { [key: string]: Method };
 }
@@ -6936,19 +6005,15 @@ export namespace Resource {
 }
 
 /**
- *
- *         <p>Represents a collection of <a>Resource</a> resources.</p>
+ * <p>Represents a collection of <a>Resource</a> resources.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
- *
  */
 export interface Resources extends $MetadataBearer {
   __type?: "Resources";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<Resource>;
 
@@ -6965,54 +6030,40 @@ export namespace Resources {
 }
 
 /**
- *
- *         <p>Represents a REST API.</p>
+ * <p>Represents a REST API.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
- *
  */
 export interface RestApi extends $MetadataBearer {
   __type?: "RestApi";
   /**
-   *
-   *         <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
-   *
+   * <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
    */
   apiKeySource?: ApiKeySourceType | string;
 
   /**
-   *
-   *         <p>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
-   *
+   * <p>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
    */
   binaryMediaTypes?: Array<string>;
 
   /**
-   *
-   *         <p>The timestamp when the API was created.</p>
-   *
+   * <p>The timestamp when the API was created.</p>
    */
   createdDate?: Date;
 
   /**
-   *
-   *         <p>The API's description.</p>
-   *
+   * <p>The API's description.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types of the API. </p>
-   *
+   * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types of the API. </p>
    */
   endpointConfiguration?: EndpointConfiguration;
 
   /**
-   *
-   *         <p>The API's identifier. This identifier is unique across all of your APIs in API Gateway.</p>
-   *
+   * <p>The API's identifier. This identifier is unique across all of your APIs in API Gateway.</p>
    */
   id?: string;
 
@@ -7022,37 +6073,27 @@ export interface RestApi extends $MetadataBearer {
   minimumCompressionSize?: number;
 
   /**
-   *
-   *         <p>The API's name.</p>
-   *
+   * <p>The API's name.</p>
    */
   name?: string;
 
   /**
-   *
-   *         A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration.
-   *
+   * A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration.
    */
   policy?: string;
 
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *         <p>A version identifier for the API.</p>
-   *
+   * <p>A version identifier for the API.</p>
    */
   version?: string;
 
   /**
-   *
-   *         <p>The warning messages reported when <code>failonwarnings</code> is turned on during API import.</p>
-   *
+   * <p>The warning messages reported when <code>failonwarnings</code> is turned on during API import.</p>
    */
   warnings?: Array<string>;
 }
@@ -7064,19 +6105,15 @@ export namespace RestApi {
 }
 
 /**
- *
- *         <p>Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.</p>
+ * <p>Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a>
  *       </div>
- *
  */
 export interface RestApis extends $MetadataBearer {
   __type?: "RestApis";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<RestApi>;
 
@@ -7093,44 +6130,32 @@ export namespace RestApis {
 }
 
 /**
- *
- *         <p>A configuration property of an SDK type.</p>
- *
+ * <p>A configuration property of an SDK type.</p>
  */
 export interface SdkConfigurationProperty {
   __type?: "SdkConfigurationProperty";
   /**
-   *
-   *         <p>The default value of an <a>SdkType</a> configuration property.</p>
-   *
+   * <p>The default value of an <a>SdkType</a> configuration property.</p>
    */
   defaultValue?: string;
 
   /**
-   *
-   *         <p>The description of an <a>SdkType</a> configuration property.</p>
-   *
+   * <p>The description of an <a>SdkType</a> configuration property.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The user-friendly name of an <a>SdkType</a> configuration property.</p>
-   *
+   * <p>The user-friendly name of an <a>SdkType</a> configuration property.</p>
    */
   friendlyName?: string;
 
   /**
-   *
-   *         <p>The name of a an <a>SdkType</a> configuration property.</p>
-   *
+   * <p>The name of a an <a>SdkType</a> configuration property.</p>
    */
   name?: string;
 
   /**
-   *
-   *         <p>A boolean flag of an <a>SdkType</a> configuration property to indicate if the associated SDK configuration property is required (<code>true</code>) or not (<code>false</code>).</p>
-   *
+   * <p>A boolean flag of an <a>SdkType</a> configuration property to indicate if the associated SDK configuration property is required (<code>true</code>) or not (<code>false</code>).</p>
    */
   required?: boolean;
 }
@@ -7142,30 +6167,22 @@ export namespace SdkConfigurationProperty {
 }
 
 /**
- *
- *       <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
- *
+ * <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
  */
 export interface SdkResponse extends $MetadataBearer {
   __type?: "SdkResponse";
   /**
-   *
-   *       <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
-   *
+   * <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
    */
   body?: Uint8Array;
 
   /**
-   *
-   *       <p>The content-disposition header value in the HTTP response.</p>
-   *
+   * <p>The content-disposition header value in the HTTP response.</p>
    */
   contentDisposition?: string;
 
   /**
-   *
-   *       <p>The content-type header value in the HTTP response.</p>
-   *
+   * <p>The content-type header value in the HTTP response.</p>
    */
   contentType?: string;
 }
@@ -7177,37 +6194,27 @@ export namespace SdkResponse {
 }
 
 /**
- *
- *         <p>A type of SDK that API Gateway can generate.</p>
- *
+ * <p>A type of SDK that API Gateway can generate.</p>
  */
 export interface SdkType extends $MetadataBearer {
   __type?: "SdkType";
   /**
-   *
-   *         <p>A list of configuration properties of an <a>SdkType</a>.</p>
-   *
+   * <p>A list of configuration properties of an <a>SdkType</a>.</p>
    */
   configurationProperties?: Array<SdkConfigurationProperty>;
 
   /**
-   *
-   *         <p>The description of an <a>SdkType</a>.</p>
-   *
+   * <p>The description of an <a>SdkType</a>.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The user-friendly name of an <a>SdkType</a> instance.</p>
-   *
+   * <p>The user-friendly name of an <a>SdkType</a> instance.</p>
    */
   friendlyName?: string;
 
   /**
-   *
-   *         <p>The identifier of an <a>SdkType</a> instance.</p>
-   *
+   * <p>The identifier of an <a>SdkType</a> instance.</p>
    */
   id?: string;
 }
@@ -7219,9 +6226,7 @@ export namespace SdkType {
 }
 
 /**
- *
- *         <p>The collection of <a>SdkType</a> instances.</p>
- *
+ * <p>The collection of <a>SdkType</a> instances.</p>
  */
 export interface SdkTypes extends $MetadataBearer {
   __type?: "SdkTypes";
@@ -7240,75 +6245,55 @@ export namespace SdkTypes {
 export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
 
 /**
- *
- *         <p>Represents a unique identifier for a version of a deployed <a>RestApi</a> that is callable by users.</p>
+ * <p>Represents a unique identifier for a version of a deployed <a>RestApi</a> that is callable by users.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy an API</a>
  *       </div>
- *
  */
 export interface Stage extends $MetadataBearer {
   __type?: "Stage";
   /**
-   *
-   *         <p>Settings for logging access in this stage.</p>
-   *
+   * <p>Settings for logging access in this stage.</p>
    */
   accessLogSettings?: AccessLogSettings;
 
   /**
-   *
-   *         <p>Specifies whether a cache cluster is enabled for the stage.</p>
-   *
+   * <p>Specifies whether a cache cluster is enabled for the stage.</p>
    */
   cacheClusterEnabled?: boolean;
 
   /**
-   *
-   *         <p>The size of the cache cluster for the stage, if enabled.</p>
-   *
+   * <p>The size of the cache cluster for the stage, if enabled.</p>
    */
   cacheClusterSize?: CacheClusterSize | string;
 
   /**
-   *
-   *         <p>The status of the cache cluster for the stage, if enabled.</p>
-   *
+   * <p>The status of the cache cluster for the stage, if enabled.</p>
    */
   cacheClusterStatus?: CacheClusterStatus | string;
 
   /**
-   *
-   *         <p>Settings for the canary deployment in this stage.</p>
-   *
+   * <p>Settings for the canary deployment in this stage.</p>
    */
   canarySettings?: CanarySettings;
 
   /**
-   *
-   *       <p>The identifier of a client certificate for an API stage.</p>
-   *
+   * <p>The identifier of a client certificate for an API stage.</p>
    */
   clientCertificateId?: string;
 
   /**
-   *
-   *         <p>The timestamp when the stage was created.</p>
-   *
+   * <p>The timestamp when the stage was created.</p>
    */
   createdDate?: Date;
 
   /**
-   *
-   *         <p>The identifier of the <a>Deployment</a> that the stage points to.</p>
-   *
+   * <p>The identifier of the <a>Deployment</a> that the stage points to.</p>
    */
   deploymentId?: string;
 
   /**
-   *
-   *         <p>The stage's description.</p>
-   *
+   * <p>The stage's description.</p>
    */
   description?: string;
 
@@ -7318,52 +6303,38 @@ export interface Stage extends $MetadataBearer {
   documentationVersion?: string;
 
   /**
-   *
-   *         <p>The timestamp when the stage last updated.</p>
-   *
+   * <p>The timestamp when the stage last updated.</p>
    */
   lastUpdatedDate?: Date;
 
   /**
-   *
-   *       <p>A map that defines the method settings for a <a>Stage</a> resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  <!-- Any forward slash ("/") characters in the <code>resource_path</code> part must be encoded as "~1" as in, for example, <code>~1resource~1sub-resource/GET</code>.--></p>
-   *
+   * <p>A map that defines the method settings for a <a>Stage</a> resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  <!-- Any forward slash ("/") characters in the <code>resource_path</code> part must be encoded as "~1" as in, for example, <code>~1resource~1sub-resource/GET</code>.--></p>
    */
   methodSettings?: { [key: string]: MethodSetting };
 
   /**
-   *
-   *         <p>The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-   *
+   * <p>The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    */
   stageName?: string;
 
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *         <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
-   *
+   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
    */
   tracingEnabled?: boolean;
 
   /**
-   *
-   *         <p>A map that defines the stage variables for a <a>Stage</a> resource. Variable names can
+   * <p>A map that defines the stage variables for a <a>Stage</a> resource. Variable names can
    *           have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
-   *
    */
   variables?: { [key: string]: string };
 
   /**
-   *
-   *         <p>The ARN of the WebAcl associated with the <a>Stage</a>.</p>
-   *
+   * <p>The ARN of the WebAcl associated with the <a>Stage</a>.</p>
    */
   webAclArn?: string;
 }
@@ -7375,23 +6346,17 @@ export namespace Stage {
 }
 
 /**
- *
- *         <p>A reference to a unique stage identified in the format <code>{restApiId}/{stage}</code>.</p>
- *
+ * <p>A reference to a unique stage identified in the format <code>{restApiId}/{stage}</code>.</p>
  */
 export interface StageKey {
   __type?: "StageKey";
   /**
-   *
-   *         <p>The string identifier of the associated <a>RestApi</a>.</p>
-   *
+   * <p>The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId?: string;
 
   /**
-   *
-   *         <p>The stage name associated with the stage key.</p>
-   *
+   * <p>The stage name associated with the stage key.</p>
    */
   stageName?: string;
 }
@@ -7403,10 +6368,8 @@ export namespace StageKey {
 }
 
 /**
- *
- *         <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p>
+ * <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html">Deploying API in Stages</a></div>
- *
  */
 export interface Stages extends $MetadataBearer {
   __type?: "Stages";
@@ -7423,24 +6386,18 @@ export namespace Stages {
 }
 
 /**
- *
- *         <p>Adds or updates a tag on a given resource.</p>
- *
+ * <p>Adds or updates a tag on a given resource.</p>
  */
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   name?: string;
   /**
-   *
-   *         <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
-   *
+   * <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *             <p>[Required] The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   *
+   * <p>[Required] The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags: { [key: string]: string } | undefined;
 
@@ -7456,16 +6413,12 @@ export namespace TagResourceRequest {
 }
 
 /**
- *
- *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
- *
+ * <p>The collection of tags. Each tag element is associated with a given resource.</p>
  */
 export interface Tags extends $MetadataBearer {
   __type?: "Tags";
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -7477,19 +6430,15 @@ export namespace Tags {
 }
 
 /**
- *
- *         <p>Represents a mapping template used to transform a payload.</p>
+ * <p>Represents a mapping template used to transform a payload.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings">Mapping Templates</a>
  *       </div>
- *
  */
 export interface Template extends $MetadataBearer {
   __type?: "Template";
   /**
-   *
-   *         <p>The Apache <a target="_blank" href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html">Velocity Template Language (VTL)</a> template content used for the template resource.</p>
-   *
+   * <p>The Apache <a target="_blank" href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html">Velocity Template Language (VTL)</a> template content used for the template resource.</p>
    */
   value?: string;
 }
@@ -7501,51 +6450,37 @@ export namespace Template {
 }
 
 /**
- *
- *       <p>Make a request to simulate the execution of an <a>Authorizer</a>.</p>
- *
+ * <p>Make a request to simulate the execution of an <a>Authorizer</a>.</p>
  */
 export interface TestInvokeAuthorizerRequest {
   __type?: "TestInvokeAuthorizerRequest";
   /**
-   *
-   *       <p>[Optional] A key-value map of additional context variables.</p>
-   *
+   * <p>[Optional] A key-value map of additional context variables.</p>
    */
   additionalContext?: { [key: string]: string };
 
   /**
-   *
-   *         <p>[Required] Specifies a test invoke authorizer request's <a>Authorizer</a> ID.</p>
-   *
+   * <p>[Required] Specifies a test invoke authorizer request's <a>Authorizer</a> ID.</p>
    */
   authorizerId: string | undefined;
 
   /**
-   *
-   *       <p>[Optional] The simulated request body of an incoming invocation request.</p>
-   *
+   * <p>[Optional] The simulated request body of an incoming invocation request.</p>
    */
   body?: string;
 
   /**
-   *
-   *       <p>[Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.</p>
-   *
+   * <p>[Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.</p>
    */
   headers?: { [key: string]: string };
 
   /**
-   *
-   *       <p>[Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.</p>
-   *
+   * <p>[Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.</p>
    */
   multiValueHeaders?: { [key: string]: Array<string> };
 
   /**
-   *
-   *       <p>[Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
-   *
+   * <p>[Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
    */
   pathWithQueryString?: string;
 
@@ -7555,9 +6490,7 @@ export interface TestInvokeAuthorizerRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *       <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
-   *
+   * <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
    */
   stageVariables?: { [key: string]: string };
 }
@@ -7569,52 +6502,38 @@ export namespace TestInvokeAuthorizerRequest {
 }
 
 /**
- *
- *         <p>Represents the response of the test invoke request for a custom <a>Authorizer</a></p>
- *
+ * <p>Represents the response of the test invoke request for a custom <a>Authorizer</a></p>
  */
 export interface TestInvokeAuthorizerResponse extends $MetadataBearer {
   __type?: "TestInvokeAuthorizerResponse";
   authorization?: { [key: string]: Array<string> };
   /**
-   *
-   *       <p>The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
-   *
+   * <p>The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
    */
   claims?: { [key: string]: string };
 
   /**
-   *
-   *         <p>The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.</p>
-   *
+   * <p>The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.</p>
    */
   clientStatus?: number;
 
   /**
-   *
-   *         <p>The execution latency of the test authorizer request.</p>
-   *
+   * <p>The execution latency of the test authorizer request.</p>
    */
   latency?: number;
 
   /**
-   *
-   *         <p>The API Gateway execution log for the test authorizer request.</p>
-   *
+   * <p>The API Gateway execution log for the test authorizer request.</p>
    */
   log?: string;
 
   /**
-   *
-   *       <p>The JSON policy document returned by the <a>Authorizer</a></p>
-   *
+   * <p>The JSON policy document returned by the <a>Authorizer</a></p>
    */
   policy?: string;
 
   /**
-   *
-   *         <p>The principal identity returned by the <a>Authorizer</a></p>
-   *
+   * <p>The principal identity returned by the <a>Authorizer</a></p>
    */
   principalId?: string;
 }
@@ -7626,58 +6545,42 @@ export namespace TestInvokeAuthorizerResponse {
 }
 
 /**
- *
- *       <p>Make a request to simulate the execution of a <a>Method</a>.</p>
- *
+ * <p>Make a request to simulate the execution of a <a>Method</a>.</p>
  */
 export interface TestInvokeMethodRequest {
   __type?: "TestInvokeMethodRequest";
   /**
-   *
-   *       <p>The simulated request body of an incoming invocation request.</p>
-   *
+   * <p>The simulated request body of an incoming invocation request.</p>
    */
   body?: string;
 
   /**
-   *
-   *       <p>A <a>ClientCertificate</a> identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.</p>
-   *
+   * <p>A <a>ClientCertificate</a> identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.</p>
    */
   clientCertificateId?: string;
 
   /**
-   *
-   *       <p>A key-value map of headers to simulate an incoming invocation request.</p>
-   *
+   * <p>A key-value map of headers to simulate an incoming invocation request.</p>
    */
   headers?: { [key: string]: string };
 
   /**
-   *
-   *         <p>[Required] Specifies a test invoke method request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies a test invoke method request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   /**
-   *
-   *       <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
-   *
+   * <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
    */
   multiValueHeaders?: { [key: string]: Array<string> };
 
   /**
-   *
-   *       <p>The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
-   *
+   * <p>The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
    */
   pathWithQueryString?: string;
 
   /**
-   *
-   *         <p>[Required] Specifies a test invoke method request's resource ID.</p>
-   *
+   * <p>[Required] Specifies a test invoke method request's resource ID.</p>
    */
   resourceId: string | undefined;
 
@@ -7687,9 +6590,7 @@ export interface TestInvokeMethodRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *       <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
-   *
+   * <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
    */
   stageVariables?: { [key: string]: string };
 }
@@ -7701,54 +6602,40 @@ export namespace TestInvokeMethodRequest {
 }
 
 /**
- *
- *         <p>Represents the response of the test invoke request in the HTTP method.</p>
+ * <p>Represents the response of the test invoke request in the HTTP method.</p>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console">Test API using the API Gateway console</a>
  *       </div>
- *
  */
 export interface TestInvokeMethodResponse extends $MetadataBearer {
   __type?: "TestInvokeMethodResponse";
   /**
-   *
-   *         <p>The body of the HTTP response.</p>
-   *
+   * <p>The body of the HTTP response.</p>
    */
   body?: string;
 
   /**
-   *
-   *         <p>The headers of the HTTP response.</p>
-   *
+   * <p>The headers of the HTTP response.</p>
    */
   headers?: { [key: string]: string };
 
   /**
-   *
-   *         <p>The execution latency of the test invoke request.</p>
-   *
+   * <p>The execution latency of the test invoke request.</p>
    */
   latency?: number;
 
   /**
-   *
-   *         <p>The API Gateway execution log for the test invoke request.</p>
-   *
+   * <p>The API Gateway execution log for the test invoke request.</p>
    */
   log?: string;
 
   /**
-   *
-   *         <p>The headers of the HTTP response as a map from string to list of values.</p>
-   *
+   * <p>The headers of the HTTP response as a map from string to list of values.</p>
    */
   multiValueHeaders?: { [key: string]: Array<string> };
 
   /**
-   *
-   *         <p>The HTTP status code.</p>
-   *
+   * <p>The HTTP status code.</p>
    */
   status?: number;
 }
@@ -7760,23 +6647,17 @@ export namespace TestInvokeMethodResponse {
 }
 
 /**
- *
- *         <p> The API request rate limits.</p>
- *
+ * <p> The API request rate limits.</p>
  */
 export interface ThrottleSettings {
   __type?: "ThrottleSettings";
   /**
-   *
-   *         <p>The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.</p>
-   *
+   * <p>The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.</p>
    */
   burstLimit?: number;
 
   /**
-   *
-   *         <p>The API request steady-state rate limit.</p>
-   *
+   * <p>The API request steady-state rate limit.</p>
    */
   rateLimit?: number;
 }
@@ -7794,24 +6675,18 @@ export enum UnauthorizedCacheControlHeaderStrategy {
 }
 
 /**
- *
- *         <p>Removes a tag from a given resource.</p>
- *
+ * <p>Removes a tag from a given resource.</p>
  */
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   name?: string;
   /**
-   *
-   *         <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
-   *
+   * <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The Tag keys to delete.</p>
-   *
+   * <p>[Required] The Tag keys to delete.</p>
    */
   tagKeys: Array<string> | undefined;
 
@@ -7827,17 +6702,13 @@ export namespace UntagResourceRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to change information about the current <a>Account</a> resource.</p>
- *
+ * <p>Requests API Gateway to change information about the current <a>Account</a> resource.</p>
  */
 export interface UpdateAccountRequest {
   __type?: "UpdateAccountRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -7853,24 +6724,18 @@ export namespace UpdateAccountRequest {
 }
 
 /**
- *
- *         <p>A request to change information about an <a>ApiKey</a> resource.</p>
- *
+ * <p>A request to change information about an <a>ApiKey</a> resource.</p>
  */
 export interface UpdateApiKeyRequest {
   __type?: "UpdateApiKeyRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>ApiKey</a> resource to be updated.</p>
-   *
+   * <p>[Required] The identifier of the <a>ApiKey</a> resource to be updated.</p>
    */
   apiKey: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -7886,24 +6751,18 @@ export namespace UpdateApiKeyRequest {
 }
 
 /**
- *
- *         <p>Request to update an existing <a>Authorizer</a> resource.</p>
- *
+ * <p>Request to update an existing <a>Authorizer</a> resource.</p>
  */
 export interface UpdateAuthorizerRequest {
   __type?: "UpdateAuthorizerRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
-   *
+   * <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
    */
   authorizerId: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -7924,32 +6783,24 @@ export namespace UpdateAuthorizerRequest {
 }
 
 /**
- *
- *         <p>A request to change information about the <a>BasePathMapping</a> resource.</p>
- *
+ * <p>A request to change information about the <a>BasePathMapping</a> resource.</p>
  */
 export interface UpdateBasePathMappingRequest {
   __type?: "UpdateBasePathMappingRequest";
   /**
-   *
-   *         <p>[Required] The base path of the <a>BasePathMapping</a> resource to change.</p>
+   * <p>[Required] The base path of the <a>BasePathMapping</a> resource to change.</p>
    *         <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
-   *
    */
   basePath: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The domain name of the <a>BasePathMapping</a> resource to change.</p>
-   *
+   * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to change.</p>
    */
   domainName: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -7965,24 +6816,18 @@ export namespace UpdateBasePathMappingRequest {
 }
 
 /**
- *
- *         <p>A request to change information about an <a>ClientCertificate</a> resource.</p>
- *
+ * <p>A request to change information about an <a>ClientCertificate</a> resource.</p>
  */
 export interface UpdateClientCertificateRequest {
   __type?: "UpdateClientCertificateRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be updated.</p>
-   *
+   * <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be updated.</p>
    */
   clientCertificateId: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -7998,24 +6843,18 @@ export namespace UpdateClientCertificateRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to change information about a <a>Deployment</a> resource.</p>
- *
+ * <p>Requests API Gateway to change information about a <a>Deployment</a> resource.</p>
  */
 export interface UpdateDeploymentRequest {
   __type?: "UpdateDeploymentRequest";
   /**
-   *
-   *         <p>The replacement identifier for the <a>Deployment</a> resource to change information about.</p>
-   *
+   * <p>The replacement identifier for the <a>Deployment</a> resource to change information about.</p>
    */
   deploymentId: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8047,9 +6886,7 @@ export interface UpdateDocumentationPartRequest {
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8081,9 +6918,7 @@ export interface UpdateDocumentationVersionRequest {
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8104,24 +6939,18 @@ export namespace UpdateDocumentationVersionRequest {
 }
 
 /**
- *
- *         <p>A request to change information about the <a>DomainName</a> resource.</p>
- *
+ * <p>A request to change information about the <a>DomainName</a> resource.</p>
  */
 export interface UpdateDomainNameRequest {
   __type?: "UpdateDomainNameRequest";
   /**
-   *
-   *         <p>[Required] The name of the <a>DomainName</a> resource to be changed.</p>
-   *
+   * <p>[Required] The name of the <a>DomainName</a> resource to be changed.</p>
    */
   domainName: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8143,9 +6972,7 @@ export interface UpdateGatewayResponseRequest {
   __type?: "UpdateGatewayResponseRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8171,31 +6998,23 @@ export namespace UpdateGatewayResponseRequest {
 }
 
 /**
- *
- *         <p>Represents an update integration request.</p>
- *
+ * <p>Represents an update integration request.</p>
  */
 export interface UpdateIntegrationRequest {
   __type?: "UpdateIntegrationRequest";
   /**
-   *
-   *         <p>[Required] Represents an update integration request's HTTP method.</p>
-   *
+   * <p>[Required] Represents an update integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
   /**
-   *
-   *         <p>[Required] Represents an update integration request's resource identifier.</p>
-   *
+   * <p>[Required] Represents an update integration request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
@@ -8216,31 +7035,23 @@ export namespace UpdateIntegrationRequest {
 }
 
 /**
- *
- *         <p>Represents an update integration response request.</p>
- *
+ * <p>Represents an update integration response request.</p>
  */
 export interface UpdateIntegrationResponseRequest {
   __type?: "UpdateIntegrationResponseRequest";
   /**
-   *
-   *         <p>[Required] Specifies an update integration response request's HTTP method.</p>
-   *
+   * <p>[Required] Specifies an update integration response request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
   /**
-   *
-   *         <p>[Required] Specifies an update integration response request's resource identifier.</p>
-   *
+   * <p>[Required] Specifies an update integration response request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
@@ -8250,9 +7061,7 @@ export interface UpdateIntegrationResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] Specifies an update integration response request's status code.</p>
-   *
+   * <p>[Required] Specifies an update integration response request's status code.</p>
    */
   statusCode: string | undefined;
 
@@ -8268,31 +7077,23 @@ export namespace UpdateIntegrationResponseRequest {
 }
 
 /**
- *
- *         <p>Request to update an existing <a>Method</a> resource.</p>
- *
+ * <p>Request to update an existing <a>Method</a> resource.</p>
  */
 export interface UpdateMethodRequest {
   __type?: "UpdateMethodRequest";
   /**
-   *
-   *         <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -8313,31 +7114,23 @@ export namespace UpdateMethodRequest {
 }
 
 /**
- *
- *         <p>A request to update an existing <a>MethodResponse</a> resource.</p>
- *
+ * <p>A request to update an existing <a>MethodResponse</a> resource.</p>
  */
 export interface UpdateMethodResponseRequest {
   __type?: "UpdateMethodResponseRequest";
   /**
-   *
-   *         <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   *
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
   /**
-   *
-   *         <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
-   *
+   * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -8347,9 +7140,7 @@ export interface UpdateMethodResponseRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The status code for the <a>MethodResponse</a> resource.</p>
-   *
+   * <p>[Required] The status code for the <a>MethodResponse</a> resource.</p>
    */
   statusCode: string | undefined;
 
@@ -8365,24 +7156,18 @@ export namespace UpdateMethodResponseRequest {
 }
 
 /**
- *
- *         <p>Request to update an existing model in an existing <a>RestApi</a> resource.</p>
- *
+ * <p>Request to update an existing model in an existing <a>RestApi</a> resource.</p>
  */
 export interface UpdateModelRequest {
   __type?: "UpdateModelRequest";
   /**
-   *
-   *         <p>[Required] The name of the model to update.</p>
-   *
+   * <p>[Required] The name of the model to update.</p>
    */
   modelName: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8403,24 +7188,18 @@ export namespace UpdateModelRequest {
 }
 
 /**
- *
- *         <p>Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
- *
+ * <p>Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
  */
 export interface UpdateRequestValidatorRequest {
   __type?: "UpdateRequestValidatorRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
   /**
-   *
-   *         <p>[Required] The identifier of <a>RequestValidator</a> to be updated.</p>
-   *
+   * <p>[Required] The identifier of <a>RequestValidator</a> to be updated.</p>
    */
   requestValidatorId: string | undefined;
 
@@ -8441,24 +7220,18 @@ export namespace UpdateRequestValidatorRequest {
 }
 
 /**
- *
- *         <p>Request to change information about a <a>Resource</a> resource.</p>
- *
+ * <p>Request to change information about a <a>Resource</a> resource.</p>
  */
 export interface UpdateResourceRequest {
   __type?: "UpdateResourceRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
   /**
-   *
-   *         <p>[Required] The identifier of the <a>Resource</a> resource.</p>
-   *
+   * <p>[Required] The identifier of the <a>Resource</a> resource.</p>
    */
   resourceId: string | undefined;
 
@@ -8479,17 +7252,13 @@ export namespace UpdateResourceRequest {
 }
 
 /**
- *
- *         <p>Request to update an existing <a>RestApi</a> resource in your collection.</p>
- *
+ * <p>Request to update an existing <a>RestApi</a> resource in your collection.</p>
  */
 export interface UpdateRestApiRequest {
   __type?: "UpdateRestApiRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8510,17 +7279,13 @@ export namespace UpdateRestApiRequest {
 }
 
 /**
- *
- *         <p>Requests API Gateway to change information about a <a>Stage</a> resource.</p>
- *
+ * <p>Requests API Gateway to change information about a <a>Stage</a> resource.</p>
  */
 export interface UpdateStageRequest {
   __type?: "UpdateStageRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8530,9 +7295,7 @@ export interface UpdateStageRequest {
   restApiId: string | undefined;
 
   /**
-   *
-   *         <p>[Required] The name of the <a>Stage</a> resource to change information about.</p>
-   *
+   * <p>[Required] The name of the <a>Stage</a> resource to change information about.</p>
    */
   stageName: string | undefined;
 
@@ -8548,17 +7311,13 @@ export namespace UpdateStageRequest {
 }
 
 /**
- *
- *     <p>The PATCH request to update a usage plan of a given plan Id.</p>
- *
+ * <p>The PATCH request to update a usage plan of a given plan Id.</p>
  */
 export interface UpdateUsagePlanRequest {
   __type?: "UpdateUsagePlanRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8566,9 +7325,7 @@ export interface UpdateUsagePlanRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *       <p>[Required] The Id of the to-be-updated usage plan.</p>
-   *
+   * <p>[Required] The Id of the to-be-updated usage plan.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -8580,24 +7337,18 @@ export namespace UpdateUsagePlanRequest {
 }
 
 /**
- *
- *       <p>The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
- *
+ * <p>The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
  */
 export interface UpdateUsageRequest {
   __type?: "UpdateUsageRequest";
   /**
-   *
-   *         <p>[Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.</p>
-   *
+   * <p>[Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.</p>
    */
   keyId: string | undefined;
 
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8605,9 +7356,7 @@ export interface UpdateUsageRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>[Required] The Id of the usage plan associated with the usage data.</p>
-   *
+   * <p>[Required] The Id of the usage plan associated with the usage data.</p>
    */
   usagePlanId: string | undefined;
 }
@@ -8619,17 +7368,13 @@ export namespace UpdateUsageRequest {
 }
 
 /**
- *
- *         <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
- *
+ * <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
  */
 export interface UpdateVpcLinkRequest {
   __type?: "UpdateVpcLinkRequest";
   name?: string;
   /**
-   *
-   *         <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   *
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: Array<PatchOperation>;
 
@@ -8637,9 +7382,7 @@ export interface UpdateVpcLinkRequest {
   templateSkipList?: Array<string>;
   title?: string;
   /**
-   *
-   *         <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
-   *
+   * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
   vpcLinkId: string | undefined;
 }
@@ -8651,28 +7394,22 @@ export namespace UpdateVpcLinkRequest {
 }
 
 /**
- *
- *     <p>Represents the usage data of a usage plan.</p>
+ * <p>Represents the usage data of a usage plan.</p>
  *     <div class="remarks"></div>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>,
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html#api-gateway-usage-plan-manage-usage">Manage Usage in a Usage Plan</a>
  *     </div>
- *
  */
 export interface Usage extends $MetadataBearer {
   __type?: "Usage";
   /**
-   *
-   *     <p>The ending date of the usage data.</p>
-   *
+   * <p>The ending date of the usage data.</p>
    */
   endDate?: string;
 
   /**
-   *
-   *     <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}</code>, where <code>{api_key}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
-   *
+   * <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}</code>, where <code>{api_key}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
    */
   items?: { [key: string]: Array<Array<number>> };
 
@@ -8682,16 +7419,12 @@ export interface Usage extends $MetadataBearer {
   position?: string;
 
   /**
-   *
-   *     <p>The starting date of the usage data.</p>
-   *
+   * <p>The starting date of the usage data.</p>
    */
   startDate?: string;
 
   /**
-   *
-   *     <p>The plan Id associated with this usage data.</p>
-   *
+   * <p>The plan Id associated with this usage data.</p>
    */
   usagePlanId?: string;
 }
@@ -8703,71 +7436,53 @@ export namespace Usage {
 }
 
 /**
- *
- *       <p>Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.</p>
+ * <p>Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.</p>
  *       <div class="remarks">
  *         <p>In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. </p>
  *       </div>
  *       <div class="seeAlso">
  *         <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *       </div>
- *
  */
 export interface UsagePlan extends $MetadataBearer {
   __type?: "UsagePlan";
   /**
-   *
-   *     <p>The associated API stages of a usage plan.</p>
-   *
+   * <p>The associated API stages of a usage plan.</p>
    */
   apiStages?: Array<ApiStage>;
 
   /**
-   *
-   *     <p>The description of a usage plan.</p>
-   *
+   * <p>The description of a usage plan.</p>
    */
   description?: string;
 
   /**
-   *
-   *     <p>The identifier of a <a>UsagePlan</a> resource.</p>
-   *
+   * <p>The identifier of a <a>UsagePlan</a> resource.</p>
    */
   id?: string;
 
   /**
-   *
-   *     <p>The name of a usage plan.</p>
-   *
+   * <p>The name of a usage plan.</p>
    */
   name?: string;
 
   /**
-   *
-   *     <p>The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.</p>
-   *
+   * <p>The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.</p>
    */
   productCode?: string;
 
   /**
-   *
-   *     <p>The maximum number of permitted requests per a given unit time interval.</p>
-   *
+   * <p>The maximum number of permitted requests per a given unit time interval.</p>
    */
   quota?: QuotaSettings;
 
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *     <p>The request throttle limits of a usage plan.</p>
-   *
+   * <p>The request throttle limits of a usage plan.</p>
    */
   throttle?: ThrottleSettings;
 }
@@ -8779,43 +7494,33 @@ export namespace UsagePlan {
 }
 
 /**
- *
- *     <p>Represents a usage plan key to identify a plan customer.</p>
+ * <p>Represents a usage plan key to identify a plan customer.</p>
  *     <div class="remarks">
  *       <p>To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected <a>ApiKey</a>.</p>
  *     </div>"
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *     </div>
- *
  */
 export interface UsagePlanKey extends $MetadataBearer {
   __type?: "UsagePlanKey";
   /**
-   *
-   *     <p>The Id of a usage plan key.</p>
-   *
+   * <p>The Id of a usage plan key.</p>
    */
   id?: string;
 
   /**
-   *
-   *     <p>The name of a usage plan key.</p>
-   *
+   * <p>The name of a usage plan key.</p>
    */
   name?: string;
 
   /**
-   *
-   *     <p>The type of a usage plan key. Currently, the valid key type is <code>API_KEY</code>.</p>
-   *
+   * <p>The type of a usage plan key. Currently, the valid key type is <code>API_KEY</code>.</p>
    */
   type?: string;
 
   /**
-   *
-   *     <p>The value of a usage plan key.</p>
-   *
+   * <p>The value of a usage plan key.</p>
    */
   value?: string;
 }
@@ -8827,19 +7532,15 @@ export namespace UsagePlanKey {
 }
 
 /**
- *
- *     <p>Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.</p>
+ * <p>Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.</p>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *     </div>
- *
  */
 export interface UsagePlanKeys extends $MetadataBearer {
   __type?: "UsagePlanKeys";
   /**
-   *
-   *       <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<UsagePlanKey>;
 
@@ -8856,8 +7557,7 @@ export namespace UsagePlanKeys {
 }
 
 /**
- *
- *     <p>Represents a collection of usage plans for an AWS account.</p>
+ * <p>Represents a collection of usage plans for an AWS account.</p>
  *     <div class="seeAlso">
  *       <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>
  *     </div>
@@ -8865,9 +7565,7 @@ export namespace UsagePlanKeys {
 export interface UsagePlans extends $MetadataBearer {
   __type?: "UsagePlans";
   /**
-   *
-   *       <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<UsagePlan>;
 
@@ -8884,63 +7582,47 @@ export namespace UsagePlans {
 }
 
 /**
- *
- *         <p>A API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p>
+ * <p>A API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p>
  *         <div class="remarks">
  *           <p><p>To enable access to a resource in an Amazon Virtual Private Cloud through Amazon API Gateway, you, as an API developer, create a <a>VpcLink</a> resource targeted for one or more network load balancers of the VPC and then integrate an API method with a private integration that uses the <a>VpcLink</a>. The private integration has an integration type of <code>HTTP</code> or <code>HTTP_PROXY</code> and has a connection type of <code>VPC_LINK</code>. The integration uses the <code>connectionId</code> property to identify the <a>VpcLink</a> used.</p>
  *
  * </p>
  *         </div>
- *
  */
 export interface VpcLink extends $MetadataBearer {
   __type?: "VpcLink";
   /**
-   *
-   *         <p>The description of the VPC link.</p>
-   *
+   * <p>The description of the VPC link.</p>
    */
   description?: string;
 
   /**
-   *
-   *         <p>The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
-   *
+   * <p>The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
   id?: string;
 
   /**
-   *
-   *         <p>The name used to label and identify the VPC link.</p>
-   *
+   * <p>The name used to label and identify the VPC link.</p>
    */
   name?: string;
 
   /**
-   *
-   *         <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>, <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying an API will wait if the status is <code>PENDING</code> and will fail if the status is <code>DELETING</code>.  </p>
-   *
+   * <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>, <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying an API will wait if the status is <code>PENDING</code> and will fail if the status is <code>DELETING</code>.  </p>
    */
   status?: VpcLinkStatus | string;
 
   /**
-   *
-   *       <p>A description about the VPC link status.</p>
-   *
+   * <p>A description about the VPC link status.</p>
    */
   statusMessage?: string;
 
   /**
-   *
-   *         <p>The collection of tags. Each tag element is associated with a given resource.</p>
-   *
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   *
-   *         <p>The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
-   *
+   * <p>The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
    */
   targetArns?: Array<string>;
 }
@@ -8959,29 +7641,23 @@ export enum VpcLinkStatus {
 }
 
 /**
- *
- *         <p>The collection of VPC links under the caller's account in a region.</p>
+ * <p>The collection of VPC links under the caller's account in a region.</p>
  *         <div class="seeAlso">
  *
  * <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html">Getting Started with Private Integrations</a>,
  * <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html">Set up Private Integrations</a>
  *
  *         </div>
- *
  */
 export interface VpcLinks extends $MetadataBearer {
   __type?: "VpcLinks";
   /**
-   *
-   *         <p>The current page of elements from this collection.</p>
-   *
+   * <p>The current page of elements from this collection.</p>
    */
   items?: Array<VpcLink>;
 
   /**
-   *
-   *         <p>The current pagination position in the paged result set.</p>
-   *
+   * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 }
@@ -8995,38 +7671,28 @@ export namespace VpcLinks {
 export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
 
 /**
- *
- *         A single patch operation to apply to the specified resource. Please refer to
+ * A single patch operation to apply to the specified resource. Please refer to
  *         http://tools.ietf.org/html/rfc6902#section-4 for an explanation of how each operation is used.
- *
  */
 export interface PatchOperation {
   __type?: "PatchOperation";
   /**
-   *
-   *       <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
-   *
+   * <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
    */
   from?: string;
 
   /**
-   *
-   *         <p> An update operation to be performed with this PATCH request. The valid value can be <code>add</code>, <code>remove</code>,  <code>replace</code> or <code>copy</code>. Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.</p>
-   *
+   * <p> An update operation to be performed with this PATCH request. The valid value can be <code>add</code>, <code>remove</code>,  <code>replace</code> or <code>copy</code>. Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.</p>
    */
   op?: Op | string;
 
   /**
-   *
-   *         <p>The <code>op</code> operation's target, as identified by a <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08">JSON Pointer</a> value that references a location within the targeted resource. For example, if the target resource has an updateable property of <code>{"name":"value"}</code>, the path for this property is <code>/name</code>. If the <code>name</code> property value is a JSON object (e.g., <code>{"name": {"child/name": "child-value"}}</code>), the path for the <code>child/name</code> property will be <code>/name/child~1name</code>. Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each <code>op</code> operation can have only one <code>path</code> associated with it.</p>
-   *
+   * <p>The <code>op</code> operation's target, as identified by a <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08">JSON Pointer</a> value that references a location within the targeted resource. For example, if the target resource has an updateable property of <code>{"name":"value"}</code>, the path for this property is <code>/name</code>. If the <code>name</code> property value is a JSON object (e.g., <code>{"name": {"child/name": "child-value"}}</code>), the path for the <code>child/name</code> property will be <code>/name/child~1name</code>. Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each <code>op</code> operation can have only one <code>path</code> associated with it.</p>
    */
   path?: string;
 
   /**
-   *
-   *         <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
-   *
+   * <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
    */
   value?: string;
 }
@@ -9038,9 +7704,7 @@ export namespace PatchOperation {
 }
 
 /**
- *
- *         <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
- *
+ * <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
  */
 export interface BadRequestException
   extends _smithy.SmithyException,
@@ -9048,9 +7712,6 @@ export interface BadRequestException
   __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
-  /**
-   *
-   */
   message?: string;
 }
 
@@ -9061,9 +7722,7 @@ export namespace BadRequestException {
 }
 
 /**
- *
- *       <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
- *
+ * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
  */
 export interface ConflictException
   extends _smithy.SmithyException,
@@ -9071,9 +7730,6 @@ export interface ConflictException
   __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
-  /**
-   *
-   */
   message?: string;
 }
 
@@ -9084,9 +7740,7 @@ export namespace ConflictException {
 }
 
 /**
- *
- *       <p>The request exceeded the rate limit. Retry after the specified time period.</p>
- *
+ * <p>The request exceeded the rate limit. Retry after the specified time period.</p>
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -9094,11 +7748,7 @@ export interface LimitExceededException
   __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
-  /**
-   *
-   */
   message?: string;
-
   retryAfterSeconds?: string;
 }
 
@@ -9109,9 +7759,7 @@ export namespace LimitExceededException {
 }
 
 /**
- *
- *       <p>The requested resource is not found. Make sure that the request URI is correct.</p>
- *
+ * <p>The requested resource is not found. Make sure that the request URI is correct.</p>
  */
 export interface NotFoundException
   extends _smithy.SmithyException,
@@ -9119,9 +7767,6 @@ export interface NotFoundException
   __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
-  /**
-   *
-   */
   message?: string;
 }
 
@@ -9132,9 +7777,7 @@ export namespace NotFoundException {
 }
 
 /**
- *
- *       <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
- *
+ * <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
  */
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
@@ -9142,14 +7785,7 @@ export interface ServiceUnavailableException
   __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
-  /**
-   *
-   */
   message?: string;
-
-  /**
-   *
-   */
   retryAfterSeconds?: string;
 }
 
@@ -9160,9 +7796,7 @@ export namespace ServiceUnavailableException {
 }
 
 /**
- *
- *       <p>The request has reached its throttling limit. Retry after the specified time period.</p>
- *
+ * <p>The request has reached its throttling limit. Retry after the specified time period.</p>
  */
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
@@ -9170,14 +7804,7 @@ export interface TooManyRequestsException
   __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
-  /**
-   *
-   */
   message?: string;
-
-  /**
-   *
-   */
   retryAfterSeconds?: string;
 }
 
@@ -9188,9 +7815,7 @@ export namespace TooManyRequestsException {
 }
 
 /**
- *
- *       <p>The request is denied because the caller has insufficient permissions.</p>
- *
+ * <p>The request is denied because the caller has insufficient permissions.</p>
  */
 export interface UnauthorizedException
   extends _smithy.SmithyException,
@@ -9198,9 +7823,6 @@ export interface UnauthorizedException
   __type: "UnauthorizedException";
   name: "UnauthorizedException";
   $fault: "client";
-  /**
-   *
-   */
   message?: string;
 }
 

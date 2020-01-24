@@ -176,8 +176,7 @@ export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>AWS Price List Service API (AWS Price List Service) is a centralized and convenient way to
+ * <p>AWS Price List Service API (AWS Price List Service) is a centralized and convenient way to
  *          programmatically query Amazon Web Services for services, products, and pricing information. The AWS Price List Service
  *          uses standardized product attributes such as <code>Location</code>, <code>Storage
  *             Class</code>, and <code>Operating System</code>, and provides prices at the SKU
@@ -201,9 +200,6 @@ export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<
  *                <p>https://api.pricing.ap-south-1.amazonaws.com</p>
  *             </li>
  *          </ul>
- *
- *
- *
  */
 export class PricingClient extends __Client<
   __HttpHandlerOptions,

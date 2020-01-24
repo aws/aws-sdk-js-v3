@@ -1,11 +1,19 @@
 import {
   DeleteTerminologyRequest,
+  DescribeTextTranslationJobRequest,
+  DescribeTextTranslationJobResponse,
   GetTerminologyRequest,
   GetTerminologyResponse,
   ImportTerminologyRequest,
   ImportTerminologyResponse,
   ListTerminologiesRequest,
   ListTerminologiesResponse,
+  ListTextTranslationJobsRequest,
+  ListTextTranslationJobsResponse,
+  StartTextTranslationJobRequest,
+  StartTextTranslationJobResponse,
+  StopTextTranslationJobRequest,
+  StopTextTranslationJobResponse,
   TranslateTextRequest,
   TranslateTextResponse
 } from "./models/index";
@@ -64,16 +72,24 @@ import {
 
 export type ServiceInputTypes =
   | DeleteTerminologyRequest
+  | DescribeTextTranslationJobRequest
   | GetTerminologyRequest
   | ImportTerminologyRequest
   | ListTerminologiesRequest
+  | ListTextTranslationJobsRequest
+  | StartTextTranslationJobRequest
+  | StopTextTranslationJobRequest
   | TranslateTextRequest;
 
 export type ServiceOutputTypes =
   | __MetadataBearer
+  | DescribeTextTranslationJobResponse
   | GetTerminologyResponse
   | ImportTerminologyResponse
   | ListTerminologiesResponse
+  | ListTextTranslationJobsResponse
+  | StartTextTranslationJobResponse
+  | StopTextTranslationJobResponse
   | TranslateTextResponse;
 
 export interface ClientDefaults
@@ -184,9 +200,8 @@ export type TranslateClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>Provides translation between one source language and another of the same set of languages.</p>
- *
+ * <p>Provides translation between one source language and another of the same set of
+ *       languages.</p>
  */
 export class TranslateClient extends __Client<
   __HttpHandlerOptions,

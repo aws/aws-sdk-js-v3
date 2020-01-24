@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  GetIntegrationRequest,
-  GetIntegrationResponseShape
-} from "../models/index";
+import { GetIntegrationRequest, GetIntegrationResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIntegrationCommand,
   serializeAws_restJson1_1GetIntegrationCommand
@@ -27,7 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIntegrationCommandInput = GetIntegrationRequest;
-export type GetIntegrationCommandOutput = GetIntegrationResponseShape;
+export type GetIntegrationCommandOutput = GetIntegrationResult;
 
 export class GetIntegrationCommand extends $Command<
   GetIntegrationCommandInput,

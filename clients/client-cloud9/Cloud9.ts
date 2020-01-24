@@ -52,8 +52,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Cloud9</fullname>
+ * <fullname>AWS Cloud9</fullname>
  *          <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p>
  *          <p>For more information about AWS Cloud9, see the <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide">AWS Cloud9 User Guide</a>.</p>
  *          <p>AWS Cloud9 supports these operations:</p>
@@ -99,14 +98,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                   <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p>
  *             </li>
  *          </ul>
- *
  */
 export class Cloud9 extends Cloud9Client {
   /**
-   *
-   *          <p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>
-   *
-   *
+   * <p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>
    */
   public createEnvironmentEC2(
     args: CreateEnvironmentEC2CommandInput,
@@ -141,10 +136,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Adds an environment member to an AWS Cloud9 development environment.</p>
-   *
-   *
+   * <p>Adds an environment member to an AWS Cloud9 development environment.</p>
    */
   public createEnvironmentMembership(
     args: CreateEnvironmentMembershipCommandInput,
@@ -179,10 +171,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>
-   *
-   *
+   * <p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>
    */
   public deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
@@ -217,10 +206,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Deletes an environment member from an AWS Cloud9 development environment.</p>
-   *
-   *
+   * <p>Deletes an environment member from an AWS Cloud9 development environment.</p>
    */
   public deleteEnvironmentMembership(
     args: DeleteEnvironmentMembershipCommandInput,
@@ -255,10 +241,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Gets information about environment members for an AWS Cloud9 development environment.</p>
-   *
-   *
+   * <p>Gets information about environment members for an AWS Cloud9 development environment.</p>
    */
   public describeEnvironmentMemberships(
     args: DescribeEnvironmentMembershipsCommandInput,
@@ -296,10 +279,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Gets status information for an AWS Cloud9 development environment.</p>
-   *
-   *
+   * <p>Gets status information for an AWS Cloud9 development environment.</p>
    */
   public describeEnvironmentStatus(
     args: DescribeEnvironmentStatusCommandInput,
@@ -334,10 +314,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Gets information about AWS Cloud9 development environments.</p>
-   *
-   *
+   * <p>Gets information about AWS Cloud9 development environments.</p>
    */
   public describeEnvironments(
     args: DescribeEnvironmentsCommandInput,
@@ -372,10 +349,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Gets a list of AWS Cloud9 development environment identifiers.</p>
-   *
-   *
+   * <p>Gets a list of AWS Cloud9 development environment identifiers.</p>
    */
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -410,10 +384,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Changes the settings of an existing AWS Cloud9 development environment.</p>
-   *
-   *
+   * <p>Changes the settings of an existing AWS Cloud9 development environment.</p>
    */
   public updateEnvironment(
     args: UpdateEnvironmentCommandInput,
@@ -448,10 +419,7 @@ export class Cloud9 extends Cloud9Client {
   }
 
   /**
-   *
-   *          <p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>
-   *
-   *
+   * <p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>
    */
   public updateEnvironmentMembership(
     args: UpdateEnvironmentMembershipCommandInput,

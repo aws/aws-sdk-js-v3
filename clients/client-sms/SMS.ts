@@ -142,8 +142,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>AAWS Sever Migration Service</fullname>
+ * <fullname>AAWS Sever Migration Service</fullname>
  *         <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions,
  *             syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service
  *             (AWS SMS). The topic for each action shows the Query API request parameters and the XML
@@ -164,14 +163,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                </p>
  *             </li>
  *          </ul>
- *
  */
 export class SMS extends SMSClient {
   /**
-   *
-   *         <p>Creates an application. An application consists of one or more server groups. Each
+   * <p>Creates an application. An application consists of one or more server groups. Each
    *             server group contain one or more servers.</p>
-   *
    */
   public createApp(
     args: CreateAppCommandInput,
@@ -206,11 +202,9 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Creates a replication job. The replication job schedules periodic replication runs
+   * <p>Creates a replication job. The replication job schedules periodic replication runs
    *             to replicate your server to AWS. Each replication run creates an Amazon Machine Image
    *             (AMI).</p>
-   *
    */
   public createReplicationJob(
     args: CreateReplicationJobCommandInput,
@@ -245,10 +239,8 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Deletes an existing application. Optionally deletes the launched stack associated with
+   * <p>Deletes an existing application. Optionally deletes the launched stack associated with
    *             the application and all AWS SMS replication jobs for servers in the application.</p>
-   *
    */
   public deleteApp(
     args: DeleteAppCommandInput,
@@ -283,9 +275,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Deletes existing launch configuration for an application.</p>
-   *
+   * <p>Deletes existing launch configuration for an application.</p>
    */
   public deleteAppLaunchConfiguration(
     args: DeleteAppLaunchConfigurationCommandInput,
@@ -320,9 +310,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Deletes existing replication configuration for an application.</p>
-   *
+   * <p>Deletes existing replication configuration for an application.</p>
    */
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
@@ -369,12 +357,10 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified replication job.</p>
+   * <p>Deletes the specified replication job.</p>
    *         <p>After you delete a replication job, there are no further replication runs. AWS
    *             deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created
    *             by the replication runs are not deleted.</p>
-   *
    */
   public deleteReplicationJob(
     args: DeleteReplicationJobCommandInput,
@@ -409,9 +395,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Deletes all servers from your server catalog.</p>
-   *
+   * <p>Deletes all servers from your server catalog.</p>
    */
   public deleteServerCatalog(
     args: DeleteServerCatalogCommandInput,
@@ -446,11 +430,9 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Disassociates the specified connector from AWS SMS.</p>
+   * <p>Disassociates the specified connector from AWS SMS.</p>
    *         <p>After you disassociate a connector, it is no longer available to support
    *             replication jobs.</p>
-   *
    */
   public disassociateConnector(
     args: DisassociateConnectorCommandInput,
@@ -485,10 +467,8 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
+   * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
    *             object in the customer’s Amazon S3 bucket.</p>
-   *
    */
   public generateChangeSet(
     args: GenerateChangeSetCommandInput,
@@ -523,10 +503,8 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Generates an Amazon CloudFormation template based on the current launch configuration and writes it to
+   * <p>Generates an Amazon CloudFormation template based on the current launch configuration and writes it to
    *             an Amazon S3 object in the customer’s Amazon S3 bucket.</p>
-   *
    */
   public generateTemplate(
     args: GenerateTemplateCommandInput,
@@ -561,9 +539,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Retrieve information about an application.</p>
-   *
+   * <p>Retrieve information about an application.</p>
    */
   public getApp(
     args: GetAppCommandInput,
@@ -598,9 +574,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Retrieves the application launch configuration associated with an application.</p>
-   *
+   * <p>Retrieves the application launch configuration associated with an application.</p>
    */
   public getAppLaunchConfiguration(
     args: GetAppLaunchConfigurationCommandInput,
@@ -635,10 +609,8 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Retrieves an application replication configuration associatd with an
+   * <p>Retrieves an application replication configuration associatd with an
    *             application.</p>
-   *
    */
   public getAppReplicationConfiguration(
     args: GetAppReplicationConfigurationCommandInput,
@@ -676,9 +648,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Describes the connectors registered with the AWS SMS.</p>
-   *
+   * <p>Describes the connectors registered with the AWS SMS.</p>
    */
   public getConnectors(
     args: GetConnectorsCommandInput,
@@ -713,9 +683,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Describes the specified replication job or all of your replication jobs.</p>
-   *
+   * <p>Describes the specified replication job or all of your replication jobs.</p>
    */
   public getReplicationJobs(
     args: GetReplicationJobsCommandInput,
@@ -750,9 +718,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Describes the replication runs for the specified replication job.</p>
-   *
+   * <p>Describes the replication runs for the specified replication job.</p>
    */
   public getReplicationRuns(
     args: GetReplicationRunsCommandInput,
@@ -787,10 +753,8 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Describes the servers in your server catalog.</p>
+   * <p>Describes the servers in your server catalog.</p>
    *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
-   *
    */
   public getServers(
     args: GetServersCommandInput,
@@ -825,12 +789,10 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Gathers a complete list of on-premises servers. Connectors must be installed and
+   * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
    *             monitoring all servers that you want to import.</p>
    *         <p>This call returns immediately, but might take additional time to retrieve all the
    *             servers.</p>
-   *
    */
   public importServerCatalog(
     args: ImportServerCatalogCommandInput,
@@ -865,9 +827,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Launches an application stack.</p>
-   *
+   * <p>Launches an application stack.</p>
    */
   public launchApp(
     args: LaunchAppCommandInput,
@@ -902,9 +862,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Returns a list of summaries for all applications.</p>
-   *
+   * <p>Returns a list of summaries for all applications.</p>
    */
   public listApps(
     args: ListAppsCommandInput,
@@ -939,9 +897,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Creates a launch configuration for an application.</p>
-   *
+   * <p>Creates a launch configuration for an application.</p>
    */
   public putAppLaunchConfiguration(
     args: PutAppLaunchConfigurationCommandInput,
@@ -976,9 +932,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Creates or updates a replication configuration for an application.</p>
-   *
+   * <p>Creates or updates a replication configuration for an application.</p>
    */
   public putAppReplicationConfiguration(
     args: PutAppReplicationConfigurationCommandInput,
@@ -1016,9 +970,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Starts replicating an application.</p>
-   *
+   * <p>Starts replicating an application.</p>
    */
   public startAppReplication(
     args: StartAppReplicationCommandInput,
@@ -1053,13 +1005,11 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Starts an on-demand replication run for the specified replication job. This
+   * <p>Starts an on-demand replication run for the specified replication job. This
    *             replication run starts immediately. This replication run is in addition to the ones
    *             already scheduled.</p>
    *         <p>There is a limit on the number of on-demand replications runs you can request in a
    *             24-hour period.</p>
-   *
    */
   public startOnDemandReplicationRun(
     args: StartOnDemandReplicationRunCommandInput,
@@ -1094,9 +1044,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Stops replicating an application.</p>
-   *
+   * <p>Stops replicating an application.</p>
    */
   public stopAppReplication(
     args: StopAppReplicationCommandInput,
@@ -1131,9 +1079,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Terminates the stack for an application.</p>
-   *
+   * <p>Terminates the stack for an application.</p>
    */
   public terminateApp(
     args: TerminateAppCommandInput,
@@ -1168,9 +1114,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Updates an application.</p>
-   *
+   * <p>Updates an application.</p>
    */
   public updateApp(
     args: UpdateAppCommandInput,
@@ -1205,9 +1149,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   *
-   *         <p>Updates the specified settings for the specified replication job.</p>
-   *
+   * <p>Updates the specified settings for the specified replication job.</p>
    */
   public updateReplicationJob(
     args: UpdateReplicationJobCommandInput,

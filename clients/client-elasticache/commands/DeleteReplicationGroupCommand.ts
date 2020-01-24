@@ -5,7 +5,7 @@ import {
 } from "../ElastiCacheClient";
 import {
   DeleteReplicationGroupMessage,
-  ReplicationGroup
+  DeleteReplicationGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryDeleteReplicationGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReplicationGroupCommandInput = DeleteReplicationGroupMessage;
-export type DeleteReplicationGroupCommandOutput = ReplicationGroup;
+export type DeleteReplicationGroupCommandOutput = DeleteReplicationGroupResult;
 
 export class DeleteReplicationGroupCommand extends $Command<
   DeleteReplicationGroupCommandInput,

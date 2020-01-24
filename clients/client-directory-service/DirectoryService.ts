@@ -287,20 +287,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Directory Service</fullname>
+ * <fullname>AWS Directory Service</fullname>
  *          <p>AWS Directory Service is a web service that makes it easy for you to setup and run directories in the AWS cloud, or connect your AWS resources with an existing on-premises Microsoft Active Directory. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors. For information about AWS Directory Services features, see <a href="https://aws.amazon.com/directoryservice/">AWS Directory Service</a> and the <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html">AWS Directory Service Administration Guide</a>.</p>
  *          <note>
  *             <p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .Net, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to AWS Directory Service and other AWS services. For more information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
  *          Services</a>.</p>
  *          </note>
- *
  */
 export class DirectoryService extends DirectoryServiceClient {
   /**
-   *
-   *          <p>Accepts a directory sharing request that was sent from the directory owner account.</p>
-   *
+   * <p>Accepts a directory sharing request that was sent from the directory owner account.</p>
    */
   public acceptSharedDirectory(
     args: AcceptSharedDirectoryCommandInput,
@@ -335,12 +331,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *
-   *          <p>If the DNS server for your on-premises domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. </p>
+   * <p>If the DNS server for your on-premises domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. </p>
    *          <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <i>AddIpRoutes</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
-   *
-   *
    */
   public addIpRoutes(
     args: AddIpRoutesCommandInput,
@@ -375,10 +367,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.</p>
-   *
-   *
+   * <p>Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.</p>
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -413,10 +402,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema extension has started replicating to all domain controllers, the task can no longer be canceled. A schema extension can be canceled during any of the following states; <code>Initializing</code>, <code>CreatingSnapshot</code>, and <code>UpdatingSchema</code>.</p>
-   *
-   *
+   * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema extension has started replicating to all domain controllers, the task can no longer be canceled. A schema extension can be canceled during any of the following states; <code>Initializing</code>, <code>CreatingSnapshot</code>, and <code>UpdatingSchema</code>.</p>
    */
   public cancelSchemaExtension(
     args: CancelSchemaExtensionCommandInput,
@@ -451,11 +437,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates an AD Connector to connect to an on-premises directory.</p>
+   * <p>Creates an AD Connector to connect to an on-premises directory.</p>
    *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
-   *
-   *
    */
   public connectDirectory(
     args: ConnectDirectoryCommandInput,
@@ -490,15 +473,12 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates an alias for a directory and assigns the alias to the directory. The alias is used
+   * <p>Creates an alias for a directory and assigns the alias to the directory. The alias is used
    *          to construct the access URL for the directory, such as
    *             <code>http://<alias>.awsapps.com</code>.</p>
    *          <important>
    *             <p>After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.</p>
    *          </important>
-   *
-   *
    */
   public createAlias(
     args: CreateAliasCommandInput,
@@ -533,10 +513,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *         <p>Creates a computer account in the specified directory, and joins the computer to the directory.</p>
-   *
-   *
+   * <p>Creates a computer account in the specified directory, and joins the computer to the directory.</p>
    */
   public createComputer(
     args: CreateComputerCommandInput,
@@ -571,10 +548,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.</p>
-   *
-   *
+   * <p>Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.</p>
    */
   public createConditionalForwarder(
     args: CreateConditionalForwarderCommandInput,
@@ -609,11 +583,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>AWS Directory Service Admin Guide</i>.</p>
+   * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>AWS Directory Service Admin Guide</i>.</p>
    *          <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
-   *
-   *
    */
   public createDirectory(
     args: CreateDirectoryCommandInput,
@@ -648,10 +619,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *         <p>Creates a subscription to forward real-time Directory Service domain controller
+   * <p>Creates a subscription to forward real-time Directory Service domain controller
    *       security logs to the specified Amazon CloudWatch log group in your AWS account.</p>
-   *
    */
   public createLogSubscription(
     args: CreateLogSubscriptionCommandInput,
@@ -686,11 +655,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a Microsoft AD directory in the AWS Cloud. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">AWS Managed Microsoft AD</a> in the <i>AWS Directory Service Admin Guide</i>.</p>
+   * <p>Creates a Microsoft AD directory in the AWS Cloud. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">AWS Managed Microsoft AD</a> in the <i>AWS Directory Service Admin Guide</i>.</p>
    *          <p>Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <i>CreateMicrosoftAD</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
-   *
-   *
    */
   public createMicrosoftAD(
     args: CreateMicrosoftADCommandInput,
@@ -725,13 +691,10 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.</p>
+   * <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.</p>
    *          <note>
    *             <p>You cannot take snapshots of AD Connector directories.</p>
    *          </note>
-   *
-   *
    */
   public createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -766,11 +729,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p>
+   * <p>AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.</p>
    *          <p>This action initiates the creation of the AWS side of a trust relationship between an AWS Managed Microsoft AD directory and an external domain. You can create either a forest trust or an external trust.</p>
-   *
-   *
    */
   public createTrust(
     args: CreateTrustCommandInput,
@@ -805,10 +765,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes a conditional forwarder that has been set up for your AWS directory.</p>
-   *
-   *
+   * <p>Deletes a conditional forwarder that has been set up for your AWS directory.</p>
    */
   public deleteConditionalForwarder(
     args: DeleteConditionalForwarderCommandInput,
@@ -843,11 +800,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes an AWS Directory Service directory.</p>
+   * <p>Deletes an AWS Directory Service directory.</p>
    *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
-   *
-   *
    */
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
@@ -882,9 +836,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified log subscription.</p>
-   *
+   * <p>Deletes the specified log subscription.</p>
    */
   public deleteLogSubscription(
     args: DeleteLogSubscriptionCommandInput,
@@ -919,10 +871,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes a directory snapshot.</p>
-   *
-   *
+   * <p>Deletes a directory snapshot.</p>
    */
   public deleteSnapshot(
     args: DeleteSnapshotCommandInput,
@@ -957,10 +906,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
-   *
-   *
+   * <p>Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
    */
   public deleteTrust(
     args: DeleteTrustCommandInput,
@@ -995,10 +941,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes from the system the certificate that was registered for a secured LDAP
+   * <p>Deletes from the system the certificate that was registered for a secured LDAP
    *       connection.</p>
-   *
    */
   public deregisterCertificate(
     args: DeregisterCertificateCommandInput,
@@ -1033,10 +977,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Removes the specified directory as a publisher to the specified SNS topic.</p>
-   *
-   *
+   * <p>Removes the specified directory as a publisher to the specified SNS topic.</p>
    */
   public deregisterEventTopic(
     args: DeregisterEventTopicCommandInput,
@@ -1071,9 +1012,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Displays information about the certificate registered for a secured LDAP connection.</p>
-   *
+   * <p>Displays information about the certificate registered for a secured LDAP connection.</p>
    */
   public describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -1108,11 +1047,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Obtains information about the conditional forwarders for this account.</p>
+   * <p>Obtains information about the conditional forwarders for this account.</p>
    *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all conditional forwarders for the specified directory ID.</p>
-   *
-   *
    */
   public describeConditionalForwarders(
     args: DescribeConditionalForwardersCommandInput,
@@ -1147,8 +1083,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Obtains information about the directories that belong to this account.</p>
+   * <p>Obtains information about the directories that belong to this account.</p>
    *          <p>You can retrieve information about specific directories by passing the directory
    *          identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong to
    *          the current account are returned.</p>
@@ -1158,8 +1093,6 @@ export class DirectoryService extends DirectoryServiceClient {
    *          next call to <a>DescribeDirectories</a> to retrieve the next set of items.</p>
    *          <p>You can also specify a maximum number of return results with the <code>Limit</code>
    *          parameter.</p>
-   *
-   *
    */
   public describeDirectories(
     args: DescribeDirectoriesCommandInput,
@@ -1194,9 +1127,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Provides information about any domain controllers in your directory.</p>
-   *
+   * <p>Provides information about any domain controllers in your directory.</p>
    */
   public describeDomainControllers(
     args: DescribeDomainControllersCommandInput,
@@ -1231,11 +1162,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Obtains information about which SNS topics receive status messages from the specified directory.</p>
+   * <p>Obtains information about which SNS topics receive status messages from the specified directory.</p>
    *          <p>If no input parameters are provided, such as DirectoryId or TopicName, this request describes all of the associations in the account.</p>
-   *
-   *
    */
   public describeEventTopics(
     args: DescribeEventTopicsCommandInput,
@@ -1270,9 +1198,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Describes the status of LDAP security for the specified directory.</p>
-   *
+   * <p>Describes the status of LDAP security for the specified directory.</p>
    */
   public describeLDAPSSettings(
     args: DescribeLDAPSSettingsCommandInput,
@@ -1307,9 +1233,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns the shared directories in your account. </p>
-   *
+   * <p>Returns the shared directories in your account. </p>
    */
   public describeSharedDirectories(
     args: DescribeSharedDirectoriesCommandInput,
@@ -1344,16 +1268,13 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Obtains information about the directory snapshots that belong to this account.</p>
+   * <p>Obtains information about the directory snapshots that belong to this account.</p>
    *          <p>This operation supports pagination with the use of the <i>NextToken</i> request and
    *          response parameters. If more results are available, the <i>DescribeSnapshots.NextToken</i>
    *          member contains a token that you pass in the next call to <a>DescribeSnapshots</a> to
    *          retrieve the next set of items.</p>
    *          <p>You can also specify a maximum number of return results with the <i>Limit</i>
    *          parameter.</p>
-   *
-   *
    */
   public describeSnapshots(
     args: DescribeSnapshotsCommandInput,
@@ -1388,11 +1309,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Obtains information about the trust relationships for this account.</p>
+   * <p>Obtains information about the trust relationships for this account.</p>
    *          <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request describes all the trust relationships belonging to the account.</p>
-   *
-   *
    */
   public describeTrusts(
     args: DescribeTrustsCommandInput,
@@ -1427,9 +1345,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Deactivates LDAP secure calls for the specified directory.</p>
-   *
+   * <p>Deactivates LDAP secure calls for the specified directory.</p>
    */
   public disableLDAPS(
     args: DisableLDAPSCommandInput,
@@ -1464,10 +1380,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
-   *
-   *
+   * <p>Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
    */
   public disableRadius(
     args: DisableRadiusCommandInput,
@@ -1502,10 +1415,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Disables single-sign on for a directory.</p>
-   *
-   *
+   * <p>Disables single-sign on for a directory.</p>
    */
   public disableSso(
     args: DisableSsoCommandInput,
@@ -1540,9 +1450,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
-   *
+   * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
    */
   public enableLDAPS(
     args: EnableLDAPSCommandInput,
@@ -1577,10 +1485,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
-   *
-   *
+   * <p>Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
    */
   public enableRadius(
     args: EnableRadiusCommandInput,
@@ -1615,10 +1520,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately.</p>
-   *
-   *
+   * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately.</p>
    */
   public enableSso(
     args: EnableSsoCommandInput,
@@ -1653,10 +1555,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Obtains directory limit information for the current Region.</p>
-   *
-   *
+   * <p>Obtains directory limit information for the current Region.</p>
    */
   public getDirectoryLimits(
     args: GetDirectoryLimitsCommandInput,
@@ -1691,10 +1590,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Obtains the manual snapshot limits for a directory.</p>
-   *
-   *
+   * <p>Obtains the manual snapshot limits for a directory.</p>
    */
   public getSnapshotLimits(
     args: GetSnapshotLimitsCommandInput,
@@ -1729,9 +1625,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>For the specified directory, lists all the certificates registered for a secured LDAP connection.</p>
-   *
+   * <p>For the specified directory, lists all the certificates registered for a secured LDAP connection.</p>
    */
   public listCertificates(
     args: ListCertificatesCommandInput,
@@ -1766,10 +1660,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists the address blocks that you have added to a directory.</p>
-   *
-   *
+   * <p>Lists the address blocks that you have added to a directory.</p>
    */
   public listIpRoutes(
     args: ListIpRoutesCommandInput,
@@ -1804,9 +1695,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *         <p>Lists the active log subscriptions for the AWS account.</p>
-   *
+   * <p>Lists the active log subscriptions for the AWS account.</p>
    */
   public listLogSubscriptions(
     args: ListLogSubscriptionsCommandInput,
@@ -1841,10 +1730,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
-   *
-   *
+   * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
    */
   public listSchemaExtensions(
     args: ListSchemaExtensionsCommandInput,
@@ -1879,10 +1765,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags on a directory.</p>
-   *
-   *
+   * <p>Lists all tags on a directory.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1917,9 +1800,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Registers a certificate for secured LDAP connection.</p>
-   *
+   * <p>Registers a certificate for secured LDAP connection.</p>
    */
   public registerCertificate(
     args: RegisterCertificateCommandInput,
@@ -1954,10 +1835,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Associates a directory with an SNS topic. This establishes the directory as a publisher to the specified SNS topic. You can then receive email or text (SMS) messages when the status of your directory changes. You get notified if your directory goes from an Active status to an Impaired or Inoperable status. You also receive a notification when the directory returns to an Active status.</p>
-   *
-   *
+   * <p>Associates a directory with an SNS topic. This establishes the directory as a publisher to the specified SNS topic. You can then receive email or text (SMS) messages when the status of your directory changes. You get notified if your directory goes from an Active status to an Impaired or Inoperable status. You also receive a notification when the directory returns to an Active status.</p>
    */
   public registerEventTopic(
     args: RegisterEventTopicCommandInput,
@@ -1992,9 +1870,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Rejects a directory sharing request that was sent from the directory owner account.</p>
-   *
+   * <p>Rejects a directory sharing request that was sent from the directory owner account.</p>
    */
   public rejectSharedDirectory(
     args: RejectSharedDirectoryCommandInput,
@@ -2029,10 +1905,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Removes IP address blocks from a directory.</p>
-   *
-   *
+   * <p>Removes IP address blocks from a directory.</p>
    */
   public removeIpRoutes(
     args: RemoveIpRoutesCommandInput,
@@ -2067,10 +1940,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Removes tags from a directory.</p>
-   *
-   *
+   * <p>Removes tags from a directory.</p>
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -2105,8 +1975,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Resets the password for any user in your AWS Managed Microsoft AD or Simple AD directory.</p>
+   * <p>Resets the password for any user in your AWS Managed Microsoft AD or Simple AD directory.</p>
    *          <p>You can reset the password for any user in your directory with the following exceptions:</p>
    *          <ul>
    *             <li>
@@ -2123,7 +1992,6 @@ export class DirectoryService extends DirectoryServiceClient {
    *             Guide</i>.</p>
    *             </li>
    *          </ul>
-   *
    */
   public resetUserPassword(
     args: ResetUserPasswordCommandInput,
@@ -2158,15 +2026,12 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Restores a directory using an existing directory snapshot.</p>
+   * <p>Restores a directory using an existing directory snapshot.</p>
    *          <p>When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.</p>
    *          <p>This action returns as soon as the restore operation is initiated. You can monitor the
    *          progress of the restore operation by calling the <a>DescribeDirectories</a> operation with
    *          the directory identifier. When the <b>DirectoryDescription.Stage</b> value changes to
    *             <code>Active</code>, the restore operation is complete.</p>
-   *
-   *
    */
   public restoreFromSnapshot(
     args: RestoreFromSnapshotCommandInput,
@@ -2201,8 +2066,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Shares a specified directory (<code>DirectoryId</code>) in your AWS account (directory
+   * <p>Shares a specified directory (<code>DirectoryId</code>) in your AWS account (directory
    *       owner) with another AWS account (directory consumer). With this operation you can use your
    *       directory from any AWS account and from any Amazon VPC within an AWS Region.</p>
    *          <p>When you share your AWS Managed Microsoft AD directory, AWS Directory Service creates a
@@ -2215,7 +2079,6 @@ export class DirectoryService extends DirectoryServiceClient {
    *       or outside of the organization (<code>HANDSHAKE</code>).</p>
    *          <p>The <code>ShareNotes</code> parameter is only used when <code>HANDSHAKE</code> is called,
    *       which sends a directory sharing request to the directory consumer. </p>
-   *
    */
   public shareDirectory(
     args: ShareDirectoryCommandInput,
@@ -2250,10 +2113,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Applies a schema extension to a Microsoft AD directory.</p>
-   *
-   *
+   * <p>Applies a schema extension to a Microsoft AD directory.</p>
    */
   public startSchemaExtension(
     args: StartSchemaExtensionCommandInput,
@@ -2288,9 +2148,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
-   *
+   * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
    */
   public unshareDirectory(
     args: UnshareDirectoryCommandInput,
@@ -2325,10 +2183,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Updates a conditional forwarder that has been set up for your AWS directory.</p>
-   *
-   *
+   * <p>Updates a conditional forwarder that has been set up for your AWS directory.</p>
    */
   public updateConditionalForwarder(
     args: UpdateConditionalForwarderCommandInput,
@@ -2363,9 +2218,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Adds or removes domain controllers to or from the directory. Based on the difference between current value and new value (provided through this API call), domain controllers will be added or removed. It may take up to 45 minutes for any new domain controllers to become fully active once the requested number of domain controllers is updated. During this time, you cannot make another update request.</p>
-   *
+   * <p>Adds or removes domain controllers to or from the directory. Based on the difference between current value and new value (provided through this API call), domain controllers will be added or removed. It may take up to 45 minutes for any new domain controllers to become fully active once the requested number of domain controllers is updated. During this time, you cannot make another update request.</p>
    */
   public updateNumberOfDomainControllers(
     args: UpdateNumberOfDomainControllersCommandInput,
@@ -2403,10 +2256,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector or Microsoft AD directory.</p>
-   *
-   *
+   * <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector or Microsoft AD directory.</p>
    */
   public updateRadius(
     args: UpdateRadiusCommandInput,
@@ -2441,9 +2291,7 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>Updates the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory.</p>
-   *
+   * <p>Updates the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory.</p>
    */
   public updateTrust(
     args: UpdateTrustCommandInput,
@@ -2478,11 +2326,8 @@ export class DirectoryService extends DirectoryServiceClient {
   }
 
   /**
-   *
-   *          <p>AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.</p>
+   * <p>AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.</p>
    *          <p>This action verifies a trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>
-   *
-   *
    */
   public verifyTrust(
     args: VerifyTrustCommandInput,

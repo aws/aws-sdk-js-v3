@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBInstance, RebootDBInstanceMessage } from "../models/index";
+import {
+  RebootDBInstanceMessage,
+  RebootDBInstanceResult
+} from "../models/index";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
   serializeAws_queryRebootDBInstanceCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RebootDBInstanceCommandInput = RebootDBInstanceMessage;
-export type RebootDBInstanceCommandOutput = DBInstance;
+export type RebootDBInstanceCommandOutput = RebootDBInstanceResult;
 
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,
