@@ -1,0 +1,90 @@
+import {
+  IoTClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../IoTClient";
+import {
+  ListCertificatesByCARequest,
+  ListCertificatesByCAResponse
+} from "../models/index";
+import {
+  deserializeAws_restJson1_1ListCertificatesByCACommand,
+  serializeAws_restJson1_1ListCertificatesByCACommand
+} from "../protocols/Aws_restJson1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type ListCertificatesByCACommandInput = ListCertificatesByCARequest;
+export type ListCertificatesByCACommandOutput = ListCertificatesByCAResponse;
+
+export class ListCertificatesByCACommand extends $Command<
+  ListCertificatesByCACommandInput,
+  ListCertificatesByCACommandOutput,
+  IoTClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ListCertificatesByCACommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: IoTClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    ListCertificatesByCACommandInput,
+    ListCertificatesByCACommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: ListCertificatesByCACommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1ListCertificatesByCACommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<ListCertificatesByCACommandOutput> {
+    return deserializeAws_restJson1_1ListCertificatesByCACommand(
+      output,
+      context
+    );
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
