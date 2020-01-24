@@ -1,5 +1,8 @@
+import { streamReader } from "@aws-sdk/chunked-stream-reader-node";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
+import { createReadStream } from "fs";
 import { Hash } from "@aws-sdk/hash-node";
 import { NodeHttpHandler } from "@aws-sdk/node-http-handler";
 import { parseUrl } from "@aws-sdk/url-parser-node";
@@ -27,5 +30,8 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "glacier",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
+  blobReader: invalidFunction("blobReader not available in node") as any,
+  createReadStream,
+  streamReader
 };

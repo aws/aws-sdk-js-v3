@@ -249,6 +249,21 @@ export interface ClientDefaults
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * Browser only - chunked blobReader.
+   */
+  blobReader?: any;
+
+  /**
+   * Node only - createReadStream.
+   */
+  createReadStream?: any;
+
+  /**
+   * Node only - chunked streamReader.
+   */
+  streamReader?: any;
 }
 
 export type GlacierClientConfig = Partial<

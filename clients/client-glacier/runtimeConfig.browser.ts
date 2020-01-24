@@ -1,3 +1,4 @@
+import { blobReader } from "@aws-sdk/chunked-blob-reader";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
@@ -26,5 +27,10 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "browser",
   signingName: "glacier",
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any
+  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  blobReader,
+  createReadStream: invalidFunction(
+    "createReadStream not available in browser"
+  ) as any,
+  streamReader: invalidFunction("streamReader not available in browser") as any
 };
