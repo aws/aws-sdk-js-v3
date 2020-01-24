@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -40,7 +45,7 @@
           "cloudFormationName": "KinesisVideoMedia",
           "cloudTrailEventSource": "model.ats.acuity.aws.amazon.com"
         },
-        "smithy.api#documentation": "\n         <p></p>\n      ",
+        "smithy.api#documentation": "<p></p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -60,7 +65,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of\n      allowed client calls. Try making the call later.</p>\n      ",
+        "smithy.api#documentation": "<p>Kinesis Video Streams has throttled the request because you have exceeded the limit of\n      allowed client calls. Try making the call later.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -73,7 +78,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of\n      allowed client connections.</p>\n      ",
+        "smithy.api#documentation": "<p>Kinesis Video Streams has throttled the request because you have exceeded the limit of\n      allowed client connections.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -140,7 +145,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p> Use this API to retrieve media content from a Kinesis video stream. In the request,\n      you identify the stream name or stream Amazon Resource Name (ARN), and the starting chunk.\n      Kinesis Video Streams then returns a stream of chunks in order by fragment number.</p>\n         <note>\n            <p>You must first call the <code>GetDataEndpoint</code> API to get an endpoint. Then\n        send the <code>GetMedia</code> requests to this endpoint using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/\">--endpoint-url parameter</a>.\n      </p>\n         </note>\n         <p>When you put media data (fragments) on a stream, Kinesis Video Streams stores each\n      incoming fragment and related metadata in what is called a \"chunk.\" For more information, see\n        <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html\">PutMedia</a>. The <code>GetMedia</code> API returns a stream of these chunks starting\n      from the chunk that you specify in the request. </p>\n         <p>The following limits apply when using the <code>GetMedia</code> API:</p>\n         <ul>\n            <li>\n               <p>A client can call <code>GetMedia</code> up to five times per second per stream.\n        </p>\n            </li>\n            <li>\n               <p>Kinesis Video Streams sends media data at a rate of up to 25 megabytes per second\n          (or 200 megabits per second) during a <code>GetMedia</code> session. </p>\n            </li>\n         </ul>\n\n         <note>\n            <p>If an error is thrown after invoking a Kinesis Video Streams media API, in addition to\n        the HTTP status code and the response body, it includes the following pieces of information: </p>\n            <ul>\n               <li>\n                  <p>\n                     <code>x-amz-ErrorType</code> HTTP header – contains a more specific error type in\n            addition to what the HTTP status code provides. </p>\n               </li>\n               <li>\n                  <p>\n                     <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to AWS,\n            the support team can better diagnose the problem if given the Request Id.</p>\n               </li>\n            </ul>\n            <p>Both the HTTP status code and the ErrorType header can be utilized to make programmatic\n        decisions about whether errors are retry-able and under what conditions, as well as provide\n        information on what actions the client programmer might need to take in order to\n        successfully try again.</p>\n            <p>For more information, see the <b>Errors</b> section at the\n        bottom of this topic, as well as <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html\">Common Errors</a>. </p>\n         </note>\n\n\n\n\n      ",
+        "smithy.api#documentation": "<p> Use this API to retrieve media content from a Kinesis video stream. In the request,\n      you identify the stream name or stream Amazon Resource Name (ARN), and the starting chunk.\n      Kinesis Video Streams then returns a stream of chunks in order by fragment number.</p>\n         <note>\n            <p>You must first call the <code>GetDataEndpoint</code> API to get an endpoint. Then\n        send the <code>GetMedia</code> requests to this endpoint using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/\">--endpoint-url parameter</a>.\n      </p>\n         </note>\n         <p>When you put media data (fragments) on a stream, Kinesis Video Streams stores each\n      incoming fragment and related metadata in what is called a \"chunk.\" For more information, see\n        <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html\">PutMedia</a>. The <code>GetMedia</code> API returns a stream of these chunks starting\n      from the chunk that you specify in the request. </p>\n         <p>The following limits apply when using the <code>GetMedia</code> API:</p>\n         <ul>\n            <li>\n               <p>A client can call <code>GetMedia</code> up to five times per second per stream.\n        </p>\n            </li>\n            <li>\n               <p>Kinesis Video Streams sends media data at a rate of up to 25 megabytes per second\n          (or 200 megabits per second) during a <code>GetMedia</code> session. </p>\n            </li>\n         </ul>\n\n         <note>\n            <p>If an error is thrown after invoking a Kinesis Video Streams media API, in addition to\n        the HTTP status code and the response body, it includes the following pieces of information: </p>\n            <ul>\n               <li>\n                  <p>\n                     <code>x-amz-ErrorType</code> HTTP header – contains a more specific error type in\n            addition to what the HTTP status code provides. </p>\n               </li>\n               <li>\n                  <p>\n                     <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to AWS,\n            the support team can better diagnose the problem if given the Request Id.</p>\n               </li>\n            </ul>\n            <p>Both the HTTP status code and the ErrorType header can be utilized to make programmatic\n        decisions about whether errors are retry-able and under what conditions, as well as provide\n        information on what actions the client programmer might need to take in order to\n        successfully try again.</p>\n            <p>For more information, see the <b>Errors</b> section at the\n        bottom of this topic, as well as <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html\">Common Errors</a>. </p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/getMedia",
@@ -154,20 +159,20 @@
         "StartSelector": {
           "target": "com.amazon.aws.acuity.ats.model#StartSelector",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Identifies the starting chunk to get from the specified stream. </p>\n      ",
+            "smithy.api#documentation": "<p>Identifies the starting chunk to get from the specified stream. </p>",
             "smithy.api#required": true
           }
         },
         "StreamARN": {
           "target": "com.amazon.kinesis.video.v20170930#ResourceARN",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the stream from where you want to get the media content. If you don't\n      specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the stream from where you want to get the media content. If you don't\n      specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>"
           }
         },
         "StreamName": {
           "target": "com.amazon.kinesis.video.v20170930#StreamName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Kinesis video stream name from where you want to get the media content. If you\n      don't specify the <code>streamName</code>, you must specify the\n      <code>streamARN</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The Kinesis video stream name from where you want to get the media content. If you\n      don't specify the <code>streamName</code>, you must specify the\n      <code>streamARN</code>.</p>"
           }
         }
       }
@@ -178,14 +183,14 @@
         "ContentType": {
           "target": "com.amazon.kinesis.video.v20170930#ContentType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The content type of the requested media.</p>\n      ",
+            "smithy.api#documentation": "<p>The content type of the requested media.</p>",
             "smithy.api#httpHeader": "Content-Type"
           }
         },
         "Payload": {
           "target": "com.amazon.kinesis.video.v20170930#Payload",
           "traits": {
-            "smithy.api#documentation": "\n         <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified\n      stream. For information about the chunks, see . The\n      chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the\n      following additional Matroska (MKV) tags: </p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_CONTINUATION_TOKEN (UTF-8 string) - In the event your\n            <code>GetMedia</code> call terminates, you can use this continuation token in your next\n          request to get the next chunk where the last request terminated.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_MILLIS_BEHIND_NOW (UTF-8 string) - Client applications can use\n          this tag value to determine how far behind the chunk returned in the response is from the\n          latest chunk on the stream. </p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_SERVER_TIMESTAMP - Server timestamp of the fragment.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_PRODUCER_TIMESTAMP - Producer timestamp of the fragment.</p>\n            </li>\n         </ul>\n         <p>The following tags will be present if an error occurs:</p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_CODE - String description of an error that caused GetMedia\n          to stop.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_ID: Integer code of the error.</p>\n            </li>\n         </ul>\n         <p>The error codes are as follows:</p>\n         <ul>\n            <li>\n               <p>3002 - Error writing to the stream</p>\n            </li>\n            <li>\n               <p>4000 - Requested fragment is not found</p>\n            </li>\n            <li>\n               <p>4500 - Access denied for the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4501 - Stream's KMS key is disabled</p>\n            </li>\n            <li>\n               <p>4502 - Validation error on the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4503 - KMS key specified in the stream is unavailable</p>\n            </li>\n            <li>\n               <p>4504 - Invalid usage of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4505 - Invalid state of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4506 - Unable to find the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>5000 - Internal error</p>\n            </li>\n         </ul>\n      ",
+            "smithy.api#documentation": "<p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified\n      stream. For information about the chunks, see . The\n      chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the\n      following additional Matroska (MKV) tags: </p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_CONTINUATION_TOKEN (UTF-8 string) - In the event your\n            <code>GetMedia</code> call terminates, you can use this continuation token in your next\n          request to get the next chunk where the last request terminated.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_MILLIS_BEHIND_NOW (UTF-8 string) - Client applications can use\n          this tag value to determine how far behind the chunk returned in the response is from the\n          latest chunk on the stream. </p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_SERVER_TIMESTAMP - Server timestamp of the fragment.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_PRODUCER_TIMESTAMP - Producer timestamp of the fragment.</p>\n            </li>\n         </ul>\n         <p>The following tags will be present if an error occurs:</p>\n         <ul>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_CODE - String description of an error that caused GetMedia\n          to stop.</p>\n            </li>\n            <li>\n               <p>AWS_KINESISVIDEO_ERROR_ID: Integer code of the error.</p>\n            </li>\n         </ul>\n         <p>The error codes are as follows:</p>\n         <ul>\n            <li>\n               <p>3002 - Error writing to the stream</p>\n            </li>\n            <li>\n               <p>4000 - Requested fragment is not found</p>\n            </li>\n            <li>\n               <p>4500 - Access denied for the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4501 - Stream's KMS key is disabled</p>\n            </li>\n            <li>\n               <p>4502 - Validation error on the stream's KMS key</p>\n            </li>\n            <li>\n               <p>4503 - KMS key specified in the stream is unavailable</p>\n            </li>\n            <li>\n               <p>4504 - Invalid usage of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4505 - Invalid state of the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>4506 - Unable to find the KMS key specified in the stream</p>\n            </li>\n            <li>\n               <p>5000 - Internal error</p>\n            </li>\n         </ul>",
             "smithy.api#httpPayload": true,
             "smithy.api#streaming": { }
           }
@@ -200,7 +205,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The value for this input parameter is invalid.</p>\n      ",
+        "smithy.api#documentation": "<p>The value for this input parameter is invalid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -213,7 +218,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving\n      such an exception, the user must call <code>GetDataEndpoint</code> with\n        <code>AccessMode</code> set to \"READ\" and use the endpoint Kinesis Video returns in the next\n        <code>GetMedia</code> call. </p>\n      ",
+        "smithy.api#documentation": "<p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving\n      such an exception, the user must call <code>GetDataEndpoint</code> with\n        <code>AccessMode</code> set to \"READ\" and use the endpoint Kinesis Video returns in the next\n        <code>GetMedia</code> call. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -226,7 +231,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Status Code: 403, The caller is not authorized to perform an operation on the given\n      stream, or the token has expired.</p>\n      ",
+        "smithy.api#documentation": "<p>Status Code: 403, The caller is not authorized to perform an operation on the given\n      stream, or the token has expired.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 401
       }
@@ -252,7 +257,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Status Code: 404, The stream with the given name does not exist.</p>\n      ",
+        "smithy.api#documentation": "<p>Status Code: 404, The stream with the given name does not exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -263,31 +268,31 @@
         "AfterFragmentNumber": {
           "target": "com.amazon.kinesis.video.v20170930#FragmentNumberString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to\n      start returning the fragments. </p>\n      "
+            "smithy.api#documentation": "<p>Specifies the fragment number from where you want the <code>GetMedia</code> API to\n      start returning the fragments. </p>"
           }
         },
         "ContinuationToken": {
           "target": "com.amazon.aws.acuity.ats.model#ContinuationToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Continuation token that Kinesis Video Streams returned in the previous\n        <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk\n      identified by the continuation token.</p>\n      "
+            "smithy.api#documentation": "<p>Continuation token that Kinesis Video Streams returned in the previous\n        <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk\n      identified by the continuation token.</p>"
           }
         },
         "StartSelectorType": {
           "target": "com.amazon.aws.acuity.ats.model#StartSelectorType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Identifies the fragment on the Kinesis video stream where you want to start getting the\n      data from.</p>\n         <ul>\n            <li>\n               <p>NOW - Start with the latest chunk on the stream.</p>\n            </li>\n            <li>\n               <p>EARLIEST - Start with earliest available chunk on the stream.</p>\n            </li>\n            <li>\n               <p>FRAGMENT_NUMBER - Start with the chunk after a specific fragment. You must also\n          specify the <code>AfterFragmentNumber</code> parameter.</p>\n            </li>\n            <li>\n               <p>PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment\n          with the specified producer or server timestamp. You specify the timestamp by adding\n            <code>StartTimestamp</code>.</p>\n            </li>\n            <li>\n               <p> CONTINUATION_TOKEN - Read using the specified continuation token. </p>\n            </li>\n         </ul>\n         <note>\n            <p>If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the\n          <code>startSelectorType</code>, you don't provide any additional information in the\n          <code>startSelector</code>.</p>\n         </note>\n      ",
+            "smithy.api#documentation": "<p>Identifies the fragment on the Kinesis video stream where you want to start getting the\n      data from.</p>\n         <ul>\n            <li>\n               <p>NOW - Start with the latest chunk on the stream.</p>\n            </li>\n            <li>\n               <p>EARLIEST - Start with earliest available chunk on the stream.</p>\n            </li>\n            <li>\n               <p>FRAGMENT_NUMBER - Start with the chunk after a specific fragment. You must also\n          specify the <code>AfterFragmentNumber</code> parameter.</p>\n            </li>\n            <li>\n               <p>PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment\n          with the specified producer or server timestamp. You specify the timestamp by adding\n            <code>StartTimestamp</code>.</p>\n            </li>\n            <li>\n               <p> CONTINUATION_TOKEN - Read using the specified continuation token. </p>\n            </li>\n         </ul>\n         <note>\n            <p>If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the\n          <code>startSelectorType</code>, you don't provide any additional information in the\n          <code>startSelector</code>.</p>\n         </note>",
             "smithy.api#required": true
           }
         },
         "StartTimestamp": {
           "target": "com.amazon.kinesis.video.v20170930#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the\n      SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then\n      starts with the chunk containing the fragment that has the specified timestamp.</p>\n      "
+            "smithy.api#documentation": "<p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the\n      SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then\n      starts with the chunk containing the fragment that has the specified timestamp.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Identifies the chunk on the Kinesis video stream where you want the\n        <code>GetMedia</code> API to start returning media data. You have the following options to\n      identify the starting chunk: </p>\n         <ul>\n            <li>\n               <p>Choose the latest (or oldest) chunk.</p>\n            </li>\n            <li>\n               <p>Identify a specific chunk. You can identify a specific chunk either by providing a\n          fragment number or timestamp (server or producer). </p>\n            </li>\n            <li>\n               <p>Each chunk's metadata includes a continuation token as a Matroska (MKV) tag\n            (<code>AWS_KINESISVIDEO_CONTINUATION_TOKEN</code>). If your previous\n            <code>GetMedia</code> request terminated, you can use this tag value in your next\n            <code>GetMedia</code> request. The API then starts returning chunks starting where the\n          last API ended.</p>\n            </li>\n         </ul>\n\n\n      "
+        "smithy.api#documentation": "<p>Identifies the chunk on the Kinesis video stream where you want the\n        <code>GetMedia</code> API to start returning media data. You have the following options to\n      identify the starting chunk: </p>\n         <ul>\n            <li>\n               <p>Choose the latest (or oldest) chunk.</p>\n            </li>\n            <li>\n               <p>Identify a specific chunk. You can identify a specific chunk either by providing a\n          fragment number or timestamp (server or producer). </p>\n            </li>\n            <li>\n               <p>Each chunk's metadata includes a continuation token as a Matroska (MKV) tag\n            (<code>AWS_KINESISVIDEO_CONTINUATION_TOKEN</code>). If your previous\n            <code>GetMedia</code> request terminated, you can use this tag value in your next\n            <code>GetMedia</code> request. The API then starts returning chunks starting where the\n          last API ended.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazon.aws.acuity.ats.model#StartSelectorType": {

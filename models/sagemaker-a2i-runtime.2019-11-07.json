@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -52,7 +57,7 @@
           "cloudFormationName": "SageMakerA2IRuntime",
           "cloudTrailEventSource": "runtime.a2i.sagemaker.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <p>Amazon Augmented AI (Augmented AI) (Preview) is a service that adds human judgment to any machine learning application. Human reviewers can take over when an AI application can't evaluate data with a high degree of confidence.</p>\n         <p>From fraudulent bank transaction identification to document processing to image analysis, machine learning models can be trained to make decisions as well as or better than a human. Nevertheless, some decisions require contextual \n      interpretation, such as when you need to decide whether an image is appropriate for a given audience. Content moderation guidelines are nuanced and highly dependent on context, and they vary between countries.  \n      When trying to apply AI in these situations, you can be forced to choose between \"ML only\" systems with unacceptably high error rates or \"human only\" systems that are expensive and difficult to scale, and that slow down decision making.</p>\n         <p>This API reference includes information about API actions and data types you can use to interact with Augmented AI programmatically. </p>\n         <p>You can create a flow definition against the Augmented AI API. Provide the Amazon Resource Name (ARN) of a flow definition to integrate AI service APIs, such as <code>Textract.AnalyzeDocument</code> and <code>Rekognition.DetectModerationLabels</code>. \n      These AI services, in turn, invoke the <a>StartHumanLoop</a> API, which evaluates conditions under which humans will be invoked. If humans are required, Augmented AI creates a human loop. \n      Results of human work are available asynchronously in Amazon Simple Storage Service (Amazon S3). You can use Amazon CloudWatch Events to detect human work results.</p>\n         <p>You can find additional Augmented AI API documentation in the following reference guides: <a href=\"https://aws.amazon.com/rekognition/latest/dg/API_Reference.html\">Amazon Rekognition</a>, <a href=\"https://aws.amazon.com/sagemaker/latest/dg/API_Reference.html\">Amazon SageMaker</a>, and <a href=\"https://aws.amazon.com/textract/latest/dg/API_Reference.html\">Amazon Textract</a>.</p>\n      ",
+        "smithy.api#documentation": "<p>Amazon Augmented AI (Augmented AI) (Preview) is a service that adds human judgment to any machine learning application. Human reviewers can take over when an AI application can't evaluate data with a high degree of confidence.</p>\n         <p>From fraudulent bank transaction identification to document processing to image analysis, machine learning models can be trained to make decisions as well as or better than a human. Nevertheless, some decisions require contextual \n      interpretation, such as when you need to decide whether an image is appropriate for a given audience. Content moderation guidelines are nuanced and highly dependent on context, and they vary between countries.  \n      When trying to apply AI in these situations, you can be forced to choose between \"ML only\" systems with unacceptably high error rates or \"human only\" systems that are expensive and difficult to scale, and that slow down decision making.</p>\n         <p>This API reference includes information about API actions and data types you can use to interact with Augmented AI programmatically. </p>\n         <p>You can create a flow definition against the Augmented AI API. Provide the Amazon Resource Name (ARN) of a flow definition to integrate AI service APIs, such as <code>Textract.AnalyzeDocument</code> and <code>Rekognition.DetectModerationLabels</code>. \n      These AI services, in turn, invoke the <a>StartHumanLoop</a> API, which evaluates conditions under which humans will be invoked. If humans are required, Augmented AI creates a human loop. \n      Results of human work are available asynchronously in Amazon Simple Storage Service (Amazon S3). You can use Amazon CloudWatch Events to detect human work results.</p>\n         <p>You can find additional Augmented AI API documentation in the following reference guides: <a href=\"https://aws.amazon.com/rekognition/latest/dg/API_Reference.html\">Amazon Rekognition</a>, <a href=\"https://aws.amazon.com/sagemaker/latest/dg/API_Reference.html\">Amazon SageMaker</a>, and <a href=\"https://aws.amazon.com/textract/latest/dg/API_Reference.html\">Amazon Textract</a>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -115,7 +120,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified human loop for a flow definition.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes the specified human loop for a flow definition.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/human-loops/{HumanLoopName}",
@@ -129,7 +134,7 @@
         "HumanLoopName": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the human loop you want to delete.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the human loop you want to delete.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -163,7 +168,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about the specified human loop.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns information about the specified human loop.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/human-loops/{HumanLoopName}",
@@ -177,7 +182,7 @@
         "HumanLoopName": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the human loop.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the human loop.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -190,60 +195,60 @@
         "CreationTimestamp": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The timestamp when Amazon Augmented AI created the human loop.</p>\n      ",
+            "smithy.api#documentation": "<p>The timestamp when Amazon Augmented AI created the human loop.</p>",
             "smithy.api#required": true
           }
         },
         "FailureCode": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A failure code denoting a specific type of failure.</p>\n      "
+            "smithy.api#documentation": "<p>A failure code denoting a specific type of failure.</p>"
           }
         },
         "FailureReason": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The reason why a human loop has failed. The failure reason is returned when the human loop status is <code>Failed</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The reason why a human loop has failed. The failure reason is returned when the human loop status is <code>Failed</code>.</p>"
           }
         },
         "FlowDefinitionArn": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#FlowDefinitionArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the flow definition.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>",
             "smithy.api#required": true
           }
         },
         "HumanLoopArn": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the human loop.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the human loop.</p>",
             "smithy.api#required": true
           }
         },
         "HumanLoopInput": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopInputContent",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object containing information about the human loop input.</p>\n      ",
+            "smithy.api#documentation": "<p>An object containing information about the human loop input.</p>",
             "smithy.api#required": true
           }
         },
         "HumanLoopName": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the human loop.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the human loop.</p>",
             "smithy.api#required": true
           }
         },
         "HumanLoopOutput": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopOutputContent",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object containing information about the output of the human loop.</p>\n      "
+            "smithy.api#documentation": "<p>An object containing information about the output of the human loop.</p>"
           }
         },
         "HumanLoopStatus": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the human loop. Valid values:</p>\n      ",
+            "smithy.api#documentation": "<p>The status of the human loop. Valid values:</p>",
             "smithy.api#required": true
           }
         }
@@ -274,12 +279,12 @@
         "ConditionsMatched": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n         <p>True if the specified conditions were matched to trigger the human loop.</p>\n      "
+            "smithy.api#documentation": "<p>True if the specified conditions were matched to trigger the human loop.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Contains information about why a human loop was triggered. If at least one activation reason is evaluated to be true, the human loop is activated.</p>\n      "
+        "smithy.api#documentation": "<p>Contains information about why a human loop was triggered. If at least one activation reason is evaluated to be true, the human loop is activated.</p>"
       }
     },
     "com.amazonaws.sagemaker.a2i.runtime#HumanLoopActivationResults": {
@@ -288,18 +293,18 @@
         "HumanLoopActivationConditionsEvaluationResults": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A copy of the human loop activation conditions of the flow definition, augmented with the results of evaluating those conditions on the input provided to the <code>StartHumanLoop</code> operation.</p>\n      "
+            "smithy.api#documentation": "<p>A copy of the human loop activation conditions of the flow definition, augmented with the results of evaluating those conditions on the input provided to the <code>StartHumanLoop</code> operation.</p>"
           }
         },
         "HumanLoopActivationReason": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopActivationReason",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object containing information about why a human loop was triggered.</p>\n      "
+            "smithy.api#documentation": "<p>An object containing information about why a human loop was triggered.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about the corresponding flow definition's human loop activation condition evaluation. Null if <code>StartHumanLoop</code> was invoked directly.</p>\n      "
+        "smithy.api#documentation": "<p>Information about the corresponding flow definition's human loop activation condition evaluation. Null if <code>StartHumanLoop</code> was invoked directly.</p>"
       }
     },
     "com.amazonaws.sagemaker.a2i.runtime#HumanLoopArn": {
@@ -318,13 +323,13 @@
         "InputContent": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#InputContent",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Serialized input from the human loop.</p>\n      ",
+            "smithy.api#documentation": "<p>Serialized input from the human loop.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An object containing the input.</p>\n      "
+        "smithy.api#documentation": "<p>An object containing the input.</p>"
       }
     },
     "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName": {
@@ -343,13 +348,13 @@
         "OutputS3Uri": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output. The output is stored at the following location: \n      <code>s3://S3OutputPath/HumanLoopName/CreationTime/output.json</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output. The output is stored at the following location: \n      <code>s3://S3OutputPath/HumanLoopName/CreationTime/output.json</code>.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Information about where the human output will be stored.</p>\n      "
+        "smithy.api#documentation": "<p>Information about where the human output will be stored.</p>"
       }
     },
     "com.amazonaws.sagemaker.a2i.runtime#HumanLoopStatus": {
@@ -386,36 +391,36 @@
         "CreationTime": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>When Amazon Augmented AI created the human loop.</p>\n      "
+            "smithy.api#documentation": "<p>When Amazon Augmented AI created the human loop.</p>"
           }
         },
         "FailureReason": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#FailureReason",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The reason why the human loop failed. A failure reason is returned only when the status of the human loop is <code>Failed</code>.</p>\n      "
+            "smithy.api#documentation": "<p>The reason why the human loop failed. A failure reason is returned only when the status of the human loop is <code>Failed</code>.</p>"
           }
         },
         "FlowDefinitionArn": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#FlowDefinitionArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the flow definition.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>"
           }
         },
         "HumanLoopName": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the human loop.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the human loop.</p>"
           }
         },
         "HumanLoopStatus": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The status of the human loop. Valid values:</p>\n      "
+            "smithy.api#documentation": "<p>The status of the human loop. Valid values:</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Summary information about the human loop.</p>\n      "
+        "smithy.api#documentation": "<p>Summary information about the human loop.</p>"
       }
     },
     "com.amazonaws.sagemaker.a2i.runtime#HumanReviewDataAttributes": {
@@ -424,13 +429,13 @@
         "ContentClassifiers": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#ContentClassifiers",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Declares that your content is free of personally identifiable information or adult content.\n      Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task based on this information.</p>\n      ",
+            "smithy.api#documentation": "<p>Declares that your content is free of personally identifiable information or adult content.\n      Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task based on this information.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Attributes of the data specified by the customer. Use these to describe the data to be labeled.</p>\n      "
+        "smithy.api#documentation": "<p>Attributes of the data specified by the customer. Use these to describe the data to be labeled.</p>"
       }
     },
     "com.amazonaws.sagemaker.a2i.runtime#InputContent": {
@@ -450,7 +455,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Your request could not be processed.</p>\n      ",
+        "smithy.api#documentation": "<p>Your request could not be processed.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -475,7 +480,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about human loops, given the specified parameters.</p>\n      ",
+        "smithy.api#documentation": "<p>Returns information about human loops, given the specified parameters.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/human-loops",
@@ -494,14 +499,14 @@
         "CreationTimeAfter": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>(Optional) The timestamp of the date when you want the human loops to begin. For example, <code>1551000000</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>(Optional) The timestamp of the date when you want the human loops to begin. For example, <code>1551000000</code>.</p>",
             "smithy.api#httpQuery": "CreationTimeAfter"
           }
         },
         "CreationTimeBefore": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#Timestamp",
           "traits": {
-            "smithy.api#documentation": "\n         <p>(Optional) The timestamp of the date before which you want the human loops to begin. For example, <code>1550000000</code>.</p>\n      ",
+            "smithy.api#documentation": "<p>(Optional) The timestamp of the date before which you want the human loops to begin. For example, <code>1550000000</code>.</p>",
             "smithy.api#httpQuery": "CreationTimeBefore"
           }
         },
@@ -509,21 +514,21 @@
           "target": "com.amazonaws.sagemaker.a2i.runtime#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n         <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>\n      ",
+            "smithy.api#documentation": "<p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>",
             "smithy.api#httpQuery": "MaxResults"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token to resume pagination.</p>\n      ",
+            "smithy.api#documentation": "<p>A token to resume pagination.</p>",
             "smithy.api#httpQuery": "NextToken"
           }
         },
         "SortOrder": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#SortOrder",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>\n      ",
+            "smithy.api#documentation": "<p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>",
             "smithy.api#httpQuery": "SortOrder"
           }
         }
@@ -535,14 +540,14 @@
         "HumanLoopSummaries": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopSummaries",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An array of objects containing information about the human loops.</p>\n      ",
+            "smithy.api#documentation": "<p>An array of objects containing information about the human loops.</p>",
             "smithy.api#required": true
           }
         },
         "NextToken": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token to resume pagination.</p>\n      "
+            "smithy.api#documentation": "<p>A token to resume pagination.</p>"
           }
         }
       }
@@ -574,7 +579,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>We were unable to find the requested resource.</p>\n      ",
+        "smithy.api#documentation": "<p>We were unable to find the requested resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -587,7 +592,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or request a service quota increase.</p>\n      ",
+        "smithy.api#documentation": "<p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or request a service quota increase.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 402
       }
@@ -628,7 +633,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Starts a human loop, provided that at least one activation condition is met.</p>\n      ",
+        "smithy.api#documentation": "<p>Starts a human loop, provided that at least one activation condition is met.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/human-loops",
@@ -642,27 +647,27 @@
         "DataAttributes": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanReviewDataAttributes",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Attributes of the data specified by the customer.</p>\n      "
+            "smithy.api#documentation": "<p>Attributes of the data specified by the customer.</p>"
           }
         },
         "FlowDefinitionArn": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#FlowDefinitionArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the flow definition.</p>\n      ",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>",
             "smithy.api#required": true
           }
         },
         "HumanLoopInput": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopInputContent",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object containing information about the human loop.</p>\n      ",
+            "smithy.api#documentation": "<p>An object containing information about the human loop.</p>",
             "smithy.api#required": true
           }
         },
         "HumanLoopName": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the human loop.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the human loop.</p>",
             "smithy.api#required": true
           }
         }
@@ -674,13 +679,13 @@
         "HumanLoopActivationResults": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopActivationResults",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An object containing information about the human loop activation.</p>\n      "
+            "smithy.api#documentation": "<p>An object containing information about the human loop activation.</p>"
           }
         },
         "HumanLoopArn": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the human loop.</p>\n      "
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the human loop.</p>"
           }
         }
       }
@@ -708,7 +713,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Stops the specified human loop.</p>\n      ",
+        "smithy.api#documentation": "<p>Stops the specified human loop.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/human-loops/stop",
@@ -722,7 +727,7 @@
         "HumanLoopName": {
           "target": "com.amazonaws.sagemaker.a2i.runtime#HumanLoopName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the human loop you want to stop.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the human loop you want to stop.</p>",
             "smithy.api#required": true
           }
         }
@@ -743,7 +748,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Your request has exceeded the allowed amount of requests.</p>\n      ",
+        "smithy.api#documentation": "<p>Your request has exceeded the allowed amount of requests.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -759,7 +764,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Your request was not valid. Check the syntax and try again.</p>\n      ",
+        "smithy.api#documentation": "<p>Your request was not valid. Check the syntax and try again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
