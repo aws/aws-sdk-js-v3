@@ -1,14 +1,14 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { toHex } from "@aws-sdk/util-hex-encoding";
-import { calculateSha256 } from "./index";
+import { blobHasher } from "./index";
 
-describe("calculateSha256", () => {
+describe("blobHasher", () => {
   const blob = new Blob([
     "Shot through the bar, but you're too late bizzbuzz you give foo, a bad name."
   ]);
 
   it("calculates the SHA256 hash of a blob", async () => {
-    const result = await calculateSha256(Sha256, blob);
+    const result = await blobHasher(Sha256, blob);
 
     expect(result instanceof Uint8Array).toBe(true);
     expect(toHex(result)).toBe(

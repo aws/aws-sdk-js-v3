@@ -62,12 +62,12 @@ public class AddStreamHasherDependency implements TypeScriptIntegration {
         switch (target) {
             case NODE:
                 writer.addDependency(AwsDependency.STREAM_HASHER_NODE);
-                writer.addImport("calculateSha256", "streamHasher", AwsDependency.STREAM_HASHER_NODE.packageName);
+                writer.addImport("fileStreamHasher", "streamHasher", AwsDependency.STREAM_HASHER_NODE.packageName);
                 writer.write("streamHasher,");
                 break;
             case BROWSER:
                 writer.addDependency(AwsDependency.STREAM_HASHER_BROWSER);
-                writer.addImport("calculateSha256", "streamHasher", AwsDependency.STREAM_HASHER_BROWSER.packageName);
+                writer.addImport("blobHasher", "streamHasher", AwsDependency.STREAM_HASHER_BROWSER.packageName);
                 writer.write("streamHasher,");
                 break;
             default:
