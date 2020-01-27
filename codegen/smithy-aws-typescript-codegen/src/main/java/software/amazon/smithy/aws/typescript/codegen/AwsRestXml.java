@@ -116,8 +116,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             // Default a 404 status code to the NotFound code.
             writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
 
-            // Default to an UnknownError code.
-            writer.write("return 'UnknownError';");
+            // Default to an empty error code so an unmodeled exception is built.
+            writer.write("return '';");
         });
         writer.write("");
     }

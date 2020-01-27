@@ -25,24 +25,24 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
 
 /**
- * Handles generating the aws.query protocol for services. It handles reading and
+ * Handles generating the aws.ec2 protocol for services. It handles reading and
  * writing from document bodies, including generating any functions needed for
  * performing serde.
  *
  * This builds on the foundations of the {@link HttpRpcProtocolGenerator} to handle
  * standard components of the HTTP requests and responses.
  *
- * @see QueryShapeSerVisitor
+ * @see Ec2ShapeSerVisitor
  * @see XmlShapeDeserVisitor
  * @see QueryMemberSerVisitor
  * @see XmlMemberDeserVisitor
  * @see AwsProtocolUtils
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait">Smithy EC2 Query Name trait.</a>
  */
-final class AwsQuery extends HttpRpcProtocolGenerator {
+final class AwsEc2 extends HttpRpcProtocolGenerator {
 
-    AwsQuery() {
-        // AWS Query protocols will attempt to parse error codes from response bodies.
+    AwsEc2() {
         super(true);
     }
 
@@ -53,7 +53,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
 
     @Override
     public String getName() {
-        return "aws.query";
+        return "aws.ec2";
     }
 
     @Override
@@ -63,7 +63,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
 
     @Override
     protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new QueryShapeSerVisitor(context));
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new Ec2ShapeSerVisitor(context));
     }
 
     @Override
@@ -82,14 +82,14 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
         // Generate a function that handles the complex rules around deserializing
         // an error code from an xml error body.
         SymbolReference responseType = getApplicationProtocol().getResponseType();
-        writer.openBlock("const loadQueryErrorCode = (\n"
+        writer.openBlock("const loadEc2ErrorCode = (\n"
                        + "  output: $T,\n"
                        + "  data: any\n"
                        + "): string => {", "};", responseType, () -> {
 
-            // Attempt to fetch the error code from the specific location.
-            writer.openBlock("if (data.Error.Code !== undefined) {", "}", () -> {
-                writer.write("return data.Error.Code;");
+            // Attempt to fetch the error code from the specific location, including the wrapper.
+            writer.openBlock("if (data.Errors.Error.Code !== undefined) {", "}", () -> {
+                writer.write("return data.Errors.Error.Code;");
             });
 
             // Default a 404 status code to the NotFound code.
@@ -133,7 +133,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadQueryErrorCode(output, parsedOutput.body);");
+        writer.write("errorCode = loadEc2ErrorCode(output, parsedOutput.body);");
     }
 
     @Override
@@ -144,8 +144,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
 
-        String dataSource = "data." + operation.getId().getName() + "Result";
         writer.write("contents = $L;",
-                outputStructure.accept(new XmlMemberDeserVisitor(context, dataSource, Format.DATE_TIME)));
+                outputStructure.accept(new XmlMemberDeserVisitor(context, "data", Format.DATE_TIME)));
     }
 }

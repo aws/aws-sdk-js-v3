@@ -121,6 +121,23 @@ final class AwsProtocolUtils {
     }
 
     /**
+     * Writes a form urlencoded string builder function for query based protocols.
+     * This will escape the keys and values, combine those with an '=', and combine
+     * those strings with an '&'.
+     *
+     * @param context The generation context.
+     */
+    static void generateBuildFormUrlencodedString(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Write a single function to handle combining a map in to a valid query string.
+        writer.openBlock("const buildFormUrlencodedString = (entries: any): string => {", "}", () -> {
+            writer.openBlock("return Object.keys(entries).map(", ").join(\"&\");", () ->
+                    writer.write("key => encodeURIComponent(key) + '=' + encodeURIComponent(entries[key])"));
+        });
+    }
+
+    /**
      * Writes an attribute containing information about a Shape's optionally specified
      * XML namespace configuration to an attribute of the passed node name.
      *
