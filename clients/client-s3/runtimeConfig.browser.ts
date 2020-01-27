@@ -1,4 +1,4 @@
-import { calculateSha256 as streamHasher } from "@aws-sdk/hash-blob-browser";
+import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
 import { Sha256 } from "@aws-crypto/sha256-browser";
