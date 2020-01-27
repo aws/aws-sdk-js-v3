@@ -109,6 +109,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
                         .build(),
                 RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency,
+                                         "CopySnapshotPresignedUrl", HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CopySnapshot")
+                                            && testServiceId(s, "EC2"))
+                        .build(),
+                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS)
                                             && testServiceId(s, "S3"))
