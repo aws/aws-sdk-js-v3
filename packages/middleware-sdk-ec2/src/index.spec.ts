@@ -30,20 +30,20 @@ describe("middleware-sdk-ec2", () => {
     expect(middlewareOutput.input.DestinationRegion).toEqual(await region());
     const presignedUrl = middlewareOutput.input.PresignedUrl;
     expect(presignedUrl).toMatch(
-      /https\:\/\/ec2\.src\-region\.amazonaws\.com\/\?/
+      /https%3A%2F%2Fec2.src-region.amazonaws.com%2F%3F/
     );
-    expect(presignedUrl).toMatch(/Action\=CopySnapshot/);
-    expect(presignedUrl).toMatch(/Version\=2016\-11\-15/);
+    expect(presignedUrl).toMatch(/Action%3DCopySnapshot/);
+    expect(presignedUrl).toMatch(/Version%3D2016\-11\-15/);
     expect(presignedUrl).toMatch(
-      /DestinationRegion\=mock\-region\&SourceRegion\=src\-region\&SourceSnapshotId\=snap\-123456789/
+      /DestinationRegion%3Dmock\-region%26SourceRegion%3Dsrc\-region%26SourceSnapshotId%3Dsnap\-123456789/
     );
-    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token\=session/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm\=AWS4\-HMAC\-SHA256/);
-    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders\=host/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Credential\=/);
-    expect(presignedUrl).toMatch(/X\-Amz\-Date\=/);
-    expect(presignedUrl).toMatch(/X-Amz-Expires=([\d]+)/);
-    expect(presignedUrl).toMatch(/X-Amz-Signature=000000/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Algorithm%3DAWS4\-HMAC\-SHA256/);
+    expect(presignedUrl).toMatch(/X\-Amz\-SignedHeaders%3Dhost/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Credential%3D/);
+    expect(presignedUrl).toMatch(/X\-Amz\-Date%3D/);
+    expect(presignedUrl).toMatch(/X-Amz-Expires%3D([\d]+)/);
+    expect(presignedUrl).toMatch(/X-Amz-Signature%3D000000/);
   });
 
   it("does not modify input if PresignedUrl has already  been set", async () => {

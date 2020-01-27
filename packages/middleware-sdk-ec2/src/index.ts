@@ -15,6 +15,7 @@ import {
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { escapeUri } from "@aws-sdk/util-uri-escape";
 
 interface PreviouslyResolved {
   credentials: Provider<Credentials>;
@@ -71,7 +72,7 @@ export function copySnapshotPresignedUrlMiddleware(
         input: {
           ...args.input,
           DestinationRegion: region,
-          PresignedUrl: formatUrl(presignedRequest)
+          PresignedUrl: escapeUri(formatUrl(presignedRequest))
         }
       };
     }
@@ -90,7 +91,7 @@ export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions
   name: "crossRegionPresignedUrlMiddleware"
 };
 
-export const getCopySnapshotPresignedUrlMiddlewareOptionsPlugin = (
+export const getCopySnapshotPresignedUrlPlugin = (
   config: PreviouslyResolved
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
