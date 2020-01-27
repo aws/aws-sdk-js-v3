@@ -3,7 +3,7 @@ import { HashCalculator } from "./hash-calculator";
 import { createReadStream, ReadStream } from "fs";
 import { Readable } from "stream";
 
-export const calculateSha256: StreamHasher<Readable> = function calculateSha256(
+export const fileStreamHasher: StreamHasher<Readable> = function fileStreamHasher(
   hashCtor: HashConstructor,
   fileStream: Readable
 ): Promise<Uint8Array> {

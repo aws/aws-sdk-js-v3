@@ -4,7 +4,7 @@ import { tmpdir } from "os";
 import { Readable } from "stream";
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { toHex } from "@aws-sdk/util-hex-encoding";
-import { calculateSha256 } from "./index";
+import { fileStreamHasher } from "./index";
 
 function createTemporaryFile(contents: string): string {
   const folder = mkdtempSync(join(tmpdir(), "sha256-stream-node-"));
@@ -14,13 +14,13 @@ function createTemporaryFile(contents: string): string {
   return fileLoc;
 }
 
-describe("calculateSha256", () => {
+describe("fileStreamHasher", () => {
   const temporaryFile = createTemporaryFile(
     "Shot through the bar, but you're too late bizzbuzz you give foo, a bad name."
   );
 
   it("calculates the SHA256 hash of a stream", async () => {
-    const result = await calculateSha256(
+    const result = await fileStreamHasher(
       Sha256,
       createReadStream(temporaryFile)
     );
@@ -37,7 +37,7 @@ describe("calculateSha256", () => {
     const onSpy = jest.spyOn(inputStream, "on");
     const pipeSpy = jest.spyOn(inputStream, "pipe");
 
-    const result = await calculateSha256(Sha256, inputStream);
+    const result = await fileStreamHasher(Sha256, inputStream);
 
     expect(result instanceof Uint8Array).toBe(true);
     expect(toHex(result)).toBe(
@@ -51,7 +51,7 @@ describe("calculateSha256", () => {
     const inputStream = new Readable();
 
     await expect(
-      calculateSha256(Sha256, inputStream as any)
+      fileStreamHasher(Sha256, inputStream as any)
     ).rejects.toHaveProperty("message");
   });
 });

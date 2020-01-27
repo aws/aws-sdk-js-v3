@@ -1,5 +1,5 @@
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { calculateSha256 as streamHasher } from "@aws-sdk/hash-stream-node";
+import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { Hash } from "@aws-sdk/hash-node";
