@@ -178,6 +178,7 @@ describe("NodeHttp2Handler", () => {
       expect(requestSpy.mock.calls.length).toBe(0);
     });
 
+    /* Commenting out as the test is flaky https://github.com/aws/aws-sdk-js-v3/issues/487
     it("will close request on session when aborted", async () => {
       await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
@@ -209,5 +210,6 @@ describe("NodeHttp2Handler", () => {
       ).rejects.toHaveProperty("name", "AbortError");
       expect(requestSpy.mock.calls.length).toBe(1);
     });
+    */
   });
 });
