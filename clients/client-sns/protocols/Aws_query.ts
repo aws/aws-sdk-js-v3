@@ -4126,8 +4126,7 @@ const serializeAws_queryActionsList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -4144,7 +4143,7 @@ const serializeAws_queryAddPermissionInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AWSAccountId." + key;
+      const loc = `AWSAccountId.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4154,7 +4153,7 @@ const serializeAws_queryAddPermissionInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ActionName." + key;
+      const loc = `ActionName.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4206,7 +4205,7 @@ const serializeAws_queryCreatePlatformApplicationInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Attributes." + key;
+      const loc = `Attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4230,7 +4229,7 @@ const serializeAws_queryCreatePlatformEndpointInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Attributes." + key;
+      const loc = `Attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4257,7 +4256,7 @@ const serializeAws_queryCreateTopicInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Attributes." + key;
+      const loc = `Attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4267,7 +4266,7 @@ const serializeAws_queryCreateTopicInput = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4281,8 +4280,7 @@ const serializeAws_queryDelegatesList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -4354,7 +4352,7 @@ const serializeAws_queryGetSMSAttributesInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "attributes." + key;
+      const loc = `attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4426,8 +4424,7 @@ const serializeAws_queryListString = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -4487,10 +4484,8 @@ const serializeAws_queryMapStringToString = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    const keyLoc: string = "entry.key." + counter;
-    entries[keyLoc] = key;
-    const valueLoc: string = "entry.value." + counter;
-    entries[valueLoc] = input[key];
+    entries[`entry.key.${counter}`] = key;
+    entries[`entry.value.${counter}`] = input[key];
     counter++;
   });
   return entries;
@@ -4503,13 +4498,14 @@ const serializeAws_queryMessageAttributeMap = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    const keyLoc: string = "entry.Name." + counter;
-    entries[keyLoc] = key;
-    const valueLoc: string = "entry.Value." + counter;
-    entries[valueLoc] = serializeAws_queryMessageAttributeValue(
+    entries[`entry.Name.${counter}`] = key;
+    const memberEntries = serializeAws_queryMessageAttributeValue(
       input[key],
       context
     );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`entry.Value.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -4557,7 +4553,7 @@ const serializeAws_queryPublishInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "MessageAttributes." + key;
+      const loc = `MessageAttributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4604,7 +4600,7 @@ const serializeAws_querySetEndpointAttributesInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Attributes." + key;
+      const loc = `Attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4625,7 +4621,7 @@ const serializeAws_querySetPlatformApplicationAttributesInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Attributes." + key;
+      const loc = `Attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4646,7 +4642,7 @@ const serializeAws_querySetSMSAttributesInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "attributes." + key;
+      const loc = `attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4698,7 +4694,7 @@ const serializeAws_querySubscribeInput = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Attributes." + key;
+      const loc = `Attributes.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4724,10 +4720,8 @@ const serializeAws_querySubscriptionAttributesMap = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    const keyLoc: string = "entry.key." + counter;
-    entries[keyLoc] = key;
-    const valueLoc: string = "entry.value." + counter;
-    entries[valueLoc] = input[key];
+    entries[`entry.key.${counter}`] = key;
+    entries[`entry.value.${counter}`] = input[key];
     counter++;
   });
   return entries;
@@ -4751,8 +4745,7 @@ const serializeAws_queryTagKeyList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -4765,8 +4758,10 @@ const serializeAws_queryTagList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = serializeAws_queryTag(entry, context);
+    const memberEntries = serializeAws_queryTag(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`member.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -4783,7 +4778,7 @@ const serializeAws_queryTagResourceRequest = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -4797,10 +4792,8 @@ const serializeAws_queryTopicAttributesMap = (
   const entries: any = {};
   let counter = 1;
   Object.keys(input).forEach(key => {
-    const keyLoc: string = "entry.key." + counter;
-    entries[keyLoc] = key;
-    const valueLoc: string = "entry.value." + counter;
-    entries[valueLoc] = input[key];
+    entries[`entry.key.${counter}`] = key;
+    entries[`entry.value.${counter}`] = input[key];
     counter++;
   });
   return entries;
@@ -4828,7 +4821,7 @@ const serializeAws_queryUntagResourceRequest = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -5833,6 +5826,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
   });
 };
 
+const buildFormUrlencodedString = (entries: any): string => {
+  return Object.keys(entries)
+    .map(
+      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+    )
+    .join("&");
+};
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
@@ -5840,11 +5840,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "UnknownError";
-};
-
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
-    .map(key => key + "=" + entries[key])
-    .join("&");
+  return "";
 };
