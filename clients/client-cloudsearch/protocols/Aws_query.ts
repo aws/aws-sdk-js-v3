@@ -2990,7 +2990,7 @@ const serializeAws_queryAnalysisScheme = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AnalysisOptions." + key;
+      const loc = `AnalysisOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3085,7 +3085,7 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AnalysisScheme." + key;
+      const loc = `AnalysisScheme.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3109,7 +3109,7 @@ const serializeAws_queryDefineExpressionRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Expression." + key;
+      const loc = `Expression.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3130,7 +3130,7 @@ const serializeAws_queryDefineIndexFieldRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "IndexField." + key;
+      const loc = `IndexField.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3148,7 +3148,7 @@ const serializeAws_queryDefineSuggesterRequest = (
   if (input.Suggester !== undefined) {
     const memberEntries = serializeAws_querySuggester(input.Suggester, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Suggester." + key;
+      const loc = `Suggester.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3233,7 +3233,7 @@ const serializeAws_queryDescribeAnalysisSchemesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AnalysisSchemeNames." + key;
+      const loc = `AnalysisSchemeNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3285,7 +3285,7 @@ const serializeAws_queryDescribeDomainsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DomainNames." + key;
+      const loc = `DomainNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3309,7 +3309,7 @@ const serializeAws_queryDescribeExpressionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ExpressionNames." + key;
+      const loc = `ExpressionNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3333,7 +3333,7 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "FieldNames." + key;
+      const loc = `FieldNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3382,7 +3382,7 @@ const serializeAws_queryDescribeSuggestersRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SuggesterNames." + key;
+      const loc = `SuggesterNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3427,8 +3427,7 @@ const serializeAws_queryDomainNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -3490,8 +3489,7 @@ const serializeAws_queryDynamicFieldNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -3533,7 +3531,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DateArrayOptions." + key;
+      const loc = `DateArrayOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3543,7 +3541,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DateOptions." + key;
+      const loc = `DateOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3553,7 +3551,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DoubleArrayOptions." + key;
+      const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3563,7 +3561,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DoubleOptions." + key;
+      const loc = `DoubleOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3579,7 +3577,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "IntArrayOptions." + key;
+      const loc = `IntArrayOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3589,7 +3587,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "IntOptions." + key;
+      const loc = `IntOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3599,7 +3597,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "LatLonOptions." + key;
+      const loc = `LatLonOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3609,7 +3607,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "LiteralArrayOptions." + key;
+      const loc = `LiteralArrayOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3619,7 +3617,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "LiteralOptions." + key;
+      const loc = `LiteralOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3629,7 +3627,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TextArrayOptions." + key;
+      const loc = `TextArrayOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3639,7 +3637,7 @@ const serializeAws_queryIndexField = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TextOptions." + key;
+      const loc = `TextOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3794,8 +3792,7 @@ const serializeAws_queryStandardNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -3812,7 +3809,7 @@ const serializeAws_querySuggester = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DocumentSuggesterOptions." + key;
+      const loc = `DocumentSuggesterOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3896,7 +3893,7 @@ const serializeAws_queryUpdateDomainEndpointOptionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DomainEndpointOptions." + key;
+      const loc = `DomainEndpointOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -3920,7 +3917,7 @@ const serializeAws_queryUpdateScalingParametersRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ScalingParameters." + key;
+      const loc = `ScalingParameters.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -5590,6 +5587,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
   });
 };
 
+const buildFormUrlencodedString = (entries: any): string => {
+  return Object.keys(entries)
+    .map(
+      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+    )
+    .join("&");
+};
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
@@ -5597,11 +5601,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "UnknownError";
-};
-
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
-    .map(key => key + "=" + entries[key])
-    .join("&");
+  return "";
 };
