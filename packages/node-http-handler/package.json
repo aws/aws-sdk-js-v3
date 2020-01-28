@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-http-handler",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "Provides a way to make requests",
   "scripts": {
     "prepublishOnly": "tsc",

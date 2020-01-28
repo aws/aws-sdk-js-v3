@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-migrationhub-config",
   "description": "@aws-sdk/client-migrationhub-config client",
-  "version": "1.0.0-alpha.11",
+  "version": "1.0.0-alpha.12",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
@@ -38,7 +38,7 @@
     "@aws-sdk/middleware-signing": "^1.0.0-alpha.8",
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-user-agent": "^1.0.0-alpha.6",
-    "@aws-sdk/node-http-handler": "^1.0.0-alpha.6",
+    "@aws-sdk/node-http-handler": "^1.0.0-alpha.7",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
     "@aws-sdk/region-provider": "^1.0.0-alpha.4",
     "@aws-sdk/smithy-client": "^1.0.0-alpha.4",

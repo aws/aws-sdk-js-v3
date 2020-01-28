@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.1 (2020-01-28)
+
+
+### Features
+
+* migrate and apply copySnapshotPresignedUrlMiddleware ([#716](https://github.com/aws/aws-sdk-js-v3/issues/716)) ([106061b](https://github.com/aws/aws-sdk-js-v3/commit/106061b))
+
+
+
+
+
 # [0.1.0-preview.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-ec2-copysnapshot@0.1.0-preview.3...@aws-sdk/middleware-ec2-copysnapshot@0.1.0-preview.7) (2019-09-19)
 
 
