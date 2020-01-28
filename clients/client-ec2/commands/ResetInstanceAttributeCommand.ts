@@ -1,0 +1,85 @@
+import {
+  EC2ClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../EC2Client";
+import { ResetInstanceAttributeRequest } from "../models/index";
+import {
+  deserializeAws_ec2ResetInstanceAttributeCommand,
+  serializeAws_ec2ResetInstanceAttributeCommand
+} from "../protocols/Aws_ec2";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer
+} from "@aws-sdk/types";
+
+export type ResetInstanceAttributeCommandInput = ResetInstanceAttributeRequest;
+export type ResetInstanceAttributeCommandOutput = __MetadataBearer;
+
+export class ResetInstanceAttributeCommand extends $Command<
+  ResetInstanceAttributeCommandInput,
+  ResetInstanceAttributeCommandOutput,
+  EC2ClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ResetInstanceAttributeCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: EC2ClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    ResetInstanceAttributeCommandInput,
+    ResetInstanceAttributeCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: ResetInstanceAttributeCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_ec2ResetInstanceAttributeCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<ResetInstanceAttributeCommandOutput> {
+    return deserializeAws_ec2ResetInstanceAttributeCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
