@@ -116,7 +116,7 @@ describe("create-request", () => {
     );
     expect(request).toEqual({
       ...httpRequest,
-      body: "A1B2"
+      body: "A1B2C3"
     });
   });
 });

@@ -53,7 +53,11 @@ export const operationCommand: Command<
     config: any,
     options: any
   ) => {
-    return () => Promise.resolve({ output, response: {} });
+    const concatStack = stack.concat(operationCommand.middlewareStack);
+    return concatStack.resolve(
+      () => Promise.resolve({ output, response: {} }),
+      {} as any
+    );
   }
 };
 
