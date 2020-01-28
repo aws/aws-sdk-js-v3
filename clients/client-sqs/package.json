@@ -35,6 +35,7 @@
     "@aws-sdk/middleware-content-length": "^1.0.0-alpha.6",
     "@aws-sdk/middleware-host-header": "^1.0.0-alpha.6",
     "@aws-sdk/middleware-retry": "^1.0.0-alpha.6",
+    "@aws-sdk/middleware-sdk-sqs": "^1.0.0-alpha.2",
     "@aws-sdk/middleware-serde": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-signing": "^1.0.0-alpha.8",
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.4",
