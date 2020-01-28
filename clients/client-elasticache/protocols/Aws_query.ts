@@ -6660,7 +6660,7 @@ const serializeAws_queryAddTagsToResourceMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6691,8 +6691,7 @@ const serializeAws_queryAvailabilityZonesList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "AvailabilityZone." + counter;
-    entries[loc] = entry;
+    entries[`AvailabilityZone.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -6709,7 +6708,7 @@ const serializeAws_queryBatchApplyUpdateActionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheClusterIds." + key;
+      const loc = `CacheClusterIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6719,7 +6718,7 @@ const serializeAws_queryBatchApplyUpdateActionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReplicationGroupIds." + key;
+      const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6740,7 +6739,7 @@ const serializeAws_queryBatchStopUpdateActionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheClusterIds." + key;
+      const loc = `CacheClusterIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6750,7 +6749,7 @@ const serializeAws_queryBatchStopUpdateActionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReplicationGroupIds." + key;
+      const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6767,8 +6766,7 @@ const serializeAws_queryCacheClusterIdList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -6781,8 +6779,7 @@ const serializeAws_queryCacheNodeIdsList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "CacheNodeId." + counter;
-    entries[loc] = entry;
+    entries[`CacheNodeId.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -6795,8 +6792,7 @@ const serializeAws_queryCacheSecurityGroupNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "CacheSecurityGroupName." + counter;
-    entries[loc] = entry;
+    entries[`CacheSecurityGroupName.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -6833,7 +6829,7 @@ const serializeAws_queryConfigureShard = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PreferredAvailabilityZones." + key;
+      const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6889,7 +6885,7 @@ const serializeAws_queryCreateCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheSecurityGroupNames." + key;
+      const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6920,7 +6916,7 @@ const serializeAws_queryCreateCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PreferredAvailabilityZones." + key;
+      const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6936,7 +6932,7 @@ const serializeAws_queryCreateCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SecurityGroupIds." + key;
+      const loc = `SecurityGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6946,7 +6942,7 @@ const serializeAws_queryCreateCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SnapshotArns." + key;
+      const loc = `SnapshotArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -6962,7 +6958,7 @@ const serializeAws_queryCreateCacheClusterMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7017,7 +7013,7 @@ const serializeAws_queryCreateCacheSubnetGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SubnetIds." + key;
+      const loc = `SubnetIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7053,7 +7049,7 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheSecurityGroupNames." + key;
+      const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7075,7 +7071,7 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "NodeGroupConfiguration." + key;
+      const loc = `NodeGroupConfiguration.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7097,7 +7093,7 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PreferredCacheClusterAZs." + key;
+      const loc = `PreferredCacheClusterAZs.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7122,7 +7118,7 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SecurityGroupIds." + key;
+      const loc = `SecurityGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7132,7 +7128,7 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SnapshotArns." + key;
+      const loc = `SnapshotArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7148,7 +7144,7 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7199,8 +7195,13 @@ const serializeAws_queryCustomerNodeEndpointList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = serializeAws_queryCustomerNodeEndpoint(entry, context);
+    const memberEntries = serializeAws_queryCustomerNodeEndpoint(
+      entry,
+      context
+    );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`member.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -7223,7 +7224,7 @@ const serializeAws_queryDecreaseReplicaCountMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReplicaConfiguration." + key;
+      const loc = `ReplicaConfiguration.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7233,7 +7234,7 @@ const serializeAws_queryDecreaseReplicaCountMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReplicasToRemove." + key;
+      const loc = `ReplicasToRemove.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7585,7 +7586,7 @@ const serializeAws_queryDescribeServiceUpdatesMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ServiceUpdateStatus." + key;
+      const loc = `ServiceUpdateStatus.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7632,7 +7633,7 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheClusterIds." + key;
+      const loc = `CacheClusterIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7651,7 +7652,7 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReplicationGroupIds." + key;
+      const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7664,7 +7665,7 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ServiceUpdateStatus." + key;
+      const loc = `ServiceUpdateStatus.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7674,7 +7675,7 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ServiceUpdateTimeRange." + key;
+      const loc = `ServiceUpdateTimeRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7687,7 +7688,7 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "UpdateActionStatus." + key;
+      const loc = `UpdateActionStatus.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7711,7 +7712,7 @@ const serializeAws_queryIncreaseReplicaCountMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReplicaConfiguration." + key;
+      const loc = `ReplicaConfiguration.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7728,8 +7729,7 @@ const serializeAws_queryKeyList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -7789,7 +7789,7 @@ const serializeAws_queryModifyCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheNodeIdsToRemove." + key;
+      const loc = `CacheNodeIdsToRemove.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7805,7 +7805,7 @@ const serializeAws_queryModifyCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheSecurityGroupNames." + key;
+      const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7818,7 +7818,7 @@ const serializeAws_queryModifyCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "NewAvailabilityZones." + key;
+      const loc = `NewAvailabilityZones.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7840,7 +7840,7 @@ const serializeAws_queryModifyCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SecurityGroupIds." + key;
+      const loc = `SecurityGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7867,7 +7867,7 @@ const serializeAws_queryModifyCacheParameterGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ParameterNameValues." + key;
+      const loc = `ParameterNameValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7891,7 +7891,7 @@ const serializeAws_queryModifyCacheSubnetGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SubnetIds." + key;
+      const loc = `SubnetIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7930,7 +7930,7 @@ const serializeAws_queryModifyReplicationGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheSecurityGroupNames." + key;
+      const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7964,7 +7964,7 @@ const serializeAws_queryModifyReplicationGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SecurityGroupIds." + key;
+      const loc = `SecurityGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -7997,7 +7997,7 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "NodeGroupsToRemove." + key;
+      const loc = `NodeGroupsToRemove.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8007,7 +8007,7 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "NodeGroupsToRetain." + key;
+      const loc = `NodeGroupsToRetain.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8020,7 +8020,7 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReshardingConfiguration." + key;
+      const loc = `ReshardingConfiguration.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8044,7 +8044,7 @@ const serializeAws_queryNodeGroupConfiguration = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ReplicaAvailabilityZones." + key;
+      const loc = `ReplicaAvailabilityZones.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8064,8 +8064,13 @@ const serializeAws_queryNodeGroupConfigurationList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "NodeGroupConfiguration." + counter;
-    entries[loc] = serializeAws_queryNodeGroupConfiguration(entry, context);
+    const memberEntries = serializeAws_queryNodeGroupConfiguration(
+      entry,
+      context
+    );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`NodeGroupConfiguration.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -8078,8 +8083,7 @@ const serializeAws_queryNodeGroupsToRemoveList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "NodeGroupToRemove." + counter;
-    entries[loc] = entry;
+    entries[`NodeGroupToRemove.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8092,8 +8096,7 @@ const serializeAws_queryNodeGroupsToRetainList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "NodeGroupToRetain." + counter;
-    entries[loc] = entry;
+    entries[`NodeGroupToRetain.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8120,8 +8123,10 @@ const serializeAws_queryParameterNameValueList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ParameterNameValue." + counter;
-    entries[loc] = serializeAws_queryParameterNameValue(entry, context);
+    const memberEntries = serializeAws_queryParameterNameValue(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`ParameterNameValue.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -8134,8 +8139,7 @@ const serializeAws_queryPreferredAvailabilityZoneList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "PreferredAvailabilityZone." + counter;
-    entries[loc] = entry;
+    entries[`PreferredAvailabilityZone.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8173,7 +8177,7 @@ const serializeAws_queryRebootCacheClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CacheNodeIdsToReboot." + key;
+      const loc = `CacheNodeIdsToReboot.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8187,8 +8191,7 @@ const serializeAws_queryRemoveReplicasList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8205,7 +8208,7 @@ const serializeAws_queryRemoveTagsFromResourceMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8219,8 +8222,10 @@ const serializeAws_queryReplicaConfigurationList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ConfigureShard." + counter;
-    entries[loc] = serializeAws_queryConfigureShard(entry, context);
+    const memberEntries = serializeAws_queryConfigureShard(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`ConfigureShard.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -8233,8 +8238,7 @@ const serializeAws_queryReplicationGroupIdList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8254,7 +8258,7 @@ const serializeAws_queryResetCacheParameterGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ParameterNameValues." + key;
+      const loc = `ParameterNameValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8278,7 +8282,7 @@ const serializeAws_queryReshardingConfiguration = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PreferredAvailabilityZones." + key;
+      const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8292,8 +8296,13 @@ const serializeAws_queryReshardingConfigurationList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ReshardingConfiguration." + counter;
-    entries[loc] = serializeAws_queryReshardingConfiguration(entry, context);
+    const memberEntries = serializeAws_queryReshardingConfiguration(
+      entry,
+      context
+    );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`ReshardingConfiguration.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -8323,8 +8332,7 @@ const serializeAws_querySecurityGroupIdsList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "SecurityGroupId." + counter;
-    entries[loc] = entry;
+    entries[`SecurityGroupId.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8337,8 +8345,7 @@ const serializeAws_queryServiceUpdateStatusList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8351,8 +8358,7 @@ const serializeAws_querySnapshotArnsList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "SnapshotArn." + counter;
-    entries[loc] = entry;
+    entries[`SnapshotArn.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8369,7 +8375,7 @@ const serializeAws_queryStartMigrationMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "CustomerNodeEndpointList." + key;
+      const loc = `CustomerNodeEndpointList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -8386,8 +8392,7 @@ const serializeAws_querySubnetIdentifierList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "SubnetIdentifier." + counter;
-    entries[loc] = entry;
+    entries[`SubnetIdentifier.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -8411,8 +8416,10 @@ const serializeAws_queryTagList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "Tag." + counter;
-    entries[loc] = serializeAws_queryTag(entry, context);
+    const memberEntries = serializeAws_queryTag(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`Tag.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -8453,8 +8460,7 @@ const serializeAws_queryUpdateActionStatusList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -12140,6 +12146,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
   });
 };
 
+const buildFormUrlencodedString = (entries: any): string => {
+  return Object.keys(entries)
+    .map(
+      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+    )
+    .join("&");
+};
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
@@ -12147,11 +12160,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "UnknownError";
-};
-
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
-    .map(key => key + "=" + entries[key])
-    .join("&");
+  return "";
 };

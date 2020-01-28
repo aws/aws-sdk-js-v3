@@ -14134,8 +14134,7 @@ const serializeAws_queryActionNameListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -14256,7 +14255,7 @@ const serializeAws_queryContextEntry = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ContextKeyValues." + key;
+      const loc = `ContextKeyValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -14270,8 +14269,10 @@ const serializeAws_queryContextEntryListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = serializeAws_queryContextEntry(entry, context);
+    const memberEntries = serializeAws_queryContextEntry(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`member.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -14284,8 +14285,7 @@ const serializeAws_queryContextKeyValueListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -14369,7 +14369,7 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ClientIDList." + key;
+      const loc = `ClientIDList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -14379,7 +14379,7 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ThumbprintList." + key;
+      const loc = `ThumbprintList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -14452,7 +14452,7 @@ const serializeAws_queryCreateRoleRequest = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -14518,7 +14518,7 @@ const serializeAws_queryCreateUserRequest = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -14931,7 +14931,7 @@ const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Filter." + key;
+      const loc = `Filter.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -14955,7 +14955,7 @@ const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyInputList." + key;
+      const loc = `PolicyInputList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -14973,7 +14973,7 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyInputList." + key;
+      const loc = `PolicyInputList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -15473,7 +15473,7 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ServiceNamespaces." + key;
+      const loc = `ServiceNamespaces.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -15857,8 +15857,7 @@ const serializeAws_queryResourceNameListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -15920,7 +15919,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ActionNames." + key;
+      const loc = `ActionNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -15933,7 +15932,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ContextEntries." + key;
+      const loc = `ContextEntries.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -15949,7 +15948,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyInputList." + key;
+      const loc = `PolicyInputList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -15959,7 +15958,7 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ResourceArns." + key;
+      const loc = `ResourceArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -15986,7 +15985,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ActionNames." + key;
+      const loc = `ActionNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -15999,7 +15998,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ContextEntries." + key;
+      const loc = `ContextEntries.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16015,7 +16014,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyInputList." + key;
+      const loc = `PolicyInputList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16028,7 +16027,7 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ResourceArns." + key;
+      const loc = `ResourceArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16051,8 +16050,7 @@ const serializeAws_querySimulationPolicyListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -16080,7 +16078,7 @@ const serializeAws_queryTagRoleRequest = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16095,7 +16093,7 @@ const serializeAws_queryTagUserRequest = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16119,7 +16117,7 @@ const serializeAws_queryUntagRoleRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16137,7 +16135,7 @@ const serializeAws_queryUntagUserRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16261,7 +16259,7 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ThumbprintList." + key;
+      const loc = `ThumbprintList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -16456,8 +16454,7 @@ const serializeAws_queryclientIDListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -16470,8 +16467,7 @@ const serializeAws_queryentityListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -16484,8 +16480,7 @@ const serializeAws_queryserviceNamespaceListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -16498,8 +16493,7 @@ const serializeAws_querytagKeyListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -16512,8 +16506,10 @@ const serializeAws_querytagListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = serializeAws_queryTag(entry, context);
+    const memberEntries = serializeAws_queryTag(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`member.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -16526,8 +16522,7 @@ const serializeAws_querythumbprintListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -20899,6 +20894,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
   });
 };
 
+const buildFormUrlencodedString = (entries: any): string => {
+  return Object.keys(entries)
+    .map(
+      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+    )
+    .join("&");
+};
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
@@ -20906,11 +20908,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "UnknownError";
-};
-
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
-    .map(key => key + "=" + entries[key])
-    .join("&");
+  return "";
 };

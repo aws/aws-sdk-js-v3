@@ -973,7 +973,7 @@ const serializeAws_queryAssumeRoleRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyArns." + key;
+      const loc = `PolicyArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -989,7 +989,7 @@ const serializeAws_queryAssumeRoleRequest = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -1002,7 +1002,7 @@ const serializeAws_queryAssumeRoleRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TransitiveTagKeys." + key;
+      const loc = `TransitiveTagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -1026,7 +1026,7 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyArns." + key;
+      const loc = `PolicyArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -1059,7 +1059,7 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyArns." + key;
+      const loc = `PolicyArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -1128,14 +1128,14 @@ const serializeAws_queryGetFederationTokenRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "PolicyArns." + key;
+      const loc = `PolicyArns.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -1188,8 +1188,13 @@ const serializeAws_querypolicyDescriptorListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = serializeAws_queryPolicyDescriptorType(entry, context);
+    const memberEntries = serializeAws_queryPolicyDescriptorType(
+      entry,
+      context
+    );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`member.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -1202,8 +1207,7 @@ const serializeAws_querytagKeyListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = entry;
+    entries[`member.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -1216,8 +1220,10 @@ const serializeAws_querytagListType = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "member." + counter;
-    entries[loc] = serializeAws_queryTag(entry, context);
+    const memberEntries = serializeAws_queryTag(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`member.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -1644,6 +1650,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
   });
 };
 
+const buildFormUrlencodedString = (entries: any): string => {
+  return Object.keys(entries)
+    .map(
+      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+    )
+    .join("&");
+};
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
@@ -1651,11 +1664,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "UnknownError";
-};
-
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
-    .map(key => key + "=" + entries[key])
-    .join("&");
+  return "";
 };

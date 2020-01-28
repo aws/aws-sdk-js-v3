@@ -14301,5 +14301,5 @@ const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string => {
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "UnknownError";
+  return "";
 };
