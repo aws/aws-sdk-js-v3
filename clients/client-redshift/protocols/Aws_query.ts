@@ -11381,8 +11381,7 @@ const serializeAws_queryAttributeNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "AttributeName." + counter;
-    entries[loc] = entry;
+    entries[`AttributeName.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -11436,7 +11435,7 @@ const serializeAws_queryBatchDeleteClusterSnapshotsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Identifiers." + key;
+      const loc = `Identifiers.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11461,7 +11460,7 @@ const serializeAws_queryBatchModifyClusterSnapshotsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SnapshotIdentifierList." + key;
+      const loc = `SnapshotIdentifierList.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11486,8 +11485,7 @@ const serializeAws_queryClusterSecurityGroupNameList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ClusterSecurityGroupName." + counter;
-    entries[loc] = entry;
+    entries[`ClusterSecurityGroupName.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -11545,7 +11543,7 @@ const serializeAws_queryCreateClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ClusterSecurityGroups." + key;
+      const loc = `ClusterSecurityGroups.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11583,7 +11581,7 @@ const serializeAws_queryCreateClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "IamRoles." + key;
+      const loc = `IamRoles.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11624,7 +11622,7 @@ const serializeAws_queryCreateClusterMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11634,7 +11632,7 @@ const serializeAws_queryCreateClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "VpcSecurityGroupIds." + key;
+      const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11658,7 +11656,7 @@ const serializeAws_queryCreateClusterParameterGroupMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11679,7 +11677,7 @@ const serializeAws_queryCreateClusterSecurityGroupMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11704,7 +11702,7 @@ const serializeAws_queryCreateClusterSnapshotMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11728,14 +11726,14 @@ const serializeAws_queryCreateClusterSubnetGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SubnetIds." + key;
+      const loc = `SubnetIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11756,7 +11754,7 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "EventCategories." + key;
+      const loc = `EventCategories.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11772,7 +11770,7 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SourceIds." + key;
+      const loc = `SourceIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11785,7 +11783,7 @@ const serializeAws_queryCreateEventSubscriptionMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11804,7 +11802,7 @@ const serializeAws_queryCreateHsmClientCertificateMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11837,7 +11835,7 @@ const serializeAws_queryCreateHsmConfigurationMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11876,7 +11874,7 @@ const serializeAws_queryCreateScheduledActionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TargetAction." + key;
+      const loc = `TargetAction.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11897,7 +11895,7 @@ const serializeAws_queryCreateSnapshotCopyGrantMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11921,7 +11919,7 @@ const serializeAws_queryCreateSnapshotScheduleMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ScheduleDefinitions." + key;
+      const loc = `ScheduleDefinitions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11934,7 +11932,7 @@ const serializeAws_queryCreateSnapshotScheduleMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11952,7 +11950,7 @@ const serializeAws_queryCreateTagsMessage = (
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Tags." + key;
+      const loc = `Tags.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -11966,8 +11964,7 @@ const serializeAws_queryDbGroupList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "DbGroup." + counter;
-    entries[loc] = entry;
+    entries[`DbGroup.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -12038,11 +12035,14 @@ const serializeAws_queryDeleteClusterSnapshotMessageList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "DeleteClusterSnapshotMessage." + counter;
-    entries[loc] = serializeAws_queryDeleteClusterSnapshotMessage(
+    const memberEntries = serializeAws_queryDeleteClusterSnapshotMessage(
       entry,
       context
     );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`DeleteClusterSnapshotMessage.${counter}.${key}`] =
+        memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -12137,7 +12137,7 @@ const serializeAws_queryDeleteTagsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12155,7 +12155,7 @@ const serializeAws_queryDescribeAccountAttributesMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AttributeNames." + key;
+      const loc = `AttributeNames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12196,7 +12196,7 @@ const serializeAws_queryDescribeClusterParameterGroupsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12206,7 +12206,7 @@ const serializeAws_queryDescribeClusterParameterGroupsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12250,7 +12250,7 @@ const serializeAws_queryDescribeClusterSecurityGroupsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12260,7 +12260,7 @@ const serializeAws_queryDescribeClusterSecurityGroupsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12302,7 +12302,7 @@ const serializeAws_queryDescribeClusterSnapshotsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SortingEntities." + key;
+      const loc = `SortingEntities.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12312,7 +12312,7 @@ const serializeAws_queryDescribeClusterSnapshotsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12322,7 +12322,7 @@ const serializeAws_queryDescribeClusterSnapshotsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12346,7 +12346,7 @@ const serializeAws_queryDescribeClusterSubnetGroupsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12356,7 +12356,7 @@ const serializeAws_queryDescribeClusterSubnetGroupsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12417,7 +12417,7 @@ const serializeAws_queryDescribeClustersMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12427,7 +12427,7 @@ const serializeAws_queryDescribeClustersMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12479,7 +12479,7 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12489,7 +12489,7 @@ const serializeAws_queryDescribeEventSubscriptionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12543,7 +12543,7 @@ const serializeAws_queryDescribeHsmClientCertificatesMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12553,7 +12553,7 @@ const serializeAws_queryDescribeHsmClientCertificatesMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12577,7 +12577,7 @@ const serializeAws_queryDescribeHsmConfigurationsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12587,7 +12587,7 @@ const serializeAws_queryDescribeHsmConfigurationsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12622,7 +12622,7 @@ const serializeAws_queryDescribeNodeConfigurationOptionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Filter." + key;
+      const loc = `Filter.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12723,7 +12723,7 @@ const serializeAws_queryDescribeScheduledActionsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Filters." + key;
+      const loc = `Filters.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12762,7 +12762,7 @@ const serializeAws_queryDescribeSnapshotCopyGrantsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12772,7 +12772,7 @@ const serializeAws_queryDescribeSnapshotCopyGrantsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12799,7 +12799,7 @@ const serializeAws_queryDescribeSnapshotSchedulesMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12809,7 +12809,7 @@ const serializeAws_queryDescribeSnapshotSchedulesMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12856,7 +12856,7 @@ const serializeAws_queryDescribeTagsMessage = (
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagKeys." + key;
+      const loc = `TagKeys.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12866,7 +12866,7 @@ const serializeAws_queryDescribeTagsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TagValues." + key;
+      const loc = `TagValues.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -12943,8 +12943,7 @@ const serializeAws_queryEventCategoriesList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "EventCategory." + counter;
-    entries[loc] = entry;
+    entries[`EventCategory.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -12967,7 +12966,7 @@ const serializeAws_queryGetClusterCredentialsMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "DbGroups." + key;
+      const loc = `DbGroups.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13007,8 +13006,7 @@ const serializeAws_queryIamRoleArnList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "IamRoleArn." + counter;
-    entries[loc] = entry;
+    entries[`IamRoleArn.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13039,7 +13037,7 @@ const serializeAws_queryModifyClusterIamRolesMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "AddIamRoles." + key;
+      const loc = `AddIamRoles.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13052,7 +13050,7 @@ const serializeAws_queryModifyClusterIamRolesMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "RemoveIamRoles." + key;
+      const loc = `RemoveIamRoles.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13113,7 +13111,7 @@ const serializeAws_queryModifyClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ClusterSecurityGroups." + key;
+      const loc = `ClusterSecurityGroups.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13173,7 +13171,7 @@ const serializeAws_queryModifyClusterMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "VpcSecurityGroupIds." + key;
+      const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13194,7 +13192,7 @@ const serializeAws_queryModifyClusterParameterGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Parameters." + key;
+      const loc = `Parameters.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13253,7 +13251,7 @@ const serializeAws_queryModifyClusterSubnetGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SubnetIds." + key;
+      const loc = `SubnetIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13274,7 +13272,7 @@ const serializeAws_queryModifyEventSubscriptionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "EventCategories." + key;
+      const loc = `EventCategories.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13290,7 +13288,7 @@ const serializeAws_queryModifyEventSubscriptionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "SourceIds." + key;
+      const loc = `SourceIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13335,7 +13333,7 @@ const serializeAws_queryModifyScheduledActionMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "TargetAction." + key;
+      const loc = `TargetAction.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13370,7 +13368,7 @@ const serializeAws_queryModifySnapshotScheduleMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ScheduleDefinitions." + key;
+      const loc = `ScheduleDefinitions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13397,7 +13395,7 @@ const serializeAws_queryNodeConfigurationOptionsFilter = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Value." + key;
+      const loc = `Value.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13411,11 +13409,14 @@ const serializeAws_queryNodeConfigurationOptionsFilterList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "NodeConfigurationOptionsFilter." + counter;
-    entries[loc] = serializeAws_queryNodeConfigurationOptionsFilter(
+    const memberEntries = serializeAws_queryNodeConfigurationOptionsFilter(
       entry,
       context
     );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`NodeConfigurationOptionsFilter.${counter}.${key}`] =
+        memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -13463,8 +13464,10 @@ const serializeAws_queryParametersList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "Parameter." + counter;
-    entries[loc] = serializeAws_queryParameter(entry, context);
+    const memberEntries = serializeAws_queryParameter(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`Parameter.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -13509,7 +13512,7 @@ const serializeAws_queryResetClusterParameterGroupMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Parameters." + key;
+      const loc = `Parameters.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13572,7 +13575,7 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ClusterSecurityGroups." + key;
+      const loc = `ClusterSecurityGroups.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13598,7 +13601,7 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "IamRoles." + key;
+      const loc = `IamRoles.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13645,7 +13648,7 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "VpcSecurityGroupIds." + key;
+      const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13739,8 +13742,7 @@ const serializeAws_queryScheduleDefinitionList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ScheduleDefinition." + counter;
-    entries[loc] = entry;
+    entries[`ScheduleDefinition.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13760,7 +13762,7 @@ const serializeAws_queryScheduledActionFilter = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "Values." + key;
+      const loc = `Values.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13774,8 +13776,13 @@ const serializeAws_queryScheduledActionFilterList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "ScheduledActionFilter." + counter;
-    entries[loc] = serializeAws_queryScheduledActionFilter(entry, context);
+    const memberEntries = serializeAws_queryScheduledActionFilter(
+      entry,
+      context
+    );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`ScheduledActionFilter.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -13792,7 +13799,7 @@ const serializeAws_queryScheduledActionType = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = "ResizeCluster." + key;
+      const loc = `ResizeCluster.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -13806,8 +13813,7 @@ const serializeAws_querySnapshotIdentifierList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "String." + counter;
-    entries[loc] = entry;
+    entries[`String.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13834,8 +13840,13 @@ const serializeAws_querySnapshotSortingEntityList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "SnapshotSortingEntity." + counter;
-    entries[loc] = serializeAws_querySnapshotSortingEntity(entry, context);
+    const memberEntries = serializeAws_querySnapshotSortingEntity(
+      entry,
+      context
+    );
+    Object.keys(memberEntries).forEach(key => {
+      entries[`SnapshotSortingEntity.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -13848,8 +13859,7 @@ const serializeAws_querySourceIdsList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "SourceId." + counter;
-    entries[loc] = entry;
+    entries[`SourceId.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13862,8 +13872,7 @@ const serializeAws_querySubnetIdentifierList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "SubnetIdentifier." + counter;
-    entries[loc] = entry;
+    entries[`SubnetIdentifier.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13887,8 +13896,7 @@ const serializeAws_queryTagKeyList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "TagKey." + counter;
-    entries[loc] = entry;
+    entries[`TagKey.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13901,8 +13909,10 @@ const serializeAws_queryTagList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "Tag." + counter;
-    entries[loc] = serializeAws_queryTag(entry, context);
+    const memberEntries = serializeAws_queryTag(entry, context);
+    Object.keys(memberEntries).forEach(key => {
+      entries[`Tag.${counter}.${key}`] = memberEntries[key];
+    });
     counter++;
   });
   return entries;
@@ -13915,8 +13925,7 @@ const serializeAws_queryTagValueList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "TagValue." + counter;
-    entries[loc] = entry;
+    entries[`TagValue.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13929,8 +13938,7 @@ const serializeAws_queryValueStringList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "item." + counter;
-    entries[loc] = entry;
+    entries[`item.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -13943,8 +13951,7 @@ const serializeAws_queryVpcSecurityGroupIdList = (
   const entries: any = {};
   let counter = 1;
   (input || []).map(entry => {
-    const loc: string = "VpcSecurityGroupId." + counter;
-    entries[loc] = entry;
+    entries[`VpcSecurityGroupId.${counter}`] = entry;
     counter++;
   });
   return entries;
@@ -19710,6 +19717,13 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
   });
 };
 
+const buildFormUrlencodedString = (entries: any): string => {
+  return Object.keys(entries)
+    .map(
+      key => encodeURIComponent(key) + "=" + encodeURIComponent(entries[key])
+    )
+    .join("&");
+};
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (data.Error.Code !== undefined) {
     return data.Error.Code;
@@ -19717,11 +19731,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "UnknownError";
-};
-
-const buildFormUrlencodedString = (entries: any): string => {
-  return Object.keys(entries)
-    .map(key => key + "=" + entries[key])
-    .join("&");
+  return "";
 };
