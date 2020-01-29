@@ -191,6 +191,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CreateMeshCommand(
   input: CreateMeshCommandInput,
@@ -201,6 +202,9 @@ export async function serializeAws_restJson1_1CreateMeshCommand(
   let resolvedPath = "/v20190125/meshes";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -256,6 +260,9 @@ export async function serializeAws_restJson1_1CreateRouteCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -297,6 +304,9 @@ export async function serializeAws_restJson1_1CreateVirtualNodeCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -341,6 +351,9 @@ export async function serializeAws_restJson1_1CreateVirtualRouterCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -385,6 +398,9 @@ export async function serializeAws_restJson1_1CreateVirtualServiceCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1061,6 +1077,9 @@ export async function serializeAws_restJson1_1UpdateMeshCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1119,6 +1138,9 @@ export async function serializeAws_restJson1_1UpdateRouteCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1166,6 +1188,9 @@ export async function serializeAws_restJson1_1UpdateVirtualNodeCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1218,6 +1243,9 @@ export async function serializeAws_restJson1_1UpdateVirtualRouterCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }
@@ -1270,6 +1298,9 @@ export async function serializeAws_restJson1_1UpdateVirtualServiceCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }

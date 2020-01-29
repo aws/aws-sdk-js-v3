@@ -85,6 +85,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CancelSigningProfileCommand(
   input: CancelSigningProfileCommandInput,
@@ -374,6 +375,9 @@ export async function serializeAws_restJson1_1StartSigningJobCommand(
   let resolvedPath = "/signing-jobs";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

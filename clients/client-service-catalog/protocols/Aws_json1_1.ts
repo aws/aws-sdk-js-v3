@@ -569,6 +569,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1AcceptPortfolioShareCommand(
   input: AcceptPortfolioShareCommandInput,
@@ -8373,6 +8374,9 @@ const serializeAws_json1_1CopyProductInput = (
       context
     );
   }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
   }
@@ -8407,6 +8411,9 @@ const serializeAws_json1_1CreateConstraintInput = (
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
   }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
   }
@@ -8438,6 +8445,9 @@ const serializeAws_json1_1CreatePortfolioInput = (
   }
   if (input.DisplayName !== undefined) {
     bodyParams["DisplayName"] = input.DisplayName;
+  }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -8488,6 +8498,9 @@ const serializeAws_json1_1CreateProductInput = (
   if (input.Distributor !== undefined) {
     bodyParams["Distributor"] = input.Distributor;
   }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
   }
@@ -8530,6 +8543,9 @@ const serializeAws_json1_1CreateProvisionedProductPlanInput = (
   let bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
+  }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -8580,6 +8596,9 @@ const serializeAws_json1_1CreateProvisioningArtifactInput = (
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
   }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
   }
@@ -8616,6 +8635,9 @@ const serializeAws_json1_1CreateServiceActionInput = (
   }
   if (input.Description !== undefined) {
     bodyParams["Description"] = input.Description;
+  }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
@@ -9051,6 +9073,9 @@ const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
   }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
+  }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;
   }
@@ -9067,6 +9092,9 @@ const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
   let bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
+  }
+  if (input.ExecuteToken === undefined) {
+    input.ExecuteToken = generateIdempotencyToken();
   }
   if (input.ExecuteToken !== undefined) {
     bodyParams["ExecuteToken"] = input.ExecuteToken;
@@ -9519,6 +9547,9 @@ const serializeAws_json1_1ProvisionProductInput = (
   if (input.ProductId !== undefined) {
     bodyParams["ProductId"] = input.ProductId;
   }
+  if (input.ProvisionToken === undefined) {
+    input.ProvisionToken = generateIdempotencyToken();
+  }
   if (input.ProvisionToken !== undefined) {
     bodyParams["ProvisionToken"] = input.ProvisionToken;
   }
@@ -9930,6 +9961,9 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
   if (input.ProvisionedProductName !== undefined) {
     bodyParams["ProvisionedProductName"] = input.ProvisionedProductName;
   }
+  if (input.TerminateToken === undefined) {
+    input.TerminateToken = generateIdempotencyToken();
+  }
   if (input.TerminateToken !== undefined) {
     bodyParams["TerminateToken"] = input.TerminateToken;
   }
@@ -10074,6 +10108,9 @@ const serializeAws_json1_1UpdateProvisionedProductInput = (
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
+  if (input.UpdateToken === undefined) {
+    input.UpdateToken = generateIdempotencyToken();
+  }
   if (input.UpdateToken !== undefined) {
     bodyParams["UpdateToken"] = input.UpdateToken;
   }
@@ -10087,6 +10124,9 @@ const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
   let bodyParams: any = {};
   if (input.AcceptLanguage !== undefined) {
     bodyParams["AcceptLanguage"] = input.AcceptLanguage;
+  }
+  if (input.IdempotencyToken === undefined) {
+    input.IdempotencyToken = generateIdempotencyToken();
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;

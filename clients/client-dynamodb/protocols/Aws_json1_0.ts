@@ -365,6 +365,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_0DescribeEndpointsCommand(
   input: DescribeEndpointsCommandInput,
@@ -7048,6 +7049,9 @@ const serializeAws_json1_0TransactWriteItemsInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

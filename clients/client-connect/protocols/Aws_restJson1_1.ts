@@ -168,6 +168,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CreateUserCommand(
   input: CreateUserCommandInput,
@@ -860,6 +861,9 @@ export async function serializeAws_restJson1_1StartChatContactCommand(
       context
     );
   }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -908,6 +912,9 @@ export async function serializeAws_restJson1_1StartOutboundVoiceContactCommand(
       input.Attributes,
       context
     );
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;

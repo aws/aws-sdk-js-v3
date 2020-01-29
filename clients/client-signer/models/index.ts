@@ -1034,7 +1034,7 @@ export interface StartSigningJobRequest {
    * <p>String that identifies the signing request. All calls after the first that use this
    * 			token return the same response as the first call.</p>
    */
-  clientRequestToken: string | undefined;
+  clientRequestToken?: string;
 
   /**
    * <p>The S3 bucket in which to save your signed object. The destination contains the name

@@ -111,7 +111,7 @@ export interface CreateDeploymentJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
-  clientRequestToken: string | undefined;
+  clientRequestToken?: string;
 
   /**
    * <p>The deployment application configuration.</p>
@@ -3392,7 +3392,7 @@ export interface SyncDeploymentJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
-  clientRequestToken: string | undefined;
+  clientRequestToken?: string;
 
   /**
    * <p>The target fleet for the synchronization.</p>

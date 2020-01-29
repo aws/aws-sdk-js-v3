@@ -393,7 +393,7 @@ export interface SendAnnouncementRequest {
   /**
    * <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>
@@ -1323,7 +1323,7 @@ export interface CreateGatewayGroupRequest {
   /**
    * <p> A unique, user-specified identifier for the request that ensures idempotency.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>The description of the gateway group.</p>
@@ -1426,7 +1426,7 @@ export interface CreateNetworkProfileRequest {
   /**
    * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>The current password of the Wi-Fi network.</p>

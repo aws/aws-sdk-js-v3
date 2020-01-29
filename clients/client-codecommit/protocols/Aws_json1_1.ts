@@ -688,6 +688,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
   input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
@@ -17030,6 +17031,9 @@ const serializeAws_json1_1CreatePullRequestInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -17998,6 +18002,9 @@ const serializeAws_json1_1PostCommentForComparedCommitInput = (
   if (input.beforeCommitId !== undefined) {
     bodyParams["beforeCommitId"] = input.beforeCommitId;
   }
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -18027,6 +18034,9 @@ const serializeAws_json1_1PostCommentForPullRequestInput = (
   if (input.beforeCommitId !== undefined) {
     bodyParams["beforeCommitId"] = input.beforeCommitId;
   }
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -18053,6 +18063,9 @@ const serializeAws_json1_1PostCommentReplyInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

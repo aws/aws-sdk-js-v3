@@ -406,6 +406,7 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 import { parse as pixlParse } from "pixl-xml";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_queryCancelUpdateStackCommand(
   input: CancelUpdateStackCommandInput,
@@ -6560,6 +6561,9 @@ const serializeAws_queryCreateStackInstancesInput = (
       entries[loc] = memberEntries[key];
     });
   }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
   }
@@ -6614,6 +6618,9 @@ const serializeAws_queryCreateStackSetInput = (
       entries[loc] = memberEntries[key];
     });
   }
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -6666,6 +6673,9 @@ const serializeAws_queryDeleteStackInstancesInput = (
       const loc = `Accounts.${key}`;
       entries[loc] = memberEntries[key];
     });
+  }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
   }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
@@ -6754,6 +6764,9 @@ const serializeAws_queryDetectStackSetDriftInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
   }
@@ -6922,6 +6935,9 @@ const serializeAws_queryUpdateStackInstancesInput = (
       entries[loc] = memberEntries[key];
     });
   }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
+  }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;
   }
@@ -6991,6 +7007,9 @@ const serializeAws_queryUpdateStackSetInput = (
   }
   if (input.ExecutionRoleName !== undefined) {
     entries["ExecutionRoleName"] = input.ExecutionRoleName;
+  }
+  if (input.OperationId === undefined) {
+    input.OperationId = generateIdempotencyToken();
   }
   if (input.OperationId !== undefined) {
     entries["OperationId"] = input.OperationId;

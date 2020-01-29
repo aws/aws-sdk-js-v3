@@ -376,7 +376,7 @@ export interface CreateComponentRequest {
   /**
    * <p>CThe idempotency token of the component.</p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>CThe data of the component.</p>
@@ -454,7 +454,7 @@ export interface CreateDistributionConfigurationRequest {
   /**
    * <p> The idempotency token of the distribution configuration. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The description of the distribution configuration. </p>
@@ -513,7 +513,7 @@ export interface CreateImagePipelineRequest {
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The description of the image pipeline. </p>
@@ -601,7 +601,7 @@ export interface CreateImageRecipeRequest {
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The components of the image recipe. </p>
@@ -669,7 +669,7 @@ export interface CreateImageRequest {
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline. </p>
@@ -732,7 +732,7 @@ export interface CreateInfrastructureConfigurationRequest {
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The description of the infrastructure configuration. </p>
@@ -2009,7 +2009,7 @@ export interface ImportComponentRequest {
   /**
    * <p> The idempotency token of the component. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The data of the component. </p>
@@ -3195,7 +3195,7 @@ export interface StartImagePipelineExecutionRequest {
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the image pipeline that you wish to manually invoke. </p>
@@ -3296,7 +3296,7 @@ export interface UpdateDistributionConfigurationRequest {
   /**
    * <p> The idempotency token of the distribution configuration. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The description of the distribution configuration. </p>
@@ -3350,7 +3350,7 @@ export interface UpdateImagePipelineRequest {
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The description of the image pipeline. </p>
@@ -3428,7 +3428,7 @@ export interface UpdateInfrastructureConfigurationRequest {
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
-  clientToken: string | undefined;
+  clientToken?: string;
 
   /**
    * <p> The description of the infrastructure configuration. </p>
