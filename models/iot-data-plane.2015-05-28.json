@@ -1,0 +1,553 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.iot.moonraker#ConflictException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified version does not match the version of the document.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.iot.moonraker#DeleteThingShadow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iot.moonraker#DeleteThingShadowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iot.moonraker#DeleteThingShadowResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iot.common.types#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#UnsupportedDocumentEncodingException"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#MethodNotAllowedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the thing shadow for the specified thing.</p>\n     <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html\">DeleteThingShadow</a> in the\n        <i>AWS IoT Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/things/{thingName}/shadow",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iot.moonraker#DeleteThingShadowRequest": {
+      "type": "structure",
+      "members": {
+        "thingName": {
+          "target": "com.amazonaws.iot.moonraker#ThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the DeleteThingShadow operation.</p>"
+      }
+    },
+    "com.amazonaws.iot.moonraker#DeleteThingShadowResponse": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iot.moonraker#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output from the DeleteThingShadow operation.</p>"
+      }
+    },
+    "com.amazonaws.iot.moonraker#GetThingShadow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iot.moonraker#GetThingShadowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iot.moonraker#GetThingShadowResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iot.common.types#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#UnsupportedDocumentEncodingException"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#MethodNotAllowedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the thing shadow for the specified thing.</p>\n     <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html\">GetThingShadow</a> in the\n        <i>AWS IoT Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/things/{thingName}/shadow",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iot.moonraker#GetThingShadowRequest": {
+      "type": "structure",
+      "members": {
+        "thingName": {
+          "target": "com.amazonaws.iot.moonraker#ThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the GetThingShadow operation.</p>"
+      }
+    },
+    "com.amazonaws.iot.moonraker#GetThingShadowResponse": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iot.moonraker#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output from the GetThingShadow operation.</p>"
+      }
+    },
+    "com.amazonaws.iot.common.types#InternalFailureException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An unexpected error has occurred.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.iot.common.types#InvalidRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request is not valid.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.iot.moonraker#IotMoonrakerService": {
+      "type": "service",
+      "version": "2015-05-28",
+      "operations": [
+        {
+          "target": "com.amazonaws.iot.moonraker#DeleteThingShadow"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#GetThingShadow"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#Publish"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#UpdateThingShadow"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "IoT Data Plane",
+          "arnNamespace": "iotdata",
+          "cloudFormationName": "IoTDataPlane",
+          "cloudTrailEventSource": "moonraker.iot.amazonaws.com"
+        },
+        "smithy.api#documentation": "<fullname>AWS IoT</fullname>\n    <p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things \n      (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. \n      It implements a broker for applications and things to publish messages \n      over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a \n      persistent representation of your things and their state in the AWS cloud.</p>",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS IoT Data Plane"
+      }
+    },
+    "com.amazonaws.iot.moonraker#JsonDocument": {
+      "type": "blob"
+    },
+    "com.amazonaws.iot.moonraker#MethodNotAllowedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified combination of HTTP verb and URI is not supported.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 405
+      }
+    },
+    "com.amazonaws.iot.moonraker#Payload": {
+      "type": "blob"
+    },
+    "com.amazonaws.iot.moonraker#Publish": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iot.moonraker#PublishRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iot.common.types#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#MethodNotAllowedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Publishes state information.</p>\n     <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http\">HTTP Protocol</a> in the\n        <i>AWS IoT Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/topics/{topic}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iot.moonraker#PublishRequest": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iot.moonraker#Payload",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": true
+          }
+        },
+        "qos": {
+          "target": "com.amazonaws.iot.moonraker#Qos",
+          "traits": {
+            "smithy.api#documentation": "<p>The Quality of Service (QoS) level.</p>",
+            "smithy.api#httpQuery": "qos"
+          }
+        },
+        "topic": {
+          "target": "com.amazonaws.iot.moonraker#Topic",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the MQTT topic.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the Publish operation.</p>"
+      }
+    },
+    "com.amazonaws.iot.moonraker#Qos": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.iot.moonraker#RequestEntityTooLargeException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The payload exceeds the maximum size allowed.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 413
+      }
+    },
+    "com.amazonaws.iot.common.types#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified resource does not exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.iot.common.types#ServiceUnavailableException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The service is temporarily unavailable.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
+      }
+    },
+    "com.amazonaws.iot.moonraker#ThingName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9:_-]+"
+      }
+    },
+    "com.amazonaws.iot.common.types#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The rate exceeds the limit.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.iot.moonraker#Topic": {
+      "type": "string"
+    },
+    "com.amazonaws.iot.common.types#UnauthorizedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You are not authorized to perform this operation.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
+      }
+    },
+    "com.amazonaws.iot.common.types#UnsupportedDocumentEncodingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.iot.common.types#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The message for the exception.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The document encoding is not supported.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 415
+      }
+    },
+    "com.amazonaws.iot.moonraker#UpdateThingShadow": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iot.moonraker#UpdateThingShadowRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iot.moonraker#UpdateThingShadowResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iot.common.types#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.iot.common.types#UnsupportedDocumentEncodingException"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#MethodNotAllowedException"
+        },
+        {
+          "target": "com.amazonaws.iot.moonraker#RequestEntityTooLargeException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the thing shadow for the specified thing.</p>\n     <p>For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html\">UpdateThingShadow</a> in the\n        <i>AWS IoT Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/things/{thingName}/shadow",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.iot.moonraker#UpdateThingShadowRequest": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iot.moonraker#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        },
+        "thingName": {
+          "target": "com.amazonaws.iot.moonraker#ThingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the thing.</p>",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The input for the UpdateThingShadow operation.</p>"
+      }
+    },
+    "com.amazonaws.iot.moonraker#UpdateThingShadowResponse": {
+      "type": "structure",
+      "members": {
+        "payload": {
+          "target": "com.amazonaws.iot.moonraker#JsonDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>The state information, in JSON format.</p>",
+            "smithy.api#httpPayload": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output from the UpdateThingShadow operation.</p>"
+      }
+    },
+    "com.amazonaws.iot.common.types#errorMessage": {
+      "type": "string"
+    }
+  }
+}
