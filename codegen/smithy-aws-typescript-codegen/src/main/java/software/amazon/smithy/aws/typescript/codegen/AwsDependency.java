@@ -52,7 +52,9 @@ public enum AwsDependency implements SymbolDependencyContainer {
     SQS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sqs", "^1.0.0-alpha.0"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder", "^1.0.0-alpha.1"),
     XML_PARSER(NORMAL_DEPENDENCY, "pixl-xml", "^1.0.13"),
-    XML_PARSER_TYPES(DEV_DEPENDENCY, "@types/pixl-xml", "^1.0.1");
+    XML_PARSER_TYPES(DEV_DEPENDENCY, "@types/pixl-xml", "^1.0.1"),
+    UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^3.4.0"),
+    UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^3.4.7");
 
     public final String packageName;
     public final String version;

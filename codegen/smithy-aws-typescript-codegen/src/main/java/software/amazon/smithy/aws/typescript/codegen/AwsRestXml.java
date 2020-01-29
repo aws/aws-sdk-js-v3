@@ -88,6 +88,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateXmlParseBody(context);
+        AwsProtocolUtils.addItempotencyAutofillImport(context);
 
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.XML_BUILDER);
@@ -159,8 +160,11 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             MemberShape memberShape = binding.getMember();
             // The name of the member to get from the input shape.
             String memberName = symbolProvider.toMemberName(memberShape);
-
             String inputLocation = "input." + memberName;
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
                 shapeSerVisitor.serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
             });

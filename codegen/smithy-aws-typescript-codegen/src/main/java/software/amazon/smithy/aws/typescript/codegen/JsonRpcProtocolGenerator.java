@@ -73,6 +73,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateJsonParseBody(context);
+        AwsProtocolUtils.addItempotencyAutofillImport(context);
     }
 
     @Override
