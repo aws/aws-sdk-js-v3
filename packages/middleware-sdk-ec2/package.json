@@ -14,9 +14,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/signature-v4": "^1.0.0-alpha.3",
-    "@aws-sdk/types": "^1.0.0-alpha.2",
-    "@aws-sdk/util-format-url": "^1.0.0-alpha.2",
+    "@aws-sdk/signature-v4": "^1.0.0-alpha.8",
+    "@aws-sdk/types": "^1.0.0-alpha.4",
+    "@aws-sdk/util-format-url": "^1.0.0-alpha.4",
     "@aws-sdk/util-uri-escape": "^1.0.0-alpha.2",
     "tslib": "^1.8.0"
   },
