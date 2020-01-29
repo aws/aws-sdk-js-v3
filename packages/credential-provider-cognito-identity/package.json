@@ -16,7 +16,6 @@
   "dependencies": {
     "@aws-sdk/client-cognito-identity": "^1.0.0-alpha.12",
     "@aws-sdk/property-provider": "^1.0.0-alpha.4",
-    "@aws-sdk/protocol-timestamp": "^1.0.0-alpha.4",
     "@aws-sdk/types": "^1.0.0-alpha.4",
     "tslib": "^1.8.0"
   },
