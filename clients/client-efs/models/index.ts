@@ -591,7 +591,7 @@ export interface CreateAccessPointRequest {
    * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent
    *       creation.</p>
    */
-  ClientToken: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>The ID of the EFS file system that the access point provides access to.</p>
@@ -632,7 +632,7 @@ export interface CreateFileSystemRequest {
    * <p>A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent
    *       creation.</p>
    */
-  CreationToken: string | undefined;
+  CreationToken?: string;
 
   /**
    * <p>A Boolean value that, if true, creates an encrypted file system. When creating an

@@ -50,7 +50,7 @@ export interface CreateMemberInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>The unique identifier of the invitation that is sent to the member to join the network.</p>
@@ -93,7 +93,7 @@ export interface CreateNetworkInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>An optional description for the network.</p>
@@ -165,7 +165,7 @@ export interface CreateNodeInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>The unique identifier of the member that owns this node.</p>
@@ -213,7 +213,7 @@ export interface CreateProposalInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>A description for the proposal that is visible to voting members, for example, "Proposal to add Example Corp. as member."</p>

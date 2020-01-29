@@ -1695,7 +1695,7 @@ export interface CreateMultiplexProgramRequest {
    * Unique request ID. This prevents retries from creating multiple
    * resources.
    */
-  RequestId: string | undefined;
+  RequestId?: string;
 }
 
 export namespace CreateMultiplexProgramRequest {
@@ -1745,7 +1745,7 @@ export interface CreateMultiplexRequest {
    * Unique request ID. This prevents retries from creating multiple
    * resources.
    */
-  RequestId: string | undefined;
+  RequestId?: string;
 
   /**
    * A collection of key-value pairs.

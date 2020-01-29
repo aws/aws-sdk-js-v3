@@ -990,6 +990,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1AddTagsToResourceCommand(
   input: AddTagsToResourceCommandInput,
@@ -15567,6 +15568,9 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
   if (input.AllowUnassociatedTargets !== undefined) {
     bodyParams["AllowUnassociatedTargets"] = input.AllowUnassociatedTargets;
   }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -15671,6 +15675,9 @@ const serializeAws_json1_1CreatePatchBaselineRequest = (
   if (input.ApprovedPatchesEnableNonSecurity !== undefined) {
     bodyParams["ApprovedPatchesEnableNonSecurity"] =
       input.ApprovedPatchesEnableNonSecurity;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
@@ -15792,6 +15799,9 @@ const serializeAws_json1_1DeleteInventoryRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -18566,6 +18576,9 @@ const serializeAws_json1_1RegisterTargetWithMaintenanceWindowRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -18595,6 +18608,9 @@ const serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }

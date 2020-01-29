@@ -128,6 +128,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CreateClusterCommand(
   input: CreateClusterCommandInput,
@@ -138,6 +139,9 @@ export async function serializeAws_restJson1_1CreateClusterCommand(
   let resolvedPath = "/clusters";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -196,6 +200,9 @@ export async function serializeAws_restJson1_1CreateFargateProfileCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -253,6 +260,9 @@ export async function serializeAws_restJson1_1CreateNodegroupCommand(
   const bodyParams: any = {};
   if (input.amiType !== undefined) {
     bodyParams["amiType"] = input.amiType;
+  }
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
   }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
@@ -806,6 +816,9 @@ export async function serializeAws_restJson1_1UpdateClusterConfigCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -850,6 +863,9 @@ export async function serializeAws_restJson1_1UpdateClusterVersionCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -899,6 +915,9 @@ export async function serializeAws_restJson1_1UpdateNodegroupConfigCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -959,6 +978,9 @@ export async function serializeAws_restJson1_1UpdateNodegroupVersionCommand(
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

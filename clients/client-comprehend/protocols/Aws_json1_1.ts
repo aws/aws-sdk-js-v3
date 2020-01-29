@@ -382,6 +382,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1BatchDetectDominantLanguageCommand(
   input: BatchDetectDominantLanguageCommandInput,
@@ -6068,6 +6069,9 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -6119,6 +6123,9 @@ const serializeAws_json1_1CreateEndpointRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -6142,6 +6149,9 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -6908,6 +6918,9 @@ const serializeAws_json1_1StartDocumentClassificationJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -6949,6 +6962,9 @@ const serializeAws_json1_1StartDominantLanguageDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -6987,6 +7003,9 @@ const serializeAws_json1_1StartEntitiesDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -7031,6 +7050,9 @@ const serializeAws_json1_1StartKeyPhrasesDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -7072,6 +7094,9 @@ const serializeAws_json1_1StartSentimentDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -7113,6 +7138,9 @@ const serializeAws_json1_1StartTopicsDetectionJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

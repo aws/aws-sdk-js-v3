@@ -367,6 +367,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1BatchUpdateScheduleCommand(
   input: BatchUpdateScheduleCommandInput,
@@ -461,6 +462,9 @@ export async function serializeAws_restJson1_1CreateChannelCommand(
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
   }
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
+  }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
   }
@@ -519,6 +523,9 @@ export async function serializeAws_restJson1_1CreateInputCommand(
   }
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
+  }
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
   }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
@@ -610,6 +617,9 @@ export async function serializeAws_restJson1_1CreateMultiplexCommand(
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
   }
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
+  }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
   }
@@ -657,6 +667,9 @@ export async function serializeAws_restJson1_1CreateMultiplexProgramCommand(
   }
   if (input.ProgramName !== undefined) {
     bodyParams["programName"] = input.ProgramName;
+  }
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
   }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;
@@ -1446,6 +1459,9 @@ export async function serializeAws_restJson1_1PurchaseOfferingCommand(
   }
   if (input.Name !== undefined) {
     bodyParams["name"] = input.Name;
+  }
+  if (input.RequestId === undefined) {
+    input.RequestId = generateIdempotencyToken();
   }
   if (input.RequestId !== undefined) {
     bodyParams["requestId"] = input.RequestId;

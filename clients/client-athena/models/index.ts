@@ -257,7 +257,7 @@ export interface DeleteNamedQueryInput {
   /**
    * <p>The unique ID of the query to delete.</p>
    */
-  NamedQueryId: string | undefined;
+  NamedQueryId?: string;
 }
 
 export namespace DeleteNamedQueryInput {
@@ -1112,7 +1112,7 @@ export interface StopQueryExecutionInput {
   /**
    * <p>The unique ID of the query execution to stop.</p>
    */
-  QueryExecutionId: string | undefined;
+  QueryExecutionId?: string;
 }
 
 export namespace StopQueryExecutionInput {

@@ -12773,7 +12773,7 @@ export interface StartAuditMitigationActionsTaskRequest {
   /**
    * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
    */
-  clientRequestToken: string | undefined;
+  clientRequestToken?: string;
 
   /**
    * <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>

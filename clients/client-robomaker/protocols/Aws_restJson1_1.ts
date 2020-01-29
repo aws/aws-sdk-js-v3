@@ -196,6 +196,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1BatchDescribeSimulationJobCommand(
   input: BatchDescribeSimulationJobCommandInput,
@@ -275,6 +276,9 @@ export async function serializeAws_restJson1_1CreateDeploymentJobCommand(
   let resolvedPath = "/createDeploymentJob";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -522,6 +526,9 @@ export async function serializeAws_restJson1_1CreateSimulationJobCommand(
   let resolvedPath = "/createSimulationJob";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
@@ -1139,6 +1146,9 @@ export async function serializeAws_restJson1_1SyncDeploymentJobCommand(
   let resolvedPath = "/syncDeploymentJob";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

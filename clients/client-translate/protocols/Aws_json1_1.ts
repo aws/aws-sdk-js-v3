@@ -86,6 +86,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1DeleteTerminologyCommand(
   input: DeleteTerminologyCommandInput,
@@ -1343,6 +1344,9 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }

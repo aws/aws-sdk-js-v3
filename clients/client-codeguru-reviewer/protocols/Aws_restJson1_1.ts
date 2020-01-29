@@ -37,6 +37,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1AssociateRepositoryCommand(
   input: AssociateRepositoryCommandInput,
@@ -47,6 +48,9 @@ export async function serializeAws_restJson1_1AssociateRepositoryCommand(
   let resolvedPath = "/associations";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

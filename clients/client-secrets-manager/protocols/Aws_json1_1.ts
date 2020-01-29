@@ -132,6 +132,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1CancelRotateSecretCommand(
   input: CancelRotateSecretCommandInput,
@@ -2150,6 +2151,9 @@ const serializeAws_json1_1CreateSecretRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2326,6 +2330,9 @@ const serializeAws_json1_1PutSecretValueRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2363,6 +2370,9 @@ const serializeAws_json1_1RotateSecretRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2460,6 +2470,9 @@ const serializeAws_json1_1UpdateSecretRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

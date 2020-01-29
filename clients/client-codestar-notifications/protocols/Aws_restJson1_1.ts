@@ -78,6 +78,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CreateNotificationRuleCommand(
   input: CreateNotificationRuleCommandInput,
@@ -88,6 +89,9 @@ export async function serializeAws_restJson1_1CreateNotificationRuleCommand(
   let resolvedPath = "/createNotificationRule";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }

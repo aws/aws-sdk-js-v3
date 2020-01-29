@@ -252,6 +252,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1AcceptInvitationCommand(
   input: AcceptInvitationCommandInput,
@@ -332,6 +333,9 @@ export async function serializeAws_restJson1_1CreateDetectorCommand(
   let resolvedPath = "/detector";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
   }
@@ -375,6 +379,9 @@ export async function serializeAws_restJson1_1CreateFilterCommand(
   const bodyParams: any = {};
   if (input.Action !== undefined) {
     bodyParams["action"] = input.Action;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
@@ -428,6 +435,9 @@ export async function serializeAws_restJson1_1CreateIPSetCommand(
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
@@ -508,6 +518,9 @@ export async function serializeAws_restJson1_1CreatePublishingDestinationCommand
   }
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;
   }
@@ -588,6 +601,9 @@ export async function serializeAws_restJson1_1CreateThreatIntelSetCommand(
   const bodyParams: any = {};
   if (input.Activate !== undefined) {
     bodyParams["activate"] = input.Activate;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     bodyParams["clientToken"] = input.ClientToken;

@@ -115,6 +115,7 @@ import {
   XmlText as __XmlText
 } from "@aws-sdk/xml-builder";
 import { parse as pixlParse } from "pixl-xml";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restXmlCreateAccessPointCommand(
   input: CreateAccessPointCommandInput,
@@ -192,6 +193,9 @@ export async function serializeAws_restXmlCreateJobCommand(
     "xmlns",
     "http://awss3control.amazonaws.com/doc/2018-08-20/"
   );
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     const memberNode = new __XmlNode("NonEmptyMaxLength64String").addChildNode(
       new __XmlText(input.ClientRequestToken)

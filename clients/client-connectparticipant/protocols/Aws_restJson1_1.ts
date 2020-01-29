@@ -40,6 +40,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CreateParticipantConnectionCommand(
   input: CreateParticipantConnectionCommandInput,
@@ -82,6 +83,9 @@ export async function serializeAws_restJson1_1DisconnectParticipantCommand(
   let resolvedPath = "/participant/disconnect";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -152,6 +156,9 @@ export async function serializeAws_restJson1_1SendEventCommand(
   let resolvedPath = "/participant/event";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -184,6 +191,9 @@ export async function serializeAws_restJson1_1SendMessageCommand(
   let resolvedPath = "/participant/message";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }

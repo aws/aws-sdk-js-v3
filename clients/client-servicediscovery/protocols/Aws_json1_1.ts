@@ -164,6 +164,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1CreateHttpNamespaceCommand(
   input: CreateHttpNamespaceCommandInput,
@@ -2196,6 +2197,9 @@ const serializeAws_json1_1CreateHttpNamespaceRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
+  }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2213,6 +2217,9 @@ const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
+  }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2233,6 +2240,9 @@ const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
+  }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2250,6 +2260,9 @@ const serializeAws_json1_1CreateServiceRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
+  }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
@@ -2661,6 +2674,9 @@ const serializeAws_json1_1RegisterInstanceRequest = (
       input.Attributes,
       context
     );
+  }
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
   }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["CreatorRequestId"] = input.CreatorRequestId;

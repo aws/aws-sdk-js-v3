@@ -138,6 +138,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CreateAccessPointCommand(
   input: CreateAccessPointCommandInput,
@@ -148,6 +149,9 @@ export async function serializeAws_restJson1_1CreateAccessPointCommand(
   let resolvedPath = "/2015-02-01/access-points";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     bodyParams["ClientToken"] = input.ClientToken;
   }
@@ -189,6 +193,9 @@ export async function serializeAws_restJson1_1CreateFileSystemCommand(
   let resolvedPath = "/2015-02-01/file-systems";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.CreationToken === undefined) {
+    input.CreationToken = generateIdempotencyToken();
+  }
   if (input.CreationToken !== undefined) {
     bodyParams["CreationToken"] = input.CreationToken;
   }
