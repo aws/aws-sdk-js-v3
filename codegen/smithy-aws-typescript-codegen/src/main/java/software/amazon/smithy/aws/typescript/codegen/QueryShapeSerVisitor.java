@@ -140,6 +140,10 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         // Serialize every member of the structure if present.
         shape.getAllMembers().forEach((memberName, memberShape) -> {
             String inputLocation = "input." + memberName;
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
+
             writer.openBlock("if ($L !== undefined) {", "}", inputLocation,
                     () -> serializeNamedMember(context, memberName, memberShape, inputLocation));
         });
