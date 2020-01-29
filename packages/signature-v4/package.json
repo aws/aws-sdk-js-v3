@@ -19,7 +19,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/is-array-buffer": "^1.0.0-alpha.2",
-    "@aws-sdk/protocol-timestamp": "^1.0.0-alpha.4",
     "@aws-sdk/types": "^1.0.0-alpha.4",
     "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.2",
     "tslib": "^1.8.0"

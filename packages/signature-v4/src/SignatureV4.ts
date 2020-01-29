@@ -36,9 +36,9 @@ import {
   HeaderBag,
   HttpRequest
 } from "@aws-sdk/types";
-import { iso8601, toDate } from "@aws-sdk/protocol-timestamp";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { hasHeader } from "./hasHeader";
+import { toDate, iso8601 } from "./utilDate";
 
 export interface SignatureV4Init {
   /**
