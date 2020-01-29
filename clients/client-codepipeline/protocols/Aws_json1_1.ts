@@ -317,6 +317,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1AcknowledgeJobCommand(
   input: AcknowledgeJobCommandInput,
@@ -5345,6 +5346,9 @@ const serializeAws_json1_1StartPipelineExecutionInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.clientRequestToken === undefined) {
+    input.clientRequestToken = generateIdempotencyToken();
+  }
   if (input.clientRequestToken !== undefined) {
     bodyParams["clientRequestToken"] = input.clientRequestToken;
   }

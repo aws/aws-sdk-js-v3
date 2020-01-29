@@ -2818,6 +2818,7 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 import { parse as pixlParse } from "pixl-xml";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(
   input: AcceptReservedInstancesExchangeQuoteCommandInput,
@@ -31709,6 +31710,9 @@ const serializeAws_ec2AssociateClientVpnTargetNetworkRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -32014,6 +32018,9 @@ const serializeAws_ec2AuthorizeClientVpnIngressRequest = (
   }
   if (input.AuthorizeAllGroups !== undefined) {
     entries["AuthorizeAllGroups"] = input.AuthorizeAllGroups;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
   }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
@@ -32840,6 +32847,9 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
   if (input.ClientCidrBlock !== undefined) {
     entries["ClientCidrBlock"] = input.ClientCidrBlock;
   }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -32899,6 +32909,9 @@ const serializeAws_ec2CreateClientVpnRouteRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -33824,6 +33837,9 @@ const serializeAws_ec2CreateTrafficMirrorFilterRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -33851,6 +33867,9 @@ const serializeAws_ec2CreateTrafficMirrorFilterRuleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -33909,6 +33928,9 @@ const serializeAws_ec2CreateTrafficMirrorSessionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -33954,6 +33976,9 @@ const serializeAws_ec2CreateTrafficMirrorTargetRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -39661,6 +39686,9 @@ const serializeAws_ec2ExportImageRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -44387,6 +44415,9 @@ const serializeAws_ec2PurchaseScheduledInstancesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }
@@ -45962,6 +45993,9 @@ const serializeAws_ec2RunScheduledInstancesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
   if (input.ClientToken !== undefined) {
     entries["ClientToken"] = input.ClientToken;
   }

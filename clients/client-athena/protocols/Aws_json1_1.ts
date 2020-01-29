@@ -149,6 +149,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_json1_1BatchGetNamedQueryCommand(
   input: BatchGetNamedQueryCommandInput,
@@ -1855,6 +1856,9 @@ const serializeAws_json1_1CreateNamedQueryInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -1904,6 +1908,9 @@ const serializeAws_json1_1DeleteNamedQueryInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.NamedQueryId === undefined) {
+    input.NamedQueryId = generateIdempotencyToken();
+  }
   if (input.NamedQueryId !== undefined) {
     bodyParams["NamedQueryId"] = input.NamedQueryId;
   }
@@ -2128,6 +2135,9 @@ const serializeAws_json1_1StartQueryExecutionInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.ClientRequestToken === undefined) {
+    input.ClientRequestToken = generateIdempotencyToken();
+  }
   if (input.ClientRequestToken !== undefined) {
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
@@ -2159,6 +2169,9 @@ const serializeAws_json1_1StopQueryExecutionInput = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.QueryExecutionId === undefined) {
+    input.QueryExecutionId = generateIdempotencyToken();
+  }
   if (input.QueryExecutionId !== undefined) {
     bodyParams["QueryExecutionId"] = input.QueryExecutionId;
   }
