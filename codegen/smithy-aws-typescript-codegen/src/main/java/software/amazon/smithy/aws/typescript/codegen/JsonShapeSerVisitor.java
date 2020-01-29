@@ -97,9 +97,13 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     .map(JsonNameTrait::getValue)
                     .orElse(memberName);
             Shape target = context.getModel().expectShape(memberShape.getTarget());
+            String inputLocation = "input." + memberName;
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
             // Generate an if statement to set the bodyParam if the member is set.
-            writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
+            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
                 // Dispatch to the input value provider for any additional handling.
                 writer.write("bodyParams['$L'] = $L;", locationName,
                         target.accept(getMemberVisitor("input." + memberName)));

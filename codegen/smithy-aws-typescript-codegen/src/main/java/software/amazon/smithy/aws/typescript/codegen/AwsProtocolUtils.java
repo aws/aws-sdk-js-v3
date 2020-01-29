@@ -21,9 +21,11 @@ import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.UnsignedPayloadTrait;
 import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
 import software.amazon.smithy.model.neighbor.Walker;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
@@ -101,6 +103,12 @@ final class AwsProtocolUtils {
         writer.write("");
     }
 
+    /**
+     * Writes a response body parser function for XML protocols. This
+     * will parse a present body after converting it to utf-8.
+     *
+     * @param context The generation context.
+     */
     static void generateXmlParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
@@ -155,5 +163,41 @@ final class AwsProtocolUtils {
             }
             writer.write("$L.addAttribute($S, $S);", nodeName, xmlns, trait.getUri());
         });
+    }
+
+    /**
+     * Imports a UUID v4 generating function used for auto-filling idempotency tokens.
+     *
+     * @param context The generation context.
+     */
+    static void addItempotencyAutofillImport(GenerationContext context) {
+        context.getModel().shapes(MemberShape.class)
+                .filter(memberShape -> memberShape.hasTrait(IdempotencyTokenTrait.class))
+                .findFirst()
+                .ifPresent(memberShape -> {
+                    TypeScriptWriter writer = context.getWriter();
+
+                    // Include the uuid package and import the v4 function as our more clearly named alias.
+                    writer.addDependency(AwsDependency.UUID_GENERATOR);
+                    writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
+                    writer.addImport("v4", "generateIdempotencyToken", "uuid");
+                });
+    }
+
+    /**
+     * Writes a statement that auto-fills the value of a member that is an idempotency
+     * token if it is undefined at the time of serialization.
+     *
+     * @param context The generation context.
+     * @param memberShape The member that may be an idempotency token.
+     * @param inputLocation The location of input data for the member.
+     */
+    static void writeIdempotencyAutofill(GenerationContext context, MemberShape memberShape, String inputLocation) {
+        if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
+            TypeScriptWriter writer = context.getWriter();
+
+            writer.openBlock("if ($L === undefined) {", "}", inputLocation, () ->
+                    writer.write("$L = generateIdempotencyToken();", inputLocation));
+        }
     }
 }
