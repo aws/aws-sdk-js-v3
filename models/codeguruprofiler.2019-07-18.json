@@ -1,0 +1,933 @@
+{
+  "smithy": "0.4.0",
+  "aws.api": {
+    "shapes": {
+      "ArnNamespace": {
+        "type": "string",
+        "smithy.api#pattern": "^[a-z0-9.\\-]{1,63}$",
+        "smithy.api#private": true
+      },
+      "CloudFormationName": {
+        "type": "string",
+        "smithy.api#pattern": "^[A-Z][A-Za-z0-9]+$",
+        "smithy.api#private": true
+      },
+      "arn": {
+        "type": "structure",
+        "members": {
+          "absolute": {
+            "target": "smithy.api#Boolean"
+          },
+          "noAccount": {
+            "target": "smithy.api#Boolean"
+          },
+          "noRegion": {
+            "target": "smithy.api#Boolean"
+          },
+          "template": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Specifies an ARN template for the resource.",
+        "smithy.api#externalDocumentation": "https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html",
+        "smithy.api#trait": {
+          "selector": "resource"
+        }
+      },
+      "arnReference": {
+        "type": "structure",
+        "members": {
+          "resource": {
+            "target": "smithy.api#String"
+          },
+          "service": {
+            "target": "smithy.api#String"
+          },
+          "type": {
+            "target": "smithy.api#String"
+          }
+        },
+        "smithy.api#documentation": "Marks a string as containing an ARN.",
+        "smithy.api#trait": {
+          "selector": "string"
+        }
+      },
+      "service": {
+        "type": "structure",
+        "members": {
+          "arnNamespace": {
+            "target": "ArnNamespace"
+          },
+          "cloudFormationName": {
+            "target": "CloudFormationName"
+          },
+          "cloudTrailEventSource": {
+            "target": "smithy.api#String"
+          },
+          "sdkId": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#trait": {
+          "selector": "service"
+        }
+      }
+    }
+  },
+  "com.aws.skysail": {
+    "shapes": {
+      "AggregatedProfileTime": {
+        "type": "structure",
+        "members": {
+          "period": {
+            "target": "AggregationPeriod",
+            "smithy.api#documentation": "The aggregation period of the aggregated profile."
+          },
+          "start": {
+            "target": "Timestamp",
+            "smithy.api#documentation": "The start time of the aggregated profile."
+          }
+        },
+        "smithy.api#documentation": "The time range of an aggregated profile."
+      },
+      "AggregationPeriod": {
+        "type": "string",
+        "smithy.api#documentation": "Periods of time used for aggregation of profiles, represented using ISO 8601 format.",
+        "smithy.api#enum": {
+          "PT5M": {
+            "name": "PT5M",
+            "documentation": "Period of five minutes."
+          },
+          "PT1H": {
+            "name": "PT1H",
+            "documentation": "Period of one hour."
+          },
+          "P1D": {
+            "name": "P1D",
+            "documentation": "Period of one day."
+          }
+        }
+      },
+      "ClientToken": {
+        "type": "string",
+        "smithy.api#documentation": "Client token for the request.",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\w-]+$"
+      },
+      "ConflictException": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request can can cause an inconsistent state for the resource.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      },
+      "InternalServerException": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Unexpected error during processing of request.",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500,
+        "smithy.api#retryable": { }
+      },
+      "MaxResults": {
+        "type": "integer",
+        "smithy.api#box": true,
+        "smithy.api#documentation": "Upper bound on the number of results to list in a single call.",
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000
+        }
+      },
+      "OrderBy": {
+        "type": "string",
+        "smithy.api#enum": {
+          "TimestampDescending": {
+            "name": "TIMESTAMP_DESCENDING",
+            "documentation": "Order by timestamp in descending order."
+          },
+          "TimestampAscending": {
+            "name": "TIMESTAMP_ASCENDING",
+            "documentation": "Order by timestamp in ascending order."
+          }
+        }
+      },
+      "PaginationToken": {
+        "type": "string",
+        "smithy.api#documentation": "Token for paginating results.",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[\\w-]+$"
+      },
+      "Period": {
+        "type": "string",
+        "smithy.api#documentation": "Periods of time represented using [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Durations).",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        }
+      },
+      "ProfilingGroup": {
+        "type": "resource",
+        "identifiers": {
+          "profilingGroupName": "com.aws.skysail#ProfilingGroupName"
+        },
+        "put": "com.aws.skysail.profilinggroup#CreateProfilingGroup",
+        "read": "com.aws.skysail.profilinggroup#DescribeProfilingGroup",
+        "update": "com.aws.skysail.profilinggroup#UpdateProfilingGroup",
+        "delete": "com.aws.skysail.profilinggroup#DeleteProfilingGroup",
+        "list": "com.aws.skysail.profilinggroup#ListProfilingGroups",
+        "operations": [
+          "com.aws.skysail.agentconfiguration#ConfigureAgent",
+          "com.aws.skysail.retrieve#GetProfile",
+          "com.aws.skysail.retrieve#ListProfileTimes",
+          "com.aws.skysail.submit#PostAgentProfile"
+        ],
+        "aws.api#arn": {
+          "template": "profilingGroup/{profilingGroupName}",
+          "absolute": false,
+          "noAccount": false,
+          "noRegion": false
+        }
+      },
+      "ProfilingGroupName": {
+        "type": "string",
+        "smithy.api#documentation": "The name of the profiling group.",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[\\w-]+$"
+      },
+      "ResourceNotFoundException": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request references a resource which does not exist.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      },
+      "ServiceQuotaExceededException": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request would cause a service quota to be exceeded.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402,
+        "smithy.api#retryable": { }
+      },
+      "SkySail": {
+        "type": "service",
+        "version": "2019-07-18",
+        "resources": [
+          "com.aws.skysail#ProfilingGroup"
+        ],
+        "aws.api#service": {
+          "sdkId": "CodeGuruProfiler",
+          "arnNamespace": "codeguru-profiler",
+          "cloudFormationName": "CodeGuruProfiler",
+          "cloudTrailEventSource": "gamma-skysail.amazonaws.com"
+        },
+        "smithy.api#auth": [
+          "aws.v4"
+        ],
+        "smithy.api#cors": {
+          "additionalAllowedHeaders": [
+            "X-Amz-Content-Sha256",
+            "X-Amz-User-Agent",
+            "Content-Type"
+          ]
+        },
+        "smithy.api#documentation": "<p>Example service documentation.</p>",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon CodeGuru Profiler"
+      },
+      "ThrottlingException": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request was denied due to request throttling.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429,
+        "smithy.api#retryable": { }
+      },
+      "Timestamp": {
+        "type": "timestamp",
+        "smithy.api#timestampFormat": "date-time"
+      },
+      "ValidationException": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "The input fails to satisfy the constraints of the API.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    }
+  },
+  "com.aws.skysail.agentconfiguration": {
+    "shapes": {
+      "AgentConfiguration": {
+        "type": "structure",
+        "members": {
+          "periodInSeconds": {
+            "target": "smithy.api#Integer",
+            "smithy.api#documentation": "Specifies the period to follow the configuration (to profile or not) and call back to get a new configuration.",
+            "smithy.api#required": true
+          },
+          "shouldProfile": {
+            "target": "smithy.api#Boolean",
+            "smithy.api#documentation": "Specifies if the profiling should be enabled by the agent.",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "The configuration for the agent to use."
+      },
+      "ConfigureAgent": {
+        "type": "operation",
+        "input": "com.aws.skysail.agentconfiguration#ConfigureAgentRequest",
+        "output": "com.aws.skysail.agentconfiguration#ConfigureAgentResponse",
+        "errors": [
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ResourceNotFoundException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "Provides the configuration to use for an agent of the profiling group.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/profilingGroups/{profilingGroupName}/configureAgent",
+          "code": 200
+        }
+      },
+      "ConfigureAgentRequest": {
+        "type": "structure",
+        "members": {
+          "fleetInstanceId": {
+            "target": "FleetInstanceId"
+          },
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request for ConfigureAgent operation."
+      },
+      "ConfigureAgentResponse": {
+        "type": "structure",
+        "members": {
+          "configuration": {
+            "target": "AgentConfiguration",
+            "smithy.api#documentation": "The configuration for the agent to use.",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Response for ConfigureAgent operation."
+      },
+      "FleetInstanceId": {
+        "type": "string",
+        "smithy.api#documentation": "Identifier of the instance of  compute fleet being profiled by the agent. For instance, host name in EC2, task id for ECS, function name for AWS Lambda",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[\\w-.:/]+$"
+      }
+    }
+  },
+  "com.aws.skysail.profilinggroup": {
+    "shapes": {
+      "AgentOrchestrationConfig": {
+        "type": "structure",
+        "members": {
+          "profilingEnabled": {
+            "target": "smithy.api#Boolean",
+            "smithy.api#documentation": "If the agents should be enabled to create and report profiles.",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Configuration to orchestrate agents to create and report agent profiles of the profiling group.\n  Agents are orchestrated if they follow the agent orchestration protocol."
+      },
+      "CreateProfilingGroup": {
+        "type": "operation",
+        "input": "com.aws.skysail.profilinggroup#CreateProfilingGroupRequest",
+        "output": "com.aws.skysail.profilinggroup#CreateProfilingGroupResponse",
+        "errors": [
+          "com.aws.skysail#ConflictException",
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ServiceQuotaExceededException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "Create a profiling group.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/profilingGroups",
+          "code": 201
+        },
+        "smithy.api#idempotent": true
+      },
+      "CreateProfilingGroupRequest": {
+        "type": "structure",
+        "members": {
+          "agentOrchestrationConfig": {
+            "target": "AgentOrchestrationConfig"
+          },
+          "clientToken": {
+            "target": "com.aws.skysail#ClientToken",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": true,
+            "smithy.api#required": true
+          },
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request for CreateProfilingGroup operation."
+      },
+      "CreateProfilingGroupResponse": {
+        "type": "structure",
+        "members": {
+          "profilingGroup": {
+            "target": "ProfilingGroupDescription",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Response for CreateProfilingGroup operation."
+      },
+      "DeleteProfilingGroup": {
+        "type": "operation",
+        "input": "com.aws.skysail.profilinggroup#DeleteProfilingGroupRequest",
+        "output": "com.aws.skysail.profilinggroup#DeleteProfilingGroupResponse",
+        "errors": [
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ResourceNotFoundException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "Delete a profiling group.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/profilingGroups/{profilingGroupName}",
+          "code": 204
+        },
+        "smithy.api#idempotent": true
+      },
+      "DeleteProfilingGroupRequest": {
+        "type": "structure",
+        "members": {
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request for DeleteProfilingGroup operation."
+      },
+      "DeleteProfilingGroupResponse": {
+        "type": "structure",
+        "members": { },
+        "smithy.api#documentation": "Response for DeleteProfilingGroup operation."
+      },
+      "DescribeProfilingGroup": {
+        "type": "operation",
+        "input": "com.aws.skysail.profilinggroup#DescribeProfilingGroupRequest",
+        "output": "com.aws.skysail.profilinggroup#DescribeProfilingGroupResponse",
+        "errors": [
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ResourceNotFoundException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "Describe a profiling group.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/profilingGroups/{profilingGroupName}",
+          "code": 200
+        },
+        "smithy.api#readonly": true
+      },
+      "DescribeProfilingGroupRequest": {
+        "type": "structure",
+        "members": {
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request for DescribeProfilingGroup operation."
+      },
+      "DescribeProfilingGroupResponse": {
+        "type": "structure",
+        "members": {
+          "profilingGroup": {
+            "target": "ProfilingGroupDescription",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Response for DescribeProfilingGroup operation."
+      },
+      "ListProfilingGroups": {
+        "type": "operation",
+        "input": "com.aws.skysail.profilinggroup#ListProfilingGroupsRequest",
+        "output": "com.aws.skysail.profilinggroup#ListProfilingGroupsResponse",
+        "errors": [
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ThrottlingException"
+        ],
+        "smithy.api#documentation": "List profiling groups in the account.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/profilingGroups",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        },
+        "smithy.api#readonly": true
+      },
+      "ListProfilingGroupsRequest": {
+        "type": "structure",
+        "members": {
+          "includeDescription": {
+            "target": "smithy.api#Boolean",
+            "smithy.api#documentation": "If set to true, returns the full description of the profiling groups instead of the names. Defaults to false.",
+            "smithy.api#httpQuery": "includeDescription"
+          },
+          "maxResults": {
+            "target": "com.aws.skysail#MaxResults",
+            "smithy.api#httpQuery": "maxResults"
+          },
+          "nextToken": {
+            "target": "com.aws.skysail#PaginationToken",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "smithy.api#documentation": "Request for ListProfilingGroups operation."
+      },
+      "ListProfilingGroupsResponse": {
+        "type": "structure",
+        "members": {
+          "nextToken": {
+            "target": "com.aws.skysail#PaginationToken"
+          },
+          "profilingGroupNames": {
+            "target": "ProfilingGroupNames",
+            "smithy.api#required": true
+          },
+          "profilingGroups": {
+            "target": "ProfilingGroupDescriptions"
+          }
+        },
+        "smithy.api#documentation": "Response for ListProfilingGroups operation."
+      },
+      "ProfilingGroupArn": {
+        "type": "string",
+        "aws.api#arnReference": {
+          "type": "AWS::SkySail::ProfilingGroup",
+          "service": "com.aws.skysail#SkySail",
+          "resource": "com.aws.skysail#ProfilingGroup"
+        },
+        "smithy.api#documentation": "The ARN of the profiling group."
+      },
+      "ProfilingGroupDescription": {
+        "type": "structure",
+        "members": {
+          "agentOrchestrationConfig": {
+            "target": "AgentOrchestrationConfig"
+          },
+          "arn": {
+            "target": "ProfilingGroupArn"
+          },
+          "createdAt": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "The timestamp of when the profiling group was created."
+          },
+          "name": {
+            "target": "com.aws.skysail#ProfilingGroupName"
+          },
+          "profilingStatus": {
+            "target": "ProfilingStatus"
+          },
+          "updatedAt": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "The timestamp of when the profiling group was last updated."
+          }
+        },
+        "smithy.api#documentation": "The description of a profiling group."
+      },
+      "ProfilingGroupDescriptions": {
+        "type": "list",
+        "member": {
+          "target": "ProfilingGroupDescription"
+        },
+        "smithy.api#documentation": "List of profiling group descriptions."
+      },
+      "ProfilingGroupNames": {
+        "type": "list",
+        "member": {
+          "target": "com.aws.skysail#ProfilingGroupName"
+        },
+        "smithy.api#documentation": "List of profiling group names."
+      },
+      "ProfilingStatus": {
+        "type": "structure",
+        "members": {
+          "latestAgentOrchestratedAt": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "Timestamp of when the last interaction of the agent with configureAgent API for orchestration."
+          },
+          "latestAgentProfileReportedAt": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "Timestamp of when the latest agent profile was successfully reported."
+          },
+          "latestAggregatedProfile": {
+            "target": "com.aws.skysail#AggregatedProfileTime",
+            "smithy.api#documentation": "The time range of latest aggregated profile available."
+          }
+        },
+        "smithy.api#documentation": "The status of profiling of a profiling group."
+      },
+      "UpdateProfilingGroup": {
+        "type": "operation",
+        "input": "com.aws.skysail.profilinggroup#UpdateProfilingGroupRequest",
+        "output": "com.aws.skysail.profilinggroup#UpdateProfilingGroupResponse",
+        "errors": [
+          "com.aws.skysail#ConflictException",
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ResourceNotFoundException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "Update a profiling group.",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/profilingGroups/{profilingGroupName}",
+          "code": 200
+        },
+        "smithy.api#idempotent": true
+      },
+      "UpdateProfilingGroupRequest": {
+        "type": "structure",
+        "members": {
+          "agentOrchestrationConfig": {
+            "target": "AgentOrchestrationConfig",
+            "smithy.api#documentation": "Remote configuration to configure the agents of the profiling group.",
+            "smithy.api#required": true
+          },
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request for UpdateProfilingGroup operation."
+      },
+      "UpdateProfilingGroupResponse": {
+        "type": "structure",
+        "members": {
+          "profilingGroup": {
+            "target": "ProfilingGroupDescription",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Response for UpdateProfilingGroup operation."
+      }
+    }
+  },
+  "com.aws.skysail.retrieve": {
+    "shapes": {
+      "AggregatedProfile": {
+        "type": "blob",
+        "smithy.api#documentation": "The profile representing the aggregation of agent profiles of the profiling group for a time range."
+      },
+      "GetProfile": {
+        "type": "operation",
+        "input": "com.aws.skysail.retrieve#GetProfileRequest",
+        "output": "com.aws.skysail.retrieve#GetProfileResponse",
+        "errors": [
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ResourceNotFoundException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "Get the aggregated profile of a profiling group for the specified time range.\n  If the requested time range does not align with the available aggregated profiles, it will be expanded to attain alignment.\n  If aggregated profiles are available only for part of the period requested, the profile is returned from the earliest available to the latest within the requested time range.\n  For instance, if the requested time range is from 00:00 to 00:20 and the available profiles are from 00:15 to 00:25, then the returned profile will be from 00:15 to 00:20.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/profilingGroups/{profilingGroupName}/profile",
+          "code": 200
+        },
+        "smithy.api#readonly": true
+      },
+      "GetProfileRequest": {
+        "type": "structure",
+        "members": {
+          "accept": {
+            "target": "smithy.api#String",
+            "smithy.api#documentation": "The format of the profile to return. Supports application/json or application/x-amzn-ion.\n    Defaults to application/x-amzn-ion.",
+            "smithy.api#httpHeader": "Accept"
+          },
+          "endTime": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "The end time of the profile to get. Either period or endTime must be specified.\n    Must be greater than start and the overall time range to be in the past and not larger than a week.",
+            "smithy.api#httpQuery": "endTime"
+          },
+          "maxDepth": {
+            "target": "MaxDepth",
+            "smithy.api#httpQuery": "maxDepth"
+          },
+          "period": {
+            "target": "com.aws.skysail#Period",
+            "smithy.api#documentation": "The period of the profile to get. Exactly two of `startTime`, `period` and `endTime` must be specified.\n    Must be positive and the overall time range to be in the past and not larger than a week.",
+            "smithy.api#httpQuery": "period"
+          },
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          },
+          "startTime": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "The start time of the profile to get. ",
+            "smithy.api#httpQuery": "startTime"
+          }
+        },
+        "smithy.api#documentation": "Request for GetProfile operation."
+      },
+      "GetProfileResponse": {
+        "type": "structure",
+        "members": {
+          "contentEncoding": {
+            "target": "smithy.api#String",
+            "smithy.api#documentation": "The content encoding of the profile in the payload.",
+            "smithy.api#httpHeader": "Content-Encoding"
+          },
+          "contentType": {
+            "target": "smithy.api#String",
+            "smithy.api#documentation": "The content type of the profile in the payload.\n    Will be application/json or application/x-amzn-ion based on Accept header in the request.",
+            "smithy.api#httpHeader": "Content-Type",
+            "smithy.api#required": true
+          },
+          "profile": {
+            "target": "AggregatedProfile",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Response for GetProfile operation."
+      },
+      "ListProfileTimes": {
+        "type": "operation",
+        "input": "com.aws.skysail.retrieve#ListProfileTimesRequest",
+        "output": "com.aws.skysail.retrieve#ListProfileTimesResponse",
+        "errors": [
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ResourceNotFoundException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "List the start times of the available aggregated profiles of a profiling group for an aggregation period within the specified time range.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/profilingGroups/{profilingGroupName}/profileTimes",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "items": "profileTimes",
+          "pageSize": "maxResults"
+        },
+        "smithy.api#readonly": true
+      },
+      "ListProfileTimesRequest": {
+        "type": "structure",
+        "members": {
+          "endTime": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "The end time of the time range to list profiles until.",
+            "smithy.api#httpQuery": "endTime",
+            "smithy.api#required": true
+          },
+          "maxResults": {
+            "target": "com.aws.skysail#MaxResults",
+            "smithy.api#httpQuery": "maxResults"
+          },
+          "nextToken": {
+            "target": "com.aws.skysail#PaginationToken",
+            "smithy.api#httpQuery": "nextToken"
+          },
+          "orderBy": {
+            "target": "com.aws.skysail#OrderBy",
+            "smithy.api#documentation": "The order (ascending or descending by start time of the profile) to list the profiles by.\n    Defaults to TIMESTAMP_DESCENDING.",
+            "smithy.api#httpQuery": "orderBy"
+          },
+          "period": {
+            "target": "com.aws.skysail#AggregationPeriod",
+            "smithy.api#documentation": "The aggregation period to list the profiles for.",
+            "smithy.api#httpQuery": "period",
+            "smithy.api#required": true
+          },
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          },
+          "startTime": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "The start time of the time range to list the profiles from.",
+            "smithy.api#httpQuery": "startTime",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request for ListProfileTimes operation."
+      },
+      "ListProfileTimesResponse": {
+        "type": "structure",
+        "members": {
+          "nextToken": {
+            "target": "com.aws.skysail#PaginationToken"
+          },
+          "profileTimes": {
+            "target": "ProfileTimes",
+            "smithy.api#documentation": "List of start times of the available profiles for the aggregation period in the specified time range.",
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Response for ListProfileTimes operation."
+      },
+      "MaxDepth": {
+        "type": "integer",
+        "smithy.api#box": true,
+        "smithy.api#documentation": "Limit the max depth of the profile.",
+        "smithy.api#range": {
+          "min": 1,
+          "max": 10000
+        }
+      },
+      "ProfileTime": {
+        "type": "structure",
+        "members": {
+          "start": {
+            "target": "com.aws.skysail#Timestamp",
+            "smithy.api#documentation": "The start time of the profile."
+          }
+        },
+        "smithy.api#documentation": "Periods of time used for aggregation of profiles, represented using ISO 8601 format."
+      },
+      "ProfileTimes": {
+        "type": "list",
+        "member": {
+          "target": "ProfileTime"
+        },
+        "smithy.api#documentation": "List of profile times."
+      }
+    }
+  },
+  "com.aws.skysail.submit": {
+    "shapes": {
+      "AgentProfile": {
+        "type": "blob",
+        "smithy.api#documentation": "The profile collected by an agent for a time range."
+      },
+      "PostAgentProfile": {
+        "type": "operation",
+        "input": "com.aws.skysail.submit#PostAgentProfileRequest",
+        "output": "com.aws.skysail.submit#PostAgentProfileResponse",
+        "errors": [
+          "com.aws.skysail#InternalServerException",
+          "com.aws.skysail#ResourceNotFoundException",
+          "com.aws.skysail#ThrottlingException",
+          "com.aws.skysail#ValidationException"
+        ],
+        "smithy.api#documentation": "Submit profile collected by an agent belonging to a profiling group for aggregation.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/profilingGroups/{profilingGroupName}/agentProfile",
+          "code": 204
+        }
+      },
+      "PostAgentProfileRequest": {
+        "type": "structure",
+        "members": {
+          "agentProfile": {
+            "target": "AgentProfile",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true
+          },
+          "contentType": {
+            "target": "smithy.api#String",
+            "smithy.api#documentation": "The content type of the agent profile in the payload.\n    Recommended to send the profile gzipped with content-type application/octet-stream.\n    Other accepted values are application/x-amzn-ion and application/json for unzipped Ion and JSON respectively.",
+            "smithy.api#httpHeader": "Content-Type",
+            "smithy.api#required": true
+          },
+          "profileToken": {
+            "target": "com.aws.skysail#ClientToken",
+            "smithy.api#documentation": "Client generated token to deduplicate the agent profile during aggregation.",
+            "smithy.api#httpQuery": "profileToken",
+            "smithy.api#idempotencyToken": true
+          },
+          "profilingGroupName": {
+            "target": "com.aws.skysail#ProfilingGroupName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "smithy.api#documentation": "Request for PostAgentProfile operation."
+      },
+      "PostAgentProfileResponse": {
+        "type": "structure",
+        "members": { },
+        "smithy.api#documentation": "Response for PostAgentProfile operation."
+      }
+    }
+  }
+}
