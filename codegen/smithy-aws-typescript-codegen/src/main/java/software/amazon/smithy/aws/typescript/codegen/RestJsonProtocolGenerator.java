@@ -71,6 +71,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateJsonParseBody(context);
+        AwsProtocolUtils.addItempotencyAutofillImport(context);
     }
 
     @Override
@@ -90,19 +91,23 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         writer.write("const bodyParams: any = {};");
         for (HttpBinding binding : documentBindings) {
-            MemberShape member = binding.getMember();
+            MemberShape memberShape = binding.getMember();
             // The name of the member to get from the input shape.
-            String memberName = symbolProvider.toMemberName(member);
+            String memberName = symbolProvider.toMemberName(memberShape);
+            String inputLocation = "input." + memberName;
             // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = member.getTrait(JsonNameTrait.class)
+            String locationName = memberShape.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElseGet(binding::getLocationName);
-            Shape target = context.getModel().expectShape(member.getTarget());
+            Shape target = context.getModel().expectShape(memberShape.getTarget());
+
+            // Handle if the member is an idempotency token that should be auto-filled.
+            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
             // Generate an if statement to set the bodyParam if the member is set.
-            writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
+            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
                 writer.write("bodyParams['$L'] = $L;", locationName,
-                        target.accept(getMemberSerVisitor(context, "input." + memberName)));
+                        target.accept(getMemberSerVisitor(context, inputLocation)));
             });
         }
 
