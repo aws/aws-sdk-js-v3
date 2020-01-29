@@ -65,6 +65,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(
   input: DescribeSavingsPlansOfferingRatesCommandInput,
@@ -258,6 +259,9 @@ export async function serializeAws_restJson1_1CreateSavingsPlanCommand(
   let resolvedPath = "/CreateSavingsPlan";
   let body: any = {};
   const bodyParams: any = {};
+  if (input.clientToken === undefined) {
+    input.clientToken = generateIdempotencyToken();
+  }
   if (input.clientToken !== undefined) {
     bodyParams["clientToken"] = input.clientToken;
   }

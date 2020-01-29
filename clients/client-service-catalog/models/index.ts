@@ -978,7 +978,7 @@ export interface CopyProductInput {
    * <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request. </p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source product.</p>
@@ -1058,7 +1058,7 @@ export interface CreateConstraintInput {
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
@@ -1214,7 +1214,7 @@ export interface CreatePortfolioInput {
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The name of the portfolio provider.</p>
@@ -1344,7 +1344,7 @@ export interface CreateProductInput {
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The name of the product.</p>
@@ -1442,7 +1442,7 @@ export interface CreateProvisionedProductPlanInput {
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
@@ -1561,7 +1561,7 @@ export interface CreateProvisioningArtifactInput {
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The configuration for the provisioning artifact.</p>
@@ -1665,7 +1665,7 @@ export interface CreateServiceActionInput {
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The self-service action name.</p>
@@ -3109,7 +3109,7 @@ export interface ExecuteProvisionedProductPlanInput {
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The plan identifier.</p>
@@ -3161,7 +3161,7 @@ export interface ExecuteProvisionedProductServiceActionInput {
   /**
    * <p>An idempotency token that uniquely identifies the execute request.</p>
    */
-  ExecuteToken: string | undefined;
+  ExecuteToken?: string;
 
   Parameters?: { [key: string]: Array<string> };
   /**
@@ -4773,7 +4773,7 @@ export interface ProvisionProductInput {
   /**
    * <p>An idempotency token that uniquely identifies the provisioning request.</p>
    */
-  ProvisionToken: string | undefined;
+  ProvisionToken?: string;
 
   /**
    * <p>A user-friendly name for the provisioned product. This value must be
@@ -6638,7 +6638,7 @@ export interface TerminateProvisionedProductInput {
    *          subsequent requests to terminate the same provisioned product always return
    *          <b>ResourceNotFound</b>.</p>
    */
-  TerminateToken: string | undefined;
+  TerminateToken?: string;
 }
 
 export namespace TerminateProvisionedProductInput {
@@ -7010,7 +7010,7 @@ export interface UpdateProvisionedProductInput {
   /**
    * <p>The idempotency token that uniquely identifies the provisioning update request.</p>
    */
-  UpdateToken: string | undefined;
+  UpdateToken?: string;
 }
 
 export namespace UpdateProvisionedProductInput {
@@ -7057,7 +7057,7 @@ export interface UpdateProvisionedProductPropertiesInput {
   /**
    * <p>The idempotency token that uniquely identifies the provisioning product update request.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>The identifier of the provisioned product.</p>
