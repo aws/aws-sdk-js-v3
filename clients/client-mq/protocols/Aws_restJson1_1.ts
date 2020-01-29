@@ -125,6 +125,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export async function serializeAws_restJson1_1CreateBrokerCommand(
   input: CreateBrokerCommandInput,
@@ -146,6 +147,9 @@ export async function serializeAws_restJson1_1CreateBrokerCommand(
       input.Configuration,
       context
     );
+  }
+  if (input.CreatorRequestId === undefined) {
+    input.CreatorRequestId = generateIdempotencyToken();
   }
   if (input.CreatorRequestId !== undefined) {
     bodyParams["creatorRequestId"] = input.CreatorRequestId;

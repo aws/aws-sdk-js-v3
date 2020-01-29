@@ -98,7 +98,7 @@ export interface CreateJobRequest {
   /**
    * <p>An idempotency token to ensure that you don't accidentally submit the same request twice. You can use any string up to the maximum length.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is only required for jobs created through the Amazon S3 console.</p>

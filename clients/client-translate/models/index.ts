@@ -525,7 +525,7 @@ export interface StartTextTranslationJobRequest {
    *       information, see <a href="docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html#client-tokens">Client
    *         Tokens</a> in the EC2 User Guide.</p>
    */
-  ClientToken: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
