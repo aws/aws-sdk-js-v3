@@ -101,6 +101,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  HttpRequest as __HttpRequest,
   MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
@@ -251,19 +252,12 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 
   /**
-   * Browser only - chunked blobReader.
+   * Function that returns body checksums.
    */
-  blobReader?: any;
-
-  /**
-   * Node only - createReadStream.
-   */
-  createReadStream?: any;
-
-  /**
-   * Node only - chunked streamReader.
-   */
-  streamReader?: any;
+  bodyChecksumGenerator?: (
+    request: __HttpRequest,
+    options: { sha256: __HashConstructor; utf8Decoder: __Decoder }
+  ) => Promise<[string, string]>;
 }
 
 export type GlacierClientConfig = Partial<

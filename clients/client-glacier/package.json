@@ -26,6 +26,8 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-crypto/sha256-browser": "^0.1.0-preview.4",
+    "@aws-sdk/body-checksum-node": "^1.0.0-alpha.0",
+    "@aws-sdk/body-checksum-browser": "^1.0.0-alpha.0",
     "@aws-sdk/chunked-blob-reader": "^1.0.0-alpha.2",
     "@aws-sdk/chunked-stream-reader-node": "^1.0.0-alpha.2",
     "@aws-sdk/config-resolver": "^1.0.0-alpha.8",

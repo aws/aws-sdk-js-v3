@@ -1,17 +1,20 @@
 import { addGlacierApiVersionMiddleware } from "./add-glacier-api-version";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { commonConfig } from "./fixture";
 
 describe("addGlacierApiVersion", () => {
   const mockNextHandler = jest.fn();
+  const unusedDep = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   const config = {
-    ...commonConfig,
-    runtime: "node"
+    apiVersion: "1970-01-01",
+    bodyChecksumGenerator: unusedDep,
+    runtime: "node",
+    sha256: unusedDep,
+    utf8Decoder: unusedDep
   };
 
   it("sets the x-amz-glacier-version header", async () => {

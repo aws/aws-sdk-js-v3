@@ -6,7 +6,12 @@ import {
   addGlacierApiVersionMiddleware,
   addGlacierApiVersionMiddlewareOptions
 } from "./add-glacier-api-version";
-import { Decoder, HashConstructor, Pluggable } from "@aws-sdk/types";
+import {
+  Decoder,
+  HashConstructor,
+  HttpRequest,
+  Pluggable
+} from "@aws-sdk/types";
 import {
   addChecksumHeadersMiddleware,
   addChecksumHeadersMiddlewareOptions
@@ -16,22 +21,22 @@ export interface GlacierMiddlewareInputConfig {}
 
 interface PreviouslyResolved {
   apiVersion: string;
-  runtime: string;
   sha256: HashConstructor;
   utf8Decoder: Decoder;
-  createReadStream: any;
-  streamReader: any;
-  blobReader: any;
+  bodyChecksumGenerator: (
+    request: HttpRequest,
+    Options: { sha256: HashConstructor; utf8Decoder: Decoder }
+  ) => Promise<[string, string]>;
 }
 
 export interface ResolvedGlacierMiddlewareConfig {
   apiVersion: string;
-  runtime: string;
   sha256: HashConstructor;
   utf8Decoder: Decoder;
-  createReadStream: any;
-  streamReader: any;
-  blobReader: any;
+  bodyChecksumGenerator: (
+    request: HttpRequest,
+    Options: { sha256: HashConstructor; utf8Decoder: Decoder }
+  ) => Promise<[string, string]>;
 }
 
 export function resolveGlacierMiddlewareConfig<T>(

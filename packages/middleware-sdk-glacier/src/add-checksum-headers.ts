@@ -5,15 +5,9 @@ import {
   BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
-  Hash,
   MetadataBearer
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { TreeHash } from "@aws-sdk/sha256-tree-hash";
-import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
-import { toHex } from "@aws-sdk/util-hex-encoding";
-
-const MiB = 1024 * 1024;
 
 export function addChecksumHeadersMiddleware(
   options: ResolvedGlacierMiddlewareConfig
@@ -28,62 +22,19 @@ export function addChecksumHeadersMiddleware(
       let headers = request.headers;
       const body = request.body;
       if (body) {
-        const treeHash = !("x-amz-sha256-tree-hash" in headers)
-          ? new TreeHash(options.sha256, options.utf8Decoder)
-          : null;
-        const contentHash = !("x-amz-content-sha256" in headers)
-          ? new options.sha256()
-          : null;
-        if (
-          typeof body === "string" ||
-          ArrayBuffer.isView(body) ||
-          isArrayBuffer(body)
-        ) {
-          contentHash && contentHash.update(body);
-          treeHash && treeHash.update(body);
-        } else {
-          if (options.runtime === "node") {
-            if (typeof body.path !== "string") {
-              throw new Error(
-                "Unable to calculate checksums for non-file streams."
-              );
-            }
-            const bodyTee = options.createReadStream(body.path, {
-              start: (body as any).start,
-              end: (body as any).end
-            });
+        const [contentHash, treeHash] = await options.bodyChecksumGenerator(
+          request,
+          options
+        );
 
-            await options.streamReader(bodyTee, (chunk: any) => {
-              treeHash && treeHash.update(chunk);
-              contentHash && contentHash.update(chunk);
-            });
-          }
-
-          if (options.runtime === "browser") {
-            if (
-              Boolean(body) &&
-              Object.prototype.toString.call(body) === "[object Blob]"
-            ) {
-              await options.blobReader(
-                body,
-                (chunk: any) => {
-                  treeHash && treeHash.update(chunk);
-                  contentHash && contentHash.update(chunk);
-                },
-                MiB
-              );
-            }
-          }
-        }
-
-        for (const [headerName, hash] of <Array<[string, Hash]>>[
+        for (const [headerName, hash] of <Array<[string, string]>>[
           ["x-amz-content-sha256", contentHash],
           ["x-amz-sha256-tree-hash", treeHash]
         ]) {
-          if (hash) {
+          if (!(headerName in headers) && hash) {
             headers = {
               ...headers,
-              [headerName]: toHex(await hash.digest())
+              [headerName]: hash
             };
           }
         }
