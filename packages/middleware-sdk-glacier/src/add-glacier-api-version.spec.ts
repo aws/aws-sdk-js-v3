@@ -12,7 +12,6 @@ describe("addGlacierApiVersion", () => {
   const config = {
     apiVersion: "1970-01-01",
     bodyChecksumGenerator: unusedDep,
-    runtime: "node",
     sha256: unusedDep,
     utf8Decoder: unusedDep
   };
