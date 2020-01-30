@@ -12883,9 +12883,7 @@ const deserializeAws_restJson1_1Directory = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.DirectoryArn !== undefined) {
@@ -13333,11 +13331,7 @@ const deserializeAws_restJson1_1TypedAttributeValue = (
     contents.BooleanValue = output.BooleanValue;
   }
   if (output.DatetimeValue !== undefined) {
-    contents.DatetimeValue = new Date(
-      output.DatetimeValue % 1 != 0
-        ? Math.round(output.DatetimeValue * 1000)
-        : output.DatetimeValue
-    );
+    contents.DatetimeValue = new Date(Math.round(output.DatetimeValue * 1000));
   }
   if (output.NumberValue !== undefined) {
     contents.NumberValue = output.NumberValue;

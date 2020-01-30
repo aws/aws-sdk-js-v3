@@ -815,9 +815,7 @@ const deserializeAws_json1_0StreamDescription = (
   };
   if (output.CreationRequestDateTime !== undefined) {
     contents.CreationRequestDateTime = new Date(
-      output.CreationRequestDateTime % 1 != 0
-        ? Math.round(output.CreationRequestDateTime * 1000)
-        : output.CreationRequestDateTime
+      Math.round(output.CreationRequestDateTime * 1000)
     );
   }
   if (output.KeySchema !== undefined) {
@@ -878,9 +876,7 @@ const deserializeAws_json1_0StreamRecord = (
   };
   if (output.ApproximateCreationDateTime !== undefined) {
     contents.ApproximateCreationDateTime = new Date(
-      output.ApproximateCreationDateTime % 1 != 0
-        ? Math.round(output.ApproximateCreationDateTime * 1000)
-        : output.ApproximateCreationDateTime
+      Math.round(output.ApproximateCreationDateTime * 1000)
     );
   }
   if (output.Keys !== undefined) {

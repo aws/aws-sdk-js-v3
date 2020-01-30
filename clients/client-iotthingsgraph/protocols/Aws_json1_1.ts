@@ -4935,11 +4935,7 @@ const deserializeAws_json1_1GetUploadStatusResponse = (
     uploadStatus: undefined
   };
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.failureReason !== undefined) {
     contents.failureReason = deserializeAws_json1_1StringList(
@@ -5378,11 +5374,7 @@ const deserializeAws_json1_1EntityDescription = (
     contents.arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.definition !== undefined) {
     contents.definition = deserializeAws_json1_1DefinitionDocument(
@@ -5483,11 +5475,7 @@ const deserializeAws_json1_1FlowExecutionMessage = (
     contents.payload = output.payload;
   }
   if (output.timestamp !== undefined) {
-    contents.timestamp = new Date(
-      output.timestamp % 1 != 0
-        ? Math.round(output.timestamp * 1000)
-        : output.timestamp
-    );
+    contents.timestamp = new Date(Math.round(output.timestamp * 1000));
   }
   return contents;
 };
@@ -5524,11 +5512,7 @@ const deserializeAws_json1_1FlowExecutionSummary = (
     updatedAt: undefined
   };
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.flowExecutionId !== undefined) {
     contents.flowExecutionId = output.flowExecutionId;
@@ -5543,11 +5527,7 @@ const deserializeAws_json1_1FlowExecutionSummary = (
     contents.systemInstanceId = output.systemInstanceId;
   }
   if (output.updatedAt !== undefined) {
-    contents.updatedAt = new Date(
-      output.updatedAt % 1 != 0
-        ? Math.round(output.updatedAt * 1000)
-        : output.updatedAt
-    );
+    contents.updatedAt = new Date(Math.round(output.updatedAt * 1000));
   }
   return contents;
 };
@@ -5604,11 +5584,7 @@ const deserializeAws_json1_1FlowTemplateSummary = (
     contents.arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.id !== undefined) {
     contents.id = output.id;
@@ -5716,11 +5692,7 @@ const deserializeAws_json1_1SystemInstanceSummary = (
     contents.arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.greengrassGroupId !== undefined) {
     contents.greengrassGroupId = output.greengrassGroupId;
@@ -5741,11 +5713,7 @@ const deserializeAws_json1_1SystemInstanceSummary = (
     contents.target = output.target;
   }
   if (output.updatedAt !== undefined) {
-    contents.updatedAt = new Date(
-      output.updatedAt % 1 != 0
-        ? Math.round(output.updatedAt * 1000)
-        : output.updatedAt
-    );
+    contents.updatedAt = new Date(Math.round(output.updatedAt * 1000));
   }
   return contents;
 };
@@ -5802,11 +5770,7 @@ const deserializeAws_json1_1SystemTemplateSummary = (
     contents.arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.id !== undefined) {
     contents.id = output.id;

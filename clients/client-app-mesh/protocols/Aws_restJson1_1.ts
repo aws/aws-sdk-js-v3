@@ -5692,18 +5692,10 @@ const deserializeAws_restJson1_1ResourceMetadata = (
     contents.arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.lastUpdatedAt !== undefined) {
-    contents.lastUpdatedAt = new Date(
-      output.lastUpdatedAt % 1 != 0
-        ? Math.round(output.lastUpdatedAt * 1000)
-        : output.lastUpdatedAt
-    );
+    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
   if (output.uid !== undefined) {
     contents.uid = output.uid;

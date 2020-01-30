@@ -1132,9 +1132,7 @@ const deserializeAws_json1_1RegisterUsageResult = (
   };
   if (output.PublicKeyRotationTimestamp !== undefined) {
     contents.PublicKeyRotationTimestamp = new Date(
-      output.PublicKeyRotationTimestamp % 1 != 0
-        ? Math.round(output.PublicKeyRotationTimestamp * 1000)
-        : output.PublicKeyRotationTimestamp
+      Math.round(output.PublicKeyRotationTimestamp * 1000)
     );
   }
   if (output.Signature !== undefined) {
@@ -1210,11 +1208,7 @@ const deserializeAws_json1_1UsageRecord = (
     contents.Quantity = output.Quantity;
   }
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(
-      output.Timestamp % 1 != 0
-        ? Math.round(output.Timestamp * 1000)
-        : output.Timestamp
-    );
+    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
   return contents;
 };

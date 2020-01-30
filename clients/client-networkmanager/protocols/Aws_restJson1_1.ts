@@ -4070,11 +4070,7 @@ const deserializeAws_restJson1_1Device = (
     Vendor: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4141,11 +4137,7 @@ const deserializeAws_restJson1_1GlobalNetwork = (
     Tags: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4199,11 +4191,7 @@ const deserializeAws_restJson1_1Link = (
     );
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4317,11 +4305,7 @@ const deserializeAws_restJson1_1Site = (
     Tags: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;

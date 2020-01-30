@@ -247,11 +247,7 @@ export async function deserializeAws_restJson1_1ListChangedBlocksCommand(
     );
   }
   if (data.ExpiryTime !== undefined) {
-    contents.ExpiryTime = new Date(
-      data.ExpiryTime % 1 != 0
-        ? Math.round(data.ExpiryTime * 1000)
-        : data.ExpiryTime
-    );
+    contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -328,11 +324,7 @@ export async function deserializeAws_restJson1_1ListSnapshotBlocksCommand(
     contents.Blocks = deserializeAws_restJson1_1Blocks(data.Blocks, context);
   }
   if (data.ExpiryTime !== undefined) {
-    contents.ExpiryTime = new Date(
-      data.ExpiryTime % 1 != 0
-        ? Math.round(data.ExpiryTime * 1000)
-        : data.ExpiryTime
-    );
+    contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;

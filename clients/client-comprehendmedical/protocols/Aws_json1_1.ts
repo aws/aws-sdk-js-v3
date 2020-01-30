@@ -1954,17 +1954,11 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
     contents.DataAccessRoleArn = output.DataAccessRoleArn;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.ExpirationTime !== undefined) {
     contents.ExpirationTime = new Date(
-      output.ExpirationTime % 1 != 0
-        ? Math.round(output.ExpirationTime * 1000)
-        : output.ExpirationTime
+      Math.round(output.ExpirationTime * 1000)
     );
   }
   if (output.InputDataConfig !== undefined) {
@@ -2004,11 +1998,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
     );
   }
   if (output.SubmitTime !== undefined) {
-    contents.SubmitTime = new Date(
-      output.SubmitTime % 1 != 0
-        ? Math.round(output.SubmitTime * 1000)
-        : output.SubmitTime
-    );
+    contents.SubmitTime = new Date(Math.round(output.SubmitTime * 1000));
   }
   return contents;
 };

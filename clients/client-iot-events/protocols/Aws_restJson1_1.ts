@@ -2779,11 +2779,7 @@ const deserializeAws_restJson1_1DetectorModelConfiguration = (
     status: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.detectorModelArn !== undefined) {
     contents.detectorModelArn = output.detectorModelArn;
@@ -2805,9 +2801,7 @@ const deserializeAws_restJson1_1DetectorModelConfiguration = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.roleArn !== undefined) {
@@ -2857,11 +2851,7 @@ const deserializeAws_restJson1_1DetectorModelSummary = (
     detectorModelName: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.detectorModelDescription !== undefined) {
     contents.detectorModelDescription = output.detectorModelDescription;
@@ -2897,11 +2887,7 @@ const deserializeAws_restJson1_1DetectorModelVersionSummary = (
     status: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.detectorModelArn !== undefined) {
     contents.detectorModelArn = output.detectorModelArn;
@@ -2917,9 +2903,7 @@ const deserializeAws_restJson1_1DetectorModelVersionSummary = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.roleArn !== undefined) {
@@ -3021,11 +3005,7 @@ const deserializeAws_restJson1_1InputConfiguration = (
     status: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.inputArn !== undefined) {
     contents.inputArn = output.inputArn;
@@ -3038,9 +3018,7 @@ const deserializeAws_restJson1_1InputConfiguration = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.status !== undefined) {
@@ -3089,11 +3067,7 @@ const deserializeAws_restJson1_1InputSummary = (
     status: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.inputArn !== undefined) {
     contents.inputArn = output.inputArn;
@@ -3106,9 +3080,7 @@ const deserializeAws_restJson1_1InputSummary = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.status !== undefined) {

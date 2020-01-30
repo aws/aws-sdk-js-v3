@@ -1862,11 +1862,7 @@ const deserializeAws_json1_1EnvironmentMember = (
     contents.environmentId = output.environmentId;
   }
   if (output.lastAccess !== undefined) {
-    contents.lastAccess = new Date(
-      output.lastAccess % 1 != 0
-        ? Math.round(output.lastAccess * 1000)
-        : output.lastAccess
-    );
+    contents.lastAccess = new Date(Math.round(output.lastAccess * 1000));
   }
   if (output.permissions !== undefined) {
     contents.permissions = output.permissions;

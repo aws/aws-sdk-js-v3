@@ -17410,16 +17410,12 @@ const deserializeAws_json1_1AdminGetUserResponse = (
   }
   if (output.UserCreateDate !== undefined) {
     contents.UserCreateDate = new Date(
-      output.UserCreateDate % 1 != 0
-        ? Math.round(output.UserCreateDate * 1000)
-        : output.UserCreateDate
+      Math.round(output.UserCreateDate * 1000)
     );
   }
   if (output.UserLastModifiedDate !== undefined) {
     contents.UserLastModifiedDate = new Date(
-      output.UserLastModifiedDate % 1 != 0
-        ? Math.round(output.UserLastModifiedDate * 1000)
-        : output.UserLastModifiedDate
+      Math.round(output.UserLastModifiedDate * 1000)
     );
   }
   if (output.UserMFASettingList !== undefined) {
@@ -17779,11 +17775,7 @@ const deserializeAws_json1_1AuthEventType = (
     );
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.EventContextData !== undefined) {
     contents.EventContextData = deserializeAws_json1_1EventContextDataType(
@@ -18389,9 +18381,7 @@ const deserializeAws_json1_1DeviceType = (
   }
   if (output.DeviceCreateDate !== undefined) {
     contents.DeviceCreateDate = new Date(
-      output.DeviceCreateDate % 1 != 0
-        ? Math.round(output.DeviceCreateDate * 1000)
-        : output.DeviceCreateDate
+      Math.round(output.DeviceCreateDate * 1000)
     );
   }
   if (output.DeviceKey !== undefined) {
@@ -18399,16 +18389,12 @@ const deserializeAws_json1_1DeviceType = (
   }
   if (output.DeviceLastAuthenticatedDate !== undefined) {
     contents.DeviceLastAuthenticatedDate = new Date(
-      output.DeviceLastAuthenticatedDate % 1 != 0
-        ? Math.round(output.DeviceLastAuthenticatedDate * 1000)
-        : output.DeviceLastAuthenticatedDate
+      Math.round(output.DeviceLastAuthenticatedDate * 1000)
     );
   }
   if (output.DeviceLastModifiedDate !== undefined) {
     contents.DeviceLastModifiedDate = new Date(
-      output.DeviceLastModifiedDate % 1 != 0
-        ? Math.round(output.DeviceLastModifiedDate * 1000)
-        : output.DeviceLastModifiedDate
+      Math.round(output.DeviceLastModifiedDate * 1000)
     );
   }
   return contents;
@@ -18558,11 +18544,7 @@ const deserializeAws_json1_1EventFeedbackType = (
     Provider: undefined
   };
   if (output.FeedbackDate !== undefined) {
-    contents.FeedbackDate = new Date(
-      output.FeedbackDate % 1 != 0
-        ? Math.round(output.FeedbackDate * 1000)
-        : output.FeedbackDate
-    );
+    contents.FeedbackDate = new Date(Math.round(output.FeedbackDate * 1000));
   }
   if (output.FeedbackValue !== undefined) {
     contents.FeedbackValue = output.FeedbackValue;
@@ -18865,11 +18847,7 @@ const deserializeAws_json1_1GroupType = (
     UserPoolId: undefined
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -18879,9 +18857,7 @@ const deserializeAws_json1_1GroupType = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.Precedence !== undefined) {
@@ -18918,11 +18894,7 @@ const deserializeAws_json1_1IdentityProviderType = (
     );
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.IdpIdentifiers !== undefined) {
     contents.IdpIdentifiers = deserializeAws_json1_1IdpIdentifiersListType(
@@ -18932,9 +18904,7 @@ const deserializeAws_json1_1IdentityProviderType = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.ProviderDetails !== undefined) {
@@ -19658,17 +19628,11 @@ const deserializeAws_json1_1ProviderDescription = (
     ProviderType: undefined
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.ProviderName !== undefined) {
@@ -19885,9 +19849,7 @@ const deserializeAws_json1_1RiskConfigurationType = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.RiskExceptionConfiguration !== undefined) {
@@ -20302,20 +20264,14 @@ const deserializeAws_json1_1UICustomizationType = (
     contents.ClientId = output.ClientId;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.ImageUrl !== undefined) {
     contents.ImageUrl = output.ImageUrl;
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.UserPoolId !== undefined) {
@@ -20541,20 +20497,14 @@ const deserializeAws_json1_1UserImportJobType = (
   }
   if (output.CompletionDate !== undefined) {
     contents.CompletionDate = new Date(
-      output.CompletionDate % 1 != 0
-        ? Math.round(output.CompletionDate * 1000)
-        : output.CompletionDate
+      Math.round(output.CompletionDate * 1000)
     );
   }
   if (output.CompletionMessage !== undefined) {
     contents.CompletionMessage = output.CompletionMessage;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.FailedUsers !== undefined) {
     contents.FailedUsers = output.FailedUsers;
@@ -20575,11 +20525,7 @@ const deserializeAws_json1_1UserImportJobType = (
     contents.SkippedUsers = output.SkippedUsers;
   }
   if (output.StartDate !== undefined) {
-    contents.StartDate = new Date(
-      output.StartDate % 1 != 0
-        ? Math.round(output.StartDate * 1000)
-        : output.StartDate
-    );
+    contents.StartDate = new Date(Math.round(output.StartDate * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -20771,11 +20717,7 @@ const deserializeAws_json1_1UserPoolClientType = (
     contents.ClientSecret = output.ClientSecret;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.DefaultRedirectURI !== undefined) {
     contents.DefaultRedirectURI = output.DefaultRedirectURI;
@@ -20788,9 +20730,7 @@ const deserializeAws_json1_1UserPoolClientType = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.LogoutURLs !== undefined) {
@@ -20843,11 +20783,7 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
     Status: undefined
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -20860,9 +20796,7 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -20990,11 +20924,7 @@ const deserializeAws_json1_1UserPoolType = (
     );
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.CustomDomain !== undefined) {
     contents.CustomDomain = output.CustomDomain;
@@ -21037,9 +20967,7 @@ const deserializeAws_json1_1UserPoolType = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.MfaConfiguration !== undefined) {
@@ -21136,16 +21064,12 @@ const deserializeAws_json1_1UserType = (
   }
   if (output.UserCreateDate !== undefined) {
     contents.UserCreateDate = new Date(
-      output.UserCreateDate % 1 != 0
-        ? Math.round(output.UserCreateDate * 1000)
-        : output.UserCreateDate
+      Math.round(output.UserCreateDate * 1000)
     );
   }
   if (output.UserLastModifiedDate !== undefined) {
     contents.UserLastModifiedDate = new Date(
-      output.UserLastModifiedDate % 1 != 0
-        ? Math.round(output.UserLastModifiedDate * 1000)
-        : output.UserLastModifiedDate
+      Math.round(output.UserLastModifiedDate * 1000)
     );
   }
   if (output.UserStatus !== undefined) {

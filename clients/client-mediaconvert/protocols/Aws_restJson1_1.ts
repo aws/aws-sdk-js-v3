@@ -10191,11 +10191,7 @@ const deserializeAws_restJson1_1Job = (
     contents.BillingTagsSource = output.billingTagsSource;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.currentPhase !== undefined) {
     contents.CurrentPhase = output.currentPhase;
@@ -10392,21 +10388,13 @@ const deserializeAws_restJson1_1JobTemplate = (
     contents.Category = output.category;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.description !== undefined) {
     contents.Description = output.description;
   }
   if (output.lastUpdated !== undefined) {
-    contents.LastUpdated = new Date(
-      output.lastUpdated % 1 != 0
-        ? Math.round(output.lastUpdated * 1000)
-        : output.lastUpdated
-    );
+    contents.LastUpdated = new Date(Math.round(output.lastUpdated * 1000));
   }
   if (output.name !== undefined) {
     contents.Name = output.name;
@@ -11539,21 +11527,13 @@ const deserializeAws_restJson1_1Preset = (
     contents.Category = output.category;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.description !== undefined) {
     contents.Description = output.description;
   }
   if (output.lastUpdated !== undefined) {
-    contents.LastUpdated = new Date(
-      output.lastUpdated % 1 != 0
-        ? Math.round(output.lastUpdated * 1000)
-        : output.lastUpdated
-    );
+    contents.LastUpdated = new Date(Math.round(output.lastUpdated * 1000));
   }
   if (output.name !== undefined) {
     contents.Name = output.name;
@@ -11684,21 +11664,13 @@ const deserializeAws_restJson1_1Queue = (
     contents.Arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.description !== undefined) {
     contents.Description = output.description;
   }
   if (output.lastUpdated !== undefined) {
-    contents.LastUpdated = new Date(
-      output.lastUpdated % 1 != 0
-        ? Math.round(output.lastUpdated * 1000)
-        : output.lastUpdated
-    );
+    contents.LastUpdated = new Date(Math.round(output.lastUpdated * 1000));
   }
   if (output.name !== undefined) {
     contents.Name = output.name;
@@ -11795,18 +11767,10 @@ const deserializeAws_restJson1_1ReservationPlan = (
     contents.Commitment = output.commitment;
   }
   if (output.expiresAt !== undefined) {
-    contents.ExpiresAt = new Date(
-      output.expiresAt % 1 != 0
-        ? Math.round(output.expiresAt * 1000)
-        : output.expiresAt
-    );
+    contents.ExpiresAt = new Date(Math.round(output.expiresAt * 1000));
   }
   if (output.purchasedAt !== undefined) {
-    contents.PurchasedAt = new Date(
-      output.purchasedAt % 1 != 0
-        ? Math.round(output.purchasedAt * 1000)
-        : output.purchasedAt
-    );
+    contents.PurchasedAt = new Date(Math.round(output.purchasedAt * 1000));
   }
   if (output.renewalType !== undefined) {
     contents.RenewalType = output.renewalType;
@@ -12113,25 +12077,13 @@ const deserializeAws_restJson1_1Timing = (
     SubmitTime: undefined
   };
   if (output.finishTime !== undefined) {
-    contents.FinishTime = new Date(
-      output.finishTime % 1 != 0
-        ? Math.round(output.finishTime * 1000)
-        : output.finishTime
-    );
+    contents.FinishTime = new Date(Math.round(output.finishTime * 1000));
   }
   if (output.startTime !== undefined) {
-    contents.StartTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.StartTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.submitTime !== undefined) {
-    contents.SubmitTime = new Date(
-      output.submitTime % 1 != 0
-        ? Math.round(output.submitTime * 1000)
-        : output.submitTime
-    );
+    contents.SubmitTime = new Date(Math.round(output.submitTime * 1000));
   }
   return contents;
 };

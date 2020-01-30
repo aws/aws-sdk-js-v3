@@ -803,11 +803,7 @@ const deserializeAws_json1_1ConnectionState = (
     status: undefined
   };
   if (output.lastUpdatedAt !== undefined) {
-    contents.lastUpdatedAt = new Date(
-      output.lastUpdatedAt % 1 != 0
-        ? Math.round(output.lastUpdatedAt * 1000)
-        : output.lastUpdatedAt
-    );
+    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -1016,11 +1012,7 @@ const deserializeAws_json1_1Tunnel = (
     tunnelId: undefined
   };
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -1038,11 +1030,7 @@ const deserializeAws_json1_1Tunnel = (
     );
   }
   if (output.lastUpdatedAt !== undefined) {
-    contents.lastUpdatedAt = new Date(
-      output.lastUpdatedAt % 1 != 0
-        ? Math.round(output.lastUpdatedAt * 1000)
-        : output.lastUpdatedAt
-    );
+    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
   if (output.sourceConnectionState !== undefined) {
     contents.sourceConnectionState = deserializeAws_json1_1ConnectionState(
@@ -1085,21 +1073,13 @@ const deserializeAws_json1_1TunnelSummary = (
     tunnelId: undefined
   };
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.lastUpdatedAt !== undefined) {
-    contents.lastUpdatedAt = new Date(
-      output.lastUpdatedAt % 1 != 0
-        ? Math.round(output.lastUpdatedAt * 1000)
-        : output.lastUpdatedAt
-    );
+    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
   }
   if (output.status !== undefined) {
     contents.status = output.status;

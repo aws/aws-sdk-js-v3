@@ -850,16 +850,12 @@ const deserializeAws_restJson1_1Fragment = (
   }
   if (output.ProducerTimestamp !== undefined) {
     contents.ProducerTimestamp = new Date(
-      output.ProducerTimestamp % 1 != 0
-        ? Math.round(output.ProducerTimestamp * 1000)
-        : output.ProducerTimestamp
+      Math.round(output.ProducerTimestamp * 1000)
     );
   }
   if (output.ServerTimestamp !== undefined) {
     contents.ServerTimestamp = new Date(
-      output.ServerTimestamp % 1 != 0
-        ? Math.round(output.ServerTimestamp * 1000)
-        : output.ServerTimestamp
+      Math.round(output.ServerTimestamp * 1000)
     );
   }
   return contents;

@@ -7485,11 +7485,7 @@ export async function deserializeAws_restJson1_1CreateApiKeyCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.customerId !== undefined) {
     contents.customerId = data.customerId;
@@ -7505,9 +7501,7 @@ export async function deserializeAws_restJson1_1CreateApiKeyCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -7835,11 +7829,7 @@ export async function deserializeAws_restJson1_1CreateDeploymentCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -8043,11 +8033,7 @@ export async function deserializeAws_restJson1_1CreateDocumentationVersionComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -8163,9 +8149,7 @@ export async function deserializeAws_restJson1_1CreateDomainNameCommand(
   }
   if (data.certificateUploadDate !== undefined) {
     contents.certificateUploadDate = new Date(
-      data.certificateUploadDate % 1 != 0
-        ? Math.round(data.certificateUploadDate * 1000)
-        : data.certificateUploadDate
+      Math.round(data.certificateUploadDate * 1000)
     );
   }
   if (data.distributionDomainName !== undefined) {
@@ -8604,11 +8588,7 @@ export async function deserializeAws_restJson1_1CreateRestApiCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -8756,11 +8736,7 @@ export async function deserializeAws_restJson1_1CreateStageCommand(
     contents.clientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.deploymentId !== undefined) {
     contents.deploymentId = data.deploymentId;
@@ -8773,9 +8749,7 @@ export async function deserializeAws_restJson1_1CreateStageCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.methodSettings !== undefined) {
@@ -10857,21 +10831,13 @@ export async function deserializeAws_restJson1_1GenerateClientCertificateCommand
     contents.clientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
   }
   if (data.expirationDate !== undefined) {
-    contents.expirationDate = new Date(
-      data.expirationDate % 1 != 0
-        ? Math.round(data.expirationDate * 1000)
-        : data.expirationDate
-    );
+    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
   }
   if (data.pemEncodedCertificate !== undefined) {
     contents.pemEncodedCertificate = data.pemEncodedCertificate;
@@ -11037,11 +11003,7 @@ export async function deserializeAws_restJson1_1GetApiKeyCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.customerId !== undefined) {
     contents.customerId = data.customerId;
@@ -11057,9 +11019,7 @@ export async function deserializeAws_restJson1_1GetApiKeyCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -11567,21 +11527,13 @@ export async function deserializeAws_restJson1_1GetClientCertificateCommand(
     contents.clientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
   }
   if (data.expirationDate !== undefined) {
-    contents.expirationDate = new Date(
-      data.expirationDate % 1 != 0
-        ? Math.round(data.expirationDate * 1000)
-        : data.expirationDate
-    );
+    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
   }
   if (data.pemEncodedCertificate !== undefined) {
     contents.pemEncodedCertificate = data.pemEncodedCertificate;
@@ -11739,11 +11691,7 @@ export async function deserializeAws_restJson1_1GetDeploymentCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -12069,11 +12017,7 @@ export async function deserializeAws_restJson1_1GetDocumentationVersionCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -12247,9 +12191,7 @@ export async function deserializeAws_restJson1_1GetDomainNameCommand(
   }
   if (data.certificateUploadDate !== undefined) {
     contents.certificateUploadDate = new Date(
-      data.certificateUploadDate % 1 != 0
-        ? Math.round(data.certificateUploadDate * 1000)
-        : data.certificateUploadDate
+      Math.round(data.certificateUploadDate * 1000)
     );
   }
   if (data.distributionDomainName !== undefined) {
@@ -13697,11 +13639,7 @@ export async function deserializeAws_restJson1_1GetRestApiCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -14140,11 +14078,7 @@ export async function deserializeAws_restJson1_1GetStageCommand(
     contents.clientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.deploymentId !== undefined) {
     contents.deploymentId = data.deploymentId;
@@ -14157,9 +14091,7 @@ export async function deserializeAws_restJson1_1GetStageCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.methodSettings !== undefined) {
@@ -15226,11 +15158,7 @@ export async function deserializeAws_restJson1_1ImportRestApiCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -15970,11 +15898,7 @@ export async function deserializeAws_restJson1_1PutRestApiCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -16554,11 +16478,7 @@ export async function deserializeAws_restJson1_1UpdateApiKeyCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.customerId !== undefined) {
     contents.customerId = data.customerId;
@@ -16574,9 +16494,7 @@ export async function deserializeAws_restJson1_1UpdateApiKeyCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -16889,21 +16807,13 @@ export async function deserializeAws_restJson1_1UpdateClientCertificateCommand(
     contents.clientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
   }
   if (data.expirationDate !== undefined) {
-    contents.expirationDate = new Date(
-      data.expirationDate % 1 != 0
-        ? Math.round(data.expirationDate * 1000)
-        : data.expirationDate
-    );
+    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
   }
   if (data.pemEncodedCertificate !== undefined) {
     contents.pemEncodedCertificate = data.pemEncodedCertificate;
@@ -16996,11 +16906,7 @@ export async function deserializeAws_restJson1_1UpdateDeploymentCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -17190,11 +17096,7 @@ export async function deserializeAws_restJson1_1UpdateDocumentationVersionComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -17303,9 +17205,7 @@ export async function deserializeAws_restJson1_1UpdateDomainNameCommand(
   }
   if (data.certificateUploadDate !== undefined) {
     contents.certificateUploadDate = new Date(
-      data.certificateUploadDate % 1 != 0
-        ? Math.round(data.certificateUploadDate * 1000)
-        : data.certificateUploadDate
+      Math.round(data.certificateUploadDate * 1000)
     );
   }
   if (data.distributionDomainName !== undefined) {
@@ -18314,11 +18214,7 @@ export async function deserializeAws_restJson1_1UpdateRestApiCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -18473,11 +18369,7 @@ export async function deserializeAws_restJson1_1UpdateStageCommand(
     contents.clientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.deploymentId !== undefined) {
     contents.deploymentId = data.deploymentId;
@@ -18490,9 +18382,7 @@ export async function deserializeAws_restJson1_1UpdateStageCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.methodSettings !== undefined) {
@@ -19353,11 +19243,7 @@ const deserializeAws_restJson1_1ApiKey = (
     value: undefined
   };
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.customerId !== undefined) {
     contents.customerId = output.customerId;
@@ -19373,9 +19259,7 @@ const deserializeAws_restJson1_1ApiKey = (
   }
   if (output.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      output.lastUpdatedDate % 1 != 0
-        ? Math.round(output.lastUpdatedDate * 1000)
-        : output.lastUpdatedDate
+      Math.round(output.lastUpdatedDate * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -19545,20 +19429,14 @@ const deserializeAws_restJson1_1ClientCertificate = (
     contents.clientCertificateId = output.clientCertificateId;
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.expirationDate !== undefined) {
     contents.expirationDate = new Date(
-      output.expirationDate % 1 != 0
-        ? Math.round(output.expirationDate * 1000)
-        : output.expirationDate
+      Math.round(output.expirationDate * 1000)
     );
   }
   if (output.pemEncodedCertificate !== undefined) {
@@ -19591,11 +19469,7 @@ const deserializeAws_restJson1_1Deployment = (
     );
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -19672,11 +19546,7 @@ const deserializeAws_restJson1_1DocumentationVersion = (
     version: undefined
   };
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -19717,9 +19587,7 @@ const deserializeAws_restJson1_1DomainName = (
   }
   if (output.certificateUploadDate !== undefined) {
     contents.certificateUploadDate = new Date(
-      output.certificateUploadDate % 1 != 0
-        ? Math.round(output.certificateUploadDate * 1000)
-        : output.certificateUploadDate
+      Math.round(output.certificateUploadDate * 1000)
     );
   }
   if (output.distributionDomainName !== undefined) {
@@ -20603,11 +20471,7 @@ const deserializeAws_restJson1_1RestApi = (
     );
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -20756,11 +20620,7 @@ const deserializeAws_restJson1_1Stage = (
     contents.clientCertificateId = output.clientCertificateId;
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.deploymentId !== undefined) {
     contents.deploymentId = output.deploymentId;
@@ -20773,9 +20633,7 @@ const deserializeAws_restJson1_1Stage = (
   }
   if (output.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      output.lastUpdatedDate % 1 != 0
-        ? Math.round(output.lastUpdatedDate * 1000)
-        : output.lastUpdatedDate
+      Math.round(output.lastUpdatedDate * 1000)
     );
   }
   if (output.methodSettings !== undefined) {
