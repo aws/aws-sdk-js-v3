@@ -119,7 +119,7 @@ final class AwsProtocolUtils {
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => {", "};", () -> {
             writer.openBlock("return collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                 writer.openBlock("if (encoded.length) {", "}", () -> {
-                    writer.write("const parsedObj = xmlParse(encoded);");
+                    writer.write("const parsedObj = xmlParse(encoded, { parseNodeValue: false });");
                     writer.write("return parsedObj[Object.keys(parsedObj)[0]];");
                 });
                 writer.write("return {};");
