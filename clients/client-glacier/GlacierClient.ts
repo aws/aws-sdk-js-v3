@@ -101,6 +101,7 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  HttpRequest as __HttpRequest,
   MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
@@ -249,6 +250,14 @@ export interface ClientDefaults
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * Function that returns body checksums.
+   */
+  bodyChecksumGenerator?: (
+    request: __HttpRequest,
+    options: { sha256: __HashConstructor; utf8Decoder: __Decoder }
+  ) => Promise<[string, string]>;
 }
 
 export type GlacierClientConfig = Partial<
