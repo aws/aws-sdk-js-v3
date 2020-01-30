@@ -4939,11 +4939,7 @@ const deserializeAws_restJson1_1App = (
     contents.buildSpec = output.buildSpec;
   }
   if (output.createTime !== undefined) {
-    contents.createTime = new Date(
-      output.createTime % 1 != 0
-        ? Math.round(output.createTime * 1000)
-        : output.createTime
-    );
+    contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
   if (output.customRules !== undefined) {
     contents.customRules = deserializeAws_restJson1_1CustomRules(
@@ -4994,11 +4990,7 @@ const deserializeAws_restJson1_1App = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   if (output.updateTime !== undefined) {
-    contents.updateTime = new Date(
-      output.updateTime % 1 != 0
-        ? Math.round(output.updateTime * 1000)
-        : output.updateTime
-    );
+    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
   }
   return contents;
 };
@@ -5119,11 +5111,7 @@ const deserializeAws_restJson1_1BackendEnvironment = (
     contents.backendEnvironmentArn = output.backendEnvironmentArn;
   }
   if (output.createTime !== undefined) {
-    contents.createTime = new Date(
-      output.createTime % 1 != 0
-        ? Math.round(output.createTime * 1000)
-        : output.createTime
-    );
+    contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
   if (output.deploymentArtifacts !== undefined) {
     contents.deploymentArtifacts = output.deploymentArtifacts;
@@ -5135,11 +5123,7 @@ const deserializeAws_restJson1_1BackendEnvironment = (
     contents.stackName = output.stackName;
   }
   if (output.updateTime !== undefined) {
-    contents.updateTime = new Date(
-      output.updateTime % 1 != 0
-        ? Math.round(output.updateTime * 1000)
-        : output.updateTime
-    );
+    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
   }
   return contents;
 };
@@ -5211,11 +5195,7 @@ const deserializeAws_restJson1_1Branch = (
     contents.buildSpec = output.buildSpec;
   }
   if (output.createTime !== undefined) {
-    contents.createTime = new Date(
-      output.createTime % 1 != 0
-        ? Math.round(output.createTime * 1000)
-        : output.createTime
-    );
+    contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
   if (output.customDomains !== undefined) {
     contents.customDomains = deserializeAws_restJson1_1CustomDomains(
@@ -5275,11 +5255,7 @@ const deserializeAws_restJson1_1Branch = (
     contents.ttl = output.ttl;
   }
   if (output.updateTime !== undefined) {
-    contents.updateTime = new Date(
-      output.updateTime % 1 != 0
-        ? Math.round(output.updateTime * 1000)
-        : output.updateTime
-    );
+    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
   }
   return contents;
 };
@@ -5461,18 +5437,10 @@ const deserializeAws_restJson1_1JobSummary = (
     contents.commitMessage = output.commitMessage;
   }
   if (output.commitTime !== undefined) {
-    contents.commitTime = new Date(
-      output.commitTime % 1 != 0
-        ? Math.round(output.commitTime * 1000)
-        : output.commitTime
-    );
+    contents.commitTime = new Date(Math.round(output.commitTime * 1000));
   }
   if (output.endTime !== undefined) {
-    contents.endTime = new Date(
-      output.endTime % 1 != 0
-        ? Math.round(output.endTime * 1000)
-        : output.endTime
-    );
+    contents.endTime = new Date(Math.round(output.endTime * 1000));
   }
   if (output.jobArn !== undefined) {
     contents.jobArn = output.jobArn;
@@ -5484,11 +5452,7 @@ const deserializeAws_restJson1_1JobSummary = (
     contents.jobType = output.jobType;
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -5512,9 +5476,7 @@ const deserializeAws_restJson1_1ProductionBranch = (
   }
   if (output.lastDeployTime !== undefined) {
     contents.lastDeployTime = new Date(
-      output.lastDeployTime % 1 != 0
-        ? Math.round(output.lastDeployTime * 1000)
-        : output.lastDeployTime
+      Math.round(output.lastDeployTime * 1000)
     );
   }
   if (output.status !== undefined) {
@@ -5562,11 +5524,7 @@ const deserializeAws_restJson1_1Step = (
     contents.context = output.context;
   }
   if (output.endTime !== undefined) {
-    contents.endTime = new Date(
-      output.endTime % 1 != 0
-        ? Math.round(output.endTime * 1000)
-        : output.endTime
-    );
+    contents.endTime = new Date(Math.round(output.endTime * 1000));
   }
   if (output.logUrl !== undefined) {
     contents.logUrl = output.logUrl;
@@ -5578,11 +5536,7 @@ const deserializeAws_restJson1_1Step = (
     );
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -5692,21 +5646,13 @@ const deserializeAws_restJson1_1Webhook = (
     contents.branchName = output.branchName;
   }
   if (output.createTime !== undefined) {
-    contents.createTime = new Date(
-      output.createTime % 1 != 0
-        ? Math.round(output.createTime * 1000)
-        : output.createTime
-    );
+    contents.createTime = new Date(Math.round(output.createTime * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.updateTime !== undefined) {
-    contents.updateTime = new Date(
-      output.updateTime % 1 != 0
-        ? Math.round(output.updateTime * 1000)
-        : output.updateTime
-    );
+    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
   }
   if (output.webhookArn !== undefined) {
     contents.webhookArn = output.webhookArn;

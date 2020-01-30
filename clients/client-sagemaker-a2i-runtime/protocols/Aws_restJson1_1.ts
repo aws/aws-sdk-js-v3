@@ -292,9 +292,7 @@ export async function deserializeAws_restJson1_1DescribeHumanLoopCommand(
   const data: any = await parseBody(output.body, context);
   if (data.CreationTimestamp !== undefined) {
     contents.CreationTimestamp = new Date(
-      data.CreationTimestamp % 1 != 0
-        ? Math.round(data.CreationTimestamp * 1000)
-        : data.CreationTimestamp
+      Math.round(data.CreationTimestamp * 1000)
     );
   }
   if (data.FailureCode !== undefined) {
@@ -817,11 +815,7 @@ const deserializeAws_restJson1_1HumanLoopSummary = (
     HumanLoopStatus: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.FailureReason !== undefined) {
     contents.FailureReason = output.FailureReason;

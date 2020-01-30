@@ -720,9 +720,7 @@ export async function deserializeAws_restJson1_1DescribeNotificationRuleCommand(
   }
   if (data.CreatedTimestamp !== undefined) {
     contents.CreatedTimestamp = new Date(
-      data.CreatedTimestamp % 1 != 0
-        ? Math.round(data.CreatedTimestamp * 1000)
-        : data.CreatedTimestamp
+      Math.round(data.CreatedTimestamp * 1000)
     );
   }
   if (data.DetailType !== undefined) {
@@ -736,9 +734,7 @@ export async function deserializeAws_restJson1_1DescribeNotificationRuleCommand(
   }
   if (data.LastModifiedTimestamp !== undefined) {
     contents.LastModifiedTimestamp = new Date(
-      data.LastModifiedTimestamp % 1 != 0
-        ? Math.round(data.LastModifiedTimestamp * 1000)
-        : data.LastModifiedTimestamp
+      Math.round(data.LastModifiedTimestamp * 1000)
     );
   }
   if (data.Name !== undefined) {

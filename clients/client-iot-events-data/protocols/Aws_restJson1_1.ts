@@ -792,11 +792,7 @@ const deserializeAws_restJson1_1Detector = (
     state: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.detectorModelName !== undefined) {
     contents.detectorModelName = output.detectorModelName;
@@ -809,9 +805,7 @@ const deserializeAws_restJson1_1Detector = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.state !== undefined) {
@@ -885,11 +879,7 @@ const deserializeAws_restJson1_1DetectorSummary = (
     state: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.detectorModelName !== undefined) {
     contents.detectorModelName = output.detectorModelName;
@@ -902,9 +892,7 @@ const deserializeAws_restJson1_1DetectorSummary = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.state !== undefined) {
@@ -929,11 +917,7 @@ const deserializeAws_restJson1_1Timer = (
     contents.name = output.name;
   }
   if (output.timestamp !== undefined) {
-    contents.timestamp = new Date(
-      output.timestamp % 1 != 0
-        ? Math.round(output.timestamp * 1000)
-        : output.timestamp
-    );
+    contents.timestamp = new Date(Math.round(output.timestamp * 1000));
   }
   return contents;
 };

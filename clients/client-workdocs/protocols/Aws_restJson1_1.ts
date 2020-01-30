@@ -6068,11 +6068,7 @@ const deserializeAws_restJson1_1Activity = (
     );
   }
   if (output.TimeStamp !== undefined) {
-    contents.TimeStamp = new Date(
-      output.TimeStamp % 1 != 0
-        ? Math.round(output.TimeStamp * 1000)
-        : output.TimeStamp
-    );
+    contents.TimeStamp = new Date(Math.round(output.TimeStamp * 1000));
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
@@ -6107,9 +6103,7 @@ const deserializeAws_restJson1_1Comment = (
   }
   if (output.CreatedTimestamp !== undefined) {
     contents.CreatedTimestamp = new Date(
-      output.CreatedTimestamp % 1 != 0
-        ? Math.round(output.CreatedTimestamp * 1000)
-        : output.CreatedTimestamp
+      Math.round(output.CreatedTimestamp * 1000)
     );
   }
   if (output.ParentId !== undefined) {
@@ -6168,9 +6162,7 @@ const deserializeAws_restJson1_1CommentMetadata = (
   }
   if (output.CreatedTimestamp !== undefined) {
     contents.CreatedTimestamp = new Date(
-      output.CreatedTimestamp % 1 != 0
-        ? Math.round(output.CreatedTimestamp * 1000)
-        : output.CreatedTimestamp
+      Math.round(output.CreatedTimestamp * 1000)
     );
   }
   if (output.RecipientId !== undefined) {
@@ -6207,9 +6199,7 @@ const deserializeAws_restJson1_1DocumentMetadata = (
   };
   if (output.CreatedTimestamp !== undefined) {
     contents.CreatedTimestamp = new Date(
-      output.CreatedTimestamp % 1 != 0
-        ? Math.round(output.CreatedTimestamp * 1000)
-        : output.CreatedTimestamp
+      Math.round(output.CreatedTimestamp * 1000)
     );
   }
   if (output.CreatorId !== undefined) {
@@ -6232,9 +6222,7 @@ const deserializeAws_restJson1_1DocumentMetadata = (
   }
   if (output.ModifiedTimestamp !== undefined) {
     contents.ModifiedTimestamp = new Date(
-      output.ModifiedTimestamp % 1 != 0
-        ? Math.round(output.ModifiedTimestamp * 1000)
-        : output.ModifiedTimestamp
+      Math.round(output.ModifiedTimestamp * 1000)
     );
   }
   if (output.ParentFolderId !== undefined) {
@@ -6299,16 +6287,12 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
   };
   if (output.ContentCreatedTimestamp !== undefined) {
     contents.ContentCreatedTimestamp = new Date(
-      output.ContentCreatedTimestamp % 1 != 0
-        ? Math.round(output.ContentCreatedTimestamp * 1000)
-        : output.ContentCreatedTimestamp
+      Math.round(output.ContentCreatedTimestamp * 1000)
     );
   }
   if (output.ContentModifiedTimestamp !== undefined) {
     contents.ContentModifiedTimestamp = new Date(
-      output.ContentModifiedTimestamp % 1 != 0
-        ? Math.round(output.ContentModifiedTimestamp * 1000)
-        : output.ContentModifiedTimestamp
+      Math.round(output.ContentModifiedTimestamp * 1000)
     );
   }
   if (output.ContentType !== undefined) {
@@ -6316,9 +6300,7 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
   }
   if (output.CreatedTimestamp !== undefined) {
     contents.CreatedTimestamp = new Date(
-      output.CreatedTimestamp % 1 != 0
-        ? Math.round(output.CreatedTimestamp * 1000)
-        : output.CreatedTimestamp
+      Math.round(output.CreatedTimestamp * 1000)
     );
   }
   if (output.CreatorId !== undefined) {
@@ -6329,9 +6311,7 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
   }
   if (output.ModifiedTimestamp !== undefined) {
     contents.ModifiedTimestamp = new Date(
-      output.ModifiedTimestamp % 1 != 0
-        ? Math.round(output.ModifiedTimestamp * 1000)
-        : output.ModifiedTimestamp
+      Math.round(output.ModifiedTimestamp * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -6397,9 +6377,7 @@ const deserializeAws_restJson1_1FolderMetadata = (
   };
   if (output.CreatedTimestamp !== undefined) {
     contents.CreatedTimestamp = new Date(
-      output.CreatedTimestamp % 1 != 0
-        ? Math.round(output.CreatedTimestamp * 1000)
-        : output.CreatedTimestamp
+      Math.round(output.CreatedTimestamp * 1000)
     );
   }
   if (output.CreatorId !== undefined) {
@@ -6419,9 +6397,7 @@ const deserializeAws_restJson1_1FolderMetadata = (
   }
   if (output.ModifiedTimestamp !== undefined) {
     contents.ModifiedTimestamp = new Date(
-      output.ModifiedTimestamp % 1 != 0
-        ? Math.round(output.ModifiedTimestamp * 1000)
-        : output.ModifiedTimestamp
+      Math.round(output.ModifiedTimestamp * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -6812,9 +6788,7 @@ const deserializeAws_restJson1_1User = (
   };
   if (output.CreatedTimestamp !== undefined) {
     contents.CreatedTimestamp = new Date(
-      output.CreatedTimestamp % 1 != 0
-        ? Math.round(output.CreatedTimestamp * 1000)
-        : output.CreatedTimestamp
+      Math.round(output.CreatedTimestamp * 1000)
     );
   }
   if (output.EmailAddress !== undefined) {
@@ -6831,9 +6805,7 @@ const deserializeAws_restJson1_1User = (
   }
   if (output.ModifiedTimestamp !== undefined) {
     contents.ModifiedTimestamp = new Date(
-      output.ModifiedTimestamp % 1 != 0
-        ? Math.round(output.ModifiedTimestamp * 1000)
-        : output.ModifiedTimestamp
+      Math.round(output.ModifiedTimestamp * 1000)
     );
   }
   if (output.OrganizationId !== undefined) {

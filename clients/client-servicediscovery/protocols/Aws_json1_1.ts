@@ -3372,11 +3372,7 @@ const deserializeAws_json1_1Namespace = (
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(
-      output.CreateDate % 1 != 0
-        ? Math.round(output.CreateDate * 1000)
-        : output.CreateDate
-    );
+    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -3493,11 +3489,7 @@ const deserializeAws_json1_1NamespaceSummary = (
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(
-      output.CreateDate % 1 != 0
-        ? Math.round(output.CreateDate * 1000)
-        : output.CreateDate
-    );
+    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -3539,11 +3531,7 @@ const deserializeAws_json1_1Operation = (
     UpdateDate: undefined
   };
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(
-      output.CreateDate % 1 != 0
-        ? Math.round(output.CreateDate * 1000)
-        : output.CreateDate
-    );
+    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3567,11 +3555,7 @@ const deserializeAws_json1_1Operation = (
     contents.Type = output.Type;
   }
   if (output.UpdateDate !== undefined) {
-    contents.UpdateDate = new Date(
-      output.UpdateDate % 1 != 0
-        ? Math.round(output.UpdateDate * 1000)
-        : output.UpdateDate
-    );
+    contents.UpdateDate = new Date(Math.round(output.UpdateDate * 1000));
   }
   return contents;
 };
@@ -3692,11 +3676,7 @@ const deserializeAws_json1_1Service = (
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(
-      output.CreateDate % 1 != 0
-        ? Math.round(output.CreateDate * 1000)
-        : output.CreateDate
-    );
+    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -3802,11 +3782,7 @@ const deserializeAws_json1_1ServiceSummary = (
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(
-      output.CreateDate % 1 != 0
-        ? Math.round(output.CreateDate * 1000)
-        : output.CreateDate
-    );
+    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;

@@ -3125,41 +3125,25 @@ const deserializeAws_json1_1CertificateAuthority = (
     );
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.FailureReason !== undefined) {
     contents.FailureReason = output.FailureReason;
   }
   if (output.LastStateChangeAt !== undefined) {
     contents.LastStateChangeAt = new Date(
-      output.LastStateChangeAt % 1 != 0
-        ? Math.round(output.LastStateChangeAt * 1000)
-        : output.LastStateChangeAt
+      Math.round(output.LastStateChangeAt * 1000)
     );
   }
   if (output.NotAfter !== undefined) {
-    contents.NotAfter = new Date(
-      output.NotAfter % 1 != 0
-        ? Math.round(output.NotAfter * 1000)
-        : output.NotAfter
-    );
+    contents.NotAfter = new Date(Math.round(output.NotAfter * 1000));
   }
   if (output.NotBefore !== undefined) {
-    contents.NotBefore = new Date(
-      output.NotBefore % 1 != 0
-        ? Math.round(output.NotBefore * 1000)
-        : output.NotBefore
-    );
+    contents.NotBefore = new Date(Math.round(output.NotBefore * 1000));
   }
   if (output.RestorableUntil !== undefined) {
     contents.RestorableUntil = new Date(
-      output.RestorableUntil % 1 != 0
-        ? Math.round(output.RestorableUntil * 1000)
-        : output.RestorableUntil
+      Math.round(output.RestorableUntil * 1000)
     );
   }
   if (output.RevocationConfiguration !== undefined) {
@@ -3306,11 +3290,7 @@ const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse = (
     contents.AuditReportStatus = output.AuditReportStatus;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.S3BucketName !== undefined) {
     contents.S3BucketName = output.S3BucketName;
@@ -3625,11 +3605,7 @@ const deserializeAws_json1_1Permission = (
     contents.CertificateAuthorityArn = output.CertificateAuthorityArn;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Policy !== undefined) {
     contents.Policy = output.Policy;

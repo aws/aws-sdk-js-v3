@@ -3466,11 +3466,7 @@ const deserializeAws_json1_0HistoryEvent = (
     );
   }
   if (output.timestamp !== undefined) {
-    contents.timestamp = new Date(
-      output.timestamp % 1 != 0
-        ? Math.round(output.timestamp * 1000)
-        : output.timestamp
-    );
+    contents.timestamp = new Date(Math.round(output.timestamp * 1000));
   }
   if (output.type !== undefined) {
     contents.type = output.type;
@@ -3961,11 +3957,7 @@ const deserializeAws_json1_0ActivityListItem = (
     contents.activityArn = output.activityArn;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -4000,11 +3992,7 @@ const deserializeAws_json1_0CreateActivityOutput = (
     contents.activityArn = output.activityArn;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   return contents;
 };
@@ -4019,11 +4007,7 @@ const deserializeAws_json1_0CreateStateMachineOutput = (
     stateMachineArn: undefined
   };
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.stateMachineArn !== undefined) {
     contents.stateMachineArn = output.stateMachineArn;
@@ -4065,11 +4049,7 @@ const deserializeAws_json1_0DescribeActivityOutput = (
     contents.activityArn = output.activityArn;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -4105,11 +4085,7 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
     contents.output = output.output;
   }
   if (output.startDate !== undefined) {
-    contents.startDate = new Date(
-      output.startDate % 1 != 0
-        ? Math.round(output.startDate * 1000)
-        : output.startDate
-    );
+    contents.startDate = new Date(Math.round(output.startDate * 1000));
   }
   if (output.stateMachineArn !== undefined) {
     contents.stateMachineArn = output.stateMachineArn;
@@ -4118,11 +4094,7 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
     contents.status = output.status;
   }
   if (output.stopDate !== undefined) {
-    contents.stopDate = new Date(
-      output.stopDate % 1 != 0
-        ? Math.round(output.stopDate * 1000)
-        : output.stopDate
-    );
+    contents.stopDate = new Date(Math.round(output.stopDate * 1000));
   }
   return contents;
 };
@@ -4152,11 +4124,7 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
     contents.stateMachineArn = output.stateMachineArn;
   }
   if (output.updateDate !== undefined) {
-    contents.updateDate = new Date(
-      output.updateDate % 1 != 0
-        ? Math.round(output.updateDate * 1000)
-        : output.updateDate
-    );
+    contents.updateDate = new Date(Math.round(output.updateDate * 1000));
   }
   return contents;
 };
@@ -4177,11 +4145,7 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
     type: undefined
   };
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.definition !== undefined) {
     contents.definition = output.definition;
@@ -4281,11 +4245,7 @@ const deserializeAws_json1_0ExecutionListItem = (
     contents.name = output.name;
   }
   if (output.startDate !== undefined) {
-    contents.startDate = new Date(
-      output.startDate % 1 != 0
-        ? Math.round(output.startDate * 1000)
-        : output.startDate
-    );
+    contents.startDate = new Date(Math.round(output.startDate * 1000));
   }
   if (output.stateMachineArn !== undefined) {
     contents.stateMachineArn = output.stateMachineArn;
@@ -4294,11 +4254,7 @@ const deserializeAws_json1_0ExecutionListItem = (
     contents.status = output.status;
   }
   if (output.stopDate !== undefined) {
-    contents.stopDate = new Date(
-      output.stopDate % 1 != 0
-        ? Math.round(output.stopDate * 1000)
-        : output.stopDate
-    );
+    contents.stopDate = new Date(Math.round(output.stopDate * 1000));
   }
   return contents;
 };
@@ -4592,11 +4548,7 @@ const deserializeAws_json1_0StartExecutionOutput = (
     contents.executionArn = output.executionArn;
   }
   if (output.startDate !== undefined) {
-    contents.startDate = new Date(
-      output.startDate % 1 != 0
-        ? Math.round(output.startDate * 1000)
-        : output.startDate
-    );
+    contents.startDate = new Date(Math.round(output.startDate * 1000));
   }
   return contents;
 };
@@ -4678,11 +4630,7 @@ const deserializeAws_json1_0StateMachineListItem = (
     type: undefined
   };
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -4719,11 +4667,7 @@ const deserializeAws_json1_0StopExecutionOutput = (
     stopDate: undefined
   };
   if (output.stopDate !== undefined) {
-    contents.stopDate = new Date(
-      output.stopDate % 1 != 0
-        ? Math.round(output.stopDate * 1000)
-        : output.stopDate
-    );
+    contents.stopDate = new Date(Math.round(output.stopDate * 1000));
   }
   return contents;
 };
@@ -4830,11 +4774,7 @@ const deserializeAws_json1_0UpdateStateMachineOutput = (
     updateDate: undefined
   };
   if (output.updateDate !== undefined) {
-    contents.updateDate = new Date(
-      output.updateDate % 1 != 0
-        ? Math.round(output.updateDate * 1000)
-        : output.updateDate
-    );
+    contents.updateDate = new Date(Math.round(output.updateDate * 1000));
   }
   return contents;
 };

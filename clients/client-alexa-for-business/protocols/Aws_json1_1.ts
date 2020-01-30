@@ -11063,11 +11063,7 @@ const deserializeAws_json1_1BusinessReport = (
     Status: undefined
   };
   if (output.DeliveryTime !== undefined) {
-    contents.DeliveryTime = new Date(
-      output.DeliveryTime % 1 != 0
-        ? Math.round(output.DeliveryTime * 1000)
-        : output.DeliveryTime
-    );
+    contents.DeliveryTime = new Date(Math.round(output.DeliveryTime * 1000));
   }
   if (output.DownloadUrl !== undefined) {
     contents.DownloadUrl = output.DownloadUrl;
@@ -11704,11 +11700,7 @@ const deserializeAws_json1_1DeviceData = (
     SoftwareVersion: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.DeviceArn !== undefined) {
     contents.DeviceArn = output.DeviceArn;
@@ -11772,11 +11764,7 @@ const deserializeAws_json1_1DeviceEvent = (
     Value: undefined
   };
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(
-      output.Timestamp % 1 != 0
-        ? Math.round(output.Timestamp * 1000)
-        : output.Timestamp
-    );
+    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
@@ -11811,9 +11799,7 @@ const deserializeAws_json1_1DeviceNetworkProfileInfo = (
   }
   if (output.CertificateExpirationTime !== undefined) {
     contents.CertificateExpirationTime = new Date(
-      output.CertificateExpirationTime % 1 != 0
-        ? Math.round(output.CertificateExpirationTime * 1000)
-        : output.CertificateExpirationTime
+      Math.round(output.CertificateExpirationTime * 1000)
     );
   }
   if (output.NetworkProfileArn !== undefined) {
@@ -11864,9 +11850,7 @@ const deserializeAws_json1_1DeviceStatusInfo = (
   }
   if (output.ConnectionStatusUpdatedTime !== undefined) {
     contents.ConnectionStatusUpdatedTime = new Date(
-      output.ConnectionStatusUpdatedTime % 1 != 0
-        ? Math.round(output.ConnectionStatusUpdatedTime * 1000)
-        : output.ConnectionStatusUpdatedTime
+      Math.round(output.ConnectionStatusUpdatedTime * 1000)
     );
   }
   if (output.DeviceStatusDetails !== undefined) {

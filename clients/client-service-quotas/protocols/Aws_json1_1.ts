@@ -3159,11 +3159,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
     contents.CaseId = output.CaseId;
   }
   if (output.Created !== undefined) {
-    contents.Created = new Date(
-      output.Created % 1 != 0
-        ? Math.round(output.Created * 1000)
-        : output.Created
-    );
+    contents.Created = new Date(Math.round(output.Created * 1000));
   }
   if (output.DesiredValue !== undefined) {
     contents.DesiredValue = output.DesiredValue;
@@ -3175,11 +3171,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
     contents.Id = output.Id;
   }
   if (output.LastUpdated !== undefined) {
-    contents.LastUpdated = new Date(
-      output.LastUpdated % 1 != 0
-        ? Math.round(output.LastUpdated * 1000)
-        : output.LastUpdated
-    );
+    contents.LastUpdated = new Date(Math.round(output.LastUpdated * 1000));
   }
   if (output.QuotaArn !== undefined) {
     contents.QuotaArn = output.QuotaArn;

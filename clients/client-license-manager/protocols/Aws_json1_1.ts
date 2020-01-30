@@ -2645,11 +2645,7 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
     LastRunTime: undefined
   };
   if (output.LastRunTime !== undefined) {
-    contents.LastRunTime = new Date(
-      output.LastRunTime % 1 != 0
-        ? Math.round(output.LastRunTime * 1000)
-        : output.LastRunTime
-    );
+    contents.LastRunTime = new Date(Math.round(output.LastRunTime * 1000));
   }
   return contents;
 };
@@ -2982,9 +2978,7 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
   };
   if (output.AssociationTime !== undefined) {
     contents.AssociationTime = new Date(
-      output.AssociationTime % 1 != 0
-        ? Math.round(output.AssociationTime * 1000)
-        : output.AssociationTime
+      Math.round(output.AssociationTime * 1000)
     );
   }
   if (output.ResourceArn !== undefined) {
@@ -3023,9 +3017,7 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
   };
   if (output.AssociationTime !== undefined) {
     contents.AssociationTime = new Date(
-      output.AssociationTime % 1 != 0
-        ? Math.round(output.AssociationTime * 1000)
-        : output.AssociationTime
+      Math.round(output.AssociationTime * 1000)
     );
   }
   if (output.ConsumedLicenses !== undefined) {
@@ -3083,11 +3075,7 @@ const deserializeAws_json1_1LicenseOperationFailure = (
     contents.ErrorMessage = output.ErrorMessage;
   }
   if (output.FailureTime !== undefined) {
-    contents.FailureTime = new Date(
-      output.FailureTime % 1 != 0
-        ? Math.round(output.FailureTime * 1000)
-        : output.FailureTime
-    );
+    contents.FailureTime = new Date(Math.round(output.FailureTime * 1000));
   }
   if (output.MetadataList !== undefined) {
     contents.MetadataList = deserializeAws_json1_1MetadataList(

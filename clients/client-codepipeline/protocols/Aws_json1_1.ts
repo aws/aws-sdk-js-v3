@@ -5803,9 +5803,7 @@ const deserializeAws_json1_1ActionExecution = (
   }
   if (output.lastStatusChange !== undefined) {
     contents.lastStatusChange = new Date(
-      output.lastStatusChange % 1 != 0
-        ? Math.round(output.lastStatusChange * 1000)
-        : output.lastStatusChange
+      Math.round(output.lastStatusChange * 1000)
     );
   }
   if (output.lastUpdatedBy !== undefined) {
@@ -5857,9 +5855,7 @@ const deserializeAws_json1_1ActionExecutionDetail = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.output !== undefined) {
@@ -5878,11 +5874,7 @@ const deserializeAws_json1_1ActionExecutionDetail = (
     contents.stageName = output.stageName;
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -6027,11 +6019,7 @@ const deserializeAws_json1_1ActionRevision = (
     revisionId: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(
-      output.created % 1 != 0
-        ? Math.round(output.created * 1000)
-        : output.created
-    );
+    contents.created = new Date(Math.round(output.created * 1000));
   }
   if (output.revisionChangeId !== undefined) {
     contents.revisionChangeId = output.revisionChangeId;
@@ -6240,11 +6228,7 @@ const deserializeAws_json1_1ArtifactRevision = (
     revisionUrl: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(
-      output.created % 1 != 0
-        ? Math.round(output.created * 1000)
-        : output.created
-    );
+    contents.created = new Date(Math.round(output.created * 1000));
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -6524,11 +6508,7 @@ const deserializeAws_json1_1GetPipelineStateOutput = (
     updated: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(
-      output.created % 1 != 0
-        ? Math.round(output.created * 1000)
-        : output.created
-    );
+    contents.created = new Date(Math.round(output.created * 1000));
   }
   if (output.pipelineName !== undefined) {
     contents.pipelineName = output.pipelineName;
@@ -6543,11 +6523,7 @@ const deserializeAws_json1_1GetPipelineStateOutput = (
     );
   }
   if (output.updated !== undefined) {
-    contents.updated = new Date(
-      output.updated % 1 != 0
-        ? Math.round(output.updated * 1000)
-        : output.updated
-    );
+    contents.updated = new Date(Math.round(output.updated * 1000));
   }
   return contents;
 };
@@ -7026,11 +7002,7 @@ const deserializeAws_json1_1ListWebhookItem = (
     contents.errorMessage = output.errorMessage;
   }
   if (output.lastTriggered !== undefined) {
-    contents.lastTriggered = new Date(
-      output.lastTriggered % 1 != 0
-        ? Math.round(output.lastTriggered * 1000)
-        : output.lastTriggered
-    );
+    contents.lastTriggered = new Date(Math.round(output.lastTriggered * 1000));
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
@@ -7219,9 +7191,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
   };
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.pipelineExecutionId !== undefined) {
@@ -7234,11 +7204,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
     );
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -7287,21 +7253,13 @@ const deserializeAws_json1_1PipelineMetadata = (
     updated: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(
-      output.created % 1 != 0
-        ? Math.round(output.created * 1000)
-        : output.created
-    );
+    contents.created = new Date(Math.round(output.created * 1000));
   }
   if (output.pipelineArn !== undefined) {
     contents.pipelineArn = output.pipelineArn;
   }
   if (output.updated !== undefined) {
-    contents.updated = new Date(
-      output.updated % 1 != 0
-        ? Math.round(output.updated * 1000)
-        : output.updated
-    );
+    contents.updated = new Date(Math.round(output.updated * 1000));
   }
   return contents;
 };
@@ -7355,21 +7313,13 @@ const deserializeAws_json1_1PipelineSummary = (
     version: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(
-      output.created % 1 != 0
-        ? Math.round(output.created * 1000)
-        : output.created
-    );
+    contents.created = new Date(Math.round(output.created * 1000));
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   if (output.updated !== undefined) {
-    contents.updated = new Date(
-      output.updated % 1 != 0
-        ? Math.round(output.updated * 1000)
-        : output.updated
-    );
+    contents.updated = new Date(Math.round(output.updated * 1000));
   }
   if (output.version !== undefined) {
     contents.version = output.version;
@@ -7449,11 +7399,7 @@ const deserializeAws_json1_1PutApprovalResultOutput = (
     approvedAt: undefined
   };
   if (output.approvedAt !== undefined) {
-    contents.approvedAt = new Date(
-      output.approvedAt % 1 != 0
-        ? Math.round(output.approvedAt * 1000)
-        : output.approvedAt
-    );
+    contents.approvedAt = new Date(Math.round(output.approvedAt * 1000));
   }
   return contents;
 };
@@ -7925,11 +7871,7 @@ const deserializeAws_json1_1TransitionState = (
     contents.enabled = output.enabled;
   }
   if (output.lastChangedAt !== undefined) {
-    contents.lastChangedAt = new Date(
-      output.lastChangedAt % 1 != 0
-        ? Math.round(output.lastChangedAt * 1000)
-        : output.lastChangedAt
-    );
+    contents.lastChangedAt = new Date(Math.round(output.lastChangedAt * 1000));
   }
   if (output.lastChangedBy !== undefined) {
     contents.lastChangedBy = output.lastChangedBy;

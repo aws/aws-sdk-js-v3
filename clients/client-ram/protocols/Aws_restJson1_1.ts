@@ -3748,11 +3748,7 @@ const deserializeAws_restJson1_1Principal = (
     resourceShareArn: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.external !== undefined) {
     contents.external = output.external;
@@ -3762,9 +3758,7 @@ const deserializeAws_restJson1_1Principal = (
   }
   if (output.lastUpdatedTime !== undefined) {
     contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
+      Math.round(output.lastUpdatedTime * 1000)
     );
   }
   if (output.resourceShareArn !== undefined) {
@@ -3801,17 +3795,11 @@ const deserializeAws_restJson1_1Resource = (
     contents.arn = output.arn;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.lastUpdatedTime !== undefined) {
     contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
+      Math.round(output.lastUpdatedTime * 1000)
     );
   }
   if (output.resourceGroupArn !== undefined) {
@@ -3862,20 +3850,14 @@ const deserializeAws_restJson1_1ResourceShare = (
     contents.allowExternalPrincipals = output.allowExternalPrincipals;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.featureSet !== undefined) {
     contents.featureSet = output.featureSet;
   }
   if (output.lastUpdatedTime !== undefined) {
     contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
+      Math.round(output.lastUpdatedTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -3922,20 +3904,14 @@ const deserializeAws_restJson1_1ResourceShareAssociation = (
     contents.associationType = output.associationType;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.external !== undefined) {
     contents.external = output.external;
   }
   if (output.lastUpdatedTime !== undefined) {
     contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
+      Math.round(output.lastUpdatedTime * 1000)
     );
   }
   if (output.resourceShareArn !== undefined) {
@@ -3979,9 +3955,7 @@ const deserializeAws_restJson1_1ResourceShareInvitation = (
   };
   if (output.invitationTimestamp !== undefined) {
     contents.invitationTimestamp = new Date(
-      output.invitationTimestamp % 1 != 0
-        ? Math.round(output.invitationTimestamp * 1000)
-        : output.invitationTimestamp
+      Math.round(output.invitationTimestamp * 1000)
     );
   }
   if (output.receiverAccountId !== undefined) {
@@ -4048,20 +4022,14 @@ const deserializeAws_restJson1_1ResourceSharePermissionDetail = (
     contents.arn = output.arn;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.defaultVersion !== undefined) {
     contents.defaultVersion = output.defaultVersion;
   }
   if (output.lastUpdatedTime !== undefined) {
     contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
+      Math.round(output.lastUpdatedTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -4107,20 +4075,14 @@ const deserializeAws_restJson1_1ResourceSharePermissionSummary = (
     contents.arn = output.arn;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.defaultVersion !== undefined) {
     contents.defaultVersion = output.defaultVersion;
   }
   if (output.lastUpdatedTime !== undefined) {
     contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
+      Math.round(output.lastUpdatedTime * 1000)
     );
   }
   if (output.name !== undefined) {

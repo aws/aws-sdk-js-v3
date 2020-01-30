@@ -1795,9 +1795,7 @@ export async function deserializeAws_restJson1_1GetCurrentMetricDataCommand(
   const data: any = await parseBody(output.body, context);
   if (data.DataSnapshotTime !== undefined) {
     contents.DataSnapshotTime = new Date(
-      data.DataSnapshotTime % 1 != 0
-        ? Math.round(data.DataSnapshotTime * 1000)
-        : data.DataSnapshotTime
+      Math.round(data.DataSnapshotTime * 1000)
     );
   }
   if (data.MetricResults !== undefined) {
@@ -4385,9 +4383,7 @@ const deserializeAws_restJson1_1Credentials = (
   }
   if (output.AccessTokenExpiration !== undefined) {
     contents.AccessTokenExpiration = new Date(
-      output.AccessTokenExpiration % 1 != 0
-        ? Math.round(output.AccessTokenExpiration * 1000)
-        : output.AccessTokenExpiration
+      Math.round(output.AccessTokenExpiration * 1000)
     );
   }
   if (output.RefreshToken !== undefined) {
@@ -4395,9 +4391,7 @@ const deserializeAws_restJson1_1Credentials = (
   }
   if (output.RefreshTokenExpiration !== undefined) {
     contents.RefreshTokenExpiration = new Date(
-      output.RefreshTokenExpiration % 1 != 0
-        ? Math.round(output.RefreshTokenExpiration * 1000)
-        : output.RefreshTokenExpiration
+      Math.round(output.RefreshTokenExpiration * 1000)
     );
   }
   return contents;

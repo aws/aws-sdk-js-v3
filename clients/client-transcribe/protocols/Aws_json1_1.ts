@@ -1899,9 +1899,7 @@ const deserializeAws_json1_1CreateVocabularyFilterResponse = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyFilterName !== undefined) {
@@ -1930,9 +1928,7 @@ const deserializeAws_json1_1CreateVocabularyResponse = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyName !== undefined) {
@@ -1980,9 +1976,7 @@ const deserializeAws_json1_1GetVocabularyFilterResponse = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyFilterName !== undefined) {
@@ -2015,9 +2009,7 @@ const deserializeAws_json1_1GetVocabularyResponse = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyName !== undefined) {
@@ -2269,17 +2261,11 @@ const deserializeAws_json1_1TranscriptionJob = (
   };
   if (output.CompletionTime !== undefined) {
     contents.CompletionTime = new Date(
-      output.CompletionTime % 1 != 0
-        ? Math.round(output.CompletionTime * 1000)
-        : output.CompletionTime
+      Math.round(output.CompletionTime * 1000)
     );
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.FailureReason !== undefined) {
     contents.FailureReason = output.FailureReason;
@@ -2309,11 +2295,7 @@ const deserializeAws_json1_1TranscriptionJob = (
     );
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Transcript !== undefined) {
     contents.Transcript = deserializeAws_json1_1Transcript(
@@ -2356,17 +2338,11 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
   };
   if (output.CompletionTime !== undefined) {
     contents.CompletionTime = new Date(
-      output.CompletionTime % 1 != 0
-        ? Math.round(output.CompletionTime * 1000)
-        : output.CompletionTime
+      Math.round(output.CompletionTime * 1000)
     );
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.FailureReason !== undefined) {
     contents.FailureReason = output.FailureReason;
@@ -2378,11 +2354,7 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
     contents.OutputLocationType = output.OutputLocationType;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.TranscriptionJobName !== undefined) {
     contents.TranscriptionJobName = output.TranscriptionJobName;
@@ -2408,9 +2380,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyFilterName !== undefined) {
@@ -2435,9 +2405,7 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyName !== undefined) {
@@ -2473,9 +2441,7 @@ const deserializeAws_json1_1VocabularyFilterInfo = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyFilterName !== undefined) {
@@ -2509,9 +2475,7 @@ const deserializeAws_json1_1VocabularyInfo = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.VocabularyName !== undefined) {
