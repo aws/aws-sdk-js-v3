@@ -4,8 +4,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
-  MetadataBearer,
-  Pluggable
+  MetadataBearer
 } from "@aws-sdk/types";
 
 export function accountIdDefaultMiddleware(): InitializeMiddleware<any, any> {

@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/middleware-sdk-glacier",
-  "version": "1.0.0-alpha.6",
+  "name": "@aws-sdk/body-checksum-browser",
+  "version": "1.0.0-alpha.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,8 +14,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/chunked-blob-reader": "^1.0.0-alpha.2",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
+    "@aws-sdk/sha256-tree-hash": "^1.0.0-alpha.1",
     "@aws-sdk/types": "^1.0.0-alpha.4",
+    "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.2",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

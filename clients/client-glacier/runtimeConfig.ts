@@ -1,3 +1,4 @@
+import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-node";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
 import { Hash } from "@aws-sdk/hash-node";
@@ -27,5 +28,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "glacier",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
+  bodyChecksumGenerator
 };

@@ -50,7 +50,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
     ) {
         writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.writeDocs("Fetch related hostname, signing name or signing region with given region.");
-        writer.write("regionInfoProvider?: RegionInfoProvider;");
+        writer.write("regionInfoProvider?: RegionInfoProvider;\n");
     }
 
     @Override

@@ -1,4 +1,5 @@
 import {
+  addChecksumHeadersMiddleware,
   accountIdDefaultMiddleware,
   addGlacierApiVersionMiddleware,
   getGlacierPlugin,
@@ -6,6 +7,10 @@ import {
 } from "./index";
 
 describe("middleware-sdk-glacier package exports", () => {
+  it("addChecksumHeadersMiddleware", () => {
+    expect(typeof addChecksumHeadersMiddleware).toBe("function");
+  });
+
   it("addGlacierApiVersionMiddleware", () => {
     expect(typeof addGlacierApiVersionMiddleware).toBe("function");
   });

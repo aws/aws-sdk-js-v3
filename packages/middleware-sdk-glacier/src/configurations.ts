@@ -6,16 +6,37 @@ import {
   addGlacierApiVersionMiddleware,
   addGlacierApiVersionMiddlewareOptions
 } from "./add-glacier-api-version";
-import { Pluggable } from "@aws-sdk/types";
+import {
+  Decoder,
+  HashConstructor,
+  HttpRequest,
+  Pluggable
+} from "@aws-sdk/types";
+import {
+  addChecksumHeadersMiddleware,
+  addChecksumHeadersMiddlewareOptions
+} from "./add-checksum-headers";
 
 export interface GlacierMiddlewareInputConfig {}
 
 interface PreviouslyResolved {
   apiVersion: string;
+  sha256: HashConstructor;
+  utf8Decoder: Decoder;
+  bodyChecksumGenerator: (
+    request: HttpRequest,
+    Options: { sha256: HashConstructor; utf8Decoder: Decoder }
+  ) => Promise<[string, string]>;
 }
 
 export interface ResolvedGlacierMiddlewareConfig {
   apiVersion: string;
+  sha256: HashConstructor;
+  utf8Decoder: Decoder;
+  bodyChecksumGenerator: (
+    request: HttpRequest,
+    Options: { sha256: HashConstructor; utf8Decoder: Decoder }
+  ) => Promise<[string, string]>;
 }
 
 export function resolveGlacierMiddlewareConfig<T>(
@@ -37,6 +58,10 @@ export const getGlacierPlugin = (
     clientStack.add(
       addGlacierApiVersionMiddleware(config),
       addGlacierApiVersionMiddlewareOptions
+    );
+    clientStack.add(
+      addChecksumHeadersMiddleware(config),
+      addChecksumHeadersMiddlewareOptions
     );
   }
 });
