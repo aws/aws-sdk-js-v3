@@ -6,3 +6,4 @@ software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration
 software.amazon.smithy.aws.typescript.codegen.AwsPackageFixturesGeneratorIntegration
 software.amazon.smithy.aws.typescript.codegen.AddMd5HashDependency
 software.amazon.smithy.aws.typescript.codegen.AddStreamHasherDependency
+software.amazon.smithy.aws.typescript.codegen.AddBodyChecksumGeneratorDependency
