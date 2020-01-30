@@ -4742,9 +4742,7 @@ const deserializeAws_json1_1Algorithm = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.defaultHyperParameterRanges !== undefined) {
@@ -4767,9 +4765,7 @@ const deserializeAws_json1_1Algorithm = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -4867,9 +4863,7 @@ const deserializeAws_json1_1BatchInferenceJob = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.failureReason !== undefined) {
@@ -4892,9 +4886,7 @@ const deserializeAws_json1_1BatchInferenceJob = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.numResults !== undefined) {
@@ -4964,9 +4956,7 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.failureReason !== undefined) {
@@ -4977,9 +4967,7 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.status !== undefined) {
@@ -5018,9 +5006,7 @@ const deserializeAws_json1_1Campaign = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.failureReason !== undefined) {
@@ -5028,9 +5014,7 @@ const deserializeAws_json1_1Campaign = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.latestCampaignUpdate !== undefined) {
@@ -5072,9 +5056,7 @@ const deserializeAws_json1_1CampaignSummary = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.failureReason !== undefined) {
@@ -5082,9 +5064,7 @@ const deserializeAws_json1_1CampaignSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5111,9 +5091,7 @@ const deserializeAws_json1_1CampaignUpdateSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.failureReason !== undefined) {
@@ -5121,9 +5099,7 @@ const deserializeAws_json1_1CampaignUpdateSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.minProvisionedTPS !== undefined) {
@@ -5376,9 +5352,7 @@ const deserializeAws_json1_1Dataset = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetArn !== undefined) {
@@ -5392,9 +5366,7 @@ const deserializeAws_json1_1Dataset = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5426,9 +5398,7 @@ const deserializeAws_json1_1DatasetGroup = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetGroupArn !== undefined) {
@@ -5442,9 +5412,7 @@ const deserializeAws_json1_1DatasetGroup = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5474,9 +5442,7 @@ const deserializeAws_json1_1DatasetGroupSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetGroupArn !== undefined) {
@@ -5487,9 +5453,7 @@ const deserializeAws_json1_1DatasetGroupSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5528,9 +5492,7 @@ const deserializeAws_json1_1DatasetImportJob = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.dataSource !== undefined) {
@@ -5553,9 +5515,7 @@ const deserializeAws_json1_1DatasetImportJob = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.roleArn !== undefined) {
@@ -5582,9 +5542,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetImportJobArn !== undefined) {
@@ -5598,9 +5556,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.status !== undefined) {
@@ -5632,16 +5588,12 @@ const deserializeAws_json1_1DatasetSchema = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5669,16 +5621,12 @@ const deserializeAws_json1_1DatasetSchemaSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5705,9 +5653,7 @@ const deserializeAws_json1_1DatasetSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetArn !== undefined) {
@@ -5718,9 +5664,7 @@ const deserializeAws_json1_1DatasetSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6094,9 +6038,7 @@ const deserializeAws_json1_1EventTracker = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetGroupArn !== undefined) {
@@ -6107,9 +6049,7 @@ const deserializeAws_json1_1EventTracker = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6138,9 +6078,7 @@ const deserializeAws_json1_1EventTrackerSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.eventTrackerArn !== undefined) {
@@ -6148,9 +6086,7 @@ const deserializeAws_json1_1EventTrackerSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6186,9 +6122,7 @@ const deserializeAws_json1_1FeatureTransformation = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.defaultParameters !== undefined) {
@@ -6202,9 +6136,7 @@ const deserializeAws_json1_1FeatureTransformation = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6636,9 +6568,7 @@ const deserializeAws_json1_1Recipe = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.description !== undefined) {
@@ -6649,9 +6579,7 @@ const deserializeAws_json1_1Recipe = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6683,16 +6611,12 @@ const deserializeAws_json1_1RecipeSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6782,9 +6706,7 @@ const deserializeAws_json1_1Solution = (
   }
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetGroupArn !== undefined) {
@@ -6795,9 +6717,7 @@ const deserializeAws_json1_1Solution = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.latestSolutionVersion !== undefined) {
@@ -6889,16 +6809,12 @@ const deserializeAws_json1_1SolutionSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6936,9 +6852,7 @@ const deserializeAws_json1_1SolutionVersion = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.datasetGroupArn !== undefined) {
@@ -6952,9 +6866,7 @@ const deserializeAws_json1_1SolutionVersion = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.performAutoML !== undefined) {
@@ -7004,9 +6916,7 @@ const deserializeAws_json1_1SolutionVersionSummary = (
   };
   if (output.creationDateTime !== undefined) {
     contents.creationDateTime = new Date(
-      output.creationDateTime % 1 != 0
-        ? Math.round(output.creationDateTime * 1000)
-        : output.creationDateTime
+      Math.round(output.creationDateTime * 1000)
     );
   }
   if (output.failureReason !== undefined) {
@@ -7014,9 +6924,7 @@ const deserializeAws_json1_1SolutionVersionSummary = (
   }
   if (output.lastUpdatedDateTime !== undefined) {
     contents.lastUpdatedDateTime = new Date(
-      output.lastUpdatedDateTime % 1 != 0
-        ? Math.round(output.lastUpdatedDateTime * 1000)
-        : output.lastUpdatedDateTime
+      Math.round(output.lastUpdatedDateTime * 1000)
     );
   }
   if (output.solutionVersionArn !== undefined) {

@@ -5528,16 +5528,12 @@ const deserializeAws_json1_1ApplicationDetail = (
   }
   if (output.CreateTimestamp !== undefined) {
     contents.CreateTimestamp = new Date(
-      output.CreateTimestamp % 1 != 0
-        ? Math.round(output.CreateTimestamp * 1000)
-        : output.CreateTimestamp
+      Math.round(output.CreateTimestamp * 1000)
     );
   }
   if (output.LastUpdateTimestamp !== undefined) {
     contents.LastUpdateTimestamp = new Date(
-      output.LastUpdateTimestamp % 1 != 0
-        ? Math.round(output.LastUpdateTimestamp * 1000)
-        : output.LastUpdateTimestamp
+      Math.round(output.LastUpdateTimestamp * 1000)
     );
   }
   if (output.RuntimeEnvironment !== undefined) {
@@ -6831,9 +6827,7 @@ const deserializeAws_json1_1SnapshotDetails = (
   }
   if (output.SnapshotCreationTimestamp !== undefined) {
     contents.SnapshotCreationTimestamp = new Date(
-      output.SnapshotCreationTimestamp % 1 != 0
-        ? Math.round(output.SnapshotCreationTimestamp * 1000)
-        : output.SnapshotCreationTimestamp
+      Math.round(output.SnapshotCreationTimestamp * 1000)
     );
   }
   if (output.SnapshotName !== undefined) {

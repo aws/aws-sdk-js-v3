@@ -483,11 +483,7 @@ const deserializeAws_json1_1DataPoint = (
     Value: undefined
   };
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(
-      output.Timestamp % 1 != 0
-        ? Math.round(output.Timestamp * 1000)
-        : output.Timestamp
-    );
+    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
   if (output.Value !== undefined) {
     contents.Value = output.Value;
@@ -518,16 +514,12 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
   };
   if (output.AlignedEndTime !== undefined) {
     contents.AlignedEndTime = new Date(
-      output.AlignedEndTime % 1 != 0
-        ? Math.round(output.AlignedEndTime * 1000)
-        : output.AlignedEndTime
+      Math.round(output.AlignedEndTime * 1000)
     );
   }
   if (output.AlignedStartTime !== undefined) {
     contents.AlignedStartTime = new Date(
-      output.AlignedStartTime % 1 != 0
-        ? Math.round(output.AlignedStartTime * 1000)
-        : output.AlignedStartTime
+      Math.round(output.AlignedStartTime * 1000)
     );
   }
   if (output.Keys !== undefined) {
@@ -610,16 +602,12 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
   };
   if (output.AlignedEndTime !== undefined) {
     contents.AlignedEndTime = new Date(
-      output.AlignedEndTime % 1 != 0
-        ? Math.round(output.AlignedEndTime * 1000)
-        : output.AlignedEndTime
+      Math.round(output.AlignedEndTime * 1000)
     );
   }
   if (output.AlignedStartTime !== undefined) {
     contents.AlignedStartTime = new Date(
-      output.AlignedStartTime % 1 != 0
-        ? Math.round(output.AlignedStartTime * 1000)
-        : output.AlignedStartTime
+      Math.round(output.AlignedStartTime * 1000)
     );
   }
   if (output.Identifier !== undefined) {

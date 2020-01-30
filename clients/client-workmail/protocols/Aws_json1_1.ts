@@ -4923,21 +4923,13 @@ const deserializeAws_json1_1DescribeGroupResponse = (
     State: undefined
   };
   if (output.DisabledDate !== undefined) {
-    contents.DisabledDate = new Date(
-      output.DisabledDate % 1 != 0
-        ? Math.round(output.DisabledDate * 1000)
-        : output.DisabledDate
-    );
+    contents.DisabledDate = new Date(Math.round(output.DisabledDate * 1000));
   }
   if (output.Email !== undefined) {
     contents.Email = output.Email;
   }
   if (output.EnabledDate !== undefined) {
-    contents.EnabledDate = new Date(
-      output.EnabledDate % 1 != 0
-        ? Math.round(output.EnabledDate * 1000)
-        : output.EnabledDate
-    );
+    contents.EnabledDate = new Date(Math.round(output.EnabledDate * 1000));
   }
   if (output.GroupId !== undefined) {
     contents.GroupId = output.GroupId;
@@ -4970,11 +4962,7 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
     contents.Alias = output.Alias;
   }
   if (output.CompletedDate !== undefined) {
-    contents.CompletedDate = new Date(
-      output.CompletedDate % 1 != 0
-        ? Math.round(output.CompletedDate * 1000)
-        : output.CompletedDate
-    );
+    contents.CompletedDate = new Date(Math.round(output.CompletedDate * 1000));
   }
   if (output.DefaultMailDomain !== undefined) {
     contents.DefaultMailDomain = output.DefaultMailDomain;
@@ -5019,21 +5007,13 @@ const deserializeAws_json1_1DescribeResourceResponse = (
     );
   }
   if (output.DisabledDate !== undefined) {
-    contents.DisabledDate = new Date(
-      output.DisabledDate % 1 != 0
-        ? Math.round(output.DisabledDate * 1000)
-        : output.DisabledDate
-    );
+    contents.DisabledDate = new Date(Math.round(output.DisabledDate * 1000));
   }
   if (output.Email !== undefined) {
     contents.Email = output.Email;
   }
   if (output.EnabledDate !== undefined) {
-    contents.EnabledDate = new Date(
-      output.EnabledDate % 1 != 0
-        ? Math.round(output.EnabledDate * 1000)
-        : output.EnabledDate
-    );
+    contents.EnabledDate = new Date(Math.round(output.EnabledDate * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -5066,11 +5046,7 @@ const deserializeAws_json1_1DescribeUserResponse = (
     UserRole: undefined
   };
   if (output.DisabledDate !== undefined) {
-    contents.DisabledDate = new Date(
-      output.DisabledDate % 1 != 0
-        ? Math.round(output.DisabledDate * 1000)
-        : output.DisabledDate
-    );
+    contents.DisabledDate = new Date(Math.round(output.DisabledDate * 1000));
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -5079,11 +5055,7 @@ const deserializeAws_json1_1DescribeUserResponse = (
     contents.Email = output.Email;
   }
   if (output.EnabledDate !== undefined) {
-    contents.EnabledDate = new Date(
-      output.EnabledDate % 1 != 0
-        ? Math.round(output.EnabledDate * 1000)
-        : output.EnabledDate
-    );
+    contents.EnabledDate = new Date(Math.round(output.EnabledDate * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -5236,21 +5208,13 @@ const deserializeAws_json1_1Group = (
     State: undefined
   };
   if (output.DisabledDate !== undefined) {
-    contents.DisabledDate = new Date(
-      output.DisabledDate % 1 != 0
-        ? Math.round(output.DisabledDate * 1000)
-        : output.DisabledDate
-    );
+    contents.DisabledDate = new Date(Math.round(output.DisabledDate * 1000));
   }
   if (output.Email !== undefined) {
     contents.Email = output.Email;
   }
   if (output.EnabledDate !== undefined) {
-    contents.EnabledDate = new Date(
-      output.EnabledDate % 1 != 0
-        ? Math.round(output.EnabledDate * 1000)
-        : output.EnabledDate
-    );
+    contents.EnabledDate = new Date(Math.round(output.EnabledDate * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -5513,18 +5477,10 @@ const deserializeAws_json1_1Member = (
     Type: undefined
   };
   if (output.DisabledDate !== undefined) {
-    contents.DisabledDate = new Date(
-      output.DisabledDate % 1 != 0
-        ? Math.round(output.DisabledDate * 1000)
-        : output.DisabledDate
-    );
+    contents.DisabledDate = new Date(Math.round(output.DisabledDate * 1000));
   }
   if (output.EnabledDate !== undefined) {
-    contents.EnabledDate = new Date(
-      output.EnabledDate % 1 != 0
-        ? Math.round(output.EnabledDate * 1000)
-        : output.EnabledDate
-    );
+    contents.EnabledDate = new Date(Math.round(output.EnabledDate * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -5727,21 +5683,13 @@ const deserializeAws_json1_1Resource = (
     Type: undefined
   };
   if (output.DisabledDate !== undefined) {
-    contents.DisabledDate = new Date(
-      output.DisabledDate % 1 != 0
-        ? Math.round(output.DisabledDate * 1000)
-        : output.DisabledDate
-    );
+    contents.DisabledDate = new Date(Math.round(output.DisabledDate * 1000));
   }
   if (output.Email !== undefined) {
     contents.Email = output.Email;
   }
   if (output.EnabledDate !== undefined) {
-    contents.EnabledDate = new Date(
-      output.EnabledDate % 1 != 0
-        ? Math.round(output.EnabledDate * 1000)
-        : output.EnabledDate
-    );
+    contents.EnabledDate = new Date(Math.round(output.EnabledDate * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -5836,11 +5784,7 @@ const deserializeAws_json1_1User = (
     UserRole: undefined
   };
   if (output.DisabledDate !== undefined) {
-    contents.DisabledDate = new Date(
-      output.DisabledDate % 1 != 0
-        ? Math.round(output.DisabledDate * 1000)
-        : output.DisabledDate
-    );
+    contents.DisabledDate = new Date(Math.round(output.DisabledDate * 1000));
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -5849,11 +5793,7 @@ const deserializeAws_json1_1User = (
     contents.Email = output.Email;
   }
   if (output.EnabledDate !== undefined) {
-    contents.EnabledDate = new Date(
-      output.EnabledDate % 1 != 0
-        ? Math.round(output.EnabledDate * 1000)
-        : output.EnabledDate
-    );
+    contents.EnabledDate = new Date(Math.round(output.EnabledDate * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;

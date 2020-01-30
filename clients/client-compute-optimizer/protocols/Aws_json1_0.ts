@@ -1226,9 +1226,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendation = (
   }
   if (output.lastRefreshTimestamp !== undefined) {
     contents.lastRefreshTimestamp = new Date(
-      output.lastRefreshTimestamp % 1 != 0
-        ? Math.round(output.lastRefreshTimestamp * 1000)
-        : output.lastRefreshTimestamp
+      Math.round(output.lastRefreshTimestamp * 1000)
     );
   }
   if (output.lookBackPeriodInDays !== undefined) {
@@ -1480,9 +1478,7 @@ const deserializeAws_json1_0InstanceRecommendation = (
   }
   if (output.lastRefreshTimestamp !== undefined) {
     contents.lastRefreshTimestamp = new Date(
-      output.lastRefreshTimestamp % 1 != 0
-        ? Math.round(output.lastRefreshTimestamp * 1000)
-        : output.lastRefreshTimestamp
+      Math.round(output.lastRefreshTimestamp * 1000)
     );
   }
   if (output.lookBackPeriodInDays !== undefined) {
@@ -1833,9 +1829,7 @@ const deserializeAws_json1_0Timestamps = (
   output: any,
   context: __SerdeContext
 ): Array<Date> => {
-  return (output || []).map(
-    (entry: any) => new Date(entry % 1 != 0 ? Math.round(entry * 1000) : entry)
-  );
+  return (output || []).map((entry: any) => new Date(Math.round(entry * 1000)));
 };
 
 const deserializeAws_json1_0UpdateEnrollmentStatusResponse = (

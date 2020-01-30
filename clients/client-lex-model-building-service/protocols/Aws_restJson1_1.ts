@@ -1537,11 +1537,7 @@ export async function deserializeAws_restJson1_1CreateBotVersionCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -1563,9 +1559,7 @@ export async function deserializeAws_restJson1_1CreateBotVersionCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.locale !== undefined) {
@@ -1699,11 +1693,7 @@ export async function deserializeAws_restJson1_1CreateIntentVersionCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -1728,9 +1718,7 @@ export async function deserializeAws_restJson1_1CreateIntentVersionCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -1854,11 +1842,7 @@ export async function deserializeAws_restJson1_1CreateSlotTypeVersionCommand(
     contents.checksum = data.checksum;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -1871,9 +1855,7 @@ export async function deserializeAws_restJson1_1CreateSlotTypeVersionCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -2722,11 +2704,7 @@ export async function deserializeAws_restJson1_1GetBotCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -2748,9 +2726,7 @@ export async function deserializeAws_restJson1_1GetBotCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.locale !== undefined) {
@@ -2860,20 +2836,14 @@ export async function deserializeAws_restJson1_1GetBotAliasCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -3044,11 +3014,7 @@ export async function deserializeAws_restJson1_1GetBotChannelAssociationCommand(
     contents.botName = data.botName;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -3712,11 +3678,7 @@ export async function deserializeAws_restJson1_1GetImportCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.failureReason !== undefined) {
     contents.failureReason = deserializeAws_restJson1_1StringList(
@@ -3838,11 +3800,7 @@ export async function deserializeAws_restJson1_1GetIntentCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -3867,9 +3825,7 @@ export async function deserializeAws_restJson1_1GetIntentCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -4137,11 +4093,7 @@ export async function deserializeAws_restJson1_1GetSlotTypeCommand(
     contents.checksum = data.checksum;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -4154,9 +4106,7 @@ export async function deserializeAws_restJson1_1GetSlotTypeCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -4511,11 +4461,7 @@ export async function deserializeAws_restJson1_1PutBotCommand(
     contents.createVersion = data.createVersion;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -4537,9 +4483,7 @@ export async function deserializeAws_restJson1_1PutBotCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.locale !== undefined) {
@@ -4656,20 +4600,14 @@ export async function deserializeAws_restJson1_1PutBotAliasCommand(
     );
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -4785,11 +4723,7 @@ export async function deserializeAws_restJson1_1PutIntentCommand(
     contents.createVersion = data.createVersion;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -4814,9 +4748,7 @@ export async function deserializeAws_restJson1_1PutIntentCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -4934,11 +4866,7 @@ export async function deserializeAws_restJson1_1PutSlotTypeCommand(
     contents.createVersion = data.createVersion;
   }
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined) {
     contents.description = data.description;
@@ -4951,9 +4879,7 @@ export async function deserializeAws_restJson1_1PutSlotTypeCommand(
   }
   if (data.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      data.lastUpdatedDate % 1 != 0
-        ? Math.round(data.lastUpdatedDate * 1000)
-        : data.lastUpdatedDate
+      Math.round(data.lastUpdatedDate * 1000)
     );
   }
   if (data.name !== undefined) {
@@ -5047,11 +4973,7 @@ export async function deserializeAws_restJson1_1StartImportCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      data.createdDate % 1 != 0
-        ? Math.round(data.createdDate * 1000)
-        : data.createdDate
-    );
+    contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.importId !== undefined) {
     contents.importId = data.importId;
@@ -5568,20 +5490,14 @@ const deserializeAws_restJson1_1BotAliasMetadata = (
     );
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      output.lastUpdatedDate % 1 != 0
-        ? Math.round(output.lastUpdatedDate * 1000)
-        : output.lastUpdatedDate
+      Math.round(output.lastUpdatedDate * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5628,11 +5544,7 @@ const deserializeAws_restJson1_1BotChannelAssociation = (
     contents.botName = output.botName;
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -5675,20 +5587,14 @@ const deserializeAws_restJson1_1BotMetadata = (
     version: undefined
   };
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      output.lastUpdatedDate % 1 != 0
-        ? Math.round(output.lastUpdatedDate * 1000)
-        : output.lastUpdatedDate
+      Math.round(output.lastUpdatedDate * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5957,20 +5863,14 @@ const deserializeAws_restJson1_1IntentMetadata = (
     version: undefined
   };
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      output.lastUpdatedDate % 1 != 0
-        ? Math.round(output.lastUpdatedDate * 1000)
-        : output.lastUpdatedDate
+      Math.round(output.lastUpdatedDate * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6214,20 +6114,14 @@ const deserializeAws_restJson1_1SlotTypeMetadata = (
     version: undefined
   };
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      output.lastUpdatedDate % 1 != 0
-        ? Math.round(output.lastUpdatedDate * 1000)
-        : output.lastUpdatedDate
+      Math.round(output.lastUpdatedDate * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6310,16 +6204,12 @@ const deserializeAws_restJson1_1UtteranceData = (
   }
   if (output.firstUtteredDate !== undefined) {
     contents.firstUtteredDate = new Date(
-      output.firstUtteredDate % 1 != 0
-        ? Math.round(output.firstUtteredDate * 1000)
-        : output.firstUtteredDate
+      Math.round(output.firstUtteredDate * 1000)
     );
   }
   if (output.lastUtteredDate !== undefined) {
     contents.lastUtteredDate = new Date(
-      output.lastUtteredDate % 1 != 0
-        ? Math.round(output.lastUtteredDate * 1000)
-        : output.lastUtteredDate
+      Math.round(output.lastUtteredDate * 1000)
     );
   }
   if (output.utteranceString !== undefined) {

@@ -2078,11 +2078,7 @@ const deserializeAws_json1_1ScalableTarget = (
     SuspendedState: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.MaxCapacity !== undefined) {
     contents.MaxCapacity = output.MaxCapacity;
@@ -2178,11 +2174,7 @@ const deserializeAws_json1_1ScalingActivity = (
     contents.Details = output.Details;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.ResourceId !== undefined) {
     contents.ResourceId = output.ResourceId;
@@ -2194,11 +2186,7 @@ const deserializeAws_json1_1ScalingActivity = (
     contents.ServiceNamespace = output.ServiceNamespace;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.StatusCode !== undefined) {
     contents.StatusCode = output.StatusCode;
@@ -2239,11 +2227,7 @@ const deserializeAws_json1_1ScalingPolicy = (
     contents.Alarms = deserializeAws_json1_1Alarms(output.Alarms, context);
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.PolicyARN !== undefined) {
     contents.PolicyARN = output.PolicyARN;
@@ -2296,18 +2280,10 @@ const deserializeAws_json1_1ScheduledAction = (
     StartTime: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.ResourceId !== undefined) {
     contents.ResourceId = output.ResourceId;
@@ -2334,11 +2310,7 @@ const deserializeAws_json1_1ScheduledAction = (
     contents.ServiceNamespace = output.ServiceNamespace;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   return contents;
 };

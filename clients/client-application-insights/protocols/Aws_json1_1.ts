@@ -3416,11 +3416,7 @@ const deserializeAws_json1_1ConfigurationEvent = (
     contents.EventStatus = output.EventStatus;
   }
   if (output.EventTime !== undefined) {
-    contents.EventTime = new Date(
-      output.EventTime % 1 != 0
-        ? Math.round(output.EventTime * 1000)
-        : output.EventTime
-    );
+    contents.EventTime = new Date(Math.round(output.EventTime * 1000));
   }
   if (output.MonitoredResourceARN !== undefined) {
     contents.MonitoredResourceARN = output.MonitoredResourceARN;
@@ -3897,21 +3893,13 @@ const deserializeAws_json1_1Observation = (
     Value: undefined
   };
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   if (output.LineTime !== undefined) {
-    contents.LineTime = new Date(
-      output.LineTime % 1 != 0
-        ? Math.round(output.LineTime * 1000)
-        : output.LineTime
-    );
+    contents.LineTime = new Date(Math.round(output.LineTime * 1000));
   }
   if (output.LogFilter !== undefined) {
     contents.LogFilter = output.LogFilter;
@@ -3935,11 +3923,7 @@ const deserializeAws_json1_1Observation = (
     contents.SourceType = output.SourceType;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Unit !== undefined) {
     contents.Unit = output.Unit;
@@ -3980,11 +3964,7 @@ const deserializeAws_json1_1Problem = (
     contents.AffectedResource = output.AffectedResource;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.Feedback !== undefined) {
     contents.Feedback = deserializeAws_json1_1Feedback(
@@ -4005,11 +3985,7 @@ const deserializeAws_json1_1Problem = (
     contents.SeverityLevel = output.SeverityLevel;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;

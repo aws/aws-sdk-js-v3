@@ -1888,24 +1888,16 @@ const deserializeAws_json1_1Backup = (
     contents.ClusterId = output.ClusterId;
   }
   if (output.CopyTimestamp !== undefined) {
-    contents.CopyTimestamp = new Date(
-      output.CopyTimestamp % 1 != 0
-        ? Math.round(output.CopyTimestamp * 1000)
-        : output.CopyTimestamp
-    );
+    contents.CopyTimestamp = new Date(Math.round(output.CopyTimestamp * 1000));
   }
   if (output.CreateTimestamp !== undefined) {
     contents.CreateTimestamp = new Date(
-      output.CreateTimestamp % 1 != 0
-        ? Math.round(output.CreateTimestamp * 1000)
-        : output.CreateTimestamp
+      Math.round(output.CreateTimestamp * 1000)
     );
   }
   if (output.DeleteTimestamp !== undefined) {
     contents.DeleteTimestamp = new Date(
-      output.DeleteTimestamp % 1 != 0
-        ? Math.round(output.DeleteTimestamp * 1000)
-        : output.DeleteTimestamp
+      Math.round(output.DeleteTimestamp * 1000)
     );
   }
   if (output.SourceBackup !== undefined) {
@@ -1998,9 +1990,7 @@ const deserializeAws_json1_1Cluster = (
   }
   if (output.CreateTimestamp !== undefined) {
     contents.CreateTimestamp = new Date(
-      output.CreateTimestamp % 1 != 0
-        ? Math.round(output.CreateTimestamp * 1000)
-        : output.CreateTimestamp
+      Math.round(output.CreateTimestamp * 1000)
     );
   }
   if (output.HsmType !== undefined) {
@@ -2187,9 +2177,7 @@ const deserializeAws_json1_1DestinationBackup = (
   };
   if (output.CreateTimestamp !== undefined) {
     contents.CreateTimestamp = new Date(
-      output.CreateTimestamp % 1 != 0
-        ? Math.round(output.CreateTimestamp * 1000)
-        : output.CreateTimestamp
+      Math.round(output.CreateTimestamp * 1000)
     );
   }
   if (output.SourceBackup !== undefined) {

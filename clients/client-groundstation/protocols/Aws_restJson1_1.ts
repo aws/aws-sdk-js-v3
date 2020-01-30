@@ -1461,9 +1461,7 @@ export async function deserializeAws_restJson1_1DescribeContactCommand(
     contents.contactStatus = data.contactStatus;
   }
   if (data.endTime !== undefined) {
-    contents.endTime = new Date(
-      data.endTime % 1 != 0 ? Math.round(data.endTime * 1000) : data.endTime
-    );
+    contents.endTime = new Date(Math.round(data.endTime * 1000));
   }
   if (data.errorMessage !== undefined) {
     contents.errorMessage = data.errorMessage;
@@ -1482,27 +1480,19 @@ export async function deserializeAws_restJson1_1DescribeContactCommand(
   }
   if (data.postPassEndTime !== undefined) {
     contents.postPassEndTime = new Date(
-      data.postPassEndTime % 1 != 0
-        ? Math.round(data.postPassEndTime * 1000)
-        : data.postPassEndTime
+      Math.round(data.postPassEndTime * 1000)
     );
   }
   if (data.prePassStartTime !== undefined) {
     contents.prePassStartTime = new Date(
-      data.prePassStartTime % 1 != 0
-        ? Math.round(data.prePassStartTime * 1000)
-        : data.prePassStartTime
+      Math.round(data.prePassStartTime * 1000)
     );
   }
   if (data.satelliteArn !== undefined) {
     contents.satelliteArn = data.satelliteArn;
   }
   if (data.startTime !== undefined) {
-    contents.startTime = new Date(
-      data.startTime % 1 != 0
-        ? Math.round(data.startTime * 1000)
-        : data.startTime
-    );
+    contents.startTime = new Date(Math.round(data.startTime * 1000));
   }
   if (data.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1TagsMap(data.tags, context);
@@ -2442,18 +2432,10 @@ export async function deserializeAws_restJson1_1GetSatelliteCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.dateCreated !== undefined) {
-    contents.dateCreated = new Date(
-      data.dateCreated % 1 != 0
-        ? Math.round(data.dateCreated * 1000)
-        : data.dateCreated
-    );
+    contents.dateCreated = new Date(Math.round(data.dateCreated * 1000));
   }
   if (data.lastUpdated !== undefined) {
-    contents.lastUpdated = new Date(
-      data.lastUpdated % 1 != 0
-        ? Math.round(data.lastUpdated * 1000)
-        : data.lastUpdated
-    );
+    contents.lastUpdated = new Date(Math.round(data.lastUpdated * 1000));
   }
   if (data.noradSatelliteID !== undefined) {
     contents.noradSatelliteID = data.noradSatelliteID;
@@ -3464,11 +3446,7 @@ const deserializeAws_restJson1_1ContactData = (
     contents.contactStatus = output.contactStatus;
   }
   if (output.endTime !== undefined) {
-    contents.endTime = new Date(
-      output.endTime % 1 != 0
-        ? Math.round(output.endTime * 1000)
-        : output.endTime
-    );
+    contents.endTime = new Date(Math.round(output.endTime * 1000));
   }
   if (output.errorMessage !== undefined) {
     contents.errorMessage = output.errorMessage;
@@ -3487,27 +3465,19 @@ const deserializeAws_restJson1_1ContactData = (
   }
   if (output.postPassEndTime !== undefined) {
     contents.postPassEndTime = new Date(
-      output.postPassEndTime % 1 != 0
-        ? Math.round(output.postPassEndTime * 1000)
-        : output.postPassEndTime
+      Math.round(output.postPassEndTime * 1000)
     );
   }
   if (output.prePassStartTime !== undefined) {
     contents.prePassStartTime = new Date(
-      output.prePassStartTime % 1 != 0
-        ? Math.round(output.prePassStartTime * 1000)
-        : output.prePassStartTime
+      Math.round(output.prePassStartTime * 1000)
     );
   }
   if (output.satelliteArn !== undefined) {
     contents.satelliteArn = output.satelliteArn;
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1TagsMap(output.tags, context);

@@ -3805,9 +3805,7 @@ const deserializeAws_json1_1ApplicationDetail = (
   }
   if (output.CreateTimestamp !== undefined) {
     contents.CreateTimestamp = new Date(
-      output.CreateTimestamp % 1 != 0
-        ? Math.round(output.CreateTimestamp * 1000)
-        : output.CreateTimestamp
+      Math.round(output.CreateTimestamp * 1000)
     );
   }
   if (output.InputDescriptions !== undefined) {
@@ -3818,9 +3816,7 @@ const deserializeAws_json1_1ApplicationDetail = (
   }
   if (output.LastUpdateTimestamp !== undefined) {
     contents.LastUpdateTimestamp = new Date(
-      output.LastUpdateTimestamp % 1 != 0
-        ? Math.round(output.LastUpdateTimestamp * 1000)
-        : output.LastUpdateTimestamp
+      Math.round(output.LastUpdateTimestamp * 1000)
     );
   }
   if (output.OutputDescriptions !== undefined) {

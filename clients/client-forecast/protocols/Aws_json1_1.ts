@@ -3684,11 +3684,7 @@ const deserializeAws_json1_1DatasetGroupSummary = (
     LastModificationTime: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DatasetGroupArn !== undefined) {
     contents.DatasetGroupArn = output.DatasetGroupArn;
@@ -3698,9 +3694,7 @@ const deserializeAws_json1_1DatasetGroupSummary = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   return contents;
@@ -3730,11 +3724,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DataSource !== undefined) {
     contents.DataSource = deserializeAws_json1_1DataSource(
@@ -3750,9 +3740,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -3787,11 +3775,7 @@ const deserializeAws_json1_1DatasetSummary = (
     LastModificationTime: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DatasetArn !== undefined) {
     contents.DatasetArn = output.DatasetArn;
@@ -3807,9 +3791,7 @@ const deserializeAws_json1_1DatasetSummary = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   return contents;
@@ -3839,11 +3821,7 @@ const deserializeAws_json1_1DescribeDatasetGroupResponse = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DatasetArns !== undefined) {
     contents.DatasetArns = deserializeAws_json1_1ArnList(
@@ -3862,9 +3840,7 @@ const deserializeAws_json1_1DescribeDatasetGroupResponse = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Status !== undefined) {
@@ -3892,11 +3868,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
     TimestampFormat: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DataSize !== undefined) {
     contents.DataSize = output.DataSize;
@@ -3924,9 +3896,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -3959,11 +3929,7 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DataFrequency !== undefined) {
     contents.DataFrequency = output.DataFrequency;
@@ -3988,9 +3954,7 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Schema !== undefined) {
@@ -4018,11 +3982,7 @@ const deserializeAws_json1_1DescribeForecastExportJobResponse = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Destination !== undefined) {
     contents.Destination = deserializeAws_json1_1DataDestination(
@@ -4041,9 +4001,7 @@ const deserializeAws_json1_1DescribeForecastExportJobResponse = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -4072,11 +4030,7 @@ const deserializeAws_json1_1DescribeForecastResponse = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DatasetGroupArn !== undefined) {
     contents.DatasetGroupArn = output.DatasetGroupArn;
@@ -4095,9 +4049,7 @@ const deserializeAws_json1_1DescribeForecastResponse = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -4148,11 +4100,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
     );
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DatasetImportJobArns !== undefined) {
     contents.DatasetImportJobArns = deserializeAws_json1_1ArnList(
@@ -4195,9 +4143,7 @@ const deserializeAws_json1_1DescribePredictorResponse = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -4422,11 +4368,7 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Destination !== undefined) {
     contents.Destination = deserializeAws_json1_1DataDestination(
@@ -4442,9 +4384,7 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -4481,11 +4421,7 @@ const deserializeAws_json1_1ForecastSummary = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DatasetGroupArn !== undefined) {
     contents.DatasetGroupArn = output.DatasetGroupArn;
@@ -4498,9 +4434,7 @@ const deserializeAws_json1_1ForecastSummary = (
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -4912,20 +4846,14 @@ const deserializeAws_json1_1PredictorSummary = (
     Status: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DatasetGroupArn !== undefined) {
     contents.DatasetGroupArn = output.DatasetGroupArn;
   }
   if (output.LastModificationTime !== undefined) {
     contents.LastModificationTime = new Date(
-      output.LastModificationTime % 1 != 0
-        ? Math.round(output.LastModificationTime * 1000)
-        : output.LastModificationTime
+      Math.round(output.LastModificationTime * 1000)
     );
   }
   if (output.Message !== undefined) {
@@ -5156,17 +5084,11 @@ const deserializeAws_json1_1TestWindowSummary = (
     contents.Status = output.Status;
   }
   if (output.TestWindowEnd !== undefined) {
-    contents.TestWindowEnd = new Date(
-      output.TestWindowEnd % 1 != 0
-        ? Math.round(output.TestWindowEnd * 1000)
-        : output.TestWindowEnd
-    );
+    contents.TestWindowEnd = new Date(Math.round(output.TestWindowEnd * 1000));
   }
   if (output.TestWindowStart !== undefined) {
     contents.TestWindowStart = new Date(
-      output.TestWindowStart % 1 != 0
-        ? Math.round(output.TestWindowStart * 1000)
-        : output.TestWindowStart
+      Math.round(output.TestWindowStart * 1000)
     );
   }
   return contents;
@@ -5258,17 +5180,11 @@ const deserializeAws_json1_1WindowSummary = (
     contents.Metrics = deserializeAws_json1_1Metrics(output.Metrics, context);
   }
   if (output.TestWindowEnd !== undefined) {
-    contents.TestWindowEnd = new Date(
-      output.TestWindowEnd % 1 != 0
-        ? Math.round(output.TestWindowEnd * 1000)
-        : output.TestWindowEnd
-    );
+    contents.TestWindowEnd = new Date(Math.round(output.TestWindowEnd * 1000));
   }
   if (output.TestWindowStart !== undefined) {
     contents.TestWindowStart = new Date(
-      output.TestWindowStart % 1 != 0
-        ? Math.round(output.TestWindowStart * 1000)
-        : output.TestWindowStart
+      Math.round(output.TestWindowStart * 1000)
     );
   }
   return contents;
