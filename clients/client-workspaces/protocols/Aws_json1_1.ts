@@ -5417,11 +5417,7 @@ const deserializeAws_json1_1AccountModification = (
     contents.ModificationState = output.ModificationState;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   return contents;
 };
@@ -6477,11 +6473,7 @@ const deserializeAws_json1_1Snapshot = (
     SnapshotTime: undefined
   };
   if (output.SnapshotTime !== undefined) {
-    contents.SnapshotTime = new Date(
-      output.SnapshotTime % 1 != 0
-        ? Math.round(output.SnapshotTime * 1000)
-        : output.SnapshotTime
-    );
+    contents.SnapshotTime = new Date(Math.round(output.SnapshotTime * 1000));
   }
   return contents;
 };
@@ -6779,9 +6771,7 @@ const deserializeAws_json1_1WorkspaceBundle = (
   }
   if (output.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
+      Math.round(output.LastUpdatedTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -6821,16 +6811,12 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
   }
   if (output.ConnectionStateCheckTimestamp !== undefined) {
     contents.ConnectionStateCheckTimestamp = new Date(
-      output.ConnectionStateCheckTimestamp % 1 != 0
-        ? Math.round(output.ConnectionStateCheckTimestamp * 1000)
-        : output.ConnectionStateCheckTimestamp
+      Math.round(output.ConnectionStateCheckTimestamp * 1000)
     );
   }
   if (output.LastKnownUserConnectionTimestamp !== undefined) {
     contents.LastKnownUserConnectionTimestamp = new Date(
-      output.LastKnownUserConnectionTimestamp % 1 != 0
-        ? Math.round(output.LastKnownUserConnectionTimestamp * 1000)
-        : output.LastKnownUserConnectionTimestamp
+      Math.round(output.LastKnownUserConnectionTimestamp * 1000)
     );
   }
   if (output.WorkspaceId !== undefined) {

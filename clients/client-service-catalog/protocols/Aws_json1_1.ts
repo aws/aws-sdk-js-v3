@@ -10387,11 +10387,7 @@ const deserializeAws_json1_1ResourceDetail = (
     contents.ARN = output.ARN;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -12024,11 +12020,7 @@ const deserializeAws_json1_1PortfolioDetail = (
     contents.ARN = output.ARN;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -12134,11 +12126,7 @@ const deserializeAws_json1_1ProductViewDetail = (
     Status: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.ProductARN !== undefined) {
     contents.ProductARN = output.ProductARN;
@@ -12270,11 +12258,7 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
     contents.Arn = output.Arn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -12349,11 +12333,7 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
     contents.Arn = output.Arn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -12417,11 +12397,7 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
     UpdatedTime: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.NotificationArns !== undefined) {
     contents.NotificationArns = deserializeAws_json1_1NotificationArns(
@@ -12469,11 +12445,7 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
     contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
   }
   if (output.UpdatedTime !== undefined) {
-    contents.UpdatedTime = new Date(
-      output.UpdatedTime % 1 != 0
-        ? Math.round(output.UpdatedTime * 1000)
-        : output.UpdatedTime
-    );
+    contents.UpdatedTime = new Date(Math.round(output.UpdatedTime * 1000));
   }
   return contents;
 };
@@ -12545,11 +12517,7 @@ const deserializeAws_json1_1ProvisioningArtifact = (
     Name: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -12584,11 +12552,7 @@ const deserializeAws_json1_1ProvisioningArtifactDetail = (
     contents.Active = output.Active;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -12720,11 +12684,7 @@ const deserializeAws_json1_1ProvisioningArtifactSummary = (
     ProvisioningArtifactMetadata: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -12807,11 +12767,7 @@ const deserializeAws_json1_1RecordDetail = (
     UpdatedTime: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.PathId !== undefined) {
     contents.PathId = output.PathId;
@@ -12853,11 +12809,7 @@ const deserializeAws_json1_1RecordDetail = (
     contents.Status = output.Status;
   }
   if (output.UpdatedTime !== undefined) {
-    contents.UpdatedTime = new Date(
-      output.UpdatedTime % 1 != 0
-        ? Math.round(output.UpdatedTime * 1000)
-        : output.UpdatedTime
-    );
+    contents.UpdatedTime = new Date(Math.round(output.UpdatedTime * 1000));
   }
   return contents;
 };

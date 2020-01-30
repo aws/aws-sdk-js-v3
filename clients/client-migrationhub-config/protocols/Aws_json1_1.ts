@@ -598,11 +598,7 @@ const deserializeAws_json1_1HomeRegionControl = (
     contents.HomeRegion = output.HomeRegion;
   }
   if (output.RequestedTime !== undefined) {
-    contents.RequestedTime = new Date(
-      output.RequestedTime % 1 != 0
-        ? Math.round(output.RequestedTime * 1000)
-        : output.RequestedTime
-    );
+    contents.RequestedTime = new Date(Math.round(output.RequestedTime * 1000));
   }
   if (output.Target !== undefined) {
     contents.Target = deserializeAws_json1_1Target(output.Target, context);

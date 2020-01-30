@@ -1551,11 +1551,7 @@ const deserializeAws_restJson1_1LexiconAttributes = (
     contents.LanguageCode = output.LanguageCode;
   }
   if (output.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      output.LastModified % 1 != 0
-        ? Math.round(output.LastModified * 1000)
-        : output.LastModified
-    );
+    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
   }
   if (output.LexemesCount !== undefined) {
     contents.LexemesCount = output.LexemesCount;
@@ -1636,11 +1632,7 @@ const deserializeAws_restJson1_1SynthesisTask = (
     VoiceId: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Engine !== undefined) {
     contents.Engine = output.Engine;

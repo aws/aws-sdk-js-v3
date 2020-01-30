@@ -7550,9 +7550,7 @@ const deserializeAws_json1_0ArchivalSummary = (
   }
   if (output.ArchivalDateTime !== undefined) {
     contents.ArchivalDateTime = new Date(
-      output.ArchivalDateTime % 1 != 0
-        ? Math.round(output.ArchivalDateTime * 1000)
-        : output.ArchivalDateTime
+      Math.round(output.ArchivalDateTime * 1000)
     );
   }
   if (output.ArchivalReason !== undefined) {
@@ -7804,16 +7802,12 @@ const deserializeAws_json1_0BackupDetails = (
   }
   if (output.BackupCreationDateTime !== undefined) {
     contents.BackupCreationDateTime = new Date(
-      output.BackupCreationDateTime % 1 != 0
-        ? Math.round(output.BackupCreationDateTime * 1000)
-        : output.BackupCreationDateTime
+      Math.round(output.BackupCreationDateTime * 1000)
     );
   }
   if (output.BackupExpiryDateTime !== undefined) {
     contents.BackupExpiryDateTime = new Date(
-      output.BackupExpiryDateTime % 1 != 0
-        ? Math.round(output.BackupExpiryDateTime * 1000)
-        : output.BackupExpiryDateTime
+      Math.round(output.BackupExpiryDateTime * 1000)
     );
   }
   if (output.BackupName !== undefined) {
@@ -7890,16 +7884,12 @@ const deserializeAws_json1_0BackupSummary = (
   }
   if (output.BackupCreationDateTime !== undefined) {
     contents.BackupCreationDateTime = new Date(
-      output.BackupCreationDateTime % 1 != 0
-        ? Math.round(output.BackupCreationDateTime * 1000)
-        : output.BackupCreationDateTime
+      Math.round(output.BackupCreationDateTime * 1000)
     );
   }
   if (output.BackupExpiryDateTime !== undefined) {
     contents.BackupExpiryDateTime = new Date(
-      output.BackupExpiryDateTime % 1 != 0
-        ? Math.round(output.BackupExpiryDateTime * 1000)
-        : output.BackupExpiryDateTime
+      Math.round(output.BackupExpiryDateTime * 1000)
     );
   }
   if (output.BackupName !== undefined) {
@@ -8038,9 +8028,7 @@ const deserializeAws_json1_0BillingModeSummary = (
   }
   if (output.LastUpdateToPayPerRequestDateTime !== undefined) {
     contents.LastUpdateToPayPerRequestDateTime = new Date(
-      output.LastUpdateToPayPerRequestDateTime % 1 != 0
-        ? Math.round(output.LastUpdateToPayPerRequestDateTime * 1000)
-        : output.LastUpdateToPayPerRequestDateTime
+      Math.round(output.LastUpdateToPayPerRequestDateTime * 1000)
     );
   }
   return contents;
@@ -8443,9 +8431,7 @@ const deserializeAws_json1_0DescribeContributorInsightsOutput = (
   }
   if (output.LastUpdateDateTime !== undefined) {
     contents.LastUpdateDateTime = new Date(
-      output.LastUpdateDateTime % 1 != 0
-        ? Math.round(output.LastUpdateDateTime * 1000)
-        : output.LastUpdateDateTime
+      Math.round(output.LastUpdateDateTime * 1000)
     );
   }
   if (output.TableName !== undefined) {
@@ -8776,9 +8762,7 @@ const deserializeAws_json1_0GlobalTableDescription = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.GlobalTableArn !== undefined) {
@@ -9320,16 +9304,12 @@ const deserializeAws_json1_0PointInTimeRecoveryDescription = (
   };
   if (output.EarliestRestorableDateTime !== undefined) {
     contents.EarliestRestorableDateTime = new Date(
-      output.EarliestRestorableDateTime % 1 != 0
-        ? Math.round(output.EarliestRestorableDateTime * 1000)
-        : output.EarliestRestorableDateTime
+      Math.round(output.EarliestRestorableDateTime * 1000)
     );
   }
   if (output.LatestRestorableDateTime !== undefined) {
     contents.LatestRestorableDateTime = new Date(
-      output.LatestRestorableDateTime % 1 != 0
-        ? Math.round(output.LatestRestorableDateTime * 1000)
-        : output.LatestRestorableDateTime
+      Math.round(output.LatestRestorableDateTime * 1000)
     );
   }
   if (output.PointInTimeRecoveryStatus !== undefined) {
@@ -9405,16 +9385,12 @@ const deserializeAws_json1_0ProvisionedThroughputDescription = (
   };
   if (output.LastDecreaseDateTime !== undefined) {
     contents.LastDecreaseDateTime = new Date(
-      output.LastDecreaseDateTime % 1 != 0
-        ? Math.round(output.LastDecreaseDateTime * 1000)
-        : output.LastDecreaseDateTime
+      Math.round(output.LastDecreaseDateTime * 1000)
     );
   }
   if (output.LastIncreaseDateTime !== undefined) {
     contents.LastIncreaseDateTime = new Date(
-      output.LastIncreaseDateTime % 1 != 0
-        ? Math.round(output.LastIncreaseDateTime * 1000)
-        : output.LastIncreaseDateTime
+      Math.round(output.LastIncreaseDateTime * 1000)
     );
   }
   if (output.NumberOfDecreasesToday !== undefined) {
@@ -9951,9 +9927,7 @@ const deserializeAws_json1_0RestoreSummary = (
   };
   if (output.RestoreDateTime !== undefined) {
     contents.RestoreDateTime = new Date(
-      output.RestoreDateTime % 1 != 0
-        ? Math.round(output.RestoreDateTime * 1000)
-        : output.RestoreDateTime
+      Math.round(output.RestoreDateTime * 1000)
     );
   }
   if (output.RestoreInProgress !== undefined) {
@@ -10015,9 +9989,7 @@ const deserializeAws_json1_0SSEDescription = (
   };
   if (output.InaccessibleEncryptionDateTime !== undefined) {
     contents.InaccessibleEncryptionDateTime = new Date(
-      output.InaccessibleEncryptionDateTime % 1 != 0
-        ? Math.round(output.InaccessibleEncryptionDateTime * 1000)
-        : output.InaccessibleEncryptionDateTime
+      Math.round(output.InaccessibleEncryptionDateTime * 1000)
     );
   }
   if (output.KMSMasterKeyArn !== undefined) {
@@ -10118,9 +10090,7 @@ const deserializeAws_json1_0SourceTableDetails = (
   }
   if (output.TableCreationDateTime !== undefined) {
     contents.TableCreationDateTime = new Date(
-      output.TableCreationDateTime % 1 != 0
-        ? Math.round(output.TableCreationDateTime * 1000)
-        : output.TableCreationDateTime
+      Math.round(output.TableCreationDateTime * 1000)
     );
   }
   if (output.TableId !== undefined) {
@@ -10292,9 +10262,7 @@ const deserializeAws_json1_0TableDescription = (
   }
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.GlobalSecondaryIndexes !== undefined) {

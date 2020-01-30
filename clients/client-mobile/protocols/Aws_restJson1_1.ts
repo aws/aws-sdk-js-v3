@@ -1362,17 +1362,11 @@ const deserializeAws_restJson1_1ProjectDetails = (
     contents.consoleUrl = output.consoleUrl;
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.lastUpdatedDate !== undefined) {
     contents.lastUpdatedDate = new Date(
-      output.lastUpdatedDate % 1 != 0
-        ? Math.round(output.lastUpdatedDate * 1000)
-        : output.lastUpdatedDate
+      Math.round(output.lastUpdatedDate * 1000)
     );
   }
   if (output.name !== undefined) {

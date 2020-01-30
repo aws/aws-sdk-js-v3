@@ -4677,21 +4677,13 @@ const deserializeAws_json1_1Assignment = (
     WorkerId: undefined
   };
   if (output.AcceptTime !== undefined) {
-    contents.AcceptTime = new Date(
-      output.AcceptTime % 1 != 0
-        ? Math.round(output.AcceptTime * 1000)
-        : output.AcceptTime
-    );
+    contents.AcceptTime = new Date(Math.round(output.AcceptTime * 1000));
   }
   if (output.Answer !== undefined) {
     contents.Answer = output.Answer;
   }
   if (output.ApprovalTime !== undefined) {
-    contents.ApprovalTime = new Date(
-      output.ApprovalTime % 1 != 0
-        ? Math.round(output.ApprovalTime * 1000)
-        : output.ApprovalTime
-    );
+    contents.ApprovalTime = new Date(Math.round(output.ApprovalTime * 1000));
   }
   if (output.AssignmentId !== undefined) {
     contents.AssignmentId = output.AssignmentId;
@@ -4701,37 +4693,23 @@ const deserializeAws_json1_1Assignment = (
   }
   if (output.AutoApprovalTime !== undefined) {
     contents.AutoApprovalTime = new Date(
-      output.AutoApprovalTime % 1 != 0
-        ? Math.round(output.AutoApprovalTime * 1000)
-        : output.AutoApprovalTime
+      Math.round(output.AutoApprovalTime * 1000)
     );
   }
   if (output.Deadline !== undefined) {
-    contents.Deadline = new Date(
-      output.Deadline % 1 != 0
-        ? Math.round(output.Deadline * 1000)
-        : output.Deadline
-    );
+    contents.Deadline = new Date(Math.round(output.Deadline * 1000));
   }
   if (output.HITId !== undefined) {
     contents.HITId = output.HITId;
   }
   if (output.RejectionTime !== undefined) {
-    contents.RejectionTime = new Date(
-      output.RejectionTime % 1 != 0
-        ? Math.round(output.RejectionTime * 1000)
-        : output.RejectionTime
-    );
+    contents.RejectionTime = new Date(Math.round(output.RejectionTime * 1000));
   }
   if (output.RequesterFeedback !== undefined) {
     contents.RequesterFeedback = output.RequesterFeedback;
   }
   if (output.SubmitTime !== undefined) {
-    contents.SubmitTime = new Date(
-      output.SubmitTime % 1 != 0
-        ? Math.round(output.SubmitTime * 1000)
-        : output.SubmitTime
-    );
+    contents.SubmitTime = new Date(Math.round(output.SubmitTime * 1000));
   }
   if (output.WorkerId !== undefined) {
     contents.WorkerId = output.WorkerId;
@@ -4777,11 +4755,7 @@ const deserializeAws_json1_1BonusPayment = (
     contents.BonusAmount = output.BonusAmount;
   }
   if (output.GrantTime !== undefined) {
-    contents.GrantTime = new Date(
-      output.GrantTime % 1 != 0
-        ? Math.round(output.GrantTime * 1000)
-        : output.GrantTime
-    );
+    contents.GrantTime = new Date(Math.round(output.GrantTime * 1000));
   }
   if (output.Reason !== undefined) {
     contents.Reason = output.Reason;
@@ -5056,21 +5030,13 @@ const deserializeAws_json1_1HIT = (
     contents.AutoApprovalDelayInSeconds = output.AutoApprovalDelayInSeconds;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
   }
   if (output.Expiration !== undefined) {
-    contents.Expiration = new Date(
-      output.Expiration % 1 != 0
-        ? Math.round(output.Expiration * 1000)
-        : output.Expiration
-    );
+    contents.Expiration = new Date(Math.round(output.Expiration * 1000));
   }
   if (output.HITGroupId !== undefined) {
     contents.HITGroupId = output.HITGroupId;
@@ -5554,11 +5520,7 @@ const deserializeAws_json1_1Qualification = (
     WorkerId: undefined
   };
   if (output.GrantTime !== undefined) {
-    contents.GrantTime = new Date(
-      output.GrantTime % 1 != 0
-        ? Math.round(output.GrantTime * 1000)
-        : output.GrantTime
-    );
+    contents.GrantTime = new Date(Math.round(output.GrantTime * 1000));
   }
   if (output.IntegerValue !== undefined) {
     contents.IntegerValue = output.IntegerValue;
@@ -5613,11 +5575,7 @@ const deserializeAws_json1_1QualificationRequest = (
     contents.QualificationTypeId = output.QualificationTypeId;
   }
   if (output.SubmitTime !== undefined) {
-    contents.SubmitTime = new Date(
-      output.SubmitTime % 1 != 0
-        ? Math.round(output.SubmitTime * 1000)
-        : output.SubmitTime
-    );
+    contents.SubmitTime = new Date(Math.round(output.SubmitTime * 1000));
   }
   if (output.Test !== undefined) {
     contents.Test = output.Test;
@@ -5716,11 +5674,7 @@ const deserializeAws_json1_1QualificationType = (
     contents.AutoGrantedValue = output.AutoGrantedValue;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -5803,11 +5757,7 @@ const deserializeAws_json1_1ReviewActionDetail = (
     contents.ActionName = output.ActionName;
   }
   if (output.CompleteTime !== undefined) {
-    contents.CompleteTime = new Date(
-      output.CompleteTime % 1 != 0
-        ? Math.round(output.CompleteTime * 1000)
-        : output.CompleteTime
-    );
+    contents.CompleteTime = new Date(Math.round(output.CompleteTime * 1000));
   }
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;

@@ -5451,17 +5451,11 @@ const deserializeAws_json1_0ActivityTypeInfo = (
     );
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.deprecationDate !== undefined) {
     contents.deprecationDate = new Date(
-      output.deprecationDate % 1 != 0
-        ? Math.round(output.deprecationDate * 1000)
-        : output.deprecationDate
+      Math.round(output.deprecationDate * 1000)
     );
   }
   if (output.description !== undefined) {
@@ -6336,9 +6330,7 @@ const deserializeAws_json1_0HistoryEvent = (
   }
   if (output.eventTimestamp !== undefined) {
     contents.eventTimestamp = new Date(
-      output.eventTimestamp % 1 != 0
-        ? Math.round(output.eventTimestamp * 1000)
-        : output.eventTimestamp
+      Math.round(output.eventTimestamp * 1000)
     );
   }
   if (output.eventType !== undefined) {
@@ -7530,9 +7522,7 @@ const deserializeAws_json1_0WorkflowExecutionDetail = (
   }
   if (output.latestActivityTaskTimestamp !== undefined) {
     contents.latestActivityTaskTimestamp = new Date(
-      output.latestActivityTaskTimestamp % 1 != 0
-        ? Math.round(output.latestActivityTaskTimestamp * 1000)
-        : output.latestActivityTaskTimestamp
+      Math.round(output.latestActivityTaskTimestamp * 1000)
     );
   }
   if (output.latestExecutionContext !== undefined) {
@@ -7593,9 +7583,7 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (
   }
   if (output.closeTimestamp !== undefined) {
     contents.closeTimestamp = new Date(
-      output.closeTimestamp % 1 != 0
-        ? Math.round(output.closeTimestamp * 1000)
-        : output.closeTimestamp
+      Math.round(output.closeTimestamp * 1000)
     );
   }
   if (output.execution !== undefined) {
@@ -7615,9 +7603,7 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (
   }
   if (output.startTimestamp !== undefined) {
     contents.startTimestamp = new Date(
-      output.startTimestamp % 1 != 0
-        ? Math.round(output.startTimestamp * 1000)
-        : output.startTimestamp
+      Math.round(output.startTimestamp * 1000)
     );
   }
   if (output.tagList !== undefined) {
@@ -7926,17 +7912,11 @@ const deserializeAws_json1_0WorkflowTypeInfo = (
     workflowType: undefined
   };
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.deprecationDate !== undefined) {
     contents.deprecationDate = new Date(
-      output.deprecationDate % 1 != 0
-        ? Math.round(output.deprecationDate * 1000)
-        : output.deprecationDate
+      Math.round(output.deprecationDate * 1000)
     );
   }
   if (output.description !== undefined) {

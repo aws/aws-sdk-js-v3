@@ -2658,11 +2658,7 @@ const deserializeAws_json1_1ResourceInfo = (
     RoleArn: undefined
   };
   if (output.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      output.LastModified % 1 != 0
-        ? Math.round(output.LastModified * 1000)
-        : output.LastModified
-    );
+    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
   }
   if (output.ResourceArn !== undefined) {
     contents.ResourceArn = output.ResourceArn;

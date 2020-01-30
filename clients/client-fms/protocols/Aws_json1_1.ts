@@ -2605,11 +2605,7 @@ const deserializeAws_json1_1PolicyComplianceDetail = (
     contents.EvaluationLimitExceeded = output.EvaluationLimitExceeded;
   }
   if (output.ExpiredAt !== undefined) {
-    contents.ExpiredAt = new Date(
-      output.ExpiredAt % 1 != 0
-        ? Math.round(output.ExpiredAt * 1000)
-        : output.ExpiredAt
-    );
+    contents.ExpiredAt = new Date(Math.round(output.ExpiredAt * 1000));
   }
   if (output.IssueInfoMap !== undefined) {
     contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(
@@ -2662,11 +2658,7 @@ const deserializeAws_json1_1PolicyComplianceStatus = (
     );
   }
   if (output.LastUpdated !== undefined) {
-    contents.LastUpdated = new Date(
-      output.LastUpdated % 1 != 0
-        ? Math.round(output.LastUpdated * 1000)
-        : output.LastUpdated
-    );
+    contents.LastUpdated = new Date(Math.round(output.LastUpdated * 1000));
   }
   if (output.MemberAccount !== undefined) {
     contents.MemberAccount = output.MemberAccount;

@@ -642,11 +642,7 @@ const deserializeAws_restJson1_1Item = (
     contents.ETag = output.ETag;
   }
   if (output.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      output.LastModified % 1 != 0
-        ? Math.round(output.LastModified * 1000)
-        : output.LastModified
-    );
+    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;

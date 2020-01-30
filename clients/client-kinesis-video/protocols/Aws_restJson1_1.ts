@@ -2574,11 +2574,7 @@ const deserializeAws_restJson1_1ChannelInfo = (
     contents.ChannelType = output.ChannelType;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.SingleMasterConfiguration !== undefined) {
     contents.SingleMasterConfiguration = deserializeAws_restJson1_1SingleMasterConfiguration(
@@ -2670,11 +2666,7 @@ const deserializeAws_restJson1_1StreamInfo = (
     Version: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DataRetentionInHours !== undefined) {
     contents.DataRetentionInHours = output.DataRetentionInHours;

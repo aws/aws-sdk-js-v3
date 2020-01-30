@@ -4146,17 +4146,11 @@ const deserializeAws_json1_1DescribeEventSourceResponse = (
     contents.CreatedBy = output.CreatedBy;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.ExpirationTime !== undefined) {
     contents.ExpirationTime = new Date(
-      output.ExpirationTime % 1 != 0
-        ? Math.round(output.ExpirationTime * 1000)
-        : output.ExpirationTime
+      Math.round(output.ExpirationTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -4320,17 +4314,11 @@ const deserializeAws_json1_1EventSource = (
     contents.CreatedBy = output.CreatedBy;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.ExpirationTime !== undefined) {
     contents.ExpirationTime = new Date(
-      output.ExpirationTime % 1 != 0
-        ? Math.round(output.ExpirationTime * 1000)
-        : output.ExpirationTime
+      Math.round(output.ExpirationTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -4597,17 +4585,11 @@ const deserializeAws_json1_1PartnerEventSourceAccount = (
     contents.Account = output.Account;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.ExpirationTime !== undefined) {
     contents.ExpirationTime = new Date(
-      output.ExpirationTime % 1 != 0
-        ? Math.round(output.ExpirationTime * 1000)
-        : output.ExpirationTime
+      Math.round(output.ExpirationTime * 1000)
     );
   }
   if (output.State !== undefined) {

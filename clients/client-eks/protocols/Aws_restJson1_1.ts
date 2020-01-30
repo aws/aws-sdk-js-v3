@@ -3256,11 +3256,7 @@ const deserializeAws_restJson1_1Cluster = (
     contents.clientRequestToken = output.clientRequestToken;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.endpoint !== undefined) {
     contents.endpoint = output.endpoint;
@@ -3358,11 +3354,7 @@ const deserializeAws_restJson1_1FargateProfile = (
     contents.clusterName = output.clusterName;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.fargateProfileArn !== undefined) {
     contents.fargateProfileArn = output.fargateProfileArn;
@@ -3567,11 +3559,7 @@ const deserializeAws_restJson1_1Nodegroup = (
     contents.clusterName = output.clusterName;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.diskSize !== undefined) {
     contents.diskSize = output.diskSize;
@@ -3595,11 +3583,7 @@ const deserializeAws_restJson1_1Nodegroup = (
     );
   }
   if (output.modifiedAt !== undefined) {
-    contents.modifiedAt = new Date(
-      output.modifiedAt % 1 != 0
-        ? Math.round(output.modifiedAt * 1000)
-        : output.modifiedAt
-    );
+    contents.modifiedAt = new Date(Math.round(output.modifiedAt * 1000));
   }
   if (output.nodeRole !== undefined) {
     contents.nodeRole = output.nodeRole;
@@ -3776,11 +3760,7 @@ const deserializeAws_restJson1_1Update = (
     type: undefined
   };
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.errors !== undefined) {
     contents.errors = deserializeAws_restJson1_1ErrorDetails(

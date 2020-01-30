@@ -3701,9 +3701,7 @@ const deserializeAws_json1_1Consumer = (
   }
   if (output.ConsumerCreationTimestamp !== undefined) {
     contents.ConsumerCreationTimestamp = new Date(
-      output.ConsumerCreationTimestamp % 1 != 0
-        ? Math.round(output.ConsumerCreationTimestamp * 1000)
-        : output.ConsumerCreationTimestamp
+      Math.round(output.ConsumerCreationTimestamp * 1000)
     );
   }
   if (output.ConsumerName !== undefined) {
@@ -3732,9 +3730,7 @@ const deserializeAws_json1_1ConsumerDescription = (
   }
   if (output.ConsumerCreationTimestamp !== undefined) {
     contents.ConsumerCreationTimestamp = new Date(
-      output.ConsumerCreationTimestamp % 1 != 0
-        ? Math.round(output.ConsumerCreationTimestamp * 1000)
-        : output.ConsumerCreationTimestamp
+      Math.round(output.ConsumerCreationTimestamp * 1000)
     );
   }
   if (output.ConsumerName !== undefined) {
@@ -4287,9 +4283,7 @@ const deserializeAws_json1_1_Record = (
   };
   if (output.ApproximateArrivalTimestamp !== undefined) {
     contents.ApproximateArrivalTimestamp = new Date(
-      output.ApproximateArrivalTimestamp % 1 != 0
-        ? Math.round(output.ApproximateArrivalTimestamp * 1000)
-        : output.ApproximateArrivalTimestamp
+      Math.round(output.ApproximateArrivalTimestamp * 1000)
     );
   }
   if (output.Data !== undefined) {
@@ -4467,9 +4461,7 @@ const deserializeAws_json1_1StreamDescription = (
   }
   if (output.StreamCreationTimestamp !== undefined) {
     contents.StreamCreationTimestamp = new Date(
-      output.StreamCreationTimestamp % 1 != 0
-        ? Math.round(output.StreamCreationTimestamp * 1000)
-        : output.StreamCreationTimestamp
+      Math.round(output.StreamCreationTimestamp * 1000)
     );
   }
   if (output.StreamName !== undefined) {
@@ -4524,9 +4516,7 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
   }
   if (output.StreamCreationTimestamp !== undefined) {
     contents.StreamCreationTimestamp = new Date(
-      output.StreamCreationTimestamp % 1 != 0
-        ? Math.round(output.StreamCreationTimestamp * 1000)
-        : output.StreamCreationTimestamp
+      Math.round(output.StreamCreationTimestamp * 1000)
     );
   }
   if (output.StreamName !== undefined) {

@@ -3313,20 +3313,14 @@ const deserializeAws_json1_1DescribeAgentResponse = (
     contents.AgentArn = output.AgentArn;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.EndpointType !== undefined) {
     contents.EndpointType = output.EndpointType;
   }
   if (output.LastConnectionTime !== undefined) {
     contents.LastConnectionTime = new Date(
-      output.LastConnectionTime % 1 != 0
-        ? Math.round(output.LastConnectionTime * 1000)
-        : output.LastConnectionTime
+      Math.round(output.LastConnectionTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -3356,11 +3350,7 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
     LocationUri: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Ec2Config !== undefined) {
     contents.Ec2Config = deserializeAws_json1_1Ec2Config(
@@ -3390,11 +3380,7 @@ const deserializeAws_json1_1DescribeLocationNfsResponse = (
     OnPremConfig: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
@@ -3430,11 +3416,7 @@ const deserializeAws_json1_1DescribeLocationS3Response = (
     S3StorageClass: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
@@ -3475,11 +3457,7 @@ const deserializeAws_json1_1DescribeLocationSmbResponse = (
     );
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Domain !== undefined) {
     contents.Domain = output.Domain;
@@ -3558,11 +3536,7 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
     );
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -3599,11 +3573,7 @@ const deserializeAws_json1_1DescribeTaskResponse = (
     contents.CloudWatchLogGroupArn = output.CloudWatchLogGroupArn;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.CurrentTaskExecutionArn !== undefined) {
     contents.CurrentTaskExecutionArn = output.CurrentTaskExecutionArn;

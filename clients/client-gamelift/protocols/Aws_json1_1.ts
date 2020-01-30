@@ -10531,20 +10531,14 @@ const deserializeAws_json1_1Alias = (
     contents.AliasId = output.AliasId;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
   }
   if (output.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
+      Math.round(output.LastUpdatedTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -10638,11 +10632,7 @@ const deserializeAws_json1_1Build = (
     contents.BuildId = output.BuildId;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -11450,11 +11440,7 @@ const deserializeAws_json1_1Event = (
     contents.EventId = output.EventId;
   }
   if (output.EventTime !== undefined) {
-    contents.EventTime = new Date(
-      output.EventTime % 1 != 0
-        ? Math.round(output.EventTime * 1000)
-        : output.EventTime
-    );
+    contents.EventTime = new Date(Math.round(output.EventTime * 1000));
   }
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -11527,11 +11513,7 @@ const deserializeAws_json1_1FleetAttributes = (
     );
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -11602,9 +11584,7 @@ const deserializeAws_json1_1FleetAttributes = (
   }
   if (output.TerminationTime !== undefined) {
     contents.TerminationTime = new Date(
-      output.TerminationTime % 1 != 0
-        ? Math.round(output.TerminationTime * 1000)
-        : output.TerminationTime
+      Math.round(output.TerminationTime * 1000)
     );
   }
   return contents;
@@ -11766,11 +11746,7 @@ const deserializeAws_json1_1GameSession = (
     TerminationTime: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.CreatorId !== undefined) {
     contents.CreatorId = output.CreatorId;
@@ -11825,9 +11801,7 @@ const deserializeAws_json1_1GameSession = (
   }
   if (output.TerminationTime !== undefined) {
     contents.TerminationTime = new Date(
-      output.TerminationTime % 1 != 0
-        ? Math.round(output.TerminationTime * 1000)
-        : output.TerminationTime
+      Math.round(output.TerminationTime * 1000)
     );
   }
   return contents;
@@ -11948,11 +11922,7 @@ const deserializeAws_json1_1GameSessionPlacement = (
     contents.DnsName = output.DnsName;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.GameProperties !== undefined) {
     contents.GameProperties = deserializeAws_json1_1GamePropertyList(
@@ -12006,11 +11976,7 @@ const deserializeAws_json1_1GameSessionPlacement = (
     contents.Port = output.Port;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -12147,11 +12113,7 @@ const deserializeAws_json1_1Instance = (
     Type: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
@@ -12511,11 +12473,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     contents.ConfigurationArn = output.ConfigurationArn;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.CustomEventData !== undefined) {
     contents.CustomEventData = output.CustomEventData;
@@ -12577,11 +12535,7 @@ const deserializeAws_json1_1MatchmakingRuleSet = (
     RuleSetName: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.RuleSetArn !== undefined) {
     contents.RuleSetArn = output.RuleSetArn;
@@ -12629,11 +12583,7 @@ const deserializeAws_json1_1MatchmakingTicket = (
     contents.ConfigurationName = output.ConfigurationName;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.EstimatedWaitTime !== undefined) {
     contents.EstimatedWaitTime = output.EstimatedWaitTime;
@@ -12651,11 +12601,7 @@ const deserializeAws_json1_1MatchmakingTicket = (
     );
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -12860,11 +12806,7 @@ const deserializeAws_json1_1PlayerSession = (
     TerminationTime: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
@@ -12898,9 +12840,7 @@ const deserializeAws_json1_1PlayerSession = (
   }
   if (output.TerminationTime !== undefined) {
     contents.TerminationTime = new Date(
-      output.TerminationTime % 1 != 0
-        ? Math.round(output.TerminationTime * 1000)
-        : output.TerminationTime
+      Math.round(output.TerminationTime * 1000)
     );
   }
   return contents;
@@ -13152,11 +13092,7 @@ const deserializeAws_json1_1Script = (
     Version: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -13655,17 +13591,11 @@ const deserializeAws_json1_1VpcPeeringAuthorization = (
     PeerVpcId: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.ExpirationTime !== undefined) {
     contents.ExpirationTime = new Date(
-      output.ExpirationTime % 1 != 0
-        ? Math.round(output.ExpirationTime * 1000)
-        : output.ExpirationTime
+      Math.round(output.ExpirationTime * 1000)
     );
   }
   if (output.GameLiftAwsAccountId !== undefined) {

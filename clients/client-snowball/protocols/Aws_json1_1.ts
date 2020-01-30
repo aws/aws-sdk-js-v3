@@ -2626,11 +2626,7 @@ const deserializeAws_json1_1ClusterListEntry = (
     contents.ClusterState = output.ClusterState;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -2677,11 +2673,7 @@ const deserializeAws_json1_1ClusterMetadata = (
     contents.ClusterState = output.ClusterState;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -3103,11 +3095,7 @@ const deserializeAws_json1_1JobListEntry = (
     SnowballType: undefined
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -3192,11 +3180,7 @@ const deserializeAws_json1_1JobMetadata = (
     contents.ClusterId = output.ClusterId;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.DataTransferProgress !== undefined) {
     contents.DataTransferProgress = deserializeAws_json1_1DataTransfer(

@@ -4040,11 +4040,7 @@ const deserializeAws_json1_1DataSourceSummary = (
     UpdatedAt: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4059,11 +4055,7 @@ const deserializeAws_json1_1DataSourceSummary = (
     contents.Type = output.Type;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
 };
@@ -4095,11 +4087,7 @@ const deserializeAws_json1_1DataSourceSyncJob = (
     contents.DataSourceErrorCode = output.DataSourceErrorCode;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -4111,11 +4099,7 @@ const deserializeAws_json1_1DataSourceSyncJob = (
     contents.ExecutionId = output.ExecutionId;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -4255,11 +4239,7 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
     );
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4289,11 +4269,7 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
     contents.Type = output.Type;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
 };
@@ -4316,11 +4292,7 @@ const deserializeAws_json1_1DescribeFaqResponse = (
     UpdatedAt: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4347,11 +4319,7 @@ const deserializeAws_json1_1DescribeFaqResponse = (
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
 };
@@ -4375,11 +4343,7 @@ const deserializeAws_json1_1DescribeIndexResponse = (
     UpdatedAt: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4418,11 +4382,7 @@ const deserializeAws_json1_1DescribeIndexResponse = (
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
 };
@@ -4476,11 +4436,7 @@ const deserializeAws_json1_1DocumentAttributeValue = (
     StringValue: undefined
   };
   if (output.DateValue !== undefined) {
-    contents.DateValue = new Date(
-      output.DateValue % 1 != 0
-        ? Math.round(output.DateValue * 1000)
-        : output.DateValue
-    );
+    contents.DateValue = new Date(Math.round(output.DateValue * 1000));
   }
   if (output.LongValue !== undefined) {
     contents.LongValue = output.LongValue;
@@ -4636,11 +4592,7 @@ const deserializeAws_json1_1FaqSummary = (
     UpdatedAt: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4652,11 +4604,7 @@ const deserializeAws_json1_1FaqSummary = (
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
 };
@@ -4714,11 +4662,7 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
     UpdatedAt: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4730,11 +4674,7 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
 };

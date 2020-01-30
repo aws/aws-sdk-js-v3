@@ -7263,9 +7263,7 @@ const deserializeAws_json1_1DescribeCollectionResponse = (
   }
   if (output.CreationTimestamp !== undefined) {
     contents.CreationTimestamp = new Date(
-      output.CreationTimestamp % 1 != 0
-        ? Math.round(output.CreationTimestamp * 1000)
-        : output.CreationTimestamp
+      Math.round(output.CreationTimestamp * 1000)
     );
   }
   if (output.FaceCount !== undefined) {
@@ -7338,9 +7336,7 @@ const deserializeAws_json1_1DescribeStreamProcessorResponse = (
   };
   if (output.CreationTimestamp !== undefined) {
     contents.CreationTimestamp = new Date(
-      output.CreationTimestamp % 1 != 0
-        ? Math.round(output.CreationTimestamp * 1000)
-        : output.CreationTimestamp
+      Math.round(output.CreationTimestamp * 1000)
     );
   }
   if (output.Input !== undefined) {
@@ -7351,9 +7347,7 @@ const deserializeAws_json1_1DescribeStreamProcessorResponse = (
   }
   if (output.LastUpdateTimestamp !== undefined) {
     contents.LastUpdateTimestamp = new Date(
-      output.LastUpdateTimestamp % 1 != 0
-        ? Math.round(output.LastUpdateTimestamp * 1000)
-        : output.LastUpdateTimestamp
+      Math.round(output.LastUpdateTimestamp * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -8913,9 +8907,7 @@ const deserializeAws_json1_1ProjectDescription = (
   };
   if (output.CreationTimestamp !== undefined) {
     contents.CreationTimestamp = new Date(
-      output.CreationTimestamp % 1 != 0
-        ? Math.round(output.CreationTimestamp * 1000)
-        : output.CreationTimestamp
+      Math.round(output.CreationTimestamp * 1000)
     );
   }
   if (output.ProjectArn !== undefined) {
@@ -8960,9 +8952,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
   }
   if (output.CreationTimestamp !== undefined) {
     contents.CreationTimestamp = new Date(
-      output.CreationTimestamp % 1 != 0
-        ? Math.round(output.CreationTimestamp * 1000)
-        : output.CreationTimestamp
+      Math.round(output.CreationTimestamp * 1000)
     );
   }
   if (output.EvaluationResult !== undefined) {
@@ -9003,9 +8993,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
   }
   if (output.TrainingEndTimestamp !== undefined) {
     contents.TrainingEndTimestamp = new Date(
-      output.TrainingEndTimestamp % 1 != 0
-        ? Math.round(output.TrainingEndTimestamp * 1000)
-        : output.TrainingEndTimestamp
+      Math.round(output.TrainingEndTimestamp * 1000)
     );
   }
   return contents;

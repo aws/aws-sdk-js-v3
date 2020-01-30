@@ -2405,11 +2405,7 @@ const deserializeAws_json1_1Accelerator = (
     contents.AcceleratorArn = output.AcceleratorArn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
@@ -2425,9 +2421,7 @@ const deserializeAws_json1_1Accelerator = (
   }
   if (output.LastModifiedTime !== undefined) {
     contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
+      Math.round(output.LastModifiedTime * 1000)
     );
   }
   if (output.Name !== undefined) {

@@ -3864,9 +3864,7 @@ const deserializeAws_json1_1Event = (
     SourceType: undefined
   };
   if (output.Date !== undefined) {
-    contents.Date = new Date(
-      output.Date % 1 != 0 ? Math.round(output.Date * 1000) : output.Date
-    );
+    contents.Date = new Date(Math.round(output.Date * 1000));
   }
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -3945,9 +3943,7 @@ const deserializeAws_json1_1Node = (
   }
   if (output.NodeCreateTime !== undefined) {
     contents.NodeCreateTime = new Date(
-      output.NodeCreateTime % 1 != 0
-        ? Math.round(output.NodeCreateTime * 1000)
-        : output.NodeCreateTime
+      Math.round(output.NodeCreateTime * 1000)
     );
   }
   if (output.NodeId !== undefined) {

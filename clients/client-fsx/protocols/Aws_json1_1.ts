@@ -2781,11 +2781,7 @@ const deserializeAws_json1_1Backup = (
     contents.BackupId = output.BackupId;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DirectoryInformation !== undefined) {
     contents.DirectoryInformation = deserializeAws_json1_1ActiveDirectoryBackupAttributes(
@@ -3061,18 +3057,10 @@ const deserializeAws_json1_1DataRepositoryTask = (
     Type: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.FailureDetails !== undefined) {
     contents.FailureDetails = deserializeAws_json1_1DataRepositoryTaskFailureDetails(
@@ -3102,11 +3090,7 @@ const deserializeAws_json1_1DataRepositoryTask = (
     contents.ResourceARN = output.ResourceARN;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = deserializeAws_json1_1DataRepositoryTaskStatus(
@@ -3205,9 +3189,7 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
   }
   if (output.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
+      Math.round(output.LastUpdatedTime * 1000)
     );
   }
   if (output.SucceededCount !== undefined) {
@@ -3383,11 +3365,7 @@ const deserializeAws_json1_1FileSystem = (
     WindowsConfiguration: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.DNSName !== undefined) {
     contents.DNSName = output.DNSName;

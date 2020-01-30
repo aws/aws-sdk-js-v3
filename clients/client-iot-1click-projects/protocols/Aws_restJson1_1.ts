@@ -2074,11 +2074,7 @@ const deserializeAws_restJson1_1PlacementDescription = (
     );
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.placementName !== undefined) {
     contents.placementName = output.placementName;
@@ -2087,11 +2083,7 @@ const deserializeAws_restJson1_1PlacementDescription = (
     contents.projectName = output.projectName;
   }
   if (output.updatedDate !== undefined) {
-    contents.updatedDate = new Date(
-      output.updatedDate % 1 != 0
-        ? Math.round(output.updatedDate * 1000)
-        : output.updatedDate
-    );
+    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;
 };
@@ -2108,11 +2100,7 @@ const deserializeAws_restJson1_1PlacementSummary = (
     updatedDate: undefined
   };
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.placementName !== undefined) {
     contents.placementName = output.placementName;
@@ -2121,11 +2109,7 @@ const deserializeAws_restJson1_1PlacementSummary = (
     contents.projectName = output.projectName;
   }
   if (output.updatedDate !== undefined) {
-    contents.updatedDate = new Date(
-      output.updatedDate % 1 != 0
-        ? Math.round(output.updatedDate * 1000)
-        : output.updatedDate
-    );
+    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;
 };
@@ -2181,11 +2165,7 @@ const deserializeAws_restJson1_1ProjectDescription = (
     contents.arn = output.arn;
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -2203,11 +2183,7 @@ const deserializeAws_restJson1_1ProjectDescription = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   if (output.updatedDate !== undefined) {
-    contents.updatedDate = new Date(
-      output.updatedDate % 1 != 0
-        ? Math.round(output.updatedDate * 1000)
-        : output.updatedDate
-    );
+    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;
 };
@@ -2228,11 +2204,7 @@ const deserializeAws_restJson1_1ProjectSummary = (
     contents.arn = output.arn;
   }
   if (output.createdDate !== undefined) {
-    contents.createdDate = new Date(
-      output.createdDate % 1 != 0
-        ? Math.round(output.createdDate * 1000)
-        : output.createdDate
-    );
+    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
   }
   if (output.projectName !== undefined) {
     contents.projectName = output.projectName;
@@ -2241,11 +2213,7 @@ const deserializeAws_restJson1_1ProjectSummary = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   if (output.updatedDate !== undefined) {
-    contents.updatedDate = new Date(
-      output.updatedDate % 1 != 0
-        ? Math.round(output.updatedDate * 1000)
-        : output.updatedDate
-    );
+    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
   }
   return contents;
 };

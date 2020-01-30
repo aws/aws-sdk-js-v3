@@ -4590,9 +4590,7 @@ const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
   }
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   return contents;
@@ -4983,24 +4981,14 @@ const deserializeAws_json1_1ClusterTimeline = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(
-      output.ReadyDateTime % 1 != 0
-        ? Math.round(output.ReadyDateTime * 1000)
-        : output.ReadyDateTime
-    );
+    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
   }
   return contents;
 };
@@ -5084,9 +5072,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -5148,9 +5134,7 @@ const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -5618,24 +5602,14 @@ const deserializeAws_json1_1InstanceFleetTimeline = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(
-      output.ReadyDateTime % 1 != 0
-        ? Math.round(output.ReadyDateTime * 1000)
-        : output.ReadyDateTime
-    );
+    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
   }
   return contents;
 };
@@ -5763,17 +5737,11 @@ const deserializeAws_json1_1InstanceGroupDetail = (
   }
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.InstanceGroupId !== undefined) {
     contents.InstanceGroupId = output.InstanceGroupId;
@@ -5800,18 +5768,10 @@ const deserializeAws_json1_1InstanceGroupDetail = (
     contents.Name = output.Name;
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(
-      output.ReadyDateTime % 1 != 0
-        ? Math.round(output.ReadyDateTime * 1000)
-        : output.ReadyDateTime
-    );
+    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(
-      output.StartDateTime % 1 != 0
-        ? Math.round(output.StartDateTime * 1000)
-        : output.StartDateTime
-    );
+    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
   }
   if (output.State !== undefined) {
     contents.State = output.State;
@@ -5902,24 +5862,14 @@ const deserializeAws_json1_1InstanceGroupTimeline = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(
-      output.ReadyDateTime % 1 != 0
-        ? Math.round(output.ReadyDateTime * 1000)
-        : output.ReadyDateTime
-    );
+    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
   }
   return contents;
 };
@@ -6019,24 +5969,14 @@ const deserializeAws_json1_1InstanceTimeline = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(
-      output.ReadyDateTime % 1 != 0
-        ? Math.round(output.ReadyDateTime * 1000)
-        : output.ReadyDateTime
-    );
+    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
   }
   return contents;
 };
@@ -6242,34 +6182,20 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.LastStateChangeReason !== undefined) {
     contents.LastStateChangeReason = output.LastStateChangeReason;
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(
-      output.ReadyDateTime % 1 != 0
-        ? Math.round(output.ReadyDateTime * 1000)
-        : output.ReadyDateTime
-    );
+    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(
-      output.StartDateTime % 1 != 0
-        ? Math.round(output.StartDateTime * 1000)
-        : output.StartDateTime
-    );
+    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
   }
   if (output.State !== undefined) {
     contents.State = output.State;
@@ -6851,9 +6777,7 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -7032,27 +6956,17 @@ const deserializeAws_json1_1StepExecutionStatusDetail = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.LastStateChangeReason !== undefined) {
     contents.LastStateChangeReason = output.LastStateChangeReason;
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(
-      output.StartDateTime % 1 != 0
-        ? Math.round(output.StartDateTime * 1000)
-        : output.StartDateTime
-    );
+    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
   }
   if (output.State !== undefined) {
     contents.State = output.State;
@@ -7174,24 +7088,14 @@ const deserializeAws_json1_1StepTimeline = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(
-      output.EndDateTime % 1 != 0
-        ? Math.round(output.EndDateTime * 1000)
-        : output.EndDateTime
-    );
+    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(
-      output.StartDateTime % 1 != 0
-        ? Math.round(output.StartDateTime * 1000)
-        : output.StartDateTime
-    );
+    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
   }
   return contents;
 };

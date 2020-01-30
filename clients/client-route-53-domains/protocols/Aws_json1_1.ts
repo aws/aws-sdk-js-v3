@@ -3100,11 +3100,7 @@ const deserializeAws_json1_1BillingRecord = (
     Price: undefined
   };
   if (output.BillDate !== undefined) {
-    contents.BillDate = new Date(
-      output.BillDate % 1 != 0
-        ? Math.round(output.BillDate * 1000)
-        : output.BillDate
-    );
+    contents.BillDate = new Date(Math.round(output.BillDate * 1000));
   }
   if (output.DomainName !== undefined) {
     contents.DomainName = output.DomainName;
@@ -3330,9 +3326,7 @@ const deserializeAws_json1_1DomainSummary = (
     contents.DomainName = output.DomainName;
   }
   if (output.Expiry !== undefined) {
-    contents.Expiry = new Date(
-      output.Expiry % 1 != 0 ? Math.round(output.Expiry * 1000) : output.Expiry
-    );
+    contents.Expiry = new Date(Math.round(output.Expiry * 1000));
   }
   if (output.TransferLock !== undefined) {
     contents.TransferLock = output.TransferLock;
@@ -3493,11 +3487,7 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
     contents.AutoRenew = output.AutoRenew;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.DnsSec !== undefined) {
     contents.DnsSec = output.DnsSec;
@@ -3507,9 +3497,7 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
   }
   if (output.ExpirationDate !== undefined) {
     contents.ExpirationDate = new Date(
-      output.ExpirationDate % 1 != 0
-        ? Math.round(output.ExpirationDate * 1000)
-        : output.ExpirationDate
+      Math.round(output.ExpirationDate * 1000)
     );
   }
   if (output.Nameservers !== undefined) {
@@ -3555,11 +3543,7 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
     contents.TechPrivacy = output.TechPrivacy;
   }
   if (output.UpdatedDate !== undefined) {
-    contents.UpdatedDate = new Date(
-      output.UpdatedDate % 1 != 0
-        ? Math.round(output.UpdatedDate * 1000)
-        : output.UpdatedDate
-    );
+    contents.UpdatedDate = new Date(Math.round(output.UpdatedDate * 1000));
   }
   if (output.WhoIsServer !== undefined) {
     contents.WhoIsServer = output.WhoIsServer;
@@ -3610,11 +3594,7 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
     contents.Status = output.Status;
   }
   if (output.SubmittedDate !== undefined) {
-    contents.SubmittedDate = new Date(
-      output.SubmittedDate % 1 != 0
-        ? Math.round(output.SubmittedDate * 1000)
-        : output.SubmittedDate
-    );
+    contents.SubmittedDate = new Date(Math.round(output.SubmittedDate * 1000));
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
@@ -3761,11 +3741,7 @@ const deserializeAws_json1_1OperationSummary = (
     contents.Status = output.Status;
   }
   if (output.SubmittedDate !== undefined) {
-    contents.SubmittedDate = new Date(
-      output.SubmittedDate % 1 != 0
-        ? Math.round(output.SubmittedDate * 1000)
-        : output.SubmittedDate
-    );
+    contents.SubmittedDate = new Date(Math.round(output.SubmittedDate * 1000));
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;

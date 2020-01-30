@@ -3994,9 +3994,7 @@ const deserializeAws_json1_1ConfigurationTag = (
   }
   if (output.timeOfCreation !== undefined) {
     contents.timeOfCreation = new Date(
-      output.timeOfCreation % 1 != 0
-        ? Math.round(output.timeOfCreation * 1000)
-        : output.timeOfCreation
+      Math.round(output.timeOfCreation * 1000)
     );
   }
   if (output.value !== undefined) {
@@ -4068,11 +4066,7 @@ const deserializeAws_json1_1ContinuousExportDescription = (
     );
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -4081,11 +4075,7 @@ const deserializeAws_json1_1ContinuousExportDescription = (
     contents.statusDetail = output.statusDetail;
   }
   if (output.stopTime !== undefined) {
-    contents.stopTime = new Date(
-      output.stopTime % 1 != 0
-        ? Math.round(output.stopTime * 1000)
-        : output.stopTime
-    );
+    contents.stopTime = new Date(Math.round(output.stopTime * 1000));
   }
   return contents;
 };
@@ -4429,9 +4419,7 @@ const deserializeAws_json1_1ExportInfo = (
   }
   if (output.exportRequestTime !== undefined) {
     contents.exportRequestTime = new Date(
-      output.exportRequestTime % 1 != 0
-        ? Math.round(output.exportRequestTime * 1000)
-        : output.exportRequestTime
+      Math.round(output.exportRequestTime * 1000)
     );
   }
   if (output.exportStatus !== undefined) {
@@ -4442,16 +4430,12 @@ const deserializeAws_json1_1ExportInfo = (
   }
   if (output.requestedEndTime !== undefined) {
     contents.requestedEndTime = new Date(
-      output.requestedEndTime % 1 != 0
-        ? Math.round(output.requestedEndTime * 1000)
-        : output.requestedEndTime
+      Math.round(output.requestedEndTime * 1000)
     );
   }
   if (output.requestedStartTime !== undefined) {
     contents.requestedStartTime = new Date(
-      output.requestedStartTime % 1 != 0
-        ? Math.round(output.requestedStartTime * 1000)
-        : output.requestedStartTime
+      Math.round(output.requestedStartTime * 1000)
     );
   }
   if (output.statusMessage !== undefined) {
@@ -4557,23 +4541,17 @@ const deserializeAws_json1_1ImportTask = (
   }
   if (output.importCompletionTime !== undefined) {
     contents.importCompletionTime = new Date(
-      output.importCompletionTime % 1 != 0
-        ? Math.round(output.importCompletionTime * 1000)
-        : output.importCompletionTime
+      Math.round(output.importCompletionTime * 1000)
     );
   }
   if (output.importDeletedTime !== undefined) {
     contents.importDeletedTime = new Date(
-      output.importDeletedTime % 1 != 0
-        ? Math.round(output.importDeletedTime * 1000)
-        : output.importDeletedTime
+      Math.round(output.importDeletedTime * 1000)
     );
   }
   if (output.importRequestTime !== undefined) {
     contents.importRequestTime = new Date(
-      output.importRequestTime % 1 != 0
-        ? Math.round(output.importRequestTime * 1000)
-        : output.importRequestTime
+      Math.round(output.importRequestTime * 1000)
     );
   }
   if (output.importTaskId !== undefined) {
@@ -4814,11 +4792,7 @@ const deserializeAws_json1_1StartContinuousExportResponse = (
     );
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   return contents;
 };
@@ -4878,18 +4852,10 @@ const deserializeAws_json1_1StopContinuousExportResponse = (
     stopTime: undefined
   };
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(Math.round(output.startTime * 1000));
   }
   if (output.stopTime !== undefined) {
-    contents.stopTime = new Date(
-      output.stopTime % 1 != 0
-        ? Math.round(output.stopTime * 1000)
-        : output.stopTime
-    );
+    contents.stopTime = new Date(Math.round(output.stopTime * 1000));
   }
   return contents;
 };

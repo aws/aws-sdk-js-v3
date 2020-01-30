@@ -230,9 +230,7 @@ const deserializeAws_json1_1Entitlement = (
   }
   if (output.ExpirationDate !== undefined) {
     contents.ExpirationDate = new Date(
-      output.ExpirationDate % 1 != 0
-        ? Math.round(output.ExpirationDate * 1000)
-        : output.ExpirationDate
+      Math.round(output.ExpirationDate * 1000)
     );
   }
   if (output.ProductCode !== undefined) {

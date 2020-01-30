@@ -6531,11 +6531,7 @@ const deserializeAws_json1_1Connection = (
     contents.lagId = output.lagId;
   }
   if (output.loaIssueTime !== undefined) {
-    contents.loaIssueTime = new Date(
-      output.loaIssueTime % 1 != 0
-        ? Math.round(output.loaIssueTime * 1000)
-        : output.loaIssueTime
-    );
+    contents.loaIssueTime = new Date(Math.round(output.loaIssueTime * 1000));
   }
   if (output.location !== undefined) {
     contents.location = output.location;
@@ -7204,11 +7200,7 @@ const deserializeAws_json1_1Interconnect = (
     contents.lagId = output.lagId;
   }
   if (output.loaIssueTime !== undefined) {
-    contents.loaIssueTime = new Date(
-      output.loaIssueTime % 1 != 0
-        ? Math.round(output.loaIssueTime * 1000)
-        : output.loaIssueTime
-    );
+    contents.loaIssueTime = new Date(Math.round(output.loaIssueTime * 1000));
   }
   if (output.location !== undefined) {
     contents.location = output.location;

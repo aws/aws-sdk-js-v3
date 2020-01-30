@@ -3104,9 +3104,7 @@ export async function deserializeAws_restJson1_1GetDeliverabilityDashboardOption
   }
   if (data.SubscriptionExpiryDate !== undefined) {
     contents.SubscriptionExpiryDate = new Date(
-      data.SubscriptionExpiryDate % 1 != 0
-        ? Math.round(data.SubscriptionExpiryDate * 1000)
-        : data.SubscriptionExpiryDate
+      Math.round(data.SubscriptionExpiryDate * 1000)
     );
   }
   return Promise.resolve(contents);
@@ -6104,11 +6102,7 @@ const deserializeAws_restJson1_1BlacklistEntry = (
     contents.Description = output.Description;
   }
   if (output.ListingTime !== undefined) {
-    contents.ListingTime = new Date(
-      output.ListingTime % 1 != 0
-        ? Math.round(output.ListingTime * 1000)
-        : output.ListingTime
-    );
+    contents.ListingTime = new Date(Math.round(output.ListingTime * 1000));
   }
   if (output.RblName !== undefined) {
     contents.RblName = output.RblName;
@@ -6202,11 +6196,7 @@ const deserializeAws_restJson1_1DailyVolume = (
     );
   }
   if (output.StartDate !== undefined) {
-    contents.StartDate = new Date(
-      output.StartDate % 1 != 0
-        ? Math.round(output.StartDate * 1000)
-        : output.StartDate
-    );
+    contents.StartDate = new Date(Math.round(output.StartDate * 1000));
   }
   if (output.VolumeStatistics !== undefined) {
     contents.VolumeStatistics = deserializeAws_restJson1_1VolumeStatistics(
@@ -6275,11 +6265,7 @@ const deserializeAws_restJson1_1DeliverabilityTestReport = (
     Subject: undefined
   };
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(
-      output.CreateDate % 1 != 0
-        ? Math.round(output.CreateDate * 1000)
-        : output.CreateDate
-    );
+    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
   }
   if (output.DeliverabilityTestStatus !== undefined) {
     contents.DeliverabilityTestStatus = output.DeliverabilityTestStatus;
@@ -6394,9 +6380,7 @@ const deserializeAws_restJson1_1DomainDeliverabilityCampaign = (
   }
   if (output.FirstSeenDateTime !== undefined) {
     contents.FirstSeenDateTime = new Date(
-      output.FirstSeenDateTime % 1 != 0
-        ? Math.round(output.FirstSeenDateTime * 1000)
-        : output.FirstSeenDateTime
+      Math.round(output.FirstSeenDateTime * 1000)
     );
   }
   if (output.FromAddress !== undefined) {
@@ -6410,9 +6394,7 @@ const deserializeAws_restJson1_1DomainDeliverabilityCampaign = (
   }
   if (output.LastSeenDateTime !== undefined) {
     contents.LastSeenDateTime = new Date(
-      output.LastSeenDateTime % 1 != 0
-        ? Math.round(output.LastSeenDateTime * 1000)
-        : output.LastSeenDateTime
+      Math.round(output.LastSeenDateTime * 1000)
     );
   }
   if (output.ProjectedVolume !== undefined) {
@@ -6469,9 +6451,7 @@ const deserializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
   }
   if (output.SubscriptionStartDate !== undefined) {
     contents.SubscriptionStartDate = new Date(
-      output.SubscriptionStartDate % 1 != 0
-        ? Math.round(output.SubscriptionStartDate * 1000)
-        : output.SubscriptionStartDate
+      Math.round(output.SubscriptionStartDate * 1000)
     );
   }
   return contents;
@@ -6827,9 +6807,7 @@ const deserializeAws_restJson1_1ReputationOptions = (
   };
   if (output.LastFreshStart !== undefined) {
     contents.LastFreshStart = new Date(
-      output.LastFreshStart % 1 != 0
-        ? Math.round(output.LastFreshStart * 1000)
-        : output.LastFreshStart
+      Math.round(output.LastFreshStart * 1000)
     );
   }
   if (output.ReputationMetricsEnabled !== undefined) {
@@ -6910,9 +6888,7 @@ const deserializeAws_restJson1_1SuppressedDestination = (
   }
   if (output.LastUpdateTime !== undefined) {
     contents.LastUpdateTime = new Date(
-      output.LastUpdateTime % 1 != 0
-        ? Math.round(output.LastUpdateTime * 1000)
-        : output.LastUpdateTime
+      Math.round(output.LastUpdateTime * 1000)
     );
   }
   if (output.Reason !== undefined) {
@@ -6963,9 +6939,7 @@ const deserializeAws_restJson1_1SuppressedDestinationSummary = (
   }
   if (output.LastUpdateTime !== undefined) {
     contents.LastUpdateTime = new Date(
-      output.LastUpdateTime % 1 != 0
-        ? Math.round(output.LastUpdateTime * 1000)
-        : output.LastUpdateTime
+      Math.round(output.LastUpdateTime * 1000)
     );
   }
   if (output.Reason !== undefined) {

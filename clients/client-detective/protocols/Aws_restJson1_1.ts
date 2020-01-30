@@ -1252,11 +1252,7 @@ const deserializeAws_restJson1_1Graph = (
     contents.Arn = output.Arn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   return contents;
 };
@@ -1294,11 +1290,7 @@ const deserializeAws_restJson1_1MemberDetail = (
     contents.GraphArn = output.GraphArn;
   }
   if (output.InvitedTime !== undefined) {
-    contents.InvitedTime = new Date(
-      output.InvitedTime % 1 != 0
-        ? Math.round(output.InvitedTime * 1000)
-        : output.InvitedTime
-    );
+    contents.InvitedTime = new Date(Math.round(output.InvitedTime * 1000));
   }
   if (output.MasterId !== undefined) {
     contents.MasterId = output.MasterId;
@@ -1307,11 +1299,7 @@ const deserializeAws_restJson1_1MemberDetail = (
     contents.Status = output.Status;
   }
   if (output.UpdatedTime !== undefined) {
-    contents.UpdatedTime = new Date(
-      output.UpdatedTime % 1 != 0
-        ? Math.round(output.UpdatedTime * 1000)
-        : output.UpdatedTime
-    );
+    contents.UpdatedTime = new Date(Math.round(output.UpdatedTime * 1000));
   }
   return contents;
 };

@@ -4016,11 +4016,7 @@ const deserializeAws_restJson1_1OptionStatus = (
     UpdateVersion: undefined
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.PendingDeletion !== undefined) {
     contents.PendingDeletion = output.PendingDeletion;
@@ -4029,11 +4025,7 @@ const deserializeAws_restJson1_1OptionStatus = (
     contents.State = output.State;
   }
   if (output.UpdateDate !== undefined) {
-    contents.UpdateDate = new Date(
-      output.UpdateDate % 1 != 0
-        ? Math.round(output.UpdateDate * 1000)
-        : output.UpdateDate
-    );
+    contents.UpdateDate = new Date(Math.round(output.UpdateDate * 1000));
   }
   if (output.UpdateVersion !== undefined) {
     contents.UpdateVersion = output.UpdateVersion;
@@ -4124,11 +4116,7 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstance = (
       output.ReservedElasticsearchInstanceOfferingId;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.State !== undefined) {
     contents.State = output.State;
@@ -4222,9 +4210,7 @@ const deserializeAws_restJson1_1ServiceSoftwareOptions = (
   };
   if (output.AutomatedUpdateDate !== undefined) {
     contents.AutomatedUpdateDate = new Date(
-      output.AutomatedUpdateDate % 1 != 0
-        ? Math.round(output.AutomatedUpdateDate * 1000)
-        : output.AutomatedUpdateDate
+      Math.round(output.AutomatedUpdateDate * 1000)
     );
   }
   if (output.Cancellable !== undefined) {
@@ -4397,9 +4383,7 @@ const deserializeAws_restJson1_1UpgradeHistory = (
   };
   if (output.StartTimestamp !== undefined) {
     contents.StartTimestamp = new Date(
-      output.StartTimestamp % 1 != 0
-        ? Math.round(output.StartTimestamp * 1000)
-        : output.StartTimestamp
+      Math.round(output.StartTimestamp * 1000)
     );
   }
   if (output.StepsList !== undefined) {

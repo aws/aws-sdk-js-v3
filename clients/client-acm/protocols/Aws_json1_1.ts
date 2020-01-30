@@ -1934,11 +1934,7 @@ const deserializeAws_json1_1CertificateDetail = (
     contents.CertificateAuthorityArn = output.CertificateAuthorityArn;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.DomainName !== undefined) {
     contents.DomainName = output.DomainName;
@@ -1959,21 +1955,13 @@ const deserializeAws_json1_1CertificateDetail = (
     contents.FailureReason = output.FailureReason;
   }
   if (output.ImportedAt !== undefined) {
-    contents.ImportedAt = new Date(
-      output.ImportedAt % 1 != 0
-        ? Math.round(output.ImportedAt * 1000)
-        : output.ImportedAt
-    );
+    contents.ImportedAt = new Date(Math.round(output.ImportedAt * 1000));
   }
   if (output.InUseBy !== undefined) {
     contents.InUseBy = deserializeAws_json1_1InUseList(output.InUseBy, context);
   }
   if (output.IssuedAt !== undefined) {
-    contents.IssuedAt = new Date(
-      output.IssuedAt % 1 != 0
-        ? Math.round(output.IssuedAt * 1000)
-        : output.IssuedAt
-    );
+    contents.IssuedAt = new Date(Math.round(output.IssuedAt * 1000));
   }
   if (output.Issuer !== undefined) {
     contents.Issuer = output.Issuer;
@@ -1988,18 +1976,10 @@ const deserializeAws_json1_1CertificateDetail = (
     );
   }
   if (output.NotAfter !== undefined) {
-    contents.NotAfter = new Date(
-      output.NotAfter % 1 != 0
-        ? Math.round(output.NotAfter * 1000)
-        : output.NotAfter
-    );
+    contents.NotAfter = new Date(Math.round(output.NotAfter * 1000));
   }
   if (output.NotBefore !== undefined) {
-    contents.NotBefore = new Date(
-      output.NotBefore % 1 != 0
-        ? Math.round(output.NotBefore * 1000)
-        : output.NotBefore
-    );
+    contents.NotBefore = new Date(Math.round(output.NotBefore * 1000));
   }
   if (output.Options !== undefined) {
     contents.Options = deserializeAws_json1_1CertificateOptions(
@@ -2020,11 +2000,7 @@ const deserializeAws_json1_1CertificateDetail = (
     contents.RevocationReason = output.RevocationReason;
   }
   if (output.RevokedAt !== undefined) {
-    contents.RevokedAt = new Date(
-      output.RevokedAt % 1 != 0
-        ? Math.round(output.RevokedAt * 1000)
-        : output.RevokedAt
-    );
+    contents.RevokedAt = new Date(Math.round(output.RevokedAt * 1000));
   }
   if (output.Serial !== undefined) {
     contents.Serial = output.Serial;
@@ -2433,11 +2409,7 @@ const deserializeAws_json1_1RenewalSummary = (
     contents.RenewalStatusReason = output.RenewalStatusReason;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
   }
   return contents;
 };

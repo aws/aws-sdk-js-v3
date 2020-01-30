@@ -2604,11 +2604,7 @@ const deserializeAws_json1_1DeleteSecretResponse = (
     contents.ARN = output.ARN;
   }
   if (output.DeletionDate !== undefined) {
-    contents.DeletionDate = new Date(
-      output.DeletionDate % 1 != 0
-        ? Math.round(output.DeletionDate * 1000)
-        : output.DeletionDate
-    );
+    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -2641,11 +2637,7 @@ const deserializeAws_json1_1DescribeSecretResponse = (
     contents.ARN = output.ARN;
   }
   if (output.DeletedDate !== undefined) {
-    contents.DeletedDate = new Date(
-      output.DeletedDate % 1 != 0
-        ? Math.round(output.DeletedDate * 1000)
-        : output.DeletedDate
-    );
+    contents.DeletedDate = new Date(Math.round(output.DeletedDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -2655,23 +2647,17 @@ const deserializeAws_json1_1DescribeSecretResponse = (
   }
   if (output.LastAccessedDate !== undefined) {
     contents.LastAccessedDate = new Date(
-      output.LastAccessedDate % 1 != 0
-        ? Math.round(output.LastAccessedDate * 1000)
-        : output.LastAccessedDate
+      Math.round(output.LastAccessedDate * 1000)
     );
   }
   if (output.LastChangedDate !== undefined) {
     contents.LastChangedDate = new Date(
-      output.LastChangedDate % 1 != 0
-        ? Math.round(output.LastChangedDate * 1000)
-        : output.LastChangedDate
+      Math.round(output.LastChangedDate * 1000)
     );
   }
   if (output.LastRotatedDate !== undefined) {
     contents.LastRotatedDate = new Date(
-      output.LastRotatedDate % 1 != 0
-        ? Math.round(output.LastRotatedDate * 1000)
-        : output.LastRotatedDate
+      Math.round(output.LastRotatedDate * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -2772,11 +2758,7 @@ const deserializeAws_json1_1GetSecretValueResponse = (
     contents.ARN = output.ARN;
   }
   if (output.CreatedDate !== undefined) {
-    contents.CreatedDate = new Date(
-      output.CreatedDate % 1 != 0
-        ? Math.round(output.CreatedDate * 1000)
-        : output.CreatedDate
-    );
+    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -3101,11 +3083,7 @@ const deserializeAws_json1_1SecretListEntry = (
     contents.ARN = output.ARN;
   }
   if (output.DeletedDate !== undefined) {
-    contents.DeletedDate = new Date(
-      output.DeletedDate % 1 != 0
-        ? Math.round(output.DeletedDate * 1000)
-        : output.DeletedDate
-    );
+    contents.DeletedDate = new Date(Math.round(output.DeletedDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -3115,23 +3093,17 @@ const deserializeAws_json1_1SecretListEntry = (
   }
   if (output.LastAccessedDate !== undefined) {
     contents.LastAccessedDate = new Date(
-      output.LastAccessedDate % 1 != 0
-        ? Math.round(output.LastAccessedDate * 1000)
-        : output.LastAccessedDate
+      Math.round(output.LastAccessedDate * 1000)
     );
   }
   if (output.LastChangedDate !== undefined) {
     contents.LastChangedDate = new Date(
-      output.LastChangedDate % 1 != 0
-        ? Math.round(output.LastChangedDate * 1000)
-        : output.LastChangedDate
+      Math.round(output.LastChangedDate * 1000)
     );
   }
   if (output.LastRotatedDate !== undefined) {
     contents.LastRotatedDate = new Date(
-      output.LastRotatedDate % 1 != 0
-        ? Math.round(output.LastRotatedDate * 1000)
-        : output.LastRotatedDate
+      Math.round(output.LastRotatedDate * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -3192,17 +3164,11 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
     VersionStages: undefined
   };
   if (output.CreatedDate !== undefined) {
-    contents.CreatedDate = new Date(
-      output.CreatedDate % 1 != 0
-        ? Math.round(output.CreatedDate * 1000)
-        : output.CreatedDate
-    );
+    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
   }
   if (output.LastAccessedDate !== undefined) {
     contents.LastAccessedDate = new Date(
-      output.LastAccessedDate % 1 != 0
-        ? Math.round(output.LastAccessedDate * 1000)
-        : output.LastAccessedDate
+      Math.round(output.LastAccessedDate * 1000)
     );
   }
   if (output.VersionId !== undefined) {

@@ -1905,11 +1905,7 @@ const deserializeAws_json1_1TerminologyProperties = (
     contents.Arn = output.Arn;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -1921,11 +1917,7 @@ const deserializeAws_json1_1TerminologyProperties = (
     );
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -1995,11 +1987,7 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
     contents.DataAccessRoleArn = output.DataAccessRoleArn;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.InputDataConfig !== undefined) {
     contents.InputDataConfig = deserializeAws_json1_1InputDataConfig(
@@ -2035,11 +2023,7 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
     contents.SourceLanguageCode = output.SourceLanguageCode;
   }
   if (output.SubmittedTime !== undefined) {
-    contents.SubmittedTime = new Date(
-      output.SubmittedTime % 1 != 0
-        ? Math.round(output.SubmittedTime * 1000)
-        : output.SubmittedTime
-    );
+    contents.SubmittedTime = new Date(Math.round(output.SubmittedTime * 1000));
   }
   if (output.TargetLanguageCodes !== undefined) {
     contents.TargetLanguageCodes = deserializeAws_json1_1TargetLanguageCodeStringList(

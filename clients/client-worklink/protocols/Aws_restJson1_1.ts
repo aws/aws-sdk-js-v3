@@ -1580,16 +1580,12 @@ export async function deserializeAws_restJson1_1DescribeDeviceCommand(
   const data: any = await parseBody(output.body, context);
   if (data.FirstAccessedTime !== undefined) {
     contents.FirstAccessedTime = new Date(
-      data.FirstAccessedTime % 1 != 0
-        ? Math.round(data.FirstAccessedTime * 1000)
-        : data.FirstAccessedTime
+      Math.round(data.FirstAccessedTime * 1000)
     );
   }
   if (data.LastAccessedTime !== undefined) {
     contents.LastAccessedTime = new Date(
-      data.LastAccessedTime % 1 != 0
-        ? Math.round(data.LastAccessedTime * 1000)
-        : data.LastAccessedTime
+      Math.round(data.LastAccessedTime * 1000)
     );
   }
   if (data.Manufacturer !== undefined) {
@@ -1782,11 +1778,7 @@ export async function deserializeAws_restJson1_1DescribeDomainCommand(
     contents.AcmCertificateArn = data.AcmCertificateArn;
   }
   if (data.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      data.CreatedTime % 1 != 0
-        ? Math.round(data.CreatedTime * 1000)
-        : data.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined) {
     contents.DisplayName = data.DisplayName;
@@ -1886,11 +1878,7 @@ export async function deserializeAws_restJson1_1DescribeFleetMetadataCommand(
     contents.CompanyCode = data.CompanyCode;
   }
   if (data.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      data.CreatedTime % 1 != 0
-        ? Math.round(data.CreatedTime * 1000)
-        : data.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined) {
     contents.DisplayName = data.DisplayName;
@@ -1903,9 +1891,7 @@ export async function deserializeAws_restJson1_1DescribeFleetMetadataCommand(
   }
   if (data.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      data.LastUpdatedTime % 1 != 0
-        ? Math.round(data.LastUpdatedTime * 1000)
-        : data.LastUpdatedTime
+      Math.round(data.LastUpdatedTime * 1000)
     );
   }
   if (data.OptimizeForEndUserLocation !== undefined) {
@@ -2086,11 +2072,7 @@ export async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthor
     contents.Certificate = data.Certificate;
   }
   if (data.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      data.CreatedTime % 1 != 0
-        ? Math.round(data.CreatedTime * 1000)
-        : data.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined) {
     contents.DisplayName = data.DisplayName;
@@ -3662,11 +3644,7 @@ const deserializeAws_restJson1_1DomainSummary = (
     DomainStatus: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -3707,11 +3685,7 @@ const deserializeAws_restJson1_1FleetSummary = (
     contents.CompanyCode = output.CompanyCode;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -3727,9 +3701,7 @@ const deserializeAws_restJson1_1FleetSummary = (
   }
   if (output.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
+      Math.round(output.LastUpdatedTime * 1000)
     );
   }
   return contents;
@@ -3776,11 +3748,7 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
     contents.AuthorizationProviderType = output.AuthorizationProviderType;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.DomainName !== undefined) {
     contents.DomainName = output.DomainName;
@@ -3811,11 +3779,7 @@ const deserializeAws_restJson1_1WebsiteCaSummary = (
     WebsiteCaId: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;

@@ -9138,11 +9138,7 @@ const deserializeAws_json1_1CachediSCSIVolume = (
     VolumeiSCSIAttributes: undefined
   };
   if (output.CreatedDate !== undefined) {
-    contents.CreatedDate = new Date(
-      output.CreatedDate % 1 != 0
-        ? Math.round(output.CreatedDate * 1000)
-        : output.CreatedDate
-    );
+    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
   }
   if (output.KMSKey !== undefined) {
     contents.KMSKey = output.KMSKey;
@@ -9338,11 +9334,7 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
     contents.GatewayARN = output.GatewayARN;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -10455,11 +10447,7 @@ const deserializeAws_json1_1StorediSCSIVolume = (
     VolumeiSCSIAttributes: undefined
   };
   if (output.CreatedDate !== undefined) {
-    contents.CreatedDate = new Date(
-      output.CreatedDate % 1 != 0
-        ? Math.round(output.CreatedDate * 1000)
-        : output.CreatedDate
-    );
+    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
   }
   if (output.KMSKey !== undefined) {
     contents.KMSKey = output.KMSKey;
@@ -10579,9 +10567,7 @@ const deserializeAws_json1_1Tape = (
   }
   if (output.TapeCreatedDate !== undefined) {
     contents.TapeCreatedDate = new Date(
-      output.TapeCreatedDate % 1 != 0
-        ? Math.round(output.TapeCreatedDate * 1000)
-        : output.TapeCreatedDate
+      Math.round(output.TapeCreatedDate * 1000)
     );
   }
   if (output.TapeSizeInBytes !== undefined) {
@@ -10625,9 +10611,7 @@ const deserializeAws_json1_1TapeArchive = (
   };
   if (output.CompletionTime !== undefined) {
     contents.CompletionTime = new Date(
-      output.CompletionTime % 1 != 0
-        ? Math.round(output.CompletionTime * 1000)
-        : output.CompletionTime
+      Math.round(output.CompletionTime * 1000)
     );
   }
   if (output.KMSKey !== undefined) {
@@ -10647,9 +10631,7 @@ const deserializeAws_json1_1TapeArchive = (
   }
   if (output.TapeCreatedDate !== undefined) {
     contents.TapeCreatedDate = new Date(
-      output.TapeCreatedDate % 1 != 0
-        ? Math.round(output.TapeCreatedDate * 1000)
-        : output.TapeCreatedDate
+      Math.round(output.TapeCreatedDate * 1000)
     );
   }
   if (output.TapeSizeInBytes !== undefined) {
@@ -10732,9 +10714,7 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (
   }
   if (output.TapeRecoveryPointTime !== undefined) {
     contents.TapeRecoveryPointTime = new Date(
-      output.TapeRecoveryPointTime % 1 != 0
-        ? Math.round(output.TapeRecoveryPointTime * 1000)
-        : output.TapeRecoveryPointTime
+      Math.round(output.TapeRecoveryPointTime * 1000)
     );
   }
   if (output.TapeSizeInBytes !== undefined) {

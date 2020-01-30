@@ -655,16 +655,12 @@ const deserializeAws_restJson1_1RepositoryAssociation = (
   }
   if (output.CreatedTimeStamp !== undefined) {
     contents.CreatedTimeStamp = new Date(
-      output.CreatedTimeStamp % 1 != 0
-        ? Math.round(output.CreatedTimeStamp * 1000)
-        : output.CreatedTimeStamp
+      Math.round(output.CreatedTimeStamp * 1000)
     );
   }
   if (output.LastUpdatedTimeStamp !== undefined) {
     contents.LastUpdatedTimeStamp = new Date(
-      output.LastUpdatedTimeStamp % 1 != 0
-        ? Math.round(output.LastUpdatedTimeStamp * 1000)
-        : output.LastUpdatedTimeStamp
+      Math.round(output.LastUpdatedTimeStamp * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -716,9 +712,7 @@ const deserializeAws_restJson1_1RepositoryAssociationSummary = (
   }
   if (output.LastUpdatedTimeStamp !== undefined) {
     contents.LastUpdatedTimeStamp = new Date(
-      output.LastUpdatedTimeStamp % 1 != 0
-        ? Math.round(output.LastUpdatedTimeStamp * 1000)
-        : output.LastUpdatedTimeStamp
+      Math.round(output.LastUpdatedTimeStamp * 1000)
     );
   }
   if (output.Name !== undefined) {

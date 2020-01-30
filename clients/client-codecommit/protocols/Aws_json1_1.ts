@@ -18619,17 +18619,11 @@ const deserializeAws_json1_1ApprovalRule = (
     contents.approvalRuleName = output.approvalRuleName;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.lastModifiedDate !== undefined) {
     contents.lastModifiedDate = new Date(
-      output.lastModifiedDate % 1 != 0
-        ? Math.round(output.lastModifiedDate * 1000)
-        : output.lastModifiedDate
+      Math.round(output.lastModifiedDate * 1000)
     );
   }
   if (output.lastModifiedUser !== undefined) {
@@ -18772,17 +18766,11 @@ const deserializeAws_json1_1ApprovalRuleTemplate = (
     contents.approvalRuleTemplateName = output.approvalRuleTemplateName;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.lastModifiedDate !== undefined) {
     contents.lastModifiedDate = new Date(
-      output.lastModifiedDate % 1 != 0
-        ? Math.round(output.lastModifiedDate * 1000)
-        : output.lastModifiedDate
+      Math.round(output.lastModifiedDate * 1000)
     );
   }
   if (output.lastModifiedUser !== undefined) {
@@ -19421,11 +19409,7 @@ const deserializeAws_json1_1Comment = (
     contents.content = output.content;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.deleted !== undefined) {
     contents.deleted = output.deleted;
@@ -19435,9 +19419,7 @@ const deserializeAws_json1_1Comment = (
   }
   if (output.lastModifiedDate !== undefined) {
     contents.lastModifiedDate = new Date(
-      output.lastModifiedDate % 1 != 0
-        ? Math.round(output.lastModifiedDate * 1000)
-        : output.lastModifiedDate
+      Math.round(output.lastModifiedDate * 1000)
     );
   }
   return contents;
@@ -22884,20 +22866,14 @@ const deserializeAws_json1_1PullRequest = (
     contents.clientRequestToken = output.clientRequestToken;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.lastActivityDate !== undefined) {
     contents.lastActivityDate = new Date(
-      output.lastActivityDate % 1 != 0
-        ? Math.round(output.lastActivityDate * 1000)
-        : output.lastActivityDate
+      Math.round(output.lastActivityDate * 1000)
     );
   }
   if (output.pullRequestId !== undefined) {
@@ -23043,11 +23019,7 @@ const deserializeAws_json1_1PullRequestEvent = (
     );
   }
   if (output.eventDate !== undefined) {
-    contents.eventDate = new Date(
-      output.eventDate % 1 != 0
-        ? Math.round(output.eventDate * 1000)
-        : output.eventDate
-    );
+    contents.eventDate = new Date(Math.round(output.eventDate * 1000));
   }
   if (output.pullRequestCreatedEventMetadata !== undefined) {
     contents.pullRequestCreatedEventMetadata = deserializeAws_json1_1PullRequestCreatedEventMetadata(
@@ -23419,20 +23391,14 @@ const deserializeAws_json1_1RepositoryMetadata = (
     contents.cloneUrlSsh = output.cloneUrlSsh;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(
-      output.creationDate % 1 != 0
-        ? Math.round(output.creationDate * 1000)
-        : output.creationDate
-    );
+    contents.creationDate = new Date(Math.round(output.creationDate * 1000));
   }
   if (output.defaultBranch !== undefined) {
     contents.defaultBranch = output.defaultBranch;
   }
   if (output.lastModifiedDate !== undefined) {
     contents.lastModifiedDate = new Date(
-      output.lastModifiedDate % 1 != 0
-        ? Math.round(output.lastModifiedDate * 1000)
-        : output.lastModifiedDate
+      Math.round(output.lastModifiedDate * 1000)
     );
   }
   if (output.repositoryDescription !== undefined) {

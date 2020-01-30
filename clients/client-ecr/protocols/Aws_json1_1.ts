@@ -4331,11 +4331,7 @@ const deserializeAws_json1_1AuthorizationData = (
     contents.authorizationToken = output.authorizationToken;
   }
   if (output.expiresAt !== undefined) {
-    contents.expiresAt = new Date(
-      output.expiresAt % 1 != 0
-        ? Math.round(output.expiresAt * 1000)
-        : output.expiresAt
-    );
+    contents.expiresAt = new Date(Math.round(output.expiresAt * 1000));
   }
   if (output.proxyEndpoint !== undefined) {
     contents.proxyEndpoint = output.proxyEndpoint;
@@ -4474,9 +4470,7 @@ const deserializeAws_json1_1DeleteLifecyclePolicyResponse = (
   };
   if (output.lastEvaluatedAt !== undefined) {
     contents.lastEvaluatedAt = new Date(
-      output.lastEvaluatedAt % 1 != 0
-        ? Math.round(output.lastEvaluatedAt * 1000)
-        : output.lastEvaluatedAt
+      Math.round(output.lastEvaluatedAt * 1000)
     );
   }
   if (output.lifecyclePolicyText !== undefined) {
@@ -4732,9 +4726,7 @@ const deserializeAws_json1_1GetLifecyclePolicyResponse = (
   };
   if (output.lastEvaluatedAt !== undefined) {
     contents.lastEvaluatedAt = new Date(
-      output.lastEvaluatedAt % 1 != 0
-        ? Math.round(output.lastEvaluatedAt * 1000)
-        : output.lastEvaluatedAt
+      Math.round(output.lastEvaluatedAt * 1000)
     );
   }
   if (output.lifecyclePolicyText !== undefined) {
@@ -4833,11 +4825,7 @@ const deserializeAws_json1_1ImageDetail = (
     contents.imageDigest = output.imageDigest;
   }
   if (output.imagePushedAt !== undefined) {
-    contents.imagePushedAt = new Date(
-      output.imagePushedAt % 1 != 0
-        ? Math.round(output.imagePushedAt * 1000)
-        : output.imagePushedAt
-    );
+    contents.imagePushedAt = new Date(Math.round(output.imagePushedAt * 1000));
   }
   if (output.imageScanFindingsSummary !== undefined) {
     contents.imageScanFindingsSummary = deserializeAws_json1_1ImageScanFindingsSummary(
@@ -5029,16 +5017,12 @@ const deserializeAws_json1_1ImageScanFindings = (
   }
   if (output.imageScanCompletedAt !== undefined) {
     contents.imageScanCompletedAt = new Date(
-      output.imageScanCompletedAt % 1 != 0
-        ? Math.round(output.imageScanCompletedAt * 1000)
-        : output.imageScanCompletedAt
+      Math.round(output.imageScanCompletedAt * 1000)
     );
   }
   if (output.vulnerabilitySourceUpdatedAt !== undefined) {
     contents.vulnerabilitySourceUpdatedAt = new Date(
-      output.vulnerabilitySourceUpdatedAt % 1 != 0
-        ? Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
-        : output.vulnerabilitySourceUpdatedAt
+      Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
     );
   }
   return contents;
@@ -5062,16 +5046,12 @@ const deserializeAws_json1_1ImageScanFindingsSummary = (
   }
   if (output.imageScanCompletedAt !== undefined) {
     contents.imageScanCompletedAt = new Date(
-      output.imageScanCompletedAt % 1 != 0
-        ? Math.round(output.imageScanCompletedAt * 1000)
-        : output.imageScanCompletedAt
+      Math.round(output.imageScanCompletedAt * 1000)
     );
   }
   if (output.vulnerabilitySourceUpdatedAt !== undefined) {
     contents.vulnerabilitySourceUpdatedAt = new Date(
-      output.vulnerabilitySourceUpdatedAt % 1 != 0
-        ? Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
-        : output.vulnerabilitySourceUpdatedAt
+      Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
     );
   }
   return contents;
@@ -5409,11 +5389,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
     contents.imageDigest = output.imageDigest;
   }
   if (output.imagePushedAt !== undefined) {
-    contents.imagePushedAt = new Date(
-      output.imagePushedAt % 1 != 0
-        ? Math.round(output.imagePushedAt * 1000)
-        : output.imagePushedAt
-    );
+    contents.imagePushedAt = new Date(Math.round(output.imagePushedAt * 1000));
   }
   if (output.imageTags !== undefined) {
     contents.imageTags = deserializeAws_json1_1ImageTagList(
@@ -5608,11 +5584,7 @@ const deserializeAws_json1_1Repository = (
     repositoryUri: undefined
   };
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.imageScanningConfiguration !== undefined) {
     contents.imageScanningConfiguration = deserializeAws_json1_1ImageScanningConfiguration(

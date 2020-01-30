@@ -7744,9 +7744,7 @@ const deserializeAws_json1_1Account = (
   }
   if (output.JoinedTimestamp !== undefined) {
     contents.JoinedTimestamp = new Date(
-      output.JoinedTimestamp % 1 != 0
-        ? Math.round(output.JoinedTimestamp * 1000)
-        : output.JoinedTimestamp
+      Math.round(output.JoinedTimestamp * 1000)
     );
   }
   if (output.Name !== undefined) {
@@ -7939,9 +7937,7 @@ const deserializeAws_json1_1CreateAccountStatus = (
   }
   if (output.CompletedTimestamp !== undefined) {
     contents.CompletedTimestamp = new Date(
-      output.CompletedTimestamp % 1 != 0
-        ? Math.round(output.CompletedTimestamp * 1000)
-        : output.CompletedTimestamp
+      Math.round(output.CompletedTimestamp * 1000)
     );
   }
   if (output.FailureReason !== undefined) {
@@ -7955,9 +7951,7 @@ const deserializeAws_json1_1CreateAccountStatus = (
   }
   if (output.RequestedTimestamp !== undefined) {
     contents.RequestedTimestamp = new Date(
-      output.RequestedTimestamp % 1 != 0
-        ? Math.round(output.RequestedTimestamp * 1000)
-        : output.RequestedTimestamp
+      Math.round(output.RequestedTimestamp * 1000)
     );
   }
   if (output.State !== undefined) {
@@ -8295,9 +8289,7 @@ const deserializeAws_json1_1EffectivePolicy = (
   };
   if (output.LastUpdatedTimestamp !== undefined) {
     contents.LastUpdatedTimestamp = new Date(
-      output.LastUpdatedTimestamp % 1 != 0
-        ? Math.round(output.LastUpdatedTimestamp * 1000)
-        : output.LastUpdatedTimestamp
+      Math.round(output.LastUpdatedTimestamp * 1000)
     );
   }
   if (output.PolicyContent !== undefined) {
@@ -8367,11 +8359,7 @@ const deserializeAws_json1_1EnabledServicePrincipal = (
     ServicePrincipal: undefined
   };
   if (output.DateEnabled !== undefined) {
-    contents.DateEnabled = new Date(
-      output.DateEnabled % 1 != 0
-        ? Math.round(output.DateEnabled * 1000)
-        : output.DateEnabled
-    );
+    contents.DateEnabled = new Date(Math.round(output.DateEnabled * 1000));
   }
   if (output.ServicePrincipal !== undefined) {
     contents.ServicePrincipal = output.ServicePrincipal;
@@ -8425,9 +8413,7 @@ const deserializeAws_json1_1Handshake = (
   }
   if (output.ExpirationTimestamp !== undefined) {
     contents.ExpirationTimestamp = new Date(
-      output.ExpirationTimestamp % 1 != 0
-        ? Math.round(output.ExpirationTimestamp * 1000)
-        : output.ExpirationTimestamp
+      Math.round(output.ExpirationTimestamp * 1000)
     );
   }
   if (output.Id !== undefined) {
@@ -8441,9 +8427,7 @@ const deserializeAws_json1_1Handshake = (
   }
   if (output.RequestedTimestamp !== undefined) {
     contents.RequestedTimestamp = new Date(
-      output.RequestedTimestamp % 1 != 0
-        ? Math.round(output.RequestedTimestamp * 1000)
-        : output.RequestedTimestamp
+      Math.round(output.RequestedTimestamp * 1000)
     );
   }
   if (output.Resources !== undefined) {

@@ -1779,11 +1779,7 @@ export async function deserializeAws_restJson1_1CreateBackupPlanCommand(
     contents.BackupPlanId = data.BackupPlanId;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.VersionId !== undefined) {
     contents.VersionId = data.VersionId;
@@ -1873,11 +1869,7 @@ export async function deserializeAws_restJson1_1CreateBackupSelectionCommand(
     contents.BackupPlanId = data.BackupPlanId;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.SelectionId !== undefined) {
     contents.SelectionId = data.SelectionId;
@@ -1970,11 +1962,7 @@ export async function deserializeAws_restJson1_1CreateBackupVaultCommand(
     contents.BackupVaultName = data.BackupVaultName;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   return Promise.resolve(contents);
 }
@@ -2065,11 +2053,7 @@ export async function deserializeAws_restJson1_1DeleteBackupPlanCommand(
     contents.BackupPlanId = data.BackupPlanId;
   }
   if (data.DeletionDate !== undefined) {
-    contents.DeletionDate = new Date(
-      data.DeletionDate % 1 != 0
-        ? Math.round(data.DeletionDate * 1000)
-        : data.DeletionDate
-    );
+    contents.DeletionDate = new Date(Math.round(data.DeletionDate * 1000));
   }
   if (data.VersionId !== undefined) {
     contents.VersionId = data.VersionId;
@@ -2544,11 +2528,7 @@ export async function deserializeAws_restJson1_1DescribeBackupJobCommand(
     contents.BytesTransferred = data.BytesTransferred;
   }
   if (data.CompletionDate !== undefined) {
-    contents.CompletionDate = new Date(
-      data.CompletionDate % 1 != 0
-        ? Math.round(data.CompletionDate * 1000)
-        : data.CompletionDate
-    );
+    contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
   }
   if (data.CreatedBy !== undefined) {
     contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
@@ -2557,17 +2537,11 @@ export async function deserializeAws_restJson1_1DescribeBackupJobCommand(
     );
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.ExpectedCompletionDate !== undefined) {
     contents.ExpectedCompletionDate = new Date(
-      data.ExpectedCompletionDate % 1 != 0
-        ? Math.round(data.ExpectedCompletionDate * 1000)
-        : data.ExpectedCompletionDate
+      Math.round(data.ExpectedCompletionDate * 1000)
     );
   }
   if (data.IamRoleArn !== undefined) {
@@ -2586,9 +2560,7 @@ export async function deserializeAws_restJson1_1DescribeBackupJobCommand(
     contents.ResourceType = data.ResourceType;
   }
   if (data.StartBy !== undefined) {
-    contents.StartBy = new Date(
-      data.StartBy % 1 != 0 ? Math.round(data.StartBy * 1000) : data.StartBy
-    );
+    contents.StartBy = new Date(Math.round(data.StartBy * 1000));
   }
   if (data.State !== undefined) {
     contents.State = data.State;
@@ -2687,11 +2659,7 @@ export async function deserializeAws_restJson1_1DescribeBackupVaultCommand(
     contents.BackupVaultName = data.BackupVaultName;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = data.CreatorRequestId;
@@ -2852,11 +2820,7 @@ export async function deserializeAws_restJson1_1DescribeProtectedResourceCommand
   };
   const data: any = await parseBody(output.body, context);
   if (data.LastBackupTime !== undefined) {
-    contents.LastBackupTime = new Date(
-      data.LastBackupTime % 1 != 0
-        ? Math.round(data.LastBackupTime * 1000)
-        : data.LastBackupTime
-    );
+    contents.LastBackupTime = new Date(Math.round(data.LastBackupTime * 1000));
   }
   if (data.ResourceArn !== undefined) {
     contents.ResourceArn = data.ResourceArn;
@@ -2968,11 +2932,7 @@ export async function deserializeAws_restJson1_1DescribeRecoveryPointCommand(
     );
   }
   if (data.CompletionDate !== undefined) {
-    contents.CompletionDate = new Date(
-      data.CompletionDate % 1 != 0
-        ? Math.round(data.CompletionDate * 1000)
-        : data.CompletionDate
-    );
+    contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
   }
   if (data.CreatedBy !== undefined) {
     contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
@@ -2981,11 +2941,7 @@ export async function deserializeAws_restJson1_1DescribeRecoveryPointCommand(
     );
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.EncryptionKeyArn !== undefined) {
     contents.EncryptionKeyArn = data.EncryptionKeyArn;
@@ -2998,9 +2954,7 @@ export async function deserializeAws_restJson1_1DescribeRecoveryPointCommand(
   }
   if (data.LastRestoreTime !== undefined) {
     contents.LastRestoreTime = new Date(
-      data.LastRestoreTime % 1 != 0
-        ? Math.round(data.LastRestoreTime * 1000)
-        : data.LastRestoreTime
+      Math.round(data.LastRestoreTime * 1000)
     );
   }
   if (data.Lifecycle !== undefined) {
@@ -3110,21 +3064,13 @@ export async function deserializeAws_restJson1_1DescribeRestoreJobCommand(
     contents.BackupSizeInBytes = data.BackupSizeInBytes;
   }
   if (data.CompletionDate !== undefined) {
-    contents.CompletionDate = new Date(
-      data.CompletionDate % 1 != 0
-        ? Math.round(data.CompletionDate * 1000)
-        : data.CompletionDate
-    );
+    contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
   }
   if (data.CreatedResourceArn !== undefined) {
     contents.CreatedResourceArn = data.CreatedResourceArn;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.ExpectedCompletionTimeMinutes !== undefined) {
     contents.ExpectedCompletionTimeMinutes = data.ExpectedCompletionTimeMinutes;
@@ -3318,27 +3264,17 @@ export async function deserializeAws_restJson1_1GetBackupPlanCommand(
     contents.BackupPlanId = data.BackupPlanId;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = data.CreatorRequestId;
   }
   if (data.DeletionDate !== undefined) {
-    contents.DeletionDate = new Date(
-      data.DeletionDate % 1 != 0
-        ? Math.round(data.DeletionDate * 1000)
-        : data.DeletionDate
-    );
+    contents.DeletionDate = new Date(Math.round(data.DeletionDate * 1000));
   }
   if (data.LastExecutionDate !== undefined) {
     contents.LastExecutionDate = new Date(
-      data.LastExecutionDate % 1 != 0
-        ? Math.round(data.LastExecutionDate * 1000)
-        : data.LastExecutionDate
+      Math.round(data.LastExecutionDate * 1000)
     );
   }
   if (data.VersionId !== undefined) {
@@ -3593,11 +3529,7 @@ export async function deserializeAws_restJson1_1GetBackupSelectionCommand(
     );
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = data.CreatorRequestId;
@@ -5077,11 +5009,7 @@ export async function deserializeAws_restJson1_1StartBackupJobCommand(
     contents.BackupJobId = data.BackupJobId;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.RecoveryPointArn !== undefined) {
     contents.RecoveryPointArn = data.RecoveryPointArn;
@@ -5167,11 +5095,7 @@ export async function deserializeAws_restJson1_1StartCopyJobCommand(
     contents.CopyJobId = data.CopyJobId;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   return Promise.resolve(contents);
 }
@@ -5549,11 +5473,7 @@ export async function deserializeAws_restJson1_1UpdateBackupPlanCommand(
     contents.BackupPlanId = data.BackupPlanId;
   }
   if (data.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      data.CreationDate % 1 != 0
-        ? Math.round(data.CreationDate * 1000)
-        : data.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
   if (data.VersionId !== undefined) {
     contents.VersionId = data.VersionId;
@@ -6198,9 +6118,7 @@ const deserializeAws_restJson1_1BackupJob = (
   }
   if (output.CompletionDate !== undefined) {
     contents.CompletionDate = new Date(
-      output.CompletionDate % 1 != 0
-        ? Math.round(output.CompletionDate * 1000)
-        : output.CompletionDate
+      Math.round(output.CompletionDate * 1000)
     );
   }
   if (output.CreatedBy !== undefined) {
@@ -6210,17 +6128,11 @@ const deserializeAws_restJson1_1BackupJob = (
     );
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.ExpectedCompletionDate !== undefined) {
     contents.ExpectedCompletionDate = new Date(
-      output.ExpectedCompletionDate % 1 != 0
-        ? Math.round(output.ExpectedCompletionDate * 1000)
-        : output.ExpectedCompletionDate
+      Math.round(output.ExpectedCompletionDate * 1000)
     );
   }
   if (output.IamRoleArn !== undefined) {
@@ -6239,11 +6151,7 @@ const deserializeAws_restJson1_1BackupJob = (
     contents.ResourceType = output.ResourceType;
   }
   if (output.StartBy !== undefined) {
-    contents.StartBy = new Date(
-      output.StartBy % 1 != 0
-        ? Math.round(output.StartBy * 1000)
-        : output.StartBy
-    );
+    contents.StartBy = new Date(Math.round(output.StartBy * 1000));
   }
   if (output.State !== undefined) {
     contents.State = output.State;
@@ -6354,27 +6262,17 @@ const deserializeAws_restJson1_1BackupPlansListMember = (
     contents.BackupPlanName = output.BackupPlanName;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
   }
   if (output.DeletionDate !== undefined) {
-    contents.DeletionDate = new Date(
-      output.DeletionDate % 1 != 0
-        ? Math.round(output.DeletionDate * 1000)
-        : output.DeletionDate
-    );
+    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
   }
   if (output.LastExecutionDate !== undefined) {
     contents.LastExecutionDate = new Date(
-      output.LastExecutionDate % 1 != 0
-        ? Math.round(output.LastExecutionDate * 1000)
-        : output.LastExecutionDate
+      Math.round(output.LastExecutionDate * 1000)
     );
   }
   if (output.VersionId !== undefined) {
@@ -6505,11 +6403,7 @@ const deserializeAws_restJson1_1BackupSelectionsListMember = (
     contents.BackupPlanId = output.BackupPlanId;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -6562,11 +6456,7 @@ const deserializeAws_restJson1_1BackupVaultListMember = (
     contents.BackupVaultName = output.BackupVaultName;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -6590,17 +6480,11 @@ const deserializeAws_restJson1_1CalculatedLifecycle = (
     MoveToColdStorageAt: undefined
   };
   if (output.DeleteAt !== undefined) {
-    contents.DeleteAt = new Date(
-      output.DeleteAt % 1 != 0
-        ? Math.round(output.DeleteAt * 1000)
-        : output.DeleteAt
-    );
+    contents.DeleteAt = new Date(Math.round(output.DeleteAt * 1000));
   }
   if (output.MoveToColdStorageAt !== undefined) {
     contents.MoveToColdStorageAt = new Date(
-      output.MoveToColdStorageAt % 1 != 0
-        ? Math.round(output.MoveToColdStorageAt * 1000)
-        : output.MoveToColdStorageAt
+      Math.round(output.MoveToColdStorageAt * 1000)
     );
   }
   return contents;
@@ -6684,9 +6568,7 @@ const deserializeAws_restJson1_1CopyJob = (
   }
   if (output.CompletionDate !== undefined) {
     contents.CompletionDate = new Date(
-      output.CompletionDate % 1 != 0
-        ? Math.round(output.CompletionDate * 1000)
-        : output.CompletionDate
+      Math.round(output.CompletionDate * 1000)
     );
   }
   if (output.CopyJobId !== undefined) {
@@ -6699,11 +6581,7 @@ const deserializeAws_restJson1_1CopyJob = (
     );
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.DestinationBackupVaultArn !== undefined) {
     contents.DestinationBackupVaultArn = output.DestinationBackupVaultArn;
@@ -6794,9 +6672,7 @@ const deserializeAws_restJson1_1ProtectedResource = (
   };
   if (output.LastBackupTime !== undefined) {
     contents.LastBackupTime = new Date(
-      output.LastBackupTime % 1 != 0
-        ? Math.round(output.LastBackupTime * 1000)
-        : output.LastBackupTime
+      Math.round(output.LastBackupTime * 1000)
     );
   }
   if (output.ResourceArn !== undefined) {
@@ -6857,9 +6733,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
   }
   if (output.CompletionDate !== undefined) {
     contents.CompletionDate = new Date(
-      output.CompletionDate % 1 != 0
-        ? Math.round(output.CompletionDate * 1000)
-        : output.CompletionDate
+      Math.round(output.CompletionDate * 1000)
     );
   }
   if (output.CreatedBy !== undefined) {
@@ -6869,11 +6743,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
     );
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.EncryptionKeyArn !== undefined) {
     contents.EncryptionKeyArn = output.EncryptionKeyArn;
@@ -6886,9 +6756,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
   }
   if (output.LastRestoreTime !== undefined) {
     contents.LastRestoreTime = new Date(
-      output.LastRestoreTime % 1 != 0
-        ? Math.round(output.LastRestoreTime * 1000)
-        : output.LastRestoreTime
+      Math.round(output.LastRestoreTime * 1000)
     );
   }
   if (output.Lifecycle !== undefined) {
@@ -6941,11 +6809,7 @@ const deserializeAws_restJson1_1RecoveryPointByResource = (
     contents.BackupVaultName = output.BackupVaultName;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.EncryptionKeyArn !== undefined) {
     contents.EncryptionKeyArn = output.EncryptionKeyArn;
@@ -7040,20 +6904,14 @@ const deserializeAws_restJson1_1RestoreJobsListMember = (
   }
   if (output.CompletionDate !== undefined) {
     contents.CompletionDate = new Date(
-      output.CompletionDate % 1 != 0
-        ? Math.round(output.CompletionDate * 1000)
-        : output.CompletionDate
+      Math.round(output.CompletionDate * 1000)
     );
   }
   if (output.CreatedResourceArn !== undefined) {
     contents.CreatedResourceArn = output.CreatedResourceArn;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.ExpectedCompletionTimeMinutes !== undefined) {
     contents.ExpectedCompletionTimeMinutes =

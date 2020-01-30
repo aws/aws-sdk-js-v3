@@ -3061,11 +3061,7 @@ const deserializeAws_json1_1SshPublicKey = (
     SshPublicKeyId: undefined
   };
   if (output.DateImported !== undefined) {
-    contents.DateImported = new Date(
-      output.DateImported % 1 != 0
-        ? Math.round(output.DateImported * 1000)
-        : output.DateImported
-    );
+    contents.DateImported = new Date(Math.round(output.DateImported * 1000));
   }
   if (output.SshPublicKeyBody !== undefined) {
     contents.SshPublicKeyBody = output.SshPublicKeyBody;

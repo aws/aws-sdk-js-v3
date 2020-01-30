@@ -2618,9 +2618,7 @@ const deserializeAws_json1_1CreateUserProfileResult = (
   };
   if (output.createdTimestamp !== undefined) {
     contents.createdTimestamp = new Date(
-      output.createdTimestamp % 1 != 0
-        ? Math.round(output.createdTimestamp * 1000)
-        : output.createdTimestamp
+      Math.round(output.createdTimestamp * 1000)
     );
   }
   if (output.displayName !== undefined) {
@@ -2631,9 +2629,7 @@ const deserializeAws_json1_1CreateUserProfileResult = (
   }
   if (output.lastModifiedTimestamp !== undefined) {
     contents.lastModifiedTimestamp = new Date(
-      output.lastModifiedTimestamp % 1 != 0
-        ? Math.round(output.lastModifiedTimestamp * 1000)
-        : output.lastModifiedTimestamp
+      Math.round(output.lastModifiedTimestamp * 1000)
     );
   }
   if (output.sshPublicKey !== undefined) {
@@ -2701,9 +2697,7 @@ const deserializeAws_json1_1DescribeProjectResult = (
   }
   if (output.createdTimeStamp !== undefined) {
     contents.createdTimeStamp = new Date(
-      output.createdTimeStamp % 1 != 0
-        ? Math.round(output.createdTimeStamp * 1000)
-        : output.createdTimeStamp
+      Math.round(output.createdTimeStamp * 1000)
     );
   }
   if (output.description !== undefined) {
@@ -2745,9 +2739,7 @@ const deserializeAws_json1_1DescribeUserProfileResult = (
   };
   if (output.createdTimestamp !== undefined) {
     contents.createdTimestamp = new Date(
-      output.createdTimestamp % 1 != 0
-        ? Math.round(output.createdTimestamp * 1000)
-        : output.createdTimestamp
+      Math.round(output.createdTimestamp * 1000)
     );
   }
   if (output.displayName !== undefined) {
@@ -2758,9 +2750,7 @@ const deserializeAws_json1_1DescribeUserProfileResult = (
   }
   if (output.lastModifiedTimestamp !== undefined) {
     contents.lastModifiedTimestamp = new Date(
-      output.lastModifiedTimestamp % 1 != 0
-        ? Math.round(output.lastModifiedTimestamp * 1000)
-        : output.lastModifiedTimestamp
+      Math.round(output.lastModifiedTimestamp * 1000)
     );
   }
   if (output.sshPublicKey !== undefined) {
@@ -3191,9 +3181,7 @@ const deserializeAws_json1_1UpdateUserProfileResult = (
   };
   if (output.createdTimestamp !== undefined) {
     contents.createdTimestamp = new Date(
-      output.createdTimestamp % 1 != 0
-        ? Math.round(output.createdTimestamp * 1000)
-        : output.createdTimestamp
+      Math.round(output.createdTimestamp * 1000)
     );
   }
   if (output.displayName !== undefined) {
@@ -3204,9 +3192,7 @@ const deserializeAws_json1_1UpdateUserProfileResult = (
   }
   if (output.lastModifiedTimestamp !== undefined) {
     contents.lastModifiedTimestamp = new Date(
-      output.lastModifiedTimestamp % 1 != 0
-        ? Math.round(output.lastModifiedTimestamp * 1000)
-        : output.lastModifiedTimestamp
+      Math.round(output.lastModifiedTimestamp * 1000)
     );
   }
   if (output.sshPublicKey !== undefined) {

@@ -587,9 +587,7 @@ export async function deserializeAws_restJson1_1CreateLedgerCommand(
   }
   if (data.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      data.CreationDateTime % 1 != 0
-        ? Math.round(data.CreationDateTime * 1000)
-        : data.CreationDateTime
+      Math.round(data.CreationDateTime * 1000)
     );
   }
   if (data.DeletionProtection !== undefined) {
@@ -805,9 +803,7 @@ export async function deserializeAws_restJson1_1DescribeLedgerCommand(
   }
   if (data.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      data.CreationDateTime % 1 != 0
-        ? Math.round(data.CreationDateTime * 1000)
-        : data.CreationDateTime
+      Math.round(data.CreationDateTime * 1000)
     );
   }
   if (data.DeletionProtection !== undefined) {
@@ -1483,9 +1479,7 @@ export async function deserializeAws_restJson1_1UpdateLedgerCommand(
   }
   if (data.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      data.CreationDateTime % 1 != 0
-        ? Math.round(data.CreationDateTime * 1000)
-        : data.CreationDateTime
+      Math.round(data.CreationDateTime * 1000)
     );
   }
   if (data.DeletionProtection !== undefined) {
@@ -1762,16 +1756,12 @@ const deserializeAws_restJson1_1JournalS3ExportDescription = (
   };
   if (output.ExclusiveEndTime !== undefined) {
     contents.ExclusiveEndTime = new Date(
-      output.ExclusiveEndTime % 1 != 0
-        ? Math.round(output.ExclusiveEndTime * 1000)
-        : output.ExclusiveEndTime
+      Math.round(output.ExclusiveEndTime * 1000)
     );
   }
   if (output.ExportCreationTime !== undefined) {
     contents.ExportCreationTime = new Date(
-      output.ExportCreationTime % 1 != 0
-        ? Math.round(output.ExportCreationTime * 1000)
-        : output.ExportCreationTime
+      Math.round(output.ExportCreationTime * 1000)
     );
   }
   if (output.ExportId !== undefined) {
@@ -1779,9 +1769,7 @@ const deserializeAws_restJson1_1JournalS3ExportDescription = (
   }
   if (output.InclusiveStartTime !== undefined) {
     contents.InclusiveStartTime = new Date(
-      output.InclusiveStartTime % 1 != 0
-        ? Math.round(output.InclusiveStartTime * 1000)
-        : output.InclusiveStartTime
+      Math.round(output.InclusiveStartTime * 1000)
     );
   }
   if (output.LedgerName !== undefined) {
@@ -1832,9 +1820,7 @@ const deserializeAws_restJson1_1LedgerSummary = (
   };
   if (output.CreationDateTime !== undefined) {
     contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
+      Math.round(output.CreationDateTime * 1000)
     );
   }
   if (output.Name !== undefined) {
