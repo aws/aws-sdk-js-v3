@@ -3350,11 +3350,7 @@ const deserializeAws_json1_1Credentials = (
     contents.AccessKeyId = output.AccessKeyId;
   }
   if (output.Expiration !== undefined) {
-    contents.Expiration = new Date(
-      output.Expiration % 1 != 0
-        ? Math.round(output.Expiration * 1000)
-        : output.Expiration
-    );
+    contents.Expiration = new Date(Math.round(output.Expiration * 1000));
   }
   if (output.SecretKey !== undefined) {
     contents.SecretKey = output.SecretKey;
@@ -3534,20 +3530,14 @@ const deserializeAws_json1_1IdentityDescription = (
     Logins: undefined
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.IdentityId !== undefined) {
     contents.IdentityId = output.IdentityId;
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.Logins !== undefined) {

@@ -2704,11 +2704,7 @@ export async function deserializeAws_restJson1_1GetDatasetContentCommand(
     );
   }
   if (data.timestamp !== undefined) {
-    contents.timestamp = new Date(
-      data.timestamp % 1 != 0
-        ? Math.round(data.timestamp * 1000)
-        : data.timestamp
-    );
+    contents.timestamp = new Date(Math.round(data.timestamp * 1000));
   }
   return Promise.resolve(contents);
 }
@@ -5183,17 +5179,11 @@ const deserializeAws_restJson1_1Channel = (
     contents.arn = output.arn;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5335,17 +5325,11 @@ const deserializeAws_restJson1_1ChannelSummary = (
     );
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.status !== undefined) {
@@ -5507,17 +5491,11 @@ const deserializeAws_restJson1_1Dataset = (
     );
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -5706,24 +5684,14 @@ const deserializeAws_restJson1_1DatasetContentSummary = (
   };
   if (output.completionTime !== undefined) {
     contents.completionTime = new Date(
-      output.completionTime % 1 != 0
-        ? Math.round(output.completionTime * 1000)
-        : output.completionTime
+      Math.round(output.completionTime * 1000)
     );
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.scheduleTime !== undefined) {
-    contents.scheduleTime = new Date(
-      output.scheduleTime % 1 != 0
-        ? Math.round(output.scheduleTime * 1000)
-        : output.scheduleTime
-    );
+    contents.scheduleTime = new Date(Math.round(output.scheduleTime * 1000));
   }
   if (output.status !== undefined) {
     contents.status = deserializeAws_restJson1_1DatasetContentStatus(
@@ -5807,20 +5775,14 @@ const deserializeAws_restJson1_1DatasetSummary = (
     );
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.datasetName !== undefined) {
     contents.datasetName = output.datasetName;
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.status !== undefined) {
@@ -5886,17 +5848,11 @@ const deserializeAws_restJson1_1Datastore = (
     contents.arn = output.arn;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6025,11 +5981,7 @@ const deserializeAws_restJson1_1DatastoreSummary = (
     status: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.datastoreName !== undefined) {
     contents.datastoreName = output.datastoreName;
@@ -6042,9 +5994,7 @@ const deserializeAws_restJson1_1DatastoreSummary = (
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.status !== undefined) {
@@ -6141,11 +6091,7 @@ const deserializeAws_restJson1_1EstimatedResourceSize = (
     estimatedSizeInBytes: undefined
   };
   if (output.estimatedOn !== undefined) {
-    contents.estimatedOn = new Date(
-      output.estimatedOn % 1 != 0
-        ? Math.round(output.estimatedOn * 1000)
-        : output.estimatedOn
-    );
+    contents.estimatedOn = new Date(Math.round(output.estimatedOn * 1000));
   }
   if (output.estimatedSizeInBytes !== undefined) {
     contents.estimatedSizeInBytes = output.estimatedSizeInBytes;
@@ -6329,17 +6275,11 @@ const deserializeAws_restJson1_1Pipeline = (
     contents.arn = output.arn;
   }
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.name !== undefined) {
@@ -6464,17 +6404,11 @@ const deserializeAws_restJson1_1PipelineSummary = (
     reprocessingSummaries: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.lastUpdateTime !== undefined) {
     contents.lastUpdateTime = new Date(
-      output.lastUpdateTime % 1 != 0
-        ? Math.round(output.lastUpdateTime * 1000)
-        : output.lastUpdateTime
+      Math.round(output.lastUpdateTime * 1000)
     );
   }
   if (output.pipelineName !== undefined) {
@@ -6560,11 +6494,7 @@ const deserializeAws_restJson1_1ReprocessingSummary = (
     status: undefined
   };
   if (output.creationTime !== undefined) {
-    contents.creationTime = new Date(
-      output.creationTime % 1 != 0
-        ? Math.round(output.creationTime * 1000)
-        : output.creationTime
-    );
+    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
   }
   if (output.id !== undefined) {
     contents.id = output.id;

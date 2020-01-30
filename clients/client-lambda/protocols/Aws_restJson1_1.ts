@@ -2549,11 +2549,7 @@ export async function deserializeAws_restJson1_1CreateEventSourceMappingCommand(
     contents.FunctionArn = data.FunctionArn;
   }
   if (data.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      data.LastModified % 1 != 0
-        ? Math.round(data.LastModified * 1000)
-        : data.LastModified
-    );
+    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined) {
     contents.LastProcessingResult = data.LastProcessingResult;
@@ -2961,11 +2957,7 @@ export async function deserializeAws_restJson1_1DeleteEventSourceMappingCommand(
     contents.FunctionArn = data.FunctionArn;
   }
   if (data.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      data.LastModified % 1 != 0
-        ? Math.round(data.LastModified * 1000)
-        : data.LastModified
-    );
+    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined) {
     contents.LastProcessingResult = data.LastProcessingResult;
@@ -3621,11 +3613,7 @@ export async function deserializeAws_restJson1_1GetEventSourceMappingCommand(
     contents.FunctionArn = data.FunctionArn;
   }
   if (data.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      data.LastModified % 1 != 0
-        ? Math.round(data.LastModified * 1000)
-        : data.LastModified
-    );
+    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined) {
     contents.LastProcessingResult = data.LastProcessingResult;
@@ -4096,11 +4084,7 @@ export async function deserializeAws_restJson1_1GetFunctionEventInvokeConfigComm
     contents.FunctionArn = data.FunctionArn;
   }
   if (data.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      data.LastModified % 1 != 0
-        ? Math.round(data.LastModified * 1000)
-        : data.LastModified
-    );
+    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined) {
     contents.MaximumEventAgeInSeconds = data.MaximumEventAgeInSeconds;
@@ -6068,11 +6052,7 @@ export async function deserializeAws_restJson1_1PutFunctionEventInvokeConfigComm
     contents.FunctionArn = data.FunctionArn;
   }
   if (data.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      data.LastModified % 1 != 0
-        ? Math.round(data.LastModified * 1000)
-        : data.LastModified
-    );
+    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined) {
     contents.MaximumEventAgeInSeconds = data.MaximumEventAgeInSeconds;
@@ -6696,11 +6676,7 @@ export async function deserializeAws_restJson1_1UpdateEventSourceMappingCommand(
     contents.FunctionArn = data.FunctionArn;
   }
   if (data.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      data.LastModified % 1 != 0
-        ? Math.round(data.LastModified * 1000)
-        : data.LastModified
-    );
+    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined) {
     contents.LastProcessingResult = data.LastProcessingResult;
@@ -7242,11 +7218,7 @@ export async function deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigC
     contents.FunctionArn = data.FunctionArn;
   }
   if (data.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      data.LastModified % 1 != 0
-        ? Math.round(data.LastModified * 1000)
-        : data.LastModified
-    );
+    contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined) {
     contents.MaximumEventAgeInSeconds = data.MaximumEventAgeInSeconds;
@@ -8406,11 +8378,7 @@ const deserializeAws_restJson1_1EventSourceMappingConfiguration = (
     contents.FunctionArn = output.FunctionArn;
   }
   if (output.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      output.LastModified % 1 != 0
-        ? Math.round(output.LastModified * 1000)
-        : output.LastModified
-    );
+    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
   }
   if (output.LastProcessingResult !== undefined) {
     contents.LastProcessingResult = output.LastProcessingResult;
@@ -8618,11 +8586,7 @@ const deserializeAws_restJson1_1FunctionEventInvokeConfig = (
     contents.FunctionArn = output.FunctionArn;
   }
   if (output.LastModified !== undefined) {
-    contents.LastModified = new Date(
-      output.LastModified % 1 != 0
-        ? Math.round(output.LastModified * 1000)
-        : output.LastModified
-    );
+    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
   }
   if (output.MaximumEventAgeInSeconds !== undefined) {
     contents.MaximumEventAgeInSeconds = output.MaximumEventAgeInSeconds;

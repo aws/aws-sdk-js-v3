@@ -2826,9 +2826,7 @@ const deserializeAws_json1_1ApplicationState = (
   }
   if (output.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
+      Math.round(output.LastUpdatedTime * 1000)
     );
   }
   return contents;
@@ -2924,9 +2922,7 @@ const deserializeAws_json1_1DescribeApplicationStateResult = (
   }
   if (output.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
+      Math.round(output.LastUpdatedTime * 1000)
     );
   }
   return contents;
@@ -3205,9 +3201,7 @@ const deserializeAws_json1_1MigrationTask = (
   }
   if (output.UpdateDateTime !== undefined) {
     contents.UpdateDateTime = new Date(
-      output.UpdateDateTime % 1 != 0
-        ? Math.round(output.UpdateDateTime * 1000)
-        : output.UpdateDateTime
+      Math.round(output.UpdateDateTime * 1000)
     );
   }
   return contents;
@@ -3243,9 +3237,7 @@ const deserializeAws_json1_1MigrationTaskSummary = (
   }
   if (output.UpdateDateTime !== undefined) {
     contents.UpdateDateTime = new Date(
-      output.UpdateDateTime % 1 != 0
-        ? Math.round(output.UpdateDateTime * 1000)
-        : output.UpdateDateTime
+      Math.round(output.UpdateDateTime * 1000)
     );
   }
   return contents;

@@ -2471,11 +2471,7 @@ const deserializeAws_json1_1Backup = (
     contents.BackupType = output.BackupType;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -2899,11 +2895,7 @@ const deserializeAws_json1_1Server = (
     contents.CloudFormationStackArn = output.CloudFormationStackArn;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.CustomDomain !== undefined) {
     contents.CustomDomain = output.CustomDomain;
@@ -2989,11 +2981,7 @@ const deserializeAws_json1_1ServerEvent = (
     ServerName: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
   }
   if (output.LogUrl !== undefined) {
     contents.LogUrl = output.LogUrl;

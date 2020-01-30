@@ -571,18 +571,10 @@ export async function deserializeAws_restJson1_1DescribeSigningJobCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.completedAt !== undefined) {
-    contents.completedAt = new Date(
-      data.completedAt % 1 != 0
-        ? Math.round(data.completedAt * 1000)
-        : data.completedAt
-    );
+    contents.completedAt = new Date(Math.round(data.completedAt * 1000));
   }
   if (data.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      data.createdAt % 1 != 0
-        ? Math.round(data.createdAt * 1000)
-        : data.createdAt
-    );
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
   if (data.jobId !== undefined) {
     contents.jobId = data.jobId;
@@ -1916,11 +1908,7 @@ const deserializeAws_restJson1_1SigningJob = (
     status: undefined
   };
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
   }
   if (output.jobId !== undefined) {
     contents.jobId = output.jobId;

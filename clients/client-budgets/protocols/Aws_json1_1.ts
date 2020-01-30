@@ -2374,9 +2374,7 @@ const deserializeAws_json1_1Budget = (
   }
   if (output.LastUpdatedTime !== undefined) {
     contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
+      Math.round(output.LastUpdatedTime * 1000)
     );
   }
   if (output.PlannedBudgetLimits !== undefined) {
@@ -2946,14 +2944,10 @@ const deserializeAws_json1_1TimePeriod = (
     Start: undefined
   };
   if (output.End !== undefined) {
-    contents.End = new Date(
-      output.End % 1 != 0 ? Math.round(output.End * 1000) : output.End
-    );
+    contents.End = new Date(Math.round(output.End * 1000));
   }
   if (output.Start !== undefined) {
-    contents.Start = new Date(
-      output.Start % 1 != 0 ? Math.round(output.Start * 1000) : output.Start
-    );
+    contents.Start = new Date(Math.round(output.Start * 1000));
   }
   return contents;
 };

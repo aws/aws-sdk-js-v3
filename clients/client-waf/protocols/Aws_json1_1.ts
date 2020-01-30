@@ -12415,11 +12415,7 @@ const deserializeAws_json1_1SampledHTTPRequest = (
     contents.RuleWithinRuleGroup = output.RuleWithinRuleGroup;
   }
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(
-      output.Timestamp % 1 != 0
-        ? Math.round(output.Timestamp * 1000)
-        : output.Timestamp
-    );
+    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
   if (output.Weight !== undefined) {
     contents.Weight = output.Weight;
@@ -12704,18 +12700,10 @@ const deserializeAws_json1_1TimeWindow = (
     StartTime: undefined
   };
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   return contents;
 };

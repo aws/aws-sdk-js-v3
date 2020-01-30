@@ -7267,11 +7267,7 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
     contents.ConnectionState = output.ConnectionState;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.CustomKeyStoreId !== undefined) {
     contents.CustomKeyStoreId = output.CustomKeyStoreId;
@@ -7614,9 +7610,7 @@ const deserializeAws_json1_1GetParametersForImportResponse = (
   }
   if (output.ParametersValidTo !== undefined) {
     contents.ParametersValidTo = new Date(
-      output.ParametersValidTo % 1 != 0
-        ? Math.round(output.ParametersValidTo * 1000)
-        : output.ParametersValidTo
+      Math.round(output.ParametersValidTo * 1000)
     );
   }
   if (output.PublicKey !== undefined) {
@@ -7721,11 +7715,7 @@ const deserializeAws_json1_1GrantListEntry = (
     );
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.GrantId !== undefined) {
     contents.GrantId = output.GrantId;
@@ -8029,11 +8019,7 @@ const deserializeAws_json1_1KeyMetadata = (
     contents.CloudHsmClusterId = output.CloudHsmClusterId;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.CustomKeyStoreId !== undefined) {
     contents.CustomKeyStoreId = output.CustomKeyStoreId;
@@ -8042,11 +8028,7 @@ const deserializeAws_json1_1KeyMetadata = (
     contents.CustomerMasterKeySpec = output.CustomerMasterKeySpec;
   }
   if (output.DeletionDate !== undefined) {
-    contents.DeletionDate = new Date(
-      output.DeletionDate % 1 != 0
-        ? Math.round(output.DeletionDate * 1000)
-        : output.DeletionDate
-    );
+    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -8085,11 +8067,7 @@ const deserializeAws_json1_1KeyMetadata = (
     );
   }
   if (output.ValidTo !== undefined) {
-    contents.ValidTo = new Date(
-      output.ValidTo % 1 != 0
-        ? Math.round(output.ValidTo * 1000)
-        : output.ValidTo
-    );
+    contents.ValidTo = new Date(Math.round(output.ValidTo * 1000));
   }
   return contents;
 };
@@ -8311,11 +8289,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
     KeyId: undefined
   };
   if (output.DeletionDate !== undefined) {
-    contents.DeletionDate = new Date(
-      output.DeletionDate % 1 != 0
-        ? Math.round(output.DeletionDate * 1000)
-        : output.DeletionDate
-    );
+    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
   }
   if (output.KeyId !== undefined) {
     contents.KeyId = output.KeyId;

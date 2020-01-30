@@ -1060,11 +1060,7 @@ export async function deserializeAws_restJson1_1CreateFileSystemCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      data.CreationTime % 1 != 0
-        ? Math.round(data.CreationTime * 1000)
-        : data.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
   if (data.CreationToken !== undefined) {
     contents.CreationToken = data.CreationToken;
@@ -2750,11 +2746,7 @@ export async function deserializeAws_restJson1_1UpdateFileSystemCommand(
   };
   const data: any = await parseBody(output.body, context);
   if (data.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      data.CreationTime % 1 != 0
-        ? Math.round(data.CreationTime * 1000)
-        : data.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
   if (data.CreationToken !== undefined) {
     contents.CreationToken = data.CreationToken;
@@ -3682,11 +3674,7 @@ const deserializeAws_restJson1_1FileSystemDescription = (
     ThroughputMode: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.CreationToken !== undefined) {
     contents.CreationToken = output.CreationToken;
@@ -3754,11 +3742,7 @@ const deserializeAws_restJson1_1FileSystemSize = (
     ValueInStandard: undefined
   };
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(
-      output.Timestamp % 1 != 0
-        ? Math.round(output.Timestamp * 1000)
-        : output.Timestamp
-    );
+    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
   if (output.Value !== undefined) {
     contents.Value = output.Value;

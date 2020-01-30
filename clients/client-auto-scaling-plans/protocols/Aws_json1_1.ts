@@ -1328,11 +1328,7 @@ const deserializeAws_json1_1Datapoint = (
     Value: undefined
   };
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(
-      output.Timestamp % 1 != 0
-        ? Math.round(output.Timestamp * 1000)
-        : output.Timestamp
-    );
+    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
   }
   if (output.Value !== undefined) {
     contents.Value = output.Value;
@@ -1645,11 +1641,7 @@ const deserializeAws_json1_1ScalingPlan = (
     );
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
   }
   if (output.ScalingInstructions !== undefined) {
     contents.ScalingInstructions = deserializeAws_json1_1ScalingInstructions(
@@ -1671,9 +1663,7 @@ const deserializeAws_json1_1ScalingPlan = (
   }
   if (output.StatusStartTime !== undefined) {
     contents.StatusStartTime = new Date(
-      output.StatusStartTime % 1 != 0
-        ? Math.round(output.StatusStartTime * 1000)
-        : output.StatusStartTime
+      Math.round(output.StatusStartTime * 1000)
     );
   }
   return contents;

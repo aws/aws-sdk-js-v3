@@ -2455,11 +2455,7 @@ const deserializeAws_json1_1AttackDetail = (
     );
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.Mitigations !== undefined) {
     contents.Mitigations = deserializeAws_json1_1MitigationList(
@@ -2471,11 +2467,7 @@ const deserializeAws_json1_1AttackDetail = (
     contents.ResourceArn = output.ResourceArn;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.SubResources !== undefined) {
     contents.SubResources = deserializeAws_json1_1SubResourceSummaryList(
@@ -2559,21 +2551,13 @@ const deserializeAws_json1_1AttackSummary = (
     );
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.ResourceArn !== undefined) {
     contents.ResourceArn = output.ResourceArn;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   return contents;
 };
@@ -3158,21 +3142,13 @@ const deserializeAws_json1_1Subscription = (
     contents.AutoRenew = output.AutoRenew;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
   }
   if (output.Limits !== undefined) {
     contents.Limits = deserializeAws_json1_1Limits(output.Limits, context);
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
   }
   if (output.TimeCommitmentInSeconds !== undefined) {
     contents.TimeCommitmentInSeconds = output.TimeCommitmentInSeconds;

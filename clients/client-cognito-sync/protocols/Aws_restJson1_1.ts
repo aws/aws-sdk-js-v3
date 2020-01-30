@@ -1253,16 +1253,12 @@ export async function deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
   const data: any = await parseBody(output.body, context);
   if (data.BulkPublishCompleteTime !== undefined) {
     contents.BulkPublishCompleteTime = new Date(
-      data.BulkPublishCompleteTime % 1 != 0
-        ? Math.round(data.BulkPublishCompleteTime * 1000)
-        : data.BulkPublishCompleteTime
+      Math.round(data.BulkPublishCompleteTime * 1000)
     );
   }
   if (data.BulkPublishStartTime !== undefined) {
     contents.BulkPublishStartTime = new Date(
-      data.BulkPublishStartTime % 1 != 0
-        ? Math.round(data.BulkPublishStartTime * 1000)
-        : data.BulkPublishStartTime
+      Math.round(data.BulkPublishStartTime * 1000)
     );
   }
   if (data.BulkPublishStatus !== undefined) {
@@ -2734,11 +2730,7 @@ const deserializeAws_restJson1_1Dataset = (
     NumRecords: undefined
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
   }
   if (output.DataStorage !== undefined) {
     contents.DataStorage = output.DataStorage;
@@ -2754,9 +2746,7 @@ const deserializeAws_restJson1_1Dataset = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.NumRecords !== undefined) {
@@ -2804,9 +2794,7 @@ const deserializeAws_restJson1_1IdentityPoolUsage = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.SyncSessionsCount !== undefined) {
@@ -2850,9 +2838,7 @@ const deserializeAws_restJson1_1IdentityUsage = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   return contents;
@@ -2901,9 +2887,7 @@ const deserializeAws_restJson1_1_Record = (
   };
   if (output.DeviceLastModifiedDate !== undefined) {
     contents.DeviceLastModifiedDate = new Date(
-      output.DeviceLastModifiedDate % 1 != 0
-        ? Math.round(output.DeviceLastModifiedDate * 1000)
-        : output.DeviceLastModifiedDate
+      Math.round(output.DeviceLastModifiedDate * 1000)
     );
   }
   if (output.Key !== undefined) {
@@ -2914,9 +2898,7 @@ const deserializeAws_restJson1_1_Record = (
   }
   if (output.LastModifiedDate !== undefined) {
     contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
+      Math.round(output.LastModifiedDate * 1000)
     );
   }
   if (output.SyncCount !== undefined) {
