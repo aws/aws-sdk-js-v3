@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.2 (2020-01-30)
+
+
+### Bug Fixes
+
+* update dependencies for ec2 client and mw ([#808](https://github.com/aws/aws-sdk-js-v3/issues/808)) ([48c528c](https://github.com/aws/aws-sdk-js-v3/commit/48c528c))
+
+
+
+# 1.0.0-alpha.14 (2020-01-28)
+
+
+### Features
+
+* migrate and apply copySnapshotPresignedUrlMiddleware ([#716](https://github.com/aws/aws-sdk-js-v3/issues/716)) ([106061b](https://github.com/aws/aws-sdk-js-v3/commit/106061b))
+
+
+
+
+
 # 1.0.0-alpha.1 (2020-01-28)
 
 
