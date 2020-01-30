@@ -480,7 +480,7 @@ import {
   XmlNode as __XmlNode,
   XmlText as __XmlText
 } from "@aws-sdk/xml-builder";
-import { parse as pixlParse } from "pixl-xml";
+import { parse as xmlParse } from "fast-xml-parser";
 
 export async function serializeAws_restXmlAbortMultipartUploadCommand(
   input: AbortMultipartUploadCommandInput,
@@ -14449,7 +14449,8 @@ const collectBodyString = (
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
-      return pixlParse(encoded);
+      const parsedObj = xmlParse(encoded);
+      return parsedObj[Object.keys(parsedObj)[0]];
     }
     return {};
   });
