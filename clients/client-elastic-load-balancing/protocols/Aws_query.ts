@@ -5992,7 +5992,7 @@ const buildHttpRpcRequest = (
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded);
+      const parsedObj = xmlParse(encoded, { parseNodeValue: false });
       return parsedObj[Object.keys(parsedObj)[0]];
     }
     return {};
