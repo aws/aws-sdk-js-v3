@@ -1,6 +1,12 @@
 var util = require("util");
 var jmespath = require("jmespath");
 
+const isType = (obj, type) => {
+  // handle cross-"frame" objects
+  if (typeof type === "function") type = util.typeName(type);
+  return Object.prototype.toString.call(obj) === "[object " + type + "]";
+};
+
 module.exports = function() {
   this.World = require("./world.js").World;
 
@@ -225,10 +231,7 @@ module.exports = function() {
     /^the result at (\w+) should contain a property (\w+) with an? (\w+)$/,
     function(wrapper, property, type, callback) {
       if (type === "Array" || type === "Date") {
-        this.assert.equal(
-          this.AWS.util.isType(this.data[wrapper][property], type),
-          true
-        );
+        this.assert.equal(isType(this.data[wrapper][property], type), true);
       } else {
         this.assert.equal(typeof this.data[wrapper][property], type);
       }
@@ -240,10 +243,7 @@ module.exports = function() {
     /^the result should contain a property (\w+) with an? (\w+)$/,
     function(property, type, callback) {
       if (type === "Array" || type === "Date") {
-        this.assert.equal(
-          this.AWS.util.isType(this.data[property], type),
-          true
-        );
+        this.assert.equal(isType(this.data[property], type), true);
       } else {
         this.assert.equal(typeof this.data[property], type);
       }
