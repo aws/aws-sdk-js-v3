@@ -291,7 +291,6 @@ async function deserializeAws_restJson1_1CreateParticipantConnectionCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -361,7 +360,6 @@ async function deserializeAws_restJson1_1DisconnectParticipantCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -444,7 +442,6 @@ async function deserializeAws_restJson1_1GetTranscriptCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -520,7 +517,6 @@ async function deserializeAws_restJson1_1SendEventCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -596,7 +592,6 @@ async function deserializeAws_restJson1_1SendMessageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -610,7 +605,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -628,7 +622,6 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
     name: "InternalServerException",
-    __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -646,7 +639,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -664,7 +656,6 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

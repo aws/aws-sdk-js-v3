@@ -4439,7 +4439,6 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4529,7 +4528,6 @@ async function deserializeAws_restJson1_1CreateCampaignCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4612,7 +4610,6 @@ async function deserializeAws_restJson1_1CreateEmailTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4702,7 +4699,6 @@ async function deserializeAws_restJson1_1CreateExportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4792,7 +4788,6 @@ async function deserializeAws_restJson1_1CreateImportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4879,7 +4874,6 @@ async function deserializeAws_restJson1_1CreateJourneyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4962,7 +4956,6 @@ async function deserializeAws_restJson1_1CreatePushTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5049,7 +5042,6 @@ async function deserializeAws_restJson1_1CreateSegmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5132,7 +5124,6 @@ async function deserializeAws_restJson1_1CreateSmsTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5215,7 +5206,6 @@ async function deserializeAws_restJson1_1CreateVoiceTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5305,7 +5295,6 @@ async function deserializeAws_restJson1_1DeleteAdmChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5395,7 +5384,6 @@ async function deserializeAws_restJson1_1DeleteApnsChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5485,7 +5473,6 @@ async function deserializeAws_restJson1_1DeleteApnsSandboxChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5575,7 +5562,6 @@ async function deserializeAws_restJson1_1DeleteApnsVoipChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5665,7 +5651,6 @@ async function deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5752,7 +5737,6 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5842,7 +5826,6 @@ async function deserializeAws_restJson1_1DeleteBaiduChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5932,7 +5915,6 @@ async function deserializeAws_restJson1_1DeleteCampaignCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6022,7 +6004,6 @@ async function deserializeAws_restJson1_1DeleteEmailChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6109,7 +6090,6 @@ async function deserializeAws_restJson1_1DeleteEmailTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6199,7 +6179,6 @@ async function deserializeAws_restJson1_1DeleteEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6286,7 +6265,6 @@ async function deserializeAws_restJson1_1DeleteEventStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6376,7 +6354,6 @@ async function deserializeAws_restJson1_1DeleteGcmChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6463,7 +6440,6 @@ async function deserializeAws_restJson1_1DeleteJourneyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6550,7 +6526,6 @@ async function deserializeAws_restJson1_1DeletePushTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6637,7 +6612,6 @@ async function deserializeAws_restJson1_1DeleteSegmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6727,7 +6701,6 @@ async function deserializeAws_restJson1_1DeleteSmsChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6814,7 +6787,6 @@ async function deserializeAws_restJson1_1DeleteSmsTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6904,7 +6876,6 @@ async function deserializeAws_restJson1_1DeleteUserEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6994,7 +6965,6 @@ async function deserializeAws_restJson1_1DeleteVoiceChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7081,7 +7051,6 @@ async function deserializeAws_restJson1_1DeleteVoiceTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7168,7 +7137,6 @@ async function deserializeAws_restJson1_1GetAdmChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7258,7 +7226,6 @@ async function deserializeAws_restJson1_1GetApnsChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7348,7 +7315,6 @@ async function deserializeAws_restJson1_1GetApnsSandboxChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7438,7 +7404,6 @@ async function deserializeAws_restJson1_1GetApnsVoipChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7528,7 +7493,6 @@ async function deserializeAws_restJson1_1GetApnsVoipSandboxChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7615,7 +7579,6 @@ async function deserializeAws_restJson1_1GetAppCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7705,7 +7668,6 @@ async function deserializeAws_restJson1_1GetApplicationDateRangeKpiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7795,7 +7757,6 @@ async function deserializeAws_restJson1_1GetApplicationSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7882,7 +7843,6 @@ async function deserializeAws_restJson1_1GetAppsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7972,7 +7932,6 @@ async function deserializeAws_restJson1_1GetBaiduChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8059,7 +8018,6 @@ async function deserializeAws_restJson1_1GetCampaignCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8149,7 +8107,6 @@ async function deserializeAws_restJson1_1GetCampaignActivitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8239,7 +8196,6 @@ async function deserializeAws_restJson1_1GetCampaignDateRangeKpiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8329,7 +8285,6 @@ async function deserializeAws_restJson1_1GetCampaignVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8419,7 +8374,6 @@ async function deserializeAws_restJson1_1GetCampaignVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8506,7 +8460,6 @@ async function deserializeAws_restJson1_1GetCampaignsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8593,7 +8546,6 @@ async function deserializeAws_restJson1_1GetChannelsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8683,7 +8635,6 @@ async function deserializeAws_restJson1_1GetEmailChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8773,7 +8724,6 @@ async function deserializeAws_restJson1_1GetEmailTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8860,7 +8810,6 @@ async function deserializeAws_restJson1_1GetEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8947,7 +8896,6 @@ async function deserializeAws_restJson1_1GetEventStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9034,7 +8982,6 @@ async function deserializeAws_restJson1_1GetExportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9121,7 +9068,6 @@ async function deserializeAws_restJson1_1GetExportJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9208,7 +9154,6 @@ async function deserializeAws_restJson1_1GetGcmChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9295,7 +9240,6 @@ async function deserializeAws_restJson1_1GetImportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9382,7 +9326,6 @@ async function deserializeAws_restJson1_1GetImportJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9469,7 +9412,6 @@ async function deserializeAws_restJson1_1GetJourneyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9559,7 +9501,6 @@ async function deserializeAws_restJson1_1GetJourneyDateRangeKpiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9649,7 +9590,6 @@ async function deserializeAws_restJson1_1GetJourneyExecutionActivityMetricsComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9739,7 +9679,6 @@ async function deserializeAws_restJson1_1GetJourneyExecutionMetricsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9829,7 +9768,6 @@ async function deserializeAws_restJson1_1GetPushTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9916,7 +9854,6 @@ async function deserializeAws_restJson1_1GetSegmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10006,7 +9943,6 @@ async function deserializeAws_restJson1_1GetSegmentExportJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10096,7 +10032,6 @@ async function deserializeAws_restJson1_1GetSegmentImportJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10186,7 +10121,6 @@ async function deserializeAws_restJson1_1GetSegmentVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10276,7 +10210,6 @@ async function deserializeAws_restJson1_1GetSegmentVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10363,7 +10296,6 @@ async function deserializeAws_restJson1_1GetSegmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10450,7 +10382,6 @@ async function deserializeAws_restJson1_1GetSmsChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10540,7 +10471,6 @@ async function deserializeAws_restJson1_1GetSmsTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10630,7 +10560,6 @@ async function deserializeAws_restJson1_1GetUserEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10720,7 +10649,6 @@ async function deserializeAws_restJson1_1GetVoiceChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10810,7 +10738,6 @@ async function deserializeAws_restJson1_1GetVoiceTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10897,7 +10824,6 @@ async function deserializeAws_restJson1_1ListJourneysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10942,7 +10868,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11032,7 +10957,6 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11112,7 +11036,6 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11202,7 +11125,6 @@ async function deserializeAws_restJson1_1PhoneNumberValidateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11289,7 +11211,6 @@ async function deserializeAws_restJson1_1PutEventStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11376,7 +11297,6 @@ async function deserializeAws_restJson1_1PutEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11466,7 +11386,6 @@ async function deserializeAws_restJson1_1RemoveAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11553,7 +11472,6 @@ async function deserializeAws_restJson1_1SendMessagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11643,7 +11561,6 @@ async function deserializeAws_restJson1_1SendUsersMessagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11681,7 +11598,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11719,7 +11635,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11809,7 +11724,6 @@ async function deserializeAws_restJson1_1UpdateAdmChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11899,7 +11813,6 @@ async function deserializeAws_restJson1_1UpdateApnsChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11989,7 +11902,6 @@ async function deserializeAws_restJson1_1UpdateApnsSandboxChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12079,7 +11991,6 @@ async function deserializeAws_restJson1_1UpdateApnsVoipChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12169,7 +12080,6 @@ async function deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12259,7 +12169,6 @@ async function deserializeAws_restJson1_1UpdateApplicationSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12349,7 +12258,6 @@ async function deserializeAws_restJson1_1UpdateBaiduChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12439,7 +12347,6 @@ async function deserializeAws_restJson1_1UpdateCampaignCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12529,7 +12436,6 @@ async function deserializeAws_restJson1_1UpdateEmailChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12616,7 +12522,6 @@ async function deserializeAws_restJson1_1UpdateEmailTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12703,7 +12608,6 @@ async function deserializeAws_restJson1_1UpdateEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12790,7 +12694,6 @@ async function deserializeAws_restJson1_1UpdateEndpointsBatchCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12880,7 +12783,6 @@ async function deserializeAws_restJson1_1UpdateGcmChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12967,7 +12869,6 @@ async function deserializeAws_restJson1_1UpdateJourneyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13057,7 +12958,6 @@ async function deserializeAws_restJson1_1UpdateJourneyStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13144,7 +13044,6 @@ async function deserializeAws_restJson1_1UpdatePushTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13231,7 +13130,6 @@ async function deserializeAws_restJson1_1UpdateSegmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13321,7 +13219,6 @@ async function deserializeAws_restJson1_1UpdateSmsChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13408,7 +13305,6 @@ async function deserializeAws_restJson1_1UpdateSmsTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13495,7 +13391,6 @@ async function deserializeAws_restJson1_1UpdateTemplateActiveVersionCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13585,7 +13480,6 @@ async function deserializeAws_restJson1_1UpdateVoiceChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13672,7 +13566,6 @@ async function deserializeAws_restJson1_1UpdateVoiceTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.pinpoint#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13686,7 +13579,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -13708,7 +13600,6 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -13730,7 +13621,6 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
-    __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -13752,7 +13642,6 @@ const deserializeAws_restJson1_1MethodNotAllowedExceptionResponse = async (
 ): Promise<MethodNotAllowedException> => {
   const contents: MethodNotAllowedException = {
     name: "MethodNotAllowedException",
-    __type: "MethodNotAllowedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -13774,7 +13663,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -13796,7 +13684,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,

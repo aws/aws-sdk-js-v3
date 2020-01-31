@@ -1136,7 +1136,6 @@ async function deserializeAws_json1_1AssociateKmsKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1206,7 +1205,6 @@ async function deserializeAws_json1_1CancelExportTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1295,7 +1293,6 @@ async function deserializeAws_json1_1CreateExportTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1372,7 +1369,6 @@ async function deserializeAws_json1_1CreateLogGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1442,7 +1438,6 @@ async function deserializeAws_json1_1CreateLogStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1512,7 +1507,6 @@ async function deserializeAws_json1_1DeleteDestinationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1582,7 +1576,6 @@ async function deserializeAws_json1_1DeleteLogGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1652,7 +1645,6 @@ async function deserializeAws_json1_1DeleteLogStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1725,7 +1717,6 @@ async function deserializeAws_json1_1DeleteMetricFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1791,7 +1782,6 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1864,7 +1854,6 @@ async function deserializeAws_json1_1DeleteRetentionPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1937,7 +1926,6 @@ async function deserializeAws_json1_1DeleteSubscriptionFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2001,7 +1989,6 @@ async function deserializeAws_json1_1DescribeDestinationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2065,7 +2052,6 @@ async function deserializeAws_json1_1DescribeExportTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2126,7 +2112,6 @@ async function deserializeAws_json1_1DescribeLogGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2197,7 +2182,6 @@ async function deserializeAws_json1_1DescribeLogStreamsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2268,7 +2252,6 @@ async function deserializeAws_json1_1DescribeMetricFiltersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2336,7 +2319,6 @@ async function deserializeAws_json1_1DescribeQueriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2403,7 +2385,6 @@ async function deserializeAws_json1_1DescribeResourcePoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2477,7 +2458,6 @@ async function deserializeAws_json1_1DescribeSubscriptionFiltersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2550,7 +2530,6 @@ async function deserializeAws_json1_1DisassociateKmsKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2618,7 +2597,6 @@ async function deserializeAws_json1_1FilterLogEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2686,7 +2664,6 @@ async function deserializeAws_json1_1GetLogEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2761,7 +2738,6 @@ async function deserializeAws_json1_1GetLogGroupFieldsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2836,7 +2812,6 @@ async function deserializeAws_json1_1GetLogRecordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2904,7 +2879,6 @@ async function deserializeAws_json1_1GetQueryResultsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2965,7 +2939,6 @@ async function deserializeAws_json1_1ListTagsLogGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3033,7 +3006,6 @@ async function deserializeAws_json1_1PutDestinationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3099,7 +3071,6 @@ async function deserializeAws_json1_1PutDestinationPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3188,7 +3159,6 @@ async function deserializeAws_json1_1PutLogEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3265,7 +3235,6 @@ async function deserializeAws_json1_1PutMetricFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3333,7 +3302,6 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3406,7 +3374,6 @@ async function deserializeAws_json1_1PutRetentionPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3486,7 +3453,6 @@ async function deserializeAws_json1_1PutSubscriptionFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3568,7 +3534,6 @@ async function deserializeAws_json1_1StartQueryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3636,7 +3601,6 @@ async function deserializeAws_json1_1StopQueryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3692,7 +3656,6 @@ async function deserializeAws_json1_1TagLogGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3753,7 +3716,6 @@ async function deserializeAws_json1_1TestMetricFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3802,7 +3764,6 @@ async function deserializeAws_json1_1UntagLogGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.logs.v20140328#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3821,7 +3782,6 @@ const deserializeAws_json1_1DataAlreadyAcceptedExceptionResponse = async (
   );
   const contents: DataAlreadyAcceptedException = {
     name: "DataAlreadyAcceptedException",
-    __type: "DataAlreadyAcceptedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3840,7 +3800,6 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
   );
   const contents: InvalidOperationException = {
     name: "InvalidOperationException",
-    __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3859,7 +3818,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3878,7 +3836,6 @@ const deserializeAws_json1_1InvalidSequenceTokenExceptionResponse = async (
   );
   const contents: InvalidSequenceTokenException = {
     name: "InvalidSequenceTokenException",
-    __type: "InvalidSequenceTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3897,7 +3854,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3916,7 +3872,6 @@ const deserializeAws_json1_1MalformedQueryExceptionResponse = async (
   );
   const contents: MalformedQueryException = {
     name: "MalformedQueryException",
-    __type: "MalformedQueryException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3935,7 +3890,6 @@ const deserializeAws_json1_1OperationAbortedExceptionResponse = async (
   );
   const contents: OperationAbortedException = {
     name: "OperationAbortedException",
-    __type: "OperationAbortedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3954,7 +3908,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   );
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3973,7 +3926,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3992,7 +3944,6 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   );
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4011,7 +3962,6 @@ const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
   );
   const contents: UnrecognizedClientException = {
     name: "UnrecognizedClientException",
-    __type: "UnrecognizedClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

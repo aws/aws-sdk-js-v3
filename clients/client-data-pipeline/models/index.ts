@@ -438,7 +438,6 @@ export namespace InstanceIdentity {
 export interface InternalServiceError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceError";
   name: "InternalServiceError";
   $fault: "server";
   /**
@@ -459,7 +458,6 @@ export namespace InternalServiceError {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -678,7 +676,6 @@ export namespace ParameterValue {
 export interface PipelineDeletedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PipelineDeletedException";
   name: "PipelineDeletedException";
   $fault: "client";
   /**
@@ -759,7 +756,6 @@ export namespace PipelineIdName {
 export interface PipelineNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PipelineNotFoundException";
   name: "PipelineNotFoundException";
   $fault: "client";
   /**
@@ -1247,7 +1243,6 @@ export namespace Tag {
 export interface TaskNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TaskNotFoundException";
   name: "TaskNotFoundException";
   $fault: "client";
   /**

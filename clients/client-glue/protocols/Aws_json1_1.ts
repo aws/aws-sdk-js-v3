@@ -3487,7 +3487,6 @@ async function deserializeAws_json1_1GetTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3562,7 +3561,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3637,7 +3635,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3736,7 +3733,6 @@ async function deserializeAws_json1_1BatchCreatePartitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3800,7 +3796,6 @@ async function deserializeAws_json1_1BatchDeleteConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3878,7 +3873,6 @@ async function deserializeAws_json1_1BatchDeletePartitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3953,7 +3947,6 @@ async function deserializeAws_json1_1BatchDeleteTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4034,7 +4027,6 @@ async function deserializeAws_json1_1BatchDeleteTableVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4116,7 +4108,6 @@ async function deserializeAws_json1_1BatchGetPartitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4198,7 +4189,6 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4287,7 +4277,6 @@ async function deserializeAws_json1_1CreateDatabaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4383,7 +4372,6 @@ async function deserializeAws_json1_1CreatePartitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4479,7 +4467,6 @@ async function deserializeAws_json1_1CreateTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4581,7 +4568,6 @@ async function deserializeAws_json1_1CreateUserDefinedFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4642,7 +4628,6 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4717,7 +4702,6 @@ async function deserializeAws_json1_1DeleteDatabaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4792,7 +4776,6 @@ async function deserializeAws_json1_1DeletePartitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4877,7 +4860,6 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4952,7 +4934,6 @@ async function deserializeAws_json1_1DeleteTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5030,7 +5011,6 @@ async function deserializeAws_json1_1DeleteTableVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5111,7 +5091,6 @@ async function deserializeAws_json1_1DeleteUserDefinedFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5178,7 +5157,6 @@ async function deserializeAws_json1_1GetCatalogImportStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5253,7 +5231,6 @@ async function deserializeAws_json1_1GetConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5328,7 +5305,6 @@ async function deserializeAws_json1_1GetConnectionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5402,7 +5378,6 @@ async function deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5484,7 +5459,6 @@ async function deserializeAws_json1_1GetDatabaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5559,7 +5533,6 @@ async function deserializeAws_json1_1GetDatabasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5641,7 +5614,6 @@ async function deserializeAws_json1_1GetPartitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5723,7 +5695,6 @@ async function deserializeAws_json1_1GetPartitionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5798,7 +5769,6 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5880,7 +5850,6 @@ async function deserializeAws_json1_1GetTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5962,7 +5931,6 @@ async function deserializeAws_json1_1GetTableVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6044,7 +6012,6 @@ async function deserializeAws_json1_1GetTableVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6126,7 +6093,6 @@ async function deserializeAws_json1_1GetTablesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6214,7 +6180,6 @@ async function deserializeAws_json1_1GetUserDefinedFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6302,7 +6267,6 @@ async function deserializeAws_json1_1GetUserDefinedFunctionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6366,7 +6330,6 @@ async function deserializeAws_json1_1ImportCatalogToGlueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6440,7 +6403,6 @@ async function deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6522,7 +6484,6 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6590,7 +6551,6 @@ async function deserializeAws_json1_1SearchTablesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6665,7 +6625,6 @@ async function deserializeAws_json1_1UpdateConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6747,7 +6706,6 @@ async function deserializeAws_json1_1UpdateDatabaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6829,7 +6787,6 @@ async function deserializeAws_json1_1UpdatePartitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6925,7 +6882,6 @@ async function deserializeAws_json1_1UpdateTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7013,7 +6969,6 @@ async function deserializeAws_json1_1UpdateUserDefinedFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7091,7 +7046,6 @@ async function deserializeAws_json1_1BatchGetDevEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7194,7 +7148,6 @@ async function deserializeAws_json1_1CreateDevEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7282,7 +7235,6 @@ async function deserializeAws_json1_1CreateSecurityConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7357,7 +7309,6 @@ async function deserializeAws_json1_1DeleteDevEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7438,7 +7389,6 @@ async function deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7513,7 +7463,6 @@ async function deserializeAws_json1_1GetDevEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7588,7 +7537,6 @@ async function deserializeAws_json1_1GetDevEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7670,7 +7618,6 @@ async function deserializeAws_json1_1GetJobBookmarkCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7751,7 +7698,6 @@ async function deserializeAws_json1_1GetSecurityConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7832,7 +7778,6 @@ async function deserializeAws_json1_1GetSecurityConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7907,7 +7852,6 @@ async function deserializeAws_json1_1ListDevEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7982,7 +7926,6 @@ async function deserializeAws_json1_1ResetJobBookmarkCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8064,7 +8007,6 @@ async function deserializeAws_json1_1UpdateDevEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8139,7 +8081,6 @@ async function deserializeAws_json1_1CancelMLTaskRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8235,7 +8176,6 @@ async function deserializeAws_json1_1CreateMLTransformCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8310,7 +8250,6 @@ async function deserializeAws_json1_1DeleteMLTransformCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8385,7 +8324,6 @@ async function deserializeAws_json1_1GetMLTaskRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8460,7 +8398,6 @@ async function deserializeAws_json1_1GetMLTaskRunsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8535,7 +8472,6 @@ async function deserializeAws_json1_1GetMLTransformCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8610,7 +8546,6 @@ async function deserializeAws_json1_1GetMLTransformsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8691,7 +8626,6 @@ async function deserializeAws_json1_1StartExportLabelsTaskRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8779,7 +8713,6 @@ async function deserializeAws_json1_1StartImportLabelsTaskRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8874,7 +8807,6 @@ async function deserializeAws_json1_1StartMLEvaluationTaskRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8962,7 +8894,6 @@ async function deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9044,7 +8975,6 @@ async function deserializeAws_json1_1UpdateMLTransformCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9112,7 +9042,6 @@ async function deserializeAws_json1_1BatchGetJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9180,7 +9109,6 @@ async function deserializeAws_json1_1BatchGetTriggersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9248,7 +9176,6 @@ async function deserializeAws_json1_1BatchGetWorkflowsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9316,7 +9243,6 @@ async function deserializeAws_json1_1BatchStopJobRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9412,7 +9338,6 @@ async function deserializeAws_json1_1CreateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9515,7 +9440,6 @@ async function deserializeAws_json1_1CreateTriggerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9604,7 +9528,6 @@ async function deserializeAws_json1_1CreateWorkflowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9672,7 +9595,6 @@ async function deserializeAws_json1_1DeleteJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9747,7 +9669,6 @@ async function deserializeAws_json1_1DeleteTriggerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9822,7 +9743,6 @@ async function deserializeAws_json1_1DeleteWorkflowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9897,7 +9817,6 @@ async function deserializeAws_json1_1GetJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9972,7 +9891,6 @@ async function deserializeAws_json1_1GetJobRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10047,7 +9965,6 @@ async function deserializeAws_json1_1GetJobRunsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10122,7 +10039,6 @@ async function deserializeAws_json1_1GetJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10197,7 +10113,6 @@ async function deserializeAws_json1_1GetTriggerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10272,7 +10187,6 @@ async function deserializeAws_json1_1GetTriggersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10347,7 +10261,6 @@ async function deserializeAws_json1_1GetWorkflowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10422,7 +10335,6 @@ async function deserializeAws_json1_1GetWorkflowRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10503,7 +10415,6 @@ async function deserializeAws_json1_1GetWorkflowRunPropertiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10578,7 +10489,6 @@ async function deserializeAws_json1_1GetWorkflowRunsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10653,7 +10563,6 @@ async function deserializeAws_json1_1ListJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10728,7 +10637,6 @@ async function deserializeAws_json1_1ListTriggersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10796,7 +10704,6 @@ async function deserializeAws_json1_1ListWorkflowsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10898,7 +10805,6 @@ async function deserializeAws_json1_1PutWorkflowRunPropertiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10987,7 +10893,6 @@ async function deserializeAws_json1_1StartJobRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11076,7 +10981,6 @@ async function deserializeAws_json1_1StartTriggerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11165,7 +11069,6 @@ async function deserializeAws_json1_1StartWorkflowRunCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11247,7 +11150,6 @@ async function deserializeAws_json1_1StopTriggerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11329,7 +11231,6 @@ async function deserializeAws_json1_1UpdateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11411,7 +11312,6 @@ async function deserializeAws_json1_1UpdateTriggerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11493,7 +11393,6 @@ async function deserializeAws_json1_1UpdateWorkflowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11554,7 +11453,6 @@ async function deserializeAws_json1_1BatchGetCrawlersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11622,7 +11520,6 @@ async function deserializeAws_json1_1CreateClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11697,7 +11594,6 @@ async function deserializeAws_json1_1CreateCrawlerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11765,7 +11661,6 @@ async function deserializeAws_json1_1CreateScriptCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11826,7 +11721,6 @@ async function deserializeAws_json1_1DeleteClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11901,7 +11795,6 @@ async function deserializeAws_json1_1DeleteCrawlerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11962,7 +11855,6 @@ async function deserializeAws_json1_1GetClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12016,7 +11908,6 @@ async function deserializeAws_json1_1GetClassifiersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12077,7 +11968,6 @@ async function deserializeAws_json1_1GetCrawlerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12131,7 +12021,6 @@ async function deserializeAws_json1_1GetCrawlerMetricsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12185,7 +12074,6 @@ async function deserializeAws_json1_1GetCrawlersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12253,7 +12141,6 @@ async function deserializeAws_json1_1GetDataflowGraphCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12328,7 +12215,6 @@ async function deserializeAws_json1_1GetMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12396,7 +12282,6 @@ async function deserializeAws_json1_1GetPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12450,7 +12335,6 @@ async function deserializeAws_json1_1ListCrawlersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12518,7 +12402,6 @@ async function deserializeAws_json1_1StartCrawlerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12603,7 +12486,6 @@ async function deserializeAws_json1_1StartCrawlerScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12678,7 +12560,6 @@ async function deserializeAws_json1_1StopCrawlerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12756,7 +12637,6 @@ async function deserializeAws_json1_1StopCrawlerScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12831,7 +12711,6 @@ async function deserializeAws_json1_1UpdateClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12913,7 +12792,6 @@ async function deserializeAws_json1_1UpdateCrawlerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12998,7 +12876,6 @@ async function deserializeAws_json1_1UpdateCrawlerScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13017,7 +12894,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13036,7 +12912,6 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   );
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
-    __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13055,7 +12930,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13074,7 +12948,6 @@ const deserializeAws_json1_1ConcurrentRunsExceededExceptionResponse = async (
   );
   const contents: ConcurrentRunsExceededException = {
     name: "ConcurrentRunsExceededException",
-    __type: "ConcurrentRunsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13093,7 +12966,6 @@ const deserializeAws_json1_1ConditionCheckFailureExceptionResponse = async (
   );
   const contents: ConditionCheckFailureException = {
     name: "ConditionCheckFailureException",
-    __type: "ConditionCheckFailureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13112,7 +12984,6 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
   );
   const contents: EntityNotFoundException = {
     name: "EntityNotFoundException",
-    __type: "EntityNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13131,7 +13002,6 @@ const deserializeAws_json1_1GlueEncryptionExceptionResponse = async (
   );
   const contents: GlueEncryptionException = {
     name: "GlueEncryptionException",
-    __type: "GlueEncryptionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13150,7 +13020,6 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   );
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
-    __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13169,7 +13038,6 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   );
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13188,7 +13056,6 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   );
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13207,7 +13074,6 @@ const deserializeAws_json1_1OperationTimeoutExceptionResponse = async (
   );
   const contents: OperationTimeoutException = {
     name: "OperationTimeoutException",
-    __type: "OperationTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13226,7 +13092,6 @@ const deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse = async
   );
   const contents: ResourceNumberLimitExceededException = {
     name: "ResourceNumberLimitExceededException",
-    __type: "ResourceNumberLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13245,7 +13110,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13264,7 +13128,6 @@ const deserializeAws_json1_1VersionMismatchExceptionResponse = async (
   );
   const contents: VersionMismatchException = {
     name: "VersionMismatchException",
-    __type: "VersionMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13283,7 +13146,6 @@ const deserializeAws_json1_1MLTransformNotReadyExceptionResponse = async (
   );
   const contents: MLTransformNotReadyException = {
     name: "MLTransformNotReadyException",
-    __type: "MLTransformNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13302,7 +13164,6 @@ const deserializeAws_json1_1CrawlerNotRunningExceptionResponse = async (
   );
   const contents: CrawlerNotRunningException = {
     name: "CrawlerNotRunningException",
-    __type: "CrawlerNotRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13321,7 +13182,6 @@ const deserializeAws_json1_1CrawlerRunningExceptionResponse = async (
   );
   const contents: CrawlerRunningException = {
     name: "CrawlerRunningException",
-    __type: "CrawlerRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13340,7 +13200,6 @@ const deserializeAws_json1_1CrawlerStoppingExceptionResponse = async (
   );
   const contents: CrawlerStoppingException = {
     name: "CrawlerStoppingException",
-    __type: "CrawlerStoppingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13359,7 +13218,6 @@ const deserializeAws_json1_1NoScheduleExceptionResponse = async (
   );
   const contents: NoScheduleException = {
     name: "NoScheduleException",
-    __type: "NoScheduleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13378,7 +13236,6 @@ const deserializeAws_json1_1SchedulerNotRunningExceptionResponse = async (
   );
   const contents: SchedulerNotRunningException = {
     name: "SchedulerNotRunningException",
-    __type: "SchedulerNotRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13397,7 +13254,6 @@ const deserializeAws_json1_1SchedulerRunningExceptionResponse = async (
   );
   const contents: SchedulerRunningException = {
     name: "SchedulerRunningException",
-    __type: "SchedulerRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13416,7 +13272,6 @@ const deserializeAws_json1_1SchedulerTransitioningExceptionResponse = async (
   );
   const contents: SchedulerTransitioningException = {
     name: "SchedulerTransitioningException",
-    __type: "SchedulerTransitioningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

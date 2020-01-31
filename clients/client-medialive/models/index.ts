@@ -679,7 +679,6 @@ export namespace AvailSettings {
 export interface BadGatewayException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadGatewayException";
   name: "BadGatewayException";
   $fault: "server";
   /**
@@ -700,7 +699,6 @@ export namespace BadGatewayException {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -1445,7 +1443,6 @@ export namespace ColorSpacePassthroughSettings {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   /**
@@ -3598,7 +3595,6 @@ export enum FollowPoint {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -3680,7 +3676,6 @@ export namespace FrameCaptureSettings {
 export interface GatewayTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GatewayTimeoutException";
   name: "GatewayTimeoutException";
   $fault: "server";
   /**
@@ -5801,7 +5796,6 @@ export namespace InputWhitelistRuleCidr {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -7562,7 +7556,6 @@ export enum NielsenPcmToId3TaggingState {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -9549,7 +9542,6 @@ export enum TimecodeConfigSource {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -9674,7 +9666,6 @@ export enum UdpTimedMetadataId3Frame {
 export interface UnprocessableEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnprocessableEntityException";
   name: "UnprocessableEntityException";
   $fault: "client";
   /**

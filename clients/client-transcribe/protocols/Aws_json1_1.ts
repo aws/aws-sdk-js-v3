@@ -467,7 +467,6 @@ async function deserializeAws_json1_1CreateVocabularyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -548,7 +547,6 @@ async function deserializeAws_json1_1CreateVocabularyFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -614,7 +612,6 @@ async function deserializeAws_json1_1DeleteTranscriptionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -684,7 +681,6 @@ async function deserializeAws_json1_1DeleteVocabularyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -757,7 +753,6 @@ async function deserializeAws_json1_1DeleteVocabularyFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -835,7 +830,6 @@ async function deserializeAws_json1_1GetTranscriptionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -910,7 +904,6 @@ async function deserializeAws_json1_1GetVocabularyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -988,7 +981,6 @@ async function deserializeAws_json1_1GetVocabularyFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1059,7 +1051,6 @@ async function deserializeAws_json1_1ListTranscriptionJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1127,7 +1118,6 @@ async function deserializeAws_json1_1ListVocabulariesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1198,7 +1188,6 @@ async function deserializeAws_json1_1ListVocabularyFiltersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1276,7 +1265,6 @@ async function deserializeAws_json1_1StartTranscriptionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1358,7 +1346,6 @@ async function deserializeAws_json1_1UpdateVocabularyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1439,7 +1426,6 @@ async function deserializeAws_json1_1UpdateVocabularyFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1458,7 +1444,6 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   );
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1477,7 +1462,6 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   );
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1496,7 +1480,6 @@ const deserializeAws_json1_1InternalFailureExceptionResponse = async (
   );
   const contents: InternalFailureException = {
     name: "InternalFailureException",
-    __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1515,7 +1498,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1534,7 +1516,6 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   );
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

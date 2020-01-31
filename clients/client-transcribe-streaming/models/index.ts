@@ -83,7 +83,6 @@ export namespace AudioStream {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -102,7 +101,6 @@ export namespace BadRequestException {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -121,7 +119,6 @@ export namespace ConflictException {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   Message?: string;
@@ -192,7 +189,6 @@ export enum LanguageCode {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;

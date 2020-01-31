@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Code?: string;
@@ -87,7 +86,6 @@ export namespace AnalyzeDocumentResponse {
 export interface BadDocumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadDocumentException";
   name: "BadDocumentException";
   $fault: "client";
   Code?: string;
@@ -483,7 +481,6 @@ export namespace DocumentMetadata {
 export interface DocumentTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DocumentTooLargeException";
   name: "DocumentTooLargeException";
   $fault: "client";
   Code?: string;
@@ -759,7 +756,6 @@ export namespace HumanLoopDataAttributes {
 export interface HumanLoopQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HumanLoopQuotaExceededException";
   name: "HumanLoopQuotaExceededException";
   $fault: "client";
   Code?: string;
@@ -783,7 +779,6 @@ export namespace HumanLoopQuotaExceededException {
 export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotentParameterMismatchException";
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   Code?: string;
@@ -802,7 +797,6 @@ export namespace IdempotentParameterMismatchException {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
   Code?: string;
@@ -822,7 +816,6 @@ export namespace InternalServerError {
 export interface InvalidJobIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidJobIdException";
   name: "InvalidJobIdException";
   $fault: "client";
   Code?: string;
@@ -845,7 +838,6 @@ export namespace InvalidJobIdException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   Code?: string;
@@ -864,7 +856,6 @@ export namespace InvalidParameterException {
 export interface InvalidS3ObjectException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidS3ObjectException";
   name: "InvalidS3ObjectException";
   $fault: "client";
   Code?: string;
@@ -894,7 +885,6 @@ export enum JobStatus {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -967,7 +957,6 @@ export namespace Point {
 export interface ProvisionedThroughputExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ProvisionedThroughputExceededException";
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
   Code?: string;
@@ -1178,7 +1167,6 @@ export namespace StartDocumentTextDetectionResponse {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "server";
   Code?: string;
@@ -1198,7 +1186,6 @@ export namespace ThrottlingException {
 export interface UnsupportedDocumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedDocumentException";
   name: "UnsupportedDocumentException";
   $fault: "client";
   Code?: string;

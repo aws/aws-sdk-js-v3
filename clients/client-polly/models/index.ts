@@ -97,7 +97,6 @@ export enum Engine {
 export interface EngineNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EngineNotSupportedException";
   name: "EngineNotSupportedException";
   $fault: "client";
   message?: string;
@@ -182,7 +181,6 @@ export namespace GetSpeechSynthesisTaskOutput {
 export interface InvalidLexiconException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLexiconException";
   name: "InvalidLexiconException";
   $fault: "client";
   message?: string;
@@ -201,7 +199,6 @@ export namespace InvalidLexiconException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -220,7 +217,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidS3BucketException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidS3BucketException";
   name: "InvalidS3BucketException";
   $fault: "client";
   message?: string;
@@ -238,7 +234,6 @@ export namespace InvalidS3BucketException {
 export interface InvalidS3KeyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidS3KeyException";
   name: "InvalidS3KeyException";
   $fault: "client";
   message?: string;
@@ -256,7 +251,6 @@ export namespace InvalidS3KeyException {
 export interface InvalidSampleRateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSampleRateException";
   name: "InvalidSampleRateException";
   $fault: "client";
   message?: string;
@@ -274,7 +268,6 @@ export namespace InvalidSampleRateException {
 export interface InvalidSnsTopicArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSnsTopicArnException";
   name: "InvalidSnsTopicArnException";
   $fault: "client";
   message?: string;
@@ -293,7 +286,6 @@ export namespace InvalidSnsTopicArnException {
 export interface InvalidSsmlException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSsmlException";
   name: "InvalidSsmlException";
   $fault: "client";
   message?: string;
@@ -311,7 +303,6 @@ export namespace InvalidSsmlException {
 export interface InvalidTaskIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTaskIdException";
   name: "InvalidTaskIdException";
   $fault: "client";
   message?: string;
@@ -360,7 +351,6 @@ export type LanguageCode =
 export interface LanguageNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LanguageNotSupportedException";
   name: "LanguageNotSupportedException";
   $fault: "client";
   message?: string;
@@ -476,7 +466,6 @@ export namespace LexiconDescription {
 export interface LexiconNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LexiconNotFoundException";
   name: "LexiconNotFoundException";
   $fault: "client";
   message?: string;
@@ -494,7 +483,6 @@ export namespace LexiconNotFoundException {
 export interface LexiconSizeExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LexiconSizeExceededException";
   name: "LexiconSizeExceededException";
   $fault: "client";
   message?: string;
@@ -596,7 +584,6 @@ export namespace ListSpeechSynthesisTasksOutput {
 export interface MarksNotSupportedForFormatException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MarksNotSupportedForFormatException";
   name: "MarksNotSupportedForFormatException";
   $fault: "client";
   message?: string;
@@ -614,7 +601,6 @@ export namespace MarksNotSupportedForFormatException {
 export interface MaxLexemeLengthExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MaxLexemeLengthExceededException";
   name: "MaxLexemeLengthExceededException";
   $fault: "client";
   message?: string;
@@ -632,7 +618,6 @@ export namespace MaxLexemeLengthExceededException {
 export interface MaxLexiconsNumberExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MaxLexiconsNumberExceededException";
   name: "MaxLexiconsNumberExceededException";
   $fault: "client";
   message?: string;
@@ -689,7 +674,6 @@ export namespace PutLexiconOutput {
 export interface ServiceFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceFailureException";
   name: "ServiceFailureException";
   $fault: "server";
   message?: string;
@@ -714,7 +698,6 @@ export enum SpeechMarkType {
 export interface SsmlMarksNotSupportedForTextTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SsmlMarksNotSupportedForTextTypeException";
   name: "SsmlMarksNotSupportedForTextTypeException";
   $fault: "client";
   message?: string;
@@ -929,7 +912,6 @@ export namespace SynthesisTask {
 export interface SynthesisTaskNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SynthesisTaskNotFoundException";
   name: "SynthesisTaskNotFoundException";
   $fault: "client";
   message?: string;
@@ -1090,7 +1072,6 @@ export enum TaskStatus {
 export interface TextLengthExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TextLengthExceededException";
   name: "TextLengthExceededException";
   $fault: "client";
   message?: string;
@@ -1114,7 +1095,6 @@ export enum TextType {
 export interface UnsupportedPlsAlphabetException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedPlsAlphabetException";
   name: "UnsupportedPlsAlphabetException";
   $fault: "client";
   message?: string;
@@ -1133,7 +1113,6 @@ export namespace UnsupportedPlsAlphabetException {
 export interface UnsupportedPlsLanguageException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedPlsLanguageException";
   name: "UnsupportedPlsLanguageException";
   $fault: "client";
   message?: string;

@@ -3149,7 +3149,6 @@ async function deserializeAws_restJson1_1CreateApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3236,7 +3235,6 @@ async function deserializeAws_restJson1_1CreateApiMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3349,7 +3347,6 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3444,7 +3441,6 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3541,7 +3537,6 @@ async function deserializeAws_restJson1_1CreateDomainNameCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3687,7 +3682,6 @@ async function deserializeAws_restJson1_1CreateIntegrationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3788,7 +3782,6 @@ async function deserializeAws_restJson1_1CreateIntegrationResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3876,7 +3869,6 @@ async function deserializeAws_restJson1_1CreateModelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4006,7 +3998,6 @@ async function deserializeAws_restJson1_1CreateRouteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4103,7 +4094,6 @@ async function deserializeAws_restJson1_1CreateRouteResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4239,7 +4229,6 @@ async function deserializeAws_restJson1_1CreateStageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4291,7 +4280,6 @@ async function deserializeAws_restJson1_1DeleteApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4353,7 +4341,6 @@ async function deserializeAws_restJson1_1DeleteApiMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4408,7 +4395,6 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4463,7 +4449,6 @@ async function deserializeAws_restJson1_1DeleteCorsConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4518,7 +4503,6 @@ async function deserializeAws_restJson1_1DeleteDeploymentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4573,7 +4557,6 @@ async function deserializeAws_restJson1_1DeleteDomainNameCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4628,7 +4611,6 @@ async function deserializeAws_restJson1_1DeleteIntegrationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4683,7 +4665,6 @@ async function deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4735,7 +4716,6 @@ async function deserializeAws_restJson1_1DeleteModelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4787,7 +4767,6 @@ async function deserializeAws_restJson1_1DeleteRouteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4842,7 +4821,6 @@ async function deserializeAws_restJson1_1DeleteRouteResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4897,7 +4875,6 @@ async function deserializeAws_restJson1_1DeleteRouteSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4949,7 +4926,6 @@ async function deserializeAws_restJson1_1DeleteStageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5068,7 +5044,6 @@ async function deserializeAws_restJson1_1GetApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5145,7 +5120,6 @@ async function deserializeAws_restJson1_1GetApiMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5220,7 +5194,6 @@ async function deserializeAws_restJson1_1GetApiMappingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5289,7 +5262,6 @@ async function deserializeAws_restJson1_1GetApisCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5385,7 +5357,6 @@ async function deserializeAws_restJson1_1GetAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5460,7 +5431,6 @@ async function deserializeAws_restJson1_1GetAuthorizersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5538,7 +5508,6 @@ async function deserializeAws_restJson1_1GetDeploymentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5613,7 +5582,6 @@ async function deserializeAws_restJson1_1GetDeploymentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5686,7 +5654,6 @@ async function deserializeAws_restJson1_1GetDomainNameCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5761,7 +5728,6 @@ async function deserializeAws_restJson1_1GetDomainNamesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5893,7 +5859,6 @@ async function deserializeAws_restJson1_1GetIntegrationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5980,7 +5945,6 @@ async function deserializeAws_restJson1_1GetIntegrationResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6055,7 +6019,6 @@ async function deserializeAws_restJson1_1GetIntegrationResponsesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6130,7 +6093,6 @@ async function deserializeAws_restJson1_1GetIntegrationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6204,7 +6166,6 @@ async function deserializeAws_restJson1_1GetModelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6265,7 +6226,6 @@ async function deserializeAws_restJson1_1GetModelTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6337,7 +6297,6 @@ async function deserializeAws_restJson1_1GetModelsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6453,7 +6412,6 @@ async function deserializeAws_restJson1_1GetRouteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6536,7 +6494,6 @@ async function deserializeAws_restJson1_1GetRouteResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6611,7 +6568,6 @@ async function deserializeAws_restJson1_1GetRouteResponsesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6683,7 +6639,6 @@ async function deserializeAws_restJson1_1GetRoutesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6805,7 +6760,6 @@ async function deserializeAws_restJson1_1GetStageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6877,7 +6831,6 @@ async function deserializeAws_restJson1_1GetStagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6949,7 +6902,6 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7082,7 +7034,6 @@ async function deserializeAws_restJson1_1ImportApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7215,7 +7166,6 @@ async function deserializeAws_restJson1_1ReimportApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7282,7 +7232,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7348,7 +7297,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7481,7 +7429,6 @@ async function deserializeAws_restJson1_1UpdateApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7568,7 +7515,6 @@ async function deserializeAws_restJson1_1UpdateApiMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7681,7 +7627,6 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7776,7 +7721,6 @@ async function deserializeAws_restJson1_1UpdateDeploymentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7866,7 +7810,6 @@ async function deserializeAws_restJson1_1UpdateDomainNameCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8012,7 +7955,6 @@ async function deserializeAws_restJson1_1UpdateIntegrationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8113,7 +8055,6 @@ async function deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8201,7 +8142,6 @@ async function deserializeAws_restJson1_1UpdateModelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8331,7 +8271,6 @@ async function deserializeAws_restJson1_1UpdateRouteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8428,7 +8367,6 @@ async function deserializeAws_restJson1_1UpdateRouteResponseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8564,7 +8502,6 @@ async function deserializeAws_restJson1_1UpdateStageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8578,7 +8515,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -8596,7 +8532,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -8614,7 +8549,6 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -8632,7 +8566,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -8654,7 +8587,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     LimitType: undefined,

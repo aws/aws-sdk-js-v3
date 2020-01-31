@@ -1233,7 +1233,6 @@ async function deserializeAws_json1_0DescribeEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.sdk.endpointdiscovery#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1315,7 +1314,6 @@ async function deserializeAws_json1_0BatchGetItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1404,7 +1402,6 @@ async function deserializeAws_json1_0BatchWriteItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1500,7 +1497,6 @@ async function deserializeAws_json1_0CreateBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1582,7 +1578,6 @@ async function deserializeAws_json1_0CreateGlobalTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1657,7 +1652,6 @@ async function deserializeAws_json1_0CreateTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1739,7 +1733,6 @@ async function deserializeAws_json1_0DeleteBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1842,7 +1835,6 @@ async function deserializeAws_json1_0DeleteItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1924,7 +1916,6 @@ async function deserializeAws_json1_0DeleteTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1992,7 +1983,6 @@ async function deserializeAws_json1_0DescribeBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2066,7 +2056,6 @@ async function deserializeAws_json1_0DescribeContinuousBackupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2133,7 +2122,6 @@ async function deserializeAws_json1_0DescribeContributorInsightsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2204,7 +2192,6 @@ async function deserializeAws_json1_0DescribeGlobalTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2278,7 +2265,6 @@ async function deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2339,7 +2325,6 @@ async function deserializeAws_json1_0DescribeLimitsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2407,7 +2392,6 @@ async function deserializeAws_json1_0DescribeTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2474,7 +2458,6 @@ async function deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2545,7 +2528,6 @@ async function deserializeAws_json1_0DescribeTimeToLiveCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2627,7 +2609,6 @@ async function deserializeAws_json1_0GetItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2688,7 +2669,6 @@ async function deserializeAws_json1_0ListBackupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2752,7 +2732,6 @@ async function deserializeAws_json1_0ListContributorInsightsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2813,7 +2792,6 @@ async function deserializeAws_json1_0ListGlobalTablesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2874,7 +2852,6 @@ async function deserializeAws_json1_0ListTablesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2945,7 +2922,6 @@ async function deserializeAws_json1_0ListTagsOfResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3048,7 +3024,6 @@ async function deserializeAws_json1_0PutItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3130,7 +3105,6 @@ async function deserializeAws_json1_0QueryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3229,7 +3203,6 @@ async function deserializeAws_json1_0RestoreTableFromBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3338,7 +3311,6 @@ async function deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3420,7 +3392,6 @@ async function deserializeAws_json1_0ScanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3497,7 +3468,6 @@ async function deserializeAws_json1_0TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3586,7 +3556,6 @@ async function deserializeAws_json1_0TransactGetItemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3692,7 +3661,6 @@ async function deserializeAws_json1_0TransactWriteItemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3769,7 +3737,6 @@ async function deserializeAws_json1_0UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3847,7 +3814,6 @@ async function deserializeAws_json1_0UpdateContinuousBackupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3914,7 +3880,6 @@ async function deserializeAws_json1_0UpdateContributorInsightsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4003,7 +3968,6 @@ async function deserializeAws_json1_0UpdateGlobalTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4105,7 +4069,6 @@ async function deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4208,7 +4171,6 @@ async function deserializeAws_json1_0UpdateItemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4290,7 +4252,6 @@ async function deserializeAws_json1_0UpdateTableCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4371,7 +4332,6 @@ async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4453,7 +4413,6 @@ async function deserializeAws_json1_0UpdateTimeToLiveCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4472,7 +4431,6 @@ const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
   );
   const contents: InvalidEndpointException = {
     name: "InvalidEndpointException",
-    __type: "InvalidEndpointException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4491,7 +4449,6 @@ const deserializeAws_json1_0BackupInUseExceptionResponse = async (
   );
   const contents: BackupInUseException = {
     name: "BackupInUseException",
-    __type: "BackupInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4510,7 +4467,6 @@ const deserializeAws_json1_0BackupNotFoundExceptionResponse = async (
   );
   const contents: BackupNotFoundException = {
     name: "BackupNotFoundException",
-    __type: "BackupNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4529,7 +4485,6 @@ const deserializeAws_json1_0ConditionalCheckFailedExceptionResponse = async (
   );
   const contents: ConditionalCheckFailedException = {
     name: "ConditionalCheckFailedException",
-    __type: "ConditionalCheckFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4548,7 +4503,6 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = asyn
   );
   const contents: ContinuousBackupsUnavailableException = {
     name: "ContinuousBackupsUnavailableException",
-    __type: "ContinuousBackupsUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4567,7 +4521,6 @@ const deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse = async (
   );
   const contents: GlobalTableAlreadyExistsException = {
     name: "GlobalTableAlreadyExistsException",
-    __type: "GlobalTableAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4586,7 +4539,6 @@ const deserializeAws_json1_0GlobalTableNotFoundExceptionResponse = async (
   );
   const contents: GlobalTableNotFoundException = {
     name: "GlobalTableNotFoundException",
-    __type: "GlobalTableNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4605,7 +4557,6 @@ const deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse = async
   );
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
-    __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4624,7 +4575,6 @@ const deserializeAws_json1_0IndexNotFoundExceptionResponse = async (
   );
   const contents: IndexNotFoundException = {
     name: "IndexNotFoundException",
-    __type: "IndexNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4643,7 +4593,6 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4662,7 +4611,6 @@ const deserializeAws_json1_0InvalidRestoreTimeExceptionResponse = async (
   );
   const contents: InvalidRestoreTimeException = {
     name: "InvalidRestoreTimeException",
-    __type: "InvalidRestoreTimeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4681,7 +4629,6 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse = a
   );
   const contents: ItemCollectionSizeLimitExceededException = {
     name: "ItemCollectionSizeLimitExceededException",
-    __type: "ItemCollectionSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4700,7 +4647,6 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4719,7 +4665,6 @@ const deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse = as
   );
   const contents: PointInTimeRecoveryUnavailableException = {
     name: "PointInTimeRecoveryUnavailableException",
-    __type: "PointInTimeRecoveryUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4738,7 +4683,6 @@ const deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse = asy
   );
   const contents: ProvisionedThroughputExceededException = {
     name: "ProvisionedThroughputExceededException",
-    __type: "ProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4757,7 +4701,6 @@ const deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse = async (
   );
   const contents: ReplicaAlreadyExistsException = {
     name: "ReplicaAlreadyExistsException",
-    __type: "ReplicaAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4776,7 +4719,6 @@ const deserializeAws_json1_0ReplicaNotFoundExceptionResponse = async (
   );
   const contents: ReplicaNotFoundException = {
     name: "ReplicaNotFoundException",
-    __type: "ReplicaNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4795,7 +4737,6 @@ const deserializeAws_json1_0RequestLimitExceededResponse = async (
   );
   const contents: RequestLimitExceeded = {
     name: "RequestLimitExceeded",
-    __type: "RequestLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4814,7 +4755,6 @@ const deserializeAws_json1_0ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4833,7 +4773,6 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4852,7 +4791,6 @@ const deserializeAws_json1_0TableAlreadyExistsExceptionResponse = async (
   );
   const contents: TableAlreadyExistsException = {
     name: "TableAlreadyExistsException",
-    __type: "TableAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4871,7 +4809,6 @@ const deserializeAws_json1_0TableInUseExceptionResponse = async (
   );
   const contents: TableInUseException = {
     name: "TableInUseException",
-    __type: "TableInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4890,7 +4827,6 @@ const deserializeAws_json1_0TableNotFoundExceptionResponse = async (
   );
   const contents: TableNotFoundException = {
     name: "TableNotFoundException",
-    __type: "TableNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4909,7 +4845,6 @@ const deserializeAws_json1_0TransactionCanceledExceptionResponse = async (
   );
   const contents: TransactionCanceledException = {
     name: "TransactionCanceledException",
-    __type: "TransactionCanceledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4928,7 +4863,6 @@ const deserializeAws_json1_0TransactionConflictExceptionResponse = async (
   );
   const contents: TransactionConflictException = {
     name: "TransactionConflictException",
-    __type: "TransactionConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4947,7 +4881,6 @@ const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
   );
   const contents: TransactionInProgressException = {
     name: "TransactionInProgressException",
-    __type: "TransactionInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

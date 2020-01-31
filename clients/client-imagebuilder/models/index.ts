@@ -76,7 +76,6 @@ export namespace AmiDistributionConfiguration {
 export interface CallRateLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CallRateLimitExceededException";
   name: "CallRateLimitExceededException";
   $fault: "client";
   message?: string;
@@ -137,7 +136,6 @@ export namespace CancelImageCreationResponse {
 export interface ClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ClientException";
   name: "ClientException";
   $fault: "client";
   message?: string;
@@ -1225,7 +1223,6 @@ export namespace Filter {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   message?: string;
@@ -1547,7 +1544,6 @@ export namespace GetInfrastructureConfigurationResponse {
 export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotentParameterMismatchException";
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   message?: string;
@@ -2254,7 +2250,6 @@ export namespace InstanceBlockDeviceMapping {
 export interface InvalidPaginationTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPaginationTokenException";
   name: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
@@ -2272,7 +2267,6 @@ export namespace InvalidPaginationTokenException {
 export interface InvalidParameterCombinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterCombinationException";
   name: "InvalidParameterCombinationException";
   $fault: "client";
   message?: string;
@@ -2290,7 +2284,6 @@ export namespace InvalidParameterCombinationException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -2308,7 +2301,6 @@ export namespace InvalidParameterException {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -2326,7 +2318,6 @@ export namespace InvalidParameterValueException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -2344,7 +2335,6 @@ export namespace InvalidRequestException {
 export interface InvalidVersionNumberException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidVersionNumberException";
   name: "InvalidVersionNumberException";
   $fault: "client";
   message?: string;
@@ -3044,7 +3034,6 @@ export namespace PutImageRecipePolicyResponse {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -3062,7 +3051,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceDependencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceDependencyException";
   name: "ResourceDependencyException";
   $fault: "client";
   message?: string;
@@ -3080,7 +3068,6 @@ export namespace ResourceDependencyException {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -3098,7 +3085,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -3160,7 +3146,6 @@ export namespace Schedule {
 export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceException";
   name: "ServiceException";
   $fault: "server";
   message?: string;
@@ -3178,7 +3163,6 @@ export namespace ServiceException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;

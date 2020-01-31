@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   className?: string;
@@ -27,7 +26,6 @@ export namespace BadRequestException {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   className?: string;
@@ -547,7 +545,6 @@ export enum EnvironmentType {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   className?: string;
@@ -567,7 +564,6 @@ export namespace ForbiddenException {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
   className?: string;
@@ -587,7 +583,6 @@ export namespace InternalServerErrorException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   className?: string;
@@ -650,7 +645,6 @@ export enum MemberPermissions {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   className?: string;
@@ -676,7 +670,6 @@ export enum Permissions {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   className?: string;

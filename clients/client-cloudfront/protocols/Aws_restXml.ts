@@ -1813,7 +1813,6 @@ async function deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2176,7 +2175,6 @@ async function deserializeAws_restXmlCreateDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2546,7 +2544,6 @@ async function deserializeAws_restXmlCreateDistributionWithTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2660,7 +2657,6 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2774,7 +2770,6 @@ async function deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2874,7 +2869,6 @@ async function deserializeAws_restXmlCreateInvalidationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2947,7 +2941,6 @@ async function deserializeAws_restXmlCreatePublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3089,7 +3082,6 @@ async function deserializeAws_restXmlCreateStreamingDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3238,7 +3230,6 @@ async function deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3316,7 +3307,6 @@ async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3394,7 +3384,6 @@ async function deserializeAws_restXmlDeleteDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3472,7 +3461,6 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3550,7 +3538,6 @@ async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3625,7 +3612,6 @@ async function deserializeAws_restXmlDeletePublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3703,7 +3689,6 @@ async function deserializeAws_restXmlDeleteStreamingDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3771,7 +3756,6 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3839,7 +3823,6 @@ async function deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3901,7 +3884,6 @@ async function deserializeAws_restXmlGetDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3969,7 +3951,6 @@ async function deserializeAws_restXmlGetDistributionConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4037,7 +4018,6 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4105,7 +4085,6 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4173,7 +4152,6 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4241,7 +4219,6 @@ async function deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4306,7 +4283,6 @@ async function deserializeAws_restXmlGetInvalidationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4368,7 +4344,6 @@ async function deserializeAws_restXmlGetPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4436,7 +4411,6 @@ async function deserializeAws_restXmlGetPublicKeyConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4504,7 +4478,6 @@ async function deserializeAws_restXmlGetStreamingDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4572,7 +4545,6 @@ async function deserializeAws_restXmlGetStreamingDistributionConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4629,7 +4601,6 @@ async function deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4683,7 +4654,6 @@ async function deserializeAws_restXmlListDistributionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4747,7 +4717,6 @@ async function deserializeAws_restXmlListDistributionsByWebACLIdCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4804,7 +4773,6 @@ async function deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4861,7 +4829,6 @@ async function deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4929,7 +4896,6 @@ async function deserializeAws_restXmlListInvalidationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4980,7 +4946,6 @@ async function deserializeAws_restXmlListPublicKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5037,7 +5002,6 @@ async function deserializeAws_restXmlListStreamingDistributionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5112,7 +5076,6 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5180,7 +5143,6 @@ async function deserializeAws_restXmlTagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5248,7 +5210,6 @@ async function deserializeAws_restXmlUntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5358,7 +5319,6 @@ async function deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5717,7 +5677,6 @@ async function deserializeAws_restXmlUpdateDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5848,7 +5807,6 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5986,7 +5944,6 @@ async function deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6083,7 +6040,6 @@ async function deserializeAws_restXmlUpdatePublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6228,7 +6184,6 @@ async function deserializeAws_restXmlUpdateStreamingDistributionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.edge._2019_03_26#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6242,7 +6197,6 @@ const deserializeAws_restXmlAccessDeniedResponse = async (
 ): Promise<AccessDenied> => {
   const contents: AccessDenied = {
     name: "AccessDenied",
-    __type: "AccessDenied",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6257,7 +6211,6 @@ const deserializeAws_restXmlBatchTooLargeResponse = async (
 ): Promise<BatchTooLarge> => {
   const contents: BatchTooLarge = {
     name: "BatchTooLarge",
-    __type: "BatchTooLarge",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6272,7 +6225,6 @@ const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
 ): Promise<CNAMEAlreadyExists> => {
   const contents: CNAMEAlreadyExists = {
     name: "CNAMEAlreadyExists",
-    __type: "CNAMEAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6287,7 +6239,6 @@ const deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse = async
 ): Promise<CannotChangeImmutablePublicKeyFields> => {
   const contents: CannotChangeImmutablePublicKeyFields = {
     name: "CannotChangeImmutablePublicKeyFields",
-    __type: "CannotChangeImmutablePublicKeyFields",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6302,7 +6253,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse 
 ): Promise<CloudFrontOriginAccessIdentityAlreadyExists> => {
   const contents: CloudFrontOriginAccessIdentityAlreadyExists = {
     name: "CloudFrontOriginAccessIdentityAlreadyExists",
-    __type: "CloudFrontOriginAccessIdentityAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6317,7 +6267,6 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse = async 
 ): Promise<CloudFrontOriginAccessIdentityInUse> => {
   const contents: CloudFrontOriginAccessIdentityInUse = {
     name: "CloudFrontOriginAccessIdentityInUse",
-    __type: "CloudFrontOriginAccessIdentityInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6332,7 +6281,6 @@ const deserializeAws_restXmlDistributionAlreadyExistsResponse = async (
 ): Promise<DistributionAlreadyExists> => {
   const contents: DistributionAlreadyExists = {
     name: "DistributionAlreadyExists",
-    __type: "DistributionAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6347,7 +6295,6 @@ const deserializeAws_restXmlDistributionNotDisabledResponse = async (
 ): Promise<DistributionNotDisabled> => {
   const contents: DistributionNotDisabled = {
     name: "DistributionNotDisabled",
-    __type: "DistributionNotDisabled",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6362,7 +6309,6 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse = as
 ): Promise<FieldLevelEncryptionConfigAlreadyExists> => {
   const contents: FieldLevelEncryptionConfigAlreadyExists = {
     name: "FieldLevelEncryptionConfigAlreadyExists",
-    __type: "FieldLevelEncryptionConfigAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6377,7 +6323,6 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse = async (
 ): Promise<FieldLevelEncryptionConfigInUse> => {
   const contents: FieldLevelEncryptionConfigInUse = {
     name: "FieldLevelEncryptionConfigInUse",
-    __type: "FieldLevelEncryptionConfigInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6392,7 +6337,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse = a
 ): Promise<FieldLevelEncryptionProfileAlreadyExists> => {
   const contents: FieldLevelEncryptionProfileAlreadyExists = {
     name: "FieldLevelEncryptionProfileAlreadyExists",
-    __type: "FieldLevelEncryptionProfileAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6407,7 +6351,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse = async (
 ): Promise<FieldLevelEncryptionProfileInUse> => {
   const contents: FieldLevelEncryptionProfileInUse = {
     name: "FieldLevelEncryptionProfileInUse",
-    __type: "FieldLevelEncryptionProfileInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6422,7 +6365,6 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse = as
 ): Promise<FieldLevelEncryptionProfileSizeExceeded> => {
   const contents: FieldLevelEncryptionProfileSizeExceeded = {
     name: "FieldLevelEncryptionProfileSizeExceeded",
-    __type: "FieldLevelEncryptionProfileSizeExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6437,7 +6379,6 @@ const deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCach
 ): Promise<IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior> => {
   const contents: IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior = {
     name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
-    __type: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6452,7 +6393,6 @@ const deserializeAws_restXmlIllegalUpdateResponse = async (
 ): Promise<IllegalUpdate> => {
   const contents: IllegalUpdate = {
     name: "IllegalUpdate",
-    __type: "IllegalUpdate",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6467,7 +6407,6 @@ const deserializeAws_restXmlInconsistentQuantitiesResponse = async (
 ): Promise<InconsistentQuantities> => {
   const contents: InconsistentQuantities = {
     name: "InconsistentQuantities",
-    __type: "InconsistentQuantities",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6482,7 +6421,6 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
 ): Promise<InvalidArgument> => {
   const contents: InvalidArgument = {
     name: "InvalidArgument",
-    __type: "InvalidArgument",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6497,7 +6435,6 @@ const deserializeAws_restXmlInvalidDefaultRootObjectResponse = async (
 ): Promise<InvalidDefaultRootObject> => {
   const contents: InvalidDefaultRootObject = {
     name: "InvalidDefaultRootObject",
-    __type: "InvalidDefaultRootObject",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6512,7 +6449,6 @@ const deserializeAws_restXmlInvalidErrorCodeResponse = async (
 ): Promise<InvalidErrorCode> => {
   const contents: InvalidErrorCode = {
     name: "InvalidErrorCode",
-    __type: "InvalidErrorCode",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6527,7 +6463,6 @@ const deserializeAws_restXmlInvalidForwardCookiesResponse = async (
 ): Promise<InvalidForwardCookies> => {
   const contents: InvalidForwardCookies = {
     name: "InvalidForwardCookies",
-    __type: "InvalidForwardCookies",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6542,7 +6477,6 @@ const deserializeAws_restXmlInvalidGeoRestrictionParameterResponse = async (
 ): Promise<InvalidGeoRestrictionParameter> => {
   const contents: InvalidGeoRestrictionParameter = {
     name: "InvalidGeoRestrictionParameter",
-    __type: "InvalidGeoRestrictionParameter",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6557,7 +6491,6 @@ const deserializeAws_restXmlInvalidHeadersForS3OriginResponse = async (
 ): Promise<InvalidHeadersForS3Origin> => {
   const contents: InvalidHeadersForS3Origin = {
     name: "InvalidHeadersForS3Origin",
-    __type: "InvalidHeadersForS3Origin",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6572,7 +6505,6 @@ const deserializeAws_restXmlInvalidIfMatchVersionResponse = async (
 ): Promise<InvalidIfMatchVersion> => {
   const contents: InvalidIfMatchVersion = {
     name: "InvalidIfMatchVersion",
-    __type: "InvalidIfMatchVersion",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6587,7 +6519,6 @@ const deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse = async (
 ): Promise<InvalidLambdaFunctionAssociation> => {
   const contents: InvalidLambdaFunctionAssociation = {
     name: "InvalidLambdaFunctionAssociation",
-    __type: "InvalidLambdaFunctionAssociation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6602,7 +6533,6 @@ const deserializeAws_restXmlInvalidLocationCodeResponse = async (
 ): Promise<InvalidLocationCode> => {
   const contents: InvalidLocationCode = {
     name: "InvalidLocationCode",
-    __type: "InvalidLocationCode",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6617,7 +6547,6 @@ const deserializeAws_restXmlInvalidMinimumProtocolVersionResponse = async (
 ): Promise<InvalidMinimumProtocolVersion> => {
   const contents: InvalidMinimumProtocolVersion = {
     name: "InvalidMinimumProtocolVersion",
-    __type: "InvalidMinimumProtocolVersion",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6632,7 +6561,6 @@ const deserializeAws_restXmlInvalidOriginResponse = async (
 ): Promise<InvalidOrigin> => {
   const contents: InvalidOrigin = {
     name: "InvalidOrigin",
-    __type: "InvalidOrigin",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6647,7 +6575,6 @@ const deserializeAws_restXmlInvalidOriginAccessIdentityResponse = async (
 ): Promise<InvalidOriginAccessIdentity> => {
   const contents: InvalidOriginAccessIdentity = {
     name: "InvalidOriginAccessIdentity",
-    __type: "InvalidOriginAccessIdentity",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6662,7 +6589,6 @@ const deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse = async (
 ): Promise<InvalidOriginKeepaliveTimeout> => {
   const contents: InvalidOriginKeepaliveTimeout = {
     name: "InvalidOriginKeepaliveTimeout",
-    __type: "InvalidOriginKeepaliveTimeout",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6677,7 +6603,6 @@ const deserializeAws_restXmlInvalidOriginReadTimeoutResponse = async (
 ): Promise<InvalidOriginReadTimeout> => {
   const contents: InvalidOriginReadTimeout = {
     name: "InvalidOriginReadTimeout",
-    __type: "InvalidOriginReadTimeout",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6692,7 +6617,6 @@ const deserializeAws_restXmlInvalidProtocolSettingsResponse = async (
 ): Promise<InvalidProtocolSettings> => {
   const contents: InvalidProtocolSettings = {
     name: "InvalidProtocolSettings",
-    __type: "InvalidProtocolSettings",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6707,7 +6631,6 @@ const deserializeAws_restXmlInvalidQueryStringParametersResponse = async (
 ): Promise<InvalidQueryStringParameters> => {
   const contents: InvalidQueryStringParameters = {
     name: "InvalidQueryStringParameters",
-    __type: "InvalidQueryStringParameters",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6722,7 +6645,6 @@ const deserializeAws_restXmlInvalidRelativePathResponse = async (
 ): Promise<InvalidRelativePath> => {
   const contents: InvalidRelativePath = {
     name: "InvalidRelativePath",
-    __type: "InvalidRelativePath",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6737,7 +6659,6 @@ const deserializeAws_restXmlInvalidRequiredProtocolResponse = async (
 ): Promise<InvalidRequiredProtocol> => {
   const contents: InvalidRequiredProtocol = {
     name: "InvalidRequiredProtocol",
-    __type: "InvalidRequiredProtocol",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6752,7 +6673,6 @@ const deserializeAws_restXmlInvalidResponseCodeResponse = async (
 ): Promise<InvalidResponseCode> => {
   const contents: InvalidResponseCode = {
     name: "InvalidResponseCode",
-    __type: "InvalidResponseCode",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6767,7 +6687,6 @@ const deserializeAws_restXmlInvalidTTLOrderResponse = async (
 ): Promise<InvalidTTLOrder> => {
   const contents: InvalidTTLOrder = {
     name: "InvalidTTLOrder",
-    __type: "InvalidTTLOrder",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6782,7 +6701,6 @@ const deserializeAws_restXmlInvalidTaggingResponse = async (
 ): Promise<InvalidTagging> => {
   const contents: InvalidTagging = {
     name: "InvalidTagging",
-    __type: "InvalidTagging",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6797,7 +6715,6 @@ const deserializeAws_restXmlInvalidViewerCertificateResponse = async (
 ): Promise<InvalidViewerCertificate> => {
   const contents: InvalidViewerCertificate = {
     name: "InvalidViewerCertificate",
-    __type: "InvalidViewerCertificate",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6812,7 +6729,6 @@ const deserializeAws_restXmlInvalidWebACLIdResponse = async (
 ): Promise<InvalidWebACLId> => {
   const contents: InvalidWebACLId = {
     name: "InvalidWebACLId",
-    __type: "InvalidWebACLId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6827,7 +6743,6 @@ const deserializeAws_restXmlMissingBodyResponse = async (
 ): Promise<MissingBody> => {
   const contents: MissingBody = {
     name: "MissingBody",
-    __type: "MissingBody",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6842,7 +6757,6 @@ const deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse = async
 ): Promise<NoSuchCloudFrontOriginAccessIdentity> => {
   const contents: NoSuchCloudFrontOriginAccessIdentity = {
     name: "NoSuchCloudFrontOriginAccessIdentity",
-    __type: "NoSuchCloudFrontOriginAccessIdentity",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6857,7 +6771,6 @@ const deserializeAws_restXmlNoSuchDistributionResponse = async (
 ): Promise<NoSuchDistribution> => {
   const contents: NoSuchDistribution = {
     name: "NoSuchDistribution",
-    __type: "NoSuchDistribution",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6872,7 +6785,6 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse = async (
 ): Promise<NoSuchFieldLevelEncryptionConfig> => {
   const contents: NoSuchFieldLevelEncryptionConfig = {
     name: "NoSuchFieldLevelEncryptionConfig",
-    __type: "NoSuchFieldLevelEncryptionConfig",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6887,7 +6799,6 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse = async (
 ): Promise<NoSuchFieldLevelEncryptionProfile> => {
   const contents: NoSuchFieldLevelEncryptionProfile = {
     name: "NoSuchFieldLevelEncryptionProfile",
-    __type: "NoSuchFieldLevelEncryptionProfile",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6902,7 +6813,6 @@ const deserializeAws_restXmlNoSuchInvalidationResponse = async (
 ): Promise<NoSuchInvalidation> => {
   const contents: NoSuchInvalidation = {
     name: "NoSuchInvalidation",
-    __type: "NoSuchInvalidation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6917,7 +6827,6 @@ const deserializeAws_restXmlNoSuchOriginResponse = async (
 ): Promise<NoSuchOrigin> => {
   const contents: NoSuchOrigin = {
     name: "NoSuchOrigin",
-    __type: "NoSuchOrigin",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6932,7 +6841,6 @@ const deserializeAws_restXmlNoSuchPublicKeyResponse = async (
 ): Promise<NoSuchPublicKey> => {
   const contents: NoSuchPublicKey = {
     name: "NoSuchPublicKey",
-    __type: "NoSuchPublicKey",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6947,7 +6855,6 @@ const deserializeAws_restXmlNoSuchResourceResponse = async (
 ): Promise<NoSuchResource> => {
   const contents: NoSuchResource = {
     name: "NoSuchResource",
-    __type: "NoSuchResource",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6962,7 +6869,6 @@ const deserializeAws_restXmlNoSuchStreamingDistributionResponse = async (
 ): Promise<NoSuchStreamingDistribution> => {
   const contents: NoSuchStreamingDistribution = {
     name: "NoSuchStreamingDistribution",
-    __type: "NoSuchStreamingDistribution",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6977,7 +6883,6 @@ const deserializeAws_restXmlPreconditionFailedResponse = async (
 ): Promise<PreconditionFailed> => {
   const contents: PreconditionFailed = {
     name: "PreconditionFailed",
-    __type: "PreconditionFailed",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -6992,7 +6897,6 @@ const deserializeAws_restXmlPublicKeyAlreadyExistsResponse = async (
 ): Promise<PublicKeyAlreadyExists> => {
   const contents: PublicKeyAlreadyExists = {
     name: "PublicKeyAlreadyExists",
-    __type: "PublicKeyAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7007,7 +6911,6 @@ const deserializeAws_restXmlPublicKeyInUseResponse = async (
 ): Promise<PublicKeyInUse> => {
   const contents: PublicKeyInUse = {
     name: "PublicKeyInUse",
-    __type: "PublicKeyInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7022,7 +6925,6 @@ const deserializeAws_restXmlQueryArgProfileEmptyResponse = async (
 ): Promise<QueryArgProfileEmpty> => {
   const contents: QueryArgProfileEmpty = {
     name: "QueryArgProfileEmpty",
-    __type: "QueryArgProfileEmpty",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7037,7 +6939,6 @@ const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
 ): Promise<StreamingDistributionAlreadyExists> => {
   const contents: StreamingDistributionAlreadyExists = {
     name: "StreamingDistributionAlreadyExists",
-    __type: "StreamingDistributionAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7052,7 +6953,6 @@ const deserializeAws_restXmlStreamingDistributionNotDisabledResponse = async (
 ): Promise<StreamingDistributionNotDisabled> => {
   const contents: StreamingDistributionNotDisabled = {
     name: "StreamingDistributionNotDisabled",
-    __type: "StreamingDistributionNotDisabled",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7067,7 +6967,6 @@ const deserializeAws_restXmlTooManyCacheBehaviorsResponse = async (
 ): Promise<TooManyCacheBehaviors> => {
   const contents: TooManyCacheBehaviors = {
     name: "TooManyCacheBehaviors",
-    __type: "TooManyCacheBehaviors",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7082,7 +6981,6 @@ const deserializeAws_restXmlTooManyCertificatesResponse = async (
 ): Promise<TooManyCertificates> => {
   const contents: TooManyCertificates = {
     name: "TooManyCertificates",
-    __type: "TooManyCertificates",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7097,7 +6995,6 @@ const deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse = as
 ): Promise<TooManyCloudFrontOriginAccessIdentities> => {
   const contents: TooManyCloudFrontOriginAccessIdentities = {
     name: "TooManyCloudFrontOriginAccessIdentities",
-    __type: "TooManyCloudFrontOriginAccessIdentities",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7112,7 +7009,6 @@ const deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse = async (
 ): Promise<TooManyCookieNamesInWhiteList> => {
   const contents: TooManyCookieNamesInWhiteList = {
     name: "TooManyCookieNamesInWhiteList",
-    __type: "TooManyCookieNamesInWhiteList",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7127,7 +7023,6 @@ const deserializeAws_restXmlTooManyDistributionCNAMEsResponse = async (
 ): Promise<TooManyDistributionCNAMEs> => {
   const contents: TooManyDistributionCNAMEs = {
     name: "TooManyDistributionCNAMEs",
-    __type: "TooManyDistributionCNAMEs",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7142,7 +7037,6 @@ const deserializeAws_restXmlTooManyDistributionsResponse = async (
 ): Promise<TooManyDistributions> => {
   const contents: TooManyDistributions = {
     name: "TooManyDistributions",
-    __type: "TooManyDistributions",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7157,7 +7051,6 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryption
 ): Promise<TooManyDistributionsAssociatedToFieldLevelEncryptionConfig> => {
   const contents: TooManyDistributionsAssociatedToFieldLevelEncryptionConfig = {
     name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig",
-    __type: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7172,7 +7065,6 @@ const deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse =
 ): Promise<TooManyDistributionsWithLambdaAssociations> => {
   const contents: TooManyDistributionsWithLambdaAssociations = {
     name: "TooManyDistributionsWithLambdaAssociations",
-    __type: "TooManyDistributionsWithLambdaAssociations",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7187,7 +7079,6 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse = async (
 ): Promise<TooManyFieldLevelEncryptionConfigs> => {
   const contents: TooManyFieldLevelEncryptionConfigs = {
     name: "TooManyFieldLevelEncryptionConfigs",
-    __type: "TooManyFieldLevelEncryptionConfigs",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7202,7 +7093,6 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesRespon
 ): Promise<TooManyFieldLevelEncryptionContentTypeProfiles> => {
   const contents: TooManyFieldLevelEncryptionContentTypeProfiles = {
     name: "TooManyFieldLevelEncryptionContentTypeProfiles",
-    __type: "TooManyFieldLevelEncryptionContentTypeProfiles",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7217,7 +7107,6 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesRespons
 ): Promise<TooManyFieldLevelEncryptionEncryptionEntities> => {
   const contents: TooManyFieldLevelEncryptionEncryptionEntities = {
     name: "TooManyFieldLevelEncryptionEncryptionEntities",
-    __type: "TooManyFieldLevelEncryptionEncryptionEntities",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7232,7 +7121,6 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse = a
 ): Promise<TooManyFieldLevelEncryptionFieldPatterns> => {
   const contents: TooManyFieldLevelEncryptionFieldPatterns = {
     name: "TooManyFieldLevelEncryptionFieldPatterns",
-    __type: "TooManyFieldLevelEncryptionFieldPatterns",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7247,7 +7135,6 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse = async 
 ): Promise<TooManyFieldLevelEncryptionProfiles> => {
   const contents: TooManyFieldLevelEncryptionProfiles = {
     name: "TooManyFieldLevelEncryptionProfiles",
-    __type: "TooManyFieldLevelEncryptionProfiles",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7262,7 +7149,6 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse 
 ): Promise<TooManyFieldLevelEncryptionQueryArgProfiles> => {
   const contents: TooManyFieldLevelEncryptionQueryArgProfiles = {
     name: "TooManyFieldLevelEncryptionQueryArgProfiles",
-    __type: "TooManyFieldLevelEncryptionQueryArgProfiles",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7277,7 +7163,6 @@ const deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse = async (
 ): Promise<TooManyHeadersInForwardedValues> => {
   const contents: TooManyHeadersInForwardedValues = {
     name: "TooManyHeadersInForwardedValues",
-    __type: "TooManyHeadersInForwardedValues",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7292,7 +7177,6 @@ const deserializeAws_restXmlTooManyInvalidationsInProgressResponse = async (
 ): Promise<TooManyInvalidationsInProgress> => {
   const contents: TooManyInvalidationsInProgress = {
     name: "TooManyInvalidationsInProgress",
-    __type: "TooManyInvalidationsInProgress",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7307,7 +7191,6 @@ const deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse = async (
 ): Promise<TooManyLambdaFunctionAssociations> => {
   const contents: TooManyLambdaFunctionAssociations = {
     name: "TooManyLambdaFunctionAssociations",
-    __type: "TooManyLambdaFunctionAssociations",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7322,7 +7205,6 @@ const deserializeAws_restXmlTooManyOriginCustomHeadersResponse = async (
 ): Promise<TooManyOriginCustomHeaders> => {
   const contents: TooManyOriginCustomHeaders = {
     name: "TooManyOriginCustomHeaders",
-    __type: "TooManyOriginCustomHeaders",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7337,7 +7219,6 @@ const deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse = async (
 ): Promise<TooManyOriginGroupsPerDistribution> => {
   const contents: TooManyOriginGroupsPerDistribution = {
     name: "TooManyOriginGroupsPerDistribution",
-    __type: "TooManyOriginGroupsPerDistribution",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7352,7 +7233,6 @@ const deserializeAws_restXmlTooManyOriginsResponse = async (
 ): Promise<TooManyOrigins> => {
   const contents: TooManyOrigins = {
     name: "TooManyOrigins",
-    __type: "TooManyOrigins",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7367,7 +7247,6 @@ const deserializeAws_restXmlTooManyPublicKeysResponse = async (
 ): Promise<TooManyPublicKeys> => {
   const contents: TooManyPublicKeys = {
     name: "TooManyPublicKeys",
-    __type: "TooManyPublicKeys",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7382,7 +7261,6 @@ const deserializeAws_restXmlTooManyQueryStringParametersResponse = async (
 ): Promise<TooManyQueryStringParameters> => {
   const contents: TooManyQueryStringParameters = {
     name: "TooManyQueryStringParameters",
-    __type: "TooManyQueryStringParameters",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7397,7 +7275,6 @@ const deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse = async (
 ): Promise<TooManyStreamingDistributionCNAMEs> => {
   const contents: TooManyStreamingDistributionCNAMEs = {
     name: "TooManyStreamingDistributionCNAMEs",
-    __type: "TooManyStreamingDistributionCNAMEs",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7412,7 +7289,6 @@ const deserializeAws_restXmlTooManyStreamingDistributionsResponse = async (
 ): Promise<TooManyStreamingDistributions> => {
   const contents: TooManyStreamingDistributions = {
     name: "TooManyStreamingDistributions",
-    __type: "TooManyStreamingDistributions",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7427,7 +7303,6 @@ const deserializeAws_restXmlTooManyTrustedSignersResponse = async (
 ): Promise<TooManyTrustedSigners> => {
   const contents: TooManyTrustedSigners = {
     name: "TooManyTrustedSigners",
-    __type: "TooManyTrustedSigners",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -7442,7 +7317,6 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
 ): Promise<TrustedSignerDoesNotExist> => {
   const contents: TrustedSignerDoesNotExist = {
     name: "TrustedSignerDoesNotExist",
-    __type: "TrustedSignerDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined

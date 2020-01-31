@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface CertificateValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CertificateValidationException";
   name: "CertificateValidationException";
   $fault: "client";
   /**
@@ -28,7 +27,6 @@ export namespace CertificateValidationException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -51,7 +49,6 @@ export namespace InvalidRequestException {
 export interface InvalidStateTransitionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStateTransitionException";
   name: "InvalidStateTransitionException";
   $fault: "client";
   message?: string;
@@ -69,7 +66,6 @@ export namespace InvalidStateTransitionException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -90,7 +86,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -111,7 +106,6 @@ export namespace ServiceUnavailableException {
 export interface TerminalStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TerminalStateException";
   name: "TerminalStateException";
   $fault: "client";
   message?: string;
@@ -140,7 +134,6 @@ export enum JobExecutionStatus {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   /**

@@ -720,7 +720,6 @@ export namespace DescribeRepositoriesResponse {
 export interface EmptyUploadException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EmptyUploadException";
   name: "EmptyUploadException";
   $fault: "client";
   /**
@@ -1058,7 +1057,6 @@ export enum ImageActionType {
 export interface ImageAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ImageAlreadyExistsException";
   name: "ImageAlreadyExistsException";
   $fault: "client";
   /**
@@ -1196,7 +1194,6 @@ export namespace ImageIdentifier {
 export interface ImageNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ImageNotFoundException";
   name: "ImageNotFoundException";
   $fault: "client";
   message?: string;
@@ -1353,7 +1350,6 @@ export namespace ImageScanningConfiguration {
 export interface ImageTagAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ImageTagAlreadyExistsException";
   name: "ImageTagAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1417,7 +1413,6 @@ export namespace InitiateLayerUploadResponse {
 export interface InvalidLayerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLayerException";
   name: "InvalidLayerException";
   $fault: "client";
   /**
@@ -1439,7 +1434,6 @@ export namespace InvalidLayerException {
 export interface InvalidLayerPartException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLayerPartException";
   name: "InvalidLayerPartException";
   $fault: "client";
   /**
@@ -1482,7 +1476,6 @@ export namespace InvalidLayerPartException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1504,7 +1497,6 @@ export namespace InvalidParameterException {
 export interface InvalidTagParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTagParameterException";
   name: "InvalidTagParameterException";
   $fault: "client";
   message?: string;
@@ -1556,7 +1548,6 @@ export namespace Layer {
 export interface LayerAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LayerAlreadyExistsException";
   name: "LayerAlreadyExistsException";
   $fault: "client";
   /**
@@ -1615,7 +1606,6 @@ export enum LayerFailureCode {
 export interface LayerInaccessibleException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LayerInaccessibleException";
   name: "LayerInaccessibleException";
   $fault: "client";
   /**
@@ -1636,7 +1626,6 @@ export namespace LayerInaccessibleException {
 export interface LayerPartTooSmallException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LayerPartTooSmallException";
   name: "LayerPartTooSmallException";
   $fault: "client";
   /**
@@ -1658,7 +1647,6 @@ export namespace LayerPartTooSmallException {
 export interface LayersNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LayersNotFoundException";
   name: "LayersNotFoundException";
   $fault: "client";
   /**
@@ -1680,7 +1668,6 @@ export namespace LayersNotFoundException {
 export interface LifecyclePolicyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LifecyclePolicyNotFoundException";
   name: "LifecyclePolicyNotFoundException";
   $fault: "client";
   message?: string;
@@ -1716,7 +1703,6 @@ export namespace LifecyclePolicyPreviewFilter {
 export interface LifecyclePolicyPreviewInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LifecyclePolicyPreviewInProgressException";
   name: "LifecyclePolicyPreviewInProgressException";
   $fault: "client";
   message?: string;
@@ -1734,7 +1720,6 @@ export namespace LifecyclePolicyPreviewInProgressException {
 export interface LifecyclePolicyPreviewNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LifecyclePolicyPreviewNotFoundException";
   name: "LifecyclePolicyPreviewNotFoundException";
   $fault: "client";
   message?: string;
@@ -1833,7 +1818,6 @@ export namespace LifecyclePolicyRuleAction {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2226,7 +2210,6 @@ export namespace Repository {
 export interface RepositoryAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RepositoryAlreadyExistsException";
   name: "RepositoryAlreadyExistsException";
   $fault: "client";
   /**
@@ -2248,7 +2231,6 @@ export namespace RepositoryAlreadyExistsException {
 export interface RepositoryNotEmptyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RepositoryNotEmptyException";
   name: "RepositoryNotEmptyException";
   $fault: "client";
   /**
@@ -2270,7 +2252,6 @@ export namespace RepositoryNotEmptyException {
 export interface RepositoryNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RepositoryNotFoundException";
   name: "RepositoryNotFoundException";
   $fault: "client";
   /**
@@ -2292,7 +2273,6 @@ export namespace RepositoryNotFoundException {
 export interface RepositoryPolicyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RepositoryPolicyNotFoundException";
   name: "RepositoryPolicyNotFoundException";
   $fault: "client";
   /**
@@ -2314,7 +2294,6 @@ export namespace RepositoryPolicyNotFoundException {
 export interface ScanNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ScanNotFoundException";
   name: "ScanNotFoundException";
   $fault: "client";
   message?: string;
@@ -2338,7 +2317,6 @@ export enum ScanStatus {
 export interface ServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServerException";
   name: "ServerException";
   $fault: "server";
   /**
@@ -2593,7 +2571,6 @@ export enum TagStatus {
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -2712,7 +2689,6 @@ export namespace UploadLayerPartResponse {
 export interface UploadNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UploadNotFoundException";
   name: "UploadNotFoundException";
   $fault: "client";
   /**

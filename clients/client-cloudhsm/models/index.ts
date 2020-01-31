@@ -45,7 +45,6 @@ export enum ClientVersion {
 export interface CloudHsmInternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmInternalException";
   name: "CloudHsmInternalException";
   $fault: "server";
   /**
@@ -77,7 +76,6 @@ export enum CloudHsmObjectState {
 export interface CloudHsmServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmServiceException";
   name: "CloudHsmServiceException";
   $fault: "client";
   /**
@@ -699,7 +697,6 @@ export enum HsmStatus {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**

@@ -3205,7 +3205,6 @@ export namespace WorkerBlock {
  * <p>Your request is invalid.</p>
  */
 export interface RequestError extends _smithy.SmithyException, $MetadataBearer {
-  __type: "RequestError";
   name: "RequestError";
   $fault: "client";
   Message?: string;
@@ -3222,7 +3221,6 @@ export namespace RequestError {
  * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  */
 export interface ServiceFault extends _smithy.SmithyException, $MetadataBearer {
-  __type: "ServiceFault";
   name: "ServiceFault";
   $fault: "server";
   Message?: string;

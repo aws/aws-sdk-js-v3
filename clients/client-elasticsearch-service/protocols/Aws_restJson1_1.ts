@@ -959,7 +959,6 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1037,7 +1036,6 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1136,7 +1134,6 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1214,7 +1211,6 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1276,7 +1272,6 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1354,7 +1349,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1432,7 +1426,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1503,7 +1496,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1595,7 +1587,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1677,7 +1668,6 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1759,7 +1749,6 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1844,7 +1833,6 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1933,7 +1921,6 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2023,7 +2010,6 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2087,7 +2073,6 @@ async function deserializeAws_restJson1_1ListDomainNamesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2169,7 +2154,6 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2251,7 +2235,6 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2323,7 +2306,6 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2417,7 +2399,6 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2476,7 +2457,6 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2554,7 +2534,6 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2646,7 +2625,6 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2743,7 +2721,6 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2757,7 +2734,6 @@ const deserializeAws_restJson1_1BaseExceptionResponse = async (
 ): Promise<BaseException> => {
   const contents: BaseException = {
     name: "BaseException",
-    __type: "BaseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2775,7 +2751,6 @@ const deserializeAws_restJson1_1DisabledOperationExceptionResponse = async (
 ): Promise<DisabledOperationException> => {
   const contents: DisabledOperationException = {
     name: "DisabledOperationException",
-    __type: "DisabledOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2793,7 +2768,6 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
 ): Promise<InternalException> => {
   const contents: InternalException = {
     name: "InternalException",
-    __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2811,7 +2785,6 @@ const deserializeAws_restJson1_1InvalidTypeExceptionResponse = async (
 ): Promise<InvalidTypeException> => {
   const contents: InvalidTypeException = {
     name: "InvalidTypeException",
-    __type: "InvalidTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2829,7 +2802,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2847,7 +2819,6 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2865,7 +2836,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2883,7 +2853,6 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

@@ -60,7 +60,6 @@ export namespace BatchMeterUsageResult {
 export interface CustomerNotEntitledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomerNotEntitledException";
   name: "CustomerNotEntitledException";
   $fault: "client";
   message?: string;
@@ -78,7 +77,6 @@ export namespace CustomerNotEntitledException {
 export interface DisabledApiException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DisabledApiException";
   name: "DisabledApiException";
   $fault: "client";
   message?: string;
@@ -98,7 +96,6 @@ export namespace DisabledApiException {
 export interface DuplicateRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateRequestException";
   name: "DuplicateRequestException";
   $fault: "client";
   message?: string;
@@ -120,7 +117,6 @@ export namespace DuplicateRequestException {
 export interface ExpiredTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ExpiredTokenException";
   name: "ExpiredTokenException";
   $fault: "client";
   message?: string;
@@ -139,7 +135,6 @@ export namespace ExpiredTokenException {
 export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceErrorException";
   name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
@@ -157,7 +152,6 @@ export namespace InternalServiceErrorException {
 export interface InvalidCustomerIdentifierException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidCustomerIdentifierException";
   name: "InvalidCustomerIdentifierException";
   $fault: "client";
   message?: string;
@@ -177,7 +171,6 @@ export namespace InvalidCustomerIdentifierException {
 export interface InvalidEndpointRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidEndpointRegionException";
   name: "InvalidEndpointRegionException";
   $fault: "client";
   message?: string;
@@ -196,7 +189,6 @@ export namespace InvalidEndpointRegionException {
 export interface InvalidProductCodeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidProductCodeException";
   name: "InvalidProductCodeException";
   $fault: "client";
   message?: string;
@@ -214,7 +206,6 @@ export namespace InvalidProductCodeException {
 export interface InvalidPublicKeyVersionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPublicKeyVersionException";
   name: "InvalidPublicKeyVersionException";
   $fault: "client";
   message?: string;
@@ -234,7 +225,6 @@ export namespace InvalidPublicKeyVersionException {
 export interface InvalidRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRegionException";
   name: "InvalidRegionException";
   $fault: "client";
   message?: string;
@@ -252,7 +242,6 @@ export namespace InvalidRegionException {
 export interface InvalidTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTokenException";
   name: "InvalidTokenException";
   $fault: "client";
   message?: string;
@@ -271,7 +260,6 @@ export namespace InvalidTokenException {
 export interface InvalidUsageDimensionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidUsageDimensionException";
   name: "InvalidUsageDimensionException";
   $fault: "client";
   message?: string;
@@ -347,7 +335,6 @@ export namespace MeterUsageResult {
 export interface PlatformNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PlatformNotSupportedException";
   name: "PlatformNotSupportedException";
   $fault: "client";
   message?: string;
@@ -457,7 +444,6 @@ export namespace ResolveCustomerResult {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -475,7 +461,6 @@ export namespace ThrottlingException {
 export interface TimestampOutOfBoundsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TimestampOutOfBoundsException";
   name: "TimestampOutOfBoundsException";
   $fault: "client";
   message?: string;

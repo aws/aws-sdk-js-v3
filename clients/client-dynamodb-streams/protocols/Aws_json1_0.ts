@@ -183,7 +183,6 @@ async function deserializeAws_json1_0DescribeStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -265,7 +264,6 @@ async function deserializeAws_json1_0GetRecordsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -333,7 +331,6 @@ async function deserializeAws_json1_0GetShardIteratorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -394,7 +391,6 @@ async function deserializeAws_json1_0ListStreamsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -413,7 +409,6 @@ const deserializeAws_json1_0ExpiredIteratorExceptionResponse = async (
   );
   const contents: ExpiredIteratorException = {
     name: "ExpiredIteratorException",
-    __type: "ExpiredIteratorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -432,7 +427,6 @@ const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
   );
   const contents: TrimmedDataAccessException = {
     name: "TrimmedDataAccessException",
-    __type: "TrimmedDataAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -451,7 +445,6 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -470,7 +463,6 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -489,7 +481,6 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

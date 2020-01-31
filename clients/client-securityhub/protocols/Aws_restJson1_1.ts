@@ -1419,7 +1419,6 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1497,7 +1496,6 @@ async function deserializeAws_restJson1_1BatchDisableStandardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1575,7 +1573,6 @@ async function deserializeAws_restJson1_1BatchEnableStandardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1661,7 +1658,6 @@ async function deserializeAws_restJson1_1BatchImportFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1743,7 +1739,6 @@ async function deserializeAws_restJson1_1CreateActionTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1822,7 +1817,6 @@ async function deserializeAws_restJson1_1CreateInsightCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1904,7 +1898,6 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1982,7 +1975,6 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2057,7 +2049,6 @@ async function deserializeAws_restJson1_1DeleteActionTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2136,7 +2127,6 @@ async function deserializeAws_restJson1_1DeleteInsightCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2221,7 +2211,6 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2303,7 +2292,6 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2385,7 +2373,6 @@ async function deserializeAws_restJson1_1DescribeActionTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2468,7 +2455,6 @@ async function deserializeAws_restJson1_1DescribeHubCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2550,7 +2536,6 @@ async function deserializeAws_restJson1_1DescribeProductsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2632,7 +2617,6 @@ async function deserializeAws_restJson1_1DescribeStandardsControlsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2709,7 +2693,6 @@ async function deserializeAws_restJson1_1DisableImportFindingsForProductCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2779,7 +2762,6 @@ async function deserializeAws_restJson1_1DisableSecurityHubCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2856,7 +2838,6 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2933,7 +2914,6 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3015,7 +2995,6 @@ async function deserializeAws_restJson1_1EnableImportFindingsForProductCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3092,7 +3071,6 @@ async function deserializeAws_restJson1_1EnableSecurityHubCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3174,7 +3152,6 @@ async function deserializeAws_restJson1_1GetEnabledStandardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3253,7 +3230,6 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3338,7 +3314,6 @@ async function deserializeAws_restJson1_1GetInsightResultsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3424,7 +3399,6 @@ async function deserializeAws_restJson1_1GetInsightsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3499,7 +3473,6 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3584,7 +3557,6 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3673,7 +3645,6 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3755,7 +3726,6 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3830,7 +3800,6 @@ async function deserializeAws_restJson1_1ListEnabledProductsForImportCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3912,7 +3881,6 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3991,7 +3959,6 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4059,7 +4026,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4119,7 +4085,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4179,7 +4144,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4249,7 +4213,6 @@ async function deserializeAws_restJson1_1UpdateActionTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4326,7 +4289,6 @@ async function deserializeAws_restJson1_1UpdateFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4400,7 +4362,6 @@ async function deserializeAws_restJson1_1UpdateInsightCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4470,7 +4431,6 @@ async function deserializeAws_restJson1_1UpdateStandardsControlCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4484,7 +4444,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -4506,7 +4465,6 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
 ): Promise<InternalException> => {
   const contents: InternalException = {
     name: "InternalException",
-    __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -4528,7 +4486,6 @@ const deserializeAws_restJson1_1InvalidAccessExceptionResponse = async (
 ): Promise<InvalidAccessException> => {
   const contents: InvalidAccessException = {
     name: "InvalidAccessException",
-    __type: "InvalidAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -4550,7 +4507,6 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
 ): Promise<InvalidInputException> => {
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -4572,7 +4528,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -4594,7 +4549,6 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
 ): Promise<ResourceConflictException> => {
   const contents: ResourceConflictException = {
     name: "ResourceConflictException",
-    __type: "ResourceConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -4616,7 +4570,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,

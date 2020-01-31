@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   /**
@@ -28,7 +27,6 @@ export namespace InternalFailureException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -49,7 +47,6 @@ export namespace InvalidRequestException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -70,7 +67,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -91,7 +87,6 @@ export namespace ServiceUnavailableException {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   /**

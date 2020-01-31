@@ -12,7 +12,6 @@ export enum AccountScope {
 export interface BillExpirationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BillExpirationException";
   name: "BillExpirationException";
   $fault: "client";
   Message?: string;
@@ -460,7 +459,6 @@ export namespace CurrentInstance {
 export interface DataUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DataUnavailableException";
   name: "DataUnavailableException";
   $fault: "client";
   Message?: string;
@@ -2572,7 +2570,6 @@ export namespace InstanceDetails {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -2590,7 +2587,6 @@ export namespace InvalidNextTokenException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2822,7 +2818,6 @@ export namespace RedshiftInstanceDetails {
 export interface RequestChangedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RequestChangedException";
   name: "RequestChangedException";
   $fault: "client";
   Message?: string;
@@ -3237,7 +3232,6 @@ export namespace ResourceDetails {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3904,7 +3898,6 @@ export namespace SavingsPlansUtilizationDetail {
 export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceQuotaExceededException";
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -4037,7 +4030,6 @@ export namespace TerminateRecommendationDetail {
 export interface UnresolvableUsageUnitException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnresolvableUsageUnitException";
   name: "UnresolvableUsageUnitException";
   $fault: "client";
   Message?: string;

@@ -394,7 +394,6 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -496,7 +495,6 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -592,7 +590,6 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -694,7 +691,6 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -796,7 +792,6 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -898,7 +893,6 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -997,7 +991,6 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1093,7 +1086,6 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1189,7 +1181,6 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1291,7 +1282,6 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1310,7 +1300,6 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   );
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1329,7 +1318,6 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   );
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1348,7 +1336,6 @@ const deserializeAws_json1_1ForbiddenExceptionResponse = async (
   );
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1367,7 +1354,6 @@ const deserializeAws_json1_1InternalServerErrorExceptionResponse = async (
   );
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
-    __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1386,7 +1372,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1405,7 +1390,6 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   );
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1424,7 +1408,6 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   );
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

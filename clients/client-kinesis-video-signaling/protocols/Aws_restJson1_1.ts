@@ -172,7 +172,6 @@ async function deserializeAws_restJson1_1GetIceServerConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesisvideo.signaling#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -247,7 +246,6 @@ async function deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesisvideo.signaling#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -261,7 +259,6 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
 ): Promise<ClientLimitExceededException> => {
   const contents: ClientLimitExceededException = {
     name: "ClientLimitExceededException",
-    __type: "ClientLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -279,7 +276,6 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
 ): Promise<InvalidArgumentException> => {
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
-    __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -297,7 +293,6 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
 ): Promise<NotAuthorizedException> => {
   const contents: NotAuthorizedException = {
     name: "NotAuthorizedException",
-    __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -315,7 +310,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -333,7 +327,6 @@ const deserializeAws_restJson1_1InvalidClientExceptionResponse = async (
 ): Promise<InvalidClientException> => {
   const contents: InvalidClientException = {
     name: "InvalidClientException",
-    __type: "InvalidClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -351,7 +344,6 @@ const deserializeAws_restJson1_1SessionExpiredExceptionResponse = async (
 ): Promise<SessionExpiredException> => {
   const contents: SessionExpiredException = {
     name: "SessionExpiredException",
-    __type: "SessionExpiredException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

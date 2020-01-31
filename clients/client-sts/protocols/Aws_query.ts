@@ -325,7 +325,6 @@ async function deserializeAws_queryAssumeRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -415,7 +414,6 @@ async function deserializeAws_queryAssumeRoleWithSAMLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -515,7 +513,6 @@ async function deserializeAws_queryAssumeRoleWithWebIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -573,7 +570,6 @@ async function deserializeAws_queryDecodeAuthorizationMessageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -621,7 +617,6 @@ async function deserializeAws_queryGetAccessKeyInfoCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -669,7 +664,6 @@ async function deserializeAws_queryGetCallerIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -738,7 +732,6 @@ async function deserializeAws_queryGetFederationTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -793,7 +786,6 @@ async function deserializeAws_queryGetSessionTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.its#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -812,7 +804,6 @@ const deserializeAws_queryExpiredTokenExceptionResponse = async (
   );
   const contents: ExpiredTokenException = {
     name: "ExpiredTokenException",
-    __type: "ExpiredTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -831,7 +822,6 @@ const deserializeAws_queryIDPCommunicationErrorExceptionResponse = async (
   );
   const contents: IDPCommunicationErrorException = {
     name: "IDPCommunicationErrorException",
-    __type: "IDPCommunicationErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -850,7 +840,6 @@ const deserializeAws_queryIDPRejectedClaimExceptionResponse = async (
   );
   const contents: IDPRejectedClaimException = {
     name: "IDPRejectedClaimException",
-    __type: "IDPRejectedClaimException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -869,7 +858,6 @@ const deserializeAws_queryInvalidAuthorizationMessageExceptionResponse = async (
   );
   const contents: InvalidAuthorizationMessageException = {
     name: "InvalidAuthorizationMessageException",
-    __type: "InvalidAuthorizationMessageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -888,7 +876,6 @@ const deserializeAws_queryInvalidIdentityTokenExceptionResponse = async (
   );
   const contents: InvalidIdentityTokenException = {
     name: "InvalidIdentityTokenException",
-    __type: "InvalidIdentityTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -907,7 +894,6 @@ const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
   );
   const contents: MalformedPolicyDocumentException = {
     name: "MalformedPolicyDocumentException",
-    __type: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -926,7 +912,6 @@ const deserializeAws_queryPackedPolicyTooLargeExceptionResponse = async (
   );
   const contents: PackedPolicyTooLargeException = {
     name: "PackedPolicyTooLargeException",
-    __type: "PackedPolicyTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -945,7 +930,6 @@ const deserializeAws_queryRegionDisabledExceptionResponse = async (
   );
   const contents: RegionDisabledException = {
     name: "RegionDisabledException",
-    __type: "RegionDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

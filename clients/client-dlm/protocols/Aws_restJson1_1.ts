@@ -378,7 +378,6 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -441,7 +440,6 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -519,7 +517,6 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -590,7 +587,6 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -658,7 +654,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -718,7 +713,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -778,7 +772,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -848,7 +841,6 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dlm#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -862,7 +854,6 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
     name: "InternalServerException",
-    __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -884,7 +875,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -920,7 +910,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -946,7 +935,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,

@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   Message?: string;

@@ -919,7 +919,6 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1009,7 +1008,6 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1109,7 +1107,6 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1198,7 +1195,6 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1279,7 +1275,6 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1360,7 +1355,6 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1439,7 +1433,6 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1518,7 +1511,6 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1597,7 +1589,6 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1679,7 +1670,6 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1775,7 +1765,6 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1854,7 +1843,6 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1933,7 +1921,6 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2012,7 +1999,6 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2094,7 +2080,6 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2180,7 +2165,6 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2264,7 +2248,6 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2348,7 +2331,6 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2362,7 +2344,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };
@@ -2375,7 +2356,6 @@ const deserializeAws_restJson1_1IllegalActionExceptionResponse = async (
 ): Promise<IllegalActionException> => {
   const contents: IllegalActionException = {
     name: "IllegalActionException",
-    __type: "IllegalActionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2393,7 +2373,6 @@ const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
 ): Promise<InternalServiceErrorException> => {
   const contents: InternalServiceErrorException = {
     name: "InternalServiceErrorException",
-    __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output)
   };
@@ -2406,7 +2385,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2424,7 +2402,6 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2442,7 +2419,6 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
-    __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2460,7 +2436,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2478,7 +2453,6 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
 ): Promise<ResourceNotReadyException> => {
   const contents: ResourceNotReadyException = {
     name: "ResourceNotReadyException",
-    __type: "ResourceNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2496,7 +2470,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };

@@ -215,7 +215,6 @@ async function deserializeAws_restJson1_1SearchCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -276,7 +275,6 @@ async function deserializeAws_restJson1_1SuggestCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -345,7 +343,6 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -359,7 +356,6 @@ const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
 ): Promise<DocumentServiceException> => {
   const contents: DocumentServiceException = {
     name: "DocumentServiceException",
-    __type: "DocumentServiceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined,
@@ -381,7 +377,6 @@ const deserializeAws_restJson1_1SearchExceptionResponse = async (
 ): Promise<SearchException> => {
   const contents: SearchException = {
     name: "SearchException",
-    __type: "SearchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

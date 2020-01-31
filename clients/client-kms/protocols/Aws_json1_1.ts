@@ -1318,7 +1318,6 @@ async function deserializeAws_json1_1CancelKeyDeletionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1403,7 +1402,6 @@ async function deserializeAws_json1_1ConnectCustomKeyStoreCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1494,7 +1492,6 @@ async function deserializeAws_json1_1CreateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1593,7 +1590,6 @@ async function deserializeAws_json1_1CreateCustomKeyStoreCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1696,7 +1692,6 @@ async function deserializeAws_json1_1CreateGrantCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1813,7 +1808,6 @@ async function deserializeAws_json1_1CreateKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1930,7 +1924,6 @@ async function deserializeAws_json1_1DecryptCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2000,7 +1993,6 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2078,7 +2070,6 @@ async function deserializeAws_json1_1DeleteCustomKeyStoreCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2165,7 +2156,6 @@ async function deserializeAws_json1_1DeleteImportedKeyMaterialCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2232,7 +2222,6 @@ async function deserializeAws_json1_1DescribeCustomKeyStoresCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2307,7 +2296,6 @@ async function deserializeAws_json1_1DescribeKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2384,7 +2372,6 @@ async function deserializeAws_json1_1DisableKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2478,7 +2465,6 @@ async function deserializeAws_json1_1DisableKeyRotationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2552,7 +2538,6 @@ async function deserializeAws_json1_1DisconnectCustomKeyStoreCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2636,7 +2621,6 @@ async function deserializeAws_json1_1EnableKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2727,7 +2711,6 @@ async function deserializeAws_json1_1EnableKeyRotationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2830,7 +2813,6 @@ async function deserializeAws_json1_1EncryptCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2933,7 +2915,6 @@ async function deserializeAws_json1_1GenerateDataKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3039,7 +3020,6 @@ async function deserializeAws_json1_1GenerateDataKeyPairCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3148,7 +3128,6 @@ async function deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3257,7 +3236,6 @@ async function deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3332,7 +3310,6 @@ async function deserializeAws_json1_1GenerateRandomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3414,7 +3391,6 @@ async function deserializeAws_json1_1GetKeyPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3506,7 +3482,6 @@ async function deserializeAws_json1_1GetKeyRotationStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3601,7 +3576,6 @@ async function deserializeAws_json1_1GetParametersForImportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3718,7 +3692,6 @@ async function deserializeAws_json1_1GetPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3835,7 +3808,6 @@ async function deserializeAws_json1_1ImportKeyMaterialCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3917,7 +3889,6 @@ async function deserializeAws_json1_1ListAliasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4006,7 +3977,6 @@ async function deserializeAws_json1_1ListGrantsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4088,7 +4058,6 @@ async function deserializeAws_json1_1ListKeyPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4156,7 +4125,6 @@ async function deserializeAws_json1_1ListKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4231,7 +4199,6 @@ async function deserializeAws_json1_1ListResourceTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4316,7 +4283,6 @@ async function deserializeAws_json1_1ListRetirableGrantsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4414,7 +4380,6 @@ async function deserializeAws_json1_1PutKeyPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4531,7 +4496,6 @@ async function deserializeAws_json1_1ReEncryptCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4622,7 +4586,6 @@ async function deserializeAws_json1_1RetireGrantCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4706,7 +4669,6 @@ async function deserializeAws_json1_1RevokeGrantCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4791,7 +4753,6 @@ async function deserializeAws_json1_1ScheduleKeyDeletionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4894,7 +4855,6 @@ async function deserializeAws_json1_1SignCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4978,7 +4938,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5055,7 +5014,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5125,7 +5083,6 @@ async function deserializeAws_json1_1UpdateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5231,7 +5188,6 @@ async function deserializeAws_json1_1UpdateCustomKeyStoreCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5311,7 +5267,6 @@ async function deserializeAws_json1_1UpdateKeyDescriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5421,7 +5376,6 @@ async function deserializeAws_json1_1VerifyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5440,7 +5394,6 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   );
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
-    __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5459,7 +5412,6 @@ const deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse = async (
   );
   const contents: CloudHsmClusterInUseException = {
     name: "CloudHsmClusterInUseException",
-    __type: "CloudHsmClusterInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5478,7 +5430,6 @@ const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse
   );
   const contents: CloudHsmClusterInvalidConfigurationException = {
     name: "CloudHsmClusterInvalidConfigurationException",
-    __type: "CloudHsmClusterInvalidConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5497,7 +5448,6 @@ const deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse = async (
   );
   const contents: CloudHsmClusterNotActiveException = {
     name: "CloudHsmClusterNotActiveException",
-    __type: "CloudHsmClusterNotActiveException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5516,7 +5466,6 @@ const deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse = async (
   );
   const contents: CloudHsmClusterNotFoundException = {
     name: "CloudHsmClusterNotFoundException",
-    __type: "CloudHsmClusterNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5535,7 +5484,6 @@ const deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse = async (
   );
   const contents: CloudHsmClusterNotRelatedException = {
     name: "CloudHsmClusterNotRelatedException",
-    __type: "CloudHsmClusterNotRelatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5554,7 +5502,6 @@ const deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse = async (
   );
   const contents: CustomKeyStoreHasCMKsException = {
     name: "CustomKeyStoreHasCMKsException",
-    __type: "CustomKeyStoreHasCMKsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5573,7 +5520,6 @@ const deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse = async 
   );
   const contents: CustomKeyStoreInvalidStateException = {
     name: "CustomKeyStoreInvalidStateException",
-    __type: "CustomKeyStoreInvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5592,7 +5538,6 @@ const deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse = async (
   );
   const contents: CustomKeyStoreNameInUseException = {
     name: "CustomKeyStoreNameInUseException",
-    __type: "CustomKeyStoreNameInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5611,7 +5556,6 @@ const deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse = async (
   );
   const contents: CustomKeyStoreNotFoundException = {
     name: "CustomKeyStoreNotFoundException",
-    __type: "CustomKeyStoreNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5630,7 +5574,6 @@ const deserializeAws_json1_1DependencyTimeoutExceptionResponse = async (
   );
   const contents: DependencyTimeoutException = {
     name: "DependencyTimeoutException",
-    __type: "DependencyTimeoutException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5649,7 +5592,6 @@ const deserializeAws_json1_1DisabledExceptionResponse = async (
   );
   const contents: DisabledException = {
     name: "DisabledException",
-    __type: "DisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5668,7 +5610,6 @@ const deserializeAws_json1_1ExpiredImportTokenExceptionResponse = async (
   );
   const contents: ExpiredImportTokenException = {
     name: "ExpiredImportTokenException",
-    __type: "ExpiredImportTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5687,7 +5628,6 @@ const deserializeAws_json1_1IncorrectKeyExceptionResponse = async (
   );
   const contents: IncorrectKeyException = {
     name: "IncorrectKeyException",
-    __type: "IncorrectKeyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5706,7 +5646,6 @@ const deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse = async (
   );
   const contents: IncorrectKeyMaterialException = {
     name: "IncorrectKeyMaterialException",
-    __type: "IncorrectKeyMaterialException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5725,7 +5664,6 @@ const deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse = async (
   );
   const contents: IncorrectTrustAnchorException = {
     name: "IncorrectTrustAnchorException",
-    __type: "IncorrectTrustAnchorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5744,7 +5682,6 @@ const deserializeAws_json1_1InvalidAliasNameExceptionResponse = async (
   );
   const contents: InvalidAliasNameException = {
     name: "InvalidAliasNameException",
-    __type: "InvalidAliasNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5763,7 +5700,6 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   );
   const contents: InvalidArnException = {
     name: "InvalidArnException",
-    __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5782,7 +5718,6 @@ const deserializeAws_json1_1InvalidCiphertextExceptionResponse = async (
   );
   const contents: InvalidCiphertextException = {
     name: "InvalidCiphertextException",
-    __type: "InvalidCiphertextException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5801,7 +5736,6 @@ const deserializeAws_json1_1InvalidGrantIdExceptionResponse = async (
   );
   const contents: InvalidGrantIdException = {
     name: "InvalidGrantIdException",
-    __type: "InvalidGrantIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5820,7 +5754,6 @@ const deserializeAws_json1_1InvalidGrantTokenExceptionResponse = async (
   );
   const contents: InvalidGrantTokenException = {
     name: "InvalidGrantTokenException",
-    __type: "InvalidGrantTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5839,7 +5772,6 @@ const deserializeAws_json1_1InvalidImportTokenExceptionResponse = async (
   );
   const contents: InvalidImportTokenException = {
     name: "InvalidImportTokenException",
-    __type: "InvalidImportTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5858,7 +5790,6 @@ const deserializeAws_json1_1InvalidKeyUsageExceptionResponse = async (
   );
   const contents: InvalidKeyUsageException = {
     name: "InvalidKeyUsageException",
-    __type: "InvalidKeyUsageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5877,7 +5808,6 @@ const deserializeAws_json1_1InvalidMarkerExceptionResponse = async (
   );
   const contents: InvalidMarkerException = {
     name: "InvalidMarkerException",
-    __type: "InvalidMarkerException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5896,7 +5826,6 @@ const deserializeAws_json1_1KMSInternalExceptionResponse = async (
   );
   const contents: KMSInternalException = {
     name: "KMSInternalException",
-    __type: "KMSInternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5915,7 +5844,6 @@ const deserializeAws_json1_1KMSInvalidSignatureExceptionResponse = async (
   );
   const contents: KMSInvalidSignatureException = {
     name: "KMSInvalidSignatureException",
-    __type: "KMSInvalidSignatureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5934,7 +5862,6 @@ const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
   );
   const contents: KMSInvalidStateException = {
     name: "KMSInvalidStateException",
-    __type: "KMSInvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5953,7 +5880,6 @@ const deserializeAws_json1_1KeyUnavailableExceptionResponse = async (
   );
   const contents: KeyUnavailableException = {
     name: "KeyUnavailableException",
-    __type: "KeyUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5972,7 +5898,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5991,7 +5916,6 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
   );
   const contents: MalformedPolicyDocumentException = {
     name: "MalformedPolicyDocumentException",
-    __type: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6010,7 +5934,6 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   );
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6026,7 +5949,6 @@ const deserializeAws_json1_1TagExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1TagException(body, context);
   const contents: TagException = {
     name: "TagException",
-    __type: "TagException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6045,7 +5967,6 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   );
   const contents: UnsupportedOperationException = {
     name: "UnsupportedOperationException",
-    __type: "UnsupportedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

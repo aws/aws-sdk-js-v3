@@ -47,7 +47,6 @@ export namespace CognitoIdentityProvider {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -255,7 +254,6 @@ export namespace DescribeIdentityPoolInput {
 export interface DeveloperUserAlreadyRegisteredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DeveloperUserAlreadyRegisteredException";
   name: "DeveloperUserAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -282,7 +280,6 @@ export enum ErrorCode {
 export interface ExternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ExternalServiceException";
   name: "ExternalServiceException";
   $fault: "client";
   /**
@@ -726,7 +723,6 @@ export namespace IdentityPoolShortDescription {
 export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalErrorException";
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -748,7 +744,6 @@ export namespace InternalErrorException {
 export interface InvalidIdentityPoolConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidIdentityPoolConfigurationException";
   name: "InvalidIdentityPoolConfigurationException";
   $fault: "client";
   /**
@@ -770,7 +765,6 @@ export namespace InvalidIdentityPoolConfigurationException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -791,7 +785,6 @@ export namespace InvalidParameterException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1122,7 +1115,6 @@ export namespace MergeDeveloperIdentitiesResponse {
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAuthorizedException";
   name: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -1144,7 +1136,6 @@ export namespace NotAuthorizedException {
 export interface ResourceConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceConflictException";
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -1166,7 +1157,6 @@ export namespace ResourceConflictException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1308,7 +1298,6 @@ export namespace TagResourceResponse {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   /**

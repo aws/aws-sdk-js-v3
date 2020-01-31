@@ -289,7 +289,6 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -381,7 +380,6 @@ async function deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -466,7 +464,6 @@ async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -562,7 +559,6 @@ async function deserializeAws_restJson1_1UpdateJobExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -576,7 +572,6 @@ const deserializeAws_restJson1_1CertificateValidationExceptionResponse = async (
 ): Promise<CertificateValidationException> => {
   const contents: CertificateValidationException = {
     name: "CertificateValidationException",
-    __type: "CertificateValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -594,7 +589,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -612,7 +606,6 @@ const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async 
 ): Promise<InvalidStateTransitionException> => {
   const contents: InvalidStateTransitionException = {
     name: "InvalidStateTransitionException",
-    __type: "InvalidStateTransitionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -630,7 +623,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -648,7 +640,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -666,7 +657,6 @@ const deserializeAws_restJson1_1TerminalStateExceptionResponse = async (
 ): Promise<TerminalStateException> => {
   const contents: TerminalStateException = {
     name: "TerminalStateException",
-    __type: "TerminalStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -684,7 +674,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined,

@@ -930,7 +930,6 @@ async function deserializeAws_queryDeleteAlarmsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1009,7 +1008,6 @@ async function deserializeAws_queryDeleteAnomalyDetectorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1078,7 +1076,6 @@ async function deserializeAws_queryDeleteDashboardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1140,7 +1137,6 @@ async function deserializeAws_queryDeleteInsightRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1198,7 +1194,6 @@ async function deserializeAws_queryDescribeAlarmHistoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1253,7 +1248,6 @@ async function deserializeAws_queryDescribeAlarmsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1304,7 +1298,6 @@ async function deserializeAws_queryDescribeAlarmsForMetricCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1376,7 +1369,6 @@ async function deserializeAws_queryDescribeAnomalyDetectorsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1434,7 +1426,6 @@ async function deserializeAws_queryDescribeInsightRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1474,7 +1465,6 @@ async function deserializeAws_queryDisableAlarmActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1536,7 +1526,6 @@ async function deserializeAws_queryDisableInsightRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1576,7 +1565,6 @@ async function deserializeAws_queryEnableAlarmActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1645,7 +1633,6 @@ async function deserializeAws_queryEnableInsightRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1714,7 +1701,6 @@ async function deserializeAws_queryGetDashboardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1786,7 +1772,6 @@ async function deserializeAws_queryGetInsightRuleReportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1841,7 +1826,6 @@ async function deserializeAws_queryGetMetricDataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1917,7 +1901,6 @@ async function deserializeAws_queryGetMetricStatisticsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1968,7 +1951,6 @@ async function deserializeAws_queryGetMetricWidgetImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2030,7 +2012,6 @@ async function deserializeAws_queryListDashboardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2092,7 +2073,6 @@ async function deserializeAws_queryListMetricsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2161,7 +2141,6 @@ async function deserializeAws_queryListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2237,7 +2216,6 @@ async function deserializeAws_queryPutAnomalyDetectorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2299,7 +2277,6 @@ async function deserializeAws_queryPutDashboardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2368,7 +2345,6 @@ async function deserializeAws_queryPutInsightRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2415,7 +2391,6 @@ async function deserializeAws_queryPutMetricAlarmCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2483,7 +2458,6 @@ async function deserializeAws_queryPutMetricDataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2537,7 +2511,6 @@ async function deserializeAws_querySetAlarmStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2613,7 +2586,6 @@ async function deserializeAws_queryTagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2689,7 +2661,6 @@ async function deserializeAws_queryUntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cloudwatch.v2010_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2708,7 +2679,6 @@ const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
   );
   const contents: InvalidParameterCombinationException = {
     name: "InvalidParameterCombinationException",
-    __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2727,7 +2697,6 @@ const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2746,7 +2715,6 @@ const deserializeAws_queryMissingRequiredParameterExceptionResponse = async (
   );
   const contents: MissingRequiredParameterException = {
     name: "MissingRequiredParameterException",
-    __type: "MissingRequiredParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2765,7 +2733,6 @@ const deserializeAws_queryConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2784,7 +2751,6 @@ const deserializeAws_queryDashboardInvalidInputErrorResponse = async (
   );
   const contents: DashboardInvalidInputError = {
     name: "DashboardInvalidInputError",
-    __type: "DashboardInvalidInputError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2803,7 +2769,6 @@ const deserializeAws_queryDashboardNotFoundErrorResponse = async (
   );
   const contents: DashboardNotFoundError = {
     name: "DashboardNotFoundError",
-    __type: "DashboardNotFoundError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2822,7 +2787,6 @@ const deserializeAws_queryInternalServiceFaultResponse = async (
   );
   const contents: InternalServiceFault = {
     name: "InternalServiceFault",
-    __type: "InternalServiceFault",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2841,7 +2805,6 @@ const deserializeAws_queryInvalidFormatFaultResponse = async (
   );
   const contents: InvalidFormatFault = {
     name: "InvalidFormatFault",
-    __type: "InvalidFormatFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2857,7 +2820,6 @@ const deserializeAws_queryInvalidNextTokenResponse = async (
   const deserialized: any = deserializeAws_queryInvalidNextToken(body, context);
   const contents: InvalidNextToken = {
     name: "InvalidNextToken",
-    __type: "InvalidNextToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2876,7 +2838,6 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2895,7 +2856,6 @@ const deserializeAws_queryLimitExceededFaultResponse = async (
   );
   const contents: LimitExceededFault = {
     name: "LimitExceededFault",
-    __type: "LimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2911,7 +2871,6 @@ const deserializeAws_queryResourceNotFoundResponse = async (
   const deserialized: any = deserializeAws_queryResourceNotFound(body, context);
   const contents: ResourceNotFound = {
     name: "ResourceNotFound",
-    __type: "ResourceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2930,7 +2889,6 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
