@@ -1603,7 +1603,6 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1680,7 +1679,6 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1757,7 +1755,6 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1871,7 +1868,6 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1957,7 +1953,6 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2027,7 +2022,6 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2090,7 +2084,6 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2160,7 +2153,6 @@ async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2230,7 +2222,6 @@ async function deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2307,7 +2298,6 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2378,7 +2368,6 @@ async function deserializeAws_restJson1_1GetBlacklistReportsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2478,7 +2467,6 @@ async function deserializeAws_restJson1_1GetConfigurationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2549,7 +2537,6 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2620,7 +2607,6 @@ async function deserializeAws_restJson1_1GetDedicatedIpCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2695,7 +2681,6 @@ async function deserializeAws_restJson1_1GetDedicatedIpsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2787,7 +2772,6 @@ async function deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2880,7 +2864,6 @@ async function deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2951,7 +2934,6 @@ async function deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3029,7 +3011,6 @@ async function deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3123,7 +3104,6 @@ async function deserializeAws_restJson1_1GetEmailIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3191,7 +3171,6 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3259,7 +3238,6 @@ async function deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3334,7 +3312,6 @@ async function deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3409,7 +3386,6 @@ async function deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3477,7 +3453,6 @@ async function deserializeAws_restJson1_1ListEmailIdentitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3545,7 +3520,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3601,7 +3575,6 @@ async function deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3657,7 +3630,6 @@ async function deserializeAws_restJson1_1PutAccountSendingAttributesCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3720,7 +3692,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3783,7 +3754,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3846,7 +3816,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetSendingOptionsComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3909,7 +3878,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3972,7 +3940,6 @@ async function deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4035,7 +4002,6 @@ async function deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4112,7 +4078,6 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4175,7 +4140,6 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4238,7 +4202,6 @@ async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4301,7 +4264,6 @@ async function deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4401,7 +4363,6 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4468,7 +4429,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4535,7 +4495,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4598,7 +4557,6 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4612,7 +4570,6 @@ const deserializeAws_restJson1_1AccountSuspendedExceptionResponse = async (
 ): Promise<AccountSuspendedException> => {
   const contents: AccountSuspendedException = {
     name: "AccountSuspendedException",
-    __type: "AccountSuspendedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4630,7 +4587,6 @@ const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
 ): Promise<AlreadyExistsException> => {
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
-    __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4648,7 +4604,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4666,7 +4621,6 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4684,7 +4638,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4702,7 +4655,6 @@ const deserializeAws_restJson1_1MailFromDomainNotVerifiedExceptionResponse = asy
 ): Promise<MailFromDomainNotVerifiedException> => {
   const contents: MailFromDomainNotVerifiedException = {
     name: "MailFromDomainNotVerifiedException",
-    __type: "MailFromDomainNotVerifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4720,7 +4672,6 @@ const deserializeAws_restJson1_1MessageRejectedResponse = async (
 ): Promise<MessageRejected> => {
   const contents: MessageRejected = {
     name: "MessageRejected",
-    __type: "MessageRejected",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4738,7 +4689,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4756,7 +4706,6 @@ const deserializeAws_restJson1_1SendingPausedExceptionResponse = async (
 ): Promise<SendingPausedException> => {
   const contents: SendingPausedException = {
     name: "SendingPausedException",
-    __type: "SendingPausedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -4774,7 +4723,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

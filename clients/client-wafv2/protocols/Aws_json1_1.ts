@@ -1100,7 +1100,6 @@ async function deserializeAws_json1_1AssociateWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1189,7 +1188,6 @@ async function deserializeAws_json1_1CheckCapacityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1285,7 +1283,6 @@ async function deserializeAws_json1_1CreateIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1384,7 +1381,6 @@ async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1487,7 +1483,6 @@ async function deserializeAws_json1_1CreateRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1604,7 +1599,6 @@ async function deserializeAws_json1_1CreateWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1693,7 +1687,6 @@ async function deserializeAws_json1_1DeleteIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1767,7 +1760,6 @@ async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1859,7 +1851,6 @@ async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1948,7 +1939,6 @@ async function deserializeAws_json1_1DeleteRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2044,7 +2034,6 @@ async function deserializeAws_json1_1DeleteWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2125,7 +2114,6 @@ async function deserializeAws_json1_1DescribeManagedRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2196,7 +2184,6 @@ async function deserializeAws_json1_1DisassociateWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2264,7 +2251,6 @@ async function deserializeAws_json1_1GetIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2331,7 +2317,6 @@ async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2405,7 +2390,6 @@ async function deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2476,7 +2460,6 @@ async function deserializeAws_json1_1GetRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2544,7 +2527,6 @@ async function deserializeAws_json1_1GetRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2615,7 +2597,6 @@ async function deserializeAws_json1_1GetSampledRequestsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2683,7 +2664,6 @@ async function deserializeAws_json1_1GetWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2761,7 +2741,6 @@ async function deserializeAws_json1_1GetWebACLForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2828,7 +2807,6 @@ async function deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2889,7 +2867,6 @@ async function deserializeAws_json1_1ListIPSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2956,7 +2933,6 @@ async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3020,7 +2996,6 @@ async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3094,7 +3069,6 @@ async function deserializeAws_json1_1ListResourcesForWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3155,7 +3129,6 @@ async function deserializeAws_json1_1ListRuleGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3240,7 +3213,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3301,7 +3273,6 @@ async function deserializeAws_json1_1ListWebACLsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3389,7 +3360,6 @@ async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3478,7 +3448,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3560,7 +3529,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3649,7 +3617,6 @@ async function deserializeAws_json1_1UpdateIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3741,7 +3708,6 @@ async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3837,7 +3803,6 @@ async function deserializeAws_json1_1UpdateRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3940,7 +3905,6 @@ async function deserializeAws_json1_1UpdateWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3959,7 +3923,6 @@ const deserializeAws_json1_1WAFAssociatedItemExceptionResponse = async (
   );
   const contents: WAFAssociatedItemException = {
     name: "WAFAssociatedItemException",
-    __type: "WAFAssociatedItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3978,7 +3941,6 @@ const deserializeAws_json1_1WAFDuplicateItemExceptionResponse = async (
   );
   const contents: WAFDuplicateItemException = {
     name: "WAFDuplicateItemException",
-    __type: "WAFDuplicateItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3997,7 +3959,6 @@ const deserializeAws_json1_1WAFInternalErrorExceptionResponse = async (
   );
   const contents: WAFInternalErrorException = {
     name: "WAFInternalErrorException",
-    __type: "WAFInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4016,7 +3977,6 @@ const deserializeAws_json1_1WAFInvalidParameterExceptionResponse = async (
   );
   const contents: WAFInvalidParameterException = {
     name: "WAFInvalidParameterException",
-    __type: "WAFInvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4035,7 +3995,6 @@ const deserializeAws_json1_1WAFInvalidResourceExceptionResponse = async (
   );
   const contents: WAFInvalidResourceException = {
     name: "WAFInvalidResourceException",
-    __type: "WAFInvalidResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4054,7 +4013,6 @@ const deserializeAws_json1_1WAFLimitsExceededExceptionResponse = async (
   );
   const contents: WAFLimitsExceededException = {
     name: "WAFLimitsExceededException",
-    __type: "WAFLimitsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4073,7 +4031,6 @@ const deserializeAws_json1_1WAFNonexistentItemExceptionResponse = async (
   );
   const contents: WAFNonexistentItemException = {
     name: "WAFNonexistentItemException",
-    __type: "WAFNonexistentItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4092,7 +4049,6 @@ const deserializeAws_json1_1WAFOptimisticLockExceptionResponse = async (
   );
   const contents: WAFOptimisticLockException = {
     name: "WAFOptimisticLockException",
-    __type: "WAFOptimisticLockException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4111,7 +4067,6 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse = async (
   );
   const contents: WAFServiceLinkedRoleErrorException = {
     name: "WAFServiceLinkedRoleErrorException",
-    __type: "WAFServiceLinkedRoleErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4130,7 +4085,6 @@ const deserializeAws_json1_1WAFTagOperationExceptionResponse = async (
   );
   const contents: WAFTagOperationException = {
     name: "WAFTagOperationException",
-    __type: "WAFTagOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4149,7 +4103,6 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse = asyn
   );
   const contents: WAFTagOperationInternalErrorException = {
     name: "WAFTagOperationInternalErrorException",
-    __type: "WAFTagOperationInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4168,7 +4121,6 @@ const deserializeAws_json1_1WAFUnavailableEntityExceptionResponse = async (
   );
   const contents: WAFUnavailableEntityException = {
     name: "WAFUnavailableEntityException",
-    __type: "WAFUnavailableEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

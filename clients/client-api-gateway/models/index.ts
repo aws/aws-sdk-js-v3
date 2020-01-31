@@ -7709,7 +7709,6 @@ export namespace PatchOperation {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -7727,7 +7726,6 @@ export namespace BadRequestException {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   message?: string;
@@ -7745,7 +7743,6 @@ export namespace ConflictException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -7764,7 +7761,6 @@ export namespace LimitExceededException {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -7782,7 +7778,6 @@ export namespace NotFoundException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -7801,7 +7796,6 @@ export namespace ServiceUnavailableException {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -7820,7 +7814,6 @@ export namespace TooManyRequestsException {
 export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnauthorizedException";
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;

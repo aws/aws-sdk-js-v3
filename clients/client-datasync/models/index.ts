@@ -1286,7 +1286,6 @@ export enum Gid {
 export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalException";
   name: "InternalException";
   $fault: "server";
   errorCode?: string;
@@ -1305,7 +1304,6 @@ export namespace InternalException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   errorCode?: string;

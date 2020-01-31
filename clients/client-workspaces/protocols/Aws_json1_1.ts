@@ -1246,7 +1246,6 @@ async function deserializeAws_json1_1AssociateIpGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1328,7 +1327,6 @@ async function deserializeAws_json1_1AuthorizeIpRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1427,7 +1425,6 @@ async function deserializeAws_json1_1CopyWorkspaceImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1509,7 +1506,6 @@ async function deserializeAws_json1_1CreateIpGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1577,7 +1573,6 @@ async function deserializeAws_json1_1CreateTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1638,7 +1633,6 @@ async function deserializeAws_json1_1CreateWorkspacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1713,7 +1707,6 @@ async function deserializeAws_json1_1DeleteIpGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1774,7 +1767,6 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1845,7 +1837,6 @@ async function deserializeAws_json1_1DeleteWorkspaceImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1933,7 +1924,6 @@ async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1987,7 +1977,6 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2047,7 +2036,6 @@ async function deserializeAws_json1_1DescribeAccountModificationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2121,7 +2109,6 @@ async function deserializeAws_json1_1DescribeClientPropertiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2182,7 +2169,6 @@ async function deserializeAws_json1_1DescribeIpGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2236,7 +2222,6 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2296,7 +2281,6 @@ async function deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2356,7 +2340,6 @@ async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2413,7 +2396,6 @@ async function deserializeAws_json1_1DescribeWorkspaceImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2487,7 +2469,6 @@ async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2551,7 +2532,6 @@ async function deserializeAws_json1_1DescribeWorkspacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2611,7 +2591,6 @@ async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2689,7 +2668,6 @@ async function deserializeAws_json1_1DisassociateIpGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2781,7 +2759,6 @@ async function deserializeAws_json1_1ImportWorkspaceImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2848,7 +2825,6 @@ async function deserializeAws_json1_1ListAvailableManagementCidrRangesCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2937,7 +2913,6 @@ async function deserializeAws_json1_1MigrateWorkspaceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3019,7 +2994,6 @@ async function deserializeAws_json1_1ModifyAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3090,7 +3064,6 @@ async function deserializeAws_json1_1ModifyClientPropertiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3164,7 +3137,6 @@ async function deserializeAws_json1_1ModifySelfservicePermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3231,7 +3203,6 @@ async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3305,7 +3276,6 @@ async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3407,7 +3377,6 @@ async function deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3478,7 +3447,6 @@ async function deserializeAws_json1_1ModifyWorkspaceStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3525,7 +3493,6 @@ async function deserializeAws_json1_1RebootWorkspacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3572,7 +3539,6 @@ async function deserializeAws_json1_1RebuildWorkspacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3681,7 +3647,6 @@ async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3749,7 +3714,6 @@ async function deserializeAws_json1_1RestoreWorkspaceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3824,7 +3788,6 @@ async function deserializeAws_json1_1RevokeIpRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3871,7 +3834,6 @@ async function deserializeAws_json1_1StartWorkspacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3918,7 +3880,6 @@ async function deserializeAws_json1_1StopWorkspacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3968,7 +3929,6 @@ async function deserializeAws_json1_1TerminateWorkspacesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4053,7 +4013,6 @@ async function deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4072,7 +4031,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4091,7 +4049,6 @@ const deserializeAws_json1_1InvalidParameterValuesExceptionResponse = async (
   );
   const contents: InvalidParameterValuesException = {
     name: "InvalidParameterValuesException",
-    __type: "InvalidParameterValuesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4110,7 +4067,6 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
   );
   const contents: InvalidResourceStateException = {
     name: "InvalidResourceStateException",
-    __type: "InvalidResourceStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4129,7 +4085,6 @@ const deserializeAws_json1_1OperationInProgressExceptionResponse = async (
   );
   const contents: OperationInProgressException = {
     name: "OperationInProgressException",
-    __type: "OperationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4148,7 +4103,6 @@ const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
   );
   const contents: OperationNotSupportedException = {
     name: "OperationNotSupportedException",
-    __type: "OperationNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4167,7 +4121,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   );
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4186,7 +4139,6 @@ const deserializeAws_json1_1ResourceAssociatedExceptionResponse = async (
   );
   const contents: ResourceAssociatedException = {
     name: "ResourceAssociatedException",
-    __type: "ResourceAssociatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4205,7 +4157,6 @@ const deserializeAws_json1_1ResourceCreationFailedExceptionResponse = async (
   );
   const contents: ResourceCreationFailedException = {
     name: "ResourceCreationFailedException",
-    __type: "ResourceCreationFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4224,7 +4175,6 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
   );
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
-    __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4243,7 +4193,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4262,7 +4211,6 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
   );
   const contents: ResourceUnavailableException = {
     name: "ResourceUnavailableException",
-    __type: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4281,7 +4229,6 @@ const deserializeAws_json1_1UnsupportedNetworkConfigurationExceptionResponse = a
   );
   const contents: UnsupportedNetworkConfigurationException = {
     name: "UnsupportedNetworkConfigurationException",
-    __type: "UnsupportedNetworkConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4300,7 +4247,6 @@ const deserializeAws_json1_1UnsupportedWorkspaceConfigurationExceptionResponse =
   );
   const contents: UnsupportedWorkspaceConfigurationException = {
     name: "UnsupportedWorkspaceConfigurationException",
-    __type: "UnsupportedWorkspaceConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4319,7 +4265,6 @@ const deserializeAws_json1_1WorkspacesDefaultRoleNotFoundExceptionResponse = asy
   );
   const contents: WorkspacesDefaultRoleNotFoundException = {
     name: "WorkspacesDefaultRoleNotFoundException",
-    __type: "WorkspacesDefaultRoleNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   error?: string;
@@ -26,7 +25,6 @@ export namespace AccessDeniedException {
 export interface AuthorizationPendingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AuthorizationPendingException";
   name: "AuthorizationPendingException";
   $fault: "client";
   error?: string;
@@ -134,7 +132,6 @@ export namespace CreateTokenResponse {
 export interface ExpiredTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ExpiredTokenException";
   name: "ExpiredTokenException";
   $fault: "client";
   error?: string;
@@ -153,7 +150,6 @@ export namespace ExpiredTokenException {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   error?: string;
@@ -174,7 +170,6 @@ export namespace InternalServerException {
 export interface InvalidClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidClientException";
   name: "InvalidClientException";
   $fault: "client";
   error?: string;
@@ -193,7 +188,6 @@ export namespace InvalidClientException {
 export interface InvalidClientMetadataException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidClientMetadataException";
   name: "InvalidClientMetadataException";
   $fault: "client";
   error?: string;
@@ -212,7 +206,6 @@ export namespace InvalidClientMetadataException {
 export interface InvalidGrantException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidGrantException";
   name: "InvalidGrantException";
   $fault: "client";
   error?: string;
@@ -232,7 +225,6 @@ export namespace InvalidGrantException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   error?: string;
@@ -251,7 +243,6 @@ export namespace InvalidRequestException {
 export interface InvalidScopeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidScopeException";
   name: "InvalidScopeException";
   $fault: "client";
   error?: string;
@@ -336,7 +327,6 @@ export namespace RegisterClientResponse {
 export interface SlowDownException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SlowDownException";
   name: "SlowDownException";
   $fault: "client";
   error?: string;
@@ -425,7 +415,6 @@ export namespace StartDeviceAuthorizationResponse {
 export interface UnauthorizedClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnauthorizedClientException";
   name: "UnauthorizedClientException";
   $fault: "client";
   error?: string;
@@ -444,7 +433,6 @@ export namespace UnauthorizedClientException {
 export interface UnsupportedGrantTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedGrantTypeException";
   name: "UnsupportedGrantTypeException";
   $fault: "client";
   error?: string;

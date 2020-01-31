@@ -1438,7 +1438,6 @@ export enum DefinitionLanguage {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -1456,7 +1455,6 @@ export namespace InternalFailureException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -1474,7 +1472,6 @@ export namespace InvalidRequestException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1492,7 +1489,6 @@ export namespace LimitExceededException {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1510,7 +1506,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1528,7 +1523,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1546,7 +1540,6 @@ export namespace ResourceNotFoundException {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   message?: string;

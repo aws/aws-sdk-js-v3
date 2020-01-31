@@ -288,7 +288,6 @@ export namespace AliasRoutingConfiguration {
 export interface CodeStorageExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CodeStorageExceededException";
   name: "CodeStorageExceededException";
   $fault: "client";
   /**
@@ -878,7 +877,6 @@ export namespace DestinationConfig {
 export interface EC2AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EC2AccessDeniedException";
   name: "EC2AccessDeniedException";
   $fault: "server";
   Message?: string;
@@ -898,7 +896,6 @@ export namespace EC2AccessDeniedException {
 export interface EC2ThrottledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EC2ThrottledException";
   name: "EC2ThrottledException";
   $fault: "server";
   Message?: string;
@@ -917,7 +914,6 @@ export namespace EC2ThrottledException {
 export interface EC2UnexpectedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EC2UnexpectedException";
   name: "EC2UnexpectedException";
   $fault: "server";
   EC2ErrorCode?: string;
@@ -938,7 +934,6 @@ export namespace EC2UnexpectedException {
 export interface ENILimitReachedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ENILimitReachedException";
   name: "ENILimitReachedException";
   $fault: "server";
   Message?: string;
@@ -1900,7 +1895,6 @@ export namespace GetProvisionedConcurrencyConfigResponse {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -1926,7 +1920,6 @@ export namespace InvalidParameterValueException {
 export interface InvalidRequestContentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestContentException";
   name: "InvalidRequestContentException";
   $fault: "client";
   /**
@@ -1952,7 +1945,6 @@ export namespace InvalidRequestContentException {
 export interface InvalidRuntimeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRuntimeException";
   name: "InvalidRuntimeException";
   $fault: "server";
   Message?: string;
@@ -1971,7 +1963,6 @@ export namespace InvalidRuntimeException {
 export interface InvalidSecurityGroupIDException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSecurityGroupIDException";
   name: "InvalidSecurityGroupIDException";
   $fault: "server";
   Message?: string;
@@ -1990,7 +1981,6 @@ export namespace InvalidSecurityGroupIDException {
 export interface InvalidSubnetIDException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSubnetIDException";
   name: "InvalidSubnetIDException";
   $fault: "server";
   Message?: string;
@@ -2009,7 +1999,6 @@ export namespace InvalidSubnetIDException {
 export interface InvalidZipFileException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidZipFileException";
   name: "InvalidZipFileException";
   $fault: "server";
   Message?: string;
@@ -2194,7 +2183,6 @@ export namespace InvokeAsyncResponse {
 export interface KMSAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSAccessDeniedException";
   name: "KMSAccessDeniedException";
   $fault: "server";
   Message?: string;
@@ -2214,7 +2202,6 @@ export namespace KMSAccessDeniedException {
 export interface KMSDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSDisabledException";
   name: "KMSDisabledException";
   $fault: "server";
   Message?: string;
@@ -2234,7 +2221,6 @@ export namespace KMSDisabledException {
 export interface KMSInvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSInvalidStateException";
   name: "KMSInvalidStateException";
   $fault: "server";
   Message?: string;
@@ -2254,7 +2240,6 @@ export namespace KMSInvalidStateException {
 export interface KMSNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSNotFoundException";
   name: "KMSNotFoundException";
   $fault: "server";
   Message?: string;
@@ -2998,7 +2983,6 @@ export namespace OnSuccess {
 export interface PolicyLengthExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PolicyLengthExceededException";
   name: "PolicyLengthExceededException";
   $fault: "client";
   Type?: string;
@@ -3019,7 +3003,6 @@ export namespace PolicyLengthExceededException {
 export interface PreconditionFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PreconditionFailedException";
   name: "PreconditionFailedException";
   $fault: "client";
   /**
@@ -3092,7 +3075,6 @@ export namespace ProvisionedConcurrencyConfigListItem {
 export interface ProvisionedConcurrencyConfigNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ProvisionedConcurrencyConfigNotFoundException";
   name: "ProvisionedConcurrencyConfigNotFoundException";
   $fault: "client";
   Type?: string;
@@ -3542,7 +3524,6 @@ export namespace RemovePermissionRequest {
 export interface RequestTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RequestTooLargeException";
   name: "RequestTooLargeException";
   $fault: "client";
   Type?: string;
@@ -3561,7 +3542,6 @@ export namespace RequestTooLargeException {
 export interface ResourceConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceConflictException";
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -3588,7 +3568,6 @@ export namespace ResourceConflictException {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -3607,7 +3586,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3627,7 +3605,6 @@ export namespace ResourceNotFoundException {
 export interface ResourceNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotReadyException";
   name: "ResourceNotReadyException";
   $fault: "server";
   /**
@@ -3675,7 +3652,6 @@ export enum Runtime {
 export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceException";
   name: "ServiceException";
   $fault: "server";
   Message?: string;
@@ -3715,7 +3691,6 @@ export enum StateReasonCode {
 export interface SubnetIPAddressLimitReachedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubnetIPAddressLimitReachedException";
   name: "SubnetIPAddressLimitReachedException";
   $fault: "server";
   Message?: string;
@@ -3761,7 +3736,6 @@ export enum ThrottleReason {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   Reason?: ThrottleReason | string;
@@ -3825,7 +3799,6 @@ export enum TracingMode {
 export interface UnsupportedMediaTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedMediaTypeException";
   name: "UnsupportedMediaTypeException";
   $fault: "client";
   Type?: string;

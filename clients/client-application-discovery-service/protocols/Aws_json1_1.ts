@@ -806,7 +806,6 @@ async function deserializeAws_json1_1AssociateConfigurationItemsToApplicationCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -891,7 +890,6 @@ async function deserializeAws_json1_1BatchDeleteImportDataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -973,7 +971,6 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1062,7 +1059,6 @@ async function deserializeAws_json1_1CreateTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1147,7 +1143,6 @@ async function deserializeAws_json1_1DeleteApplicationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1236,7 +1231,6 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1318,7 +1312,6 @@ async function deserializeAws_json1_1DescribeAgentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1406,7 +1399,6 @@ async function deserializeAws_json1_1DescribeConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1508,7 +1500,6 @@ async function deserializeAws_json1_1DescribeContinuousExportsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1603,7 +1594,6 @@ async function deserializeAws_json1_1DescribeExportConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1688,7 +1678,6 @@ async function deserializeAws_json1_1DescribeExportTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1773,7 +1762,6 @@ async function deserializeAws_json1_1DescribeImportTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1862,7 +1850,6 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1950,7 +1937,6 @@ async function deserializeAws_json1_1DisassociateConfigurationItemsFromApplicati
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2042,7 +2028,6 @@ async function deserializeAws_json1_1ExportConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2127,7 +2112,6 @@ async function deserializeAws_json1_1GetDiscoverySummaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2219,7 +2203,6 @@ async function deserializeAws_json1_1ListConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2304,7 +2287,6 @@ async function deserializeAws_json1_1ListServerNeighborsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2410,7 +2392,6 @@ async function deserializeAws_json1_1StartContinuousExportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2498,7 +2479,6 @@ async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2587,7 +2567,6 @@ async function deserializeAws_json1_1StartExportTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2676,7 +2655,6 @@ async function deserializeAws_json1_1StartImportTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2782,7 +2760,6 @@ async function deserializeAws_json1_1StopContinuousExportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2870,7 +2847,6 @@ async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2952,7 +2928,6 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2971,7 +2946,6 @@ const deserializeAws_json1_1AuthorizationErrorExceptionResponse = async (
   );
   const contents: AuthorizationErrorException = {
     name: "AuthorizationErrorException",
-    __type: "AuthorizationErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2990,7 +2964,6 @@ const deserializeAws_json1_1ConflictErrorExceptionResponse = async (
   );
   const contents: ConflictErrorException = {
     name: "ConflictErrorException",
-    __type: "ConflictErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3009,7 +2982,6 @@ const deserializeAws_json1_1HomeRegionNotSetExceptionResponse = async (
   );
   const contents: HomeRegionNotSetException = {
     name: "HomeRegionNotSetException",
-    __type: "HomeRegionNotSetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3028,7 +3000,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3047,7 +3018,6 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3066,7 +3036,6 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   );
   const contents: OperationNotPermittedException = {
     name: "OperationNotPermittedException",
-    __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3085,7 +3054,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3104,7 +3072,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3123,7 +3090,6 @@ const deserializeAws_json1_1ServerInternalErrorExceptionResponse = async (
   );
   const contents: ServerInternalErrorException = {
     name: "ServerInternalErrorException",
-    __type: "ServerInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

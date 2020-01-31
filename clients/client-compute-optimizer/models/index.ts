@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -672,7 +671,6 @@ export namespace InstanceRecommendationOption {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   message?: string;
@@ -690,7 +688,6 @@ export namespace InternalServerException {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -719,7 +716,6 @@ export enum MetricStatistic {
 export interface MissingAuthenticationToken
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MissingAuthenticationToken";
   name: "MissingAuthenticationToken";
   $fault: "client";
   message?: string;
@@ -737,7 +733,6 @@ export namespace MissingAuthenticationToken {
 export interface OptInRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OptInRequiredException";
   name: "OptInRequiredException";
   $fault: "client";
   message?: string;
@@ -873,7 +868,6 @@ export namespace RecommendedOptionProjectedMetric {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -891,7 +885,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -938,7 +931,6 @@ export namespace Summary {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;

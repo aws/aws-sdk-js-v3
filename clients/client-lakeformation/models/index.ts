@@ -818,7 +818,6 @@ export namespace UpdateResourceResponse {
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -839,7 +838,6 @@ export namespace AlreadyExistsException {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -860,7 +858,6 @@ export namespace ConcurrentModificationException {
 export interface EntityNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EntityNotFoundException";
   name: "EntityNotFoundException";
   $fault: "client";
   /**
@@ -903,7 +900,6 @@ export namespace ErrorDetail {
 export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceException";
   name: "InternalServiceException";
   $fault: "server";
   /**
@@ -924,7 +920,6 @@ export namespace InternalServiceException {
 export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputException";
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -945,7 +940,6 @@ export namespace InvalidInputException {
 export interface OperationTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationTimeoutException";
   name: "OperationTimeoutException";
   $fault: "client";
   /**

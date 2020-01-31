@@ -1675,7 +1675,6 @@ async function deserializeAws_json1_1AcceptSharedDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1771,7 +1770,6 @@ async function deserializeAws_json1_1AddIpRoutesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1853,7 +1851,6 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1924,7 +1921,6 @@ async function deserializeAws_json1_1CancelSchemaExtensionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1999,7 +1995,6 @@ async function deserializeAws_json1_1ConnectDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2081,7 +2076,6 @@ async function deserializeAws_json1_1CreateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2184,7 +2178,6 @@ async function deserializeAws_json1_1CreateComputerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2286,7 +2279,6 @@ async function deserializeAws_json1_1CreateConditionalForwarderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2361,7 +2353,6 @@ async function deserializeAws_json1_1CreateDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2453,7 +2444,6 @@ async function deserializeAws_json1_1CreateLogSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2535,7 +2525,6 @@ async function deserializeAws_json1_1CreateMicrosoftADCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2617,7 +2606,6 @@ async function deserializeAws_json1_1CreateSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2706,7 +2694,6 @@ async function deserializeAws_json1_1CreateTrustCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2801,7 +2788,6 @@ async function deserializeAws_json1_1DeleteConditionalForwarderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2869,7 +2855,6 @@ async function deserializeAws_json1_1DeleteDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2947,7 +2932,6 @@ async function deserializeAws_json1_1DeleteLogSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3022,7 +3006,6 @@ async function deserializeAws_json1_1DeleteSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3104,7 +3087,6 @@ async function deserializeAws_json1_1DeleteTrustCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3210,7 +3192,6 @@ async function deserializeAws_json1_1DeregisterCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3288,7 +3269,6 @@ async function deserializeAws_json1_1DeregisterEventTopicCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3380,7 +3360,6 @@ async function deserializeAws_json1_1DescribeCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3475,7 +3454,6 @@ async function deserializeAws_json1_1DescribeConditionalForwardersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3560,7 +3538,6 @@ async function deserializeAws_json1_1DescribeDirectoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3655,7 +3632,6 @@ async function deserializeAws_json1_1DescribeDomainControllersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3733,7 +3709,6 @@ async function deserializeAws_json1_1DescribeEventTopicsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3825,7 +3800,6 @@ async function deserializeAws_json1_1DescribeLDAPSSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3920,7 +3894,6 @@ async function deserializeAws_json1_1DescribeSharedDirectoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4002,7 +3975,6 @@ async function deserializeAws_json1_1DescribeSnapshotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4091,7 +4063,6 @@ async function deserializeAws_json1_1DescribeTrustsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4187,7 +4158,6 @@ async function deserializeAws_json1_1DisableLDAPSCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4255,7 +4225,6 @@ async function deserializeAws_json1_1DisableRadiusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4337,7 +4306,6 @@ async function deserializeAws_json1_1DisableSsoCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4440,7 +4408,6 @@ async function deserializeAws_json1_1EnableLDAPSCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4522,7 +4489,6 @@ async function deserializeAws_json1_1EnableRadiusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4604,7 +4570,6 @@ async function deserializeAws_json1_1EnableSsoCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4675,7 +4640,6 @@ async function deserializeAws_json1_1GetDirectoryLimitsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4743,7 +4707,6 @@ async function deserializeAws_json1_1GetSnapshotLimitsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4832,7 +4795,6 @@ async function deserializeAws_json1_1ListCertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4914,7 +4876,6 @@ async function deserializeAws_json1_1ListIpRoutesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4992,7 +4953,6 @@ async function deserializeAws_json1_1ListLogSubscriptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5070,7 +5030,6 @@ async function deserializeAws_json1_1ListSchemaExtensionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5155,7 +5114,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5268,7 +5226,6 @@ async function deserializeAws_json1_1RegisterCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5346,7 +5303,6 @@ async function deserializeAws_json1_1RegisterEventTopicCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5431,7 +5387,6 @@ async function deserializeAws_json1_1RejectSharedDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5513,7 +5468,6 @@ async function deserializeAws_json1_1RemoveIpRoutesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5591,7 +5545,6 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5687,7 +5640,6 @@ async function deserializeAws_json1_1ResetUserPasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5765,7 +5717,6 @@ async function deserializeAws_json1_1RestoreFromSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5882,7 +5833,6 @@ async function deserializeAws_json1_1ShareDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5974,7 +5924,6 @@ async function deserializeAws_json1_1StartSchemaExtensionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6056,7 +6005,6 @@ async function deserializeAws_json1_1UnshareDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6151,7 +6099,6 @@ async function deserializeAws_json1_1UpdateConditionalForwarderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6253,7 +6200,6 @@ async function deserializeAws_json1_1UpdateNumberOfDomainControllersCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6328,7 +6274,6 @@ async function deserializeAws_json1_1UpdateRadiusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6403,7 +6348,6 @@ async function deserializeAws_json1_1UpdateTrustCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6485,7 +6429,6 @@ async function deserializeAws_json1_1VerifyTrustCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6504,7 +6447,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6523,7 +6465,6 @@ const deserializeAws_json1_1AuthenticationFailedExceptionResponse = async (
   );
   const contents: AuthenticationFailedException = {
     name: "AuthenticationFailedException",
-    __type: "AuthenticationFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6542,7 +6483,6 @@ const deserializeAws_json1_1CertificateAlreadyExistsExceptionResponse = async (
   );
   const contents: CertificateAlreadyExistsException = {
     name: "CertificateAlreadyExistsException",
-    __type: "CertificateAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6561,7 +6501,6 @@ const deserializeAws_json1_1CertificateDoesNotExistExceptionResponse = async (
   );
   const contents: CertificateDoesNotExistException = {
     name: "CertificateDoesNotExistException",
-    __type: "CertificateDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6580,7 +6519,6 @@ const deserializeAws_json1_1CertificateInUseExceptionResponse = async (
   );
   const contents: CertificateInUseException = {
     name: "CertificateInUseException",
-    __type: "CertificateInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6599,7 +6537,6 @@ const deserializeAws_json1_1CertificateLimitExceededExceptionResponse = async (
   );
   const contents: CertificateLimitExceededException = {
     name: "CertificateLimitExceededException",
-    __type: "CertificateLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6618,7 +6555,6 @@ const deserializeAws_json1_1ClientExceptionResponse = async (
   );
   const contents: ClientException = {
     name: "ClientException",
-    __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6637,7 +6573,6 @@ const deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse = async (
   );
   const contents: DirectoryAlreadySharedException = {
     name: "DirectoryAlreadySharedException",
-    __type: "DirectoryAlreadySharedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6656,7 +6591,6 @@ const deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse = async (
   );
   const contents: DirectoryDoesNotExistException = {
     name: "DirectoryDoesNotExistException",
-    __type: "DirectoryDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6675,7 +6609,6 @@ const deserializeAws_json1_1DirectoryLimitExceededExceptionResponse = async (
   );
   const contents: DirectoryLimitExceededException = {
     name: "DirectoryLimitExceededException",
-    __type: "DirectoryLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6694,7 +6627,6 @@ const deserializeAws_json1_1DirectoryNotSharedExceptionResponse = async (
   );
   const contents: DirectoryNotSharedException = {
     name: "DirectoryNotSharedException",
-    __type: "DirectoryNotSharedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6713,7 +6645,6 @@ const deserializeAws_json1_1DirectoryUnavailableExceptionResponse = async (
   );
   const contents: DirectoryUnavailableException = {
     name: "DirectoryUnavailableException",
-    __type: "DirectoryUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6732,7 +6663,6 @@ const deserializeAws_json1_1DomainControllerLimitExceededExceptionResponse = asy
   );
   const contents: DomainControllerLimitExceededException = {
     name: "DomainControllerLimitExceededException",
-    __type: "DomainControllerLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6751,7 +6681,6 @@ const deserializeAws_json1_1EntityAlreadyExistsExceptionResponse = async (
   );
   const contents: EntityAlreadyExistsException = {
     name: "EntityAlreadyExistsException",
-    __type: "EntityAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6770,7 +6699,6 @@ const deserializeAws_json1_1EntityDoesNotExistExceptionResponse = async (
   );
   const contents: EntityDoesNotExistException = {
     name: "EntityDoesNotExistException",
-    __type: "EntityDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6789,7 +6717,6 @@ const deserializeAws_json1_1InsufficientPermissionsExceptionResponse = async (
   );
   const contents: InsufficientPermissionsException = {
     name: "InsufficientPermissionsException",
-    __type: "InsufficientPermissionsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6808,7 +6735,6 @@ const deserializeAws_json1_1InvalidCertificateExceptionResponse = async (
   );
   const contents: InvalidCertificateException = {
     name: "InvalidCertificateException",
-    __type: "InvalidCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6827,7 +6753,6 @@ const deserializeAws_json1_1InvalidLDAPSStatusExceptionResponse = async (
   );
   const contents: InvalidLDAPSStatusException = {
     name: "InvalidLDAPSStatusException",
-    __type: "InvalidLDAPSStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6846,7 +6771,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6865,7 +6789,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6884,7 +6807,6 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
   );
   const contents: InvalidPasswordException = {
     name: "InvalidPasswordException",
-    __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6903,7 +6825,6 @@ const deserializeAws_json1_1InvalidTargetExceptionResponse = async (
   );
   const contents: InvalidTargetException = {
     name: "InvalidTargetException",
-    __type: "InvalidTargetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6922,7 +6843,6 @@ const deserializeAws_json1_1IpRouteLimitExceededExceptionResponse = async (
   );
   const contents: IpRouteLimitExceededException = {
     name: "IpRouteLimitExceededException",
-    __type: "IpRouteLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6941,7 +6861,6 @@ const deserializeAws_json1_1NoAvailableCertificateExceptionResponse = async (
   );
   const contents: NoAvailableCertificateException = {
     name: "NoAvailableCertificateException",
-    __type: "NoAvailableCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6960,7 +6879,6 @@ const deserializeAws_json1_1OrganizationsExceptionResponse = async (
   );
   const contents: OrganizationsException = {
     name: "OrganizationsException",
-    __type: "OrganizationsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6979,7 +6897,6 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
   );
   const contents: ServiceException = {
     name: "ServiceException",
-    __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6998,7 +6915,6 @@ const deserializeAws_json1_1ShareLimitExceededExceptionResponse = async (
   );
   const contents: ShareLimitExceededException = {
     name: "ShareLimitExceededException",
-    __type: "ShareLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7017,7 +6933,6 @@ const deserializeAws_json1_1SnapshotLimitExceededExceptionResponse = async (
   );
   const contents: SnapshotLimitExceededException = {
     name: "SnapshotLimitExceededException",
-    __type: "SnapshotLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7036,7 +6951,6 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
   );
   const contents: TagLimitExceededException = {
     name: "TagLimitExceededException",
-    __type: "TagLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7055,7 +6969,6 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   );
   const contents: UnsupportedOperationException = {
     name: "UnsupportedOperationException",
-    __type: "UnsupportedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7074,7 +6987,6 @@ const deserializeAws_json1_1UserDoesNotExistExceptionResponse = async (
   );
   const contents: UserDoesNotExistException = {
     name: "UserDoesNotExistException",
-    __type: "UserDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

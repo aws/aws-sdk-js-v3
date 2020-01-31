@@ -654,7 +654,6 @@ export enum EncryptionMethod {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   Message?: string;
@@ -788,7 +787,6 @@ export namespace HlsPackage {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
@@ -996,7 +994,6 @@ export namespace MssPackage {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -1093,7 +1090,6 @@ export enum Profile {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1172,7 +1168,6 @@ export namespace StreamSelection {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1190,7 +1185,6 @@ export namespace TooManyRequestsException {
 export interface UnprocessableEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnprocessableEntityException";
   name: "UnprocessableEntityException";
   $fault: "client";
   Message?: string;

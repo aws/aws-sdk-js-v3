@@ -916,7 +916,6 @@ async function deserializeAws_json1_1ActivateEventSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1005,7 +1004,6 @@ async function deserializeAws_json1_1CreateEventBusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1086,7 +1084,6 @@ async function deserializeAws_json1_1CreatePartnerEventSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1152,7 +1149,6 @@ async function deserializeAws_json1_1DeactivateEventSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1201,7 +1197,6 @@ async function deserializeAws_json1_1DeleteEventBusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1253,7 +1248,6 @@ async function deserializeAws_json1_1DeletePartnerEventSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1323,7 +1317,6 @@ async function deserializeAws_json1_1DeleteRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1384,7 +1377,6 @@ async function deserializeAws_json1_1DescribeEventBusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1448,7 +1440,6 @@ async function deserializeAws_json1_1DescribeEventSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1515,7 +1506,6 @@ async function deserializeAws_json1_1DescribePartnerEventSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1576,7 +1566,6 @@ async function deserializeAws_json1_1DescribeRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1646,7 +1635,6 @@ async function deserializeAws_json1_1DisableRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1716,7 +1704,6 @@ async function deserializeAws_json1_1EnableRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1770,7 +1757,6 @@ async function deserializeAws_json1_1ListEventBusesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1824,7 +1810,6 @@ async function deserializeAws_json1_1ListEventSourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1891,7 +1876,6 @@ async function deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1951,7 +1935,6 @@ async function deserializeAws_json1_1ListPartnerEventSourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2015,7 +1998,6 @@ async function deserializeAws_json1_1ListRuleNamesByTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2076,7 +2058,6 @@ async function deserializeAws_json1_1ListRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2140,7 +2121,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2201,7 +2181,6 @@ async function deserializeAws_json1_1ListTargetsByRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2255,7 +2234,6 @@ async function deserializeAws_json1_1PutEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2309,7 +2287,6 @@ async function deserializeAws_json1_1PutPartnerEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2379,7 +2356,6 @@ async function deserializeAws_json1_1PutPermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2468,7 +2444,6 @@ async function deserializeAws_json1_1PutRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2550,7 +2525,6 @@ async function deserializeAws_json1_1PutTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2613,7 +2587,6 @@ async function deserializeAws_json1_1RemovePermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2688,7 +2661,6 @@ async function deserializeAws_json1_1RemoveTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2763,7 +2735,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2824,7 +2795,6 @@ async function deserializeAws_json1_1TestEventPatternCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2899,7 +2869,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2918,7 +2887,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2937,7 +2905,6 @@ const deserializeAws_json1_1InternalExceptionResponse = async (
   );
   const contents: InternalException = {
     name: "InternalException",
-    __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2956,7 +2923,6 @@ const deserializeAws_json1_1InvalidEventPatternExceptionResponse = async (
   );
   const contents: InvalidEventPatternException = {
     name: "InvalidEventPatternException",
-    __type: "InvalidEventPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2975,7 +2941,6 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
   );
   const contents: InvalidStateException = {
     name: "InvalidStateException",
-    __type: "InvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2994,7 +2959,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3013,7 +2977,6 @@ const deserializeAws_json1_1ManagedRuleExceptionResponse = async (
   );
   const contents: ManagedRuleException = {
     name: "ManagedRuleException",
-    __type: "ManagedRuleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3032,7 +2995,6 @@ const deserializeAws_json1_1PolicyLengthExceededExceptionResponse = async (
   );
   const contents: PolicyLengthExceededException = {
     name: "PolicyLengthExceededException",
-    __type: "PolicyLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3051,7 +3013,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   );
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3070,7 +3031,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

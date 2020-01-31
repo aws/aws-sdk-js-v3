@@ -2671,7 +2671,6 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2782,7 +2781,6 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2903,7 +2901,6 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3005,7 +3002,6 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3133,7 +3129,6 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3253,7 +3248,6 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3349,7 +3343,6 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3452,7 +3445,6 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3567,7 +3559,6 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3676,7 +3667,6 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3797,7 +3787,6 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3918,7 +3907,6 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4011,7 +3999,6 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4123,7 +4110,6 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4233,7 +4219,6 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4335,7 +4320,6 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4437,7 +4421,6 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4537,7 +4520,6 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4635,7 +4617,6 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4752,7 +4733,6 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4859,7 +4839,6 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4961,7 +4940,6 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5065,7 +5043,6 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5168,7 +5145,6 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5271,7 +5247,6 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5367,7 +5342,6 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5456,7 +5430,6 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5556,7 +5529,6 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5669,7 +5641,6 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5782,7 +5753,6 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5892,7 +5862,6 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5992,7 +5961,6 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6105,7 +6073,6 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6215,7 +6182,6 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6325,7 +6291,6 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6435,7 +6400,6 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6538,7 +6502,6 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6655,7 +6618,6 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6765,7 +6727,6 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6889,7 +6850,6 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7017,7 +6977,6 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7113,7 +7072,6 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7237,7 +7195,6 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7361,7 +7318,6 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7478,7 +7434,6 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7609,7 +7564,6 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7726,7 +7680,6 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7850,7 +7803,6 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7974,7 +7926,6 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8084,7 +8035,6 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8191,7 +8141,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8308,7 +8257,6 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8418,7 +8366,6 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8532,7 +8479,6 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8632,7 +8578,6 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8735,7 +8680,6 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8840,7 +8784,6 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8935,7 +8878,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9030,7 +8972,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9146,7 +9087,6 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9251,7 +9191,6 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9368,7 +9307,6 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9461,7 +9399,6 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9580,7 +9517,6 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9694,7 +9630,6 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9804,7 +9739,6 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9818,7 +9752,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9836,7 +9769,6 @@ const deserializeAws_restJson1_1BatchWriteExceptionResponse = async (
 ): Promise<BatchWriteException> => {
   const contents: BatchWriteException = {
     name: "BatchWriteException",
-    __type: "BatchWriteException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Index: undefined,
@@ -9862,7 +9794,6 @@ const deserializeAws_restJson1_1CannotListParentOfRootExceptionResponse = async 
 ): Promise<CannotListParentOfRootException> => {
   const contents: CannotListParentOfRootException = {
     name: "CannotListParentOfRootException",
-    __type: "CannotListParentOfRootException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9880,7 +9811,6 @@ const deserializeAws_restJson1_1DirectoryAlreadyExistsExceptionResponse = async 
 ): Promise<DirectoryAlreadyExistsException> => {
   const contents: DirectoryAlreadyExistsException = {
     name: "DirectoryAlreadyExistsException",
-    __type: "DirectoryAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9898,7 +9828,6 @@ const deserializeAws_restJson1_1DirectoryDeletedExceptionResponse = async (
 ): Promise<DirectoryDeletedException> => {
   const contents: DirectoryDeletedException = {
     name: "DirectoryDeletedException",
-    __type: "DirectoryDeletedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9916,7 +9845,6 @@ const deserializeAws_restJson1_1DirectoryNotDisabledExceptionResponse = async (
 ): Promise<DirectoryNotDisabledException> => {
   const contents: DirectoryNotDisabledException = {
     name: "DirectoryNotDisabledException",
-    __type: "DirectoryNotDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9934,7 +9862,6 @@ const deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse = async (
 ): Promise<DirectoryNotEnabledException> => {
   const contents: DirectoryNotEnabledException = {
     name: "DirectoryNotEnabledException",
-    __type: "DirectoryNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9952,7 +9879,6 @@ const deserializeAws_restJson1_1FacetAlreadyExistsExceptionResponse = async (
 ): Promise<FacetAlreadyExistsException> => {
   const contents: FacetAlreadyExistsException = {
     name: "FacetAlreadyExistsException",
-    __type: "FacetAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9970,7 +9896,6 @@ const deserializeAws_restJson1_1FacetInUseExceptionResponse = async (
 ): Promise<FacetInUseException> => {
   const contents: FacetInUseException = {
     name: "FacetInUseException",
-    __type: "FacetInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -9988,7 +9913,6 @@ const deserializeAws_restJson1_1FacetNotFoundExceptionResponse = async (
 ): Promise<FacetNotFoundException> => {
   const contents: FacetNotFoundException = {
     name: "FacetNotFoundException",
-    __type: "FacetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10006,7 +9930,6 @@ const deserializeAws_restJson1_1FacetValidationExceptionResponse = async (
 ): Promise<FacetValidationException> => {
   const contents: FacetValidationException = {
     name: "FacetValidationException",
-    __type: "FacetValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10024,7 +9947,6 @@ const deserializeAws_restJson1_1IncompatibleSchemaExceptionResponse = async (
 ): Promise<IncompatibleSchemaException> => {
   const contents: IncompatibleSchemaException = {
     name: "IncompatibleSchemaException",
-    __type: "IncompatibleSchemaException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10042,7 +9964,6 @@ const deserializeAws_restJson1_1IndexedAttributeMissingExceptionResponse = async
 ): Promise<IndexedAttributeMissingException> => {
   const contents: IndexedAttributeMissingException = {
     name: "IndexedAttributeMissingException",
-    __type: "IndexedAttributeMissingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10060,7 +9981,6 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
 ): Promise<InternalServiceException> => {
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10078,7 +9998,6 @@ const deserializeAws_restJson1_1InvalidArnExceptionResponse = async (
 ): Promise<InvalidArnException> => {
   const contents: InvalidArnException = {
     name: "InvalidArnException",
-    __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10096,7 +10015,6 @@ const deserializeAws_restJson1_1InvalidAttachmentExceptionResponse = async (
 ): Promise<InvalidAttachmentException> => {
   const contents: InvalidAttachmentException = {
     name: "InvalidAttachmentException",
-    __type: "InvalidAttachmentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10114,7 +10032,6 @@ const deserializeAws_restJson1_1InvalidFacetUpdateExceptionResponse = async (
 ): Promise<InvalidFacetUpdateException> => {
   const contents: InvalidFacetUpdateException = {
     name: "InvalidFacetUpdateException",
-    __type: "InvalidFacetUpdateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10132,7 +10049,6 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10150,7 +10066,6 @@ const deserializeAws_restJson1_1InvalidRuleExceptionResponse = async (
 ): Promise<InvalidRuleException> => {
   const contents: InvalidRuleException = {
     name: "InvalidRuleException",
-    __type: "InvalidRuleException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10168,7 +10083,6 @@ const deserializeAws_restJson1_1InvalidSchemaDocExceptionResponse = async (
 ): Promise<InvalidSchemaDocException> => {
   const contents: InvalidSchemaDocException = {
     name: "InvalidSchemaDocException",
-    __type: "InvalidSchemaDocException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10186,7 +10100,6 @@ const deserializeAws_restJson1_1InvalidTaggingRequestExceptionResponse = async (
 ): Promise<InvalidTaggingRequestException> => {
   const contents: InvalidTaggingRequestException = {
     name: "InvalidTaggingRequestException",
-    __type: "InvalidTaggingRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10204,7 +10117,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10222,7 +10134,6 @@ const deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse = async (
 ): Promise<LinkNameAlreadyInUseException> => {
   const contents: LinkNameAlreadyInUseException = {
     name: "LinkNameAlreadyInUseException",
-    __type: "LinkNameAlreadyInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10240,7 +10151,6 @@ const deserializeAws_restJson1_1NotIndexExceptionResponse = async (
 ): Promise<NotIndexException> => {
   const contents: NotIndexException = {
     name: "NotIndexException",
-    __type: "NotIndexException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10258,7 +10168,6 @@ const deserializeAws_restJson1_1NotNodeExceptionResponse = async (
 ): Promise<NotNodeException> => {
   const contents: NotNodeException = {
     name: "NotNodeException",
-    __type: "NotNodeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10276,7 +10185,6 @@ const deserializeAws_restJson1_1NotPolicyExceptionResponse = async (
 ): Promise<NotPolicyException> => {
   const contents: NotPolicyException = {
     name: "NotPolicyException",
-    __type: "NotPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10294,7 +10202,6 @@ const deserializeAws_restJson1_1ObjectAlreadyDetachedExceptionResponse = async (
 ): Promise<ObjectAlreadyDetachedException> => {
   const contents: ObjectAlreadyDetachedException = {
     name: "ObjectAlreadyDetachedException",
-    __type: "ObjectAlreadyDetachedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10312,7 +10219,6 @@ const deserializeAws_restJson1_1ObjectNotDetachedExceptionResponse = async (
 ): Promise<ObjectNotDetachedException> => {
   const contents: ObjectNotDetachedException = {
     name: "ObjectNotDetachedException",
-    __type: "ObjectNotDetachedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10330,7 +10236,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10348,7 +10253,6 @@ const deserializeAws_restJson1_1RetryableConflictExceptionResponse = async (
 ): Promise<RetryableConflictException> => {
   const contents: RetryableConflictException = {
     name: "RetryableConflictException",
-    __type: "RetryableConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10366,7 +10270,6 @@ const deserializeAws_restJson1_1SchemaAlreadyExistsExceptionResponse = async (
 ): Promise<SchemaAlreadyExistsException> => {
   const contents: SchemaAlreadyExistsException = {
     name: "SchemaAlreadyExistsException",
-    __type: "SchemaAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10384,7 +10287,6 @@ const deserializeAws_restJson1_1SchemaAlreadyPublishedExceptionResponse = async 
 ): Promise<SchemaAlreadyPublishedException> => {
   const contents: SchemaAlreadyPublishedException = {
     name: "SchemaAlreadyPublishedException",
-    __type: "SchemaAlreadyPublishedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10402,7 +10304,6 @@ const deserializeAws_restJson1_1StillContainsLinksExceptionResponse = async (
 ): Promise<StillContainsLinksException> => {
   const contents: StillContainsLinksException = {
     name: "StillContainsLinksException",
-    __type: "StillContainsLinksException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10420,7 +10321,6 @@ const deserializeAws_restJson1_1UnsupportedIndexTypeExceptionResponse = async (
 ): Promise<UnsupportedIndexTypeException> => {
   const contents: UnsupportedIndexTypeException = {
     name: "UnsupportedIndexTypeException",
-    __type: "UnsupportedIndexTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -10438,7 +10338,6 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

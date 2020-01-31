@@ -4701,7 +4701,6 @@ export namespace ReportedOs {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -6161,7 +6160,6 @@ export namespace UserProfile {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   /**

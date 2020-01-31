@@ -559,7 +559,6 @@ async function deserializeAws_json1_1CreateServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -641,7 +640,6 @@ async function deserializeAws_json1_1CreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -711,7 +709,6 @@ async function deserializeAws_json1_1DeleteServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -791,7 +788,6 @@ async function deserializeAws_json1_1DeleteSshPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -861,7 +857,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -936,7 +931,6 @@ async function deserializeAws_json1_1DescribeServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1011,7 +1005,6 @@ async function deserializeAws_json1_1DescribeUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1103,7 +1096,6 @@ async function deserializeAws_json1_1ImportSshPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1178,7 +1170,6 @@ async function deserializeAws_json1_1ListServersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1256,7 +1247,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1338,7 +1328,6 @@ async function deserializeAws_json1_1ListUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1415,7 +1404,6 @@ async function deserializeAws_json1_1StartServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1492,7 +1480,6 @@ async function deserializeAws_json1_1StopServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1562,7 +1549,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1640,7 +1626,6 @@ async function deserializeAws_json1_1TestIdentityProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1710,7 +1695,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1806,7 +1790,6 @@ async function deserializeAws_json1_1UpdateServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1888,7 +1871,6 @@ async function deserializeAws_json1_1UpdateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1907,7 +1889,6 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   );
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1926,7 +1907,6 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   );
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1945,7 +1925,6 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   );
   const contents: InternalServiceError = {
     name: "InternalServiceError",
-    __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1964,7 +1943,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1983,7 +1961,6 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   );
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2002,7 +1979,6 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   );
   const contents: ResourceExistsException = {
     name: "ResourceExistsException",
-    __type: "ResourceExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2021,7 +1997,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2040,7 +2015,6 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   );
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

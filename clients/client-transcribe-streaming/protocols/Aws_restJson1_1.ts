@@ -166,7 +166,6 @@ async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.transcribe.streaming#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -180,7 +179,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -198,7 +196,6 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -216,7 +213,6 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
-    __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -234,7 +230,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

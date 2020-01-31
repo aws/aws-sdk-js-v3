@@ -387,7 +387,6 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -476,7 +475,6 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -568,7 +566,6 @@ async function deserializeAws_restJson1_1DescribeBundleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -660,7 +657,6 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -746,7 +742,6 @@ async function deserializeAws_restJson1_1ExportBundleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -840,7 +835,6 @@ async function deserializeAws_restJson1_1ExportProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -926,7 +920,6 @@ async function deserializeAws_restJson1_1ListBundlesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1012,7 +1005,6 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1115,7 +1107,6 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1129,7 +1120,6 @@ const deserializeAws_restJson1_1AccountActionRequiredExceptionResponse = async (
 ): Promise<AccountActionRequiredException> => {
   const contents: AccountActionRequiredException = {
     name: "AccountActionRequiredException",
-    __type: "AccountActionRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1147,7 +1137,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1165,7 +1154,6 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
-    __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1183,7 +1171,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined,
@@ -1205,7 +1192,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1223,7 +1209,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined,
@@ -1245,7 +1230,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined,
@@ -1267,7 +1251,6 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
-    __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

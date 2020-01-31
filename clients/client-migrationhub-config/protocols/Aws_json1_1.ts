@@ -179,7 +179,6 @@ async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -260,7 +259,6 @@ async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -335,7 +333,6 @@ async function deserializeAws_json1_1GetHomeRegionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -354,7 +351,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -373,7 +369,6 @@ const deserializeAws_json1_1DryRunOperationResponse = async (
   );
   const contents: DryRunOperation = {
     name: "DryRunOperation",
-    __type: "DryRunOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -392,7 +387,6 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -411,7 +405,6 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   );
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -430,7 +423,6 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   );
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

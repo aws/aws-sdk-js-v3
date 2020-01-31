@@ -836,7 +836,6 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -911,7 +910,6 @@ async function deserializeAws_json1_1CreateComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -986,7 +984,6 @@ async function deserializeAws_json1_1CreateLogPatternCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1061,7 +1058,6 @@ async function deserializeAws_json1_1DeleteApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1129,7 +1125,6 @@ async function deserializeAws_json1_1DeleteComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1204,7 +1199,6 @@ async function deserializeAws_json1_1DeleteLogPatternCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1275,7 +1269,6 @@ async function deserializeAws_json1_1DescribeApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1343,7 +1336,6 @@ async function deserializeAws_json1_1DescribeComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1417,7 +1409,6 @@ async function deserializeAws_json1_1DescribeComponentConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1491,7 +1482,6 @@ async function deserializeAws_json1_1DescribeComponentConfigurationRecommendatio
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1562,7 +1552,6 @@ async function deserializeAws_json1_1DescribeLogPatternCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1633,7 +1622,6 @@ async function deserializeAws_json1_1DescribeObservationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1701,7 +1689,6 @@ async function deserializeAws_json1_1DescribeProblemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1775,7 +1762,6 @@ async function deserializeAws_json1_1DescribeProblemObservationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1836,7 +1822,6 @@ async function deserializeAws_json1_1ListApplicationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1904,7 +1889,6 @@ async function deserializeAws_json1_1ListComponentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1978,7 +1962,6 @@ async function deserializeAws_json1_1ListConfigurationHistoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2049,7 +2032,6 @@ async function deserializeAws_json1_1ListLogPatternSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2117,7 +2099,6 @@ async function deserializeAws_json1_1ListLogPatternsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2185,7 +2166,6 @@ async function deserializeAws_json1_1ListProblemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2249,7 +2229,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2317,7 +2296,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2378,7 +2356,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2446,7 +2423,6 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2521,7 +2497,6 @@ async function deserializeAws_json1_1UpdateComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2595,7 +2570,6 @@ async function deserializeAws_json1_1UpdateComponentConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2670,7 +2644,6 @@ async function deserializeAws_json1_1UpdateLogPatternCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ec2windowsbarley#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2689,7 +2662,6 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   );
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2708,7 +2680,6 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   );
   const contents: InternalServerException = {
     name: "InternalServerException",
-    __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2727,7 +2698,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2746,7 +2716,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2765,7 +2734,6 @@ const deserializeAws_json1_1TagsAlreadyExistExceptionResponse = async (
   );
   const contents: TagsAlreadyExistException = {
     name: "TagsAlreadyExistException",
-    __type: "TagsAlreadyExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2784,7 +2752,6 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2803,7 +2770,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

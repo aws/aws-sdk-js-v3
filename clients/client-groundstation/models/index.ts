@@ -1411,7 +1411,6 @@ export enum Criticality {
 export interface DependencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DependencyException";
   name: "DependencyException";
   $fault: "server";
   message?: string;
@@ -1676,7 +1675,6 @@ export namespace GroundStationData {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1826,7 +1824,6 @@ export enum Polarization {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;

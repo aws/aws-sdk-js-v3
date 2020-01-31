@@ -1538,7 +1538,6 @@ async function deserializeAws_json1_1BatchDetectDominantLanguageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1623,7 +1622,6 @@ async function deserializeAws_json1_1BatchDetectEntitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1708,7 +1706,6 @@ async function deserializeAws_json1_1BatchDetectKeyPhrasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1793,7 +1790,6 @@ async function deserializeAws_json1_1BatchDetectSentimentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1875,7 +1871,6 @@ async function deserializeAws_json1_1BatchDetectSyntaxCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1950,7 +1945,6 @@ async function deserializeAws_json1_1ClassifyDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2059,7 +2053,6 @@ async function deserializeAws_json1_1CreateDocumentClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2162,7 +2155,6 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2271,7 +2263,6 @@ async function deserializeAws_json1_1CreateEntityRecognizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2366,7 +2357,6 @@ async function deserializeAws_json1_1DeleteDocumentClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2448,7 +2438,6 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2543,7 +2532,6 @@ async function deserializeAws_json1_1DeleteEntityRecognizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2624,7 +2612,6 @@ async function deserializeAws_json1_1DescribeDocumentClassificationJobCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2705,7 +2692,6 @@ async function deserializeAws_json1_1DescribeDocumentClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2786,7 +2772,6 @@ async function deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2861,7 +2846,6 @@ async function deserializeAws_json1_1DescribeEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2942,7 +2926,6 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3023,7 +3006,6 @@ async function deserializeAws_json1_1DescribeEntityRecognizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3104,7 +3086,6 @@ async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3185,7 +3166,6 @@ async function deserializeAws_json1_1DescribeSentimentDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3266,7 +3246,6 @@ async function deserializeAws_json1_1DescribeTopicsDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3340,7 +3319,6 @@ async function deserializeAws_json1_1DetectDominantLanguageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3415,7 +3393,6 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3490,7 +3467,6 @@ async function deserializeAws_json1_1DetectKeyPhrasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3565,7 +3541,6 @@ async function deserializeAws_json1_1DetectSentimentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3640,7 +3615,6 @@ async function deserializeAws_json1_1DetectSyntaxCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3721,7 +3695,6 @@ async function deserializeAws_json1_1ListDocumentClassificationJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3802,7 +3775,6 @@ async function deserializeAws_json1_1ListDocumentClassifiersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3883,7 +3855,6 @@ async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3951,7 +3922,6 @@ async function deserializeAws_json1_1ListEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4032,7 +4002,6 @@ async function deserializeAws_json1_1ListEntitiesDetectionJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4110,7 +4079,6 @@ async function deserializeAws_json1_1ListEntityRecognizersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4191,7 +4159,6 @@ async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4272,7 +4239,6 @@ async function deserializeAws_json1_1ListSentimentDetectionJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4343,7 +4309,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4424,7 +4389,6 @@ async function deserializeAws_json1_1ListTopicsDetectionJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4519,7 +4483,6 @@ async function deserializeAws_json1_1StartDocumentClassificationJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4600,7 +4563,6 @@ async function deserializeAws_json1_1StartDominantLanguageDetectionJobCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4695,7 +4657,6 @@ async function deserializeAws_json1_1StartEntitiesDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4776,7 +4737,6 @@ async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4857,7 +4817,6 @@ async function deserializeAws_json1_1StartSentimentDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4938,7 +4897,6 @@ async function deserializeAws_json1_1StartTopicsDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5012,7 +4970,6 @@ async function deserializeAws_json1_1StopDominantLanguageDetectionJobCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5086,7 +5043,6 @@ async function deserializeAws_json1_1StopEntitiesDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5160,7 +5116,6 @@ async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5234,7 +5189,6 @@ async function deserializeAws_json1_1StopSentimentDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5315,7 +5269,6 @@ async function deserializeAws_json1_1StopTrainingDocumentClassifierCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5396,7 +5349,6 @@ async function deserializeAws_json1_1StopTrainingEntityRecognizerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5478,7 +5430,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5560,7 +5511,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5656,7 +5606,6 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5675,7 +5624,6 @@ const deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse = async (
   );
   const contents: BatchSizeLimitExceededException = {
     name: "BatchSizeLimitExceededException",
-    __type: "BatchSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5694,7 +5642,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5713,7 +5660,6 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   );
   const contents: InternalServerException = {
     name: "InternalServerException",
-    __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5732,7 +5678,6 @@ const deserializeAws_json1_1InvalidFilterExceptionResponse = async (
   );
   const contents: InvalidFilterException = {
     name: "InvalidFilterException",
-    __type: "InvalidFilterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5751,7 +5696,6 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   );
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5770,7 +5714,6 @@ const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
   );
   const contents: JobNotFoundException = {
     name: "JobNotFoundException",
-    __type: "JobNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5789,7 +5732,6 @@ const deserializeAws_json1_1KmsKeyValidationExceptionResponse = async (
   );
   const contents: KmsKeyValidationException = {
     name: "KmsKeyValidationException",
-    __type: "KmsKeyValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5808,7 +5750,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5827,7 +5768,6 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
   );
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
-    __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5846,7 +5786,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5865,7 +5804,6 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
   );
   const contents: ResourceUnavailableException = {
     name: "ResourceUnavailableException",
-    __type: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5884,7 +5822,6 @@ const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
   );
   const contents: TextSizeLimitExceededException = {
     name: "TextSizeLimitExceededException",
-    __type: "TextSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5903,7 +5840,6 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   );
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5922,7 +5858,6 @@ const deserializeAws_json1_1TooManyTagKeysExceptionResponse = async (
   );
   const contents: TooManyTagKeysException = {
     name: "TooManyTagKeysException",
-    __type: "TooManyTagKeysException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5941,7 +5876,6 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5960,7 +5894,6 @@ const deserializeAws_json1_1UnsupportedLanguageExceptionResponse = async (
   );
   const contents: UnsupportedLanguageException = {
     name: "UnsupportedLanguageException",
-    __type: "UnsupportedLanguageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

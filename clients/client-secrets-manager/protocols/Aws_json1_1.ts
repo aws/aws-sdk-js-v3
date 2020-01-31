@@ -578,7 +578,6 @@ async function deserializeAws_json1_1CancelRotateSecretCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -688,7 +687,6 @@ async function deserializeAws_json1_1CreateSecretCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -759,7 +757,6 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -834,7 +831,6 @@ async function deserializeAws_json1_1DeleteSecretCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -895,7 +891,6 @@ async function deserializeAws_json1_1DescribeSecretCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -963,7 +958,6 @@ async function deserializeAws_json1_1GetRandomPasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1031,7 +1025,6 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1113,7 +1106,6 @@ async function deserializeAws_json1_1GetSecretValueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1184,7 +1176,6 @@ async function deserializeAws_json1_1ListSecretVersionIdsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1252,7 +1243,6 @@ async function deserializeAws_json1_1ListSecretsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1334,7 +1324,6 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1430,7 +1419,6 @@ async function deserializeAws_json1_1PutSecretValueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1505,7 +1493,6 @@ async function deserializeAws_json1_1RestoreSecretCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1580,7 +1567,6 @@ async function deserializeAws_json1_1RotateSecretCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1650,7 +1636,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1720,7 +1705,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1830,7 +1814,6 @@ async function deserializeAws_json1_1UpdateSecretCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1918,7 +1901,6 @@ async function deserializeAws_json1_1UpdateSecretVersionStageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1937,7 +1919,6 @@ const deserializeAws_json1_1DecryptionFailureResponse = async (
   );
   const contents: DecryptionFailure = {
     name: "DecryptionFailure",
-    __type: "DecryptionFailure",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1956,7 +1937,6 @@ const deserializeAws_json1_1EncryptionFailureResponse = async (
   );
   const contents: EncryptionFailure = {
     name: "EncryptionFailure",
-    __type: "EncryptionFailure",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1975,7 +1955,6 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   );
   const contents: InternalServiceError = {
     name: "InternalServiceError",
-    __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1994,7 +1973,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2013,7 +1991,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2032,7 +2009,6 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   );
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2051,7 +2027,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2070,7 +2045,6 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
   );
   const contents: MalformedPolicyDocumentException = {
     name: "MalformedPolicyDocumentException",
-    __type: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2089,7 +2063,6 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
   );
   const contents: PreconditionNotMetException = {
     name: "PreconditionNotMetException",
-    __type: "PreconditionNotMetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2108,7 +2081,6 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   );
   const contents: ResourceExistsException = {
     name: "ResourceExistsException",
-    __type: "ResourceExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2127,7 +2099,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

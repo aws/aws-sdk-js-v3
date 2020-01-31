@@ -696,7 +696,6 @@ async function deserializeAws_restXmlCreateAccessPointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -770,7 +769,6 @@ async function deserializeAws_restXmlCreateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -810,7 +808,6 @@ async function deserializeAws_restXmlDeleteAccessPointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -853,7 +850,6 @@ async function deserializeAws_restXmlDeleteAccessPointPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -896,7 +892,6 @@ async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -970,7 +965,6 @@ async function deserializeAws_restXmlDescribeJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1042,7 +1036,6 @@ async function deserializeAws_restXmlGetAccessPointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1091,7 +1084,6 @@ async function deserializeAws_restXmlGetAccessPointPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1143,7 +1135,6 @@ async function deserializeAws_restXmlGetAccessPointPolicyStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1200,7 +1191,6 @@ async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1260,7 +1250,6 @@ async function deserializeAws_restXmlListAccessPointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1338,7 +1327,6 @@ async function deserializeAws_restXmlListJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1381,7 +1369,6 @@ async function deserializeAws_restXmlPutAccessPointPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1424,7 +1411,6 @@ async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1502,7 +1488,6 @@ async function deserializeAws_restXmlUpdateJobPriorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1591,7 +1576,6 @@ async function deserializeAws_restXmlUpdateJobStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awss3control.v20180820#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1605,7 +1589,6 @@ const deserializeAws_restXmlBadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1620,7 +1603,6 @@ const deserializeAws_restXmlIdempotencyExceptionResponse = async (
 ): Promise<IdempotencyException> => {
   const contents: IdempotencyException = {
     name: "IdempotencyException",
-    __type: "IdempotencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1635,7 +1617,6 @@ const deserializeAws_restXmlInternalServiceExceptionResponse = async (
 ): Promise<InternalServiceException> => {
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1650,7 +1631,6 @@ const deserializeAws_restXmlInvalidNextTokenExceptionResponse = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1665,7 +1645,6 @@ const deserializeAws_restXmlInvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1680,7 +1659,6 @@ const deserializeAws_restXmlJobStatusExceptionResponse = async (
 ): Promise<JobStatusException> => {
   const contents: JobStatusException = {
     name: "JobStatusException",
-    __type: "JobStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1695,7 +1673,6 @@ const deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse = async
 ): Promise<NoSuchPublicAccessBlockConfiguration> => {
   const contents: NoSuchPublicAccessBlockConfiguration = {
     name: "NoSuchPublicAccessBlockConfiguration",
-    __type: "NoSuchPublicAccessBlockConfiguration",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1710,7 +1687,6 @@ const deserializeAws_restXmlNotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
@@ -1725,7 +1701,6 @@ const deserializeAws_restXmlTooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined

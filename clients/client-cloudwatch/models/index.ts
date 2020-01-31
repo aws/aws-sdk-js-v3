@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface InvalidParameterCombinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterCombinationException";
   name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
@@ -28,7 +27,6 @@ export namespace InvalidParameterCombinationException {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -49,7 +47,6 @@ export namespace InvalidParameterValueException {
 export interface MissingRequiredParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MissingRequiredParameterException";
   name: "MissingRequiredParameterException";
   $fault: "client";
   /**
@@ -199,7 +196,6 @@ export type ComparisonOperator =
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -250,7 +246,6 @@ export namespace DashboardEntry {
 export interface DashboardInvalidInputError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DashboardInvalidInputError";
   name: "DashboardInvalidInputError";
   $fault: "client";
   dashboardValidationMessages?: Array<DashboardValidationMessage>;
@@ -269,7 +264,6 @@ export namespace DashboardInvalidInputError {
 export interface DashboardNotFoundError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DashboardNotFoundError";
   name: "DashboardNotFoundError";
   $fault: "client";
   message?: string;
@@ -1509,7 +1503,6 @@ export namespace InsightRuleMetricDatapoint {
 export interface InternalServiceFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceFault";
   name: "InternalServiceFault";
   $fault: "server";
   /**
@@ -1530,7 +1523,6 @@ export namespace InternalServiceFault {
 export interface InvalidFormatFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidFormatFault";
   name: "InvalidFormatFault";
   $fault: "client";
   /**
@@ -1551,7 +1543,6 @@ export namespace InvalidFormatFault {
 export interface InvalidNextToken
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextToken";
   name: "InvalidNextToken";
   $fault: "client";
   /**
@@ -1572,7 +1563,6 @@ export namespace InvalidNextToken {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1590,7 +1580,6 @@ export namespace LimitExceededException {
 export interface LimitExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededFault";
   name: "LimitExceededFault";
   $fault: "client";
   /**
@@ -2676,7 +2665,6 @@ export namespace Range {
 export interface ResourceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFound";
   name: "ResourceNotFound";
   $fault: "client";
   /**
@@ -2697,7 +2685,6 @@ export namespace ResourceNotFound {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;

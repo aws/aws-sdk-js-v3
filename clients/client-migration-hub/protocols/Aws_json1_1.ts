@@ -589,7 +589,6 @@ async function deserializeAws_json1_1AssociateCreatedArtifactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -705,7 +704,6 @@ async function deserializeAws_json1_1AssociateDiscoveredResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -807,7 +805,6 @@ async function deserializeAws_json1_1CreateProgressUpdateStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -916,7 +913,6 @@ async function deserializeAws_json1_1DeleteProgressUpdateStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1018,7 +1014,6 @@ async function deserializeAws_json1_1DescribeApplicationStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1110,7 +1105,6 @@ async function deserializeAws_json1_1DescribeMigrationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1219,7 +1213,6 @@ async function deserializeAws_json1_1DisassociateCreatedArtifactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1328,7 +1321,6 @@ async function deserializeAws_json1_1DisassociateDiscoveredResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1434,7 +1426,6 @@ async function deserializeAws_json1_1ImportMigrationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1519,7 +1510,6 @@ async function deserializeAws_json1_1ListApplicationStatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1611,7 +1601,6 @@ async function deserializeAws_json1_1ListCreatedArtifactsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1703,7 +1692,6 @@ async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1802,7 +1790,6 @@ async function deserializeAws_json1_1ListMigrationTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1890,7 +1877,6 @@ async function deserializeAws_json1_1ListProgressUpdateStreamsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2003,7 +1989,6 @@ async function deserializeAws_json1_1NotifyApplicationStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2112,7 +2097,6 @@ async function deserializeAws_json1_1NotifyMigrationTaskStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2218,7 +2202,6 @@ async function deserializeAws_json1_1PutResourceAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.migration#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2237,7 +2220,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2256,7 +2238,6 @@ const deserializeAws_json1_1DryRunOperationResponse = async (
   );
   const contents: DryRunOperation = {
     name: "DryRunOperation",
-    __type: "DryRunOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2275,7 +2256,6 @@ const deserializeAws_json1_1HomeRegionNotSetExceptionResponse = async (
   );
   const contents: HomeRegionNotSetException = {
     name: "HomeRegionNotSetException",
-    __type: "HomeRegionNotSetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2294,7 +2274,6 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2313,7 +2292,6 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   );
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2332,7 +2310,6 @@ const deserializeAws_json1_1PolicyErrorExceptionResponse = async (
   );
   const contents: PolicyErrorException = {
     name: "PolicyErrorException",
-    __type: "PolicyErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2351,7 +2328,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2370,7 +2346,6 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   );
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2389,7 +2364,6 @@ const deserializeAws_json1_1UnauthorizedOperationResponse = async (
   );
   const contents: UnauthorizedOperation = {
     name: "UnauthorizedOperation",
-    __type: "UnauthorizedOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

@@ -1734,7 +1734,6 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1859,7 +1858,6 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1984,7 +1982,6 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2092,7 +2089,6 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2210,7 +2206,6 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2335,7 +2330,6 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2454,7 +2448,6 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2554,7 +2547,6 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2654,7 +2646,6 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2751,7 +2742,6 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2851,7 +2841,6 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2951,7 +2940,6 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3052,7 +3040,6 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3145,7 +3132,6 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3238,7 +3224,6 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3334,7 +3319,6 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3424,7 +3408,6 @@ async function deserializeAws_restJson1_1GetImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3520,7 +3503,6 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3613,7 +3595,6 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3709,7 +3690,6 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3802,7 +3782,6 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3898,7 +3877,6 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4023,7 +4001,6 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4130,7 +4107,6 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4237,7 +4213,6 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4344,7 +4319,6 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4451,7 +4425,6 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4565,7 +4538,6 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4672,7 +4644,6 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4779,7 +4750,6 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4883,7 +4853,6 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4990,7 +4959,6 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5058,7 +5026,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5165,7 +5132,6 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5272,7 +5238,6 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5379,7 +5344,6 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5497,7 +5461,6 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5557,7 +5520,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5617,7 +5579,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5735,7 +5696,6 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5846,7 +5806,6 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5958,7 +5917,6 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.imagebuilder#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5972,7 +5930,6 @@ const deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse = async (
 ): Promise<CallRateLimitExceededException> => {
   const contents: CallRateLimitExceededException = {
     name: "CallRateLimitExceededException",
-    __type: "CallRateLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5990,7 +5947,6 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
 ): Promise<ClientException> => {
   const contents: ClientException = {
     name: "ClientException",
-    __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6008,7 +5964,6 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6026,7 +5981,6 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
 ): Promise<IdempotentParameterMismatchException> => {
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
-    __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6044,7 +5998,6 @@ const deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse = async 
 ): Promise<InvalidPaginationTokenException> => {
   const contents: InvalidPaginationTokenException = {
     name: "InvalidPaginationTokenException",
-    __type: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6062,7 +6015,6 @@ const deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse = a
 ): Promise<InvalidParameterCombinationException> => {
   const contents: InvalidParameterCombinationException = {
     name: "InvalidParameterCombinationException",
-    __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6080,7 +6032,6 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6098,7 +6049,6 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6116,7 +6066,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6134,7 +6083,6 @@ const deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse = async (
 ): Promise<InvalidVersionNumberException> => {
   const contents: InvalidVersionNumberException = {
     name: "InvalidVersionNumberException",
-    __type: "InvalidVersionNumberException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6152,7 +6100,6 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6170,7 +6117,6 @@ const deserializeAws_restJson1_1ResourceDependencyExceptionResponse = async (
 ): Promise<ResourceDependencyException> => {
   const contents: ResourceDependencyException = {
     name: "ResourceDependencyException",
-    __type: "ResourceDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6188,7 +6134,6 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6206,7 +6151,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6224,7 +6168,6 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
 ): Promise<ServiceException> => {
   const contents: ServiceException = {
     name: "ServiceException",
-    __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -6242,7 +6185,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined

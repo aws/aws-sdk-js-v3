@@ -208,7 +208,6 @@ async function deserializeAws_restJson1_1GetRoleCredentialsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -290,7 +289,6 @@ async function deserializeAws_restJson1_1ListAccountRolesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -369,7 +367,6 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -428,7 +425,6 @@ async function deserializeAws_restJson1_1LogoutCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -442,7 +438,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -460,7 +455,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -478,7 +472,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -496,7 +489,6 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
-    __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

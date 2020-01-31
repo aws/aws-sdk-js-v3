@@ -2553,7 +2553,6 @@ export namespace GetMLModelOutput {
 export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotentParameterMismatchException";
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   code?: number;
@@ -2572,7 +2571,6 @@ export namespace IdempotentParameterMismatchException {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   code?: number;
@@ -2591,7 +2589,6 @@ export namespace InternalServerException {
 export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputException";
   name: "InvalidInputException";
   $fault: "client";
   code?: number;
@@ -2610,7 +2607,6 @@ export namespace InvalidInputException {
 export interface InvalidTagException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTagException";
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
@@ -2628,7 +2624,6 @@ export namespace InvalidTagException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   code?: number;
@@ -3023,7 +3018,6 @@ export namespace Prediction {
 export interface PredictorNotMountedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PredictorNotMountedException";
   name: "PredictorNotMountedException";
   $fault: "client";
   message?: string;
@@ -3578,7 +3572,6 @@ export namespace RedshiftMetadata {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   code?: number;
@@ -3759,7 +3752,6 @@ export namespace Tag {
 export interface TagLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagLimitExceededException";
   name: "TagLimitExceededException";
   $fault: "client";
   message?: string;

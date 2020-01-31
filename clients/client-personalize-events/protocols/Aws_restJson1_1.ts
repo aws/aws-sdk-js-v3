@@ -87,7 +87,6 @@ async function deserializeAws_restJson1_1PutEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.personalize.events#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -101,7 +100,6 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
 ): Promise<InvalidInputException> => {
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

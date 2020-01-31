@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -27,7 +26,6 @@ export namespace AccessDeniedException {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -45,7 +43,6 @@ export namespace ConcurrentModificationException {
 export interface ConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConfigurationException";
   name: "ConfigurationException";
   $fault: "client";
   Message?: string;
@@ -319,7 +316,6 @@ export namespace EventTypeSummary {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -339,7 +335,6 @@ export namespace InvalidNextTokenException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -652,7 +647,6 @@ export namespace NotificationRuleSummary {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -670,7 +664,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -933,7 +926,6 @@ export namespace UpdateNotificationRuleResult {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   Message?: string;

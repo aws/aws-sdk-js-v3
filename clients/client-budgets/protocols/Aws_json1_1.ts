@@ -488,7 +488,6 @@ async function deserializeAws_json1_1CreateBudgetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -580,7 +579,6 @@ async function deserializeAws_json1_1CreateNotificationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -669,7 +667,6 @@ async function deserializeAws_json1_1CreateSubscriberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -744,7 +741,6 @@ async function deserializeAws_json1_1DeleteBudgetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -822,7 +818,6 @@ async function deserializeAws_json1_1DeleteNotificationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -897,7 +892,6 @@ async function deserializeAws_json1_1DeleteSubscriberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -972,7 +966,6 @@ async function deserializeAws_json1_1DescribeBudgetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1067,7 +1060,6 @@ async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1156,7 +1148,6 @@ async function deserializeAws_json1_1DescribeBudgetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1251,7 +1242,6 @@ async function deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1346,7 +1336,6 @@ async function deserializeAws_json1_1DescribeSubscribersForNotificationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1421,7 +1410,6 @@ async function deserializeAws_json1_1UpdateBudgetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1506,7 +1494,6 @@ async function deserializeAws_json1_1UpdateNotificationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1588,7 +1575,6 @@ async function deserializeAws_json1_1UpdateSubscriberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1607,7 +1593,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1626,7 +1611,6 @@ const deserializeAws_json1_1CreationLimitExceededExceptionResponse = async (
   );
   const contents: CreationLimitExceededException = {
     name: "CreationLimitExceededException",
-    __type: "CreationLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1645,7 +1629,6 @@ const deserializeAws_json1_1DuplicateRecordExceptionResponse = async (
   );
   const contents: DuplicateRecordException = {
     name: "DuplicateRecordException",
-    __type: "DuplicateRecordException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1664,7 +1647,6 @@ const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
   );
   const contents: ExpiredNextTokenException = {
     name: "ExpiredNextTokenException",
-    __type: "ExpiredNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1683,7 +1665,6 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   );
   const contents: InternalErrorException = {
     name: "InternalErrorException",
-    __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1702,7 +1683,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1721,7 +1701,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1740,7 +1719,6 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   );
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

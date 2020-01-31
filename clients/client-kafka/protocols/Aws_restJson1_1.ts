@@ -898,7 +898,6 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1009,7 +1008,6 @@ async function deserializeAws_restJson1_1CreateConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1085,7 +1083,6 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1170,7 +1167,6 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1255,7 +1251,6 @@ async function deserializeAws_restJson1_1DescribeClusterOperationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1370,7 +1365,6 @@ async function deserializeAws_restJson1_1DescribeConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1475,7 +1469,6 @@ async function deserializeAws_restJson1_1DescribeConfigurationRevisionCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1561,7 +1554,6 @@ async function deserializeAws_restJson1_1GetBootstrapBrokersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1643,7 +1635,6 @@ async function deserializeAws_restJson1_1ListClusterOperationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1722,7 +1713,6 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1818,7 +1808,6 @@ async function deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1907,7 +1896,6 @@ async function deserializeAws_restJson1_1ListConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1986,7 +1974,6 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2057,7 +2044,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2116,7 +2102,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2175,7 +2160,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2261,7 +2245,6 @@ async function deserializeAws_restJson1_1UpdateBrokerCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2347,7 +2330,6 @@ async function deserializeAws_restJson1_1UpdateBrokerStorageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2440,7 +2422,6 @@ async function deserializeAws_restJson1_1UpdateClusterConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2526,7 +2507,6 @@ async function deserializeAws_restJson1_1UpdateMonitoringCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kafka#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2540,7 +2520,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,
@@ -2562,7 +2541,6 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,
@@ -2584,7 +2562,6 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,
@@ -2606,7 +2583,6 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
-    __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,
@@ -2628,7 +2604,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,
@@ -2650,7 +2625,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,
@@ -2672,7 +2646,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,
@@ -2694,7 +2667,6 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
-    __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     InvalidParameter: undefined,

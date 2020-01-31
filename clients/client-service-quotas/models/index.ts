@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AWSServiceAccessNotEnabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AWSServiceAccessNotEnabledException";
   name: "AWSServiceAccessNotEnabledException";
   $fault: "client";
   Message?: string;
@@ -26,7 +25,6 @@ export namespace AWSServiceAccessNotEnabledException {
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -109,7 +107,6 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
 export interface DependencyAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DependencyAccessDeniedException";
   name: "DependencyAccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -365,7 +362,6 @@ export namespace GetServiceQuotaResponse {
 export interface IllegalArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IllegalArgumentException";
   name: "IllegalArgumentException";
   $fault: "client";
   Message?: string;
@@ -383,7 +379,6 @@ export namespace IllegalArgumentException {
 export interface InvalidPaginationTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPaginationTokenException";
   name: "InvalidPaginationTokenException";
   $fault: "client";
   Message?: string;
@@ -401,7 +396,6 @@ export namespace InvalidPaginationTokenException {
 export interface InvalidResourceStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResourceStateException";
   name: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
@@ -843,7 +837,6 @@ export namespace MetricInfo {
 export interface NoAvailableOrganizationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoAvailableOrganizationException";
   name: "NoAvailableOrganizationException";
   $fault: "client";
   Message?: string;
@@ -861,7 +854,6 @@ export namespace NoAvailableOrganizationException {
 export interface NoSuchResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchResourceException";
   name: "NoSuchResourceException";
   $fault: "client";
   Message?: string;
@@ -880,7 +872,6 @@ export namespace NoSuchResourceException {
 export interface OrganizationNotInAllFeaturesModeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OrganizationNotInAllFeaturesModeException";
   name: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
   Message?: string;
@@ -957,7 +948,6 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
 export interface QuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "QuotaExceededException";
   name: "QuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -1126,7 +1116,6 @@ export namespace RequestedServiceQuotaChange {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -1144,7 +1133,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceException";
   name: "ServiceException";
   $fault: "server";
   Message?: string;
@@ -1316,7 +1304,6 @@ export enum ServiceQuotaTemplateAssociationStatus {
 export interface ServiceQuotaTemplateNotInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceQuotaTemplateNotInUseException";
   name: "ServiceQuotaTemplateNotInUseException";
   $fault: "client";
   Message?: string;
@@ -1335,7 +1322,6 @@ export namespace ServiceQuotaTemplateNotInUseException {
 export interface TemplatesNotAvailableInRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TemplatesNotAvailableInRegionException";
   name: "TemplatesNotAvailableInRegionException";
   $fault: "client";
   Message?: string;
@@ -1354,7 +1340,6 @@ export namespace TemplatesNotAvailableInRegionException {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;

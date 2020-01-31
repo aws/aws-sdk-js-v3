@@ -68,7 +68,6 @@ export namespace AccountSettings {
 export interface ArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ArgumentException";
   name: "ArgumentException";
   $fault: "client";
   /**
@@ -286,7 +285,6 @@ export namespace CPU {
 export interface CannotDeleteException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CannotDeleteException";
   name: "CannotDeleteException";
   $fault: "client";
   message?: string;
@@ -2730,7 +2728,6 @@ export namespace GetVPCEConfigurationResult {
 export interface IdempotencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotencyException";
   name: "IdempotencyException";
   $fault: "client";
   /**
@@ -2897,7 +2894,6 @@ export enum InteractionMode {
 export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceException";
   name: "InternalServiceException";
   $fault: "server";
   message?: string;
@@ -2916,7 +2912,6 @@ export namespace InternalServiceException {
 export interface InvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOperationException";
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -3133,7 +3128,6 @@ export namespace Job {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -4628,7 +4622,6 @@ export enum NetworkProfileType {
 export interface NotEligibleException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotEligibleException";
   name: "NotEligibleException";
   $fault: "client";
   /**
@@ -4649,7 +4642,6 @@ export namespace NotEligibleException {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -6230,7 +6222,6 @@ export namespace ScheduleRunTest {
 export interface ServiceAccountException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceAccountException";
   name: "ServiceAccountException";
   $fault: "client";
   /**
@@ -6558,7 +6549,6 @@ export namespace Tag {
 export interface TagOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagOperationException";
   name: "TagOperationException";
   $fault: "client";
   message?: string;
@@ -6578,7 +6568,6 @@ export namespace TagOperationException {
 export interface TagPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagPolicyException";
   name: "TagPolicyException";
   $fault: "client";
   message?: string;
@@ -6998,7 +6987,6 @@ export enum TestType {
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
