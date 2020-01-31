@@ -24,13 +24,13 @@
 @dms
 @dynamodb
 @dynamodbstreams
-# @ec2
+@ec2
 @ecr
 @ecs
 @efs
 @elasticache
 @elasticbeanstalk
-@elastictranscoder
+# @elastictranscoder
 @elb
 @elbv2
 @emr
@@ -39,7 +39,7 @@
 @glacier
 @iam
 @inspector
-# @iot
+@iot
 @kinesis
 @kms
 @lambda
@@ -50,7 +50,7 @@
 @redshift
 @route53
 @route53domains
-@s3
+# @s3
 @ses
 @sns
 @sqs
