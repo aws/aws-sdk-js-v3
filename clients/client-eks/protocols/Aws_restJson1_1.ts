@@ -1089,7 +1089,6 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1181,7 +1180,6 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1280,7 +1278,6 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1359,7 +1356,6 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1437,7 +1433,6 @@ async function deserializeAws_restJson1_1DeleteFargateProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1529,7 +1524,6 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1604,7 +1598,6 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1682,7 +1675,6 @@ async function deserializeAws_restJson1_1DescribeFargateProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1767,7 +1759,6 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1842,7 +1833,6 @@ async function deserializeAws_restJson1_1DescribeUpdateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1921,7 +1911,6 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2003,7 +1992,6 @@ async function deserializeAws_restJson1_1ListFargateProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2092,7 +2080,6 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2153,7 +2140,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2232,7 +2218,6 @@ async function deserializeAws_restJson1_1ListUpdatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2285,7 +2270,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2338,7 +2322,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2427,7 +2410,6 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2516,7 +2498,6 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2605,7 +2586,6 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2694,7 +2674,6 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2708,7 +2687,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2726,7 +2704,6 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
 ): Promise<ClientException> => {
   const contents: ClientException = {
     name: "ClientException",
-    __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,
@@ -2752,7 +2729,6 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,
@@ -2782,7 +2758,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,
@@ -2808,7 +2783,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2826,7 +2800,6 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,
@@ -2852,7 +2825,6 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
-    __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,
@@ -2878,7 +2850,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,
@@ -2908,7 +2879,6 @@ const deserializeAws_restJson1_1ServerExceptionResponse = async (
 ): Promise<ServerException> => {
   const contents: ServerException = {
     name: "ServerException",
-    __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,
@@ -2934,7 +2904,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2952,7 +2921,6 @@ const deserializeAws_restJson1_1UnsupportedAvailabilityZoneExceptionResponse = a
 ): Promise<UnsupportedAvailabilityZoneException> => {
   const contents: UnsupportedAvailabilityZoneException = {
     name: "UnsupportedAvailabilityZoneException",
-    __type: "UnsupportedAvailabilityZoneException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     clusterName: undefined,

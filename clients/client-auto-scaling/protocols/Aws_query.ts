@@ -1642,7 +1642,6 @@ async function deserializeAws_queryAttachInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1707,7 +1706,6 @@ async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1769,7 +1767,6 @@ async function deserializeAws_queryAttachLoadBalancersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1827,7 +1824,6 @@ async function deserializeAws_queryBatchDeleteScheduledActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1899,7 +1895,6 @@ async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1957,7 +1952,6 @@ async function deserializeAws_queryCompleteLifecycleActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2028,7 +2022,6 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2092,7 +2085,6 @@ async function deserializeAws_queryCreateLaunchConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2160,7 +2152,6 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2224,7 +2215,6 @@ async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2281,7 +2271,6 @@ async function deserializeAws_queryDeleteLaunchConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2336,7 +2325,6 @@ async function deserializeAws_queryDeleteLifecycleHookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2386,7 +2374,6 @@ async function deserializeAws_queryDeleteNotificationConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2440,7 +2427,6 @@ async function deserializeAws_queryDeletePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2490,7 +2476,6 @@ async function deserializeAws_queryDeleteScheduledActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2544,7 +2529,6 @@ async function deserializeAws_queryDeleteTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2602,7 +2586,6 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2660,7 +2643,6 @@ async function deserializeAws_queryDescribeAdjustmentTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2725,7 +2707,6 @@ async function deserializeAws_queryDescribeAutoScalingGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2790,7 +2771,6 @@ async function deserializeAws_queryDescribeAutoScalingInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2848,7 +2828,6 @@ async function deserializeAws_queryDescribeAutoScalingNotificationTypesCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2913,7 +2892,6 @@ async function deserializeAws_queryDescribeLaunchConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2971,7 +2949,6 @@ async function deserializeAws_queryDescribeLifecycleHookTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3029,7 +3006,6 @@ async function deserializeAws_queryDescribeLifecycleHooksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3087,7 +3063,6 @@ async function deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3145,7 +3120,6 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3203,7 +3177,6 @@ async function deserializeAws_queryDescribeMetricCollectionTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3268,7 +3241,6 @@ async function deserializeAws_queryDescribeNotificationConfigurationsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3337,7 +3309,6 @@ async function deserializeAws_queryDescribePoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3402,7 +3373,6 @@ async function deserializeAws_queryDescribeScalingActivitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3460,7 +3430,6 @@ async function deserializeAws_queryDescribeScalingProcessTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3525,7 +3494,6 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3584,7 +3552,6 @@ async function deserializeAws_queryDescribeTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3642,7 +3609,6 @@ async function deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3697,7 +3663,6 @@ async function deserializeAws_queryDetachInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3755,7 +3720,6 @@ async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3810,7 +3774,6 @@ async function deserializeAws_queryDetachLoadBalancersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3860,7 +3823,6 @@ async function deserializeAws_queryDisableMetricsCollectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3910,7 +3872,6 @@ async function deserializeAws_queryEnableMetricsCollectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3965,7 +3926,6 @@ async function deserializeAws_queryEnterStandbyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4019,7 +3979,6 @@ async function deserializeAws_queryExecutePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4074,7 +4033,6 @@ async function deserializeAws_queryExitStandbyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4136,7 +4094,6 @@ async function deserializeAws_queryPutLifecycleHookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4200,7 +4157,6 @@ async function deserializeAws_queryPutNotificationConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4269,7 +4225,6 @@ async function deserializeAws_queryPutScalingPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4333,7 +4288,6 @@ async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4391,7 +4345,6 @@ async function deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4445,7 +4398,6 @@ async function deserializeAws_queryResumeProcessesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4499,7 +4451,6 @@ async function deserializeAws_querySetDesiredCapacityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4546,7 +4497,6 @@ async function deserializeAws_querySetInstanceHealthCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4611,7 +4561,6 @@ async function deserializeAws_querySetInstanceProtectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4665,7 +4614,6 @@ async function deserializeAws_querySuspendProcessesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4730,7 +4678,6 @@ async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4794,7 +4741,6 @@ async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.fws.csls.version_2011_01_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4813,7 +4759,6 @@ const deserializeAws_queryAlreadyExistsFaultResponse = async (
   );
   const contents: AlreadyExistsFault = {
     name: "AlreadyExistsFault",
-    __type: "AlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4829,7 +4774,6 @@ const deserializeAws_queryInvalidNextTokenResponse = async (
   const deserialized: any = deserializeAws_queryInvalidNextToken(body, context);
   const contents: InvalidNextToken = {
     name: "InvalidNextToken",
-    __type: "InvalidNextToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4848,7 +4792,6 @@ const deserializeAws_queryLimitExceededFaultResponse = async (
   );
   const contents: LimitExceededFault = {
     name: "LimitExceededFault",
-    __type: "LimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4867,7 +4810,6 @@ const deserializeAws_queryResourceContentionFaultResponse = async (
   );
   const contents: ResourceContentionFault = {
     name: "ResourceContentionFault",
-    __type: "ResourceContentionFault",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4886,7 +4828,6 @@ const deserializeAws_queryResourceInUseFaultResponse = async (
   );
   const contents: ResourceInUseFault = {
     name: "ResourceInUseFault",
-    __type: "ResourceInUseFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4905,7 +4846,6 @@ const deserializeAws_queryScalingActivityInProgressFaultResponse = async (
   );
   const contents: ScalingActivityInProgressFault = {
     name: "ScalingActivityInProgressFault",
-    __type: "ScalingActivityInProgressFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4924,7 +4864,6 @@ const deserializeAws_queryServiceLinkedRoleFailureResponse = async (
   );
   const contents: ServiceLinkedRoleFailure = {
     name: "ServiceLinkedRoleFailure",
-    __type: "ServiceLinkedRoleFailure",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

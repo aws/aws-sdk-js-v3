@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -1098,7 +1097,6 @@ export namespace DeleteRecoveryPointInput {
 export interface DependencyFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DependencyFailureException";
   name: "DependencyFailureException";
   $fault: "server";
   Code?: string;
@@ -2046,7 +2044,6 @@ export namespace GetSupportedResourceTypesOutput {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   Code?: string;
@@ -2075,7 +2072,6 @@ export namespace InvalidParameterValueException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Code?: string;
@@ -2133,7 +2129,6 @@ export namespace Lifecycle {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -2867,7 +2862,6 @@ export namespace ListTagsOutput {
 export interface MissingParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MissingParameterValueException";
   name: "MissingParameterValueException";
   $fault: "client";
   Code?: string;
@@ -3188,7 +3182,6 @@ export enum RecoveryPointStatus {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -3303,7 +3296,6 @@ export namespace RestoreJobsListMember {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   Code?: string;

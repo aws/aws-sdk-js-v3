@@ -528,7 +528,6 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -653,7 +652,6 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -750,7 +748,6 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -831,7 +828,6 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -915,7 +911,6 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -999,7 +994,6 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1116,7 +1110,6 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1241,7 +1234,6 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1338,7 +1330,6 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1431,7 +1422,6 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1527,7 +1517,6 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1623,7 +1612,6 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1637,7 +1625,6 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1655,7 +1642,6 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
-    __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1673,7 +1659,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1691,7 +1676,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1709,7 +1693,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1727,7 +1710,6 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
 ): Promise<UnprocessableEntityException> => {
   const contents: UnprocessableEntityException = {
     name: "UnprocessableEntityException",
-    __type: "UnprocessableEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

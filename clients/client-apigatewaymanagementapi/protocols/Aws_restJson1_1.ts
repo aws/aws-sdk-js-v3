@@ -169,7 +169,6 @@ async function deserializeAws_restJson1_1DeleteConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -245,7 +244,6 @@ async function deserializeAws_restJson1_1GetConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -314,7 +312,6 @@ async function deserializeAws_restJson1_1PostToConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -328,7 +325,6 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };
@@ -341,7 +337,6 @@ const deserializeAws_restJson1_1GoneExceptionResponse = async (
 ): Promise<GoneException> => {
   const contents: GoneException = {
     name: "GoneException",
-    __type: "GoneException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };
@@ -354,7 +349,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };
@@ -367,7 +361,6 @@ const deserializeAws_restJson1_1PayloadTooLargeExceptionResponse = async (
 ): Promise<PayloadTooLargeException> => {
   const contents: PayloadTooLargeException = {
     name: "PayloadTooLargeException",
-    __type: "PayloadTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

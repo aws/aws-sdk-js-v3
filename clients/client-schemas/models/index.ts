@@ -4,7 +4,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -33,7 +32,6 @@ export enum CodeGenerationStatus {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   /**
@@ -519,7 +517,6 @@ export namespace DiscovererSummary {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -597,7 +594,6 @@ export namespace GetDiscoveredSchemaResponse {
 export interface GoneException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GoneException";
   name: "GoneException";
   $fault: "client";
   /**
@@ -620,7 +616,6 @@ export namespace GoneException {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -825,7 +820,6 @@ export namespace LockServiceLinkedRoleResponse {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -1053,7 +1047,6 @@ export namespace SearchSchemasResponse {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1151,7 +1144,6 @@ export namespace TagResourceRequest {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1178,7 +1170,6 @@ export enum Type {
 export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnauthorizedException";
   name: "UnauthorizedException";
   $fault: "client";
   /**

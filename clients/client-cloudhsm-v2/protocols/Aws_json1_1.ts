@@ -451,7 +451,6 @@ async function deserializeAws_json1_1CopyBackupToRegionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -540,7 +539,6 @@ async function deserializeAws_json1_1CreateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -622,7 +620,6 @@ async function deserializeAws_json1_1CreateHsmCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -704,7 +701,6 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -793,7 +789,6 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -875,7 +870,6 @@ async function deserializeAws_json1_1DeleteHsmCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -964,7 +958,6 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1046,7 +1039,6 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1128,7 +1120,6 @@ async function deserializeAws_json1_1InitializeClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1217,7 +1208,6 @@ async function deserializeAws_json1_1ListTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1299,7 +1289,6 @@ async function deserializeAws_json1_1RestoreBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1388,7 +1377,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1477,7 +1465,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1496,7 +1483,6 @@ const deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse = async (
   );
   const contents: CloudHsmAccessDeniedException = {
     name: "CloudHsmAccessDeniedException",
-    __type: "CloudHsmAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1515,7 +1501,6 @@ const deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse = async (
   );
   const contents: CloudHsmInternalFailureException = {
     name: "CloudHsmInternalFailureException",
-    __type: "CloudHsmInternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1534,7 +1519,6 @@ const deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse = async (
   );
   const contents: CloudHsmInvalidRequestException = {
     name: "CloudHsmInvalidRequestException",
-    __type: "CloudHsmInvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1553,7 +1537,6 @@ const deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse = async (
   );
   const contents: CloudHsmResourceNotFoundException = {
     name: "CloudHsmResourceNotFoundException",
-    __type: "CloudHsmResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1572,7 +1555,6 @@ const deserializeAws_json1_1CloudHsmServiceExceptionResponse = async (
   );
   const contents: CloudHsmServiceException = {
     name: "CloudHsmServiceException",
-    __type: "CloudHsmServiceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1591,7 +1573,6 @@ const deserializeAws_json1_1CloudHsmTagExceptionResponse = async (
   );
   const contents: CloudHsmTagException = {
     name: "CloudHsmTagException",
-    __type: "CloudHsmTagException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

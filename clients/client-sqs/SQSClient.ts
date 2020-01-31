@@ -203,6 +203,7 @@ export interface ClientDefaults
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
+
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface
    * that computes MD5 hashes

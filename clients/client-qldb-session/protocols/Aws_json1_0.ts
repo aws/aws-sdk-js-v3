@@ -132,7 +132,6 @@ async function deserializeAws_json1_0SendCommandCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.qldb.session#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -151,7 +150,6 @@ const deserializeAws_json1_0BadRequestExceptionResponse = async (
   );
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -170,7 +168,6 @@ const deserializeAws_json1_0InvalidSessionExceptionResponse = async (
   );
   const contents: InvalidSessionException = {
     name: "InvalidSessionException",
-    __type: "InvalidSessionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -189,7 +186,6 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -208,7 +204,6 @@ const deserializeAws_json1_0OccConflictExceptionResponse = async (
   );
   const contents: OccConflictException = {
     name: "OccConflictException",
-    __type: "OccConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -227,7 +222,6 @@ const deserializeAws_json1_0RateExceededExceptionResponse = async (
   );
   const contents: RateExceededException = {
     name: "RateExceededException",
-    __type: "RateExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

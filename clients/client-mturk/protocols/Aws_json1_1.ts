@@ -1161,7 +1161,6 @@ async function deserializeAws_json1_1AcceptQualificationRequestCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1222,7 +1221,6 @@ async function deserializeAws_json1_1ApproveAssignmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1289,7 +1287,6 @@ async function deserializeAws_json1_1AssociateQualificationWithWorkerCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1356,7 +1353,6 @@ async function deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1417,7 +1413,6 @@ async function deserializeAws_json1_1CreateHITCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1478,7 +1473,6 @@ async function deserializeAws_json1_1CreateHITTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1542,7 +1536,6 @@ async function deserializeAws_json1_1CreateHITWithHITTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1609,7 +1602,6 @@ async function deserializeAws_json1_1CreateQualificationTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1670,7 +1662,6 @@ async function deserializeAws_json1_1CreateWorkerBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1731,7 +1722,6 @@ async function deserializeAws_json1_1DeleteHITCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1798,7 +1788,6 @@ async function deserializeAws_json1_1DeleteQualificationTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1859,7 +1848,6 @@ async function deserializeAws_json1_1DeleteWorkerBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1926,7 +1914,6 @@ async function deserializeAws_json1_1DisassociateQualificationFromWorkerCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1987,7 +1974,6 @@ async function deserializeAws_json1_1GetAccountBalanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2048,7 +2034,6 @@ async function deserializeAws_json1_1GetAssignmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2109,7 +2094,6 @@ async function deserializeAws_json1_1GetFileUploadURLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2170,7 +2154,6 @@ async function deserializeAws_json1_1GetHITCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2234,7 +2217,6 @@ async function deserializeAws_json1_1GetQualificationScoreCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2298,7 +2280,6 @@ async function deserializeAws_json1_1GetQualificationTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2362,7 +2343,6 @@ async function deserializeAws_json1_1ListAssignmentsForHITCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2423,7 +2403,6 @@ async function deserializeAws_json1_1ListBonusPaymentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2484,7 +2463,6 @@ async function deserializeAws_json1_1ListHITsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2551,7 +2529,6 @@ async function deserializeAws_json1_1ListHITsForQualificationTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2618,7 +2595,6 @@ async function deserializeAws_json1_1ListQualificationRequestsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2685,7 +2661,6 @@ async function deserializeAws_json1_1ListQualificationTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2752,7 +2727,6 @@ async function deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2816,7 +2790,6 @@ async function deserializeAws_json1_1ListReviewableHITsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2877,7 +2850,6 @@ async function deserializeAws_json1_1ListWorkerBlocksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2944,7 +2916,6 @@ async function deserializeAws_json1_1ListWorkersWithQualificationTypeCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3005,7 +2976,6 @@ async function deserializeAws_json1_1NotifyWorkersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3066,7 +3036,6 @@ async function deserializeAws_json1_1RejectAssignmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3133,7 +3102,6 @@ async function deserializeAws_json1_1RejectQualificationRequestCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3194,7 +3162,6 @@ async function deserializeAws_json1_1SendBonusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3261,7 +3228,6 @@ async function deserializeAws_json1_1SendTestEventNotificationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3328,7 +3294,6 @@ async function deserializeAws_json1_1UpdateExpirationForHITCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3392,7 +3357,6 @@ async function deserializeAws_json1_1UpdateHITReviewStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3456,7 +3420,6 @@ async function deserializeAws_json1_1UpdateHITTypeOfHITCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3523,7 +3486,6 @@ async function deserializeAws_json1_1UpdateNotificationSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3590,7 +3552,6 @@ async function deserializeAws_json1_1UpdateQualificationTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3606,7 +3567,6 @@ const deserializeAws_json1_1RequestErrorResponse = async (
   const deserialized: any = deserializeAws_json1_1RequestError(body, context);
   const contents: RequestError = {
     name: "RequestError",
-    __type: "RequestError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3622,7 +3582,6 @@ const deserializeAws_json1_1ServiceFaultResponse = async (
   const deserialized: any = deserializeAws_json1_1ServiceFault(body, context);
   const contents: ServiceFault = {
     name: "ServiceFault",
-    __type: "ServiceFault",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

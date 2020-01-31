@@ -104,7 +104,6 @@ async function deserializeAws_json1_1GetEntitlementsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.marketplace.entitlement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -123,7 +122,6 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   );
   const contents: InternalServiceErrorException = {
     name: "InternalServiceErrorException",
-    __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -142,7 +140,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -161,7 +158,6 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   );
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

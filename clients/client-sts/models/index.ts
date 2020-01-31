@@ -694,7 +694,6 @@ export namespace DecodeAuthorizationMessageResponse {
 export interface ExpiredTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ExpiredTokenException";
   name: "ExpiredTokenException";
   $fault: "client";
   message?: string;
@@ -1045,7 +1044,6 @@ export namespace GetSessionTokenResponse {
 export interface IDPCommunicationErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IDPCommunicationErrorException";
   name: "IDPCommunicationErrorException";
   $fault: "client";
   message?: string;
@@ -1066,7 +1064,6 @@ export namespace IDPCommunicationErrorException {
 export interface IDPRejectedClaimException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IDPRejectedClaimException";
   name: "IDPRejectedClaimException";
   $fault: "client";
   message?: string;
@@ -1086,7 +1083,6 @@ export namespace IDPRejectedClaimException {
 export interface InvalidAuthorizationMessageException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAuthorizationMessageException";
   name: "InvalidAuthorizationMessageException";
   $fault: "client";
   message?: string;
@@ -1105,7 +1101,6 @@ export namespace InvalidAuthorizationMessageException {
 export interface InvalidIdentityTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidIdentityTokenException";
   name: "InvalidIdentityTokenException";
   $fault: "client";
   message?: string;
@@ -1124,7 +1119,6 @@ export namespace InvalidIdentityTokenException {
 export interface MalformedPolicyDocumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MalformedPolicyDocumentException";
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
@@ -1150,7 +1144,6 @@ export namespace MalformedPolicyDocumentException {
 export interface PackedPolicyTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PackedPolicyTooLargeException";
   name: "PackedPolicyTooLargeException";
   $fault: "client";
   message?: string;
@@ -1192,7 +1185,6 @@ export namespace PolicyDescriptorType {
 export interface RegionDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RegionDisabledException";
   name: "RegionDisabledException";
   $fault: "client";
   message?: string;

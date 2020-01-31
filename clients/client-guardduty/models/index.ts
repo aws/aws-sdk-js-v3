@@ -199,7 +199,6 @@ export namespace AwsApiCallAction {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -1802,7 +1801,6 @@ export namespace InstanceDetails {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
   /**

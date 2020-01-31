@@ -1525,7 +1525,6 @@ async function deserializeAws_restJson1_1AbortMultipartUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1594,7 +1593,6 @@ async function deserializeAws_restJson1_1AbortVaultLockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1670,7 +1668,6 @@ async function deserializeAws_restJson1_1AddTagsToVaultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1752,7 +1749,6 @@ async function deserializeAws_restJson1_1CompleteMultipartUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1821,7 +1817,6 @@ async function deserializeAws_restJson1_1CompleteVaultLockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1892,7 +1887,6 @@ async function deserializeAws_restJson1_1CreateVaultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1958,7 +1952,6 @@ async function deserializeAws_restJson1_1DeleteArchiveCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2024,7 +2017,6 @@ async function deserializeAws_restJson1_1DeleteVaultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2093,7 +2085,6 @@ async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2162,7 +2153,6 @@ async function deserializeAws_restJson1_1DeleteVaultNotificationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2323,7 +2313,6 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2415,7 +2404,6 @@ async function deserializeAws_restJson1_1DescribeVaultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2486,7 +2474,6 @@ async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2576,7 +2563,6 @@ async function deserializeAws_restJson1_1GetJobOutputCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2649,7 +2635,6 @@ async function deserializeAws_restJson1_1GetVaultAccessPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2733,7 +2718,6 @@ async function deserializeAws_restJson1_1GetVaultLockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2809,7 +2793,6 @@ async function deserializeAws_restJson1_1GetVaultNotificationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2902,7 +2885,6 @@ async function deserializeAws_restJson1_1InitiateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2980,7 +2962,6 @@ async function deserializeAws_restJson1_1InitiateMultipartUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3054,7 +3035,6 @@ async function deserializeAws_restJson1_1InitiateVaultLockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3130,7 +3110,6 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3212,7 +3191,6 @@ async function deserializeAws_restJson1_1ListMultipartUploadsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3308,7 +3286,6 @@ async function deserializeAws_restJson1_1ListPartsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3379,7 +3356,6 @@ async function deserializeAws_restJson1_1ListProvisionedCapacityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3454,7 +3430,6 @@ async function deserializeAws_restJson1_1ListTagsForVaultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3533,7 +3508,6 @@ async function deserializeAws_restJson1_1ListVaultsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3607,7 +3581,6 @@ async function deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3676,7 +3649,6 @@ async function deserializeAws_restJson1_1RemoveTagsFromVaultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3738,7 +3710,6 @@ async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3807,7 +3778,6 @@ async function deserializeAws_restJson1_1SetVaultAccessPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3876,7 +3846,6 @@ async function deserializeAws_restJson1_1SetVaultNotificationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3962,7 +3931,6 @@ async function deserializeAws_restJson1_1UploadArchiveCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4043,7 +4011,6 @@ async function deserializeAws_restJson1_1UploadMultipartPartCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.glacier.gaws#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4057,7 +4024,6 @@ const deserializeAws_restJson1_1InsufficientCapacityExceptionResponse = async (
 ): Promise<InsufficientCapacityException> => {
   const contents: InsufficientCapacityException = {
     name: "InsufficientCapacityException",
-    __type: "InsufficientCapacityException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     code: undefined,
@@ -4083,7 +4049,6 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     code: undefined,
@@ -4109,7 +4074,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     code: undefined,
@@ -4135,7 +4099,6 @@ const deserializeAws_restJson1_1MissingParameterValueExceptionResponse = async (
 ): Promise<MissingParameterValueException> => {
   const contents: MissingParameterValueException = {
     name: "MissingParameterValueException",
-    __type: "MissingParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     code: undefined,
@@ -4161,7 +4124,6 @@ const deserializeAws_restJson1_1PolicyEnforcedExceptionResponse = async (
 ): Promise<PolicyEnforcedException> => {
   const contents: PolicyEnforcedException = {
     name: "PolicyEnforcedException",
-    __type: "PolicyEnforcedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     code: undefined,
@@ -4187,7 +4149,6 @@ const deserializeAws_restJson1_1RequestTimeoutExceptionResponse = async (
 ): Promise<RequestTimeoutException> => {
   const contents: RequestTimeoutException = {
     name: "RequestTimeoutException",
-    __type: "RequestTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     code: undefined,
@@ -4213,7 +4174,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     code: undefined,
@@ -4239,7 +4199,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     code: undefined,

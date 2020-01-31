@@ -1438,7 +1438,6 @@ async function deserializeAws_queryAbortEnvironmentUpdateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1503,7 +1502,6 @@ async function deserializeAws_queryApplyEnvironmentManagedActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1554,7 +1552,6 @@ async function deserializeAws_queryCheckDNSAvailabilityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1616,7 +1613,6 @@ async function deserializeAws_queryComposeEnvironmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1671,7 +1667,6 @@ async function deserializeAws_queryCreateApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1757,7 +1752,6 @@ async function deserializeAws_queryCreateApplicationVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1829,7 +1823,6 @@ async function deserializeAws_queryCreateConfigurationTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1891,7 +1884,6 @@ async function deserializeAws_queryCreateEnvironmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1963,7 +1955,6 @@ async function deserializeAws_queryCreatePlatformVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2035,7 +2026,6 @@ async function deserializeAws_queryCreateStorageLocationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2082,7 +2072,6 @@ async function deserializeAws_queryDeleteApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2153,7 +2142,6 @@ async function deserializeAws_queryDeleteApplicationVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2203,7 +2191,6 @@ async function deserializeAws_queryDeleteConfigurationTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2246,7 +2233,6 @@ async function deserializeAws_queryDeleteEnvironmentConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2325,7 +2311,6 @@ async function deserializeAws_queryDeletePlatformVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2383,7 +2368,6 @@ async function deserializeAws_queryDescribeAccountAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2434,7 +2418,6 @@ async function deserializeAws_queryDescribeApplicationVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2485,7 +2468,6 @@ async function deserializeAws_queryDescribeApplicationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2543,7 +2525,6 @@ async function deserializeAws_queryDescribeConfigurationOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2601,7 +2582,6 @@ async function deserializeAws_queryDescribeConfigurationSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2666,7 +2646,6 @@ async function deserializeAws_queryDescribeEnvironmentHealthCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2724,7 +2703,6 @@ async function deserializeAws_queryDescribeEnvironmentManagedActionHistoryComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2782,7 +2760,6 @@ async function deserializeAws_queryDescribeEnvironmentManagedActionsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2840,7 +2817,6 @@ async function deserializeAws_queryDescribeEnvironmentResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2891,7 +2867,6 @@ async function deserializeAws_queryDescribeEnvironmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2939,7 +2914,6 @@ async function deserializeAws_queryDescribeEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3004,7 +2978,6 @@ async function deserializeAws_queryDescribeInstancesHealthCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3069,7 +3042,6 @@ async function deserializeAws_queryDescribePlatformVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3120,7 +3092,6 @@ async function deserializeAws_queryListAvailableSolutionStacksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3185,7 +3156,6 @@ async function deserializeAws_queryListPlatformVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3254,7 +3224,6 @@ async function deserializeAws_queryListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3301,7 +3270,6 @@ async function deserializeAws_queryRebuildEnvironmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3344,7 +3312,6 @@ async function deserializeAws_queryRequestEnvironmentInfoCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3384,7 +3351,6 @@ async function deserializeAws_queryRestartAppServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3435,7 +3401,6 @@ async function deserializeAws_queryRetrieveEnvironmentInfoCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3478,7 +3443,6 @@ async function deserializeAws_querySwapEnvironmentCNAMEsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3536,7 +3500,6 @@ async function deserializeAws_queryTerminateEnvironmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3584,7 +3547,6 @@ async function deserializeAws_queryUpdateApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3642,7 +3604,6 @@ async function deserializeAws_queryUpdateApplicationResourceLifecycleCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3693,7 +3654,6 @@ async function deserializeAws_queryUpdateApplicationVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3758,7 +3718,6 @@ async function deserializeAws_queryUpdateConfigurationTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3820,7 +3779,6 @@ async function deserializeAws_queryUpdateEnvironmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3898,7 +3856,6 @@ async function deserializeAws_queryUpdateTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3963,7 +3920,6 @@ async function deserializeAws_queryValidateConfigurationSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.elasticbeanstalk#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3982,7 +3938,6 @@ const deserializeAws_queryCodeBuildNotInServiceRegionExceptionResponse = async (
   );
   const contents: CodeBuildNotInServiceRegionException = {
     name: "CodeBuildNotInServiceRegionException",
-    __type: "CodeBuildNotInServiceRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4001,7 +3956,6 @@ const deserializeAws_queryElasticBeanstalkServiceExceptionResponse = async (
   );
   const contents: ElasticBeanstalkServiceException = {
     name: "ElasticBeanstalkServiceException",
-    __type: "ElasticBeanstalkServiceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4020,7 +3974,6 @@ const deserializeAws_queryInsufficientPrivilegesExceptionResponse = async (
   );
   const contents: InsufficientPrivilegesException = {
     name: "InsufficientPrivilegesException",
-    __type: "InsufficientPrivilegesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4039,7 +3992,6 @@ const deserializeAws_queryInvalidRequestExceptionResponse = async (
   );
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4058,7 +4010,6 @@ const deserializeAws_queryManagedActionInvalidStateExceptionResponse = async (
   );
   const contents: ManagedActionInvalidStateException = {
     name: "ManagedActionInvalidStateException",
-    __type: "ManagedActionInvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4077,7 +4028,6 @@ const deserializeAws_queryOperationInProgressExceptionResponse = async (
   );
   const contents: OperationInProgressException = {
     name: "OperationInProgressException",
-    __type: "OperationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4096,7 +4046,6 @@ const deserializeAws_queryPlatformVersionStillReferencedExceptionResponse = asyn
   );
   const contents: PlatformVersionStillReferencedException = {
     name: "PlatformVersionStillReferencedException",
-    __type: "PlatformVersionStillReferencedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4115,7 +4064,6 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4134,7 +4082,6 @@ const deserializeAws_queryResourceTypeNotSupportedExceptionResponse = async (
   );
   const contents: ResourceTypeNotSupportedException = {
     name: "ResourceTypeNotSupportedException",
-    __type: "ResourceTypeNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4153,7 +4100,6 @@ const deserializeAws_queryS3LocationNotInServiceRegionExceptionResponse = async 
   );
   const contents: S3LocationNotInServiceRegionException = {
     name: "S3LocationNotInServiceRegionException",
-    __type: "S3LocationNotInServiceRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4172,7 +4118,6 @@ const deserializeAws_queryS3SubscriptionRequiredExceptionResponse = async (
   );
   const contents: S3SubscriptionRequiredException = {
     name: "S3SubscriptionRequiredException",
-    __type: "S3SubscriptionRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4191,7 +4136,6 @@ const deserializeAws_querySourceBundleDeletionExceptionResponse = async (
   );
   const contents: SourceBundleDeletionException = {
     name: "SourceBundleDeletionException",
-    __type: "SourceBundleDeletionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4210,7 +4154,6 @@ const deserializeAws_queryTooManyApplicationVersionsExceptionResponse = async (
   );
   const contents: TooManyApplicationVersionsException = {
     name: "TooManyApplicationVersionsException",
-    __type: "TooManyApplicationVersionsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4229,7 +4172,6 @@ const deserializeAws_queryTooManyApplicationsExceptionResponse = async (
   );
   const contents: TooManyApplicationsException = {
     name: "TooManyApplicationsException",
-    __type: "TooManyApplicationsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4248,7 +4190,6 @@ const deserializeAws_queryTooManyBucketsExceptionResponse = async (
   );
   const contents: TooManyBucketsException = {
     name: "TooManyBucketsException",
-    __type: "TooManyBucketsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4267,7 +4208,6 @@ const deserializeAws_queryTooManyConfigurationTemplatesExceptionResponse = async
   );
   const contents: TooManyConfigurationTemplatesException = {
     name: "TooManyConfigurationTemplatesException",
-    __type: "TooManyConfigurationTemplatesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4286,7 +4226,6 @@ const deserializeAws_queryTooManyEnvironmentsExceptionResponse = async (
   );
   const contents: TooManyEnvironmentsException = {
     name: "TooManyEnvironmentsException",
-    __type: "TooManyEnvironmentsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4305,7 +4244,6 @@ const deserializeAws_queryTooManyPlatformsExceptionResponse = async (
   );
   const contents: TooManyPlatformsException = {
     name: "TooManyPlatformsException",
-    __type: "TooManyPlatformsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4324,7 +4262,6 @@ const deserializeAws_queryTooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

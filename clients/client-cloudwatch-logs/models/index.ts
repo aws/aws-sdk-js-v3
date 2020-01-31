@@ -149,7 +149,6 @@ export namespace CreateLogStreamRequest {
 export interface DataAlreadyAcceptedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DataAlreadyAcceptedException";
   name: "DataAlreadyAcceptedException";
   $fault: "client";
   expectedSequenceToken?: string;
@@ -1209,7 +1208,6 @@ export namespace InputLogEvent {
 export interface InvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOperationException";
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -1227,7 +1225,6 @@ export namespace InvalidOperationException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1247,7 +1244,6 @@ export namespace InvalidParameterException {
 export interface InvalidSequenceTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSequenceTokenException";
   name: "InvalidSequenceTokenException";
   $fault: "client";
   expectedSequenceToken?: string;
@@ -1266,7 +1262,6 @@ export namespace InvalidSequenceTokenException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1452,7 +1447,6 @@ export namespace LogStream {
 export interface MalformedQueryException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MalformedQueryException";
   name: "MalformedQueryException";
   $fault: "client";
   message?: string;
@@ -1576,7 +1570,6 @@ export namespace MetricTransformation {
 export interface OperationAbortedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationAbortedException";
   name: "OperationAbortedException";
   $fault: "client";
   message?: string;
@@ -2054,7 +2047,6 @@ export namespace RejectedLogEventsInfo {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2072,7 +2064,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -2162,7 +2153,6 @@ export namespace SearchedLogStream {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -2377,7 +2367,6 @@ export namespace TestMetricFilterResponse {
 export interface UnrecognizedClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnrecognizedClientException";
   name: "UnrecognizedClientException";
   $fault: "client";
   message?: string;

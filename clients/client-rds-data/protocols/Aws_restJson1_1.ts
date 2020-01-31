@@ -349,7 +349,6 @@ async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -431,7 +430,6 @@ async function deserializeAws_restJson1_1BeginTransactionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -513,7 +511,6 @@ async function deserializeAws_restJson1_1CommitTransactionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -588,7 +585,6 @@ async function deserializeAws_restJson1_1ExecuteSqlCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -691,7 +687,6 @@ async function deserializeAws_restJson1_1ExecuteStatementCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -773,7 +768,6 @@ async function deserializeAws_restJson1_1RollbackTransactionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -787,7 +781,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -805,7 +798,6 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -823,7 +815,6 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
-    __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output)
   };
@@ -836,7 +827,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -854,7 +844,6 @@ const deserializeAws_restJson1_1ServiceUnavailableErrorResponse = async (
 ): Promise<ServiceUnavailableError> => {
   const contents: ServiceUnavailableError = {
     name: "ServiceUnavailableError",
-    __type: "ServiceUnavailableError",
     $fault: "server",
     $metadata: deserializeMetadata(output)
   };
@@ -867,7 +856,6 @@ const deserializeAws_restJson1_1StatementTimeoutExceptionResponse = async (
 ): Promise<StatementTimeoutException> => {
   const contents: StatementTimeoutException = {
     name: "StatementTimeoutException",
-    __type: "StatementTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     dbConnectionId: undefined,

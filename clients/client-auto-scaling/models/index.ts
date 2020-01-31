@@ -147,7 +147,6 @@ export namespace Alarm {
 export interface AlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsFault";
   name: "AlreadyExistsFault";
   $fault: "client";
   /**
@@ -2479,7 +2478,6 @@ export namespace InstancesDistribution {
 export interface InvalidNextToken
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextToken";
   name: "InvalidNextToken";
   $fault: "client";
   /**
@@ -3012,7 +3010,6 @@ export enum LifecycleState {
 export interface LimitExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededFault";
   name: "LimitExceededFault";
   $fault: "client";
   /**
@@ -3869,7 +3866,6 @@ export namespace RecordLifecycleActionHeartbeatType {
 export interface ResourceContentionFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceContentionFault";
   name: "ResourceContentionFault";
   $fault: "server";
   /**
@@ -3890,7 +3886,6 @@ export namespace ResourceContentionFault {
 export interface ResourceInUseFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseFault";
   name: "ResourceInUseFault";
   $fault: "client";
   /**
@@ -3912,7 +3907,6 @@ export namespace ResourceInUseFault {
 export interface ScalingActivityInProgressFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ScalingActivityInProgressFault";
   name: "ScalingActivityInProgressFault";
   $fault: "client";
   /**
@@ -4259,7 +4253,6 @@ export namespace ScheduledUpdateGroupActionRequest {
 export interface ServiceLinkedRoleFailure
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceLinkedRoleFailure";
   name: "ServiceLinkedRoleFailure";
   $fault: "server";
   message?: string;

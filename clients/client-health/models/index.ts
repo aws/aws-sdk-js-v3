@@ -32,7 +32,6 @@ export enum EventTypeCategory {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -50,7 +49,6 @@ export namespace ConcurrentModificationException {
 export interface InvalidPaginationToken
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPaginationToken";
   name: "InvalidPaginationToken";
   $fault: "client";
   message?: string;
@@ -68,7 +66,6 @@ export namespace InvalidPaginationToken {
 export interface UnsupportedLocale
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedLocale";
   name: "UnsupportedLocale";
   $fault: "client";
   message?: string;

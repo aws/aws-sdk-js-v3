@@ -4268,7 +4268,6 @@ async function deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4346,7 +4345,6 @@ async function deserializeAws_queryAddRoleToInstanceProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4407,7 +4405,6 @@ async function deserializeAws_queryAddUserToGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4482,7 +4479,6 @@ async function deserializeAws_queryAttachGroupPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4564,7 +4560,6 @@ async function deserializeAws_queryAttachRolePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4639,7 +4634,6 @@ async function deserializeAws_queryAttachUserPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4721,7 +4715,6 @@ async function deserializeAws_queryChangePasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4790,7 +4783,6 @@ async function deserializeAws_queryCreateAccessKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4851,7 +4843,6 @@ async function deserializeAws_queryCreateAccountAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4927,7 +4918,6 @@ async function deserializeAws_queryCreateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4999,7 +4989,6 @@ async function deserializeAws_queryCreateInstanceProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5082,7 +5071,6 @@ async function deserializeAws_queryCreateLoginProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5161,7 +5149,6 @@ async function deserializeAws_queryCreateOpenIDConnectProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5244,7 +5231,6 @@ async function deserializeAws_queryCreatePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5327,7 +5313,6 @@ async function deserializeAws_queryCreatePolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5417,7 +5402,6 @@ async function deserializeAws_queryCreateRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5493,7 +5477,6 @@ async function deserializeAws_queryCreateSAMLProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5572,7 +5555,6 @@ async function deserializeAws_queryCreateServiceLinkedRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5644,7 +5626,6 @@ async function deserializeAws_queryCreateServiceSpecificCredentialCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5734,7 +5715,6 @@ async function deserializeAws_queryCreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5806,7 +5786,6 @@ async function deserializeAws_queryCreateVirtualMFADeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5874,7 +5853,6 @@ async function deserializeAws_queryDeactivateMFADeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5935,7 +5913,6 @@ async function deserializeAws_queryDeleteAccessKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5996,7 +5973,6 @@ async function deserializeAws_queryDeleteAccountAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6060,7 +6036,6 @@ async function deserializeAws_queryDeleteAccountPasswordPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6128,7 +6103,6 @@ async function deserializeAws_queryDeleteGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6189,7 +6163,6 @@ async function deserializeAws_queryDeleteGroupPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6260,7 +6233,6 @@ async function deserializeAws_queryDeleteInstanceProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6328,7 +6300,6 @@ async function deserializeAws_queryDeleteLoginProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6392,7 +6363,6 @@ async function deserializeAws_queryDeleteOpenIDConnectProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6467,7 +6437,6 @@ async function deserializeAws_queryDeletePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6542,7 +6511,6 @@ async function deserializeAws_queryDeletePolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6624,7 +6592,6 @@ async function deserializeAws_queryDeleteRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6688,7 +6655,6 @@ async function deserializeAws_queryDeleteRolePermissionsBoundaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6756,7 +6722,6 @@ async function deserializeAws_queryDeleteRolePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6824,7 +6789,6 @@ async function deserializeAws_queryDeleteSAMLProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6871,7 +6835,6 @@ async function deserializeAws_queryDeleteSSHPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6942,7 +6905,6 @@ async function deserializeAws_queryDeleteServerCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7014,7 +6976,6 @@ async function deserializeAws_queryDeleteServiceLinkedRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7064,7 +7025,6 @@ async function deserializeAws_queryDeleteServiceSpecificCredentialCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7128,7 +7088,6 @@ async function deserializeAws_queryDeleteSigningCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7203,7 +7162,6 @@ async function deserializeAws_queryDeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7260,7 +7218,6 @@ async function deserializeAws_queryDeleteUserPermissionsBoundaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7321,7 +7278,6 @@ async function deserializeAws_queryDeleteUserPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7392,7 +7348,6 @@ async function deserializeAws_queryDeleteVirtualMFADeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7460,7 +7415,6 @@ async function deserializeAws_queryDetachGroupPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7535,7 +7489,6 @@ async function deserializeAws_queryDetachRolePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7603,7 +7556,6 @@ async function deserializeAws_queryDetachUserPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7685,7 +7637,6 @@ async function deserializeAws_queryEnableMFADeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7750,7 +7701,6 @@ async function deserializeAws_queryGenerateCredentialReportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7808,7 +7758,6 @@ async function deserializeAws_queryGenerateOrganizationsAccessReportCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7873,7 +7822,6 @@ async function deserializeAws_queryGenerateServiceLastAccessedDetailsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7924,7 +7872,6 @@ async function deserializeAws_queryGetAccessKeyLastUsedCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7982,7 +7929,6 @@ async function deserializeAws_queryGetAccountAuthorizationDetailsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8047,7 +7993,6 @@ async function deserializeAws_queryGetAccountPasswordPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8102,7 +8047,6 @@ async function deserializeAws_queryGetAccountSummaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8160,7 +8104,6 @@ async function deserializeAws_queryGetContextKeysForCustomPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8225,7 +8168,6 @@ async function deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8301,7 +8243,6 @@ async function deserializeAws_queryGetCredentialReportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8360,7 +8301,6 @@ async function deserializeAws_queryGetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8422,7 +8362,6 @@ async function deserializeAws_queryGetGroupPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8484,7 +8423,6 @@ async function deserializeAws_queryGetInstanceProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8546,7 +8484,6 @@ async function deserializeAws_queryGetLoginProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8618,7 +8555,6 @@ async function deserializeAws_queryGetOpenIDConnectProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8676,7 +8612,6 @@ async function deserializeAws_queryGetOrganizationsAccessReportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8745,7 +8680,6 @@ async function deserializeAws_queryGetPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8814,7 +8748,6 @@ async function deserializeAws_queryGetPolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8873,7 +8806,6 @@ async function deserializeAws_queryGetRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8935,7 +8867,6 @@ async function deserializeAws_queryGetRolePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9004,7 +8935,6 @@ async function deserializeAws_queryGetSAMLProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9066,7 +8996,6 @@ async function deserializeAws_queryGetSSHPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9131,7 +9060,6 @@ async function deserializeAws_queryGetServerCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9196,7 +9124,6 @@ async function deserializeAws_queryGetServiceLastAccessedDetailsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9261,7 +9188,6 @@ async function deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9333,7 +9259,6 @@ async function deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9392,7 +9317,6 @@ async function deserializeAws_queryGetUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9454,7 +9378,6 @@ async function deserializeAws_queryGetUserPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9516,7 +9439,6 @@ async function deserializeAws_queryListAccessKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9571,7 +9493,6 @@ async function deserializeAws_queryListAccountAliasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9643,7 +9564,6 @@ async function deserializeAws_queryListAttachedGroupPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9715,7 +9635,6 @@ async function deserializeAws_queryListAttachedRolePoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9787,7 +9706,6 @@ async function deserializeAws_queryListAttachedUserPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9859,7 +9777,6 @@ async function deserializeAws_queryListEntitiesForPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9921,7 +9838,6 @@ async function deserializeAws_queryListGroupPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9976,7 +9892,6 @@ async function deserializeAws_queryListGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10038,7 +9953,6 @@ async function deserializeAws_queryListGroupsForUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10096,7 +10010,6 @@ async function deserializeAws_queryListInstanceProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10161,7 +10074,6 @@ async function deserializeAws_queryListInstanceProfilesForRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10223,7 +10135,6 @@ async function deserializeAws_queryListMFADevicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10281,7 +10192,6 @@ async function deserializeAws_queryListOpenIDConnectProvidersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10336,7 +10246,6 @@ async function deserializeAws_queryListPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10401,7 +10310,6 @@ async function deserializeAws_queryListPoliciesGrantingServiceAccessCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10470,7 +10378,6 @@ async function deserializeAws_queryListPolicyVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10532,7 +10439,6 @@ async function deserializeAws_queryListRolePoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10594,7 +10500,6 @@ async function deserializeAws_queryListRoleTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10649,7 +10554,6 @@ async function deserializeAws_queryListRolesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10704,7 +10608,6 @@ async function deserializeAws_queryListSAMLProvidersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10759,7 +10662,6 @@ async function deserializeAws_queryListSSHPublicKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10817,7 +10719,6 @@ async function deserializeAws_queryListServerCertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10882,7 +10783,6 @@ async function deserializeAws_queryListServiceSpecificCredentialsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10947,7 +10847,6 @@ async function deserializeAws_queryListSigningCertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11009,7 +10908,6 @@ async function deserializeAws_queryListUserPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11071,7 +10969,6 @@ async function deserializeAws_queryListUserTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11126,7 +11023,6 @@ async function deserializeAws_queryListUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11177,7 +11073,6 @@ async function deserializeAws_queryListVirtualMFADevicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11245,7 +11140,6 @@ async function deserializeAws_queryPutGroupPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11323,7 +11217,6 @@ async function deserializeAws_queryPutRolePermissionsBoundaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11398,7 +11291,6 @@ async function deserializeAws_queryPutRolePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11469,7 +11361,6 @@ async function deserializeAws_queryPutUserPermissionsBoundaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11537,7 +11428,6 @@ async function deserializeAws_queryPutUserPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11601,7 +11491,6 @@ async function deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11672,7 +11561,6 @@ async function deserializeAws_queryRemoveRoleFromInstanceProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11733,7 +11621,6 @@ async function deserializeAws_queryRemoveUserFromGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11791,7 +11678,6 @@ async function deserializeAws_queryResetServiceSpecificCredentialCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11859,7 +11745,6 @@ async function deserializeAws_queryResyncMFADeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11930,7 +11815,6 @@ async function deserializeAws_querySetDefaultPolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11980,7 +11864,6 @@ async function deserializeAws_querySetSecurityTokenServicePreferencesCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12045,7 +11928,6 @@ async function deserializeAws_querySimulateCustomPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12117,7 +11999,6 @@ async function deserializeAws_querySimulatePrincipalPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12192,7 +12073,6 @@ async function deserializeAws_queryTagRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12267,7 +12147,6 @@ async function deserializeAws_queryTagUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12328,7 +12207,6 @@ async function deserializeAws_queryUntagRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12389,7 +12267,6 @@ async function deserializeAws_queryUntagUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12450,7 +12327,6 @@ async function deserializeAws_queryUpdateAccessKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12521,7 +12397,6 @@ async function deserializeAws_queryUpdateAccountPasswordPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12599,7 +12474,6 @@ async function deserializeAws_queryUpdateAssumeRolePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12667,7 +12541,6 @@ async function deserializeAws_queryUpdateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12742,7 +12615,6 @@ async function deserializeAws_queryUpdateLoginProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12806,7 +12678,6 @@ async function deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12875,7 +12746,6 @@ async function deserializeAws_queryUpdateRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12947,7 +12817,6 @@ async function deserializeAws_queryUpdateRoleDescriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13023,7 +12892,6 @@ async function deserializeAws_queryUpdateSAMLProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13070,7 +12938,6 @@ async function deserializeAws_queryUpdateSSHPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13141,7 +13008,6 @@ async function deserializeAws_queryUpdateServerCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13191,7 +13057,6 @@ async function deserializeAws_queryUpdateServiceSpecificCredentialCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13255,7 +13120,6 @@ async function deserializeAws_queryUpdateSigningCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13337,7 +13201,6 @@ async function deserializeAws_queryUpdateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13420,7 +13283,6 @@ async function deserializeAws_queryUploadSSHPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13506,7 +13368,6 @@ async function deserializeAws_queryUploadServerCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13606,7 +13467,6 @@ async function deserializeAws_queryUploadSigningCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.auth.identity.v20100508#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13625,7 +13485,6 @@ const deserializeAws_queryConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13644,7 +13503,6 @@ const deserializeAws_queryCredentialReportExpiredExceptionResponse = async (
   );
   const contents: CredentialReportExpiredException = {
     name: "CredentialReportExpiredException",
-    __type: "CredentialReportExpiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13663,7 +13521,6 @@ const deserializeAws_queryCredentialReportNotPresentExceptionResponse = async (
   );
   const contents: CredentialReportNotPresentException = {
     name: "CredentialReportNotPresentException",
-    __type: "CredentialReportNotPresentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13682,7 +13539,6 @@ const deserializeAws_queryCredentialReportNotReadyExceptionResponse = async (
   );
   const contents: CredentialReportNotReadyException = {
     name: "CredentialReportNotReadyException",
-    __type: "CredentialReportNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13701,7 +13557,6 @@ const deserializeAws_queryDeleteConflictExceptionResponse = async (
   );
   const contents: DeleteConflictException = {
     name: "DeleteConflictException",
-    __type: "DeleteConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13720,7 +13575,6 @@ const deserializeAws_queryDuplicateCertificateExceptionResponse = async (
   );
   const contents: DuplicateCertificateException = {
     name: "DuplicateCertificateException",
-    __type: "DuplicateCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13739,7 +13593,6 @@ const deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse = async (
   );
   const contents: DuplicateSSHPublicKeyException = {
     name: "DuplicateSSHPublicKeyException",
-    __type: "DuplicateSSHPublicKeyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13758,7 +13611,6 @@ const deserializeAws_queryEntityAlreadyExistsExceptionResponse = async (
   );
   const contents: EntityAlreadyExistsException = {
     name: "EntityAlreadyExistsException",
-    __type: "EntityAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13777,7 +13629,6 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse = async
   );
   const contents: EntityTemporarilyUnmodifiableException = {
     name: "EntityTemporarilyUnmodifiableException",
-    __type: "EntityTemporarilyUnmodifiableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13796,7 +13647,6 @@ const deserializeAws_queryInvalidAuthenticationCodeExceptionResponse = async (
   );
   const contents: InvalidAuthenticationCodeException = {
     name: "InvalidAuthenticationCodeException",
-    __type: "InvalidAuthenticationCodeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13815,7 +13665,6 @@ const deserializeAws_queryInvalidCertificateExceptionResponse = async (
   );
   const contents: InvalidCertificateException = {
     name: "InvalidCertificateException",
-    __type: "InvalidCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13834,7 +13683,6 @@ const deserializeAws_queryInvalidInputExceptionResponse = async (
   );
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13853,7 +13701,6 @@ const deserializeAws_queryInvalidPublicKeyExceptionResponse = async (
   );
   const contents: InvalidPublicKeyException = {
     name: "InvalidPublicKeyException",
-    __type: "InvalidPublicKeyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13872,7 +13719,6 @@ const deserializeAws_queryInvalidUserTypeExceptionResponse = async (
   );
   const contents: InvalidUserTypeException = {
     name: "InvalidUserTypeException",
-    __type: "InvalidUserTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13891,7 +13737,6 @@ const deserializeAws_queryKeyPairMismatchExceptionResponse = async (
   );
   const contents: KeyPairMismatchException = {
     name: "KeyPairMismatchException",
-    __type: "KeyPairMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13910,7 +13755,6 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13929,7 +13773,6 @@ const deserializeAws_queryMalformedCertificateExceptionResponse = async (
   );
   const contents: MalformedCertificateException = {
     name: "MalformedCertificateException",
-    __type: "MalformedCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13948,7 +13791,6 @@ const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
   );
   const contents: MalformedPolicyDocumentException = {
     name: "MalformedPolicyDocumentException",
-    __type: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13967,7 +13809,6 @@ const deserializeAws_queryNoSuchEntityExceptionResponse = async (
   );
   const contents: NoSuchEntityException = {
     name: "NoSuchEntityException",
-    __type: "NoSuchEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13986,7 +13827,6 @@ const deserializeAws_queryPasswordPolicyViolationExceptionResponse = async (
   );
   const contents: PasswordPolicyViolationException = {
     name: "PasswordPolicyViolationException",
-    __type: "PasswordPolicyViolationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14005,7 +13845,6 @@ const deserializeAws_queryPolicyEvaluationExceptionResponse = async (
   );
   const contents: PolicyEvaluationException = {
     name: "PolicyEvaluationException",
-    __type: "PolicyEvaluationException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14024,7 +13863,6 @@ const deserializeAws_queryPolicyNotAttachableExceptionResponse = async (
   );
   const contents: PolicyNotAttachableException = {
     name: "PolicyNotAttachableException",
-    __type: "PolicyNotAttachableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14043,7 +13881,6 @@ const deserializeAws_queryReportGenerationLimitExceededExceptionResponse = async
   );
   const contents: ReportGenerationLimitExceededException = {
     name: "ReportGenerationLimitExceededException",
-    __type: "ReportGenerationLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14062,7 +13899,6 @@ const deserializeAws_queryServiceFailureExceptionResponse = async (
   );
   const contents: ServiceFailureException = {
     name: "ServiceFailureException",
-    __type: "ServiceFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14081,7 +13917,6 @@ const deserializeAws_queryServiceNotSupportedExceptionResponse = async (
   );
   const contents: ServiceNotSupportedException = {
     name: "ServiceNotSupportedException",
-    __type: "ServiceNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14100,7 +13935,6 @@ const deserializeAws_queryUnmodifiableEntityExceptionResponse = async (
   );
   const contents: UnmodifiableEntityException = {
     name: "UnmodifiableEntityException",
-    __type: "UnmodifiableEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -14119,7 +13953,6 @@ const deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse = async
   );
   const contents: UnrecognizedPublicKeyEncodingException = {
     name: "UnrecognizedPublicKeyEncodingException",
-    __type: "UnrecognizedPublicKeyEncodingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

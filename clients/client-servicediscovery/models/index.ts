@@ -204,7 +204,6 @@ export namespace CreateServiceResponse {
 export interface CustomHealthNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomHealthNotFound";
   name: "CustomHealthNotFound";
   $fault: "client";
   Message?: string;
@@ -583,7 +582,6 @@ export namespace DnsRecord {
 export interface DuplicateRequest
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateRequest";
   name: "DuplicateRequest";
   $fault: "client";
   /**
@@ -1190,7 +1188,6 @@ export namespace Instance {
 export interface InstanceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InstanceNotFound";
   name: "InstanceNotFound";
   $fault: "client";
   Message?: string;
@@ -1266,7 +1263,6 @@ export namespace InstanceSummary {
  * 			or a string value might exceed length constraints.</p>
  */
 export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
-  __type: "InvalidInput";
   name: "InvalidInput";
   $fault: "client";
   Message?: string;
@@ -1564,7 +1560,6 @@ export namespace Namespace {
 export interface NamespaceAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NamespaceAlreadyExists";
   name: "NamespaceAlreadyExists";
   $fault: "client";
   /**
@@ -1641,7 +1636,6 @@ export enum NamespaceFilterName {
 export interface NamespaceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NamespaceNotFound";
   name: "NamespaceNotFound";
   $fault: "client";
   Message?: string;
@@ -1968,7 +1962,6 @@ export enum OperationFilterName {
 export interface OperationNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationNotFound";
   name: "OperationNotFound";
   $fault: "client";
   Message?: string;
@@ -2213,7 +2206,6 @@ export namespace RegisterInstanceResponse {
 export interface ResourceInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUse";
   name: "ResourceInUse";
   $fault: "client";
   Message?: string;
@@ -2231,7 +2223,6 @@ export namespace ResourceInUse {
 export interface ResourceLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceLimitExceeded";
   name: "ResourceLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -2332,7 +2323,6 @@ export namespace Service {
 export interface ServiceAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceAlreadyExists";
   name: "ServiceAlreadyExists";
   $fault: "client";
   /**
@@ -2496,7 +2486,6 @@ export enum ServiceFilterName {
 export interface ServiceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceNotFound";
   name: "ServiceNotFound";
   $fault: "client";
   Message?: string;

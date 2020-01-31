@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Message: string | undefined;
@@ -130,7 +129,6 @@ export namespace Bandwidth {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   Message: string | undefined;
@@ -1153,7 +1151,6 @@ export enum GlobalNetworkState {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   Message: string | undefined;
@@ -1377,7 +1374,6 @@ export namespace RegisterTransitGatewayResponse {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
@@ -1404,7 +1400,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceQuotaExceededException";
   name: "ServiceQuotaExceededException";
   $fault: "client";
   /**
@@ -1557,7 +1552,6 @@ export namespace TagResourceResponse {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   Message: string | undefined;
@@ -1885,7 +1879,6 @@ export namespace UpdateSiteResponse {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   /**

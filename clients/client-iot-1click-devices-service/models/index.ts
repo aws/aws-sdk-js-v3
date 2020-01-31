@@ -221,7 +221,6 @@ export namespace FinalizeDeviceClaimResponse {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -300,7 +299,6 @@ export namespace InitiateDeviceClaimResponse {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   /**
@@ -323,7 +321,6 @@ export namespace InternalFailureException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -519,7 +516,6 @@ export namespace ListTagsForResourceResponse {
 export interface PreconditionFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PreconditionFailedException";
   name: "PreconditionFailedException";
   $fault: "client";
   /**
@@ -542,7 +538,6 @@ export namespace PreconditionFailedException {
 export interface RangeNotSatisfiableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RangeNotSatisfiableException";
   name: "RangeNotSatisfiableException";
   $fault: "client";
   /**
@@ -566,7 +561,6 @@ export namespace RangeNotSatisfiableException {
 export interface ResourceConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceConflictException";
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -589,7 +583,6 @@ export namespace ResourceConflictException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**

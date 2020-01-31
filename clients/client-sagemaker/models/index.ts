@@ -1732,7 +1732,6 @@ export enum CompressionType {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -15496,7 +15495,6 @@ export namespace ResourceConfig {
 export interface ResourceInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUse";
   name: "ResourceInUse";
   $fault: "client";
   Message?: string;
@@ -15515,7 +15513,6 @@ export namespace ResourceInUse {
 export interface ResourceLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceLimitExceeded";
   name: "ResourceLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -15564,7 +15561,6 @@ export namespace ResourceLimits {
 export interface ResourceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFound";
   name: "ResourceNotFound";
   $fault: "client";
   Message?: string;

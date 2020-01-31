@@ -782,7 +782,6 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -868,7 +867,6 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -967,7 +965,6 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1050,7 +1047,6 @@ async function deserializeAws_restJson1_1CreatePresetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1134,7 +1130,6 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1208,7 +1203,6 @@ async function deserializeAws_restJson1_1DeletePresetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1294,7 +1288,6 @@ async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1380,7 +1373,6 @@ async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1459,7 +1451,6 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1535,7 +1526,6 @@ async function deserializeAws_restJson1_1ListPresetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1614,7 +1604,6 @@ async function deserializeAws_restJson1_1ReadJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1703,7 +1692,6 @@ async function deserializeAws_restJson1_1ReadPipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1782,7 +1770,6 @@ async function deserializeAws_restJson1_1ReadPresetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1868,7 +1855,6 @@ async function deserializeAws_restJson1_1TestRoleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1967,7 +1953,6 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2059,7 +2044,6 @@ async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2151,7 +2135,6 @@ async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2165,7 +2148,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2183,7 +2165,6 @@ const deserializeAws_restJson1_1IncompatibleVersionExceptionResponse = async (
 ): Promise<IncompatibleVersionException> => {
   const contents: IncompatibleVersionException = {
     name: "IncompatibleVersionException",
-    __type: "IncompatibleVersionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2201,7 +2182,6 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
 ): Promise<InternalServiceException> => {
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2219,7 +2199,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2237,7 +2216,6 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2255,7 +2233,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -2273,7 +2250,6 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

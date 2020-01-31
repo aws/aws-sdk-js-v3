@@ -405,7 +405,6 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -463,7 +462,6 @@ async function deserializeAws_restJson1_1CreateGraphCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -545,7 +543,6 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -604,7 +601,6 @@ async function deserializeAws_restJson1_1DeleteGraphCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -686,7 +682,6 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -755,7 +750,6 @@ async function deserializeAws_restJson1_1DisassociateMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -830,7 +824,6 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -895,7 +888,6 @@ async function deserializeAws_restJson1_1ListGraphsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -963,7 +955,6 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1035,7 +1026,6 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1104,7 +1094,6 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.detective#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1118,7 +1107,6 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1136,7 +1124,6 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
     name: "InternalServerException",
-    __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1154,7 +1141,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1172,7 +1158,6 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
 ): Promise<ServiceQuotaExceededException> => {
   const contents: ServiceQuotaExceededException = {
     name: "ServiceQuotaExceededException",
-    __type: "ServiceQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -1190,7 +1175,6 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

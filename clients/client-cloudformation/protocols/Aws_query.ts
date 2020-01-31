@@ -1733,7 +1733,6 @@ async function deserializeAws_queryCancelUpdateStackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1791,7 +1790,6 @@ async function deserializeAws_queryContinueUpdateRollbackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1860,7 +1858,6 @@ async function deserializeAws_queryCreateChangeSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1936,7 +1933,6 @@ async function deserializeAws_queryCreateStackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1991,7 +1987,6 @@ async function deserializeAws_queryDeleteChangeSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2038,7 +2033,6 @@ async function deserializeAws_queryDeleteStackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2100,7 +2094,6 @@ async function deserializeAws_queryDeregisterTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2151,7 +2144,6 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2206,7 +2198,6 @@ async function deserializeAws_queryDescribeChangeSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2257,7 +2248,6 @@ async function deserializeAws_queryDescribeStackDriftDetectionStatusCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2305,7 +2295,6 @@ async function deserializeAws_queryDescribeStackEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2356,7 +2345,6 @@ async function deserializeAws_queryDescribeStackResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2407,7 +2395,6 @@ async function deserializeAws_queryDescribeStackResourceDriftsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2458,7 +2445,6 @@ async function deserializeAws_queryDescribeStackResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2506,7 +2492,6 @@ async function deserializeAws_queryDescribeStacksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2568,7 +2553,6 @@ async function deserializeAws_queryDescribeTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2626,7 +2610,6 @@ async function deserializeAws_queryDescribeTypeRegistrationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2674,7 +2657,6 @@ async function deserializeAws_queryDetectStackDriftCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2725,7 +2707,6 @@ async function deserializeAws_queryDetectStackResourceDriftCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2776,7 +2757,6 @@ async function deserializeAws_queryEstimateTemplateCostCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2852,7 +2832,6 @@ async function deserializeAws_queryExecuteChangeSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2900,7 +2879,6 @@ async function deserializeAws_queryGetStackPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2955,7 +2933,6 @@ async function deserializeAws_queryGetTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3010,7 +2987,6 @@ async function deserializeAws_queryGetTemplateSummaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3058,7 +3034,6 @@ async function deserializeAws_queryListChangeSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3106,7 +3081,6 @@ async function deserializeAws_queryListExportsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3154,7 +3128,6 @@ async function deserializeAws_queryListImportsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3202,7 +3175,6 @@ async function deserializeAws_queryListStackResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3250,7 +3222,6 @@ async function deserializeAws_queryListStacksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3308,7 +3279,6 @@ async function deserializeAws_queryListTypeRegistrationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3363,7 +3333,6 @@ async function deserializeAws_queryListTypeVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3415,7 +3384,6 @@ async function deserializeAws_queryListTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3480,7 +3448,6 @@ async function deserializeAws_queryRecordHandlerProgressCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3535,7 +3502,6 @@ async function deserializeAws_queryRegisterTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3575,7 +3541,6 @@ async function deserializeAws_querySetStackPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3640,7 +3605,6 @@ async function deserializeAws_querySetTypeDefaultVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3680,7 +3644,6 @@ async function deserializeAws_querySignalResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3742,7 +3705,6 @@ async function deserializeAws_queryUpdateStackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3793,7 +3755,6 @@ async function deserializeAws_queryUpdateTerminationProtectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3841,7 +3802,6 @@ async function deserializeAws_queryValidateTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amzn.aws21.activities#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3934,7 +3894,6 @@ async function deserializeAws_queryCreateStackInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4003,7 +3962,6 @@ async function deserializeAws_queryCreateStackSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4089,7 +4047,6 @@ async function deserializeAws_queryDeleteStackInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4151,7 +4108,6 @@ async function deserializeAws_queryDeleteStackSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4216,7 +4172,6 @@ async function deserializeAws_queryDescribeStackInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4271,7 +4226,6 @@ async function deserializeAws_queryDescribeStackSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4336,7 +4290,6 @@ async function deserializeAws_queryDescribeStackSetOperationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4405,7 +4358,6 @@ async function deserializeAws_queryDetectStackSetDriftCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4460,7 +4412,6 @@ async function deserializeAws_queryListStackInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4525,7 +4476,6 @@ async function deserializeAws_queryListStackSetOperationResultsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4583,7 +4533,6 @@ async function deserializeAws_queryListStackSetOperationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4631,7 +4580,6 @@ async function deserializeAws_queryListStackSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4703,7 +4651,6 @@ async function deserializeAws_queryStopStackSetOperationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4796,7 +4743,6 @@ async function deserializeAws_queryUpdateStackInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4886,7 +4832,6 @@ async function deserializeAws_queryUpdateStackSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.maestro.service.v20160713#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4905,7 +4850,6 @@ const deserializeAws_queryAlreadyExistsExceptionResponse = async (
   );
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
-    __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4924,7 +4868,6 @@ const deserializeAws_queryCFNRegistryExceptionResponse = async (
   );
   const contents: CFNRegistryException = {
     name: "CFNRegistryException",
-    __type: "CFNRegistryException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4943,7 +4886,6 @@ const deserializeAws_queryChangeSetNotFoundExceptionResponse = async (
   );
   const contents: ChangeSetNotFoundException = {
     name: "ChangeSetNotFoundException",
-    __type: "ChangeSetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4962,7 +4904,6 @@ const deserializeAws_queryInsufficientCapabilitiesExceptionResponse = async (
   );
   const contents: InsufficientCapabilitiesException = {
     name: "InsufficientCapabilitiesException",
-    __type: "InsufficientCapabilitiesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4981,7 +4922,6 @@ const deserializeAws_queryInvalidChangeSetStatusExceptionResponse = async (
   );
   const contents: InvalidChangeSetStatusException = {
     name: "InvalidChangeSetStatusException",
-    __type: "InvalidChangeSetStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5000,7 +4940,6 @@ const deserializeAws_queryInvalidStateTransitionExceptionResponse = async (
   );
   const contents: InvalidStateTransitionException = {
     name: "InvalidStateTransitionException",
-    __type: "InvalidStateTransitionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5019,7 +4958,6 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5038,7 +4976,6 @@ const deserializeAws_queryOperationStatusCheckFailedExceptionResponse = async (
   );
   const contents: OperationStatusCheckFailedException = {
     name: "OperationStatusCheckFailedException",
-    __type: "OperationStatusCheckFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5057,7 +4994,6 @@ const deserializeAws_queryStackSetNotFoundExceptionResponse = async (
   );
   const contents: StackSetNotFoundException = {
     name: "StackSetNotFoundException",
-    __type: "StackSetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5076,7 +5012,6 @@ const deserializeAws_queryTokenAlreadyExistsExceptionResponse = async (
   );
   const contents: TokenAlreadyExistsException = {
     name: "TokenAlreadyExistsException",
-    __type: "TokenAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5095,7 +5030,6 @@ const deserializeAws_queryTypeNotFoundExceptionResponse = async (
   );
   const contents: TypeNotFoundException = {
     name: "TypeNotFoundException",
-    __type: "TypeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5114,7 +5048,6 @@ const deserializeAws_queryCreatedButModifiedExceptionResponse = async (
   );
   const contents: CreatedButModifiedException = {
     name: "CreatedButModifiedException",
-    __type: "CreatedButModifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5133,7 +5066,6 @@ const deserializeAws_queryInvalidOperationExceptionResponse = async (
   );
   const contents: InvalidOperationException = {
     name: "InvalidOperationException",
-    __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5152,7 +5084,6 @@ const deserializeAws_queryNameAlreadyExistsExceptionResponse = async (
   );
   const contents: NameAlreadyExistsException = {
     name: "NameAlreadyExistsException",
-    __type: "NameAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5171,7 +5102,6 @@ const deserializeAws_queryOperationIdAlreadyExistsExceptionResponse = async (
   );
   const contents: OperationIdAlreadyExistsException = {
     name: "OperationIdAlreadyExistsException",
-    __type: "OperationIdAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5190,7 +5120,6 @@ const deserializeAws_queryOperationInProgressExceptionResponse = async (
   );
   const contents: OperationInProgressException = {
     name: "OperationInProgressException",
-    __type: "OperationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5209,7 +5138,6 @@ const deserializeAws_queryOperationNotFoundExceptionResponse = async (
   );
   const contents: OperationNotFoundException = {
     name: "OperationNotFoundException",
-    __type: "OperationNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5228,7 +5156,6 @@ const deserializeAws_queryStackInstanceNotFoundExceptionResponse = async (
   );
   const contents: StackInstanceNotFoundException = {
     name: "StackInstanceNotFoundException",
-    __type: "StackInstanceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5247,7 +5174,6 @@ const deserializeAws_queryStackSetNotEmptyExceptionResponse = async (
   );
   const contents: StackSetNotEmptyException = {
     name: "StackSetNotEmptyException",
-    __type: "StackSetNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5266,7 +5192,6 @@ const deserializeAws_queryStaleRequestExceptionResponse = async (
   );
   const contents: StaleRequestException = {
     name: "StaleRequestException",
-    __type: "StaleRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

@@ -47,7 +47,6 @@ export namespace Account {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -270,7 +269,6 @@ export namespace Graph {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -528,7 +526,6 @@ export namespace RejectInvitationRequest {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -547,7 +544,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceQuotaExceededException";
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -591,7 +587,6 @@ export namespace UnprocessedAccount {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   Message?: string;

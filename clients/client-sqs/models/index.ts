@@ -45,7 +45,6 @@ export namespace AddPermissionRequest {
 export interface BatchEntryIdsNotDistinct
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BatchEntryIdsNotDistinct";
   name: "BatchEntryIdsNotDistinct";
   $fault: "client";
 }
@@ -62,7 +61,6 @@ export namespace BatchEntryIdsNotDistinct {
 export interface BatchRequestTooLong
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BatchRequestTooLong";
   name: "BatchRequestTooLong";
   $fault: "client";
 }
@@ -598,7 +596,6 @@ export namespace DeleteQueueRequest {
 export interface EmptyBatchRequest
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EmptyBatchRequest";
   name: "EmptyBatchRequest";
   $fault: "client";
 }
@@ -821,7 +818,6 @@ export namespace GetQueueUrlResult {
 export interface InvalidAttributeName
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAttributeName";
   name: "InvalidAttributeName";
   $fault: "client";
 }
@@ -838,7 +834,6 @@ export namespace InvalidAttributeName {
 export interface InvalidBatchEntryId
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidBatchEntryId";
   name: "InvalidBatchEntryId";
   $fault: "client";
 }
@@ -855,7 +850,6 @@ export namespace InvalidBatchEntryId {
 export interface InvalidIdFormat
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidIdFormat";
   name: "InvalidIdFormat";
   $fault: "client";
 }
@@ -872,7 +866,6 @@ export namespace InvalidIdFormat {
 export interface InvalidMessageContents
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidMessageContents";
   name: "InvalidMessageContents";
   $fault: "client";
 }
@@ -1119,7 +1112,6 @@ export namespace MessageAttributeValue {
 export interface MessageNotInflight
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MessageNotInflight";
   name: "MessageNotInflight";
   $fault: "client";
 }
@@ -1191,7 +1183,6 @@ export namespace MessageSystemAttributeValue {
  *             for the queue is reached.</p>
  */
 export interface OverLimit extends _smithy.SmithyException, $MetadataBearer {
-  __type: "OverLimit";
   name: "OverLimit";
   $fault: "client";
 }
@@ -1208,7 +1199,6 @@ export namespace OverLimit {
 export interface PurgeQueueInProgress
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PurgeQueueInProgress";
   name: "PurgeQueueInProgress";
   $fault: "client";
 }
@@ -1264,7 +1254,6 @@ export type QueueAttributeName =
 export interface QueueDeletedRecently
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "QueueDeletedRecently";
   name: "QueueDeletedRecently";
   $fault: "client";
 }
@@ -1281,7 +1270,6 @@ export namespace QueueDeletedRecently {
 export interface QueueDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "QueueDoesNotExist";
   name: "QueueDoesNotExist";
   $fault: "client";
 }
@@ -1299,7 +1287,6 @@ export namespace QueueDoesNotExist {
 export interface QueueNameExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "QueueNameExists";
   name: "QueueNameExists";
   $fault: "client";
 }
@@ -1316,7 +1303,6 @@ export namespace QueueNameExists {
 export interface ReceiptHandleIsInvalid
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReceiptHandleIsInvalid";
   name: "ReceiptHandleIsInvalid";
   $fault: "client";
 }
@@ -2132,7 +2118,6 @@ export namespace TagQueueRequest {
 export interface TooManyEntriesInBatchRequest
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyEntriesInBatchRequest";
   name: "TooManyEntriesInBatchRequest";
   $fault: "client";
 }
@@ -2149,7 +2134,6 @@ export namespace TooManyEntriesInBatchRequest {
 export interface UnsupportedOperation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedOperation";
   name: "UnsupportedOperation";
   $fault: "client";
 }

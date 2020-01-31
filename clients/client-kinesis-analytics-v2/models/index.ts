@@ -1172,7 +1172,6 @@ export namespace CodeContentUpdate {
 export interface CodeValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CodeValidationException";
   name: "CodeValidationException";
   $fault: "client";
   Message?: string;
@@ -1192,7 +1191,6 @@ export namespace CodeValidationException {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -2375,7 +2373,6 @@ export namespace InputUpdate {
 export interface InvalidApplicationConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidApplicationConfigurationException";
   name: "InvalidApplicationConfigurationException";
   $fault: "client";
   Message?: string;
@@ -2393,7 +2390,6 @@ export namespace InvalidApplicationConfigurationException {
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgumentException";
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -2411,7 +2407,6 @@ export namespace InvalidArgumentException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -2789,7 +2784,6 @@ export namespace LambdaOutputUpdate {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -3508,7 +3502,6 @@ export namespace ReferenceDataSourceUpdate {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -3526,7 +3519,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3545,7 +3537,6 @@ export namespace ResourceNotFoundException {
 export interface ResourceProvisionedThroughputExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceProvisionedThroughputExceededException";
   name: "ResourceProvisionedThroughputExceededException";
   $fault: "client";
   Message?: string;
@@ -3831,7 +3822,6 @@ export namespace S3ReferenceDataSourceUpdate {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -4142,7 +4132,6 @@ export namespace TagResourceResponse {
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -4161,7 +4150,6 @@ export namespace TooManyTagsException {
 export interface UnableToDetectSchemaException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnableToDetectSchemaException";
   name: "UnableToDetectSchemaException";
   $fault: "client";
   Message?: string;
@@ -4188,7 +4176,6 @@ export namespace UnableToDetectSchemaException {
 export interface UnsupportedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedOperationException";
   name: "UnsupportedOperationException";
   $fault: "client";
   Message?: string;

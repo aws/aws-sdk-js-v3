@@ -200,7 +200,6 @@ export namespace GenerateDataSetResult {
 export interface MarketplaceCommerceAnalyticsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MarketplaceCommerceAnalyticsException";
   name: "MarketplaceCommerceAnalyticsException";
   $fault: "server";
   /**
