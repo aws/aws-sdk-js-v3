@@ -9,8 +9,6 @@ import {
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { UserAgentResolvedConfig } from "./configurations";
 
-const userAgentHeader = "user-agent";
-
 export function userAgentMiddleware(options: UserAgentResolvedConfig) {
   return <Output extends MetadataBearer>(
     next: BuildHandler<any, any>
@@ -20,6 +18,8 @@ export function userAgentMiddleware(options: UserAgentResolvedConfig) {
     let { request } = args;
     if (!HttpRequest.isInstance(request)) return next(args);
     const { headers } = request;
+    const userAgentHeader =
+      options.runtime === "node" ? "user-agent" : "x-amz-user-agent";
     if (!headers[userAgentHeader]) {
       headers[userAgentHeader] = `${options.defaultUserAgent}`;
     } else {

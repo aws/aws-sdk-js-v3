@@ -6,10 +6,12 @@ export interface UserAgentInputConfig {
 }
 interface PreviouslyResolved {
   defaultUserAgent: string;
+  runtime: string;
 }
 export interface UserAgentResolvedConfig {
   defaultUserAgent: string;
   customUserAgent?: string;
+  runtime: string;
 }
 export function resolveUserAgentConfig<T>(
   input: T & PreviouslyResolved & UserAgentInputConfig
