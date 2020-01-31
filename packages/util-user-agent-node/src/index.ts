@@ -11,10 +11,3 @@ export function defaultUserAgent(
   }
   return `aws-sdk-nodejs-v3-${packageName}/${packageVersion} ${engine}`;
 }
-
-export function appendToUserAgent(
-  request: HttpRequest,
-  userAgentPartial: string
-): void {
-  request.headers["User-Agent"] += ` ${userAgentPartial}`;
-}
