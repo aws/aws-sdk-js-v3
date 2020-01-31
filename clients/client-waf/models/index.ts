@@ -5631,7 +5631,6 @@ export namespace UpdateXssMatchSetResponse {
 export interface WAFBadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFBadRequestException";
   name: "WAFBadRequestException";
   $fault: "client";
   message?: string;
@@ -5649,7 +5648,6 @@ export namespace WAFBadRequestException {
 export interface WAFDisallowedNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFDisallowedNameException";
   name: "WAFDisallowedNameException";
   $fault: "client";
   message?: string;
@@ -5667,7 +5665,6 @@ export namespace WAFDisallowedNameException {
 export interface WAFInternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFInternalErrorException";
   name: "WAFInternalErrorException";
   $fault: "server";
   message?: string;
@@ -5685,7 +5682,6 @@ export namespace WAFInternalErrorException {
 export interface WAFInvalidAccountException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFInvalidAccountException";
   name: "WAFInvalidAccountException";
   $fault: "client";
 }
@@ -5722,7 +5718,6 @@ export namespace WAFInvalidAccountException {
 export interface WAFInvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFInvalidOperationException";
   name: "WAFInvalidOperationException";
   $fault: "client";
   message?: string;
@@ -5777,7 +5772,6 @@ export namespace WAFInvalidOperationException {
 export interface WAFInvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFInvalidParameterException";
   name: "WAFInvalidParameterException";
   $fault: "client";
   field?: ParameterExceptionField | string;
@@ -5826,7 +5820,6 @@ export namespace WAFInvalidParameterException {
 export interface WAFInvalidPermissionPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFInvalidPermissionPolicyException";
   name: "WAFInvalidPermissionPolicyException";
   $fault: "client";
   message?: string;
@@ -5844,7 +5837,6 @@ export namespace WAFInvalidPermissionPolicyException {
 export interface WAFInvalidRegexPatternException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFInvalidRegexPatternException";
   name: "WAFInvalidRegexPatternException";
   $fault: "client";
   message?: string;
@@ -5864,7 +5856,6 @@ export namespace WAFInvalidRegexPatternException {
 export interface WAFLimitsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFLimitsExceededException";
   name: "WAFLimitsExceededException";
   $fault: "client";
   message?: string;
@@ -5897,7 +5888,6 @@ export namespace WAFLimitsExceededException {
 export interface WAFNonEmptyEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFNonEmptyEntityException";
   name: "WAFNonEmptyEntityException";
   $fault: "client";
   message?: string;
@@ -5930,7 +5920,6 @@ export namespace WAFNonEmptyEntityException {
 export interface WAFNonexistentContainerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFNonexistentContainerException";
   name: "WAFNonexistentContainerException";
   $fault: "client";
   message?: string;
@@ -5948,7 +5937,6 @@ export namespace WAFNonexistentContainerException {
 export interface WAFNonexistentItemException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFNonexistentItemException";
   name: "WAFNonexistentItemException";
   $fault: "client";
   message?: string;
@@ -5974,7 +5962,6 @@ export namespace WAFNonexistentItemException {
 export interface WAFReferencedItemException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFReferencedItemException";
   name: "WAFReferencedItemException";
   $fault: "client";
   message?: string;
@@ -5992,7 +5979,6 @@ export namespace WAFReferencedItemException {
 export interface WAFServiceLinkedRoleErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFServiceLinkedRoleErrorException";
   name: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
   message?: string;
@@ -6010,7 +5996,6 @@ export namespace WAFServiceLinkedRoleErrorException {
 export interface WAFStaleDataException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFStaleDataException";
   name: "WAFStaleDataException";
   $fault: "client";
   message?: string;
@@ -6028,7 +6013,6 @@ export namespace WAFStaleDataException {
 export interface WAFSubscriptionNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFSubscriptionNotFoundException";
   name: "WAFSubscriptionNotFoundException";
   $fault: "client";
   message?: string;
@@ -6043,7 +6027,6 @@ export namespace WAFSubscriptionNotFoundException {
 export interface WAFTagOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFTagOperationException";
   name: "WAFTagOperationException";
   $fault: "client";
   message?: string;
@@ -6058,7 +6041,6 @@ export namespace WAFTagOperationException {
 export interface WAFTagOperationInternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WAFTagOperationInternalErrorException";
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
   message?: string;

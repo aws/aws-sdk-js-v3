@@ -666,7 +666,6 @@ async function deserializeAws_json1_1CreateCostCategoryDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -733,7 +732,6 @@ async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -800,7 +798,6 @@ async function deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -882,7 +879,6 @@ async function deserializeAws_json1_1GetCostAndUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -970,7 +966,6 @@ async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1031,7 +1026,6 @@ async function deserializeAws_json1_1GetCostForecastCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1116,7 +1110,6 @@ async function deserializeAws_json1_1GetDimensionValuesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1190,7 +1183,6 @@ async function deserializeAws_json1_1GetReservationCoverageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1264,7 +1256,6 @@ async function deserializeAws_json1_1GetReservationPurchaseRecommendationCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1338,7 +1329,6 @@ async function deserializeAws_json1_1GetReservationUtilizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1405,7 +1395,6 @@ async function deserializeAws_json1_1GetRightsizingRecommendationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1479,7 +1468,6 @@ async function deserializeAws_json1_1GetSavingsPlansCoverageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1546,7 +1534,6 @@ async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1613,7 +1600,6 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1687,7 +1673,6 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1769,7 +1754,6 @@ async function deserializeAws_json1_1GetTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1837,7 +1821,6 @@ async function deserializeAws_json1_1GetUsageForecastCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1897,7 +1880,6 @@ async function deserializeAws_json1_1ListCostCategoryDefinitionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1971,7 +1953,6 @@ async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1990,7 +1971,6 @@ const deserializeAws_json1_1BillExpirationExceptionResponse = async (
   );
   const contents: BillExpirationException = {
     name: "BillExpirationException",
-    __type: "BillExpirationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2009,7 +1989,6 @@ const deserializeAws_json1_1DataUnavailableExceptionResponse = async (
   );
   const contents: DataUnavailableException = {
     name: "DataUnavailableException",
-    __type: "DataUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2028,7 +2007,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2047,7 +2025,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2066,7 +2043,6 @@ const deserializeAws_json1_1RequestChangedExceptionResponse = async (
   );
   const contents: RequestChangedException = {
     name: "RequestChangedException",
-    __type: "RequestChangedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2085,7 +2061,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2104,7 +2079,6 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   );
   const contents: ServiceQuotaExceededException = {
     name: "ServiceQuotaExceededException",
-    __type: "ServiceQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2123,7 +2097,6 @@ const deserializeAws_json1_1UnresolvableUsageUnitExceptionResponse = async (
   );
   const contents: UnresolvableUsageUnitException = {
     name: "UnresolvableUsageUnitException",
-    __type: "UnresolvableUsageUnitException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

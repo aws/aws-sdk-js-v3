@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -26,7 +25,6 @@ export namespace BadRequestException {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   message?: string;
@@ -44,7 +42,6 @@ export namespace ConflictException {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -62,7 +59,6 @@ export namespace InternalFailureException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -81,7 +77,6 @@ export namespace LimitExceededException {
 export interface NotAcceptableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAcceptableException";
   name: "NotAcceptableException";
   $fault: "client";
   message?: string;
@@ -100,7 +95,6 @@ export namespace NotAcceptableException {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -118,7 +112,6 @@ export namespace NotFoundException {
 export interface RequestTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RequestTimeoutException";
   name: "RequestTimeoutException";
   $fault: "client";
   message?: string;
@@ -136,7 +129,6 @@ export namespace RequestTimeoutException {
 export interface UnsupportedMediaTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedMediaTypeException";
   name: "UnsupportedMediaTypeException";
   $fault: "client";
   message?: string;
@@ -155,7 +147,6 @@ export namespace UnsupportedMediaTypeException {
 export interface BadGatewayException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadGatewayException";
   name: "BadGatewayException";
   $fault: "server";
   Message?: string;
@@ -244,7 +235,6 @@ export namespace DeleteSessionResponse {
 export interface DependencyFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DependencyFailedException";
   name: "DependencyFailedException";
   $fault: "client";
   Message?: string;
@@ -583,7 +573,6 @@ export namespace IntentSummary {
 export interface LoopDetectedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LoopDetectedException";
   name: "LoopDetectedException";
   $fault: "server";
   Message?: string;

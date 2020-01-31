@@ -94,7 +94,6 @@ export namespace CancelSimulationJobResponse {
 export interface ConcurrentDeploymentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentDeploymentException";
   name: "ConcurrentDeploymentException";
   $fault: "client";
   message?: string;
@@ -1916,7 +1915,6 @@ export namespace Fleet {
 export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotentParameterMismatchException";
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   message?: string;
@@ -1934,7 +1932,6 @@ export namespace IdempotentParameterMismatchException {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   message?: string;
@@ -1953,7 +1950,6 @@ export namespace InternalServerException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -2004,7 +2000,6 @@ export namespace LaunchConfig {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2679,7 +2674,6 @@ export enum RenderingEngineType {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2697,7 +2691,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -3009,7 +3002,6 @@ export namespace S3Object {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -3548,7 +3540,6 @@ export namespace TagResourceResponse {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   message?: string;

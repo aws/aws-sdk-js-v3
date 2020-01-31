@@ -36,7 +36,6 @@ export namespace Alarm {
 export interface ConcurrentUpdateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentUpdateException";
   name: "ConcurrentUpdateException";
   $fault: "server";
   Message?: string;
@@ -1201,7 +1200,6 @@ export namespace DescribeScheduledActionsResponse {
 export interface FailedResourceAccessException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FailedResourceAccessException";
   name: "FailedResourceAccessException";
   $fault: "client";
   Message?: string;
@@ -1219,7 +1217,6 @@ export namespace FailedResourceAccessException {
 export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceException";
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -1237,7 +1234,6 @@ export namespace InternalServiceException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -1255,7 +1251,6 @@ export namespace InvalidNextTokenException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1330,7 +1325,6 @@ export enum MetricType {
 export interface ObjectNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ObjectNotFoundException";
   name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2903,7 +2897,6 @@ export namespace TargetTrackingScalingPolicyConfiguration {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   Message?: string;

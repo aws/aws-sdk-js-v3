@@ -39,7 +39,6 @@ export namespace AddPermissionInput {
 export interface AuthorizationErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AuthorizationErrorException";
   name: "AuthorizationErrorException";
   $fault: "client";
   message?: string;
@@ -104,7 +103,6 @@ export namespace CheckIfPhoneNumberIsOptedOutResponse {
 export interface ConcurrentAccessException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentAccessException";
   name: "ConcurrentAccessException";
   $fault: "client";
   message?: string;
@@ -423,7 +421,6 @@ export namespace Endpoint {
 export interface EndpointDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EndpointDisabledException";
   name: "EndpointDisabledException";
   $fault: "client";
   /**
@@ -446,7 +443,6 @@ export namespace EndpointDisabledException {
 export interface FilterPolicyLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FilterPolicyLimitExceededException";
   name: "FilterPolicyLimitExceededException";
   $fault: "client";
   message?: string;
@@ -799,7 +795,6 @@ export namespace GetTopicAttributesResponse {
 export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalErrorException";
   name: "InternalErrorException";
   $fault: "server";
   message?: string;
@@ -818,7 +813,6 @@ export namespace InternalErrorException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -837,7 +831,6 @@ export namespace InvalidParameterException {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -859,7 +852,6 @@ export namespace InvalidParameterValueException {
 export interface InvalidSecurityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSecurityException";
   name: "InvalidSecurityException";
   $fault: "client";
   message?: string;
@@ -878,7 +870,6 @@ export namespace InvalidSecurityException {
 export interface KMSAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSAccessDeniedException";
   name: "KMSAccessDeniedException";
   $fault: "client";
   message?: string;
@@ -897,7 +888,6 @@ export namespace KMSAccessDeniedException {
 export interface KMSDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSDisabledException";
   name: "KMSDisabledException";
   $fault: "client";
   message?: string;
@@ -918,7 +908,6 @@ export namespace KMSDisabledException {
 export interface KMSInvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSInvalidStateException";
   name: "KMSInvalidStateException";
   $fault: "client";
   message?: string;
@@ -937,7 +926,6 @@ export namespace KMSInvalidStateException {
 export interface KMSNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSNotFoundException";
   name: "KMSNotFoundException";
   $fault: "client";
   message?: string;
@@ -955,7 +943,6 @@ export namespace KMSNotFoundException {
 export interface KMSOptInRequired
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSOptInRequired";
   name: "KMSOptInRequired";
   $fault: "client";
   message?: string;
@@ -976,7 +963,6 @@ export namespace KMSOptInRequired {
 export interface KMSThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSThrottlingException";
   name: "KMSThrottlingException";
   $fault: "client";
   message?: string;
@@ -1314,7 +1300,6 @@ export namespace MessageAttributeValue {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -1384,7 +1369,6 @@ export namespace PlatformApplication {
 export interface PlatformApplicationDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PlatformApplicationDisabledException";
   name: "PlatformApplicationDisabledException";
   $fault: "client";
   /**
@@ -1581,7 +1565,6 @@ export namespace RemovePermissionInput {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1948,7 +1931,6 @@ export namespace SetTopicAttributesInput {
 export interface StaleTagException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StaleTagException";
   name: "StaleTagException";
   $fault: "client";
   message?: string;
@@ -2181,7 +2163,6 @@ export namespace Subscription {
 export interface SubscriptionLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubscriptionLimitExceededException";
   name: "SubscriptionLimitExceededException";
   $fault: "client";
   message?: string;
@@ -2221,7 +2202,6 @@ export namespace Tag {
 export interface TagLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagLimitExceededException";
   name: "TagLimitExceededException";
   $fault: "client";
   message?: string;
@@ -2240,7 +2220,6 @@ export namespace TagLimitExceededException {
 export interface TagPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagPolicyException";
   name: "TagPolicyException";
   $fault: "client";
   message?: string;
@@ -2289,7 +2268,6 @@ export namespace TagResourceResponse {
 export interface ThrottledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottledException";
   name: "ThrottledException";
   $fault: "client";
   /**
@@ -2328,7 +2306,6 @@ export namespace Topic {
 export interface TopicLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TopicLimitExceededException";
   name: "TopicLimitExceededException";
   $fault: "client";
   message?: string;

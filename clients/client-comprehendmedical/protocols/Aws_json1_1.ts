@@ -462,7 +462,6 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -543,7 +542,6 @@ async function deserializeAws_json1_1DescribePHIDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -632,7 +630,6 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -721,7 +718,6 @@ async function deserializeAws_json1_1DetectEntitiesV2CommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -810,7 +806,6 @@ async function deserializeAws_json1_1DetectPHICommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -899,7 +894,6 @@ async function deserializeAws_json1_1InferICD10CMCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -988,7 +982,6 @@ async function deserializeAws_json1_1InferRxNormCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1069,7 +1062,6 @@ async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1147,7 +1139,6 @@ async function deserializeAws_json1_1ListPHIDetectionJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1228,7 +1219,6 @@ async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1306,7 +1296,6 @@ async function deserializeAws_json1_1StartPHIDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1380,7 +1369,6 @@ async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1451,7 +1439,6 @@ async function deserializeAws_json1_1StopPHIDetectionJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1470,7 +1457,6 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   );
   const contents: InternalServerException = {
     name: "InternalServerException",
-    __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1489,7 +1475,6 @@ const deserializeAws_json1_1InvalidEncodingExceptionResponse = async (
   );
   const contents: InvalidEncodingException = {
     name: "InvalidEncodingException",
-    __type: "InvalidEncodingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1508,7 +1493,6 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   );
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1527,7 +1511,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1546,7 +1529,6 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   );
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1565,7 +1547,6 @@ const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
   );
   const contents: TextSizeLimitExceededException = {
     name: "TextSizeLimitExceededException",
-    __type: "TextSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1584,7 +1565,6 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   );
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1603,7 +1583,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

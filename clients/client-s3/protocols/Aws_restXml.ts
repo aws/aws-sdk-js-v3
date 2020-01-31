@@ -4397,7 +4397,6 @@ async function deserializeAws_restXmlAbortMultipartUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4482,7 +4481,6 @@ async function deserializeAws_restXmlCompleteMultipartUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4586,7 +4584,6 @@ async function deserializeAws_restXmlCopyObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4645,7 +4642,6 @@ async function deserializeAws_restXmlCreateBucketCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4747,7 +4743,6 @@ async function deserializeAws_restXmlCreateMultipartUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4787,7 +4782,6 @@ async function deserializeAws_restXmlDeleteBucketCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4830,7 +4824,6 @@ async function deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4870,7 +4863,6 @@ async function deserializeAws_restXmlDeleteBucketCorsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4913,7 +4905,6 @@ async function deserializeAws_restXmlDeleteBucketEncryptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4956,7 +4947,6 @@ async function deserializeAws_restXmlDeleteBucketInventoryConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4999,7 +4989,6 @@ async function deserializeAws_restXmlDeleteBucketLifecycleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5042,7 +5031,6 @@ async function deserializeAws_restXmlDeleteBucketMetricsConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5085,7 +5073,6 @@ async function deserializeAws_restXmlDeleteBucketPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5128,7 +5115,6 @@ async function deserializeAws_restXmlDeleteBucketReplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5171,7 +5157,6 @@ async function deserializeAws_restXmlDeleteBucketTaggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5214,7 +5199,6 @@ async function deserializeAws_restXmlDeleteBucketWebsiteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5267,7 +5251,6 @@ async function deserializeAws_restXmlDeleteObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5315,7 +5298,6 @@ async function deserializeAws_restXmlDeleteObjectTaggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5376,7 +5358,6 @@ async function deserializeAws_restXmlDeleteObjectsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5419,7 +5400,6 @@ async function deserializeAws_restXmlDeletePublicAccessBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5468,7 +5448,6 @@ async function deserializeAws_restXmlGetBucketAccelerateConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5525,7 +5504,6 @@ async function deserializeAws_restXmlGetBucketAclCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5575,7 +5553,6 @@ async function deserializeAws_restXmlGetBucketAnalyticsConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5623,7 +5600,6 @@ async function deserializeAws_restXmlGetBucketCorsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5673,7 +5649,6 @@ async function deserializeAws_restXmlGetBucketEncryptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5723,7 +5698,6 @@ async function deserializeAws_restXmlGetBucketInventoryConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5774,7 +5748,6 @@ async function deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5820,7 +5793,6 @@ async function deserializeAws_restXmlGetBucketLocationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5869,7 +5841,6 @@ async function deserializeAws_restXmlGetBucketLoggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5919,7 +5890,6 @@ async function deserializeAws_restXmlGetBucketMetricsConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5997,7 +5967,6 @@ async function deserializeAws_restXmlGetBucketNotificationConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6043,7 +6012,6 @@ async function deserializeAws_restXmlGetBucketPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6090,7 +6058,6 @@ async function deserializeAws_restXmlGetBucketPolicyStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6140,7 +6107,6 @@ async function deserializeAws_restXmlGetBucketReplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6189,7 +6155,6 @@ async function deserializeAws_restXmlGetBucketRequestPaymentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6239,7 +6204,6 @@ async function deserializeAws_restXmlGetBucketTaggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6292,7 +6256,6 @@ async function deserializeAws_restXmlGetBucketVersioningCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6369,7 +6332,6 @@ async function deserializeAws_restXmlGetBucketWebsiteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6561,7 +6523,6 @@ async function deserializeAws_restXmlGetObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6629,7 +6590,6 @@ async function deserializeAws_restXmlGetObjectAclCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6676,7 +6636,6 @@ async function deserializeAws_restXmlGetObjectLegalHoldCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6726,7 +6685,6 @@ async function deserializeAws_restXmlGetObjectLockConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6773,7 +6731,6 @@ async function deserializeAws_restXmlGetObjectRetentionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6827,7 +6784,6 @@ async function deserializeAws_restXmlGetObjectTaggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6875,7 +6831,6 @@ async function deserializeAws_restXmlGetObjectTorrentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6925,7 +6880,6 @@ async function deserializeAws_restXmlGetPublicAccessBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6972,7 +6926,6 @@ async function deserializeAws_restXmlHeadBucketCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7153,7 +7106,6 @@ async function deserializeAws_restXmlHeadObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7221,7 +7173,6 @@ async function deserializeAws_restXmlListBucketAnalyticsConfigurationsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7289,7 +7240,6 @@ async function deserializeAws_restXmlListBucketInventoryConfigurationsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7357,7 +7307,6 @@ async function deserializeAws_restXmlListBucketMetricsConfigurationsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7414,7 +7363,6 @@ async function deserializeAws_restXmlListBucketsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7519,7 +7467,6 @@ async function deserializeAws_restXmlListMultipartUploadsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7635,7 +7582,6 @@ async function deserializeAws_restXmlListObjectVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7733,7 +7679,6 @@ async function deserializeAws_restXmlListObjectsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7839,7 +7784,6 @@ async function deserializeAws_restXmlListObjectsV2CommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7942,7 +7886,6 @@ async function deserializeAws_restXmlListPartsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7985,7 +7928,6 @@ async function deserializeAws_restXmlPutBucketAccelerateConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8025,7 +7967,6 @@ async function deserializeAws_restXmlPutBucketAclCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8068,7 +8009,6 @@ async function deserializeAws_restXmlPutBucketAnalyticsConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8108,7 +8048,6 @@ async function deserializeAws_restXmlPutBucketCorsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8151,7 +8090,6 @@ async function deserializeAws_restXmlPutBucketEncryptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8194,7 +8132,6 @@ async function deserializeAws_restXmlPutBucketInventoryConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8237,7 +8174,6 @@ async function deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8277,7 +8213,6 @@ async function deserializeAws_restXmlPutBucketLoggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8320,7 +8255,6 @@ async function deserializeAws_restXmlPutBucketMetricsConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8363,7 +8297,6 @@ async function deserializeAws_restXmlPutBucketNotificationConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8403,7 +8336,6 @@ async function deserializeAws_restXmlPutBucketPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8446,7 +8378,6 @@ async function deserializeAws_restXmlPutBucketReplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8489,7 +8420,6 @@ async function deserializeAws_restXmlPutBucketRequestPaymentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8529,7 +8459,6 @@ async function deserializeAws_restXmlPutBucketTaggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8572,7 +8501,6 @@ async function deserializeAws_restXmlPutBucketVersioningCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8612,7 +8540,6 @@ async function deserializeAws_restXmlPutBucketWebsiteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8702,7 +8629,6 @@ async function deserializeAws_restXmlPutObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8754,7 +8680,6 @@ async function deserializeAws_restXmlPutObjectAclCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8802,7 +8727,6 @@ async function deserializeAws_restXmlPutObjectLegalHoldCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8850,7 +8774,6 @@ async function deserializeAws_restXmlPutObjectLockConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8898,7 +8821,6 @@ async function deserializeAws_restXmlPutObjectRetentionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8943,7 +8865,6 @@ async function deserializeAws_restXmlPutObjectTaggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8986,7 +8907,6 @@ async function deserializeAws_restXmlPutPublicAccessBlockCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9042,7 +8962,6 @@ async function deserializeAws_restXmlRestoreObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9092,7 +9011,6 @@ async function deserializeAws_restXmlSelectObjectContentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9169,7 +9087,6 @@ async function deserializeAws_restXmlUploadPartCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9250,7 +9167,6 @@ async function deserializeAws_restXmlUploadPartCopyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.s3#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9264,7 +9180,6 @@ const deserializeAws_restXmlBucketAlreadyExistsResponse = async (
 ): Promise<BucketAlreadyExists> => {
   const contents: BucketAlreadyExists = {
     name: "BucketAlreadyExists",
-    __type: "BucketAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput)
   };
@@ -9278,7 +9193,6 @@ const deserializeAws_restXmlBucketAlreadyOwnedByYouResponse = async (
 ): Promise<BucketAlreadyOwnedByYou> => {
   const contents: BucketAlreadyOwnedByYou = {
     name: "BucketAlreadyOwnedByYou",
-    __type: "BucketAlreadyOwnedByYou",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput)
   };
@@ -9292,7 +9206,6 @@ const deserializeAws_restXmlNoSuchBucketResponse = async (
 ): Promise<NoSuchBucket> => {
   const contents: NoSuchBucket = {
     name: "NoSuchBucket",
-    __type: "NoSuchBucket",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput)
   };
@@ -9306,7 +9219,6 @@ const deserializeAws_restXmlNoSuchKeyResponse = async (
 ): Promise<NoSuchKey> => {
   const contents: NoSuchKey = {
     name: "NoSuchKey",
-    __type: "NoSuchKey",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput)
   };
@@ -9320,7 +9232,6 @@ const deserializeAws_restXmlNoSuchUploadResponse = async (
 ): Promise<NoSuchUpload> => {
   const contents: NoSuchUpload = {
     name: "NoSuchUpload",
-    __type: "NoSuchUpload",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput)
   };
@@ -9334,7 +9245,6 @@ const deserializeAws_restXmlObjectAlreadyInActiveTierErrorResponse = async (
 ): Promise<ObjectAlreadyInActiveTierError> => {
   const contents: ObjectAlreadyInActiveTierError = {
     name: "ObjectAlreadyInActiveTierError",
-    __type: "ObjectAlreadyInActiveTierError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput)
   };
@@ -9348,7 +9258,6 @@ const deserializeAws_restXmlObjectNotInActiveTierErrorResponse = async (
 ): Promise<ObjectNotInActiveTierError> => {
   const contents: ObjectNotInActiveTierError = {
     name: "ObjectNotInActiveTierError",
-    __type: "ObjectNotInActiveTierError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput)
   };

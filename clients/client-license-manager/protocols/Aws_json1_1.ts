@@ -572,7 +572,6 @@ async function deserializeAws_json1_1CreateLicenseConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -660,7 +659,6 @@ async function deserializeAws_json1_1DeleteLicenseConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -748,7 +746,6 @@ async function deserializeAws_json1_1GetLicenseConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -826,7 +823,6 @@ async function deserializeAws_json1_1GetServiceSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -921,7 +917,6 @@ async function deserializeAws_json1_1ListAssociationsForLicenseConfigurationComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1009,7 +1004,6 @@ async function deserializeAws_json1_1ListFailuresForLicenseConfigurationOperatio
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1104,7 +1098,6 @@ async function deserializeAws_json1_1ListLicenseConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1192,7 +1185,6 @@ async function deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1291,7 +1283,6 @@ async function deserializeAws_json1_1ListResourceInventoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1376,7 +1367,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1471,7 +1461,6 @@ async function deserializeAws_json1_1ListUsageForLicenseConfigurationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1553,7 +1542,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1635,7 +1623,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1723,7 +1710,6 @@ async function deserializeAws_json1_1UpdateLicenseConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1825,7 +1811,6 @@ async function deserializeAws_json1_1UpdateLicenseSpecificationsForResourceComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1910,7 +1895,6 @@ async function deserializeAws_json1_1UpdateServiceSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1929,7 +1913,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1948,7 +1931,6 @@ const deserializeAws_json1_1AuthorizationExceptionResponse = async (
   );
   const contents: AuthorizationException = {
     name: "AuthorizationException",
-    __type: "AuthorizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1967,7 +1949,6 @@ const deserializeAws_json1_1FailedDependencyExceptionResponse = async (
   );
   const contents: FailedDependencyException = {
     name: "FailedDependencyException",
-    __type: "FailedDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1986,7 +1967,6 @@ const deserializeAws_json1_1FilterLimitExceededExceptionResponse = async (
   );
   const contents: FilterLimitExceededException = {
     name: "FilterLimitExceededException",
-    __type: "FilterLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2005,7 +1985,6 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2024,7 +2003,6 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
   );
   const contents: InvalidResourceStateException = {
     name: "InvalidResourceStateException",
-    __type: "InvalidResourceStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2043,7 +2021,6 @@ const deserializeAws_json1_1LicenseUsageExceptionResponse = async (
   );
   const contents: LicenseUsageException = {
     name: "LicenseUsageException",
-    __type: "LicenseUsageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2062,7 +2039,6 @@ const deserializeAws_json1_1RateLimitExceededExceptionResponse = async (
   );
   const contents: RateLimitExceededException = {
     name: "RateLimitExceededException",
-    __type: "RateLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2081,7 +2057,6 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
   );
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
-    __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2100,7 +2075,6 @@ const deserializeAws_json1_1ServerInternalExceptionResponse = async (
   );
   const contents: ServerInternalException = {
     name: "ServerInternalException",
-    __type: "ServerInternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

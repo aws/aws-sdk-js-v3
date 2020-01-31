@@ -830,7 +830,6 @@ async function deserializeAws_json1_1AddTagsToStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -893,7 +892,6 @@ async function deserializeAws_json1_1CreateStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -966,7 +964,6 @@ async function deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1029,7 +1026,6 @@ async function deserializeAws_json1_1DeleteStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1095,7 +1091,6 @@ async function deserializeAws_json1_1DeregisterStreamConsumerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1149,7 +1144,6 @@ async function deserializeAws_json1_1DescribeLimitsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1210,7 +1204,6 @@ async function deserializeAws_json1_1DescribeStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1281,7 +1274,6 @@ async function deserializeAws_json1_1DescribeStreamConsumerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1345,7 +1337,6 @@ async function deserializeAws_json1_1DescribeStreamSummaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1423,7 +1414,6 @@ async function deserializeAws_json1_1DisableEnhancedMonitoringCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1501,7 +1491,6 @@ async function deserializeAws_json1_1EnableEnhancedMonitoringCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1618,7 +1607,6 @@ async function deserializeAws_json1_1GetRecordsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1686,7 +1674,6 @@ async function deserializeAws_json1_1GetShardIteratorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1759,7 +1746,6 @@ async function deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1841,7 +1827,6 @@ async function deserializeAws_json1_1ListShardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1926,7 +1911,6 @@ async function deserializeAws_json1_1ListStreamConsumersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1980,7 +1964,6 @@ async function deserializeAws_json1_1ListStreamsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2048,7 +2031,6 @@ async function deserializeAws_json1_1ListTagsForStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2118,7 +2100,6 @@ async function deserializeAws_json1_1MergeShardsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2228,7 +2209,6 @@ async function deserializeAws_json1_1PutRecordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2338,7 +2318,6 @@ async function deserializeAws_json1_1PutRecordsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2416,7 +2395,6 @@ async function deserializeAws_json1_1RegisterStreamConsumerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2489,7 +2467,6 @@ async function deserializeAws_json1_1RemoveTagsFromStreamCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2559,7 +2536,6 @@ async function deserializeAws_json1_1SplitShardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2674,7 +2650,6 @@ async function deserializeAws_json1_1StartStreamEncryptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2747,7 +2722,6 @@ async function deserializeAws_json1_1StopStreamEncryptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2822,7 +2796,6 @@ async function deserializeAws_json1_1SubscribeToShardCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2897,7 +2870,6 @@ async function deserializeAws_json1_1UpdateShardCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2916,7 +2888,6 @@ const deserializeAws_json1_1ExpiredIteratorExceptionResponse = async (
   );
   const contents: ExpiredIteratorException = {
     name: "ExpiredIteratorException",
-    __type: "ExpiredIteratorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2935,7 +2906,6 @@ const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
   );
   const contents: ExpiredNextTokenException = {
     name: "ExpiredNextTokenException",
-    __type: "ExpiredNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2954,7 +2924,6 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   );
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
-    __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2973,7 +2942,6 @@ const deserializeAws_json1_1KMSAccessDeniedExceptionResponse = async (
   );
   const contents: KMSAccessDeniedException = {
     name: "KMSAccessDeniedException",
-    __type: "KMSAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2992,7 +2960,6 @@ const deserializeAws_json1_1KMSDisabledExceptionResponse = async (
   );
   const contents: KMSDisabledException = {
     name: "KMSDisabledException",
-    __type: "KMSDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3011,7 +2978,6 @@ const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
   );
   const contents: KMSInvalidStateException = {
     name: "KMSInvalidStateException",
-    __type: "KMSInvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3030,7 +2996,6 @@ const deserializeAws_json1_1KMSNotFoundExceptionResponse = async (
   );
   const contents: KMSNotFoundException = {
     name: "KMSNotFoundException",
-    __type: "KMSNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3049,7 +3014,6 @@ const deserializeAws_json1_1KMSOptInRequiredResponse = async (
   );
   const contents: KMSOptInRequired = {
     name: "KMSOptInRequired",
-    __type: "KMSOptInRequired",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3068,7 +3032,6 @@ const deserializeAws_json1_1KMSThrottlingExceptionResponse = async (
   );
   const contents: KMSThrottlingException = {
     name: "KMSThrottlingException",
-    __type: "KMSThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3087,7 +3050,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3106,7 +3068,6 @@ const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = asy
   );
   const contents: ProvisionedThroughputExceededException = {
     name: "ProvisionedThroughputExceededException",
-    __type: "ProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3125,7 +3086,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3144,7 +3104,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

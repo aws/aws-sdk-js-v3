@@ -47,7 +47,6 @@ export namespace AccountLimit {
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -65,7 +64,6 @@ export namespace AlreadyExistsException {
 export interface CFNRegistryException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CFNRegistryException";
   name: "CFNRegistryException";
   $fault: "client";
   Message?: string;
@@ -148,7 +146,6 @@ export enum ChangeAction {
 export interface ChangeSetNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ChangeSetNotFoundException";
   name: "ChangeSetNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2343,7 +2340,6 @@ export enum HandlerErrorCode {
 export interface InsufficientCapabilitiesException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientCapabilitiesException";
   name: "InsufficientCapabilitiesException";
   $fault: "client";
   Message?: string;
@@ -2363,7 +2359,6 @@ export namespace InsufficientCapabilitiesException {
 export interface InvalidChangeSetStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidChangeSetStatusException";
   name: "InvalidChangeSetStatusException";
   $fault: "client";
   Message?: string;
@@ -2381,7 +2376,6 @@ export namespace InvalidChangeSetStatusException {
 export interface InvalidStateTransitionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStateTransitionException";
   name: "InvalidStateTransitionException";
   $fault: "client";
   Message?: string;
@@ -2401,7 +2395,6 @@ export namespace InvalidStateTransitionException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2911,7 +2904,6 @@ export enum OperationStatus {
 export interface OperationStatusCheckFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationStatusCheckFailedException";
   name: "OperationStatusCheckFailedException";
   $fault: "client";
   Message?: string;
@@ -4554,7 +4546,6 @@ export namespace StackResourceSummary {
 export interface StackSetNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StackSetNotFoundException";
   name: "StackSetNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4741,7 +4732,6 @@ export enum TemplateStage {
 export interface TokenAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TokenAlreadyExistsException";
   name: "TokenAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -4759,7 +4749,6 @@ export namespace TokenAlreadyExistsException {
 export interface TypeNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TypeNotFoundException";
   name: "TypeNotFoundException";
   $fault: "client";
   Message?: string;
@@ -5636,7 +5625,6 @@ export namespace CreateStackSetOutput {
 export interface CreatedButModifiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CreatedButModifiedException";
   name: "CreatedButModifiedException";
   $fault: "client";
   Message?: string;
@@ -5888,7 +5876,6 @@ export namespace DetectStackSetDriftOutput {
 export interface InvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOperationException";
   name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
@@ -6147,7 +6134,6 @@ export namespace ListStackSetsOutput {
 export interface NameAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NameAlreadyExistsException";
   name: "NameAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -6165,7 +6151,6 @@ export namespace NameAlreadyExistsException {
 export interface OperationIdAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationIdAlreadyExistsException";
   name: "OperationIdAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -6184,7 +6169,6 @@ export namespace OperationIdAlreadyExistsException {
 export interface OperationInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationInProgressException";
   name: "OperationInProgressException";
   $fault: "client";
   Message?: string;
@@ -6202,7 +6186,6 @@ export namespace OperationInProgressException {
 export interface OperationNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationNotFoundException";
   name: "OperationNotFoundException";
   $fault: "client";
   Message?: string;
@@ -6344,7 +6327,6 @@ export namespace StackInstance {
 export interface StackInstanceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StackInstanceNotFoundException";
   name: "StackInstanceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -6712,7 +6694,6 @@ export enum StackSetDriftStatus {
 export interface StackSetNotEmptyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StackSetNotEmptyException";
   name: "StackSetNotEmptyException";
   $fault: "client";
   Message?: string;
@@ -7166,7 +7147,6 @@ export namespace StackSetSummary {
 export interface StaleRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StaleRequestException";
   name: "StaleRequestException";
   $fault: "client";
   Message?: string;

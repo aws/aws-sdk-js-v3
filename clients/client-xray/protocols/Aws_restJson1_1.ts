@@ -772,7 +772,6 @@ async function deserializeAws_restJson1_1BatchGetTracesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -830,7 +829,6 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -901,7 +899,6 @@ async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -954,7 +951,6 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1018,7 +1014,6 @@ async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1082,7 +1077,6 @@ async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1140,7 +1134,6 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1205,7 +1198,6 @@ async function deserializeAws_restJson1_1GetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1273,7 +1265,6 @@ async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1341,7 +1332,6 @@ async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1418,7 +1408,6 @@ async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1498,7 +1487,6 @@ async function deserializeAws_restJson1_1GetServiceGraphCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1570,7 +1558,6 @@ async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1635,7 +1622,6 @@ async function deserializeAws_restJson1_1GetTraceGraphCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1713,7 +1699,6 @@ async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1777,7 +1762,6 @@ async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1833,7 +1817,6 @@ async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1897,7 +1880,6 @@ async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1955,7 +1937,6 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2019,7 +2000,6 @@ async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2033,7 +2013,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2051,7 +2030,6 @@ const deserializeAws_restJson1_1RuleLimitExceededExceptionResponse = async (
 ): Promise<RuleLimitExceededException> => {
   const contents: RuleLimitExceededException = {
     name: "RuleLimitExceededException",
-    __type: "RuleLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -2069,7 +2047,6 @@ const deserializeAws_restJson1_1ThrottledExceptionResponse = async (
 ): Promise<ThrottledException> => {
   const contents: ThrottledException = {
     name: "ThrottledException",
-    __type: "ThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

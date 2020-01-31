@@ -79,7 +79,6 @@ export enum CompressionFormat {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -1276,7 +1275,6 @@ export namespace InputFormatConfiguration {
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgumentException";
   name: "InvalidArgumentException";
   $fault: "client";
   /**
@@ -1298,7 +1296,6 @@ export namespace InvalidArgumentException {
 export interface InvalidKMSResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidKMSResourceException";
   name: "InvalidKMSResourceException";
   $fault: "client";
   code?: string;
@@ -1396,7 +1393,6 @@ export namespace KinesisStreamSourceDescription {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2182,7 +2178,6 @@ export type RedshiftS3BackupMode = "Disabled" | "Enabled";
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -2203,7 +2198,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2498,7 +2492,6 @@ export namespace Serializer {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**

@@ -1423,7 +1423,6 @@ export namespace UpdateInputResponse {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   /**
@@ -1444,7 +1443,6 @@ export namespace InternalFailureException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -1465,7 +1463,6 @@ export namespace InvalidRequestException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1486,7 +1483,6 @@ export namespace LimitExceededException {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -1517,7 +1513,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -1538,7 +1533,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1559,7 +1553,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1580,7 +1573,6 @@ export namespace ServiceUnavailableException {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -1601,7 +1593,6 @@ export namespace ThrottlingException {
 export interface UnsupportedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedOperationException";
   name: "UnsupportedOperationException";
   $fault: "server";
   /**

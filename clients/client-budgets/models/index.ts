@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -447,7 +446,6 @@ export namespace CreateSubscriberResponse {
 export interface CreationLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CreationLimitExceededException";
   name: "CreationLimitExceededException";
   $fault: "client";
   /**
@@ -846,7 +844,6 @@ export namespace DescribeSubscribersForNotificationResponse {
 export interface DuplicateRecordException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateRecordException";
   name: "DuplicateRecordException";
   $fault: "client";
   /**
@@ -867,7 +864,6 @@ export namespace DuplicateRecordException {
 export interface ExpiredNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ExpiredNextTokenException";
   name: "ExpiredNextTokenException";
   $fault: "client";
   /**
@@ -888,7 +884,6 @@ export namespace ExpiredNextTokenException {
 export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalErrorException";
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -909,7 +904,6 @@ export namespace InternalErrorException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -930,7 +924,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -951,7 +944,6 @@ export namespace InvalidParameterException {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   /**

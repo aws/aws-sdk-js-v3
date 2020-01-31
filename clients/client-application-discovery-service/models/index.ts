@@ -171,7 +171,6 @@ export namespace AssociateConfigurationItemsToApplicationResponse {
 export interface AuthorizationErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AuthorizationErrorException";
   name: "AuthorizationErrorException";
   $fault: "client";
   message?: string;
@@ -301,7 +300,6 @@ export namespace ConfigurationTag {
 export interface ConflictErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictErrorException";
   name: "ConflictErrorException";
   $fault: "client";
   message?: string;
@@ -1266,7 +1264,6 @@ export namespace GetDiscoverySummaryResponse {
 export interface HomeRegionNotSetException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HomeRegionNotSetException";
   name: "HomeRegionNotSetException";
   $fault: "client";
   message?: string;
@@ -1435,7 +1432,6 @@ export enum ImportTaskFilterName {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1454,7 +1450,6 @@ export namespace InvalidParameterException {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -1645,7 +1640,6 @@ export namespace NeighborConnectionDetail {
 export interface OperationNotPermittedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationNotPermittedException";
   name: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
@@ -1689,7 +1683,6 @@ export namespace OrderByElement {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1708,7 +1701,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1726,7 +1718,6 @@ export namespace ResourceNotFoundException {
 export interface ServerInternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServerInternalErrorException";
   name: "ServerInternalErrorException";
   $fault: "server";
   message?: string;

@@ -864,7 +864,6 @@ export namespace UntagResourceResponse {
 export interface CloudHsmAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmAccessDeniedException";
   name: "CloudHsmAccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -883,7 +882,6 @@ export namespace CloudHsmAccessDeniedException {
 export interface CloudHsmInternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmInternalFailureException";
   name: "CloudHsmInternalFailureException";
   $fault: "server";
   Message?: string;
@@ -901,7 +899,6 @@ export namespace CloudHsmInternalFailureException {
 export interface CloudHsmInvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmInvalidRequestException";
   name: "CloudHsmInvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -920,7 +917,6 @@ export namespace CloudHsmInvalidRequestException {
 export interface CloudHsmResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmResourceNotFoundException";
   name: "CloudHsmResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -938,7 +934,6 @@ export namespace CloudHsmResourceNotFoundException {
 export interface CloudHsmServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmServiceException";
   name: "CloudHsmServiceException";
   $fault: "client";
   Message?: string;
@@ -953,7 +948,6 @@ export namespace CloudHsmServiceException {
 export interface CloudHsmTagException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CloudHsmTagException";
   name: "CloudHsmTagException";
   $fault: "client";
   Message?: string;

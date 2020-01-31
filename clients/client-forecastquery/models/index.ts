@@ -60,7 +60,6 @@ export namespace Forecast {
 export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputException";
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -78,7 +77,6 @@ export namespace InvalidInputException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -96,7 +94,6 @@ export namespace InvalidNextTokenException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -174,7 +171,6 @@ export namespace QueryForecastResponse {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -193,7 +189,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;

@@ -1011,7 +1011,6 @@ async function deserializeAws_queryAddTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1083,7 +1082,6 @@ async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1162,7 +1160,6 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1220,7 +1217,6 @@ async function deserializeAws_queryConfigureHealthCheckCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1299,7 +1295,6 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1378,7 +1373,6 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1510,7 +1504,6 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1596,7 +1589,6 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1682,7 +1674,6 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1730,7 +1721,6 @@ async function deserializeAws_queryDeleteLoadBalancerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1788,7 +1778,6 @@ async function deserializeAws_queryDeleteLoadBalancerListenersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1853,7 +1842,6 @@ async function deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1918,7 +1906,6 @@ async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1969,7 +1956,6 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2034,7 +2020,6 @@ async function deserializeAws_queryDescribeInstanceHealthCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2099,7 +2084,6 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2164,7 +2148,6 @@ async function deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2222,7 +2205,6 @@ async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2287,7 +2269,6 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2342,7 +2323,6 @@ async function deserializeAws_queryDescribeTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2407,7 +2387,6 @@ async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2472,7 +2451,6 @@ async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2530,7 +2508,6 @@ async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2602,7 +2579,6 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2667,7 +2643,6 @@ async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2722,7 +2697,6 @@ async function deserializeAws_queryRemoveTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2808,7 +2782,6 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2880,7 +2853,6 @@ async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2959,7 +2931,6 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.elb.version_2012_06_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2978,7 +2949,6 @@ const deserializeAws_queryAccessPointNotFoundExceptionResponse = async (
   );
   const contents: AccessPointNotFoundException = {
     name: "AccessPointNotFoundException",
-    __type: "AccessPointNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2997,7 +2967,6 @@ const deserializeAws_queryCertificateNotFoundExceptionResponse = async (
   );
   const contents: CertificateNotFoundException = {
     name: "CertificateNotFoundException",
-    __type: "CertificateNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3016,7 +2985,6 @@ const deserializeAws_queryDependencyThrottleExceptionResponse = async (
   );
   const contents: DependencyThrottleException = {
     name: "DependencyThrottleException",
-    __type: "DependencyThrottleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3035,7 +3003,6 @@ const deserializeAws_queryDuplicateAccessPointNameExceptionResponse = async (
   );
   const contents: DuplicateAccessPointNameException = {
     name: "DuplicateAccessPointNameException",
-    __type: "DuplicateAccessPointNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3054,7 +3021,6 @@ const deserializeAws_queryDuplicateListenerExceptionResponse = async (
   );
   const contents: DuplicateListenerException = {
     name: "DuplicateListenerException",
-    __type: "DuplicateListenerException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3073,7 +3039,6 @@ const deserializeAws_queryDuplicatePolicyNameExceptionResponse = async (
   );
   const contents: DuplicatePolicyNameException = {
     name: "DuplicatePolicyNameException",
-    __type: "DuplicatePolicyNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3092,7 +3057,6 @@ const deserializeAws_queryDuplicateTagKeysExceptionResponse = async (
   );
   const contents: DuplicateTagKeysException = {
     name: "DuplicateTagKeysException",
-    __type: "DuplicateTagKeysException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3111,7 +3075,6 @@ const deserializeAws_queryInvalidConfigurationRequestExceptionResponse = async (
   );
   const contents: InvalidConfigurationRequestException = {
     name: "InvalidConfigurationRequestException",
-    __type: "InvalidConfigurationRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3130,7 +3093,6 @@ const deserializeAws_queryInvalidEndPointExceptionResponse = async (
   );
   const contents: InvalidEndPointException = {
     name: "InvalidEndPointException",
-    __type: "InvalidEndPointException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3149,7 +3111,6 @@ const deserializeAws_queryInvalidSchemeExceptionResponse = async (
   );
   const contents: InvalidSchemeException = {
     name: "InvalidSchemeException",
-    __type: "InvalidSchemeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3168,7 +3129,6 @@ const deserializeAws_queryInvalidSecurityGroupExceptionResponse = async (
   );
   const contents: InvalidSecurityGroupException = {
     name: "InvalidSecurityGroupException",
-    __type: "InvalidSecurityGroupException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3187,7 +3147,6 @@ const deserializeAws_queryInvalidSubnetExceptionResponse = async (
   );
   const contents: InvalidSubnetException = {
     name: "InvalidSubnetException",
-    __type: "InvalidSubnetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3206,7 +3165,6 @@ const deserializeAws_queryListenerNotFoundExceptionResponse = async (
   );
   const contents: ListenerNotFoundException = {
     name: "ListenerNotFoundException",
-    __type: "ListenerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3225,7 +3183,6 @@ const deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse = async
   );
   const contents: LoadBalancerAttributeNotFoundException = {
     name: "LoadBalancerAttributeNotFoundException",
-    __type: "LoadBalancerAttributeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3244,7 +3201,6 @@ const deserializeAws_queryOperationNotPermittedExceptionResponse = async (
   );
   const contents: OperationNotPermittedException = {
     name: "OperationNotPermittedException",
-    __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3263,7 +3219,6 @@ const deserializeAws_queryPolicyNotFoundExceptionResponse = async (
   );
   const contents: PolicyNotFoundException = {
     name: "PolicyNotFoundException",
-    __type: "PolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3282,7 +3237,6 @@ const deserializeAws_queryPolicyTypeNotFoundExceptionResponse = async (
   );
   const contents: PolicyTypeNotFoundException = {
     name: "PolicyTypeNotFoundException",
-    __type: "PolicyTypeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3301,7 +3255,6 @@ const deserializeAws_querySubnetNotFoundExceptionResponse = async (
   );
   const contents: SubnetNotFoundException = {
     name: "SubnetNotFoundException",
-    __type: "SubnetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3320,7 +3273,6 @@ const deserializeAws_queryTooManyAccessPointsExceptionResponse = async (
   );
   const contents: TooManyAccessPointsException = {
     name: "TooManyAccessPointsException",
-    __type: "TooManyAccessPointsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3339,7 +3291,6 @@ const deserializeAws_queryTooManyPoliciesExceptionResponse = async (
   );
   const contents: TooManyPoliciesException = {
     name: "TooManyPoliciesException",
-    __type: "TooManyPoliciesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3358,7 +3309,6 @@ const deserializeAws_queryTooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3377,7 +3327,6 @@ const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
   );
   const contents: UnsupportedProtocolException = {
     name: "UnsupportedProtocolException",
-    __type: "UnsupportedProtocolException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

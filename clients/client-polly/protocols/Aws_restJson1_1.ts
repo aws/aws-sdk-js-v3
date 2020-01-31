@@ -424,7 +424,6 @@ async function deserializeAws_restJson1_1DeleteLexiconCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -489,7 +488,6 @@ async function deserializeAws_restJson1_1DescribeVoicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -554,7 +552,6 @@ async function deserializeAws_restJson1_1GetLexiconCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -625,7 +622,6 @@ async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -690,7 +686,6 @@ async function deserializeAws_restJson1_1ListLexiconsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -758,7 +753,6 @@ async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -846,7 +840,6 @@ async function deserializeAws_restJson1_1PutLexiconCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -980,7 +973,6 @@ async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1099,7 +1091,6 @@ async function deserializeAws_restJson1_1SynthesizeSpeechCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1113,7 +1104,6 @@ const deserializeAws_restJson1_1EngineNotSupportedExceptionResponse = async (
 ): Promise<EngineNotSupportedException> => {
   const contents: EngineNotSupportedException = {
     name: "EngineNotSupportedException",
-    __type: "EngineNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1131,7 +1121,6 @@ const deserializeAws_restJson1_1InvalidLexiconExceptionResponse = async (
 ): Promise<InvalidLexiconException> => {
   const contents: InvalidLexiconException = {
     name: "InvalidLexiconException",
-    __type: "InvalidLexiconException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1149,7 +1138,6 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1167,7 +1155,6 @@ const deserializeAws_restJson1_1InvalidS3BucketExceptionResponse = async (
 ): Promise<InvalidS3BucketException> => {
   const contents: InvalidS3BucketException = {
     name: "InvalidS3BucketException",
-    __type: "InvalidS3BucketException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1185,7 +1172,6 @@ const deserializeAws_restJson1_1InvalidS3KeyExceptionResponse = async (
 ): Promise<InvalidS3KeyException> => {
   const contents: InvalidS3KeyException = {
     name: "InvalidS3KeyException",
-    __type: "InvalidS3KeyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1203,7 +1189,6 @@ const deserializeAws_restJson1_1InvalidSampleRateExceptionResponse = async (
 ): Promise<InvalidSampleRateException> => {
   const contents: InvalidSampleRateException = {
     name: "InvalidSampleRateException",
-    __type: "InvalidSampleRateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1221,7 +1206,6 @@ const deserializeAws_restJson1_1InvalidSnsTopicArnExceptionResponse = async (
 ): Promise<InvalidSnsTopicArnException> => {
   const contents: InvalidSnsTopicArnException = {
     name: "InvalidSnsTopicArnException",
-    __type: "InvalidSnsTopicArnException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1239,7 +1223,6 @@ const deserializeAws_restJson1_1InvalidSsmlExceptionResponse = async (
 ): Promise<InvalidSsmlException> => {
   const contents: InvalidSsmlException = {
     name: "InvalidSsmlException",
-    __type: "InvalidSsmlException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1257,7 +1240,6 @@ const deserializeAws_restJson1_1InvalidTaskIdExceptionResponse = async (
 ): Promise<InvalidTaskIdException> => {
   const contents: InvalidTaskIdException = {
     name: "InvalidTaskIdException",
-    __type: "InvalidTaskIdException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1275,7 +1257,6 @@ const deserializeAws_restJson1_1LanguageNotSupportedExceptionResponse = async (
 ): Promise<LanguageNotSupportedException> => {
   const contents: LanguageNotSupportedException = {
     name: "LanguageNotSupportedException",
-    __type: "LanguageNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1293,7 +1274,6 @@ const deserializeAws_restJson1_1LexiconNotFoundExceptionResponse = async (
 ): Promise<LexiconNotFoundException> => {
   const contents: LexiconNotFoundException = {
     name: "LexiconNotFoundException",
-    __type: "LexiconNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1311,7 +1291,6 @@ const deserializeAws_restJson1_1LexiconSizeExceededExceptionResponse = async (
 ): Promise<LexiconSizeExceededException> => {
   const contents: LexiconSizeExceededException = {
     name: "LexiconSizeExceededException",
-    __type: "LexiconSizeExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1329,7 +1308,6 @@ const deserializeAws_restJson1_1MarksNotSupportedForFormatExceptionResponse = as
 ): Promise<MarksNotSupportedForFormatException> => {
   const contents: MarksNotSupportedForFormatException = {
     name: "MarksNotSupportedForFormatException",
-    __type: "MarksNotSupportedForFormatException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1347,7 +1325,6 @@ const deserializeAws_restJson1_1MaxLexemeLengthExceededExceptionResponse = async
 ): Promise<MaxLexemeLengthExceededException> => {
   const contents: MaxLexemeLengthExceededException = {
     name: "MaxLexemeLengthExceededException",
-    __type: "MaxLexemeLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1365,7 +1342,6 @@ const deserializeAws_restJson1_1MaxLexiconsNumberExceededExceptionResponse = asy
 ): Promise<MaxLexiconsNumberExceededException> => {
   const contents: MaxLexiconsNumberExceededException = {
     name: "MaxLexiconsNumberExceededException",
-    __type: "MaxLexiconsNumberExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1383,7 +1359,6 @@ const deserializeAws_restJson1_1ServiceFailureExceptionResponse = async (
 ): Promise<ServiceFailureException> => {
   const contents: ServiceFailureException = {
     name: "ServiceFailureException",
-    __type: "ServiceFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1401,7 +1376,6 @@ const deserializeAws_restJson1_1SsmlMarksNotSupportedForTextTypeExceptionRespons
 ): Promise<SsmlMarksNotSupportedForTextTypeException> => {
   const contents: SsmlMarksNotSupportedForTextTypeException = {
     name: "SsmlMarksNotSupportedForTextTypeException",
-    __type: "SsmlMarksNotSupportedForTextTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1419,7 +1393,6 @@ const deserializeAws_restJson1_1SynthesisTaskNotFoundExceptionResponse = async (
 ): Promise<SynthesisTaskNotFoundException> => {
   const contents: SynthesisTaskNotFoundException = {
     name: "SynthesisTaskNotFoundException",
-    __type: "SynthesisTaskNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1437,7 +1410,6 @@ const deserializeAws_restJson1_1TextLengthExceededExceptionResponse = async (
 ): Promise<TextLengthExceededException> => {
   const contents: TextLengthExceededException = {
     name: "TextLengthExceededException",
-    __type: "TextLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1455,7 +1427,6 @@ const deserializeAws_restJson1_1UnsupportedPlsAlphabetExceptionResponse = async 
 ): Promise<UnsupportedPlsAlphabetException> => {
   const contents: UnsupportedPlsAlphabetException = {
     name: "UnsupportedPlsAlphabetException",
-    __type: "UnsupportedPlsAlphabetException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -1473,7 +1444,6 @@ const deserializeAws_restJson1_1UnsupportedPlsLanguageExceptionResponse = async 
 ): Promise<UnsupportedPlsLanguageException> => {
   const contents: UnsupportedPlsLanguageException = {
     name: "UnsupportedPlsLanguageException",
-    __type: "UnsupportedPlsLanguageException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Code?: string;
@@ -2284,7 +2283,6 @@ export namespace HumanLoopDataAttributes {
 export interface HumanLoopQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HumanLoopQuotaExceededException";
   name: "HumanLoopQuotaExceededException";
   $fault: "client";
   Code?: string;
@@ -2308,7 +2306,6 @@ export namespace HumanLoopQuotaExceededException {
 export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotentParameterMismatchException";
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   Code?: string;
@@ -2397,7 +2394,6 @@ export namespace ImageQuality {
 export interface ImageTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ImageTooLargeException";
   name: "ImageTooLargeException";
   $fault: "client";
   Code?: string;
@@ -2576,7 +2572,6 @@ export namespace Instance {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
   Code?: string;
@@ -2596,7 +2591,6 @@ export namespace InternalServerError {
 export interface InvalidImageFormatException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidImageFormatException";
   name: "InvalidImageFormatException";
   $fault: "client";
   Code?: string;
@@ -2616,7 +2610,6 @@ export namespace InvalidImageFormatException {
 export interface InvalidPaginationTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPaginationTokenException";
   name: "InvalidPaginationTokenException";
   $fault: "client";
   Code?: string;
@@ -2637,7 +2630,6 @@ export namespace InvalidPaginationTokenException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   Code?: string;
@@ -2657,7 +2649,6 @@ export namespace InvalidParameterException {
 export interface InvalidS3ObjectException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidS3ObjectException";
   name: "InvalidS3ObjectException";
   $fault: "client";
   Code?: string;
@@ -2842,7 +2833,6 @@ export enum LandmarkType {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -3407,7 +3397,6 @@ export enum ProjectVersionStatus {
 export interface ProvisionedThroughputExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ProvisionedThroughputExceededException";
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
   Code?: string;
@@ -3499,7 +3488,6 @@ export namespace RecognizeCelebritiesResponse {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Code?: string;
@@ -3519,7 +3507,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Code?: string;
@@ -3539,7 +3526,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -3561,7 +3547,6 @@ export namespace ResourceNotFoundException {
 export interface ResourceNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotReadyException";
   name: "ResourceNotReadyException";
   $fault: "client";
   Code?: string;
@@ -4467,7 +4452,6 @@ export enum TextTypes {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "server";
   Code?: string;
@@ -4641,7 +4625,6 @@ export namespace VideoMetadata {
 export interface VideoTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "VideoTooLargeException";
   name: "VideoTooLargeException";
   $fault: "client";
   Code?: string;

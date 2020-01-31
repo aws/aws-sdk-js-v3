@@ -494,7 +494,6 @@ export enum ActionExecutionStatus {
 export interface ActionNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ActionNotFoundException";
   name: "ActionNotFoundException";
   $fault: "client";
   /**
@@ -661,7 +660,6 @@ export namespace ActionTypeSettings {
 export interface ApprovalAlreadyCompletedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ApprovalAlreadyCompletedException";
   name: "ApprovalAlreadyCompletedException";
   $fault: "client";
   /**
@@ -872,7 +870,6 @@ export enum BlockerType {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -1162,7 +1159,6 @@ export namespace DisableStageTransitionInput {
 export interface DuplicatedStopRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicatedStopRequestException";
   name: "DuplicatedStopRequestException";
   $fault: "client";
   message?: string;
@@ -1507,7 +1503,6 @@ export namespace InputArtifact {
 export interface InvalidActionDeclarationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidActionDeclarationException";
   name: "InvalidActionDeclarationException";
   $fault: "client";
   /**
@@ -1528,7 +1523,6 @@ export namespace InvalidActionDeclarationException {
 export interface InvalidApprovalTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidApprovalTokenException";
   name: "InvalidApprovalTokenException";
   $fault: "client";
   /**
@@ -1549,7 +1543,6 @@ export namespace InvalidApprovalTokenException {
 export interface InvalidArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArnException";
   name: "InvalidArnException";
   $fault: "client";
   message?: string;
@@ -1567,7 +1560,6 @@ export namespace InvalidArnException {
 export interface InvalidBlockerDeclarationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidBlockerDeclarationException";
   name: "InvalidBlockerDeclarationException";
   $fault: "client";
   /**
@@ -1588,7 +1580,6 @@ export namespace InvalidBlockerDeclarationException {
 export interface InvalidClientTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidClientTokenException";
   name: "InvalidClientTokenException";
   $fault: "client";
   /**
@@ -1609,7 +1600,6 @@ export namespace InvalidClientTokenException {
 export interface InvalidJobException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidJobException";
   name: "InvalidJobException";
   $fault: "client";
   /**
@@ -1631,7 +1621,6 @@ export namespace InvalidJobException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -1652,7 +1641,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidStageDeclarationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStageDeclarationException";
   name: "InvalidStageDeclarationException";
   $fault: "client";
   /**
@@ -1673,7 +1661,6 @@ export namespace InvalidStageDeclarationException {
 export interface InvalidStructureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStructureException";
   name: "InvalidStructureException";
   $fault: "client";
   /**
@@ -1694,7 +1681,6 @@ export namespace InvalidStructureException {
 export interface InvalidTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTagsException";
   name: "InvalidTagsException";
   $fault: "client";
   message?: string;
@@ -1712,7 +1698,6 @@ export namespace InvalidTagsException {
 export interface InvalidWebhookAuthenticationParametersException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidWebhookAuthenticationParametersException";
   name: "InvalidWebhookAuthenticationParametersException";
   $fault: "client";
   /**
@@ -1735,7 +1720,6 @@ export namespace InvalidWebhookAuthenticationParametersException {
 export interface InvalidWebhookFilterPatternException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidWebhookFilterPatternException";
   name: "InvalidWebhookFilterPatternException";
   $fault: "client";
   /**
@@ -1880,7 +1864,6 @@ export namespace JobDetails {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2250,7 +2233,6 @@ export namespace ListWebhooksOutput {
 export interface NotLatestPipelineExecutionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotLatestPipelineExecutionException";
   name: "NotLatestPipelineExecutionException";
   $fault: "client";
   /**
@@ -2419,7 +2401,6 @@ export namespace PipelineExecution {
 export interface PipelineExecutionNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PipelineExecutionNotFoundException";
   name: "PipelineExecutionNotFoundException";
   $fault: "client";
   /**
@@ -2441,7 +2422,6 @@ export namespace PipelineExecutionNotFoundException {
 export interface PipelineExecutionNotStoppableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PipelineExecutionNotStoppableException";
   name: "PipelineExecutionNotStoppableException";
   $fault: "client";
   message?: string;
@@ -2570,7 +2550,6 @@ export namespace PipelineMetadata {
 export interface PipelineNameInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PipelineNameInUseException";
   name: "PipelineNameInUseException";
   $fault: "client";
   /**
@@ -2591,7 +2570,6 @@ export namespace PipelineNameInUseException {
 export interface PipelineNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PipelineNotFoundException";
   name: "PipelineNotFoundException";
   $fault: "client";
   /**
@@ -2646,7 +2624,6 @@ export namespace PipelineSummary {
 export interface PipelineVersionNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PipelineVersionNotFoundException";
   name: "PipelineVersionNotFoundException";
   $fault: "client";
   /**
@@ -3241,7 +3218,6 @@ export enum StageExecutionStatus {
 export interface StageNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StageNotFoundException";
   name: "StageNotFoundException";
   $fault: "client";
   /**
@@ -3264,7 +3240,6 @@ export namespace StageNotFoundException {
 export interface StageNotRetryableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StageNotRetryableException";
   name: "StageNotRetryableException";
   $fault: "client";
   /**
@@ -3606,7 +3581,6 @@ export namespace ThirdPartyJobDetails {
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -3862,7 +3836,6 @@ export namespace WebhookFilterRule {
 export interface WebhookNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WebhookNotFoundException";
   name: "WebhookNotFoundException";
   $fault: "client";
 }
@@ -4001,7 +3974,6 @@ export namespace ActionTypeId {
 export interface ActionTypeNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ActionTypeNotFoundException";
   name: "ActionTypeNotFoundException";
   $fault: "client";
   /**
@@ -4210,7 +4182,6 @@ export enum FailureType {
 export interface InvalidJobStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidJobStateException";
   name: "InvalidJobStateException";
   $fault: "client";
   /**
@@ -4231,7 +4202,6 @@ export namespace InvalidJobStateException {
 export interface InvalidNonceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNonceException";
   name: "InvalidNonceException";
   $fault: "client";
   /**
@@ -4252,7 +4222,6 @@ export namespace InvalidNonceException {
 export interface JobNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "JobNotFoundException";
   name: "JobNotFoundException";
   $fault: "client";
   /**
@@ -4283,7 +4252,6 @@ export enum JobStatus {
 export interface OutputVariablesSizeExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OutputVariablesSizeExceededException";
   name: "OutputVariablesSizeExceededException";
   $fault: "client";
   message?: string;
@@ -4345,7 +4313,6 @@ export namespace PipelineContext {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -4406,7 +4373,6 @@ export namespace StageContext {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   /**

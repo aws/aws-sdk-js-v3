@@ -40,7 +40,6 @@ export namespace AccessPoint {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -407,7 +406,6 @@ export namespace GetPublicAccessBlockRequest {
 export interface IdempotencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotencyException";
   name: "IdempotencyException";
   $fault: "client";
   Message?: string;
@@ -425,7 +423,6 @@ export namespace IdempotencyException {
 export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceException";
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -443,7 +440,6 @@ export namespace InternalServiceException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -461,7 +457,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -861,7 +856,6 @@ export enum JobStatus {
 export interface JobStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "JobStatusException";
   name: "JobStatusException";
   $fault: "client";
   Message?: string;
@@ -999,7 +993,6 @@ export enum NetworkOrigin {
 export interface NoSuchPublicAccessBlockConfiguration
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchPublicAccessBlockConfiguration";
   name: "NoSuchPublicAccessBlockConfiguration";
   $fault: "client";
   Message?: string;
@@ -1017,7 +1010,6 @@ export namespace NoSuchPublicAccessBlockConfiguration {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -1586,7 +1578,6 @@ export namespace S3Tag {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;

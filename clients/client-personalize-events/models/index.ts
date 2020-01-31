@@ -93,7 +93,6 @@ export namespace PutEventsRequest {
 export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputException";
   name: "InvalidInputException";
   $fault: "client";
   message?: string;

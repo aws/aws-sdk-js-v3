@@ -118,7 +118,6 @@ async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.sshaccessproxyservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -134,7 +133,6 @@ const deserializeAws_json1_1AuthExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1AuthException(body, context);
   const contents: AuthException = {
     name: "AuthException",
-    __type: "AuthException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -153,7 +151,6 @@ const deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse = async (
   );
   const contents: EC2InstanceNotFoundException = {
     name: "EC2InstanceNotFoundException",
-    __type: "EC2InstanceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -172,7 +169,6 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   );
   const contents: InvalidArgsException = {
     name: "InvalidArgsException",
-    __type: "InvalidArgsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -191,7 +187,6 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
   );
   const contents: ServiceException = {
     name: "ServiceException",
-    __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -210,7 +205,6 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   );
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

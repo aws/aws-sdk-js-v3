@@ -2419,7 +2419,6 @@ export namespace InstanceTypeSpecification {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
 }
@@ -2436,7 +2435,6 @@ export namespace InternalServerError {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   /**
@@ -2457,7 +2455,6 @@ export namespace InternalServerException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**

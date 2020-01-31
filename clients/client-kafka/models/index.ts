@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -438,7 +437,6 @@ export namespace ConfigurationRevision {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   /**
@@ -921,7 +919,6 @@ export namespace ErrorInfo {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -980,7 +977,6 @@ export namespace GetBootstrapBrokersResponse {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -1403,7 +1399,6 @@ export enum NodeType {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -1507,7 +1502,6 @@ export namespace PrometheusInfo {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1586,7 +1580,6 @@ export namespace Tls {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1612,7 +1605,6 @@ export namespace TooManyRequestsException {
 export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnauthorizedException";
   name: "UnauthorizedException";
   $fault: "client";
   /**

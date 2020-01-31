@@ -140,7 +140,6 @@ async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amazonaws.pi.v20180227#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -211,7 +210,6 @@ async function deserializeAws_json1_1GetResourceMetricsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `amazonaws.pi.v20180227#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -230,7 +228,6 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   );
   const contents: InternalServiceError = {
     name: "InternalServiceError",
-    __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -249,7 +246,6 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   );
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
-    __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -268,7 +264,6 @@ const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
   );
   const contents: NotAuthorizedException = {
     name: "NotAuthorizedException",
-    __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

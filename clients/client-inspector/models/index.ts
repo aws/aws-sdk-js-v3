@@ -18,7 +18,6 @@ export enum AccessDeniedErrorCode {
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -203,7 +202,6 @@ export namespace AgentPreview {
 export interface AgentsAlreadyRunningAssessmentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AgentsAlreadyRunningAssessmentException";
   name: "AgentsAlreadyRunningAssessmentException";
   $fault: "client";
   /**
@@ -446,7 +444,6 @@ export namespace AssessmentRunFilter {
 export interface AssessmentRunInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssessmentRunInProgressException";
   name: "AssessmentRunInProgressException";
   $fault: "client";
   /**
@@ -1793,7 +1790,6 @@ export namespace InspectorServiceAttributes {
 export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalException";
   name: "InternalException";
   $fault: "server";
   /**
@@ -1825,7 +1821,6 @@ export enum InvalidCrossAccountRoleErrorCode {
 export interface InvalidCrossAccountRoleException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidCrossAccountRoleException";
   name: "InvalidCrossAccountRoleException";
   $fault: "client";
   /**
@@ -1914,7 +1909,6 @@ export enum InvalidInputErrorCode {
 export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputException";
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -1954,7 +1948,6 @@ export enum LimitExceededErrorCode {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2538,7 +2531,6 @@ export enum NoSuchEntityErrorCode {
 export interface NoSuchEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchEntityException";
   name: "NoSuchEntityException";
   $fault: "client";
   /**
@@ -2620,7 +2612,6 @@ export namespace PreviewAgentsResponse {
 export interface PreviewGenerationInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PreviewGenerationInProgressException";
   name: "PreviewGenerationInProgressException";
   $fault: "client";
   message: string | undefined;
@@ -2877,7 +2868,6 @@ export namespace SecurityGroup {
 export interface ServiceTemporarilyUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceTemporarilyUnavailableException";
   name: "ServiceTemporarilyUnavailableException";
   $fault: "server";
   /**
@@ -3150,7 +3140,6 @@ export namespace UnsubscribeFromEventRequest {
 export interface UnsupportedFeatureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedFeatureException";
   name: "UnsupportedFeatureException";
   $fault: "client";
   canRetry: boolean | undefined;

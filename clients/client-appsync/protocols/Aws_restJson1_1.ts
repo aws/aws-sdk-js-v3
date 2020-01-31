@@ -1940,7 +1940,6 @@ async function deserializeAws_restJson1_1CreateApiCacheCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2033,7 +2032,6 @@ async function deserializeAws_restJson1_1CreateApiKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2118,7 +2116,6 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2196,7 +2193,6 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2288,7 +2284,6 @@ async function deserializeAws_restJson1_1CreateGraphqlApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2366,7 +2361,6 @@ async function deserializeAws_restJson1_1CreateResolverCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2445,7 +2439,6 @@ async function deserializeAws_restJson1_1CreateTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2522,7 +2515,6 @@ async function deserializeAws_restJson1_1DeleteApiCacheCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2589,7 +2581,6 @@ async function deserializeAws_restJson1_1DeleteApiKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2666,7 +2657,6 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2736,7 +2726,6 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2820,7 +2809,6 @@ async function deserializeAws_restJson1_1DeleteGraphqlApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2890,7 +2878,6 @@ async function deserializeAws_restJson1_1DeleteResolverCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2964,7 +2951,6 @@ async function deserializeAws_restJson1_1DeleteTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3038,7 +3024,6 @@ async function deserializeAws_restJson1_1FlushApiCacheCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3120,7 +3105,6 @@ async function deserializeAws_restJson1_1GetApiCacheCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3202,7 +3186,6 @@ async function deserializeAws_restJson1_1GetDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3270,7 +3253,6 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3352,7 +3334,6 @@ async function deserializeAws_restJson1_1GetGraphqlApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3425,7 +3406,6 @@ async function deserializeAws_restJson1_1GetIntrospectionSchemaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3493,7 +3473,6 @@ async function deserializeAws_restJson1_1GetResolverCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3572,7 +3551,6 @@ async function deserializeAws_restJson1_1GetSchemaCreationStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3651,7 +3629,6 @@ async function deserializeAws_restJson1_1GetTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3727,7 +3704,6 @@ async function deserializeAws_restJson1_1ListApiKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3809,7 +3785,6 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3888,7 +3863,6 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3963,7 +3937,6 @@ async function deserializeAws_restJson1_1ListGraphqlApisCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4042,7 +4015,6 @@ async function deserializeAws_restJson1_1ListResolversCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4124,7 +4096,6 @@ async function deserializeAws_restJson1_1ListResolversByFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4213,7 +4184,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4296,7 +4266,6 @@ async function deserializeAws_restJson1_1ListTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4378,7 +4347,6 @@ async function deserializeAws_restJson1_1StartSchemaCreationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4459,7 +4427,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4540,7 +4507,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4625,7 +4591,6 @@ async function deserializeAws_restJson1_1UpdateApiCacheCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4711,7 +4676,6 @@ async function deserializeAws_restJson1_1UpdateApiKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4796,7 +4760,6 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4874,7 +4837,6 @@ async function deserializeAws_restJson1_1UpdateFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4966,7 +4928,6 @@ async function deserializeAws_restJson1_1UpdateGraphqlApiCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5044,7 +5005,6 @@ async function deserializeAws_restJson1_1UpdateResolverCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5123,7 +5083,6 @@ async function deserializeAws_restJson1_1UpdateTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5137,7 +5096,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5155,7 +5113,6 @@ const deserializeAws_restJson1_1ApiKeyLimitExceededExceptionResponse = async (
 ): Promise<ApiKeyLimitExceededException> => {
   const contents: ApiKeyLimitExceededException = {
     name: "ApiKeyLimitExceededException",
-    __type: "ApiKeyLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5173,7 +5130,6 @@ const deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse = asy
 ): Promise<ApiKeyValidityOutOfBoundsException> => {
   const contents: ApiKeyValidityOutOfBoundsException = {
     name: "ApiKeyValidityOutOfBoundsException",
-    __type: "ApiKeyValidityOutOfBoundsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5191,7 +5147,6 @@ const deserializeAws_restJson1_1ApiLimitExceededExceptionResponse = async (
 ): Promise<ApiLimitExceededException> => {
   const contents: ApiLimitExceededException = {
     name: "ApiLimitExceededException",
-    __type: "ApiLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5209,7 +5164,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5227,7 +5181,6 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5245,7 +5198,6 @@ const deserializeAws_restJson1_1GraphQLSchemaExceptionResponse = async (
 ): Promise<GraphQLSchemaException> => {
   const contents: GraphQLSchemaException = {
     name: "GraphQLSchemaException",
-    __type: "GraphQLSchemaException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5263,7 +5215,6 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
-    __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5281,7 +5232,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5299,7 +5249,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -5317,7 +5266,6 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
-    __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

@@ -223,7 +223,6 @@ async function deserializeAws_json1_1BatchMeterUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -326,7 +325,6 @@ async function deserializeAws_json1_1MeterUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -429,7 +427,6 @@ async function deserializeAws_json1_1RegisterUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -511,7 +508,6 @@ async function deserializeAws_json1_1ResolveCustomerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -530,7 +526,6 @@ const deserializeAws_json1_1CustomerNotEntitledExceptionResponse = async (
   );
   const contents: CustomerNotEntitledException = {
     name: "CustomerNotEntitledException",
-    __type: "CustomerNotEntitledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -549,7 +544,6 @@ const deserializeAws_json1_1DisabledApiExceptionResponse = async (
   );
   const contents: DisabledApiException = {
     name: "DisabledApiException",
-    __type: "DisabledApiException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -568,7 +562,6 @@ const deserializeAws_json1_1DuplicateRequestExceptionResponse = async (
   );
   const contents: DuplicateRequestException = {
     name: "DuplicateRequestException",
-    __type: "DuplicateRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -587,7 +580,6 @@ const deserializeAws_json1_1ExpiredTokenExceptionResponse = async (
   );
   const contents: ExpiredTokenException = {
     name: "ExpiredTokenException",
-    __type: "ExpiredTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -606,7 +598,6 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   );
   const contents: InternalServiceErrorException = {
     name: "InternalServiceErrorException",
-    __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -625,7 +616,6 @@ const deserializeAws_json1_1InvalidCustomerIdentifierExceptionResponse = async (
   );
   const contents: InvalidCustomerIdentifierException = {
     name: "InvalidCustomerIdentifierException",
-    __type: "InvalidCustomerIdentifierException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -644,7 +634,6 @@ const deserializeAws_json1_1InvalidEndpointRegionExceptionResponse = async (
   );
   const contents: InvalidEndpointRegionException = {
     name: "InvalidEndpointRegionException",
-    __type: "InvalidEndpointRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -663,7 +652,6 @@ const deserializeAws_json1_1InvalidProductCodeExceptionResponse = async (
   );
   const contents: InvalidProductCodeException = {
     name: "InvalidProductCodeException",
-    __type: "InvalidProductCodeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -682,7 +670,6 @@ const deserializeAws_json1_1InvalidPublicKeyVersionExceptionResponse = async (
   );
   const contents: InvalidPublicKeyVersionException = {
     name: "InvalidPublicKeyVersionException",
-    __type: "InvalidPublicKeyVersionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -701,7 +688,6 @@ const deserializeAws_json1_1InvalidRegionExceptionResponse = async (
   );
   const contents: InvalidRegionException = {
     name: "InvalidRegionException",
-    __type: "InvalidRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -720,7 +706,6 @@ const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
   );
   const contents: InvalidTokenException = {
     name: "InvalidTokenException",
-    __type: "InvalidTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -739,7 +724,6 @@ const deserializeAws_json1_1InvalidUsageDimensionExceptionResponse = async (
   );
   const contents: InvalidUsageDimensionException = {
     name: "InvalidUsageDimensionException",
-    __type: "InvalidUsageDimensionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -758,7 +742,6 @@ const deserializeAws_json1_1PlatformNotSupportedExceptionResponse = async (
   );
   const contents: PlatformNotSupportedException = {
     name: "PlatformNotSupportedException",
-    __type: "PlatformNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -777,7 +760,6 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   );
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -796,7 +778,6 @@ const deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse = async (
   );
   const contents: TimestampOutOfBoundsException = {
     name: "TimestampOutOfBoundsException",
-    __type: "TimestampOutOfBoundsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

@@ -29,7 +29,6 @@ export namespace ActiveDirectoryBackupAttributes {
 export interface ActiveDirectoryError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ActiveDirectoryError";
   name: "ActiveDirectoryError";
   $fault: "client";
   /**
@@ -157,7 +156,6 @@ export namespace BackupFailureDetails {
 export interface BackupInProgress
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BackupInProgress";
   name: "BackupInProgress";
   $fault: "client";
   /**
@@ -185,7 +183,6 @@ export enum BackupLifecycle {
 export interface BackupNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BackupNotFound";
   name: "BackupNotFound";
   $fault: "client";
   /**
@@ -207,7 +204,6 @@ export namespace BackupNotFound {
 export interface BackupRestoring
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BackupRestoring";
   name: "BackupRestoring";
   $fault: "client";
   /**
@@ -236,7 +232,6 @@ export enum BackupType {
  * <p>A generic error indicating a failure with a client request.</p>
  */
 export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
-  __type: "BadRequest";
   name: "BadRequest";
   $fault: "client";
   /**
@@ -938,7 +933,6 @@ export namespace DataRepositoryTask {
 export interface DataRepositoryTaskEnded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DataRepositoryTaskEnded";
   name: "DataRepositoryTaskEnded";
   $fault: "client";
   /**
@@ -960,7 +954,6 @@ export namespace DataRepositoryTaskEnded {
 export interface DataRepositoryTaskExecuting
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DataRepositoryTaskExecuting";
   name: "DataRepositoryTaskExecuting";
   $fault: "client";
   /**
@@ -1046,7 +1039,6 @@ export enum DataRepositoryTaskLifecycle {
 export interface DataRepositoryTaskNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DataRepositoryTaskNotFound";
   name: "DataRepositoryTaskNotFound";
   $fault: "client";
   /**
@@ -1604,7 +1596,6 @@ export enum FileSystemMaintenanceOperation {
 export interface FileSystemNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FileSystemNotFound";
   name: "FileSystemNotFound";
   $fault: "client";
   /**
@@ -1661,7 +1652,6 @@ export enum FilterName {
 export interface IncompatibleParameterError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IncompatibleParameterError";
   name: "IncompatibleParameterError";
   $fault: "client";
   /**
@@ -1687,7 +1677,6 @@ export namespace IncompatibleParameterError {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -1708,7 +1697,6 @@ export namespace InternalServerError {
 export interface InvalidExportPath
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidExportPath";
   name: "InvalidExportPath";
   $fault: "client";
   /**
@@ -1729,7 +1717,6 @@ export namespace InvalidExportPath {
 export interface InvalidImportPath
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidImportPath";
   name: "InvalidImportPath";
   $fault: "client";
   /**
@@ -1755,7 +1742,6 @@ export namespace InvalidImportPath {
 export interface InvalidNetworkSettings
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNetworkSettings";
   name: "InvalidNetworkSettings";
   $fault: "client";
   /**
@@ -1872,7 +1858,6 @@ export namespace LustreFileSystemConfiguration {
 export interface MissingFileSystemConfiguration
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MissingFileSystemConfiguration";
   name: "MissingFileSystemConfiguration";
   $fault: "client";
   /**
@@ -1894,7 +1879,6 @@ export namespace MissingFileSystemConfiguration {
 export interface NotServiceResourceError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotServiceResourceError";
   name: "NotServiceResourceError";
   $fault: "client";
   /**
@@ -1928,7 +1912,6 @@ export enum ReportScope {
 export interface ResourceDoesNotSupportTagging
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceDoesNotSupportTagging";
   name: "ResourceDoesNotSupportTagging";
   $fault: "client";
   /**
@@ -1955,7 +1938,6 @@ export namespace ResourceDoesNotSupportTagging {
 export interface ResourceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFound";
   name: "ResourceNotFound";
   $fault: "client";
   /**
@@ -2144,7 +2126,6 @@ export enum ServiceLimit {
 export interface ServiceLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceLimitExceeded";
   name: "ServiceLimitExceeded";
   $fault: "client";
   /**
@@ -2233,7 +2214,6 @@ export namespace TagResourceResponse {
 export interface UnsupportedOperation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedOperation";
   name: "UnsupportedOperation";
   $fault: "client";
   /**

@@ -874,7 +874,6 @@ export namespace TimestampRange {
 export interface ClientLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ClientLimitExceededException";
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -893,7 +892,6 @@ export namespace ClientLimitExceededException {
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgumentException";
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -912,7 +910,6 @@ export namespace InvalidArgumentException {
 export interface InvalidCodecPrivateDataException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidCodecPrivateDataException";
   name: "InvalidCodecPrivateDataException";
   $fault: "client";
   Message?: string;
@@ -930,7 +927,6 @@ export namespace InvalidCodecPrivateDataException {
 export interface MissingCodecPrivateDataException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MissingCodecPrivateDataException";
   name: "MissingCodecPrivateDataException";
   $fault: "client";
   Message?: string;
@@ -949,7 +945,6 @@ export namespace MissingCodecPrivateDataException {
 export interface NoDataRetentionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoDataRetentionException";
   name: "NoDataRetentionException";
   $fault: "client";
   Message?: string;
@@ -968,7 +963,6 @@ export namespace NoDataRetentionException {
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAuthorizedException";
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -995,7 +989,6 @@ export namespace NotAuthorizedException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1016,7 +1009,6 @@ export namespace ResourceNotFoundException {
 export interface UnsupportedStreamMediaTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedStreamMediaTypeException";
   name: "UnsupportedStreamMediaTypeException";
   $fault: "client";
   Message?: string;

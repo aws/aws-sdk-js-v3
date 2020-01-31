@@ -149,7 +149,6 @@ export namespace AddTagsToResourceResult {
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -167,7 +166,6 @@ export namespace AlreadyExistsException {
 export interface AssociatedInstances
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociatedInstances";
   name: "AssociatedInstances";
   $fault: "client";
 }
@@ -247,7 +245,6 @@ export namespace Association {
 export interface AssociationAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociationAlreadyExists";
   name: "AssociationAlreadyExists";
   $fault: "client";
 }
@@ -401,7 +398,6 @@ export namespace AssociationDescription {
 export interface AssociationDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociationDoesNotExist";
   name: "AssociationDoesNotExist";
   $fault: "client";
   Message?: string;
@@ -471,7 +467,6 @@ export namespace AssociationExecution {
 export interface AssociationExecutionDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociationExecutionDoesNotExist";
   name: "AssociationExecutionDoesNotExist";
   $fault: "client";
   Message?: string;
@@ -645,7 +640,6 @@ export enum AssociationFilterOperatorType {
 export interface AssociationLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociationLimitExceeded";
   name: "AssociationLimitExceeded";
   $fault: "client";
 }
@@ -826,7 +820,6 @@ export namespace AssociationVersionInfo {
 export interface AssociationVersionLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociationVersionLimitExceeded";
   name: "AssociationVersionLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -970,7 +963,6 @@ export enum AttachmentsSourceKey {
 export interface AutomationDefinitionNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AutomationDefinitionNotFoundException";
   name: "AutomationDefinitionNotFoundException";
   $fault: "client";
   Message?: string;
@@ -988,7 +980,6 @@ export namespace AutomationDefinitionNotFoundException {
 export interface AutomationDefinitionVersionNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AutomationDefinitionVersionNotFoundException";
   name: "AutomationDefinitionVersionNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1189,7 +1180,6 @@ export enum AutomationExecutionFilterKey {
 export interface AutomationExecutionLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AutomationExecutionLimitExceededException";
   name: "AutomationExecutionLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1335,7 +1325,6 @@ export namespace AutomationExecutionMetadata {
 export interface AutomationExecutionNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AutomationExecutionNotFoundException";
   name: "AutomationExecutionNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1365,7 +1354,6 @@ export enum AutomationExecutionStatus {
 export interface AutomationStepNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AutomationStepNotFoundException";
   name: "AutomationStepNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2313,7 +2301,6 @@ export namespace ComplianceSummaryItem {
 export interface ComplianceTypeCountLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ComplianceTypeCountLimitExceededException";
   name: "ComplianceTypeCountLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -3241,7 +3228,6 @@ export namespace CreateResourceDataSyncResult {
 export interface CustomSchemaCountLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomSchemaCountLimitExceededException";
   name: "CustomSchemaCountLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -5485,7 +5471,6 @@ export namespace DescribeSessionsResponse {
 export interface DocumentAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DocumentAlreadyExists";
   name: "DocumentAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -5821,7 +5806,6 @@ export namespace DocumentKeyValuesFilter {
 export interface DocumentLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DocumentLimitExceeded";
   name: "DocumentLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -5878,7 +5862,6 @@ export type DocumentParameterType = "String" | "StringList";
 export interface DocumentPermissionLimit
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DocumentPermissionLimit";
   name: "DocumentPermissionLimit";
   $fault: "client";
   Message?: string;
@@ -5999,7 +5982,6 @@ export namespace DocumentVersionInfo {
 export interface DocumentVersionLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DocumentVersionLimitExceeded";
   name: "DocumentVersionLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -6020,7 +6002,6 @@ export namespace DocumentVersionLimitExceeded {
 export interface DoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DoesNotExistException";
   name: "DoesNotExistException";
   $fault: "client";
   Message?: string;
@@ -6039,7 +6020,6 @@ export namespace DoesNotExistException {
 export interface DuplicateDocumentContent
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateDocumentContent";
   name: "DuplicateDocumentContent";
   $fault: "client";
   Message?: string;
@@ -6058,7 +6038,6 @@ export namespace DuplicateDocumentContent {
 export interface DuplicateDocumentVersionName
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateDocumentVersionName";
   name: "DuplicateDocumentVersionName";
   $fault: "client";
   Message?: string;
@@ -6076,7 +6055,6 @@ export namespace DuplicateDocumentVersionName {
 export interface DuplicateInstanceId
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateInstanceId";
   name: "DuplicateInstanceId";
   $fault: "client";
 }
@@ -6185,7 +6163,6 @@ export type Fault = "Client" | "Server" | "Unknown";
 export interface FeatureNotAvailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "FeatureNotAvailableException";
   name: "FeatureNotAvailableException";
   $fault: "client";
   Message?: string;
@@ -7763,7 +7740,6 @@ export namespace GetServiceSettingResult {
 export interface HierarchyLevelLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HierarchyLevelLimitExceededException";
   name: "HierarchyLevelLimitExceededException";
   $fault: "client";
   /**
@@ -7787,7 +7763,6 @@ export namespace HierarchyLevelLimitExceededException {
 export interface HierarchyTypeMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "HierarchyTypeMismatchException";
   name: "HierarchyTypeMismatchException";
   $fault: "client";
   /**
@@ -7811,7 +7786,6 @@ export namespace HierarchyTypeMismatchException {
 export interface IdempotentParameterMismatch
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IdempotentParameterMismatch";
   name: "IdempotentParameterMismatch";
   $fault: "client";
   Message?: string;
@@ -7830,7 +7804,6 @@ export namespace IdempotentParameterMismatch {
 export interface IncompatiblePolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IncompatiblePolicyException";
   name: "IncompatiblePolicyException";
   $fault: "client";
   message?: string;
@@ -8369,7 +8342,6 @@ export enum InstancePatchStateOperatorType {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -8388,7 +8360,6 @@ export namespace InternalServerError {
 export interface InvalidActivation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidActivation";
   name: "InvalidActivation";
   $fault: "client";
   Message?: string;
@@ -8407,7 +8378,6 @@ export namespace InvalidActivation {
 export interface InvalidActivationId
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidActivationId";
   name: "InvalidActivationId";
   $fault: "client";
   Message?: string;
@@ -8427,7 +8397,6 @@ export namespace InvalidActivationId {
 export interface InvalidAggregatorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAggregatorException";
   name: "InvalidAggregatorException";
   $fault: "client";
   Message?: string;
@@ -8445,7 +8414,6 @@ export namespace InvalidAggregatorException {
 export interface InvalidAllowedPatternException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAllowedPatternException";
   name: "InvalidAllowedPatternException";
   $fault: "client";
   /**
@@ -8466,7 +8434,6 @@ export namespace InvalidAllowedPatternException {
 export interface InvalidAssociation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAssociation";
   name: "InvalidAssociation";
   $fault: "client";
   Message?: string;
@@ -8486,7 +8453,6 @@ export namespace InvalidAssociation {
 export interface InvalidAssociationVersion
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAssociationVersion";
   name: "InvalidAssociationVersion";
   $fault: "client";
   Message?: string;
@@ -8506,7 +8472,6 @@ export namespace InvalidAssociationVersion {
 export interface InvalidAutomationExecutionParametersException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAutomationExecutionParametersException";
   name: "InvalidAutomationExecutionParametersException";
   $fault: "client";
   Message?: string;
@@ -8526,7 +8491,6 @@ export namespace InvalidAutomationExecutionParametersException {
 export interface InvalidAutomationSignalException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAutomationSignalException";
   name: "InvalidAutomationSignalException";
   $fault: "client";
   Message?: string;
@@ -8544,7 +8508,6 @@ export namespace InvalidAutomationSignalException {
 export interface InvalidAutomationStatusUpdateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAutomationStatusUpdateException";
   name: "InvalidAutomationStatusUpdateException";
   $fault: "client";
   Message?: string;
@@ -8559,7 +8522,6 @@ export namespace InvalidAutomationStatusUpdateException {
 export interface InvalidCommandId
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidCommandId";
   name: "InvalidCommandId";
   $fault: "client";
 }
@@ -8577,7 +8539,6 @@ export namespace InvalidCommandId {
 export interface InvalidDeleteInventoryParametersException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDeleteInventoryParametersException";
   name: "InvalidDeleteInventoryParametersException";
   $fault: "client";
   Message?: string;
@@ -8596,7 +8557,6 @@ export namespace InvalidDeleteInventoryParametersException {
 export interface InvalidDeletionIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDeletionIdException";
   name: "InvalidDeletionIdException";
   $fault: "client";
   Message?: string;
@@ -8614,7 +8574,6 @@ export namespace InvalidDeletionIdException {
 export interface InvalidDocument
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDocument";
   name: "InvalidDocument";
   $fault: "client";
   /**
@@ -8638,7 +8597,6 @@ export namespace InvalidDocument {
 export interface InvalidDocumentContent
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDocumentContent";
   name: "InvalidDocumentContent";
   $fault: "client";
   /**
@@ -8660,7 +8618,6 @@ export namespace InvalidDocumentContent {
 export interface InvalidDocumentOperation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDocumentOperation";
   name: "InvalidDocumentOperation";
   $fault: "client";
   Message?: string;
@@ -8678,7 +8635,6 @@ export namespace InvalidDocumentOperation {
 export interface InvalidDocumentSchemaVersion
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDocumentSchemaVersion";
   name: "InvalidDocumentSchemaVersion";
   $fault: "client";
   Message?: string;
@@ -8697,7 +8653,6 @@ export namespace InvalidDocumentSchemaVersion {
 export interface InvalidDocumentType
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDocumentType";
   name: "InvalidDocumentType";
   $fault: "client";
   Message?: string;
@@ -8715,7 +8670,6 @@ export namespace InvalidDocumentType {
 export interface InvalidDocumentVersion
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDocumentVersion";
   name: "InvalidDocumentVersion";
   $fault: "client";
   Message?: string;
@@ -8733,7 +8687,6 @@ export namespace InvalidDocumentVersion {
 export interface InvalidFilter
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidFilter";
   name: "InvalidFilter";
   $fault: "client";
   Message?: string;
@@ -8751,7 +8704,6 @@ export namespace InvalidFilter {
 export interface InvalidFilterKey
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidFilterKey";
   name: "InvalidFilterKey";
   $fault: "client";
 }
@@ -8769,7 +8721,6 @@ export namespace InvalidFilterKey {
 export interface InvalidFilterOption
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidFilterOption";
   name: "InvalidFilterOption";
   $fault: "client";
   /**
@@ -8791,7 +8742,6 @@ export namespace InvalidFilterOption {
 export interface InvalidFilterValue
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidFilterValue";
   name: "InvalidFilterValue";
   $fault: "client";
   Message?: string;
@@ -8814,7 +8764,6 @@ export namespace InvalidFilterValue {
 export interface InvalidInstanceId
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInstanceId";
   name: "InvalidInstanceId";
   $fault: "client";
   Message?: string;
@@ -8832,7 +8781,6 @@ export namespace InvalidInstanceId {
 export interface InvalidInstanceInformationFilterValue
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInstanceInformationFilterValue";
   name: "InvalidInstanceInformationFilterValue";
   $fault: "client";
   message?: string;
@@ -8850,7 +8798,6 @@ export namespace InvalidInstanceInformationFilterValue {
 export interface InvalidInventoryGroupException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInventoryGroupException";
   name: "InvalidInventoryGroupException";
   $fault: "client";
   Message?: string;
@@ -8869,7 +8816,6 @@ export namespace InvalidInventoryGroupException {
 export interface InvalidInventoryItemContextException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInventoryItemContextException";
   name: "InvalidInventoryItemContextException";
   $fault: "client";
   Message?: string;
@@ -8887,7 +8833,6 @@ export namespace InvalidInventoryItemContextException {
 export interface InvalidInventoryRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInventoryRequestException";
   name: "InvalidInventoryRequestException";
   $fault: "client";
   Message?: string;
@@ -8905,7 +8850,6 @@ export namespace InvalidInventoryRequestException {
 export interface InvalidItemContentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidItemContentException";
   name: "InvalidItemContentException";
   $fault: "client";
   Message?: string;
@@ -8922,7 +8866,6 @@ export namespace InvalidItemContentException {
  * <p>The query key ID is not valid.</p>
  */
 export interface InvalidKeyId extends _smithy.SmithyException, $MetadataBearer {
-  __type: "InvalidKeyId";
   name: "InvalidKeyId";
   $fault: "client";
   message?: string;
@@ -8940,7 +8883,6 @@ export namespace InvalidKeyId {
 export interface InvalidNextToken
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextToken";
   name: "InvalidNextToken";
   $fault: "client";
   Message?: string;
@@ -8959,7 +8901,6 @@ export namespace InvalidNextToken {
 export interface InvalidNotificationConfig
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNotificationConfig";
   name: "InvalidNotificationConfig";
   $fault: "client";
   Message?: string;
@@ -8977,7 +8918,6 @@ export namespace InvalidNotificationConfig {
 export interface InvalidOptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOptionException";
   name: "InvalidOptionException";
   $fault: "client";
   Message?: string;
@@ -8995,7 +8935,6 @@ export namespace InvalidOptionException {
 export interface InvalidOutputFolder
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOutputFolder";
   name: "InvalidOutputFolder";
   $fault: "client";
 }
@@ -9012,7 +8951,6 @@ export namespace InvalidOutputFolder {
 export interface InvalidOutputLocation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOutputLocation";
   name: "InvalidOutputLocation";
   $fault: "client";
 }
@@ -9030,7 +8968,6 @@ export namespace InvalidOutputLocation {
 export interface InvalidParameters
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameters";
   name: "InvalidParameters";
   $fault: "client";
   Message?: string;
@@ -9049,7 +8986,6 @@ export namespace InvalidParameters {
 export interface InvalidPermissionType
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPermissionType";
   name: "InvalidPermissionType";
   $fault: "client";
   Message?: string;
@@ -9067,7 +9003,6 @@ export namespace InvalidPermissionType {
 export interface InvalidPluginName
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPluginName";
   name: "InvalidPluginName";
   $fault: "client";
 }
@@ -9084,7 +9019,6 @@ export namespace InvalidPluginName {
 export interface InvalidPolicyAttributeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPolicyAttributeException";
   name: "InvalidPolicyAttributeException";
   $fault: "client";
   message?: string;
@@ -9103,7 +9037,6 @@ export namespace InvalidPolicyAttributeException {
 export interface InvalidPolicyTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPolicyTypeException";
   name: "InvalidPolicyTypeException";
   $fault: "client";
   message?: string;
@@ -9121,7 +9054,6 @@ export namespace InvalidPolicyTypeException {
 export interface InvalidResourceId
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResourceId";
   name: "InvalidResourceId";
   $fault: "client";
 }
@@ -9139,7 +9071,6 @@ export namespace InvalidResourceId {
 export interface InvalidResourceType
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResourceType";
   name: "InvalidResourceType";
   $fault: "client";
 }
@@ -9156,7 +9087,6 @@ export namespace InvalidResourceType {
 export interface InvalidResultAttributeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResultAttributeException";
   name: "InvalidResultAttributeException";
   $fault: "client";
   Message?: string;
@@ -9175,7 +9105,6 @@ export namespace InvalidResultAttributeException {
  *     <i>AWS Systems Manager User Guide</i>.</p>
  */
 export interface InvalidRole extends _smithy.SmithyException, $MetadataBearer {
-  __type: "InvalidRole";
   name: "InvalidRole";
   $fault: "client";
   Message?: string;
@@ -9193,7 +9122,6 @@ export namespace InvalidRole {
 export interface InvalidSchedule
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSchedule";
   name: "InvalidSchedule";
   $fault: "client";
   Message?: string;
@@ -9212,7 +9140,6 @@ export namespace InvalidSchedule {
 export interface InvalidTarget
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTarget";
   name: "InvalidTarget";
   $fault: "client";
   Message?: string;
@@ -9230,7 +9157,6 @@ export namespace InvalidTarget {
 export interface InvalidTypeNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTypeNameException";
   name: "InvalidTypeNameException";
   $fault: "client";
   Message?: string;
@@ -9248,7 +9174,6 @@ export namespace InvalidTypeNameException {
 export interface InvalidUpdate
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidUpdate";
   name: "InvalidUpdate";
   $fault: "client";
   Message?: string;
@@ -9648,7 +9573,6 @@ export enum InventorySchemaDeleteOption {
 export interface InvocationDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvocationDoesNotExist";
   name: "InvocationDoesNotExist";
   $fault: "client";
 }
@@ -9665,7 +9589,6 @@ export namespace InvocationDoesNotExist {
 export interface ItemContentMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ItemContentMismatchException";
   name: "ItemContentMismatchException";
   $fault: "client";
   Message?: string;
@@ -9684,7 +9607,6 @@ export namespace ItemContentMismatchException {
 export interface ItemSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ItemSizeLimitExceededException";
   name: "ItemSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -11145,7 +11067,6 @@ export enum MaintenanceWindowTaskType {
 export interface MaxDocumentSizeExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MaxDocumentSizeExceeded";
   name: "MaxDocumentSizeExceeded";
   $fault: "client";
   Message?: string;
@@ -11537,7 +11458,6 @@ export namespace OpsItem {
 export interface OpsItemAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OpsItemAlreadyExistsException";
   name: "OpsItemAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -11637,7 +11557,6 @@ export enum OpsItemFilterOperator {
 export interface OpsItemInvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OpsItemInvalidParameterException";
   name: "OpsItemInvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -11658,7 +11577,6 @@ export namespace OpsItemInvalidParameterException {
 export interface OpsItemLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OpsItemLimitExceededException";
   name: "OpsItemLimitExceededException";
   $fault: "client";
   Limit?: number;
@@ -11679,7 +11597,6 @@ export namespace OpsItemLimitExceededException {
 export interface OpsItemNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OpsItemNotFoundException";
   name: "OpsItemNotFoundException";
   $fault: "client";
   Message?: string;
@@ -11893,7 +11810,6 @@ export namespace Parameter {
 export interface ParameterAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ParameterAlreadyExists";
   name: "ParameterAlreadyExists";
   $fault: "client";
   message?: string;
@@ -12018,7 +11934,6 @@ export namespace ParameterInlinePolicy {
 export interface ParameterLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ParameterLimitExceeded";
   name: "ParameterLimitExceeded";
   $fault: "client";
   message?: string;
@@ -12036,7 +11951,6 @@ export namespace ParameterLimitExceeded {
 export interface ParameterMaxVersionLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ParameterMaxVersionLimitExceeded";
   name: "ParameterMaxVersionLimitExceeded";
   $fault: "client";
   message?: string;
@@ -12119,7 +12033,6 @@ export namespace ParameterMetadata {
 export interface ParameterNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ParameterNotFound";
   name: "ParameterNotFound";
   $fault: "client";
   message?: string;
@@ -12137,7 +12050,6 @@ export namespace ParameterNotFound {
 export interface ParameterPatternMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ParameterPatternMismatchException";
   name: "ParameterPatternMismatchException";
   $fault: "client";
   /**
@@ -12214,7 +12126,6 @@ export enum ParameterType {
 export interface ParameterVersionLabelLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ParameterVersionLabelLimitExceeded";
   name: "ParameterVersionLabelLimitExceeded";
   $fault: "client";
   message?: string;
@@ -12233,7 +12144,6 @@ export namespace ParameterVersionLabelLimitExceeded {
 export interface ParameterVersionNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ParameterVersionNotFound";
   name: "ParameterVersionNotFound";
   $fault: "client";
   message?: string;
@@ -12742,7 +12652,6 @@ export enum PlatformType {
 export interface PoliciesLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PoliciesLimitExceededException";
   name: "PoliciesLimitExceededException";
   $fault: "client";
   message?: string;
@@ -13638,7 +13547,6 @@ export namespace ResourceComplianceSummaryItem {
 export interface ResourceDataSyncAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceDataSyncAlreadyExistsException";
   name: "ResourceDataSyncAlreadyExistsException";
   $fault: "client";
   SyncName?: string;
@@ -13684,7 +13592,6 @@ export namespace ResourceDataSyncAwsOrganizationsSource {
 export interface ResourceDataSyncConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceDataSyncConflictException";
   name: "ResourceDataSyncConflictException";
   $fault: "client";
   Message?: string;
@@ -13702,7 +13609,6 @@ export namespace ResourceDataSyncConflictException {
 export interface ResourceDataSyncCountExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceDataSyncCountExceededException";
   name: "ResourceDataSyncCountExceededException";
   $fault: "client";
   Message?: string;
@@ -13720,7 +13626,6 @@ export namespace ResourceDataSyncCountExceededException {
 export interface ResourceDataSyncInvalidConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceDataSyncInvalidConfigurationException";
   name: "ResourceDataSyncInvalidConfigurationException";
   $fault: "client";
   Message?: string;
@@ -13806,7 +13711,6 @@ export namespace ResourceDataSyncItem {
 export interface ResourceDataSyncNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceDataSyncNotFoundException";
   name: "ResourceDataSyncNotFoundException";
   $fault: "client";
   Message?: string;
@@ -13989,7 +13893,6 @@ export namespace ResourceDataSyncSourceWithState {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -14010,7 +13913,6 @@ export namespace ResourceInUseException {
 export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceLimitExceededException";
   name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -14444,7 +14346,6 @@ export namespace ServiceSetting {
 export interface ServiceSettingNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceSettingNotFound";
   name: "ServiceSettingNotFound";
   $fault: "client";
   Message?: string;
@@ -14893,7 +14794,6 @@ export namespace StartSessionResponse {
 export interface StatusUnchanged
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StatusUnchanged";
   name: "StatusUnchanged";
   $fault: "client";
 }
@@ -15107,7 +15007,6 @@ export enum StopType {
 export interface SubTypeCountLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubTypeCountLimitExceededException";
   name: "SubTypeCountLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -15255,7 +15154,6 @@ export namespace Target {
 export interface TargetInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TargetInUseException";
   name: "TargetInUseException";
   $fault: "client";
   Message?: string;
@@ -15315,7 +15213,6 @@ export namespace TargetLocation {
 export interface TargetNotConnected
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TargetNotConnected";
   name: "TargetNotConnected";
   $fault: "client";
   Message?: string;
@@ -15362,7 +15259,6 @@ export namespace TerminateSessionResponse {
 export interface TooManyTagsError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsError";
   name: "TooManyTagsError";
   $fault: "client";
 }
@@ -15379,7 +15275,6 @@ export namespace TooManyTagsError {
 export interface TooManyUpdates
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyUpdates";
   name: "TooManyUpdates";
   $fault: "client";
   Message?: string;
@@ -15397,7 +15292,6 @@ export namespace TooManyUpdates {
 export interface TotalSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TotalSizeLimitExceededException";
   name: "TotalSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -15415,7 +15309,6 @@ export namespace TotalSizeLimitExceededException {
 export interface UnsupportedCalendarException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedCalendarException";
   name: "UnsupportedCalendarException";
   $fault: "client";
   Message?: string;
@@ -15436,7 +15329,6 @@ export namespace UnsupportedCalendarException {
 export interface UnsupportedFeatureRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedFeatureRequiredException";
   name: "UnsupportedFeatureRequiredException";
   $fault: "client";
   Message?: string;
@@ -15456,7 +15348,6 @@ export namespace UnsupportedFeatureRequiredException {
 export interface UnsupportedInventoryItemContextException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedInventoryItemContextException";
   name: "UnsupportedInventoryItemContextException";
   $fault: "client";
   Message?: string;
@@ -15476,7 +15367,6 @@ export namespace UnsupportedInventoryItemContextException {
 export interface UnsupportedInventorySchemaVersionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedInventorySchemaVersionException";
   name: "UnsupportedInventorySchemaVersionException";
   $fault: "client";
   Message?: string;
@@ -15496,7 +15386,6 @@ export namespace UnsupportedInventorySchemaVersionException {
 export interface UnsupportedOperatingSystem
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedOperatingSystem";
   name: "UnsupportedOperatingSystem";
   $fault: "client";
   Message?: string;
@@ -15514,7 +15403,6 @@ export namespace UnsupportedOperatingSystem {
 export interface UnsupportedParameterType
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedParameterType";
   name: "UnsupportedParameterType";
   $fault: "client";
   message?: string;
@@ -15533,7 +15421,6 @@ export namespace UnsupportedParameterType {
 export interface UnsupportedPlatformType
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedPlatformType";
   name: "UnsupportedPlatformType";
   $fault: "client";
   Message?: string;

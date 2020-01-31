@@ -177,7 +177,6 @@ export namespace AvailabilityOptionsStatus {
 export interface BaseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BaseException";
   name: "BaseException";
   $fault: "client";
   /**
@@ -1071,7 +1070,6 @@ export namespace DescribeSuggestersResponse {
 export interface DisabledOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DisabledOperationException";
   name: "DisabledOperationException";
   $fault: "client";
   /**
@@ -1610,7 +1608,6 @@ export namespace IntOptions {
 export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalException";
   name: "InternalException";
   $fault: "server";
   /**
@@ -1636,7 +1633,6 @@ export namespace InternalException {
 export interface InvalidTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTypeException";
   name: "InvalidTypeException";
   $fault: "client";
   /**
@@ -1717,7 +1713,6 @@ export namespace LatLonOptions {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1922,7 +1917,6 @@ export type PartitionInstanceType =
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2315,7 +2309,6 @@ export namespace UpdateServiceAccessPoliciesResponse {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   /**

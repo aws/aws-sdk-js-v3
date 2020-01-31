@@ -37,7 +37,6 @@ export namespace ComplianceDetails {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -74,7 +73,6 @@ export namespace ConcurrentModificationException {
 export interface ConstraintViolationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConstraintViolationException";
   name: "ConstraintViolationException";
   $fault: "client";
   Message?: string;
@@ -531,7 +529,6 @@ export enum GroupByAttribute {
 export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceException";
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -569,7 +566,6 @@ export namespace InternalServiceException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -588,7 +584,6 @@ export namespace InvalidParameterException {
 export interface PaginationTokenExpiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PaginationTokenExpiredException";
   name: "PaginationTokenExpiredException";
   $fault: "client";
   Message?: string;
@@ -800,7 +795,6 @@ export enum TargetIdType {
 export interface ThrottledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottledException";
   name: "ThrottledException";
   $fault: "client";
   Message?: string;

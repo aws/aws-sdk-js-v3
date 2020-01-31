@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AuthorizationAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AuthorizationAlreadyExistsFault";
   name: "AuthorizationAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -29,7 +28,6 @@ export namespace AuthorizationAlreadyExistsFault {
 export interface AuthorizationNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AuthorizationNotFoundFault";
   name: "AuthorizationNotFoundFault";
   $fault: "client";
   message?: string;
@@ -47,7 +45,6 @@ export namespace AuthorizationNotFoundFault {
 export interface AuthorizationQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AuthorizationQuotaExceededFault";
   name: "AuthorizationQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -62,7 +59,6 @@ export namespace AuthorizationQuotaExceededFault {
 export interface BackupPolicyNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BackupPolicyNotFoundFault";
   name: "BackupPolicyNotFoundFault";
   $fault: "client";
   message?: string;
@@ -83,7 +79,6 @@ export namespace BackupPolicyNotFoundFault {
 export interface CertificateNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CertificateNotFoundFault";
   name: "CertificateNotFoundFault";
   $fault: "client";
   message?: string;
@@ -103,7 +98,6 @@ export namespace CertificateNotFoundFault {
 export interface CustomAvailabilityZoneAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomAvailabilityZoneAlreadyExistsFault";
   name: "CustomAvailabilityZoneAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -123,7 +117,6 @@ export namespace CustomAvailabilityZoneAlreadyExistsFault {
 export interface CustomAvailabilityZoneNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomAvailabilityZoneNotFoundFault";
   name: "CustomAvailabilityZoneNotFoundFault";
   $fault: "client";
   message?: string;
@@ -141,7 +134,6 @@ export namespace CustomAvailabilityZoneNotFoundFault {
 export interface CustomAvailabilityZoneQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CustomAvailabilityZoneQuotaExceededFault";
   name: "CustomAvailabilityZoneQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -159,7 +151,6 @@ export namespace CustomAvailabilityZoneQuotaExceededFault {
 export interface DBClusterAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterAlreadyExistsFault";
   name: "DBClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -178,7 +169,6 @@ export namespace DBClusterAlreadyExistsFault {
 export interface DBClusterBacktrackNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterBacktrackNotFoundFault";
   name: "DBClusterBacktrackNotFoundFault";
   $fault: "client";
   message?: string;
@@ -196,7 +186,6 @@ export namespace DBClusterBacktrackNotFoundFault {
 export interface DBClusterEndpointAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterEndpointAlreadyExistsFault";
   name: "DBClusterEndpointAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -214,7 +203,6 @@ export namespace DBClusterEndpointAlreadyExistsFault {
 export interface DBClusterEndpointNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterEndpointNotFoundFault";
   name: "DBClusterEndpointNotFoundFault";
   $fault: "client";
   message?: string;
@@ -232,7 +220,6 @@ export namespace DBClusterEndpointNotFoundFault {
 export interface DBClusterEndpointQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterEndpointQuotaExceededFault";
   name: "DBClusterEndpointQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -252,7 +239,6 @@ export namespace DBClusterEndpointQuotaExceededFault {
 export interface DBClusterNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterNotFoundFault";
   name: "DBClusterNotFoundFault";
   $fault: "client";
   message?: string;
@@ -272,7 +258,6 @@ export namespace DBClusterNotFoundFault {
 export interface DBClusterParameterGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterParameterGroupNotFoundFault";
   name: "DBClusterParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -291,7 +276,6 @@ export namespace DBClusterParameterGroupNotFoundFault {
 export interface DBClusterQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterQuotaExceededFault";
   name: "DBClusterQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -309,7 +293,6 @@ export namespace DBClusterQuotaExceededFault {
 export interface DBClusterRoleAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterRoleAlreadyExistsFault";
   name: "DBClusterRoleAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -327,7 +310,6 @@ export namespace DBClusterRoleAlreadyExistsFault {
 export interface DBClusterRoleNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterRoleNotFoundFault";
   name: "DBClusterRoleNotFoundFault";
   $fault: "client";
   message?: string;
@@ -345,7 +327,6 @@ export namespace DBClusterRoleNotFoundFault {
 export interface DBClusterRoleQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterRoleQuotaExceededFault";
   name: "DBClusterRoleQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -363,7 +344,6 @@ export namespace DBClusterRoleQuotaExceededFault {
 export interface DBClusterSnapshotAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterSnapshotAlreadyExistsFault";
   name: "DBClusterSnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -383,7 +363,6 @@ export namespace DBClusterSnapshotAlreadyExistsFault {
 export interface DBClusterSnapshotNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBClusterSnapshotNotFoundFault";
   name: "DBClusterSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
@@ -401,7 +380,6 @@ export namespace DBClusterSnapshotNotFoundFault {
 export interface DBInstanceAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBInstanceAlreadyExistsFault";
   name: "DBInstanceAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -419,7 +397,6 @@ export namespace DBInstanceAlreadyExistsFault {
 export interface DBInstanceAutomatedBackupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBInstanceAutomatedBackupNotFoundFault";
   name: "DBInstanceAutomatedBackupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -439,7 +416,6 @@ export namespace DBInstanceAutomatedBackupNotFoundFault {
 export interface DBInstanceAutomatedBackupQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBInstanceAutomatedBackupQuotaExceededFault";
   name: "DBInstanceAutomatedBackupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -461,7 +437,6 @@ export namespace DBInstanceAutomatedBackupQuotaExceededFault {
 export interface DBInstanceNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBInstanceNotFoundFault";
   name: "DBInstanceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -479,7 +454,6 @@ export namespace DBInstanceNotFoundFault {
 export interface DBInstanceRoleAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBInstanceRoleAlreadyExistsFault";
   name: "DBInstanceRoleAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -498,7 +472,6 @@ export namespace DBInstanceRoleAlreadyExistsFault {
 export interface DBInstanceRoleNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBInstanceRoleNotFoundFault";
   name: "DBInstanceRoleNotFoundFault";
   $fault: "client";
   message?: string;
@@ -516,7 +489,6 @@ export namespace DBInstanceRoleNotFoundFault {
 export interface DBInstanceRoleQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBInstanceRoleQuotaExceededFault";
   name: "DBInstanceRoleQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -535,7 +507,6 @@ export namespace DBInstanceRoleQuotaExceededFault {
 export interface DBLogFileNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBLogFileNotFoundFault";
   name: "DBLogFileNotFoundFault";
   $fault: "client";
   message?: string;
@@ -553,7 +524,6 @@ export namespace DBLogFileNotFoundFault {
 export interface DBParameterGroupAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBParameterGroupAlreadyExistsFault";
   name: "DBParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -574,7 +544,6 @@ export namespace DBParameterGroupAlreadyExistsFault {
 export interface DBParameterGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBParameterGroupNotFoundFault";
   name: "DBParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -593,7 +562,6 @@ export namespace DBParameterGroupNotFoundFault {
 export interface DBParameterGroupQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBParameterGroupQuotaExceededFault";
   name: "DBParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -611,7 +579,6 @@ export namespace DBParameterGroupQuotaExceededFault {
 export interface DBProxyAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBProxyAlreadyExistsFault";
   name: "DBProxyAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -629,7 +596,6 @@ export namespace DBProxyAlreadyExistsFault {
 export interface DBProxyNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBProxyNotFoundFault";
   name: "DBProxyNotFoundFault";
   $fault: "client";
   message?: string;
@@ -647,7 +613,6 @@ export namespace DBProxyNotFoundFault {
 export interface DBProxyQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBProxyQuotaExceededFault";
   name: "DBProxyQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -665,7 +630,6 @@ export namespace DBProxyQuotaExceededFault {
 export interface DBProxyTargetAlreadyRegisteredFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBProxyTargetAlreadyRegisteredFault";
   name: "DBProxyTargetAlreadyRegisteredFault";
   $fault: "client";
   message?: string;
@@ -683,7 +647,6 @@ export namespace DBProxyTargetAlreadyRegisteredFault {
 export interface DBProxyTargetGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBProxyTargetGroupNotFoundFault";
   name: "DBProxyTargetGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -701,7 +664,6 @@ export namespace DBProxyTargetGroupNotFoundFault {
 export interface DBProxyTargetNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBProxyTargetNotFoundFault";
   name: "DBProxyTargetNotFoundFault";
   $fault: "client";
   message?: string;
@@ -722,7 +684,6 @@ export namespace DBProxyTargetNotFoundFault {
 export interface DBSecurityGroupAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSecurityGroupAlreadyExistsFault";
   name: "DBSecurityGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -742,7 +703,6 @@ export namespace DBSecurityGroupAlreadyExistsFault {
 export interface DBSecurityGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSecurityGroupNotFoundFault";
   name: "DBSecurityGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -760,7 +720,6 @@ export namespace DBSecurityGroupNotFoundFault {
 export interface DBSecurityGroupNotSupportedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSecurityGroupNotSupportedFault";
   name: "DBSecurityGroupNotSupportedFault";
   $fault: "client";
   message?: string;
@@ -779,7 +738,6 @@ export namespace DBSecurityGroupNotSupportedFault {
 export interface DBSecurityGroupQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSecurityGroupQuotaExceededFault";
   name: "DBSecurityGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -799,7 +757,6 @@ export namespace DBSecurityGroupQuotaExceededFault {
 export interface DBSnapshotAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSnapshotAlreadyExistsFault";
   name: "DBSnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -819,7 +776,6 @@ export namespace DBSnapshotAlreadyExistsFault {
 export interface DBSnapshotNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSnapshotNotFoundFault";
   name: "DBSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
@@ -839,7 +795,6 @@ export namespace DBSnapshotNotFoundFault {
 export interface DBSubnetGroupAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSubnetGroupAlreadyExistsFault";
   name: "DBSubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -857,7 +812,6 @@ export namespace DBSubnetGroupAlreadyExistsFault {
 export interface DBSubnetGroupDoesNotCoverEnoughAZs
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSubnetGroupDoesNotCoverEnoughAZs";
   name: "DBSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   message?: string;
@@ -876,7 +830,6 @@ export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
 export interface DBSubnetGroupNotAllowedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSubnetGroupNotAllowedFault";
   name: "DBSubnetGroupNotAllowedFault";
   $fault: "client";
   message?: string;
@@ -896,7 +849,6 @@ export namespace DBSubnetGroupNotAllowedFault {
 export interface DBSubnetGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSubnetGroupNotFoundFault";
   name: "DBSubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -915,7 +867,6 @@ export namespace DBSubnetGroupNotFoundFault {
 export interface DBSubnetGroupQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSubnetGroupQuotaExceededFault";
   name: "DBSubnetGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -934,7 +885,6 @@ export namespace DBSubnetGroupQuotaExceededFault {
 export interface DBSubnetQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBSubnetQuotaExceededFault";
   name: "DBSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -953,7 +903,6 @@ export namespace DBSubnetQuotaExceededFault {
 export interface DBUpgradeDependencyFailureFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DBUpgradeDependencyFailureFault";
   name: "DBUpgradeDependencyFailureFault";
   $fault: "client";
   message?: string;
@@ -973,7 +922,6 @@ export namespace DBUpgradeDependencyFailureFault {
 export interface DomainNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DomainNotFoundFault";
   name: "DomainNotFoundFault";
   $fault: "client";
   message?: string;
@@ -991,7 +939,6 @@ export namespace DomainNotFoundFault {
 export interface EventSubscriptionQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EventSubscriptionQuotaExceededFault";
   name: "EventSubscriptionQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1009,7 +956,6 @@ export namespace EventSubscriptionQuotaExceededFault {
 export interface GlobalClusterAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GlobalClusterAlreadyExistsFault";
   name: "GlobalClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -1027,7 +973,6 @@ export namespace GlobalClusterAlreadyExistsFault {
 export interface GlobalClusterNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GlobalClusterNotFoundFault";
   name: "GlobalClusterNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1045,7 +990,6 @@ export namespace GlobalClusterNotFoundFault {
 export interface GlobalClusterQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GlobalClusterQuotaExceededFault";
   name: "GlobalClusterQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1063,7 +1007,6 @@ export namespace GlobalClusterQuotaExceededFault {
 export interface InstallationMediaAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InstallationMediaAlreadyExistsFault";
   name: "InstallationMediaAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -1082,7 +1025,6 @@ export namespace InstallationMediaAlreadyExistsFault {
 export interface InstallationMediaNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InstallationMediaNotFoundFault";
   name: "InstallationMediaNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1101,7 +1043,6 @@ export namespace InstallationMediaNotFoundFault {
 export interface InstanceQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InstanceQuotaExceededFault";
   name: "InstanceQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1119,7 +1060,6 @@ export namespace InstanceQuotaExceededFault {
 export interface InsufficientDBClusterCapacityFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientDBClusterCapacityFault";
   name: "InsufficientDBClusterCapacityFault";
   $fault: "client";
   message?: string;
@@ -1138,7 +1078,6 @@ export namespace InsufficientDBClusterCapacityFault {
 export interface InsufficientDBInstanceCapacityFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientDBInstanceCapacityFault";
   name: "InsufficientDBInstanceCapacityFault";
   $fault: "client";
   message?: string;
@@ -1158,7 +1097,6 @@ export namespace InsufficientDBInstanceCapacityFault {
 export interface InsufficientStorageClusterCapacityFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientStorageClusterCapacityFault";
   name: "InsufficientStorageClusterCapacityFault";
   $fault: "client";
   message?: string;
@@ -1179,7 +1117,6 @@ export namespace InsufficientStorageClusterCapacityFault {
 export interface InvalidDBClusterCapacityFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBClusterCapacityFault";
   name: "InvalidDBClusterCapacityFault";
   $fault: "client";
   message?: string;
@@ -1197,7 +1134,6 @@ export namespace InvalidDBClusterCapacityFault {
 export interface InvalidDBClusterEndpointStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBClusterEndpointStateFault";
   name: "InvalidDBClusterEndpointStateFault";
   $fault: "client";
   message?: string;
@@ -1215,7 +1151,6 @@ export namespace InvalidDBClusterEndpointStateFault {
 export interface InvalidDBClusterSnapshotStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBClusterSnapshotStateFault";
   name: "InvalidDBClusterSnapshotStateFault";
   $fault: "client";
   message?: string;
@@ -1233,7 +1168,6 @@ export namespace InvalidDBClusterSnapshotStateFault {
 export interface InvalidDBClusterStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBClusterStateFault";
   name: "InvalidDBClusterStateFault";
   $fault: "client";
   message?: string;
@@ -1252,7 +1186,6 @@ export namespace InvalidDBClusterStateFault {
 export interface InvalidDBInstanceAutomatedBackupStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBInstanceAutomatedBackupStateFault";
   name: "InvalidDBInstanceAutomatedBackupStateFault";
   $fault: "client";
   message?: string;
@@ -1270,7 +1203,6 @@ export namespace InvalidDBInstanceAutomatedBackupStateFault {
 export interface InvalidDBInstanceStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBInstanceStateFault";
   name: "InvalidDBInstanceStateFault";
   $fault: "client";
   message?: string;
@@ -1290,7 +1222,6 @@ export namespace InvalidDBInstanceStateFault {
 export interface InvalidDBParameterGroupStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBParameterGroupStateFault";
   name: "InvalidDBParameterGroupStateFault";
   $fault: "client";
   message?: string;
@@ -1308,7 +1239,6 @@ export namespace InvalidDBParameterGroupStateFault {
 export interface InvalidDBProxyStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBProxyStateFault";
   name: "InvalidDBProxyStateFault";
   $fault: "client";
   message?: string;
@@ -1326,7 +1256,6 @@ export namespace InvalidDBProxyStateFault {
 export interface InvalidDBSecurityGroupStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBSecurityGroupStateFault";
   name: "InvalidDBSecurityGroupStateFault";
   $fault: "client";
   message?: string;
@@ -1344,7 +1273,6 @@ export namespace InvalidDBSecurityGroupStateFault {
 export interface InvalidDBSnapshotStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBSnapshotStateFault";
   name: "InvalidDBSnapshotStateFault";
   $fault: "client";
   message?: string;
@@ -1363,7 +1291,6 @@ export namespace InvalidDBSnapshotStateFault {
 export interface InvalidDBSubnetGroupFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBSubnetGroupFault";
   name: "InvalidDBSubnetGroupFault";
   $fault: "client";
   message?: string;
@@ -1381,7 +1308,6 @@ export namespace InvalidDBSubnetGroupFault {
 export interface InvalidDBSubnetGroupStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBSubnetGroupStateFault";
   name: "InvalidDBSubnetGroupStateFault";
   $fault: "client";
   message?: string;
@@ -1401,7 +1327,6 @@ export namespace InvalidDBSubnetGroupStateFault {
 export interface InvalidDBSubnetStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDBSubnetStateFault";
   name: "InvalidDBSubnetStateFault";
   $fault: "client";
   message?: string;
@@ -1419,7 +1344,6 @@ export namespace InvalidDBSubnetStateFault {
 export interface InvalidEventSubscriptionStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidEventSubscriptionStateFault";
   name: "InvalidEventSubscriptionStateFault";
   $fault: "client";
   message?: string;
@@ -1437,7 +1361,6 @@ export namespace InvalidEventSubscriptionStateFault {
 export interface InvalidGlobalClusterStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidGlobalClusterStateFault";
   name: "InvalidGlobalClusterStateFault";
   $fault: "client";
   message?: string;
@@ -1457,7 +1380,6 @@ export namespace InvalidGlobalClusterStateFault {
 export interface InvalidOptionGroupStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOptionGroupStateFault";
   name: "InvalidOptionGroupStateFault";
   $fault: "client";
   message?: string;
@@ -1475,7 +1397,6 @@ export namespace InvalidOptionGroupStateFault {
 export interface InvalidRestoreFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRestoreFault";
   name: "InvalidRestoreFault";
   $fault: "client";
   message?: string;
@@ -1494,7 +1415,6 @@ export namespace InvalidRestoreFault {
 export interface InvalidS3BucketFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidS3BucketFault";
   name: "InvalidS3BucketFault";
   $fault: "client";
   message?: string;
@@ -1512,7 +1432,6 @@ export namespace InvalidS3BucketFault {
 export interface InvalidSubnet
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSubnet";
   name: "InvalidSubnet";
   $fault: "client";
   message?: string;
@@ -1531,7 +1450,6 @@ export namespace InvalidSubnet {
 export interface InvalidVPCNetworkStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidVPCNetworkStateFault";
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
@@ -1549,7 +1467,6 @@ export namespace InvalidVPCNetworkStateFault {
 export interface KMSKeyNotAccessibleFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSKeyNotAccessibleFault";
   name: "KMSKeyNotAccessibleFault";
   $fault: "client";
   message?: string;
@@ -1567,7 +1484,6 @@ export namespace KMSKeyNotAccessibleFault {
 export interface OptionGroupAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OptionGroupAlreadyExistsFault";
   name: "OptionGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -1585,7 +1501,6 @@ export namespace OptionGroupAlreadyExistsFault {
 export interface OptionGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OptionGroupNotFoundFault";
   name: "OptionGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1603,7 +1518,6 @@ export namespace OptionGroupNotFoundFault {
 export interface OptionGroupQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OptionGroupQuotaExceededFault";
   name: "OptionGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1625,7 +1539,6 @@ export namespace OptionGroupQuotaExceededFault {
 export interface PointInTimeRestoreNotEnabledFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PointInTimeRestoreNotEnabledFault";
   name: "PointInTimeRestoreNotEnabledFault";
   $fault: "client";
   message?: string;
@@ -1643,7 +1556,6 @@ export namespace PointInTimeRestoreNotEnabledFault {
 export interface ProvisionedIopsNotAvailableInAZFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ProvisionedIopsNotAvailableInAZFault";
   name: "ProvisionedIopsNotAvailableInAZFault";
   $fault: "client";
   message?: string;
@@ -1661,7 +1573,6 @@ export namespace ProvisionedIopsNotAvailableInAZFault {
 export interface ReservedDBInstanceAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReservedDBInstanceAlreadyExistsFault";
   name: "ReservedDBInstanceAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -1679,7 +1590,6 @@ export namespace ReservedDBInstanceAlreadyExistsFault {
 export interface ReservedDBInstanceNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReservedDBInstanceNotFoundFault";
   name: "ReservedDBInstanceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1697,7 +1607,6 @@ export namespace ReservedDBInstanceNotFoundFault {
 export interface ReservedDBInstanceQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReservedDBInstanceQuotaExceededFault";
   name: "ReservedDBInstanceQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1715,7 +1624,6 @@ export namespace ReservedDBInstanceQuotaExceededFault {
 export interface ReservedDBInstancesOfferingNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReservedDBInstancesOfferingNotFoundFault";
   name: "ReservedDBInstancesOfferingNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1733,7 +1641,6 @@ export namespace ReservedDBInstancesOfferingNotFoundFault {
 export interface ResourceNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundFault";
   name: "ResourceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1751,7 +1658,6 @@ export namespace ResourceNotFoundFault {
 export interface SNSInvalidTopicFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SNSInvalidTopicFault";
   name: "SNSInvalidTopicFault";
   $fault: "client";
   message?: string;
@@ -1769,7 +1675,6 @@ export namespace SNSInvalidTopicFault {
 export interface SNSNoAuthorizationFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SNSNoAuthorizationFault";
   name: "SNSNoAuthorizationFault";
   $fault: "client";
   message?: string;
@@ -1787,7 +1692,6 @@ export namespace SNSNoAuthorizationFault {
 export interface SNSTopicArnNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SNSTopicArnNotFoundFault";
   name: "SNSTopicArnNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1805,7 +1709,6 @@ export namespace SNSTopicArnNotFoundFault {
 export interface SharedSnapshotQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SharedSnapshotQuotaExceededFault";
   name: "SharedSnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1824,7 +1727,6 @@ export namespace SharedSnapshotQuotaExceededFault {
 export interface SnapshotQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SnapshotQuotaExceededFault";
   name: "SnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1842,7 +1744,6 @@ export namespace SnapshotQuotaExceededFault {
 export interface SourceNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SourceNotFoundFault";
   name: "SourceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1861,7 +1762,6 @@ export namespace SourceNotFoundFault {
 export interface StorageQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StorageQuotaExceededFault";
   name: "StorageQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1880,7 +1780,6 @@ export namespace StorageQuotaExceededFault {
 export interface StorageTypeNotSupportedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StorageTypeNotSupportedFault";
   name: "StorageTypeNotSupportedFault";
   $fault: "client";
   message?: string;
@@ -1898,7 +1797,6 @@ export namespace StorageTypeNotSupportedFault {
 export interface SubnetAlreadyInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubnetAlreadyInUse";
   name: "SubnetAlreadyInUse";
   $fault: "client";
   message?: string;
@@ -1916,7 +1814,6 @@ export namespace SubnetAlreadyInUse {
 export interface SubscriptionAlreadyExistFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubscriptionAlreadyExistFault";
   name: "SubscriptionAlreadyExistFault";
   $fault: "client";
   message?: string;
@@ -1934,7 +1831,6 @@ export namespace SubscriptionAlreadyExistFault {
 export interface SubscriptionCategoryNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubscriptionCategoryNotFoundFault";
   name: "SubscriptionCategoryNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1952,7 +1848,6 @@ export namespace SubscriptionCategoryNotFoundFault {
 export interface SubscriptionNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubscriptionNotFoundFault";
   name: "SubscriptionNotFoundFault";
   $fault: "client";
   message?: string;

@@ -108,7 +108,6 @@ export namespace AcceleratorAttributes {
 export interface AcceleratorNotDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AcceleratorNotDisabledException";
   name: "AcceleratorNotDisabledException";
   $fault: "client";
   Message?: string;
@@ -126,7 +125,6 @@ export namespace AcceleratorNotDisabledException {
 export interface AcceleratorNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AcceleratorNotFoundException";
   name: "AcceleratorNotFoundException";
   $fault: "client";
   Message?: string;
@@ -146,7 +144,6 @@ export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -165,7 +162,6 @@ export namespace AccessDeniedException {
 export interface AssociatedEndpointGroupFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociatedEndpointGroupFoundException";
   name: "AssociatedEndpointGroupFoundException";
   $fault: "client";
   Message?: string;
@@ -184,7 +180,6 @@ export namespace AssociatedEndpointGroupFoundException {
 export interface AssociatedListenerFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AssociatedListenerFoundException";
   name: "AssociatedListenerFoundException";
   $fault: "client";
   Message?: string;
@@ -733,7 +728,6 @@ export namespace EndpointGroup {
 export interface EndpointGroupAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EndpointGroupAlreadyExistsException";
   name: "EndpointGroupAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -751,7 +745,6 @@ export namespace EndpointGroupAlreadyExistsException {
 export interface EndpointGroupNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EndpointGroupNotFoundException";
   name: "EndpointGroupNotFoundException";
   $fault: "client";
   Message?: string;
@@ -777,7 +770,6 @@ export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
 export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceErrorException";
   name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
@@ -795,7 +787,6 @@ export namespace InternalServiceErrorException {
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgumentException";
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -813,7 +804,6 @@ export namespace InvalidArgumentException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -831,7 +821,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidPortRangeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPortRangeException";
   name: "InvalidPortRangeException";
   $fault: "client";
   Message?: string;
@@ -875,7 +864,6 @@ export namespace IpSet {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1060,7 +1048,6 @@ export namespace Listener {
 export interface ListenerNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ListenerNotFoundException";
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;

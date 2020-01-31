@@ -115,7 +115,6 @@ async function deserializeAws_json1_1GenerateDataSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.marketplace.businessintelligenceservice.v20150701#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -172,7 +171,6 @@ async function deserializeAws_json1_1StartSupportDataExportCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.marketplace.businessintelligenceservice.v20150701#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -191,7 +189,6 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = asyn
   );
   const contents: MarketplaceCommerceAnalyticsException = {
     name: "MarketplaceCommerceAnalyticsException",
-    __type: "MarketplaceCommerceAnalyticsException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

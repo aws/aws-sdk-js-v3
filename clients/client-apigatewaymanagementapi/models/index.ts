@@ -18,7 +18,6 @@ export namespace DeleteConnectionRequest {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
 }
@@ -66,7 +65,6 @@ export namespace GetConnectionResponse {
 export interface GoneException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GoneException";
   name: "GoneException";
   $fault: "client";
 }
@@ -102,7 +100,6 @@ export namespace Identity {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
 }
@@ -119,7 +116,6 @@ export namespace LimitExceededException {
 export interface PayloadTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PayloadTooLargeException";
   name: "PayloadTooLargeException";
   $fault: "client";
   Message?: string;

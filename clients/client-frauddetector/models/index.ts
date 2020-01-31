@@ -2117,7 +2117,6 @@ export namespace VariableEntry {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   message: string | undefined;
@@ -2135,7 +2134,6 @@ export namespace InternalServerException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
@@ -2153,7 +2151,6 @@ export namespace ResourceNotFoundException {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
@@ -2171,7 +2168,6 @@ export namespace ThrottlingException {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;

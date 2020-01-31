@@ -1143,7 +1143,6 @@ async function deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1207,7 +1206,6 @@ async function deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1271,7 +1269,6 @@ async function deserializeAws_json1_0CountPendingActivityTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1335,7 +1332,6 @@ async function deserializeAws_json1_0CountPendingDecisionTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1401,7 +1397,6 @@ async function deserializeAws_json1_0DeprecateActivityTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1464,7 +1459,6 @@ async function deserializeAws_json1_0DeprecateDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1530,7 +1524,6 @@ async function deserializeAws_json1_0DeprecateWorkflowTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1594,7 +1587,6 @@ async function deserializeAws_json1_0DescribeActivityTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1655,7 +1647,6 @@ async function deserializeAws_json1_0DescribeDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1719,7 +1710,6 @@ async function deserializeAws_json1_0DescribeWorkflowExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1783,7 +1773,6 @@ async function deserializeAws_json1_0DescribeWorkflowTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1847,7 +1836,6 @@ async function deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1908,7 +1896,6 @@ async function deserializeAws_json1_0ListActivityTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1972,7 +1959,6 @@ async function deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2026,7 +2012,6 @@ async function deserializeAws_json1_0ListDomainsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2090,7 +2075,6 @@ async function deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2161,7 +2145,6 @@ async function deserializeAws_json1_0ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2222,7 +2205,6 @@ async function deserializeAws_json1_0ListWorkflowTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2293,7 +2275,6 @@ async function deserializeAws_json1_0PollForActivityTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2364,7 +2345,6 @@ async function deserializeAws_json1_0PollForDecisionTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2428,7 +2408,6 @@ async function deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2501,7 +2480,6 @@ async function deserializeAws_json1_0RegisterActivityTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2571,7 +2549,6 @@ async function deserializeAws_json1_0RegisterDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2644,7 +2621,6 @@ async function deserializeAws_json1_0RegisterWorkflowTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2703,7 +2679,6 @@ async function deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2762,7 +2737,6 @@ async function deserializeAws_json1_0RespondActivityTaskCanceledCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2821,7 +2795,6 @@ async function deserializeAws_json1_0RespondActivityTaskCompletedCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2880,7 +2853,6 @@ async function deserializeAws_json1_0RespondActivityTaskFailedCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2939,7 +2911,6 @@ async function deserializeAws_json1_0RespondDecisionTaskCompletedCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2998,7 +2969,6 @@ async function deserializeAws_json1_0SignalWorkflowExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3090,7 +3060,6 @@ async function deserializeAws_json1_0StartWorkflowExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3160,7 +3129,6 @@ async function deserializeAws_json1_0TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3219,7 +3187,6 @@ async function deserializeAws_json1_0TerminateWorkflowExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3285,7 +3252,6 @@ async function deserializeAws_json1_0UndeprecateActivityTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3348,7 +3314,6 @@ async function deserializeAws_json1_0UndeprecateDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3414,7 +3379,6 @@ async function deserializeAws_json1_0UndeprecateWorkflowTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3477,7 +3441,6 @@ async function deserializeAws_json1_0UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.swf.service.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3496,7 +3459,6 @@ const deserializeAws_json1_0DefaultUndefinedFaultResponse = async (
   );
   const contents: DefaultUndefinedFault = {
     name: "DefaultUndefinedFault",
-    __type: "DefaultUndefinedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3515,7 +3477,6 @@ const deserializeAws_json1_0DomainAlreadyExistsFaultResponse = async (
   );
   const contents: DomainAlreadyExistsFault = {
     name: "DomainAlreadyExistsFault",
-    __type: "DomainAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3534,7 +3495,6 @@ const deserializeAws_json1_0DomainDeprecatedFaultResponse = async (
   );
   const contents: DomainDeprecatedFault = {
     name: "DomainDeprecatedFault",
-    __type: "DomainDeprecatedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3553,7 +3513,6 @@ const deserializeAws_json1_0LimitExceededFaultResponse = async (
   );
   const contents: LimitExceededFault = {
     name: "LimitExceededFault",
-    __type: "LimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3572,7 +3531,6 @@ const deserializeAws_json1_0OperationNotPermittedFaultResponse = async (
   );
   const contents: OperationNotPermittedFault = {
     name: "OperationNotPermittedFault",
-    __type: "OperationNotPermittedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3591,7 +3549,6 @@ const deserializeAws_json1_0TooManyTagsFaultResponse = async (
   );
   const contents: TooManyTagsFault = {
     name: "TooManyTagsFault",
-    __type: "TooManyTagsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3610,7 +3567,6 @@ const deserializeAws_json1_0TypeAlreadyExistsFaultResponse = async (
   );
   const contents: TypeAlreadyExistsFault = {
     name: "TypeAlreadyExistsFault",
-    __type: "TypeAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3629,7 +3585,6 @@ const deserializeAws_json1_0TypeDeprecatedFaultResponse = async (
   );
   const contents: TypeDeprecatedFault = {
     name: "TypeDeprecatedFault",
-    __type: "TypeDeprecatedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3648,7 +3603,6 @@ const deserializeAws_json1_0UnknownResourceFaultResponse = async (
   );
   const contents: UnknownResourceFault = {
     name: "UnknownResourceFault",
-    __type: "UnknownResourceFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3667,7 +3621,6 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse = async
   );
   const contents: WorkflowExecutionAlreadyStartedFault = {
     name: "WorkflowExecutionAlreadyStartedFault",
-    __type: "WorkflowExecutionAlreadyStartedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

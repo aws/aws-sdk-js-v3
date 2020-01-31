@@ -139,7 +139,6 @@ export namespace Tag {
 export interface AccountSuspendedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccountSuspendedException";
   name: "AccountSuspendedException";
   $fault: "client";
   message?: string;
@@ -157,7 +156,6 @@ export namespace AccountSuspendedException {
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -175,7 +173,6 @@ export namespace AlreadyExistsException {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -326,7 +323,6 @@ export namespace CloudWatchDimensionConfiguration {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
@@ -2250,7 +2246,6 @@ export namespace InboxPlacementTrackingOption {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -2316,7 +2311,6 @@ export namespace KinesisFirehoseDestination {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2786,7 +2780,6 @@ export namespace MailFromAttributes {
 export interface MailFromDomainNotVerifiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MailFromDomainNotVerifiedException";
   name: "MailFromDomainNotVerifiedException";
   $fault: "client";
   message?: string;
@@ -2837,7 +2830,6 @@ export namespace Message {
 export interface MessageRejected
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MessageRejected";
   name: "MessageRejected";
   $fault: "client";
   message?: string;
@@ -2899,7 +2891,6 @@ export namespace MessageTag {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -3989,7 +3980,6 @@ export namespace SendingOptions {
 export interface SendingPausedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SendingPausedException";
   name: "SendingPausedException";
   $fault: "client";
   message?: string;
@@ -4180,7 +4170,6 @@ export enum TlsPolicy {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;

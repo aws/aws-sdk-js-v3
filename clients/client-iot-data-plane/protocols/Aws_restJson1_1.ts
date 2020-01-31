@@ -246,7 +246,6 @@ async function deserializeAws_restJson1_1DeleteThingShadowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.moonraker#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -347,7 +346,6 @@ async function deserializeAws_restJson1_1GetThingShadowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.moonraker#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -413,7 +411,6 @@ async function deserializeAws_restJson1_1PublishCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.moonraker#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -521,7 +518,6 @@ async function deserializeAws_restJson1_1UpdateThingShadowCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.iot.moonraker#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -535,7 +531,6 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
-    __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -553,7 +548,6 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -571,7 +565,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -589,7 +582,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -607,7 +599,6 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -625,7 +616,6 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
-    __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -643,7 +633,6 @@ const deserializeAws_restJson1_1UnsupportedDocumentEncodingExceptionResponse = a
 ): Promise<UnsupportedDocumentEncodingException> => {
   const contents: UnsupportedDocumentEncodingException = {
     name: "UnsupportedDocumentEncodingException",
-    __type: "UnsupportedDocumentEncodingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -661,7 +650,6 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -679,7 +667,6 @@ const deserializeAws_restJson1_1MethodNotAllowedExceptionResponse = async (
 ): Promise<MethodNotAllowedException> => {
   const contents: MethodNotAllowedException = {
     name: "MethodNotAllowedException",
-    __type: "MethodNotAllowedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined
@@ -697,7 +684,6 @@ const deserializeAws_restJson1_1RequestEntityTooLargeExceptionResponse = async (
 ): Promise<RequestEntityTooLargeException> => {
   const contents: RequestEntityTooLargeException = {
     name: "RequestEntityTooLargeException",
-    __type: "RequestEntityTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

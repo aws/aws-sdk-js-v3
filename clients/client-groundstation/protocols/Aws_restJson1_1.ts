@@ -1001,7 +1001,6 @@ async function deserializeAws_restJson1_1CancelContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1074,7 +1073,6 @@ async function deserializeAws_restJson1_1CreateConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1142,7 +1140,6 @@ async function deserializeAws_restJson1_1CreateDataflowEndpointGroupCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1210,7 +1207,6 @@ async function deserializeAws_restJson1_1CreateMissionProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1283,7 +1279,6 @@ async function deserializeAws_restJson1_1DeleteConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1351,7 +1346,6 @@ async function deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1419,7 +1413,6 @@ async function deserializeAws_restJson1_1DeleteMissionProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1538,7 +1531,6 @@ async function deserializeAws_restJson1_1DescribeContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1626,7 +1618,6 @@ async function deserializeAws_restJson1_1GetConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1709,7 +1700,6 @@ async function deserializeAws_restJson1_1GetDataflowEndpointGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1818,7 +1808,6 @@ async function deserializeAws_restJson1_1GetMissionProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1890,7 +1879,6 @@ async function deserializeAws_restJson1_1ListConfigsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1962,7 +1950,6 @@ async function deserializeAws_restJson1_1ListContactsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2037,7 +2024,6 @@ async function deserializeAws_restJson1_1ListDataflowEndpointGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2112,7 +2098,6 @@ async function deserializeAws_restJson1_1ListMissionProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2180,7 +2165,6 @@ async function deserializeAws_restJson1_1ReserveContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2253,7 +2237,6 @@ async function deserializeAws_restJson1_1UpdateConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2321,7 +2304,6 @@ async function deserializeAws_restJson1_1UpdateMissionProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.customer.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2405,7 +2387,6 @@ async function deserializeAws_restJson1_1GetMinuteUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2490,7 +2471,6 @@ async function deserializeAws_restJson1_1GetSatelliteCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2565,7 +2545,6 @@ async function deserializeAws_restJson1_1ListGroundStationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2640,7 +2619,6 @@ async function deserializeAws_restJson1_1ListSatellitesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2708,7 +2686,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2768,7 +2745,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2828,7 +2804,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsgsaascontrolplanelambda.r20190311#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2842,7 +2817,6 @@ const deserializeAws_restJson1_1DependencyExceptionResponse = async (
 ): Promise<DependencyException> => {
   const contents: DependencyException = {
     name: "DependencyException",
-    __type: "DependencyException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     message: undefined,
@@ -2864,7 +2838,6 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined,
@@ -2886,7 +2859,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined

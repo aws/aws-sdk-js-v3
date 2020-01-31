@@ -279,7 +279,6 @@ export enum GettablePolicyStateValues {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   Code?: string;
@@ -302,7 +301,6 @@ export enum IntervalUnitValues {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Code?: string;
@@ -424,7 +422,6 @@ export namespace LifecyclePolicySummary {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -533,7 +530,6 @@ export enum PolicyTypeValues {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;

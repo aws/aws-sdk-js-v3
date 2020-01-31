@@ -1434,7 +1434,6 @@ async function deserializeAws_json1_1AcceptHandshakeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1567,7 +1566,6 @@ async function deserializeAws_json1_1AttachPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1670,7 +1668,6 @@ async function deserializeAws_json1_1CancelHandshakeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1780,7 +1777,6 @@ async function deserializeAws_json1_1CreateAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1893,7 +1889,6 @@ async function deserializeAws_json1_1CreateGovCloudAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1999,7 +1994,6 @@ async function deserializeAws_json1_1CreateOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2115,7 +2109,6 @@ async function deserializeAws_json1_1CreateOrganizationalUnitCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2239,7 +2232,6 @@ async function deserializeAws_json1_1CreatePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2342,7 +2334,6 @@ async function deserializeAws_json1_1DeclineHandshakeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2436,7 +2427,6 @@ async function deserializeAws_json1_1DeleteOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2537,7 +2527,6 @@ async function deserializeAws_json1_1DeleteOrganizationalUnitCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2642,7 +2631,6 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2731,7 +2719,6 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2833,7 +2820,6 @@ async function deserializeAws_json1_1DescribeCreateAccountStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2949,7 +2935,6 @@ async function deserializeAws_json1_1DescribeEffectivePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3038,7 +3023,6 @@ async function deserializeAws_json1_1DescribeHandshakeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3123,7 +3107,6 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3218,7 +3201,6 @@ async function deserializeAws_json1_1DescribeOrganizationalUnitCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3314,7 +3296,6 @@ async function deserializeAws_json1_1DescribePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3440,7 +3421,6 @@ async function deserializeAws_json1_1DetachPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3534,7 +3514,6 @@ async function deserializeAws_json1_1DisableAWSServiceAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3658,7 +3637,6 @@ async function deserializeAws_json1_1DisablePolicyTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3752,7 +3730,6 @@ async function deserializeAws_json1_1EnableAWSServiceAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3848,7 +3825,6 @@ async function deserializeAws_json1_1EnableAllFeaturesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3979,7 +3955,6 @@ async function deserializeAws_json1_1EnablePolicyTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4102,7 +4077,6 @@ async function deserializeAws_json1_1InviteAccountToOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4207,7 +4181,6 @@ async function deserializeAws_json1_1LeaveOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4302,7 +4275,6 @@ async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4384,7 +4356,6 @@ async function deserializeAws_json1_1ListAccountsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4476,7 +4447,6 @@ async function deserializeAws_json1_1ListAccountsForParentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4565,7 +4535,6 @@ async function deserializeAws_json1_1ListChildrenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4660,7 +4629,6 @@ async function deserializeAws_json1_1ListCreateAccountStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4748,7 +4716,6 @@ async function deserializeAws_json1_1ListHandshakesForAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4843,7 +4810,6 @@ async function deserializeAws_json1_1ListHandshakesForOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4938,7 +4904,6 @@ async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5027,7 +4992,6 @@ async function deserializeAws_json1_1ListParentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5116,7 +5080,6 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5215,7 +5178,6 @@ async function deserializeAws_json1_1ListPoliciesForTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5297,7 +5259,6 @@ async function deserializeAws_json1_1ListRootsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5389,7 +5350,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5488,7 +5448,6 @@ async function deserializeAws_json1_1ListTargetsForPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5600,7 +5559,6 @@ async function deserializeAws_json1_1MoveAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5708,7 +5666,6 @@ async function deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5806,7 +5763,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5904,7 +5860,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6013,7 +5968,6 @@ async function deserializeAws_json1_1UpdateOrganizationalUnitCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6144,7 +6098,6 @@ async function deserializeAws_json1_1UpdatePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6163,7 +6116,6 @@ const deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse = async (
   );
   const contents: AWSOrganizationsNotInUseException = {
     name: "AWSOrganizationsNotInUseException",
-    __type: "AWSOrganizationsNotInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6182,7 +6134,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6201,7 +6152,6 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
   );
   const contents: AccessDeniedForDependencyException = {
     name: "AccessDeniedForDependencyException",
-    __type: "AccessDeniedForDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6220,7 +6170,6 @@ const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
   );
   const contents: AccountNotFoundException = {
     name: "AccountNotFoundException",
-    __type: "AccountNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6239,7 +6188,6 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse = async (
   );
   const contents: AccountOwnerNotVerifiedException = {
     name: "AccountOwnerNotVerifiedException",
-    __type: "AccountOwnerNotVerifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6258,7 +6206,6 @@ const deserializeAws_json1_1AlreadyInOrganizationExceptionResponse = async (
   );
   const contents: AlreadyInOrganizationException = {
     name: "AlreadyInOrganizationException",
-    __type: "AlreadyInOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6277,7 +6224,6 @@ const deserializeAws_json1_1ChildNotFoundExceptionResponse = async (
   );
   const contents: ChildNotFoundException = {
     name: "ChildNotFoundException",
-    __type: "ChildNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6296,7 +6242,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6315,7 +6260,6 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
   );
   const contents: ConstraintViolationException = {
     name: "ConstraintViolationException",
-    __type: "ConstraintViolationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6334,7 +6278,6 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse = async
   );
   const contents: CreateAccountStatusNotFoundException = {
     name: "CreateAccountStatusNotFoundException",
-    __type: "CreateAccountStatusNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6353,7 +6296,6 @@ const deserializeAws_json1_1DestinationParentNotFoundExceptionResponse = async (
   );
   const contents: DestinationParentNotFoundException = {
     name: "DestinationParentNotFoundException",
-    __type: "DestinationParentNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6372,7 +6314,6 @@ const deserializeAws_json1_1DuplicateAccountExceptionResponse = async (
   );
   const contents: DuplicateAccountException = {
     name: "DuplicateAccountException",
-    __type: "DuplicateAccountException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6391,7 +6332,6 @@ const deserializeAws_json1_1DuplicateHandshakeExceptionResponse = async (
   );
   const contents: DuplicateHandshakeException = {
     name: "DuplicateHandshakeException",
-    __type: "DuplicateHandshakeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6410,7 +6350,6 @@ const deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse = async
   );
   const contents: DuplicateOrganizationalUnitException = {
     name: "DuplicateOrganizationalUnitException",
-    __type: "DuplicateOrganizationalUnitException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6429,7 +6368,6 @@ const deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse = async (
   );
   const contents: DuplicatePolicyAttachmentException = {
     name: "DuplicatePolicyAttachmentException",
-    __type: "DuplicatePolicyAttachmentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6448,7 +6386,6 @@ const deserializeAws_json1_1DuplicatePolicyExceptionResponse = async (
   );
   const contents: DuplicatePolicyException = {
     name: "DuplicatePolicyException",
-    __type: "DuplicatePolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6467,7 +6404,6 @@ const deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse = async (
   );
   const contents: EffectivePolicyNotFoundException = {
     name: "EffectivePolicyNotFoundException",
-    __type: "EffectivePolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6486,7 +6422,6 @@ const deserializeAws_json1_1FinalizingOrganizationExceptionResponse = async (
   );
   const contents: FinalizingOrganizationException = {
     name: "FinalizingOrganizationException",
-    __type: "FinalizingOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6505,7 +6440,6 @@ const deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse = async (
   );
   const contents: HandshakeAlreadyInStateException = {
     name: "HandshakeAlreadyInStateException",
-    __type: "HandshakeAlreadyInStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6524,7 +6458,6 @@ const deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse = asyn
   );
   const contents: HandshakeConstraintViolationException = {
     name: "HandshakeConstraintViolationException",
-    __type: "HandshakeConstraintViolationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6543,7 +6476,6 @@ const deserializeAws_json1_1HandshakeNotFoundExceptionResponse = async (
   );
   const contents: HandshakeNotFoundException = {
     name: "HandshakeNotFoundException",
-    __type: "HandshakeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6562,7 +6494,6 @@ const deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse = async 
   );
   const contents: InvalidHandshakeTransitionException = {
     name: "InvalidHandshakeTransitionException",
-    __type: "InvalidHandshakeTransitionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6581,7 +6512,6 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   );
   const contents: InvalidInputException = {
     name: "InvalidInputException",
-    __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6600,7 +6530,6 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
   );
   const contents: MalformedPolicyDocumentException = {
     name: "MalformedPolicyDocumentException",
-    __type: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6619,7 +6548,6 @@ const deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse = asy
   );
   const contents: MasterCannotLeaveOrganizationException = {
     name: "MasterCannotLeaveOrganizationException",
-    __type: "MasterCannotLeaveOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6638,7 +6566,6 @@ const deserializeAws_json1_1OrganizationNotEmptyExceptionResponse = async (
   );
   const contents: OrganizationNotEmptyException = {
     name: "OrganizationNotEmptyException",
-    __type: "OrganizationNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6657,7 +6584,6 @@ const deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse = async 
   );
   const contents: OrganizationalUnitNotEmptyException = {
     name: "OrganizationalUnitNotEmptyException",
-    __type: "OrganizationalUnitNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6676,7 +6602,6 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse = async 
   );
   const contents: OrganizationalUnitNotFoundException = {
     name: "OrganizationalUnitNotFoundException",
-    __type: "OrganizationalUnitNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6695,7 +6620,6 @@ const deserializeAws_json1_1ParentNotFoundExceptionResponse = async (
   );
   const contents: ParentNotFoundException = {
     name: "ParentNotFoundException",
-    __type: "ParentNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6714,7 +6638,6 @@ const deserializeAws_json1_1PolicyChangesInProgressExceptionResponse = async (
   );
   const contents: PolicyChangesInProgressException = {
     name: "PolicyChangesInProgressException",
-    __type: "PolicyChangesInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6733,7 +6656,6 @@ const deserializeAws_json1_1PolicyInUseExceptionResponse = async (
   );
   const contents: PolicyInUseException = {
     name: "PolicyInUseException",
-    __type: "PolicyInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6752,7 +6674,6 @@ const deserializeAws_json1_1PolicyNotAttachedExceptionResponse = async (
   );
   const contents: PolicyNotAttachedException = {
     name: "PolicyNotAttachedException",
-    __type: "PolicyNotAttachedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6771,7 +6692,6 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
   );
   const contents: PolicyNotFoundException = {
     name: "PolicyNotFoundException",
-    __type: "PolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6790,7 +6710,6 @@ const deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse = async (
   );
   const contents: PolicyTypeAlreadyEnabledException = {
     name: "PolicyTypeAlreadyEnabledException",
-    __type: "PolicyTypeAlreadyEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6809,7 +6728,6 @@ const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionRespon
   );
   const contents: PolicyTypeNotAvailableForOrganizationException = {
     name: "PolicyTypeNotAvailableForOrganizationException",
-    __type: "PolicyTypeNotAvailableForOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6828,7 +6746,6 @@ const deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse = async (
   );
   const contents: PolicyTypeNotEnabledException = {
     name: "PolicyTypeNotEnabledException",
-    __type: "PolicyTypeNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6847,7 +6764,6 @@ const deserializeAws_json1_1RootNotFoundExceptionResponse = async (
   );
   const contents: RootNotFoundException = {
     name: "RootNotFoundException",
-    __type: "RootNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6866,7 +6782,6 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
   );
   const contents: ServiceException = {
     name: "ServiceException",
-    __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6885,7 +6800,6 @@ const deserializeAws_json1_1SourceParentNotFoundExceptionResponse = async (
   );
   const contents: SourceParentNotFoundException = {
     name: "SourceParentNotFoundException",
-    __type: "SourceParentNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6904,7 +6818,6 @@ const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
   );
   const contents: TargetNotFoundException = {
     name: "TargetNotFoundException",
-    __type: "TargetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6923,7 +6836,6 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   );
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6942,7 +6854,6 @@ const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
   );
   const contents: UnsupportedAPIEndpointException = {
     name: "UnsupportedAPIEndpointException",
-    __type: "UnsupportedAPIEndpointException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

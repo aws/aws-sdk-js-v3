@@ -884,7 +884,6 @@ async function deserializeAws_queryBuildSuggestersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -953,7 +952,6 @@ async function deserializeAws_queryCreateDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1039,7 +1037,6 @@ async function deserializeAws_queryDefineAnalysisSchemeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1122,7 +1119,6 @@ async function deserializeAws_queryDefineExpressionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1205,7 +1201,6 @@ async function deserializeAws_queryDefineIndexFieldCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1288,7 +1283,6 @@ async function deserializeAws_queryDefineSuggesterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1367,7 +1361,6 @@ async function deserializeAws_queryDeleteAnalysisSchemeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1429,7 +1422,6 @@ async function deserializeAws_queryDeleteDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1505,7 +1497,6 @@ async function deserializeAws_queryDeleteExpressionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1581,7 +1572,6 @@ async function deserializeAws_queryDeleteIndexFieldCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1657,7 +1647,6 @@ async function deserializeAws_queryDeleteSuggesterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1729,7 +1718,6 @@ async function deserializeAws_queryDescribeAnalysisSchemesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1822,7 +1810,6 @@ async function deserializeAws_queryDescribeAvailabilityOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1908,7 +1895,6 @@ async function deserializeAws_queryDescribeDomainEndpointOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1970,7 +1956,6 @@ async function deserializeAws_queryDescribeDomainsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2039,7 +2024,6 @@ async function deserializeAws_queryDescribeExpressionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2108,7 +2092,6 @@ async function deserializeAws_queryDescribeIndexFieldsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2180,7 +2163,6 @@ async function deserializeAws_queryDescribeScalingParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2252,7 +2234,6 @@ async function deserializeAws_queryDescribeServiceAccessPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2321,7 +2302,6 @@ async function deserializeAws_queryDescribeSuggestersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2390,7 +2370,6 @@ async function deserializeAws_queryIndexDocumentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2445,7 +2424,6 @@ async function deserializeAws_queryListDomainNamesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2545,7 +2523,6 @@ async function deserializeAws_queryUpdateAvailabilityOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2645,7 +2622,6 @@ async function deserializeAws_queryUpdateDomainEndpointOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2731,7 +2707,6 @@ async function deserializeAws_queryUpdateScalingParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2817,7 +2792,6 @@ async function deserializeAws_queryUpdateServiceAccessPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.a9.cloudsearch.config2013#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2833,7 +2807,6 @@ const deserializeAws_queryBaseExceptionResponse = async (
   const deserialized: any = deserializeAws_queryBaseException(body, context);
   const contents: BaseException = {
     name: "BaseException",
-    __type: "BaseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2852,7 +2825,6 @@ const deserializeAws_queryDisabledOperationExceptionResponse = async (
   );
   const contents: DisabledOperationException = {
     name: "DisabledOperationException",
-    __type: "DisabledOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2871,7 +2843,6 @@ const deserializeAws_queryInternalExceptionResponse = async (
   );
   const contents: InternalException = {
     name: "InternalException",
-    __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2890,7 +2861,6 @@ const deserializeAws_queryInvalidTypeExceptionResponse = async (
   );
   const contents: InvalidTypeException = {
     name: "InvalidTypeException",
-    __type: "InvalidTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2909,7 +2879,6 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2928,7 +2897,6 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2947,7 +2915,6 @@ const deserializeAws_queryValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

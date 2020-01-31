@@ -2074,7 +2074,6 @@ export namespace UntagResourceResponse {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -2092,7 +2091,6 @@ export namespace ConcurrentModificationException {
 export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalException";
   name: "InternalException";
   $fault: "server";
   message?: string;
@@ -2110,7 +2108,6 @@ export namespace InternalException {
 export interface InvalidEventPatternException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidEventPatternException";
   name: "InvalidEventPatternException";
   $fault: "client";
   message?: string;
@@ -2128,7 +2125,6 @@ export namespace InvalidEventPatternException {
 export interface InvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStateException";
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
@@ -2146,7 +2142,6 @@ export namespace InvalidStateException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2170,7 +2165,6 @@ export namespace LimitExceededException {
 export interface ManagedRuleException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ManagedRuleException";
   name: "ManagedRuleException";
   $fault: "client";
   message?: string;
@@ -2188,7 +2182,6 @@ export namespace ManagedRuleException {
 export interface PolicyLengthExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PolicyLengthExceededException";
   name: "PolicyLengthExceededException";
   $fault: "client";
   message?: string;
@@ -2206,7 +2199,6 @@ export namespace PolicyLengthExceededException {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2224,7 +2216,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;

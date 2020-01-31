@@ -1124,7 +1124,6 @@ export namespace ExportServerEngineAttributeResponse {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -1147,7 +1146,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStateException";
   name: "InvalidStateException";
   $fault: "client";
   /**
@@ -1171,7 +1169,6 @@ export namespace InvalidStateException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1258,7 +1255,6 @@ export enum NodeAssociationStatus {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -1281,7 +1277,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1853,7 +1848,6 @@ export namespace UpdateServerResponse {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   /**

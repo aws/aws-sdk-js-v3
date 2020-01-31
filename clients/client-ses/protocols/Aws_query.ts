@@ -2274,7 +2274,6 @@ async function deserializeAws_queryCloneReceiptRuleSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2346,7 +2345,6 @@ async function deserializeAws_queryCreateConfigurationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2439,7 +2437,6 @@ async function deserializeAws_queryCreateConfigurationSetEventDestinationCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2511,7 +2508,6 @@ async function deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2582,7 +2578,6 @@ async function deserializeAws_queryCreateCustomVerificationEmailTemplateCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2644,7 +2639,6 @@ async function deserializeAws_queryCreateReceiptFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2741,7 +2735,6 @@ async function deserializeAws_queryCreateReceiptRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2806,7 +2799,6 @@ async function deserializeAws_queryCreateReceiptRuleSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2875,7 +2867,6 @@ async function deserializeAws_queryCreateTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2933,7 +2924,6 @@ async function deserializeAws_queryDeleteConfigurationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2998,7 +2988,6 @@ async function deserializeAws_queryDeleteConfigurationSetEventDestinationCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3063,7 +3052,6 @@ async function deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3106,7 +3094,6 @@ async function deserializeAws_queryDeleteCustomVerificationEmailTemplateCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3154,7 +3141,6 @@ async function deserializeAws_queryDeleteIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3205,7 +3191,6 @@ async function deserializeAws_queryDeleteIdentityPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3253,7 +3238,6 @@ async function deserializeAws_queryDeleteReceiptFilterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3308,7 +3292,6 @@ async function deserializeAws_queryDeleteReceiptRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3366,7 +3349,6 @@ async function deserializeAws_queryDeleteReceiptRuleSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3414,7 +3396,6 @@ async function deserializeAws_queryDeleteTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3457,7 +3438,6 @@ async function deserializeAws_queryDeleteVerifiedEmailAddressCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3508,7 +3488,6 @@ async function deserializeAws_queryDescribeActiveReceiptRuleSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3566,7 +3545,6 @@ async function deserializeAws_queryDescribeConfigurationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3628,7 +3606,6 @@ async function deserializeAws_queryDescribeReceiptRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3686,7 +3663,6 @@ async function deserializeAws_queryDescribeReceiptRuleSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3737,7 +3713,6 @@ async function deserializeAws_queryGetAccountSendingEnabledCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3795,7 +3770,6 @@ async function deserializeAws_queryGetCustomVerificationEmailTemplateCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3846,7 +3820,6 @@ async function deserializeAws_queryGetIdentityDkimAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3897,7 +3870,6 @@ async function deserializeAws_queryGetIdentityMailFromDomainAttributesCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3948,7 +3920,6 @@ async function deserializeAws_queryGetIdentityNotificationAttributesCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3996,7 +3967,6 @@ async function deserializeAws_queryGetIdentityPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4047,7 +4017,6 @@ async function deserializeAws_queryGetIdentityVerificationAttributesCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4095,7 +4064,6 @@ async function deserializeAws_queryGetSendQuotaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4143,7 +4111,6 @@ async function deserializeAws_queryGetSendStatisticsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4198,7 +4165,6 @@ async function deserializeAws_queryGetTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4249,7 +4215,6 @@ async function deserializeAws_queryListConfigurationSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4300,7 +4265,6 @@ async function deserializeAws_queryListCustomVerificationEmailTemplatesCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4348,7 +4312,6 @@ async function deserializeAws_queryListIdentitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4399,7 +4362,6 @@ async function deserializeAws_queryListIdentityPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4447,7 +4409,6 @@ async function deserializeAws_queryListReceiptFiltersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4495,7 +4456,6 @@ async function deserializeAws_queryListReceiptRuleSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4543,7 +4503,6 @@ async function deserializeAws_queryListTemplatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4594,7 +4553,6 @@ async function deserializeAws_queryListVerifiedEmailAddressesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4659,7 +4617,6 @@ async function deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4714,7 +4671,6 @@ async function deserializeAws_queryPutIdentityPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4779,7 +4735,6 @@ async function deserializeAws_queryReorderReceiptRuleSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4834,7 +4789,6 @@ async function deserializeAws_querySendBounceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4927,7 +4881,6 @@ async function deserializeAws_querySendBulkTemplatedEmailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5013,7 +4966,6 @@ async function deserializeAws_querySendCustomVerificationEmailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5096,7 +5048,6 @@ async function deserializeAws_querySendEmailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5179,7 +5130,6 @@ async function deserializeAws_querySendRawEmailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5269,7 +5219,6 @@ async function deserializeAws_querySendTemplatedEmailCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5327,7 +5276,6 @@ async function deserializeAws_querySetActiveReceiptRuleSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5378,7 +5326,6 @@ async function deserializeAws_querySetIdentityDkimEnabledCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5429,7 +5376,6 @@ async function deserializeAws_querySetIdentityFeedbackForwardingEnabledCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5480,7 +5426,6 @@ async function deserializeAws_querySetIdentityHeadersInNotificationsEnabledComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5531,7 +5476,6 @@ async function deserializeAws_querySetIdentityMailFromDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5582,7 +5526,6 @@ async function deserializeAws_querySetIdentityNotificationTopicCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5647,7 +5590,6 @@ async function deserializeAws_querySetReceiptRulePositionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5716,7 +5658,6 @@ async function deserializeAws_queryTestRenderTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5759,7 +5700,6 @@ async function deserializeAws_queryUpdateAccountSendingEnabledCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5845,7 +5785,6 @@ async function deserializeAws_queryUpdateConfigurationSetEventDestinationCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5895,7 +5834,6 @@ async function deserializeAws_queryUpdateConfigurationSetReputationMetricsEnable
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5945,7 +5883,6 @@ async function deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6017,7 +5954,6 @@ async function deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6081,7 +6017,6 @@ async function deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6171,7 +6106,6 @@ async function deserializeAws_queryUpdateReceiptRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6233,7 +6167,6 @@ async function deserializeAws_queryUpdateTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6281,7 +6214,6 @@ async function deserializeAws_queryVerifyDomainDkimCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6332,7 +6264,6 @@ async function deserializeAws_queryVerifyDomainIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6372,7 +6303,6 @@ async function deserializeAws_queryVerifyEmailAddressCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6420,7 +6350,6 @@ async function deserializeAws_queryVerifyEmailIdentityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.bacon.frontend.svc#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6439,7 +6368,6 @@ const deserializeAws_queryAccountSendingPausedExceptionResponse = async (
   );
   const contents: AccountSendingPausedException = {
     name: "AccountSendingPausedException",
-    __type: "AccountSendingPausedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6458,7 +6386,6 @@ const deserializeAws_queryAlreadyExistsExceptionResponse = async (
   );
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
-    __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6477,7 +6404,6 @@ const deserializeAws_queryCannotDeleteExceptionResponse = async (
   );
   const contents: CannotDeleteException = {
     name: "CannotDeleteException",
-    __type: "CannotDeleteException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6496,7 +6422,6 @@ const deserializeAws_queryConfigurationSetAlreadyExistsExceptionResponse = async
   );
   const contents: ConfigurationSetAlreadyExistsException = {
     name: "ConfigurationSetAlreadyExistsException",
-    __type: "ConfigurationSetAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6515,7 +6440,6 @@ const deserializeAws_queryConfigurationSetDoesNotExistExceptionResponse = async 
   );
   const contents: ConfigurationSetDoesNotExistException = {
     name: "ConfigurationSetDoesNotExistException",
-    __type: "ConfigurationSetDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6534,7 +6458,6 @@ const deserializeAws_queryConfigurationSetSendingPausedExceptionResponse = async
   );
   const contents: ConfigurationSetSendingPausedException = {
     name: "ConfigurationSetSendingPausedException",
-    __type: "ConfigurationSetSendingPausedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6553,7 +6476,6 @@ const deserializeAws_queryCustomVerificationEmailInvalidContentExceptionResponse
   );
   const contents: CustomVerificationEmailInvalidContentException = {
     name: "CustomVerificationEmailInvalidContentException",
-    __type: "CustomVerificationEmailInvalidContentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6572,7 +6494,6 @@ const deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsExceptionR
   );
   const contents: CustomVerificationEmailTemplateAlreadyExistsException = {
     name: "CustomVerificationEmailTemplateAlreadyExistsException",
-    __type: "CustomVerificationEmailTemplateAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6591,7 +6512,6 @@ const deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistExceptionRe
   );
   const contents: CustomVerificationEmailTemplateDoesNotExistException = {
     name: "CustomVerificationEmailTemplateDoesNotExistException",
-    __type: "CustomVerificationEmailTemplateDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6610,7 +6530,6 @@ const deserializeAws_queryEventDestinationAlreadyExistsExceptionResponse = async
   );
   const contents: EventDestinationAlreadyExistsException = {
     name: "EventDestinationAlreadyExistsException",
-    __type: "EventDestinationAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6629,7 +6548,6 @@ const deserializeAws_queryEventDestinationDoesNotExistExceptionResponse = async 
   );
   const contents: EventDestinationDoesNotExistException = {
     name: "EventDestinationDoesNotExistException",
-    __type: "EventDestinationDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6648,7 +6566,6 @@ const deserializeAws_queryFromEmailAddressNotVerifiedExceptionResponse = async (
   );
   const contents: FromEmailAddressNotVerifiedException = {
     name: "FromEmailAddressNotVerifiedException",
-    __type: "FromEmailAddressNotVerifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6667,7 +6584,6 @@ const deserializeAws_queryInvalidCloudWatchDestinationExceptionResponse = async 
   );
   const contents: InvalidCloudWatchDestinationException = {
     name: "InvalidCloudWatchDestinationException",
-    __type: "InvalidCloudWatchDestinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6686,7 +6602,6 @@ const deserializeAws_queryInvalidConfigurationSetExceptionResponse = async (
   );
   const contents: InvalidConfigurationSetException = {
     name: "InvalidConfigurationSetException",
-    __type: "InvalidConfigurationSetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6705,7 +6620,6 @@ const deserializeAws_queryInvalidDeliveryOptionsExceptionResponse = async (
   );
   const contents: InvalidDeliveryOptionsException = {
     name: "InvalidDeliveryOptionsException",
-    __type: "InvalidDeliveryOptionsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6724,7 +6638,6 @@ const deserializeAws_queryInvalidFirehoseDestinationExceptionResponse = async (
   );
   const contents: InvalidFirehoseDestinationException = {
     name: "InvalidFirehoseDestinationException",
-    __type: "InvalidFirehoseDestinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6743,7 +6656,6 @@ const deserializeAws_queryInvalidLambdaFunctionExceptionResponse = async (
   );
   const contents: InvalidLambdaFunctionException = {
     name: "InvalidLambdaFunctionException",
-    __type: "InvalidLambdaFunctionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6762,7 +6674,6 @@ const deserializeAws_queryInvalidPolicyExceptionResponse = async (
   );
   const contents: InvalidPolicyException = {
     name: "InvalidPolicyException",
-    __type: "InvalidPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6781,7 +6692,6 @@ const deserializeAws_queryInvalidRenderingParameterExceptionResponse = async (
   );
   const contents: InvalidRenderingParameterException = {
     name: "InvalidRenderingParameterException",
-    __type: "InvalidRenderingParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6800,7 +6710,6 @@ const deserializeAws_queryInvalidS3ConfigurationExceptionResponse = async (
   );
   const contents: InvalidS3ConfigurationException = {
     name: "InvalidS3ConfigurationException",
-    __type: "InvalidS3ConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6819,7 +6728,6 @@ const deserializeAws_queryInvalidSNSDestinationExceptionResponse = async (
   );
   const contents: InvalidSNSDestinationException = {
     name: "InvalidSNSDestinationException",
-    __type: "InvalidSNSDestinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6838,7 +6746,6 @@ const deserializeAws_queryInvalidSnsTopicExceptionResponse = async (
   );
   const contents: InvalidSnsTopicException = {
     name: "InvalidSnsTopicException",
-    __type: "InvalidSnsTopicException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6857,7 +6764,6 @@ const deserializeAws_queryInvalidTemplateExceptionResponse = async (
   );
   const contents: InvalidTemplateException = {
     name: "InvalidTemplateException",
-    __type: "InvalidTemplateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6876,7 +6782,6 @@ const deserializeAws_queryInvalidTrackingOptionsExceptionResponse = async (
   );
   const contents: InvalidTrackingOptionsException = {
     name: "InvalidTrackingOptionsException",
-    __type: "InvalidTrackingOptionsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6895,7 +6800,6 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6914,7 +6818,6 @@ const deserializeAws_queryMailFromDomainNotVerifiedExceptionResponse = async (
   );
   const contents: MailFromDomainNotVerifiedException = {
     name: "MailFromDomainNotVerifiedException",
-    __type: "MailFromDomainNotVerifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6930,7 +6833,6 @@ const deserializeAws_queryMessageRejectedResponse = async (
   const deserialized: any = deserializeAws_queryMessageRejected(body, context);
   const contents: MessageRejected = {
     name: "MessageRejected",
-    __type: "MessageRejected",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6949,7 +6851,6 @@ const deserializeAws_queryMissingRenderingAttributeExceptionResponse = async (
   );
   const contents: MissingRenderingAttributeException = {
     name: "MissingRenderingAttributeException",
-    __type: "MissingRenderingAttributeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6968,7 +6869,6 @@ const deserializeAws_queryProductionAccessNotGrantedExceptionResponse = async (
   );
   const contents: ProductionAccessNotGrantedException = {
     name: "ProductionAccessNotGrantedException",
-    __type: "ProductionAccessNotGrantedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6987,7 +6887,6 @@ const deserializeAws_queryRuleDoesNotExistExceptionResponse = async (
   );
   const contents: RuleDoesNotExistException = {
     name: "RuleDoesNotExistException",
-    __type: "RuleDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7006,7 +6905,6 @@ const deserializeAws_queryRuleSetDoesNotExistExceptionResponse = async (
   );
   const contents: RuleSetDoesNotExistException = {
     name: "RuleSetDoesNotExistException",
-    __type: "RuleSetDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7025,7 +6923,6 @@ const deserializeAws_queryTemplateDoesNotExistExceptionResponse = async (
   );
   const contents: TemplateDoesNotExistException = {
     name: "TemplateDoesNotExistException",
-    __type: "TemplateDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7044,7 +6941,6 @@ const deserializeAws_queryTrackingOptionsAlreadyExistsExceptionResponse = async 
   );
   const contents: TrackingOptionsAlreadyExistsException = {
     name: "TrackingOptionsAlreadyExistsException",
-    __type: "TrackingOptionsAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7063,7 +6959,6 @@ const deserializeAws_queryTrackingOptionsDoesNotExistExceptionResponse = async (
   );
   const contents: TrackingOptionsDoesNotExistException = {
     name: "TrackingOptionsDoesNotExistException",
-    __type: "TrackingOptionsDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

@@ -1661,7 +1661,6 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1747,7 +1746,6 @@ async function deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1812,7 +1810,6 @@ async function deserializeAws_queryBatchApplyUpdateActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1877,7 +1874,6 @@ async function deserializeAws_queryBatchStopUpdateActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1946,7 +1942,6 @@ async function deserializeAws_queryCompleteMigrationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2036,7 +2031,6 @@ async function deserializeAws_queryCopySnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2182,7 +2176,6 @@ async function deserializeAws_queryCreateCacheClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2268,7 +2261,6 @@ async function deserializeAws_queryCreateCacheParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2347,7 +2339,6 @@ async function deserializeAws_queryCreateCacheSecurityGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2426,7 +2417,6 @@ async function deserializeAws_queryCreateCacheSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2582,7 +2572,6 @@ async function deserializeAws_queryCreateReplicationGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2693,7 +2682,6 @@ async function deserializeAws_queryCreateSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2828,7 +2816,6 @@ async function deserializeAws_queryDecreaseReplicaCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2925,7 +2912,6 @@ async function deserializeAws_queryDeleteCacheClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2996,7 +2982,6 @@ async function deserializeAws_queryDeleteCacheParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3067,7 +3052,6 @@ async function deserializeAws_queryDeleteCacheSecurityGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3124,7 +3108,6 @@ async function deserializeAws_queryDeleteCacheSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3224,7 +3207,6 @@ async function deserializeAws_queryDeleteReplicationGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3300,7 +3282,6 @@ async function deserializeAws_queryDeleteSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3372,7 +3353,6 @@ async function deserializeAws_queryDescribeCacheClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3423,7 +3403,6 @@ async function deserializeAws_queryDescribeCacheEngineVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3495,7 +3474,6 @@ async function deserializeAws_queryDescribeCacheParameterGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3567,7 +3545,6 @@ async function deserializeAws_queryDescribeCacheParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3639,7 +3616,6 @@ async function deserializeAws_queryDescribeCacheSecurityGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3697,7 +3673,6 @@ async function deserializeAws_queryDescribeCacheSubnetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3762,7 +3737,6 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3824,7 +3798,6 @@ async function deserializeAws_queryDescribeEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3896,7 +3869,6 @@ async function deserializeAws_queryDescribeReplicationGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3968,7 +3940,6 @@ async function deserializeAws_queryDescribeReservedCacheNodesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4040,7 +4011,6 @@ async function deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4112,7 +4082,6 @@ async function deserializeAws_queryDescribeServiceUpdatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4188,7 +4157,6 @@ async function deserializeAws_queryDescribeSnapshotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4253,7 +4221,6 @@ async function deserializeAws_queryDescribeUpdateActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4388,7 +4355,6 @@ async function deserializeAws_queryIncreaseReplicaCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4467,7 +4433,6 @@ async function deserializeAws_queryListAllowedNodeTypeModificationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4536,7 +4501,6 @@ async function deserializeAws_queryListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4661,7 +4625,6 @@ async function deserializeAws_queryModifyCacheClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4740,7 +4703,6 @@ async function deserializeAws_queryModifyCacheParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4819,7 +4781,6 @@ async function deserializeAws_queryModifyCacheSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4968,7 +4929,6 @@ async function deserializeAws_queryModifyReplicationGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5089,7 +5049,6 @@ async function deserializeAws_queryModifyReplicationGroupShardConfigurationComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5175,7 +5134,6 @@ async function deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5237,7 +5195,6 @@ async function deserializeAws_queryRebootCacheClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5316,7 +5273,6 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5395,7 +5351,6 @@ async function deserializeAws_queryResetCacheParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5481,7 +5436,6 @@ async function deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5557,7 +5511,6 @@ async function deserializeAws_queryStartMigrationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5668,7 +5621,6 @@ async function deserializeAws_queryTestFailoverCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `elmo.admin.v20150202#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5687,7 +5639,6 @@ const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
   );
   const contents: InvalidParameterCombinationException = {
     name: "InvalidParameterCombinationException",
-    __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5706,7 +5657,6 @@ const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5725,7 +5675,6 @@ const deserializeAws_queryAPICallRateForCustomerExceededFaultResponse = async (
   );
   const contents: APICallRateForCustomerExceededFault = {
     name: "APICallRateForCustomerExceededFault",
-    __type: "APICallRateForCustomerExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5744,7 +5693,6 @@ const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
   );
   const contents: AuthorizationAlreadyExistsFault = {
     name: "AuthorizationAlreadyExistsFault",
-    __type: "AuthorizationAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5763,7 +5711,6 @@ const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
   );
   const contents: AuthorizationNotFoundFault = {
     name: "AuthorizationNotFoundFault",
-    __type: "AuthorizationNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5782,7 +5729,6 @@ const deserializeAws_queryCacheClusterAlreadyExistsFaultResponse = async (
   );
   const contents: CacheClusterAlreadyExistsFault = {
     name: "CacheClusterAlreadyExistsFault",
-    __type: "CacheClusterAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5801,7 +5747,6 @@ const deserializeAws_queryCacheClusterNotFoundFaultResponse = async (
   );
   const contents: CacheClusterNotFoundFault = {
     name: "CacheClusterNotFoundFault",
-    __type: "CacheClusterNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5820,7 +5765,6 @@ const deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse = async 
   );
   const contents: CacheParameterGroupAlreadyExistsFault = {
     name: "CacheParameterGroupAlreadyExistsFault",
-    __type: "CacheParameterGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5839,7 +5783,6 @@ const deserializeAws_queryCacheParameterGroupNotFoundFaultResponse = async (
   );
   const contents: CacheParameterGroupNotFoundFault = {
     name: "CacheParameterGroupNotFoundFault",
-    __type: "CacheParameterGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5858,7 +5801,6 @@ const deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse = async 
   );
   const contents: CacheParameterGroupQuotaExceededFault = {
     name: "CacheParameterGroupQuotaExceededFault",
-    __type: "CacheParameterGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5877,7 +5819,6 @@ const deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse = async (
   );
   const contents: CacheSecurityGroupAlreadyExistsFault = {
     name: "CacheSecurityGroupAlreadyExistsFault",
-    __type: "CacheSecurityGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5896,7 +5837,6 @@ const deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse = async (
   );
   const contents: CacheSecurityGroupNotFoundFault = {
     name: "CacheSecurityGroupNotFoundFault",
-    __type: "CacheSecurityGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5915,7 +5855,6 @@ const deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse = async (
   );
   const contents: CacheSecurityGroupQuotaExceededFault = {
     name: "CacheSecurityGroupQuotaExceededFault",
-    __type: "CacheSecurityGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5934,7 +5873,6 @@ const deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse = async (
   );
   const contents: CacheSubnetGroupAlreadyExistsFault = {
     name: "CacheSubnetGroupAlreadyExistsFault",
-    __type: "CacheSubnetGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5953,7 +5891,6 @@ const deserializeAws_queryCacheSubnetGroupInUseResponse = async (
   );
   const contents: CacheSubnetGroupInUse = {
     name: "CacheSubnetGroupInUse",
-    __type: "CacheSubnetGroupInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5972,7 +5909,6 @@ const deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse = async (
   );
   const contents: CacheSubnetGroupNotFoundFault = {
     name: "CacheSubnetGroupNotFoundFault",
-    __type: "CacheSubnetGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5991,7 +5927,6 @@ const deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse = async (
   );
   const contents: CacheSubnetGroupQuotaExceededFault = {
     name: "CacheSubnetGroupQuotaExceededFault",
-    __type: "CacheSubnetGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6010,7 +5945,6 @@ const deserializeAws_queryCacheSubnetQuotaExceededFaultResponse = async (
   );
   const contents: CacheSubnetQuotaExceededFault = {
     name: "CacheSubnetQuotaExceededFault",
-    __type: "CacheSubnetQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6029,7 +5963,6 @@ const deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse = async (
   );
   const contents: ClusterQuotaForCustomerExceededFault = {
     name: "ClusterQuotaForCustomerExceededFault",
-    __type: "ClusterQuotaForCustomerExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6048,7 +5981,6 @@ const deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse = async 
   );
   const contents: InsufficientCacheClusterCapacityFault = {
     name: "InsufficientCacheClusterCapacityFault",
-    __type: "InsufficientCacheClusterCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6064,7 +5996,6 @@ const deserializeAws_queryInvalidARNFaultResponse = async (
   const deserialized: any = deserializeAws_queryInvalidARNFault(body, context);
   const contents: InvalidARNFault = {
     name: "InvalidARNFault",
-    __type: "InvalidARNFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6083,7 +6014,6 @@ const deserializeAws_queryInvalidCacheClusterStateFaultResponse = async (
   );
   const contents: InvalidCacheClusterStateFault = {
     name: "InvalidCacheClusterStateFault",
-    __type: "InvalidCacheClusterStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6102,7 +6032,6 @@ const deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse = async (
   );
   const contents: InvalidCacheParameterGroupStateFault = {
     name: "InvalidCacheParameterGroupStateFault",
-    __type: "InvalidCacheParameterGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6121,7 +6050,6 @@ const deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse = async (
   );
   const contents: InvalidCacheSecurityGroupStateFault = {
     name: "InvalidCacheSecurityGroupStateFault",
-    __type: "InvalidCacheSecurityGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6140,7 +6068,6 @@ const deserializeAws_queryInvalidKMSKeyFaultResponse = async (
   );
   const contents: InvalidKMSKeyFault = {
     name: "InvalidKMSKeyFault",
-    __type: "InvalidKMSKeyFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6159,7 +6086,6 @@ const deserializeAws_queryInvalidReplicationGroupStateFaultResponse = async (
   );
   const contents: InvalidReplicationGroupStateFault = {
     name: "InvalidReplicationGroupStateFault",
-    __type: "InvalidReplicationGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6178,7 +6104,6 @@ const deserializeAws_queryInvalidSnapshotStateFaultResponse = async (
   );
   const contents: InvalidSnapshotStateFault = {
     name: "InvalidSnapshotStateFault",
-    __type: "InvalidSnapshotStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6194,7 +6119,6 @@ const deserializeAws_queryInvalidSubnetResponse = async (
   const deserialized: any = deserializeAws_queryInvalidSubnet(body, context);
   const contents: InvalidSubnet = {
     name: "InvalidSubnet",
-    __type: "InvalidSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6213,7 +6137,6 @@ const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
   );
   const contents: InvalidVPCNetworkStateFault = {
     name: "InvalidVPCNetworkStateFault",
-    __type: "InvalidVPCNetworkStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6229,7 +6152,6 @@ const deserializeAws_queryNoOperationFaultResponse = async (
   const deserialized: any = deserializeAws_queryNoOperationFault(body, context);
   const contents: NoOperationFault = {
     name: "NoOperationFault",
-    __type: "NoOperationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6248,7 +6170,6 @@ const deserializeAws_queryNodeGroupNotFoundFaultResponse = async (
   );
   const contents: NodeGroupNotFoundFault = {
     name: "NodeGroupNotFoundFault",
-    __type: "NodeGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6267,7 +6188,6 @@ const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultRespons
   );
   const contents: NodeGroupsPerReplicationGroupQuotaExceededFault = {
     name: "NodeGroupsPerReplicationGroupQuotaExceededFault",
-    __type: "NodeGroupsPerReplicationGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6286,7 +6206,6 @@ const deserializeAws_queryNodeQuotaForClusterExceededFaultResponse = async (
   );
   const contents: NodeQuotaForClusterExceededFault = {
     name: "NodeQuotaForClusterExceededFault",
-    __type: "NodeQuotaForClusterExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6305,7 +6224,6 @@ const deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse = async (
   );
   const contents: NodeQuotaForCustomerExceededFault = {
     name: "NodeQuotaForCustomerExceededFault",
-    __type: "NodeQuotaForCustomerExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6324,7 +6242,6 @@ const deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse = async (
   );
   const contents: ReplicationGroupAlreadyExistsFault = {
     name: "ReplicationGroupAlreadyExistsFault",
-    __type: "ReplicationGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6343,7 +6260,6 @@ const deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse = a
   );
   const contents: ReplicationGroupAlreadyUnderMigrationFault = {
     name: "ReplicationGroupAlreadyUnderMigrationFault",
-    __type: "ReplicationGroupAlreadyUnderMigrationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6362,7 +6278,6 @@ const deserializeAws_queryReplicationGroupNotFoundFaultResponse = async (
   );
   const contents: ReplicationGroupNotFoundFault = {
     name: "ReplicationGroupNotFoundFault",
-    __type: "ReplicationGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6381,7 +6296,6 @@ const deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse = async
   );
   const contents: ReplicationGroupNotUnderMigrationFault = {
     name: "ReplicationGroupNotUnderMigrationFault",
-    __type: "ReplicationGroupNotUnderMigrationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6400,7 +6314,6 @@ const deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse = async (
   );
   const contents: ReservedCacheNodeAlreadyExistsFault = {
     name: "ReservedCacheNodeAlreadyExistsFault",
-    __type: "ReservedCacheNodeAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6419,7 +6332,6 @@ const deserializeAws_queryReservedCacheNodeNotFoundFaultResponse = async (
   );
   const contents: ReservedCacheNodeNotFoundFault = {
     name: "ReservedCacheNodeNotFoundFault",
-    __type: "ReservedCacheNodeNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6438,7 +6350,6 @@ const deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse = async (
   );
   const contents: ReservedCacheNodeQuotaExceededFault = {
     name: "ReservedCacheNodeQuotaExceededFault",
-    __type: "ReservedCacheNodeQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6457,7 +6368,6 @@ const deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse = asyn
   );
   const contents: ReservedCacheNodesOfferingNotFoundFault = {
     name: "ReservedCacheNodesOfferingNotFoundFault",
-    __type: "ReservedCacheNodesOfferingNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6476,7 +6386,6 @@ const deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse = async (
   );
   const contents: ServiceLinkedRoleNotFoundFault = {
     name: "ServiceLinkedRoleNotFoundFault",
-    __type: "ServiceLinkedRoleNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6495,7 +6404,6 @@ const deserializeAws_queryServiceUpdateNotFoundFaultResponse = async (
   );
   const contents: ServiceUpdateNotFoundFault = {
     name: "ServiceUpdateNotFoundFault",
-    __type: "ServiceUpdateNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6514,7 +6422,6 @@ const deserializeAws_querySnapshotAlreadyExistsFaultResponse = async (
   );
   const contents: SnapshotAlreadyExistsFault = {
     name: "SnapshotAlreadyExistsFault",
-    __type: "SnapshotAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6533,7 +6440,6 @@ const deserializeAws_querySnapshotFeatureNotSupportedFaultResponse = async (
   );
   const contents: SnapshotFeatureNotSupportedFault = {
     name: "SnapshotFeatureNotSupportedFault",
-    __type: "SnapshotFeatureNotSupportedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6552,7 +6458,6 @@ const deserializeAws_querySnapshotNotFoundFaultResponse = async (
   );
   const contents: SnapshotNotFoundFault = {
     name: "SnapshotNotFoundFault",
-    __type: "SnapshotNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6571,7 +6476,6 @@ const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
   );
   const contents: SnapshotQuotaExceededFault = {
     name: "SnapshotQuotaExceededFault",
-    __type: "SnapshotQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6587,7 +6491,6 @@ const deserializeAws_querySubnetInUseResponse = async (
   const deserialized: any = deserializeAws_querySubnetInUse(body, context);
   const contents: SubnetInUse = {
     name: "SubnetInUse",
-    __type: "SubnetInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6603,7 +6506,6 @@ const deserializeAws_queryTagNotFoundFaultResponse = async (
   const deserialized: any = deserializeAws_queryTagNotFoundFault(body, context);
   const contents: TagNotFoundFault = {
     name: "TagNotFoundFault",
-    __type: "TagNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6622,7 +6524,6 @@ const deserializeAws_queryTagQuotaPerResourceExceededResponse = async (
   );
   const contents: TagQuotaPerResourceExceeded = {
     name: "TagQuotaPerResourceExceeded",
-    __type: "TagQuotaPerResourceExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6641,7 +6542,6 @@ const deserializeAws_queryTestFailoverNotAvailableFaultResponse = async (
   );
   const contents: TestFailoverNotAvailableFault = {
     name: "TestFailoverNotAvailableFault",
-    __type: "TestFailoverNotAvailableFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

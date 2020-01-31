@@ -613,7 +613,6 @@ async function deserializeAws_json1_1AssociateTeamMemberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -709,7 +708,6 @@ async function deserializeAws_json1_1CreateProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -770,7 +768,6 @@ async function deserializeAws_json1_1CreateUserProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -838,7 +835,6 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -892,7 +888,6 @@ async function deserializeAws_json1_1DeleteUserProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -974,7 +969,6 @@ async function deserializeAws_json1_1DescribeProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1038,7 +1032,6 @@ async function deserializeAws_json1_1DescribeUserProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1116,7 +1109,6 @@ async function deserializeAws_json1_1DisassociateTeamMemberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1177,7 +1169,6 @@ async function deserializeAws_json1_1ListProjectsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1245,7 +1236,6 @@ async function deserializeAws_json1_1ListResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1316,7 +1306,6 @@ async function deserializeAws_json1_1ListTagsForProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1384,7 +1373,6 @@ async function deserializeAws_json1_1ListTeamMembersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1445,7 +1433,6 @@ async function deserializeAws_json1_1ListUserProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1520,7 +1507,6 @@ async function deserializeAws_json1_1TagProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1595,7 +1581,6 @@ async function deserializeAws_json1_1UntagProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1656,7 +1641,6 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1752,7 +1736,6 @@ async function deserializeAws_json1_1UpdateTeamMemberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1813,7 +1796,6 @@ async function deserializeAws_json1_1UpdateUserProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1832,7 +1814,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1851,7 +1832,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1870,7 +1850,6 @@ const deserializeAws_json1_1InvalidServiceRoleExceptionResponse = async (
   );
   const contents: InvalidServiceRoleException = {
     name: "InvalidServiceRoleException",
-    __type: "InvalidServiceRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1889,7 +1868,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1908,7 +1886,6 @@ const deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse = async (
   );
   const contents: ProjectAlreadyExistsException = {
     name: "ProjectAlreadyExistsException",
-    __type: "ProjectAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1927,7 +1904,6 @@ const deserializeAws_json1_1ProjectConfigurationExceptionResponse = async (
   );
   const contents: ProjectConfigurationException = {
     name: "ProjectConfigurationException",
-    __type: "ProjectConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1946,7 +1922,6 @@ const deserializeAws_json1_1ProjectCreationFailedExceptionResponse = async (
   );
   const contents: ProjectCreationFailedException = {
     name: "ProjectCreationFailedException",
-    __type: "ProjectCreationFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1965,7 +1940,6 @@ const deserializeAws_json1_1ProjectNotFoundExceptionResponse = async (
   );
   const contents: ProjectNotFoundException = {
     name: "ProjectNotFoundException",
-    __type: "ProjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1984,7 +1958,6 @@ const deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse = async
   );
   const contents: TeamMemberAlreadyAssociatedException = {
     name: "TeamMemberAlreadyAssociatedException",
-    __type: "TeamMemberAlreadyAssociatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2003,7 +1976,6 @@ const deserializeAws_json1_1TeamMemberNotFoundExceptionResponse = async (
   );
   const contents: TeamMemberNotFoundException = {
     name: "TeamMemberNotFoundException",
-    __type: "TeamMemberNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2022,7 +1994,6 @@ const deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse = async (
   );
   const contents: UserProfileAlreadyExistsException = {
     name: "UserProfileAlreadyExistsException",
-    __type: "UserProfileAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2041,7 +2012,6 @@ const deserializeAws_json1_1UserProfileNotFoundExceptionResponse = async (
   );
   const contents: UserProfileNotFoundException = {
     name: "UserProfileNotFoundException",
-    __type: "UserProfileNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2060,7 +2030,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

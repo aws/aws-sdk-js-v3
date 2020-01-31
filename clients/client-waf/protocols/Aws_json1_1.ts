@@ -2195,7 +2195,6 @@ async function deserializeAws_json1_1CreateByteMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2284,7 +2283,6 @@ async function deserializeAws_json1_1CreateGeoMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2373,7 +2371,6 @@ async function deserializeAws_json1_1CreateIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2479,7 +2476,6 @@ async function deserializeAws_json1_1CreateRateBasedRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2557,7 +2553,6 @@ async function deserializeAws_json1_1CreateRegexMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2635,7 +2630,6 @@ async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2738,7 +2732,6 @@ async function deserializeAws_json1_1CreateRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2834,7 +2827,6 @@ async function deserializeAws_json1_1CreateRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2929,7 +2921,6 @@ async function deserializeAws_json1_1CreateSizeConstraintSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3024,7 +3015,6 @@ async function deserializeAws_json1_1CreateSqlInjectionMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3134,7 +3124,6 @@ async function deserializeAws_json1_1CreateWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3223,7 +3212,6 @@ async function deserializeAws_json1_1CreateXssMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3315,7 +3303,6 @@ async function deserializeAws_json1_1DeleteByteMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3404,7 +3391,6 @@ async function deserializeAws_json1_1DeleteGeoMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3493,7 +3479,6 @@ async function deserializeAws_json1_1DeleteIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3567,7 +3552,6 @@ async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3641,7 +3625,6 @@ async function deserializeAws_json1_1DeletePermissionPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3747,7 +3730,6 @@ async function deserializeAws_json1_1DeleteRateBasedRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3839,7 +3821,6 @@ async function deserializeAws_json1_1DeleteRegexMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3931,7 +3912,6 @@ async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4034,7 +4014,6 @@ async function deserializeAws_json1_1DeleteRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4137,7 +4116,6 @@ async function deserializeAws_json1_1DeleteRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4232,7 +4210,6 @@ async function deserializeAws_json1_1DeleteSizeConstraintSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4327,7 +4304,6 @@ async function deserializeAws_json1_1DeleteSqlInjectionMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4430,7 +4406,6 @@ async function deserializeAws_json1_1DeleteWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4519,7 +4494,6 @@ async function deserializeAws_json1_1DeleteXssMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4587,7 +4561,6 @@ async function deserializeAws_json1_1GetByteMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4641,7 +4614,6 @@ async function deserializeAws_json1_1GetChangeTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4705,7 +4677,6 @@ async function deserializeAws_json1_1GetChangeTokenStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4773,7 +4744,6 @@ async function deserializeAws_json1_1GetGeoMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4841,7 +4811,6 @@ async function deserializeAws_json1_1GetIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4908,7 +4877,6 @@ async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4972,7 +4940,6 @@ async function deserializeAws_json1_1GetPermissionPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5040,7 +5007,6 @@ async function deserializeAws_json1_1GetRateBasedRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5121,7 +5087,6 @@ async function deserializeAws_json1_1GetRateBasedRuleManagedKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5189,7 +5154,6 @@ async function deserializeAws_json1_1GetRegexMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5260,7 +5224,6 @@ async function deserializeAws_json1_1GetRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5328,7 +5291,6 @@ async function deserializeAws_json1_1GetRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5389,7 +5351,6 @@ async function deserializeAws_json1_1GetRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5453,7 +5414,6 @@ async function deserializeAws_json1_1GetSampledRequestsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5524,7 +5484,6 @@ async function deserializeAws_json1_1GetSizeConstraintSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5598,7 +5557,6 @@ async function deserializeAws_json1_1GetSqlInjectionMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5666,7 +5624,6 @@ async function deserializeAws_json1_1GetWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5734,7 +5691,6 @@ async function deserializeAws_json1_1GetXssMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5808,7 +5764,6 @@ async function deserializeAws_json1_1ListActivatedRulesInRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5869,7 +5824,6 @@ async function deserializeAws_json1_1ListByteMatchSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5930,7 +5884,6 @@ async function deserializeAws_json1_1ListGeoMatchSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5991,7 +5944,6 @@ async function deserializeAws_json1_1ListIPSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6065,7 +6017,6 @@ async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6129,7 +6080,6 @@ async function deserializeAws_json1_1ListRateBasedRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6193,7 +6143,6 @@ async function deserializeAws_json1_1ListRegexMatchSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6257,7 +6206,6 @@ async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6311,7 +6259,6 @@ async function deserializeAws_json1_1ListRuleGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6372,7 +6319,6 @@ async function deserializeAws_json1_1ListRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6439,7 +6385,6 @@ async function deserializeAws_json1_1ListSizeConstraintSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6506,7 +6451,6 @@ async function deserializeAws_json1_1ListSqlInjectionMatchSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6573,7 +6517,6 @@ async function deserializeAws_json1_1ListSubscribedRuleGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6665,7 +6608,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6726,7 +6668,6 @@ async function deserializeAws_json1_1ListWebACLsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6787,7 +6728,6 @@ async function deserializeAws_json1_1ListXssMatchSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6868,7 +6808,6 @@ async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6946,7 +6885,6 @@ async function deserializeAws_json1_1PutPermissionPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7042,7 +6980,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7131,7 +7068,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7237,7 +7173,6 @@ async function deserializeAws_json1_1UpdateByteMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7347,7 +7282,6 @@ async function deserializeAws_json1_1UpdateGeoMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7457,7 +7391,6 @@ async function deserializeAws_json1_1UpdateIPSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7570,7 +7503,6 @@ async function deserializeAws_json1_1UpdateRateBasedRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7676,7 +7608,6 @@ async function deserializeAws_json1_1UpdateRegexMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7782,7 +7713,6 @@ async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7892,7 +7822,6 @@ async function deserializeAws_json1_1UpdateRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7988,7 +7917,6 @@ async function deserializeAws_json1_1UpdateRuleGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8104,7 +8032,6 @@ async function deserializeAws_json1_1UpdateSizeConstraintSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8213,7 +8140,6 @@ async function deserializeAws_json1_1UpdateSqlInjectionMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8330,7 +8256,6 @@ async function deserializeAws_json1_1UpdateWebACLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8433,7 +8358,6 @@ async function deserializeAws_json1_1UpdateXssMatchSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8452,7 +8376,6 @@ const deserializeAws_json1_1WAFBadRequestExceptionResponse = async (
   );
   const contents: WAFBadRequestException = {
     name: "WAFBadRequestException",
-    __type: "WAFBadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8471,7 +8394,6 @@ const deserializeAws_json1_1WAFDisallowedNameExceptionResponse = async (
   );
   const contents: WAFDisallowedNameException = {
     name: "WAFDisallowedNameException",
-    __type: "WAFDisallowedNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8490,7 +8412,6 @@ const deserializeAws_json1_1WAFInternalErrorExceptionResponse = async (
   );
   const contents: WAFInternalErrorException = {
     name: "WAFInternalErrorException",
-    __type: "WAFInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8509,7 +8430,6 @@ const deserializeAws_json1_1WAFInvalidAccountExceptionResponse = async (
   );
   const contents: WAFInvalidAccountException = {
     name: "WAFInvalidAccountException",
-    __type: "WAFInvalidAccountException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8528,7 +8448,6 @@ const deserializeAws_json1_1WAFInvalidOperationExceptionResponse = async (
   );
   const contents: WAFInvalidOperationException = {
     name: "WAFInvalidOperationException",
-    __type: "WAFInvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8547,7 +8466,6 @@ const deserializeAws_json1_1WAFInvalidParameterExceptionResponse = async (
   );
   const contents: WAFInvalidParameterException = {
     name: "WAFInvalidParameterException",
-    __type: "WAFInvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8566,7 +8484,6 @@ const deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse = async 
   );
   const contents: WAFInvalidPermissionPolicyException = {
     name: "WAFInvalidPermissionPolicyException",
-    __type: "WAFInvalidPermissionPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8585,7 +8502,6 @@ const deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse = async (
   );
   const contents: WAFInvalidRegexPatternException = {
     name: "WAFInvalidRegexPatternException",
-    __type: "WAFInvalidRegexPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8604,7 +8520,6 @@ const deserializeAws_json1_1WAFLimitsExceededExceptionResponse = async (
   );
   const contents: WAFLimitsExceededException = {
     name: "WAFLimitsExceededException",
-    __type: "WAFLimitsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8623,7 +8538,6 @@ const deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse = async (
   );
   const contents: WAFNonEmptyEntityException = {
     name: "WAFNonEmptyEntityException",
-    __type: "WAFNonEmptyEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8642,7 +8556,6 @@ const deserializeAws_json1_1WAFNonexistentContainerExceptionResponse = async (
   );
   const contents: WAFNonexistentContainerException = {
     name: "WAFNonexistentContainerException",
-    __type: "WAFNonexistentContainerException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8661,7 +8574,6 @@ const deserializeAws_json1_1WAFNonexistentItemExceptionResponse = async (
   );
   const contents: WAFNonexistentItemException = {
     name: "WAFNonexistentItemException",
-    __type: "WAFNonexistentItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8680,7 +8592,6 @@ const deserializeAws_json1_1WAFReferencedItemExceptionResponse = async (
   );
   const contents: WAFReferencedItemException = {
     name: "WAFReferencedItemException",
-    __type: "WAFReferencedItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8699,7 +8610,6 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse = async (
   );
   const contents: WAFServiceLinkedRoleErrorException = {
     name: "WAFServiceLinkedRoleErrorException",
-    __type: "WAFServiceLinkedRoleErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8718,7 +8628,6 @@ const deserializeAws_json1_1WAFStaleDataExceptionResponse = async (
   );
   const contents: WAFStaleDataException = {
     name: "WAFStaleDataException",
-    __type: "WAFStaleDataException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8737,7 +8646,6 @@ const deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse = async (
   );
   const contents: WAFSubscriptionNotFoundException = {
     name: "WAFSubscriptionNotFoundException",
-    __type: "WAFSubscriptionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8756,7 +8664,6 @@ const deserializeAws_json1_1WAFTagOperationExceptionResponse = async (
   );
   const contents: WAFTagOperationException = {
     name: "WAFTagOperationException",
-    __type: "WAFTagOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8775,7 +8682,6 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse = asyn
   );
   const contents: WAFTagOperationInternalErrorException = {
     name: "WAFTagOperationInternalErrorException",
-    __type: "WAFTagOperationInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

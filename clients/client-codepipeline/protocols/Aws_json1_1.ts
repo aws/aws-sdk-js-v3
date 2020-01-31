@@ -1142,7 +1142,6 @@ async function deserializeAws_json1_1AcknowledgeJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1223,7 +1222,6 @@ async function deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1308,7 +1306,6 @@ async function deserializeAws_json1_1CreateCustomActionTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1425,7 +1422,6 @@ async function deserializeAws_json1_1CreatePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1484,7 +1480,6 @@ async function deserializeAws_json1_1DeleteCustomActionTypeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1540,7 +1535,6 @@ async function deserializeAws_json1_1DeletePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1601,7 +1595,6 @@ async function deserializeAws_json1_1DeleteWebhookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1668,7 +1661,6 @@ async function deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1734,7 +1726,6 @@ async function deserializeAws_json1_1DisableStageTransitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1800,7 +1791,6 @@ async function deserializeAws_json1_1EnableStageTransitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1861,7 +1851,6 @@ async function deserializeAws_json1_1GetJobDetailsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1929,7 +1918,6 @@ async function deserializeAws_json1_1GetPipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2000,7 +1988,6 @@ async function deserializeAws_json1_1GetPipelineExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2061,7 +2048,6 @@ async function deserializeAws_json1_1GetPipelineStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2139,7 +2125,6 @@ async function deserializeAws_json1_1GetThirdPartyJobDetailsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2217,7 +2202,6 @@ async function deserializeAws_json1_1ListActionExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2278,7 +2262,6 @@ async function deserializeAws_json1_1ListActionTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2349,7 +2332,6 @@ async function deserializeAws_json1_1ListPipelineExecutionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2410,7 +2392,6 @@ async function deserializeAws_json1_1ListPipelinesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2488,7 +2469,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2549,7 +2529,6 @@ async function deserializeAws_json1_1ListWebhooksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2610,7 +2589,6 @@ async function deserializeAws_json1_1PollForJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2674,7 +2652,6 @@ async function deserializeAws_json1_1PollForThirdPartyJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2749,7 +2726,6 @@ async function deserializeAws_json1_1PutActionRevisionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2838,7 +2814,6 @@ async function deserializeAws_json1_1PutApprovalResultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2904,7 +2879,6 @@ async function deserializeAws_json1_1PutJobFailureResultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2977,7 +2951,6 @@ async function deserializeAws_json1_1PutJobSuccessResultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3050,7 +3023,6 @@ async function deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3123,7 +3095,6 @@ async function deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3226,7 +3197,6 @@ async function deserializeAws_json1_1PutWebhookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3293,7 +3263,6 @@ async function deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3378,7 +3347,6 @@ async function deserializeAws_json1_1RetryStageExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3442,7 +3410,6 @@ async function deserializeAws_json1_1StartPipelineExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3520,7 +3487,6 @@ async function deserializeAws_json1_1StopPipelineExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3609,7 +3575,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3691,7 +3656,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3780,7 +3744,6 @@ async function deserializeAws_json1_1UpdatePipelineCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3799,7 +3762,6 @@ const deserializeAws_json1_1ActionNotFoundExceptionResponse = async (
   );
   const contents: ActionNotFoundException = {
     name: "ActionNotFoundException",
-    __type: "ActionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3818,7 +3780,6 @@ const deserializeAws_json1_1ApprovalAlreadyCompletedExceptionResponse = async (
   );
   const contents: ApprovalAlreadyCompletedException = {
     name: "ApprovalAlreadyCompletedException",
-    __type: "ApprovalAlreadyCompletedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3837,7 +3798,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3856,7 +3816,6 @@ const deserializeAws_json1_1DuplicatedStopRequestExceptionResponse = async (
   );
   const contents: DuplicatedStopRequestException = {
     name: "DuplicatedStopRequestException",
-    __type: "DuplicatedStopRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3875,7 +3834,6 @@ const deserializeAws_json1_1InvalidActionDeclarationExceptionResponse = async (
   );
   const contents: InvalidActionDeclarationException = {
     name: "InvalidActionDeclarationException",
-    __type: "InvalidActionDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3894,7 +3852,6 @@ const deserializeAws_json1_1InvalidApprovalTokenExceptionResponse = async (
   );
   const contents: InvalidApprovalTokenException = {
     name: "InvalidApprovalTokenException",
-    __type: "InvalidApprovalTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3913,7 +3870,6 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   );
   const contents: InvalidArnException = {
     name: "InvalidArnException",
-    __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3932,7 +3888,6 @@ const deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse = async (
   );
   const contents: InvalidBlockerDeclarationException = {
     name: "InvalidBlockerDeclarationException",
-    __type: "InvalidBlockerDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3951,7 +3906,6 @@ const deserializeAws_json1_1InvalidClientTokenExceptionResponse = async (
   );
   const contents: InvalidClientTokenException = {
     name: "InvalidClientTokenException",
-    __type: "InvalidClientTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3970,7 +3924,6 @@ const deserializeAws_json1_1InvalidJobExceptionResponse = async (
   );
   const contents: InvalidJobException = {
     name: "InvalidJobException",
-    __type: "InvalidJobException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3989,7 +3942,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4008,7 +3960,6 @@ const deserializeAws_json1_1InvalidStageDeclarationExceptionResponse = async (
   );
   const contents: InvalidStageDeclarationException = {
     name: "InvalidStageDeclarationException",
-    __type: "InvalidStageDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4027,7 +3978,6 @@ const deserializeAws_json1_1InvalidStructureExceptionResponse = async (
   );
   const contents: InvalidStructureException = {
     name: "InvalidStructureException",
-    __type: "InvalidStructureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4046,7 +3996,6 @@ const deserializeAws_json1_1InvalidTagsExceptionResponse = async (
   );
   const contents: InvalidTagsException = {
     name: "InvalidTagsException",
-    __type: "InvalidTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4065,7 +4014,6 @@ const deserializeAws_json1_1InvalidWebhookAuthenticationParametersExceptionRespo
   );
   const contents: InvalidWebhookAuthenticationParametersException = {
     name: "InvalidWebhookAuthenticationParametersException",
-    __type: "InvalidWebhookAuthenticationParametersException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4084,7 +4032,6 @@ const deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse = async
   );
   const contents: InvalidWebhookFilterPatternException = {
     name: "InvalidWebhookFilterPatternException",
-    __type: "InvalidWebhookFilterPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4103,7 +4050,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4122,7 +4068,6 @@ const deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse = async 
   );
   const contents: NotLatestPipelineExecutionException = {
     name: "NotLatestPipelineExecutionException",
-    __type: "NotLatestPipelineExecutionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4141,7 +4086,6 @@ const deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse = async (
   );
   const contents: PipelineExecutionNotFoundException = {
     name: "PipelineExecutionNotFoundException",
-    __type: "PipelineExecutionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4160,7 +4104,6 @@ const deserializeAws_json1_1PipelineExecutionNotStoppableExceptionResponse = asy
   );
   const contents: PipelineExecutionNotStoppableException = {
     name: "PipelineExecutionNotStoppableException",
-    __type: "PipelineExecutionNotStoppableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4179,7 +4122,6 @@ const deserializeAws_json1_1PipelineNameInUseExceptionResponse = async (
   );
   const contents: PipelineNameInUseException = {
     name: "PipelineNameInUseException",
-    __type: "PipelineNameInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4198,7 +4140,6 @@ const deserializeAws_json1_1PipelineNotFoundExceptionResponse = async (
   );
   const contents: PipelineNotFoundException = {
     name: "PipelineNotFoundException",
-    __type: "PipelineNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4217,7 +4158,6 @@ const deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse = async (
   );
   const contents: PipelineVersionNotFoundException = {
     name: "PipelineVersionNotFoundException",
-    __type: "PipelineVersionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4236,7 +4176,6 @@ const deserializeAws_json1_1StageNotFoundExceptionResponse = async (
   );
   const contents: StageNotFoundException = {
     name: "StageNotFoundException",
-    __type: "StageNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4255,7 +4194,6 @@ const deserializeAws_json1_1StageNotRetryableExceptionResponse = async (
   );
   const contents: StageNotRetryableException = {
     name: "StageNotRetryableException",
-    __type: "StageNotRetryableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4274,7 +4212,6 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4293,7 +4230,6 @@ const deserializeAws_json1_1WebhookNotFoundExceptionResponse = async (
   );
   const contents: WebhookNotFoundException = {
     name: "WebhookNotFoundException",
-    __type: "WebhookNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4312,7 +4248,6 @@ const deserializeAws_json1_1ActionTypeNotFoundExceptionResponse = async (
   );
   const contents: ActionTypeNotFoundException = {
     name: "ActionTypeNotFoundException",
-    __type: "ActionTypeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4331,7 +4266,6 @@ const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
   );
   const contents: InvalidJobStateException = {
     name: "InvalidJobStateException",
-    __type: "InvalidJobStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4350,7 +4284,6 @@ const deserializeAws_json1_1InvalidNonceExceptionResponse = async (
   );
   const contents: InvalidNonceException = {
     name: "InvalidNonceException",
-    __type: "InvalidNonceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4369,7 +4302,6 @@ const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
   );
   const contents: JobNotFoundException = {
     name: "JobNotFoundException",
-    __type: "JobNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4388,7 +4320,6 @@ const deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse = async
   );
   const contents: OutputVariablesSizeExceededException = {
     name: "OutputVariablesSizeExceededException",
-    __type: "OutputVariablesSizeExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4407,7 +4338,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4426,7 +4356,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

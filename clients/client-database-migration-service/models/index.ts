@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedFault";
   name: "AccessDeniedFault";
   $fault: "client";
   /**
@@ -29,7 +28,6 @@ export namespace AccessDeniedFault {
 export interface InsufficientResourceCapacityFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientResourceCapacityFault";
   name: "InsufficientResourceCapacityFault";
   $fault: "client";
   /**
@@ -50,7 +48,6 @@ export namespace InsufficientResourceCapacityFault {
 export interface InvalidCertificateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidCertificateFault";
   name: "InvalidCertificateFault";
   $fault: "client";
   message?: string;
@@ -68,7 +65,6 @@ export namespace InvalidCertificateFault {
 export interface InvalidResourceStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResourceStateFault";
   name: "InvalidResourceStateFault";
   $fault: "client";
   /**
@@ -89,7 +85,6 @@ export namespace InvalidResourceStateFault {
 export interface InvalidSubnet
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSubnet";
   name: "InvalidSubnet";
   $fault: "client";
   /**
@@ -110,7 +105,6 @@ export namespace InvalidSubnet {
 export interface KMSAccessDeniedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSAccessDeniedFault";
   name: "KMSAccessDeniedFault";
   $fault: "client";
   message?: string;
@@ -128,7 +122,6 @@ export namespace KMSAccessDeniedFault {
 export interface KMSDisabledFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSDisabledFault";
   name: "KMSDisabledFault";
   $fault: "client";
   message?: string;
@@ -146,7 +139,6 @@ export namespace KMSDisabledFault {
 export interface KMSInvalidStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSInvalidStateFault";
   name: "KMSInvalidStateFault";
   $fault: "client";
   message?: string;
@@ -164,7 +156,6 @@ export namespace KMSInvalidStateFault {
 export interface KMSKeyNotAccessibleFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSKeyNotAccessibleFault";
   name: "KMSKeyNotAccessibleFault";
   $fault: "client";
   /**
@@ -185,7 +176,6 @@ export namespace KMSKeyNotAccessibleFault {
 export interface KMSNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSNotFoundFault";
   name: "KMSNotFoundFault";
   $fault: "client";
   message?: string;
@@ -203,7 +193,6 @@ export namespace KMSNotFoundFault {
 export interface KMSThrottlingFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSThrottlingFault";
   name: "KMSThrottlingFault";
   $fault: "client";
   message?: string;
@@ -221,7 +210,6 @@ export namespace KMSThrottlingFault {
 export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
   name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   /**
@@ -244,7 +232,6 @@ export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
 export interface ResourceAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsFault";
   name: "ResourceAlreadyExistsFault";
   $fault: "client";
   /**
@@ -267,7 +254,6 @@ export namespace ResourceAlreadyExistsFault {
 export interface ResourceNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundFault";
   name: "ResourceNotFoundFault";
   $fault: "client";
   /**
@@ -288,7 +274,6 @@ export namespace ResourceNotFoundFault {
 export interface ResourceQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceQuotaExceededFault";
   name: "ResourceQuotaExceededFault";
   $fault: "client";
   /**
@@ -309,7 +294,6 @@ export namespace ResourceQuotaExceededFault {
 export interface SNSInvalidTopicFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SNSInvalidTopicFault";
   name: "SNSInvalidTopicFault";
   $fault: "client";
   /**
@@ -330,7 +314,6 @@ export namespace SNSInvalidTopicFault {
 export interface SNSNoAuthorizationFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SNSNoAuthorizationFault";
   name: "SNSNoAuthorizationFault";
   $fault: "client";
   /**
@@ -351,7 +334,6 @@ export namespace SNSNoAuthorizationFault {
 export interface StorageQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StorageQuotaExceededFault";
   name: "StorageQuotaExceededFault";
   $fault: "client";
   /**
@@ -372,7 +354,6 @@ export namespace StorageQuotaExceededFault {
 export interface SubnetAlreadyInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SubnetAlreadyInUse";
   name: "SubnetAlreadyInUse";
   $fault: "client";
   /**
@@ -393,7 +374,6 @@ export namespace SubnetAlreadyInUse {
 export interface UpgradeDependencyFailureFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UpgradeDependencyFailureFault";
   name: "UpgradeDependencyFailureFault";
   $fault: "client";
   /**

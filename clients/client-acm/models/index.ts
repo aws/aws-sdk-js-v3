@@ -735,7 +735,6 @@ export namespace ImportCertificateResponse {
 export interface InvalidArgsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgsException";
   name: "InvalidArgsException";
   $fault: "client";
   message?: string;
@@ -753,7 +752,6 @@ export namespace InvalidArgsException {
 export interface InvalidArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArnException";
   name: "InvalidArnException";
   $fault: "client";
   message?: string;
@@ -772,7 +770,6 @@ export namespace InvalidArnException {
 export interface InvalidDomainValidationOptionsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDomainValidationOptionsException";
   name: "InvalidDomainValidationOptionsException";
   $fault: "client";
   message?: string;
@@ -790,7 +787,6 @@ export namespace InvalidDomainValidationOptionsException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -808,7 +804,6 @@ export namespace InvalidParameterException {
 export interface InvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStateException";
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
@@ -827,7 +822,6 @@ export namespace InvalidStateException {
 export interface InvalidTagException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidTagException";
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
@@ -886,7 +880,6 @@ export enum KeyUsageName {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1209,7 +1202,6 @@ export namespace RequestCertificateResponse {
 export interface RequestInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RequestInProgressException";
   name: "RequestInProgressException";
   $fault: "client";
   message?: string;
@@ -1282,7 +1274,6 @@ export namespace ResendValidationEmailRequest {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1301,7 +1292,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1383,7 +1373,6 @@ export namespace Tag {
 export interface TagPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagPolicyException";
   name: "TagPolicyException";
   $fault: "client";
   message?: string;
@@ -1401,7 +1390,6 @@ export namespace TagPolicyException {
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;

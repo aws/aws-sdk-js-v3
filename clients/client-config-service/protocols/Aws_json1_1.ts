@@ -2370,7 +2370,6 @@ async function deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2437,7 +2436,6 @@ async function deserializeAws_json1_1BatchGetResourceConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2489,7 +2487,6 @@ async function deserializeAws_json1_1DeleteAggregationAuthorizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2545,7 +2542,6 @@ async function deserializeAws_json1_1DeleteConfigRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2597,7 +2593,6 @@ async function deserializeAws_json1_1DeleteConfigurationAggregatorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2649,7 +2644,6 @@ async function deserializeAws_json1_1DeleteConfigurationRecorderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2708,7 +2702,6 @@ async function deserializeAws_json1_1DeleteConformancePackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2767,7 +2760,6 @@ async function deserializeAws_json1_1DeleteDeliveryChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2834,7 +2826,6 @@ async function deserializeAws_json1_1DeleteEvaluationResultsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2900,7 +2891,6 @@ async function deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2966,7 +2956,6 @@ async function deserializeAws_json1_1DeleteOrganizationConformancePackCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3018,7 +3007,6 @@ async function deserializeAws_json1_1DeletePendingAggregationRequestCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3085,7 +3073,6 @@ async function deserializeAws_json1_1DeleteRemediationConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3145,7 +3132,6 @@ async function deserializeAws_json1_1DeleteRemediationExceptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3204,7 +3190,6 @@ async function deserializeAws_json1_1DeleteResourceConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3263,7 +3248,6 @@ async function deserializeAws_json1_1DeleteRetentionConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3334,7 +3318,6 @@ async function deserializeAws_json1_1DeliverConfigSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3415,7 +3398,6 @@ async function deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3489,7 +3471,6 @@ async function deserializeAws_json1_1DescribeAggregationAuthorizationsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3563,7 +3544,6 @@ async function deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3630,7 +3610,6 @@ async function deserializeAws_json1_1DescribeComplianceByResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3704,7 +3683,6 @@ async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3768,7 +3746,6 @@ async function deserializeAws_json1_1DescribeConfigRulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3849,7 +3826,6 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatu
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3930,7 +3906,6 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3990,7 +3965,6 @@ async function deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4050,7 +4024,6 @@ async function deserializeAws_json1_1DescribeConfigurationRecordersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4138,7 +4111,6 @@ async function deserializeAws_json1_1DescribeConformancePackComplianceCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4205,7 +4177,6 @@ async function deserializeAws_json1_1DescribeConformancePackStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4279,7 +4250,6 @@ async function deserializeAws_json1_1DescribeConformancePacksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4339,7 +4309,6 @@ async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4399,7 +4368,6 @@ async function deserializeAws_json1_1DescribeDeliveryChannelsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4480,7 +4448,6 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4561,7 +4528,6 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4642,7 +4608,6 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePackStatuses
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4723,7 +4688,6 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePacksCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4797,7 +4761,6 @@ async function deserializeAws_json1_1DescribePendingAggregationRequestsCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4850,7 +4813,6 @@ async function deserializeAws_json1_1DescribeRemediationConfigurationsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4917,7 +4879,6 @@ async function deserializeAws_json1_1DescribeRemediationExceptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4984,7 +4945,6 @@ async function deserializeAws_json1_1DescribeRemediationExecutionStatusCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5058,7 +5018,6 @@ async function deserializeAws_json1_1DescribeRetentionConfigurationsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5139,7 +5098,6 @@ async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5220,7 +5178,6 @@ async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5301,7 +5258,6 @@ async function deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5382,7 +5338,6 @@ async function deserializeAws_json1_1GetAggregateResourceConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5456,7 +5411,6 @@ async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5516,7 +5470,6 @@ async function deserializeAws_json1_1GetComplianceDetailsByResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5569,7 +5522,6 @@ async function deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5629,7 +5581,6 @@ async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5717,7 +5668,6 @@ async function deserializeAws_json1_1GetConformancePackComplianceDetailsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5791,7 +5741,6 @@ async function deserializeAws_json1_1GetConformancePackComplianceSummaryCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5865,7 +5814,6 @@ async function deserializeAws_json1_1GetDiscoveredResourceCountsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5946,7 +5894,6 @@ async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6027,7 +5974,6 @@ async function deserializeAws_json1_1GetOrganizationConformancePackDetailedStatu
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6122,7 +6068,6 @@ async function deserializeAws_json1_1GetResourceConfigHistoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6203,7 +6148,6 @@ async function deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6284,7 +6228,6 @@ async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6362,7 +6305,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6422,7 +6364,6 @@ async function deserializeAws_json1_1PutAggregationAuthorizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6499,7 +6440,6 @@ async function deserializeAws_json1_1PutConfigRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6594,7 +6534,6 @@ async function deserializeAws_json1_1PutConfigurationAggregatorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6667,7 +6606,6 @@ async function deserializeAws_json1_1PutConfigurationRecorderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6752,7 +6690,6 @@ async function deserializeAws_json1_1PutConformancePackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6846,7 +6783,6 @@ async function deserializeAws_json1_1PutDeliveryChannelCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6914,7 +6850,6 @@ async function deserializeAws_json1_1PutEvaluationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7023,7 +6958,6 @@ async function deserializeAws_json1_1PutOrganizationConfigRuleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7132,7 +7066,6 @@ async function deserializeAws_json1_1PutOrganizationConformancePackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7199,7 +7132,6 @@ async function deserializeAws_json1_1PutRemediationConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7259,7 +7191,6 @@ async function deserializeAws_json1_1PutRemediationExceptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7329,7 +7260,6 @@ async function deserializeAws_json1_1PutResourceConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7396,7 +7326,6 @@ async function deserializeAws_json1_1PutRetentionConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7467,7 +7396,6 @@ async function deserializeAws_json1_1SelectResourceConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7548,7 +7476,6 @@ async function deserializeAws_json1_1StartConfigRulesEvaluationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7607,7 +7534,6 @@ async function deserializeAws_json1_1StartConfigurationRecorderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7681,7 +7607,6 @@ async function deserializeAws_json1_1StartRemediationExecutionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7733,7 +7658,6 @@ async function deserializeAws_json1_1StopConfigurationRecorderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7796,7 +7720,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7852,7 +7775,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7871,7 +7793,6 @@ const deserializeAws_json1_1ConformancePackTemplateValidationExceptionResponse =
   );
   const contents: ConformancePackTemplateValidationException = {
     name: "ConformancePackTemplateValidationException",
-    __type: "ConformancePackTemplateValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7890,7 +7811,6 @@ const deserializeAws_json1_1InsufficientDeliveryPolicyExceptionResponse = async 
   );
   const contents: InsufficientDeliveryPolicyException = {
     name: "InsufficientDeliveryPolicyException",
-    __type: "InsufficientDeliveryPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7909,7 +7829,6 @@ const deserializeAws_json1_1InsufficientPermissionsExceptionResponse = async (
   );
   const contents: InsufficientPermissionsException = {
     name: "InsufficientPermissionsException",
-    __type: "InsufficientPermissionsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7928,7 +7847,6 @@ const deserializeAws_json1_1InvalidConfigurationRecorderNameExceptionResponse = 
   );
   const contents: InvalidConfigurationRecorderNameException = {
     name: "InvalidConfigurationRecorderNameException",
-    __type: "InvalidConfigurationRecorderNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7947,7 +7865,6 @@ const deserializeAws_json1_1InvalidDeliveryChannelNameExceptionResponse = async 
   );
   const contents: InvalidDeliveryChannelNameException = {
     name: "InvalidDeliveryChannelNameException",
-    __type: "InvalidDeliveryChannelNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7966,7 +7883,6 @@ const deserializeAws_json1_1InvalidExpressionExceptionResponse = async (
   );
   const contents: InvalidExpressionException = {
     name: "InvalidExpressionException",
-    __type: "InvalidExpressionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7985,7 +7901,6 @@ const deserializeAws_json1_1InvalidLimitExceptionResponse = async (
   );
   const contents: InvalidLimitException = {
     name: "InvalidLimitException",
-    __type: "InvalidLimitException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8004,7 +7919,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8023,7 +7937,6 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8042,7 +7955,6 @@ const deserializeAws_json1_1InvalidRecordingGroupExceptionResponse = async (
   );
   const contents: InvalidRecordingGroupException = {
     name: "InvalidRecordingGroupException",
-    __type: "InvalidRecordingGroupException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8061,7 +7973,6 @@ const deserializeAws_json1_1InvalidResultTokenExceptionResponse = async (
   );
   const contents: InvalidResultTokenException = {
     name: "InvalidResultTokenException",
-    __type: "InvalidResultTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8080,7 +7991,6 @@ const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
   );
   const contents: InvalidRoleException = {
     name: "InvalidRoleException",
-    __type: "InvalidRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8099,7 +8009,6 @@ const deserializeAws_json1_1InvalidS3KeyPrefixExceptionResponse = async (
   );
   const contents: InvalidS3KeyPrefixException = {
     name: "InvalidS3KeyPrefixException",
-    __type: "InvalidS3KeyPrefixException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8118,7 +8027,6 @@ const deserializeAws_json1_1InvalidSNSTopicARNExceptionResponse = async (
   );
   const contents: InvalidSNSTopicARNException = {
     name: "InvalidSNSTopicARNException",
-    __type: "InvalidSNSTopicARNException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8137,7 +8045,6 @@ const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
   );
   const contents: InvalidTimeRangeException = {
     name: "InvalidTimeRangeException",
-    __type: "InvalidTimeRangeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8156,7 +8063,6 @@ const deserializeAws_json1_1LastDeliveryChannelDeleteFailedExceptionResponse = a
   );
   const contents: LastDeliveryChannelDeleteFailedException = {
     name: "LastDeliveryChannelDeleteFailedException",
-    __type: "LastDeliveryChannelDeleteFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8175,7 +8081,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8194,7 +8099,6 @@ const deserializeAws_json1_1MaxActiveResourcesExceededExceptionResponse = async 
   );
   const contents: MaxActiveResourcesExceededException = {
     name: "MaxActiveResourcesExceededException",
-    __type: "MaxActiveResourcesExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8213,7 +8117,6 @@ const deserializeAws_json1_1MaxNumberOfConfigRulesExceededExceptionResponse = as
   );
   const contents: MaxNumberOfConfigRulesExceededException = {
     name: "MaxNumberOfConfigRulesExceededException",
-    __type: "MaxNumberOfConfigRulesExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8232,7 +8135,6 @@ const deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededExceptionRe
   );
   const contents: MaxNumberOfConfigurationRecordersExceededException = {
     name: "MaxNumberOfConfigurationRecordersExceededException",
-    __type: "MaxNumberOfConfigurationRecordersExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8251,7 +8153,6 @@ const deserializeAws_json1_1MaxNumberOfConformancePacksExceededExceptionResponse
   );
   const contents: MaxNumberOfConformancePacksExceededException = {
     name: "MaxNumberOfConformancePacksExceededException",
-    __type: "MaxNumberOfConformancePacksExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8270,7 +8171,6 @@ const deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededExceptionResponse
   );
   const contents: MaxNumberOfDeliveryChannelsExceededException = {
     name: "MaxNumberOfDeliveryChannelsExceededException",
-    __type: "MaxNumberOfDeliveryChannelsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8289,7 +8189,6 @@ const deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededExceptionR
   );
   const contents: MaxNumberOfOrganizationConfigRulesExceededException = {
     name: "MaxNumberOfOrganizationConfigRulesExceededException",
-    __type: "MaxNumberOfOrganizationConfigRulesExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8308,7 +8207,6 @@ const deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededExcep
   );
   const contents: MaxNumberOfOrganizationConformancePacksExceededException = {
     name: "MaxNumberOfOrganizationConformancePacksExceededException",
-    __type: "MaxNumberOfOrganizationConformancePacksExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8327,7 +8225,6 @@ const deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededExceptionR
   );
   const contents: MaxNumberOfRetentionConfigurationsExceededException = {
     name: "MaxNumberOfRetentionConfigurationsExceededException",
-    __type: "MaxNumberOfRetentionConfigurationsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8346,7 +8243,6 @@ const deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse = 
   );
   const contents: NoAvailableConfigurationRecorderException = {
     name: "NoAvailableConfigurationRecorderException",
-    __type: "NoAvailableConfigurationRecorderException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8365,7 +8261,6 @@ const deserializeAws_json1_1NoAvailableDeliveryChannelExceptionResponse = async 
   );
   const contents: NoAvailableDeliveryChannelException = {
     name: "NoAvailableDeliveryChannelException",
-    __type: "NoAvailableDeliveryChannelException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8384,7 +8279,6 @@ const deserializeAws_json1_1NoAvailableOrganizationExceptionResponse = async (
   );
   const contents: NoAvailableOrganizationException = {
     name: "NoAvailableOrganizationException",
-    __type: "NoAvailableOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8403,7 +8297,6 @@ const deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse = as
   );
   const contents: NoRunningConfigurationRecorderException = {
     name: "NoRunningConfigurationRecorderException",
-    __type: "NoRunningConfigurationRecorderException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8422,7 +8315,6 @@ const deserializeAws_json1_1NoSuchBucketExceptionResponse = async (
   );
   const contents: NoSuchBucketException = {
     name: "NoSuchBucketException",
-    __type: "NoSuchBucketException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8441,7 +8333,6 @@ const deserializeAws_json1_1NoSuchConfigRuleExceptionResponse = async (
   );
   const contents: NoSuchConfigRuleException = {
     name: "NoSuchConfigRuleException",
-    __type: "NoSuchConfigRuleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8460,7 +8351,6 @@ const deserializeAws_json1_1NoSuchConfigRuleInConformancePackExceptionResponse =
   );
   const contents: NoSuchConfigRuleInConformancePackException = {
     name: "NoSuchConfigRuleInConformancePackException",
-    __type: "NoSuchConfigRuleInConformancePackException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8479,7 +8369,6 @@ const deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse = asy
   );
   const contents: NoSuchConfigurationAggregatorException = {
     name: "NoSuchConfigurationAggregatorException",
-    __type: "NoSuchConfigurationAggregatorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8498,7 +8387,6 @@ const deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse = async
   );
   const contents: NoSuchConfigurationRecorderException = {
     name: "NoSuchConfigurationRecorderException",
-    __type: "NoSuchConfigurationRecorderException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8517,7 +8405,6 @@ const deserializeAws_json1_1NoSuchConformancePackExceptionResponse = async (
   );
   const contents: NoSuchConformancePackException = {
     name: "NoSuchConformancePackException",
-    __type: "NoSuchConformancePackException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8536,7 +8423,6 @@ const deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse = async (
   );
   const contents: NoSuchDeliveryChannelException = {
     name: "NoSuchDeliveryChannelException",
-    __type: "NoSuchDeliveryChannelException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8555,7 +8441,6 @@ const deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse = asyn
   );
   const contents: NoSuchOrganizationConfigRuleException = {
     name: "NoSuchOrganizationConfigRuleException",
-    __type: "NoSuchOrganizationConfigRuleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8574,7 +8459,6 @@ const deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse =
   );
   const contents: NoSuchOrganizationConformancePackException = {
     name: "NoSuchOrganizationConformancePackException",
-    __type: "NoSuchOrganizationConformancePackException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8593,7 +8477,6 @@ const deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse = as
   );
   const contents: NoSuchRemediationConfigurationException = {
     name: "NoSuchRemediationConfigurationException",
-    __type: "NoSuchRemediationConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8612,7 +8495,6 @@ const deserializeAws_json1_1NoSuchRemediationExceptionExceptionResponse = async 
   );
   const contents: NoSuchRemediationExceptionException = {
     name: "NoSuchRemediationExceptionException",
-    __type: "NoSuchRemediationExceptionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8631,7 +8513,6 @@ const deserializeAws_json1_1NoSuchRetentionConfigurationExceptionResponse = asyn
   );
   const contents: NoSuchRetentionConfigurationException = {
     name: "NoSuchRetentionConfigurationException",
-    __type: "NoSuchRetentionConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8650,7 +8531,6 @@ const deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse = async (
   );
   const contents: OrganizationAccessDeniedException = {
     name: "OrganizationAccessDeniedException",
-    __type: "OrganizationAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8669,7 +8549,6 @@ const deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse =
   );
   const contents: OrganizationAllFeaturesNotEnabledException = {
     name: "OrganizationAllFeaturesNotEnabledException",
-    __type: "OrganizationAllFeaturesNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8688,7 +8567,6 @@ const deserializeAws_json1_1OrganizationConformancePackTemplateValidationExcepti
   );
   const contents: OrganizationConformancePackTemplateValidationException = {
     name: "OrganizationConformancePackTemplateValidationException",
-    __type: "OrganizationConformancePackTemplateValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8707,7 +8585,6 @@ const deserializeAws_json1_1OversizedConfigurationItemExceptionResponse = async 
   );
   const contents: OversizedConfigurationItemException = {
     name: "OversizedConfigurationItemException",
-    __type: "OversizedConfigurationItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8726,7 +8603,6 @@ const deserializeAws_json1_1RemediationInProgressExceptionResponse = async (
   );
   const contents: RemediationInProgressException = {
     name: "RemediationInProgressException",
-    __type: "RemediationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8745,7 +8621,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8764,7 +8639,6 @@ const deserializeAws_json1_1ResourceNotDiscoveredExceptionResponse = async (
   );
   const contents: ResourceNotDiscoveredException = {
     name: "ResourceNotDiscoveredException",
-    __type: "ResourceNotDiscoveredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8783,7 +8657,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8802,7 +8675,6 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8821,7 +8693,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

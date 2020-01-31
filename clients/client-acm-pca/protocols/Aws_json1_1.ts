@@ -656,7 +656,6 @@ async function deserializeAws_json1_1CreateCertificateAuthorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -751,7 +750,6 @@ async function deserializeAws_json1_1CreateCertificateAuthorityAuditReportComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -835,7 +833,6 @@ async function deserializeAws_json1_1CreatePermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -908,7 +905,6 @@ async function deserializeAws_json1_1DeleteCertificateAuthorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -978,7 +974,6 @@ async function deserializeAws_json1_1DeletePermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1045,7 +1040,6 @@ async function deserializeAws_json1_1DescribeCertificateAuthorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1119,7 +1113,6 @@ async function deserializeAws_json1_1DescribeCertificateAuthorityAuditReportComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1201,7 +1194,6 @@ async function deserializeAws_json1_1GetCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1275,7 +1267,6 @@ async function deserializeAws_json1_1GetCertificateAuthorityCertificateCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1363,7 +1354,6 @@ async function deserializeAws_json1_1GetCertificateAuthorityCsrCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1471,7 +1461,6 @@ async function deserializeAws_json1_1ImportCertificateAuthorityCertificateComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1560,7 +1549,6 @@ async function deserializeAws_json1_1IssueCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1620,7 +1608,6 @@ async function deserializeAws_json1_1ListCertificateAuthoritiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1702,7 +1689,6 @@ async function deserializeAws_json1_1ListPermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1770,7 +1756,6 @@ async function deserializeAws_json1_1ListTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1836,7 +1821,6 @@ async function deserializeAws_json1_1RestoreCertificateAuthorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1941,7 +1925,6 @@ async function deserializeAws_json1_1RevokeCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2021,7 +2004,6 @@ async function deserializeAws_json1_1TagCertificateAuthorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2094,7 +2076,6 @@ async function deserializeAws_json1_1UntagCertificateAuthorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2181,7 +2162,6 @@ async function deserializeAws_json1_1UpdateCertificateAuthorityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.acmpca#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2200,7 +2180,6 @@ const deserializeAws_json1_1CertificateMismatchExceptionResponse = async (
   );
   const contents: CertificateMismatchException = {
     name: "CertificateMismatchException",
-    __type: "CertificateMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2219,7 +2198,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2238,7 +2216,6 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   );
   const contents: InvalidArgsException = {
     name: "InvalidArgsException",
-    __type: "InvalidArgsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2257,7 +2234,6 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   );
   const contents: InvalidArnException = {
     name: "InvalidArnException",
-    __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2276,7 +2252,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2295,7 +2270,6 @@ const deserializeAws_json1_1InvalidPolicyExceptionResponse = async (
   );
   const contents: InvalidPolicyException = {
     name: "InvalidPolicyException",
-    __type: "InvalidPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2314,7 +2288,6 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   );
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
-    __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2333,7 +2306,6 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
   );
   const contents: InvalidStateException = {
     name: "InvalidStateException",
-    __type: "InvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2352,7 +2324,6 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   );
   const contents: InvalidTagException = {
     name: "InvalidTagException",
-    __type: "InvalidTagException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2371,7 +2342,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2390,7 +2360,6 @@ const deserializeAws_json1_1MalformedCSRExceptionResponse = async (
   );
   const contents: MalformedCSRException = {
     name: "MalformedCSRException",
-    __type: "MalformedCSRException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2409,7 +2378,6 @@ const deserializeAws_json1_1MalformedCertificateExceptionResponse = async (
   );
   const contents: MalformedCertificateException = {
     name: "MalformedCertificateException",
-    __type: "MalformedCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2428,7 +2396,6 @@ const deserializeAws_json1_1PermissionAlreadyExistsExceptionResponse = async (
   );
   const contents: PermissionAlreadyExistsException = {
     name: "PermissionAlreadyExistsException",
-    __type: "PermissionAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2447,7 +2414,6 @@ const deserializeAws_json1_1RequestAlreadyProcessedExceptionResponse = async (
   );
   const contents: RequestAlreadyProcessedException = {
     name: "RequestAlreadyProcessedException",
-    __type: "RequestAlreadyProcessedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2466,7 +2432,6 @@ const deserializeAws_json1_1RequestFailedExceptionResponse = async (
   );
   const contents: RequestFailedException = {
     name: "RequestFailedException",
-    __type: "RequestFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2485,7 +2450,6 @@ const deserializeAws_json1_1RequestInProgressExceptionResponse = async (
   );
   const contents: RequestInProgressException = {
     name: "RequestInProgressException",
-    __type: "RequestInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2504,7 +2468,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2523,7 +2486,6 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

@@ -9,7 +9,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface CertificateConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CertificateConflictException";
   name: "CertificateConflictException";
   $fault: "client";
   /**
@@ -30,7 +29,6 @@ export namespace CertificateConflictException {
 export interface CertificateStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CertificateStateException";
   name: "CertificateStateException";
   $fault: "client";
   /**
@@ -51,7 +49,6 @@ export namespace CertificateStateException {
 export interface CertificateValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CertificateValidationException";
   name: "CertificateValidationException";
   $fault: "client";
   /**
@@ -90,7 +87,6 @@ export namespace Configuration {
 export interface ConflictingResourceUpdateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictingResourceUpdateException";
   name: "ConflictingResourceUpdateException";
   $fault: "client";
   /**
@@ -112,7 +108,6 @@ export namespace ConflictingResourceUpdateException {
 export interface DeleteConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DeleteConflictException";
   name: "DeleteConflictException";
   $fault: "client";
   /**
@@ -147,7 +142,6 @@ export enum EventType {
 export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalException";
   name: "InternalException";
   $fault: "server";
   /**
@@ -168,7 +162,6 @@ export namespace InternalException {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   /**
@@ -189,7 +182,6 @@ export namespace InternalFailureException {
 export interface InvalidAggregationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAggregationException";
   name: "InvalidAggregationException";
   $fault: "client";
   message?: string;
@@ -207,7 +199,6 @@ export namespace InvalidAggregationException {
 export interface InvalidQueryException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidQueryException";
   name: "InvalidQueryException";
   $fault: "client";
   /**
@@ -228,7 +219,6 @@ export namespace InvalidQueryException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -249,7 +239,6 @@ export namespace InvalidRequestException {
 export interface InvalidResponseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResponseException";
   name: "InvalidResponseException";
   $fault: "client";
   /**
@@ -272,7 +261,6 @@ export namespace InvalidResponseException {
 export interface InvalidStateTransitionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidStateTransitionException";
   name: "InvalidStateTransitionException";
   $fault: "client";
   /**
@@ -293,7 +281,6 @@ export namespace InvalidStateTransitionException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -322,7 +309,6 @@ export enum LogLevel {
 export interface MalformedPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MalformedPolicyException";
   name: "MalformedPolicyException";
   $fault: "client";
   /**
@@ -343,7 +329,6 @@ export namespace MalformedPolicyException {
 export interface NotConfiguredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotConfiguredException";
   name: "NotConfiguredException";
   $fault: "client";
   /**
@@ -369,7 +354,6 @@ export enum Protocol {
 export interface RegistrationCodeValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "RegistrationCodeValidationException";
   name: "RegistrationCodeValidationException";
   $fault: "client";
   /**
@@ -390,7 +374,6 @@ export namespace RegistrationCodeValidationException {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -421,7 +404,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -442,7 +424,6 @@ export namespace ResourceNotFoundException {
 export interface ResourceRegistrationFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceRegistrationFailureException";
   name: "ResourceRegistrationFailureException";
   $fault: "client";
   /**
@@ -463,7 +444,6 @@ export namespace ResourceRegistrationFailureException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -484,7 +464,6 @@ export namespace ServiceUnavailableException {
 export interface SqlParseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SqlParseException";
   name: "SqlParseException";
   $fault: "client";
   /**
@@ -527,7 +506,6 @@ export namespace Tag {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -549,7 +527,6 @@ export namespace ThrottlingException {
 export interface TransferAlreadyCompletedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TransferAlreadyCompletedException";
   name: "TransferAlreadyCompletedException";
   $fault: "client";
   /**
@@ -571,7 +548,6 @@ export namespace TransferAlreadyCompletedException {
 export interface TransferConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TransferConflictException";
   name: "TransferConflictException";
   $fault: "client";
   /**
@@ -592,7 +568,6 @@ export namespace TransferConflictException {
 export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnauthorizedException";
   name: "UnauthorizedException";
   $fault: "client";
   /**
@@ -615,7 +590,6 @@ export namespace UnauthorizedException {
 export interface VersionConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "VersionConflictException";
   name: "VersionConflictException";
   $fault: "client";
   /**
@@ -636,7 +610,6 @@ export namespace VersionConflictException {
 export interface VersionsLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "VersionsLimitExceededException";
   name: "VersionsLimitExceededException";
   $fault: "client";
   /**
@@ -6756,7 +6729,6 @@ export namespace GetStatisticsResponse {
 export interface IndexNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IndexNotReadyException";
   name: "IndexNotReadyException";
   $fault: "client";
   /**
@@ -13914,7 +13886,6 @@ export namespace ScheduledAuditMetadata {
 export interface TaskAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TaskAlreadyExistsException";
   name: "TaskAlreadyExistsException";
   $fault: "client";
   message?: string;

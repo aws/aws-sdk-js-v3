@@ -825,7 +825,6 @@ export namespace InputDataConfig {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -844,7 +843,6 @@ export namespace InternalServerException {
 export interface InvalidEncodingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidEncodingException";
   name: "InvalidEncodingException";
   $fault: "client";
   Message?: string;
@@ -863,7 +861,6 @@ export namespace InvalidEncodingException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -1014,7 +1011,6 @@ export namespace OutputDataConfig {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1244,7 +1240,6 @@ export enum RxNormTraitName {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1443,7 +1438,6 @@ export namespace StopPHIDetectionJobResponse {
 export interface TextSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TextSizeLimitExceededException";
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1463,7 +1457,6 @@ export namespace TextSizeLimitExceededException {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1528,7 +1521,6 @@ export namespace UnmappedAttribute {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   Message?: string;

@@ -108,7 +108,6 @@ export namespace ArrayValue {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -682,7 +681,6 @@ export namespace Field {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -703,7 +701,6 @@ export namespace ForbiddenException {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
 }
@@ -720,7 +717,6 @@ export namespace InternalServerErrorException {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -849,7 +845,6 @@ export namespace RollbackTransactionResponse {
 export interface ServiceUnavailableError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableError";
   name: "ServiceUnavailableError";
   $fault: "server";
 }
@@ -910,7 +905,6 @@ export namespace SqlStatementResult {
 export interface StatementTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "StatementTimeoutException";
   name: "StatementTimeoutException";
   $fault: "client";
   /**

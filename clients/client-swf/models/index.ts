@@ -1761,7 +1761,6 @@ export type DecisionType =
 export interface DefaultUndefinedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DefaultUndefinedFault";
   name: "DefaultUndefinedFault";
   $fault: "client";
   message?: string;
@@ -1779,7 +1778,6 @@ export namespace DefaultUndefinedFault {
 export interface DomainAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DomainAlreadyExistsFault";
   name: "DomainAlreadyExistsFault";
   $fault: "client";
   /**
@@ -1817,7 +1815,6 @@ export namespace DomainConfiguration {
 export interface DomainDeprecatedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DomainDeprecatedFault";
   name: "DomainDeprecatedFault";
   $fault: "client";
   /**
@@ -2902,7 +2899,6 @@ export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
 export interface LimitExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededFault";
   name: "LimitExceededFault";
   $fault: "client";
   /**
@@ -2952,7 +2948,6 @@ export namespace MarkerRecordedEventAttributes {
 export interface OperationNotPermittedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationNotPermittedFault";
   name: "OperationNotPermittedFault";
   $fault: "client";
   /**
@@ -4378,7 +4373,6 @@ export namespace TimerStartedEventAttributes {
 export interface TooManyTagsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsFault";
   name: "TooManyTagsFault";
   $fault: "client";
   message?: string;
@@ -4396,7 +4390,6 @@ export namespace TooManyTagsFault {
 export interface TypeAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TypeAlreadyExistsFault";
   name: "TypeAlreadyExistsFault";
   $fault: "client";
   /**
@@ -4417,7 +4410,6 @@ export namespace TypeAlreadyExistsFault {
 export interface TypeDeprecatedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TypeDeprecatedFault";
   name: "TypeDeprecatedFault";
   $fault: "client";
   /**
@@ -4438,7 +4430,6 @@ export namespace TypeDeprecatedFault {
 export interface UnknownResourceFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnknownResourceFault";
   name: "UnknownResourceFault";
   $fault: "client";
   /**
@@ -4482,7 +4473,6 @@ export namespace WorkflowExecution {
 export interface WorkflowExecutionAlreadyStartedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "WorkflowExecutionAlreadyStartedFault";
   name: "WorkflowExecutionAlreadyStartedFault";
   $fault: "client";
   /**

@@ -551,7 +551,6 @@ async function deserializeAws_json1_1CreateAcceleratorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -650,7 +649,6 @@ async function deserializeAws_json1_1CreateEndpointGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -732,7 +730,6 @@ async function deserializeAws_json1_1CreateListenerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -809,7 +806,6 @@ async function deserializeAws_json1_1DeleteAcceleratorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -875,7 +871,6 @@ async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -945,7 +940,6 @@ async function deserializeAws_json1_1DeleteListenerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1016,7 +1010,6 @@ async function deserializeAws_json1_1DescribeAcceleratorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1090,7 +1083,6 @@ async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1161,7 +1153,6 @@ async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1229,7 +1220,6 @@ async function deserializeAws_json1_1DescribeListenerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1297,7 +1287,6 @@ async function deserializeAws_json1_1ListAcceleratorsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1375,7 +1364,6 @@ async function deserializeAws_json1_1ListEndpointGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1450,7 +1438,6 @@ async function deserializeAws_json1_1ListListenersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1518,7 +1505,6 @@ async function deserializeAws_json1_1UpdateAcceleratorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1599,7 +1585,6 @@ async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1684,7 +1669,6 @@ async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1766,7 +1750,6 @@ async function deserializeAws_json1_1UpdateListenerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1785,7 +1768,6 @@ const deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse = async (
   );
   const contents: AcceleratorNotDisabledException = {
     name: "AcceleratorNotDisabledException",
-    __type: "AcceleratorNotDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1804,7 +1786,6 @@ const deserializeAws_json1_1AcceleratorNotFoundExceptionResponse = async (
   );
   const contents: AcceleratorNotFoundException = {
     name: "AcceleratorNotFoundException",
-    __type: "AcceleratorNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1823,7 +1804,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1842,7 +1822,6 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse = asyn
   );
   const contents: AssociatedEndpointGroupFoundException = {
     name: "AssociatedEndpointGroupFoundException",
-    __type: "AssociatedEndpointGroupFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1861,7 +1840,6 @@ const deserializeAws_json1_1AssociatedListenerFoundExceptionResponse = async (
   );
   const contents: AssociatedListenerFoundException = {
     name: "AssociatedListenerFoundException",
-    __type: "AssociatedListenerFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1880,7 +1858,6 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse = async 
   );
   const contents: EndpointGroupAlreadyExistsException = {
     name: "EndpointGroupAlreadyExistsException",
-    __type: "EndpointGroupAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1899,7 +1876,6 @@ const deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse = async (
   );
   const contents: EndpointGroupNotFoundException = {
     name: "EndpointGroupNotFoundException",
-    __type: "EndpointGroupNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1918,7 +1894,6 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   );
   const contents: InternalServiceErrorException = {
     name: "InternalServiceErrorException",
-    __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1937,7 +1912,6 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   );
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
-    __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1956,7 +1930,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1975,7 +1948,6 @@ const deserializeAws_json1_1InvalidPortRangeExceptionResponse = async (
   );
   const contents: InvalidPortRangeException = {
     name: "InvalidPortRangeException",
-    __type: "InvalidPortRangeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1994,7 +1966,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2013,7 +1984,6 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
   );
   const contents: ListenerNotFoundException = {
     name: "ListenerNotFoundException",
-    __type: "ListenerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

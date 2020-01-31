@@ -372,7 +372,6 @@ async function deserializeAws_json1_1DeleteScalingPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -450,7 +449,6 @@ async function deserializeAws_json1_1DeleteScheduledActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -531,7 +529,6 @@ async function deserializeAws_json1_1DeregisterScalableTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -612,7 +609,6 @@ async function deserializeAws_json1_1DescribeScalableTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -693,7 +689,6 @@ async function deserializeAws_json1_1DescribeScalingActivitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -781,7 +776,6 @@ async function deserializeAws_json1_1DescribeScalingPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -862,7 +856,6 @@ async function deserializeAws_json1_1DescribeScheduledActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -951,7 +944,6 @@ async function deserializeAws_json1_1PutScalingPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1036,7 +1028,6 @@ async function deserializeAws_json1_1PutScheduledActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1117,7 +1108,6 @@ async function deserializeAws_json1_1RegisterScalableTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1136,7 +1126,6 @@ const deserializeAws_json1_1ConcurrentUpdateExceptionResponse = async (
   );
   const contents: ConcurrentUpdateException = {
     name: "ConcurrentUpdateException",
-    __type: "ConcurrentUpdateException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1155,7 +1144,6 @@ const deserializeAws_json1_1FailedResourceAccessExceptionResponse = async (
   );
   const contents: FailedResourceAccessException = {
     name: "FailedResourceAccessException",
-    __type: "FailedResourceAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1174,7 +1162,6 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   );
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1193,7 +1180,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1212,7 +1198,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1231,7 +1216,6 @@ const deserializeAws_json1_1ObjectNotFoundExceptionResponse = async (
   );
   const contents: ObjectNotFoundException = {
     name: "ObjectNotFoundException",
-    __type: "ObjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1250,7 +1234,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

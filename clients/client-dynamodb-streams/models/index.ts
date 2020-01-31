@@ -54,7 +54,6 @@ export namespace DescribeStreamOutput {
 export interface ExpiredIteratorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ExpiredIteratorException";
   name: "ExpiredIteratorException";
   $fault: "client";
   /**
@@ -637,7 +636,6 @@ export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
 export interface TrimmedDataAccessException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TrimmedDataAccessException";
   name: "TrimmedDataAccessException";
   $fault: "client";
   /**
@@ -721,7 +719,6 @@ export namespace AttributeValue {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -782,7 +779,6 @@ export type KeyType = "HASH" | "RANGE";
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -803,7 +799,6 @@ export namespace LimitExceededException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**

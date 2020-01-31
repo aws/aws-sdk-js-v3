@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -27,7 +26,6 @@ export namespace ServiceUnavailableException {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   Message: string | undefined;
@@ -718,7 +716,6 @@ export namespace ImportSshPublicKeyResponse {
 export interface InternalServiceError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceError";
   name: "InternalServiceError";
   $fault: "server";
   Message: string | undefined;
@@ -736,7 +733,6 @@ export namespace InternalServiceError {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message: string | undefined;
@@ -754,7 +750,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Message: string | undefined;
@@ -1049,7 +1044,6 @@ export namespace ListedUser {
 export interface ResourceExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceExistsException";
   name: "ResourceExistsException";
   $fault: "client";
   Message: string | undefined;
@@ -1070,7 +1064,6 @@ export namespace ResourceExistsException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
@@ -1262,7 +1255,6 @@ export namespace TestIdentityProviderResponse {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   RetryAfterSeconds?: string;

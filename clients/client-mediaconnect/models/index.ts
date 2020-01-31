@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AddFlowOutputs420Exception
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AddFlowOutputs420Exception";
   name: "AddFlowOutputs420Exception";
   $fault: "client";
   /**
@@ -142,7 +141,6 @@ export enum Algorithm {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -163,7 +161,6 @@ export namespace BadRequestException {
 export interface CreateFlow420Exception
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CreateFlow420Exception";
   name: "CreateFlow420Exception";
   $fault: "client";
   /**
@@ -457,7 +454,6 @@ export namespace Flow {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -515,7 +511,6 @@ export namespace GrantEntitlementRequest {
 export interface GrantFlowEntitlements420Exception
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GrantFlowEntitlements420Exception";
   name: "GrantFlowEntitlements420Exception";
   $fault: "client";
   /**
@@ -577,7 +572,6 @@ export namespace GrantFlowEntitlementsResponse {
 export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerErrorException";
   name: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -793,7 +787,6 @@ export namespace Messages {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -960,7 +953,6 @@ export namespace RevokeFlowEntitlementResponse {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1208,7 +1200,6 @@ export namespace TagResourceRequest {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   /**

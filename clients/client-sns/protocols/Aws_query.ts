@@ -1082,7 +1082,6 @@ async function deserializeAws_queryAddPermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1161,7 +1160,6 @@ async function deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1251,7 +1249,6 @@ async function deserializeAws_queryConfirmSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1323,7 +1320,6 @@ async function deserializeAws_queryCreatePlatformApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1402,7 +1398,6 @@ async function deserializeAws_queryCreatePlatformEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1513,7 +1508,6 @@ async function deserializeAws_queryCreateTopicCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1574,7 +1568,6 @@ async function deserializeAws_queryDeleteEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1638,7 +1631,6 @@ async function deserializeAws_queryDeletePlatformApplicationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1727,7 +1719,6 @@ async function deserializeAws_queryDeleteTopicCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1806,7 +1797,6 @@ async function deserializeAws_queryGetEndpointAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1885,7 +1875,6 @@ async function deserializeAws_queryGetPlatformApplicationAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1961,7 +1950,6 @@ async function deserializeAws_queryGetSMSAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2040,7 +2028,6 @@ async function deserializeAws_queryGetSubscriptionAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2123,7 +2110,6 @@ async function deserializeAws_queryGetTopicAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2202,7 +2188,6 @@ async function deserializeAws_queryListEndpointsByPlatformApplicationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2281,7 +2266,6 @@ async function deserializeAws_queryListPhoneNumbersOptedOutCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2353,7 +2337,6 @@ async function deserializeAws_queryListPlatformApplicationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2422,7 +2405,6 @@ async function deserializeAws_queryListSubscriptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2501,7 +2483,6 @@ async function deserializeAws_queryListSubscriptionsByTopicCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2584,7 +2565,6 @@ async function deserializeAws_queryListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2653,7 +2633,6 @@ async function deserializeAws_queryListTopicsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2729,7 +2708,6 @@ async function deserializeAws_queryOptInPhoneNumberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2872,7 +2850,6 @@ async function deserializeAws_queryPublishCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2940,7 +2917,6 @@ async function deserializeAws_queryRemovePermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3011,7 +2987,6 @@ async function deserializeAws_querySetEndpointAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3082,7 +3057,6 @@ async function deserializeAws_querySetPlatformApplicationAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3158,7 +3132,6 @@ async function deserializeAws_querySetSMSAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3236,7 +3209,6 @@ async function deserializeAws_querySetSubscriptionAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3311,7 +3283,6 @@ async function deserializeAws_querySetTopicAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3408,7 +3379,6 @@ async function deserializeAws_querySubscribeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3505,7 +3475,6 @@ async function deserializeAws_queryTagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3580,7 +3549,6 @@ async function deserializeAws_queryUnsubscribeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3677,7 +3645,6 @@ async function deserializeAws_queryUntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.cloudcast.onlines#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3696,7 +3663,6 @@ const deserializeAws_queryAuthorizationErrorExceptionResponse = async (
   );
   const contents: AuthorizationErrorException = {
     name: "AuthorizationErrorException",
-    __type: "AuthorizationErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3715,7 +3681,6 @@ const deserializeAws_queryConcurrentAccessExceptionResponse = async (
   );
   const contents: ConcurrentAccessException = {
     name: "ConcurrentAccessException",
-    __type: "ConcurrentAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3734,7 +3699,6 @@ const deserializeAws_queryEndpointDisabledExceptionResponse = async (
   );
   const contents: EndpointDisabledException = {
     name: "EndpointDisabledException",
-    __type: "EndpointDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3753,7 +3717,6 @@ const deserializeAws_queryFilterPolicyLimitExceededExceptionResponse = async (
   );
   const contents: FilterPolicyLimitExceededException = {
     name: "FilterPolicyLimitExceededException",
-    __type: "FilterPolicyLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3772,7 +3735,6 @@ const deserializeAws_queryInternalErrorExceptionResponse = async (
   );
   const contents: InternalErrorException = {
     name: "InternalErrorException",
-    __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3791,7 +3753,6 @@ const deserializeAws_queryInvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3810,7 +3771,6 @@ const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3829,7 +3789,6 @@ const deserializeAws_queryInvalidSecurityExceptionResponse = async (
   );
   const contents: InvalidSecurityException = {
     name: "InvalidSecurityException",
-    __type: "InvalidSecurityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3848,7 +3807,6 @@ const deserializeAws_queryKMSAccessDeniedExceptionResponse = async (
   );
   const contents: KMSAccessDeniedException = {
     name: "KMSAccessDeniedException",
-    __type: "KMSAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3867,7 +3825,6 @@ const deserializeAws_queryKMSDisabledExceptionResponse = async (
   );
   const contents: KMSDisabledException = {
     name: "KMSDisabledException",
-    __type: "KMSDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3886,7 +3843,6 @@ const deserializeAws_queryKMSInvalidStateExceptionResponse = async (
   );
   const contents: KMSInvalidStateException = {
     name: "KMSInvalidStateException",
-    __type: "KMSInvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3905,7 +3861,6 @@ const deserializeAws_queryKMSNotFoundExceptionResponse = async (
   );
   const contents: KMSNotFoundException = {
     name: "KMSNotFoundException",
-    __type: "KMSNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3921,7 +3876,6 @@ const deserializeAws_queryKMSOptInRequiredResponse = async (
   const deserialized: any = deserializeAws_queryKMSOptInRequired(body, context);
   const contents: KMSOptInRequired = {
     name: "KMSOptInRequired",
-    __type: "KMSOptInRequired",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3940,7 +3894,6 @@ const deserializeAws_queryKMSThrottlingExceptionResponse = async (
   );
   const contents: KMSThrottlingException = {
     name: "KMSThrottlingException",
-    __type: "KMSThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3959,7 +3912,6 @@ const deserializeAws_queryNotFoundExceptionResponse = async (
   );
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3978,7 +3930,6 @@ const deserializeAws_queryPlatformApplicationDisabledExceptionResponse = async (
   );
   const contents: PlatformApplicationDisabledException = {
     name: "PlatformApplicationDisabledException",
-    __type: "PlatformApplicationDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3997,7 +3948,6 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4016,7 +3966,6 @@ const deserializeAws_queryStaleTagExceptionResponse = async (
   );
   const contents: StaleTagException = {
     name: "StaleTagException",
-    __type: "StaleTagException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4035,7 +3984,6 @@ const deserializeAws_querySubscriptionLimitExceededExceptionResponse = async (
   );
   const contents: SubscriptionLimitExceededException = {
     name: "SubscriptionLimitExceededException",
-    __type: "SubscriptionLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4054,7 +4002,6 @@ const deserializeAws_queryTagLimitExceededExceptionResponse = async (
   );
   const contents: TagLimitExceededException = {
     name: "TagLimitExceededException",
-    __type: "TagLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4073,7 +4020,6 @@ const deserializeAws_queryTagPolicyExceptionResponse = async (
   );
   const contents: TagPolicyException = {
     name: "TagPolicyException",
-    __type: "TagPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4092,7 +4038,6 @@ const deserializeAws_queryThrottledExceptionResponse = async (
   );
   const contents: ThrottledException = {
     name: "ThrottledException",
-    __type: "ThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4111,7 +4056,6 @@ const deserializeAws_queryTopicLimitExceededExceptionResponse = async (
   );
   const contents: TopicLimitExceededException = {
     name: "TopicLimitExceededException",
-    __type: "TopicLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

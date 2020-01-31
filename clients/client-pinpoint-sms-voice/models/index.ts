@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AlreadyExistsException";
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -25,7 +24,6 @@ export namespace AlreadyExistsException {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -346,7 +344,6 @@ export namespace GetConfigurationSetEventDestinationsResponse {
 export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceErrorException";
   name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
@@ -386,7 +383,6 @@ export namespace KinesisFirehoseDestination {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -445,7 +441,6 @@ export namespace ListConfigurationSetsResponse {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -588,7 +583,6 @@ export namespace SnsDestination {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;

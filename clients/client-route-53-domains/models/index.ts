@@ -604,7 +604,6 @@ export type DomainAvailability =
 export interface DomainLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DomainLimitExceeded";
   name: "DomainLimitExceeded";
   $fault: "client";
   /**
@@ -760,7 +759,6 @@ export namespace DomainTransferability {
 export interface DuplicateRequest
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateRequest";
   name: "DuplicateRequest";
   $fault: "client";
   /**
@@ -1268,7 +1266,6 @@ export namespace GetOperationDetailResponse {
  * 			that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>
  */
 export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
-  __type: "InvalidInput";
   name: "InvalidInput";
   $fault: "client";
   /**
@@ -1454,7 +1451,6 @@ export namespace Nameserver {
 export interface OperationLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationLimitExceeded";
   name: "OperationLimitExceeded";
   $fault: "client";
   /**
@@ -1765,7 +1761,6 @@ export namespace RetrieveDomainAuthCodeResponse {
 export interface TLDRulesViolation
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TLDRulesViolation";
   name: "TLDRulesViolation";
   $fault: "client";
   /**
@@ -1929,7 +1924,6 @@ export enum Transferable {
 export interface UnsupportedTLD
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedTLD";
   name: "UnsupportedTLD";
   $fault: "client";
   /**

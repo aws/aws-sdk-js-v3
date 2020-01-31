@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
 }
@@ -462,7 +461,6 @@ export namespace GetProposalOutput {
 export interface IllegalActionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "IllegalActionException";
   name: "IllegalActionException";
   $fault: "client";
   Message?: string;
@@ -480,7 +478,6 @@ export namespace IllegalActionException {
 export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceErrorException";
   name: "InternalServiceErrorException";
   $fault: "server";
 }
@@ -497,7 +494,6 @@ export namespace InternalServiceErrorException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -1777,7 +1773,6 @@ export namespace RemoveAction {
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -1795,7 +1790,6 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceLimitExceededException";
   name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1813,7 +1807,6 @@ export namespace ResourceLimitExceededException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1831,7 +1824,6 @@ export namespace ResourceNotFoundException {
 export interface ResourceNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotReadyException";
   name: "ResourceNotReadyException";
   $fault: "client";
   Message?: string;
@@ -1854,7 +1846,6 @@ export enum ThresholdComparator {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
 }

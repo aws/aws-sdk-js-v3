@@ -92,7 +92,6 @@ export namespace ApplicationInfo {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -694,7 +693,6 @@ export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -1253,7 +1251,6 @@ export namespace RelatedObservations {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -1271,7 +1268,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1374,7 +1370,6 @@ export namespace TagResourceResponse {
 export interface TagsAlreadyExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagsAlreadyExistException";
   name: "TagsAlreadyExistException";
   $fault: "client";
   Message?: string;
@@ -1400,7 +1395,6 @@ export type Tier =
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
@@ -1643,7 +1637,6 @@ export namespace UpdateLogPatternResponse {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   Message?: string;

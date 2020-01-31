@@ -739,7 +739,6 @@ export namespace DescribeUserResponse {
 export interface DirectoryServiceAuthenticationFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DirectoryServiceAuthenticationFailedException";
   name: "DirectoryServiceAuthenticationFailedException";
   $fault: "client";
   Message?: string;
@@ -760,7 +759,6 @@ export namespace DirectoryServiceAuthenticationFailedException {
 export interface DirectoryUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DirectoryUnavailableException";
   name: "DirectoryUnavailableException";
   $fault: "client";
   Message?: string;
@@ -848,7 +846,6 @@ export namespace DisassociateMemberFromGroupResponse {
 export interface EmailAddressInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EmailAddressInUseException";
   name: "EmailAddressInUseException";
   $fault: "client";
   Message?: string;
@@ -866,7 +863,6 @@ export namespace EmailAddressInUseException {
 export interface EntityAlreadyRegisteredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EntityAlreadyRegisteredException";
   name: "EntityAlreadyRegisteredException";
   $fault: "client";
   Message?: string;
@@ -885,7 +881,6 @@ export namespace EntityAlreadyRegisteredException {
 export interface EntityNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EntityNotFoundException";
   name: "EntityNotFoundException";
   $fault: "client";
   Message?: string;
@@ -910,7 +905,6 @@ export enum EntityState {
 export interface EntityStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EntityStateException";
   name: "EntityStateException";
   $fault: "client";
   Message?: string;
@@ -1011,7 +1005,6 @@ export namespace Group {
 export interface InvalidConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidConfigurationException";
   name: "InvalidConfigurationException";
   $fault: "client";
   Message?: string;
@@ -1029,7 +1022,6 @@ export namespace InvalidConfigurationException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -1048,7 +1040,6 @@ export namespace InvalidParameterException {
 export interface InvalidPasswordException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPasswordException";
   name: "InvalidPasswordException";
   $fault: "client";
   Message?: string;
@@ -1442,7 +1433,6 @@ export namespace ListUsersResponse {
 export interface MailDomainNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MailDomainNotFoundException";
   name: "MailDomainNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1461,7 +1451,6 @@ export namespace MailDomainNotFoundException {
 export interface MailDomainStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MailDomainStateException";
   name: "MailDomainStateException";
   $fault: "client";
   Message?: string;
@@ -1528,7 +1517,6 @@ export enum MemberType {
 export interface NameAvailabilityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NameAvailabilityException";
   name: "NameAvailabilityException";
   $fault: "client";
   Message?: string;
@@ -1547,7 +1535,6 @@ export namespace NameAvailabilityException {
 export interface OrganizationNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OrganizationNotFoundException";
   name: "OrganizationNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1566,7 +1553,6 @@ export namespace OrganizationNotFoundException {
 export interface OrganizationStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OrganizationStateException";
   name: "OrganizationStateException";
   $fault: "client";
   Message?: string;
@@ -1730,7 +1716,6 @@ export namespace RegisterToWorkMailResponse {
 export interface ReservedNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReservedNameException";
   name: "ReservedNameException";
   $fault: "client";
   Message?: string;
@@ -1836,7 +1821,6 @@ export enum ResourceType {
 export interface UnsupportedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedOperationException";
   name: "UnsupportedOperationException";
   $fault: "client";
   Message?: string;

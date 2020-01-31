@@ -313,7 +313,6 @@ async function deserializeAws_json1_1AnalyzeDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -426,7 +425,6 @@ async function deserializeAws_json1_1DetectDocumentTextCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -518,7 +516,6 @@ async function deserializeAws_json1_1GetDocumentAnalysisCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -613,7 +610,6 @@ async function deserializeAws_json1_1GetDocumentTextDetectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -740,7 +736,6 @@ async function deserializeAws_json1_1StartDocumentAnalysisCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -870,7 +865,6 @@ async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -889,7 +883,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -908,7 +901,6 @@ const deserializeAws_json1_1BadDocumentExceptionResponse = async (
   );
   const contents: BadDocumentException = {
     name: "BadDocumentException",
-    __type: "BadDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -927,7 +919,6 @@ const deserializeAws_json1_1DocumentTooLargeExceptionResponse = async (
   );
   const contents: DocumentTooLargeException = {
     name: "DocumentTooLargeException",
-    __type: "DocumentTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -946,7 +937,6 @@ const deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse = async (
   );
   const contents: HumanLoopQuotaExceededException = {
     name: "HumanLoopQuotaExceededException",
-    __type: "HumanLoopQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -965,7 +955,6 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   );
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
-    __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -984,7 +973,6 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1003,7 +991,6 @@ const deserializeAws_json1_1InvalidJobIdExceptionResponse = async (
   );
   const contents: InvalidJobIdException = {
     name: "InvalidJobIdException",
-    __type: "InvalidJobIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1022,7 +1009,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1041,7 +1027,6 @@ const deserializeAws_json1_1InvalidS3ObjectExceptionResponse = async (
   );
   const contents: InvalidS3ObjectException = {
     name: "InvalidS3ObjectException",
-    __type: "InvalidS3ObjectException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1060,7 +1045,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1079,7 +1063,6 @@ const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = asy
   );
   const contents: ProvisionedThroughputExceededException = {
     name: "ProvisionedThroughputExceededException",
-    __type: "ProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1098,7 +1081,6 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   );
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1117,7 +1099,6 @@ const deserializeAws_json1_1UnsupportedDocumentExceptionResponse = async (
   );
   const contents: UnsupportedDocumentException = {
     name: "UnsupportedDocumentException",
-    __type: "UnsupportedDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

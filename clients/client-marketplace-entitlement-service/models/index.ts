@@ -163,7 +163,6 @@ export namespace GetEntitlementsResult {
 export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServiceErrorException";
   name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
@@ -181,7 +180,6 @@ export namespace InternalServiceErrorException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -199,7 +197,6 @@ export namespace InvalidParameterException {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   message?: string;

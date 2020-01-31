@@ -607,7 +607,6 @@ async function deserializeAws_json1_1CancelClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -675,7 +674,6 @@ async function deserializeAws_json1_1CancelJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -736,7 +734,6 @@ async function deserializeAws_json1_1CreateAddressCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -811,7 +808,6 @@ async function deserializeAws_json1_1CreateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -893,7 +889,6 @@ async function deserializeAws_json1_1CreateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -947,7 +942,6 @@ async function deserializeAws_json1_1DescribeAddressCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1008,7 +1002,6 @@ async function deserializeAws_json1_1DescribeAddressesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1062,7 +1055,6 @@ async function deserializeAws_json1_1DescribeClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1116,7 +1108,6 @@ async function deserializeAws_json1_1DescribeJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1177,7 +1168,6 @@ async function deserializeAws_json1_1GetJobManifestCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1238,7 +1228,6 @@ async function deserializeAws_json1_1GetJobUnlockCodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1285,7 +1274,6 @@ async function deserializeAws_json1_1GetSnowballUsageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1349,7 +1337,6 @@ async function deserializeAws_json1_1GetSoftwareUpdatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1410,7 +1397,6 @@ async function deserializeAws_json1_1ListClusterJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1464,7 +1450,6 @@ async function deserializeAws_json1_1ListClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1528,7 +1513,6 @@ async function deserializeAws_json1_1ListCompatibleImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1582,7 +1566,6 @@ async function deserializeAws_json1_1ListJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1664,7 +1647,6 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1753,7 +1735,6 @@ async function deserializeAws_json1_1UpdateJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1772,7 +1753,6 @@ const deserializeAws_json1_1ClusterLimitExceededExceptionResponse = async (
   );
   const contents: ClusterLimitExceededException = {
     name: "ClusterLimitExceededException",
-    __type: "ClusterLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1791,7 +1771,6 @@ const deserializeAws_json1_1Ec2RequestFailedExceptionResponse = async (
   );
   const contents: Ec2RequestFailedException = {
     name: "Ec2RequestFailedException",
-    __type: "Ec2RequestFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1810,7 +1789,6 @@ const deserializeAws_json1_1InvalidAddressExceptionResponse = async (
   );
   const contents: InvalidAddressException = {
     name: "InvalidAddressException",
-    __type: "InvalidAddressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1829,7 +1807,6 @@ const deserializeAws_json1_1InvalidInputCombinationExceptionResponse = async (
   );
   const contents: InvalidInputCombinationException = {
     name: "InvalidInputCombinationException",
-    __type: "InvalidInputCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1848,7 +1825,6 @@ const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
   );
   const contents: InvalidJobStateException = {
     name: "InvalidJobStateException",
-    __type: "InvalidJobStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1867,7 +1843,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1886,7 +1861,6 @@ const deserializeAws_json1_1InvalidResourceExceptionResponse = async (
   );
   const contents: InvalidResourceException = {
     name: "InvalidResourceException",
-    __type: "InvalidResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1905,7 +1879,6 @@ const deserializeAws_json1_1KMSRequestFailedExceptionResponse = async (
   );
   const contents: KMSRequestFailedException = {
     name: "KMSRequestFailedException",
-    __type: "KMSRequestFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1924,7 +1897,6 @@ const deserializeAws_json1_1UnsupportedAddressExceptionResponse = async (
   );
   const contents: UnsupportedAddressException = {
     name: "UnsupportedAddressException",
-    __type: "UnsupportedAddressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

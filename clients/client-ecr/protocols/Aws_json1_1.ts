@@ -926,7 +926,6 @@ async function deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -994,7 +993,6 @@ async function deserializeAws_json1_1BatchDeleteImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1062,7 +1060,6 @@ async function deserializeAws_json1_1BatchGetImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1168,7 +1165,6 @@ async function deserializeAws_json1_1CompleteLayerUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1257,7 +1253,6 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1335,7 +1330,6 @@ async function deserializeAws_json1_1DeleteLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1410,7 +1404,6 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1491,7 +1484,6 @@ async function deserializeAws_json1_1DeleteRepositoryPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1579,7 +1571,6 @@ async function deserializeAws_json1_1DescribeImageScanFindingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1654,7 +1645,6 @@ async function deserializeAws_json1_1DescribeImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1725,7 +1715,6 @@ async function deserializeAws_json1_1DescribeRepositoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1789,7 +1778,6 @@ async function deserializeAws_json1_1GetAuthorizationTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1877,7 +1865,6 @@ async function deserializeAws_json1_1GetDownloadUrlForLayerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1955,7 +1942,6 @@ async function deserializeAws_json1_1GetLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2036,7 +2022,6 @@ async function deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2114,7 +2099,6 @@ async function deserializeAws_json1_1GetRepositoryPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2185,7 +2169,6 @@ async function deserializeAws_json1_1InitiateLayerUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2253,7 +2236,6 @@ async function deserializeAws_json1_1ListImagesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2324,7 +2306,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2420,7 +2401,6 @@ async function deserializeAws_json1_1PutImageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2494,7 +2474,6 @@ async function deserializeAws_json1_1PutImageScanningConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2565,7 +2544,6 @@ async function deserializeAws_json1_1PutImageTagMutabilityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2636,7 +2614,6 @@ async function deserializeAws_json1_1PutLifecyclePolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2707,7 +2684,6 @@ async function deserializeAws_json1_1SetRepositoryPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2782,7 +2758,6 @@ async function deserializeAws_json1_1StartImageScanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2870,7 +2845,6 @@ async function deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2952,7 +2926,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3034,7 +3007,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3123,7 +3095,6 @@ async function deserializeAws_json1_1UploadLayerPartCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3142,7 +3113,6 @@ const deserializeAws_json1_1EmptyUploadExceptionResponse = async (
   );
   const contents: EmptyUploadException = {
     name: "EmptyUploadException",
-    __type: "EmptyUploadException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3161,7 +3131,6 @@ const deserializeAws_json1_1ImageAlreadyExistsExceptionResponse = async (
   );
   const contents: ImageAlreadyExistsException = {
     name: "ImageAlreadyExistsException",
-    __type: "ImageAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3180,7 +3149,6 @@ const deserializeAws_json1_1ImageNotFoundExceptionResponse = async (
   );
   const contents: ImageNotFoundException = {
     name: "ImageNotFoundException",
-    __type: "ImageNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3199,7 +3167,6 @@ const deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse = async (
   );
   const contents: ImageTagAlreadyExistsException = {
     name: "ImageTagAlreadyExistsException",
-    __type: "ImageTagAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3218,7 +3185,6 @@ const deserializeAws_json1_1InvalidLayerExceptionResponse = async (
   );
   const contents: InvalidLayerException = {
     name: "InvalidLayerException",
-    __type: "InvalidLayerException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3237,7 +3203,6 @@ const deserializeAws_json1_1InvalidLayerPartExceptionResponse = async (
   );
   const contents: InvalidLayerPartException = {
     name: "InvalidLayerPartException",
-    __type: "InvalidLayerPartException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3256,7 +3221,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3275,7 +3239,6 @@ const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
   );
   const contents: InvalidTagParameterException = {
     name: "InvalidTagParameterException",
-    __type: "InvalidTagParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3294,7 +3257,6 @@ const deserializeAws_json1_1LayerAlreadyExistsExceptionResponse = async (
   );
   const contents: LayerAlreadyExistsException = {
     name: "LayerAlreadyExistsException",
-    __type: "LayerAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3313,7 +3275,6 @@ const deserializeAws_json1_1LayerInaccessibleExceptionResponse = async (
   );
   const contents: LayerInaccessibleException = {
     name: "LayerInaccessibleException",
-    __type: "LayerInaccessibleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3332,7 +3293,6 @@ const deserializeAws_json1_1LayerPartTooSmallExceptionResponse = async (
   );
   const contents: LayerPartTooSmallException = {
     name: "LayerPartTooSmallException",
-    __type: "LayerPartTooSmallException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3351,7 +3311,6 @@ const deserializeAws_json1_1LayersNotFoundExceptionResponse = async (
   );
   const contents: LayersNotFoundException = {
     name: "LayersNotFoundException",
-    __type: "LayersNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3370,7 +3329,6 @@ const deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse = async (
   );
   const contents: LifecyclePolicyNotFoundException = {
     name: "LifecyclePolicyNotFoundException",
-    __type: "LifecyclePolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3389,7 +3347,6 @@ const deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse = 
   );
   const contents: LifecyclePolicyPreviewInProgressException = {
     name: "LifecyclePolicyPreviewInProgressException",
-    __type: "LifecyclePolicyPreviewInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3408,7 +3365,6 @@ const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse = as
   );
   const contents: LifecyclePolicyPreviewNotFoundException = {
     name: "LifecyclePolicyPreviewNotFoundException",
-    __type: "LifecyclePolicyPreviewNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3427,7 +3383,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3446,7 +3401,6 @@ const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
   );
   const contents: RepositoryAlreadyExistsException = {
     name: "RepositoryAlreadyExistsException",
-    __type: "RepositoryAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3465,7 +3419,6 @@ const deserializeAws_json1_1RepositoryNotEmptyExceptionResponse = async (
   );
   const contents: RepositoryNotEmptyException = {
     name: "RepositoryNotEmptyException",
-    __type: "RepositoryNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3484,7 +3437,6 @@ const deserializeAws_json1_1RepositoryNotFoundExceptionResponse = async (
   );
   const contents: RepositoryNotFoundException = {
     name: "RepositoryNotFoundException",
-    __type: "RepositoryNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3503,7 +3455,6 @@ const deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse = async (
   );
   const contents: RepositoryPolicyNotFoundException = {
     name: "RepositoryPolicyNotFoundException",
-    __type: "RepositoryPolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3522,7 +3473,6 @@ const deserializeAws_json1_1ScanNotFoundExceptionResponse = async (
   );
   const contents: ScanNotFoundException = {
     name: "ScanNotFoundException",
-    __type: "ScanNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3541,7 +3491,6 @@ const deserializeAws_json1_1ServerExceptionResponse = async (
   );
   const contents: ServerException = {
     name: "ServerException",
-    __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3560,7 +3509,6 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   );
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
-    __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -3579,7 +3527,6 @@ const deserializeAws_json1_1UploadNotFoundExceptionResponse = async (
   );
   const contents: UploadNotFoundException = {
     name: "UploadNotFoundException",
-    __type: "UploadNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

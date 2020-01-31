@@ -269,7 +269,6 @@ async function deserializeAws_json1_1CreateScalingPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -344,7 +343,6 @@ async function deserializeAws_json1_1DeleteScalingPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -425,7 +423,6 @@ async function deserializeAws_json1_1DescribeScalingPlanResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -503,7 +500,6 @@ async function deserializeAws_json1_1DescribeScalingPlansCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -570,7 +566,6 @@ async function deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -645,7 +640,6 @@ async function deserializeAws_json1_1UpdateScalingPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -664,7 +658,6 @@ const deserializeAws_json1_1ConcurrentUpdateExceptionResponse = async (
   );
   const contents: ConcurrentUpdateException = {
     name: "ConcurrentUpdateException",
-    __type: "ConcurrentUpdateException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -683,7 +676,6 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   );
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -702,7 +694,6 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   );
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
-    __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -721,7 +712,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -740,7 +730,6 @@ const deserializeAws_json1_1ObjectNotFoundExceptionResponse = async (
   );
   const contents: ObjectNotFoundException = {
     name: "ObjectNotFoundException",
-    __type: "ObjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -759,7 +748,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

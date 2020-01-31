@@ -600,7 +600,6 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -716,7 +715,6 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -825,7 +823,6 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -913,7 +910,6 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1022,7 +1018,6 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1110,7 +1105,6 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1192,7 +1186,6 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1308,7 +1301,6 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1403,7 +1395,6 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1498,7 +1489,6 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1593,7 +1583,6 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1702,7 +1691,6 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1791,7 +1779,6 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1873,7 +1860,6 @@ async function deserializeAws_json1_1ListServicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1996,7 +1982,6 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2112,7 +2097,6 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2131,7 +2115,6 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse = async 
   );
   const contents: AWSServiceAccessNotEnabledException = {
     name: "AWSServiceAccessNotEnabledException",
-    __type: "AWSServiceAccessNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2150,7 +2133,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2169,7 +2151,6 @@ const deserializeAws_json1_1DependencyAccessDeniedExceptionResponse = async (
   );
   const contents: DependencyAccessDeniedException = {
     name: "DependencyAccessDeniedException",
-    __type: "DependencyAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2188,7 +2169,6 @@ const deserializeAws_json1_1IllegalArgumentExceptionResponse = async (
   );
   const contents: IllegalArgumentException = {
     name: "IllegalArgumentException",
-    __type: "IllegalArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2207,7 +2187,6 @@ const deserializeAws_json1_1InvalidPaginationTokenExceptionResponse = async (
   );
   const contents: InvalidPaginationTokenException = {
     name: "InvalidPaginationTokenException",
-    __type: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2226,7 +2205,6 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
   );
   const contents: InvalidResourceStateException = {
     name: "InvalidResourceStateException",
-    __type: "InvalidResourceStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2245,7 +2223,6 @@ const deserializeAws_json1_1NoAvailableOrganizationExceptionResponse = async (
   );
   const contents: NoAvailableOrganizationException = {
     name: "NoAvailableOrganizationException",
-    __type: "NoAvailableOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2264,7 +2241,6 @@ const deserializeAws_json1_1NoSuchResourceExceptionResponse = async (
   );
   const contents: NoSuchResourceException = {
     name: "NoSuchResourceException",
-    __type: "NoSuchResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2283,7 +2259,6 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse = 
   );
   const contents: OrganizationNotInAllFeaturesModeException = {
     name: "OrganizationNotInAllFeaturesModeException",
-    __type: "OrganizationNotInAllFeaturesModeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2302,7 +2277,6 @@ const deserializeAws_json1_1QuotaExceededExceptionResponse = async (
   );
   const contents: QuotaExceededException = {
     name: "QuotaExceededException",
-    __type: "QuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2321,7 +2295,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   );
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
-    __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2340,7 +2313,6 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
   );
   const contents: ServiceException = {
     name: "ServiceException",
-    __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2359,7 +2331,6 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse = asyn
   );
   const contents: ServiceQuotaTemplateNotInUseException = {
     name: "ServiceQuotaTemplateNotInUseException",
-    __type: "ServiceQuotaTemplateNotInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2378,7 +2349,6 @@ const deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse = asy
   );
   const contents: TemplatesNotAvailableInRegionException = {
     name: "TemplatesNotAvailableInRegionException",
-    __type: "TemplatesNotAvailableInRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2397,7 +2367,6 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   );
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

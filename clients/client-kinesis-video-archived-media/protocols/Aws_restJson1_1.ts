@@ -304,7 +304,6 @@ async function deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSAcuityReader#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -407,7 +406,6 @@ async function deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSAcuityReader#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -484,7 +482,6 @@ async function deserializeAws_restJson1_1GetMediaForFragmentListCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSAcuityReader#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -563,7 +560,6 @@ async function deserializeAws_restJson1_1ListFragmentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.AWSAcuityReader#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -577,7 +573,6 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
 ): Promise<ClientLimitExceededException> => {
   const contents: ClientLimitExceededException = {
     name: "ClientLimitExceededException",
-    __type: "ClientLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -595,7 +590,6 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
 ): Promise<InvalidArgumentException> => {
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
-    __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -613,7 +607,6 @@ const deserializeAws_restJson1_1InvalidCodecPrivateDataExceptionResponse = async
 ): Promise<InvalidCodecPrivateDataException> => {
   const contents: InvalidCodecPrivateDataException = {
     name: "InvalidCodecPrivateDataException",
-    __type: "InvalidCodecPrivateDataException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -631,7 +624,6 @@ const deserializeAws_restJson1_1MissingCodecPrivateDataExceptionResponse = async
 ): Promise<MissingCodecPrivateDataException> => {
   const contents: MissingCodecPrivateDataException = {
     name: "MissingCodecPrivateDataException",
-    __type: "MissingCodecPrivateDataException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -649,7 +641,6 @@ const deserializeAws_restJson1_1NoDataRetentionExceptionResponse = async (
 ): Promise<NoDataRetentionException> => {
   const contents: NoDataRetentionException = {
     name: "NoDataRetentionException",
-    __type: "NoDataRetentionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -667,7 +658,6 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
 ): Promise<NotAuthorizedException> => {
   const contents: NotAuthorizedException = {
     name: "NotAuthorizedException",
-    __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -685,7 +675,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -703,7 +692,6 @@ const deserializeAws_restJson1_1UnsupportedStreamMediaTypeExceptionResponse = as
 ): Promise<UnsupportedStreamMediaTypeException> => {
   const contents: UnsupportedStreamMediaTypeException = {
     name: "UnsupportedStreamMediaTypeException",
-    __type: "UnsupportedStreamMediaTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

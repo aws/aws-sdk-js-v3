@@ -1932,7 +1932,6 @@ export enum AliasAttributeType {
 export interface AliasExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AliasExistsException";
   name: "AliasExistsException";
   $fault: "client";
   /**
@@ -2296,7 +2295,6 @@ export namespace CodeDeliveryDetailsType {
 export interface CodeDeliveryFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CodeDeliveryFailureException";
   name: "CodeDeliveryFailureException";
   $fault: "client";
   /**
@@ -2318,7 +2316,6 @@ export namespace CodeDeliveryFailureException {
 export interface CodeMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CodeMismatchException";
   name: "CodeMismatchException";
   $fault: "client";
   /**
@@ -2387,7 +2384,6 @@ export namespace CompromisedCredentialsRiskConfigurationType {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -3944,7 +3940,6 @@ export enum DomainStatusType {
 export interface DuplicateProviderException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateProviderException";
   name: "DuplicateProviderException";
   $fault: "client";
   message?: string;
@@ -4063,7 +4058,6 @@ export enum EmailSendingAccountType {
 export interface EnableSoftwareTokenMFAException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EnableSoftwareTokenMFAException";
   name: "EnableSoftwareTokenMFAException";
   $fault: "client";
   message?: string;
@@ -4184,7 +4178,6 @@ export enum EventType {
 export interface ExpiredCodeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ExpiredCodeException";
   name: "ExpiredCodeException";
   $fault: "client";
   /**
@@ -4782,7 +4775,6 @@ export namespace GlobalSignOutResponse {
 export interface GroupExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GroupExistsException";
   name: "GroupExistsException";
   $fault: "client";
   message?: string;
@@ -5216,7 +5208,6 @@ export namespace InitiateAuthResponse {
 export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalErrorException";
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -5238,7 +5229,6 @@ export namespace InternalErrorException {
 export interface InvalidEmailRoleAccessPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidEmailRoleAccessPolicyException";
   name: "InvalidEmailRoleAccessPolicyException";
   $fault: "client";
   /**
@@ -5261,7 +5251,6 @@ export namespace InvalidEmailRoleAccessPolicyException {
 export interface InvalidLambdaResponseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidLambdaResponseException";
   name: "InvalidLambdaResponseException";
   $fault: "client";
   /**
@@ -5283,7 +5272,6 @@ export namespace InvalidLambdaResponseException {
 export interface InvalidOAuthFlowException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidOAuthFlowException";
   name: "InvalidOAuthFlowException";
   $fault: "client";
   message?: string;
@@ -5302,7 +5290,6 @@ export namespace InvalidOAuthFlowException {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -5325,7 +5312,6 @@ export namespace InvalidParameterException {
 export interface InvalidPasswordException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPasswordException";
   name: "InvalidPasswordException";
   $fault: "client";
   /**
@@ -5348,7 +5334,6 @@ export namespace InvalidPasswordException {
 export interface InvalidSmsRoleAccessPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSmsRoleAccessPolicyException";
   name: "InvalidSmsRoleAccessPolicyException";
   $fault: "client";
   /**
@@ -5372,7 +5357,6 @@ export namespace InvalidSmsRoleAccessPolicyException {
 export interface InvalidSmsRoleTrustRelationshipException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidSmsRoleTrustRelationshipException";
   name: "InvalidSmsRoleTrustRelationshipException";
   $fault: "client";
   /**
@@ -5394,7 +5378,6 @@ export namespace InvalidSmsRoleTrustRelationshipException {
 export interface InvalidUserPoolConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidUserPoolConfigurationException";
   name: "InvalidUserPoolConfigurationException";
   $fault: "client";
   /**
@@ -5478,7 +5461,6 @@ export namespace LambdaConfigType {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -6051,7 +6033,6 @@ export namespace ListUsersResponse {
 export interface MFAMethodNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MFAMethodNotFoundException";
   name: "MFAMethodNotFoundException";
   $fault: "client";
   /**
@@ -6156,7 +6137,6 @@ export namespace NewDeviceMetadataType {
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAuthorizedException";
   name: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -6332,7 +6312,6 @@ export namespace PasswordPolicyType {
 export interface PasswordResetRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PasswordResetRequiredException";
   name: "PasswordResetRequiredException";
   $fault: "client";
   /**
@@ -6353,7 +6332,6 @@ export namespace PasswordResetRequiredException {
 export interface PreconditionNotMetException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PreconditionNotMetException";
   name: "PreconditionNotMetException";
   $fault: "client";
   /**
@@ -6565,7 +6543,6 @@ export namespace ResendConfirmationCodeResponse {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -6965,7 +6942,6 @@ export namespace SchemaAttributeType {
 export interface ScopeDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ScopeDoesNotExistException";
   name: "ScopeDoesNotExistException";
   $fault: "client";
   message?: string;
@@ -7400,7 +7376,6 @@ export namespace SmsMfaConfigType {
 export interface SoftwareTokenMFANotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SoftwareTokenMFANotFoundException";
   name: "SoftwareTokenMFANotFoundException";
   $fault: "client";
   message?: string;
@@ -7594,7 +7569,6 @@ export namespace TagResourceResponse {
 export interface TooManyFailedAttemptsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyFailedAttemptsException";
   name: "TooManyFailedAttemptsException";
   $fault: "client";
   /**
@@ -7617,7 +7591,6 @@ export namespace TooManyFailedAttemptsException {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -7688,7 +7661,6 @@ export namespace UICustomizationType {
 export interface UnexpectedLambdaException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnexpectedLambdaException";
   name: "UnexpectedLambdaException";
   $fault: "client";
   /**
@@ -7710,7 +7682,6 @@ export namespace UnexpectedLambdaException {
 export interface UnsupportedIdentityProviderException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedIdentityProviderException";
   name: "UnsupportedIdentityProviderException";
   $fault: "client";
   message?: string;
@@ -7728,7 +7699,6 @@ export namespace UnsupportedIdentityProviderException {
 export interface UnsupportedUserStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedUserStateException";
   name: "UnsupportedUserStateException";
   $fault: "client";
   /**
@@ -8524,7 +8494,6 @@ export namespace UserContextDataType {
 export interface UserImportInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UserImportInProgressException";
   name: "UserImportInProgressException";
   $fault: "client";
   /**
@@ -8676,7 +8645,6 @@ export namespace UserImportJobType {
 export interface UserLambdaValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UserLambdaValidationException";
   name: "UserLambdaValidationException";
   $fault: "client";
   /**
@@ -8698,7 +8666,6 @@ export namespace UserLambdaValidationException {
 export interface UserNotConfirmedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UserNotConfirmedException";
   name: "UserNotConfirmedException";
   $fault: "client";
   /**
@@ -8719,7 +8686,6 @@ export namespace UserNotConfirmedException {
 export interface UserNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UserNotFoundException";
   name: "UserNotFoundException";
   $fault: "client";
   /**
@@ -8740,7 +8706,6 @@ export namespace UserNotFoundException {
 export interface UserPoolAddOnNotEnabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UserPoolAddOnNotEnabledException";
   name: "UserPoolAddOnNotEnabledException";
   $fault: "client";
   message?: string;
@@ -9099,7 +9064,6 @@ export namespace UserPoolPolicyType {
 export interface UserPoolTaggingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UserPoolTaggingException";
   name: "UserPoolTaggingException";
   $fault: "client";
   message?: string;
@@ -9391,7 +9355,6 @@ export enum UsernameAttributeType {
 export interface UsernameExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UsernameExistsException";
   name: "UsernameExistsException";
   $fault: "client";
   /**

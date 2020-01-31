@@ -306,7 +306,6 @@ async function deserializeAws_json1_1DescribeReportCreationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -384,7 +383,6 @@ async function deserializeAws_json1_1GetComplianceSummaryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -459,7 +457,6 @@ async function deserializeAws_json1_1GetResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -534,7 +531,6 @@ async function deserializeAws_json1_1GetTagKeysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -609,7 +605,6 @@ async function deserializeAws_json1_1GetTagValuesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -694,7 +689,6 @@ async function deserializeAws_json1_1StartReportCreationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -762,7 +756,6 @@ async function deserializeAws_json1_1TagResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -830,7 +823,6 @@ async function deserializeAws_json1_1UntagResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -849,7 +841,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -868,7 +859,6 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
   );
   const contents: ConstraintViolationException = {
     name: "ConstraintViolationException",
-    __type: "ConstraintViolationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -887,7 +877,6 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   );
   const contents: InternalServiceException = {
     name: "InternalServiceException",
-    __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -906,7 +895,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -925,7 +913,6 @@ const deserializeAws_json1_1PaginationTokenExpiredExceptionResponse = async (
   );
   const contents: PaginationTokenExpiredException = {
     name: "PaginationTokenExpiredException",
-    __type: "PaginationTokenExpiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -944,7 +931,6 @@ const deserializeAws_json1_1ThrottledExceptionResponse = async (
   );
   const contents: ThrottledException = {
     name: "ThrottledException",
-    __type: "ThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

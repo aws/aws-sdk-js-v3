@@ -2298,7 +2298,6 @@ async function deserializeAws_restJson1_1AddLayerVersionPermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2391,7 +2390,6 @@ async function deserializeAws_restJson1_1AddPermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2493,7 +2491,6 @@ async function deserializeAws_restJson1_1CreateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2631,7 +2628,6 @@ async function deserializeAws_restJson1_1CreateEventSourceMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2835,7 +2831,6 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2901,7 +2896,6 @@ async function deserializeAws_restJson1_1DeleteAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3039,7 +3033,6 @@ async function deserializeAws_restJson1_1DeleteEventSourceMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3115,7 +3108,6 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3191,7 +3183,6 @@ async function deserializeAws_restJson1_1DeleteFunctionConcurrencyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3260,7 +3251,6 @@ async function deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3315,7 +3305,6 @@ async function deserializeAws_restJson1_1DeleteLayerVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3391,7 +3380,6 @@ async function deserializeAws_restJson1_1DeleteProvisionedConcurrencyConfigComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3462,7 +3450,6 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3557,7 +3544,6 @@ async function deserializeAws_restJson1_1GetAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3688,7 +3674,6 @@ async function deserializeAws_restJson1_1GetEventSourceMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3781,7 +3766,6 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3856,7 +3840,6 @@ async function deserializeAws_restJson1_1GetFunctionConcurrencyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4046,7 +4029,6 @@ async function deserializeAws_restJson1_1GetFunctionConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4140,7 +4122,6 @@ async function deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4249,7 +4230,6 @@ async function deserializeAws_restJson1_1GetLayerVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4358,7 +4338,6 @@ async function deserializeAws_restJson1_1GetLayerVersionByArnCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4437,7 +4416,6 @@ async function deserializeAws_restJson1_1GetLayerVersionPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4513,7 +4491,6 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4618,7 +4595,6 @@ async function deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4826,7 +4802,6 @@ async function deserializeAws_restJson1_1InvokeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4900,7 +4875,6 @@ async function deserializeAws_restJson1_1InvokeAsyncCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4979,7 +4953,6 @@ async function deserializeAws_restJson1_1ListAliasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5061,7 +5034,6 @@ async function deserializeAws_restJson1_1ListEventSourceMappingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5143,7 +5115,6 @@ async function deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5215,7 +5186,6 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5297,7 +5267,6 @@ async function deserializeAws_restJson1_1ListLayerVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5369,7 +5338,6 @@ async function deserializeAws_restJson1_1ListLayersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5451,7 +5419,6 @@ async function deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5523,7 +5490,6 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5605,7 +5571,6 @@ async function deserializeAws_restJson1_1ListVersionsByFunctionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5721,7 +5686,6 @@ async function deserializeAws_restJson1_1PublishLayerVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5932,7 +5896,6 @@ async function deserializeAws_restJson1_1PublishVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6014,7 +5977,6 @@ async function deserializeAws_restJson1_1PutFunctionConcurrencyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6108,7 +6070,6 @@ async function deserializeAws_restJson1_1PutFunctionEventInvokeConfigCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6213,7 +6174,6 @@ async function deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6289,7 +6249,6 @@ async function deserializeAws_restJson1_1RemoveLayerVersionPermissionCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6365,7 +6324,6 @@ async function deserializeAws_restJson1_1RemovePermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6438,7 +6396,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6511,7 +6468,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6620,7 +6576,6 @@ async function deserializeAws_restJson1_1UpdateAliasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6765,7 +6720,6 @@ async function deserializeAws_restJson1_1UpdateEventSourceMappingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6976,7 +6930,6 @@ async function deserializeAws_restJson1_1UpdateFunctionCodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7180,7 +7133,6 @@ async function deserializeAws_restJson1_1UpdateFunctionConfigurationCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7274,7 +7226,6 @@ async function deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7288,7 +7239,6 @@ const deserializeAws_restJson1_1CodeStorageExceededExceptionResponse = async (
 ): Promise<CodeStorageExceededException> => {
   const contents: CodeStorageExceededException = {
     name: "CodeStorageExceededException",
-    __type: "CodeStorageExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7310,7 +7260,6 @@ const deserializeAws_restJson1_1EC2AccessDeniedExceptionResponse = async (
 ): Promise<EC2AccessDeniedException> => {
   const contents: EC2AccessDeniedException = {
     name: "EC2AccessDeniedException",
-    __type: "EC2AccessDeniedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7332,7 +7281,6 @@ const deserializeAws_restJson1_1EC2ThrottledExceptionResponse = async (
 ): Promise<EC2ThrottledException> => {
   const contents: EC2ThrottledException = {
     name: "EC2ThrottledException",
-    __type: "EC2ThrottledException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7354,7 +7302,6 @@ const deserializeAws_restJson1_1EC2UnexpectedExceptionResponse = async (
 ): Promise<EC2UnexpectedException> => {
   const contents: EC2UnexpectedException = {
     name: "EC2UnexpectedException",
-    __type: "EC2UnexpectedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     EC2ErrorCode: undefined,
@@ -7380,7 +7327,6 @@ const deserializeAws_restJson1_1ENILimitReachedExceptionResponse = async (
 ): Promise<ENILimitReachedException> => {
   const contents: ENILimitReachedException = {
     name: "ENILimitReachedException",
-    __type: "ENILimitReachedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7402,7 +7348,6 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7424,7 +7369,6 @@ const deserializeAws_restJson1_1InvalidRequestContentExceptionResponse = async (
 ): Promise<InvalidRequestContentException> => {
   const contents: InvalidRequestContentException = {
     name: "InvalidRequestContentException",
-    __type: "InvalidRequestContentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7446,7 +7390,6 @@ const deserializeAws_restJson1_1InvalidRuntimeExceptionResponse = async (
 ): Promise<InvalidRuntimeException> => {
   const contents: InvalidRuntimeException = {
     name: "InvalidRuntimeException",
-    __type: "InvalidRuntimeException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7468,7 +7411,6 @@ const deserializeAws_restJson1_1InvalidSecurityGroupIDExceptionResponse = async 
 ): Promise<InvalidSecurityGroupIDException> => {
   const contents: InvalidSecurityGroupIDException = {
     name: "InvalidSecurityGroupIDException",
-    __type: "InvalidSecurityGroupIDException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7490,7 +7432,6 @@ const deserializeAws_restJson1_1InvalidSubnetIDExceptionResponse = async (
 ): Promise<InvalidSubnetIDException> => {
   const contents: InvalidSubnetIDException = {
     name: "InvalidSubnetIDException",
-    __type: "InvalidSubnetIDException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7512,7 +7453,6 @@ const deserializeAws_restJson1_1InvalidZipFileExceptionResponse = async (
 ): Promise<InvalidZipFileException> => {
   const contents: InvalidZipFileException = {
     name: "InvalidZipFileException",
-    __type: "InvalidZipFileException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7534,7 +7474,6 @@ const deserializeAws_restJson1_1KMSAccessDeniedExceptionResponse = async (
 ): Promise<KMSAccessDeniedException> => {
   const contents: KMSAccessDeniedException = {
     name: "KMSAccessDeniedException",
-    __type: "KMSAccessDeniedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7556,7 +7495,6 @@ const deserializeAws_restJson1_1KMSDisabledExceptionResponse = async (
 ): Promise<KMSDisabledException> => {
   const contents: KMSDisabledException = {
     name: "KMSDisabledException",
-    __type: "KMSDisabledException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7578,7 +7516,6 @@ const deserializeAws_restJson1_1KMSInvalidStateExceptionResponse = async (
 ): Promise<KMSInvalidStateException> => {
   const contents: KMSInvalidStateException = {
     name: "KMSInvalidStateException",
-    __type: "KMSInvalidStateException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7600,7 +7537,6 @@ const deserializeAws_restJson1_1KMSNotFoundExceptionResponse = async (
 ): Promise<KMSNotFoundException> => {
   const contents: KMSNotFoundException = {
     name: "KMSNotFoundException",
-    __type: "KMSNotFoundException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7622,7 +7558,6 @@ const deserializeAws_restJson1_1PolicyLengthExceededExceptionResponse = async (
 ): Promise<PolicyLengthExceededException> => {
   const contents: PolicyLengthExceededException = {
     name: "PolicyLengthExceededException",
-    __type: "PolicyLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7644,7 +7579,6 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
 ): Promise<PreconditionFailedException> => {
   const contents: PreconditionFailedException = {
     name: "PreconditionFailedException",
-    __type: "PreconditionFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7666,7 +7600,6 @@ const deserializeAws_restJson1_1ProvisionedConcurrencyConfigNotFoundExceptionRes
 ): Promise<ProvisionedConcurrencyConfigNotFoundException> => {
   const contents: ProvisionedConcurrencyConfigNotFoundException = {
     name: "ProvisionedConcurrencyConfigNotFoundException",
-    __type: "ProvisionedConcurrencyConfigNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7688,7 +7621,6 @@ const deserializeAws_restJson1_1RequestTooLargeExceptionResponse = async (
 ): Promise<RequestTooLargeException> => {
   const contents: RequestTooLargeException = {
     name: "RequestTooLargeException",
-    __type: "RequestTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7710,7 +7642,6 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
 ): Promise<ResourceConflictException> => {
   const contents: ResourceConflictException = {
     name: "ResourceConflictException",
-    __type: "ResourceConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7732,7 +7663,6 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7754,7 +7684,6 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7776,7 +7705,6 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
 ): Promise<ResourceNotReadyException> => {
   const contents: ResourceNotReadyException = {
     name: "ResourceNotReadyException",
-    __type: "ResourceNotReadyException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Type: undefined,
@@ -7798,7 +7726,6 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
 ): Promise<ServiceException> => {
   const contents: ServiceException = {
     name: "ServiceException",
-    __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7820,7 +7747,6 @@ const deserializeAws_restJson1_1SubnetIPAddressLimitReachedExceptionResponse = a
 ): Promise<SubnetIPAddressLimitReachedException> => {
   const contents: SubnetIPAddressLimitReachedException = {
     name: "SubnetIPAddressLimitReachedException",
-    __type: "SubnetIPAddressLimitReachedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined,
@@ -7842,7 +7768,6 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Reason: undefined,
@@ -7872,7 +7797,6 @@ const deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse = async (
 ): Promise<UnsupportedMediaTypeException> => {
   const contents: UnsupportedMediaTypeException = {
     name: "UnsupportedMediaTypeException",
-    __type: "UnsupportedMediaTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Type: undefined,

@@ -518,7 +518,6 @@ async function deserializeAws_json1_1CancelDataRepositoryTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -614,7 +613,6 @@ async function deserializeAws_json1_1CreateBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -716,7 +714,6 @@ async function deserializeAws_json1_1CreateDataRepositoryTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -826,7 +823,6 @@ async function deserializeAws_json1_1CreateFileSystemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -935,7 +931,6 @@ async function deserializeAws_json1_1CreateFileSystemFromBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1024,7 +1019,6 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1106,7 +1100,6 @@ async function deserializeAws_json1_1DeleteFileSystemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1181,7 +1174,6 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1262,7 +1254,6 @@ async function deserializeAws_json1_1DescribeDataRepositoryTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1333,7 +1324,6 @@ async function deserializeAws_json1_1DescribeFileSystemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1418,7 +1408,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1500,7 +1489,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1582,7 +1570,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1671,7 +1658,6 @@ async function deserializeAws_json1_1UpdateFileSystemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1690,7 +1676,6 @@ const deserializeAws_json1_1ActiveDirectoryErrorResponse = async (
   );
   const contents: ActiveDirectoryError = {
     name: "ActiveDirectoryError",
-    __type: "ActiveDirectoryError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1709,7 +1694,6 @@ const deserializeAws_json1_1BackupInProgressResponse = async (
   );
   const contents: BackupInProgress = {
     name: "BackupInProgress",
-    __type: "BackupInProgress",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1725,7 +1709,6 @@ const deserializeAws_json1_1BackupNotFoundResponse = async (
   const deserialized: any = deserializeAws_json1_1BackupNotFound(body, context);
   const contents: BackupNotFound = {
     name: "BackupNotFound",
-    __type: "BackupNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1744,7 +1727,6 @@ const deserializeAws_json1_1BackupRestoringResponse = async (
   );
   const contents: BackupRestoring = {
     name: "BackupRestoring",
-    __type: "BackupRestoring",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1760,7 +1742,6 @@ const deserializeAws_json1_1BadRequestResponse = async (
   const deserialized: any = deserializeAws_json1_1BadRequest(body, context);
   const contents: BadRequest = {
     name: "BadRequest",
-    __type: "BadRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1779,7 +1760,6 @@ const deserializeAws_json1_1DataRepositoryTaskEndedResponse = async (
   );
   const contents: DataRepositoryTaskEnded = {
     name: "DataRepositoryTaskEnded",
-    __type: "DataRepositoryTaskEnded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1798,7 +1778,6 @@ const deserializeAws_json1_1DataRepositoryTaskExecutingResponse = async (
   );
   const contents: DataRepositoryTaskExecuting = {
     name: "DataRepositoryTaskExecuting",
-    __type: "DataRepositoryTaskExecuting",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1817,7 +1796,6 @@ const deserializeAws_json1_1DataRepositoryTaskNotFoundResponse = async (
   );
   const contents: DataRepositoryTaskNotFound = {
     name: "DataRepositoryTaskNotFound",
-    __type: "DataRepositoryTaskNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1836,7 +1814,6 @@ const deserializeAws_json1_1FileSystemNotFoundResponse = async (
   );
   const contents: FileSystemNotFound = {
     name: "FileSystemNotFound",
-    __type: "FileSystemNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1855,7 +1832,6 @@ const deserializeAws_json1_1IncompatibleParameterErrorResponse = async (
   );
   const contents: IncompatibleParameterError = {
     name: "IncompatibleParameterError",
-    __type: "IncompatibleParameterError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1874,7 +1850,6 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1893,7 +1868,6 @@ const deserializeAws_json1_1InvalidExportPathResponse = async (
   );
   const contents: InvalidExportPath = {
     name: "InvalidExportPath",
-    __type: "InvalidExportPath",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1912,7 +1886,6 @@ const deserializeAws_json1_1InvalidImportPathResponse = async (
   );
   const contents: InvalidImportPath = {
     name: "InvalidImportPath",
-    __type: "InvalidImportPath",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1931,7 +1904,6 @@ const deserializeAws_json1_1InvalidNetworkSettingsResponse = async (
   );
   const contents: InvalidNetworkSettings = {
     name: "InvalidNetworkSettings",
-    __type: "InvalidNetworkSettings",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1950,7 +1922,6 @@ const deserializeAws_json1_1MissingFileSystemConfigurationResponse = async (
   );
   const contents: MissingFileSystemConfiguration = {
     name: "MissingFileSystemConfiguration",
-    __type: "MissingFileSystemConfiguration",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1969,7 +1940,6 @@ const deserializeAws_json1_1NotServiceResourceErrorResponse = async (
   );
   const contents: NotServiceResourceError = {
     name: "NotServiceResourceError",
-    __type: "NotServiceResourceError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1988,7 +1958,6 @@ const deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse = async (
   );
   const contents: ResourceDoesNotSupportTagging = {
     name: "ResourceDoesNotSupportTagging",
-    __type: "ResourceDoesNotSupportTagging",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2007,7 +1976,6 @@ const deserializeAws_json1_1ResourceNotFoundResponse = async (
   );
   const contents: ResourceNotFound = {
     name: "ResourceNotFound",
-    __type: "ResourceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2026,7 +1994,6 @@ const deserializeAws_json1_1ServiceLimitExceededResponse = async (
   );
   const contents: ServiceLimitExceeded = {
     name: "ServiceLimitExceeded",
-    __type: "ServiceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2045,7 +2012,6 @@ const deserializeAws_json1_1UnsupportedOperationResponse = async (
   );
   const contents: UnsupportedOperation = {
     name: "UnsupportedOperation",
-    __type: "UnsupportedOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

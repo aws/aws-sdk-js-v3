@@ -1022,7 +1022,6 @@ async function deserializeAws_restJson1_1CreateAccessPointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1166,7 +1165,6 @@ async function deserializeAws_restJson1_1CreateFileSystemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1329,7 +1327,6 @@ async function deserializeAws_restJson1_1CreateMountTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1388,7 +1385,6 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1450,7 +1446,6 @@ async function deserializeAws_restJson1_1DeleteAccessPointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1519,7 +1514,6 @@ async function deserializeAws_restJson1_1DeleteFileSystemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1581,7 +1575,6 @@ async function deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1650,7 +1643,6 @@ async function deserializeAws_restJson1_1DeleteMountTargetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1709,7 +1701,6 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1791,7 +1782,6 @@ async function deserializeAws_restJson1_1DescribeAccessPointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1863,7 +1853,6 @@ async function deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1942,7 +1931,6 @@ async function deserializeAws_restJson1_1DescribeFileSystemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2013,7 +2001,6 @@ async function deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2091,7 +2078,6 @@ async function deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2184,7 +2170,6 @@ async function deserializeAws_restJson1_1DescribeMountTargetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2257,7 +2242,6 @@ async function deserializeAws_restJson1_1DescribeTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2336,7 +2320,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2419,7 +2402,6 @@ async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2498,7 +2480,6 @@ async function deserializeAws_restJson1_1PutFileSystemPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2576,7 +2557,6 @@ async function deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2642,7 +2622,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2708,7 +2687,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2859,7 +2837,6 @@ async function deserializeAws_restJson1_1UpdateFileSystemCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2873,7 +2850,6 @@ const deserializeAws_restJson1_1AccessPointAlreadyExistsResponse = async (
 ): Promise<AccessPointAlreadyExists> => {
   const contents: AccessPointAlreadyExists = {
     name: "AccessPointAlreadyExists",
-    __type: "AccessPointAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     AccessPointId: undefined,
@@ -2899,7 +2875,6 @@ const deserializeAws_restJson1_1AccessPointLimitExceededResponse = async (
 ): Promise<AccessPointLimitExceeded> => {
   const contents: AccessPointLimitExceeded = {
     name: "AccessPointLimitExceeded",
-    __type: "AccessPointLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -2921,7 +2896,6 @@ const deserializeAws_restJson1_1AccessPointNotFoundResponse = async (
 ): Promise<AccessPointNotFound> => {
   const contents: AccessPointNotFound = {
     name: "AccessPointNotFound",
-    __type: "AccessPointNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -2943,7 +2917,6 @@ const deserializeAws_restJson1_1BadRequestResponse = async (
 ): Promise<BadRequest> => {
   const contents: BadRequest = {
     name: "BadRequest",
-    __type: "BadRequest",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -2965,7 +2938,6 @@ const deserializeAws_restJson1_1DependencyTimeoutResponse = async (
 ): Promise<DependencyTimeout> => {
   const contents: DependencyTimeout = {
     name: "DependencyTimeout",
-    __type: "DependencyTimeout",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -2987,7 +2959,6 @@ const deserializeAws_restJson1_1FileSystemAlreadyExistsResponse = async (
 ): Promise<FileSystemAlreadyExists> => {
   const contents: FileSystemAlreadyExists = {
     name: "FileSystemAlreadyExists",
-    __type: "FileSystemAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3013,7 +2984,6 @@ const deserializeAws_restJson1_1FileSystemInUseResponse = async (
 ): Promise<FileSystemInUse> => {
   const contents: FileSystemInUse = {
     name: "FileSystemInUse",
-    __type: "FileSystemInUse",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3035,7 +3005,6 @@ const deserializeAws_restJson1_1FileSystemLimitExceededResponse = async (
 ): Promise<FileSystemLimitExceeded> => {
   const contents: FileSystemLimitExceeded = {
     name: "FileSystemLimitExceeded",
-    __type: "FileSystemLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3057,7 +3026,6 @@ const deserializeAws_restJson1_1FileSystemNotFoundResponse = async (
 ): Promise<FileSystemNotFound> => {
   const contents: FileSystemNotFound = {
     name: "FileSystemNotFound",
-    __type: "FileSystemNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3079,7 +3047,6 @@ const deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse = asyn
 ): Promise<IncorrectFileSystemLifeCycleState> => {
   const contents: IncorrectFileSystemLifeCycleState = {
     name: "IncorrectFileSystemLifeCycleState",
-    __type: "IncorrectFileSystemLifeCycleState",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3101,7 +3068,6 @@ const deserializeAws_restJson1_1IncorrectMountTargetStateResponse = async (
 ): Promise<IncorrectMountTargetState> => {
   const contents: IncorrectMountTargetState = {
     name: "IncorrectMountTargetState",
-    __type: "IncorrectMountTargetState",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3123,7 +3089,6 @@ const deserializeAws_restJson1_1InsufficientThroughputCapacityResponse = async (
 ): Promise<InsufficientThroughputCapacity> => {
   const contents: InsufficientThroughputCapacity = {
     name: "InsufficientThroughputCapacity",
-    __type: "InsufficientThroughputCapacity",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3145,7 +3110,6 @@ const deserializeAws_restJson1_1InternalServerErrorResponse = async (
 ): Promise<InternalServerError> => {
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3167,7 +3131,6 @@ const deserializeAws_restJson1_1InvalidPolicyExceptionResponse = async (
 ): Promise<InvalidPolicyException> => {
   const contents: InvalidPolicyException = {
     name: "InvalidPolicyException",
-    __type: "InvalidPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3189,7 +3152,6 @@ const deserializeAws_restJson1_1IpAddressInUseResponse = async (
 ): Promise<IpAddressInUse> => {
   const contents: IpAddressInUse = {
     name: "IpAddressInUse",
-    __type: "IpAddressInUse",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3211,7 +3173,6 @@ const deserializeAws_restJson1_1MountTargetConflictResponse = async (
 ): Promise<MountTargetConflict> => {
   const contents: MountTargetConflict = {
     name: "MountTargetConflict",
-    __type: "MountTargetConflict",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3233,7 +3194,6 @@ const deserializeAws_restJson1_1MountTargetNotFoundResponse = async (
 ): Promise<MountTargetNotFound> => {
   const contents: MountTargetNotFound = {
     name: "MountTargetNotFound",
-    __type: "MountTargetNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3255,7 +3215,6 @@ const deserializeAws_restJson1_1NetworkInterfaceLimitExceededResponse = async (
 ): Promise<NetworkInterfaceLimitExceeded> => {
   const contents: NetworkInterfaceLimitExceeded = {
     name: "NetworkInterfaceLimitExceeded",
-    __type: "NetworkInterfaceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3277,7 +3236,6 @@ const deserializeAws_restJson1_1NoFreeAddressesInSubnetResponse = async (
 ): Promise<NoFreeAddressesInSubnet> => {
   const contents: NoFreeAddressesInSubnet = {
     name: "NoFreeAddressesInSubnet",
-    __type: "NoFreeAddressesInSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3299,7 +3257,6 @@ const deserializeAws_restJson1_1PolicyNotFoundResponse = async (
 ): Promise<PolicyNotFound> => {
   const contents: PolicyNotFound = {
     name: "PolicyNotFound",
-    __type: "PolicyNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3321,7 +3278,6 @@ const deserializeAws_restJson1_1SecurityGroupLimitExceededResponse = async (
 ): Promise<SecurityGroupLimitExceeded> => {
   const contents: SecurityGroupLimitExceeded = {
     name: "SecurityGroupLimitExceeded",
-    __type: "SecurityGroupLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3343,7 +3299,6 @@ const deserializeAws_restJson1_1SecurityGroupNotFoundResponse = async (
 ): Promise<SecurityGroupNotFound> => {
   const contents: SecurityGroupNotFound = {
     name: "SecurityGroupNotFound",
-    __type: "SecurityGroupNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3365,7 +3320,6 @@ const deserializeAws_restJson1_1SubnetNotFoundResponse = async (
 ): Promise<SubnetNotFound> => {
   const contents: SubnetNotFound = {
     name: "SubnetNotFound",
-    __type: "SubnetNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3387,7 +3341,6 @@ const deserializeAws_restJson1_1ThroughputLimitExceededResponse = async (
 ): Promise<ThroughputLimitExceeded> => {
   const contents: ThroughputLimitExceeded = {
     name: "ThroughputLimitExceeded",
-    __type: "ThroughputLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3409,7 +3362,6 @@ const deserializeAws_restJson1_1TooManyRequestsResponse = async (
 ): Promise<TooManyRequests> => {
   const contents: TooManyRequests = {
     name: "TooManyRequests",
-    __type: "TooManyRequests",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
@@ -3431,7 +3383,6 @@ const deserializeAws_restJson1_1UnsupportedAvailabilityZoneResponse = async (
 ): Promise<UnsupportedAvailabilityZone> => {
   const contents: UnsupportedAvailabilityZone = {
     name: "UnsupportedAvailabilityZone",
-    __type: "UnsupportedAvailabilityZone",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,

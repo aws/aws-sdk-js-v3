@@ -1878,7 +1878,6 @@ async function deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1957,7 +1956,6 @@ async function deserializeAws_restJson1_1ActivateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2035,7 +2033,6 @@ async function deserializeAws_restJson1_1AddResourcePermissionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2135,7 +2132,6 @@ async function deserializeAws_restJson1_1CreateCommentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2226,7 +2222,6 @@ async function deserializeAws_restJson1_1CreateCustomMetadataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2336,7 +2331,6 @@ async function deserializeAws_restJson1_1CreateFolderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2417,7 +2411,6 @@ async function deserializeAws_restJson1_1CreateLabelsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2488,7 +2481,6 @@ async function deserializeAws_restJson1_1CreateNotificationSubscriptionCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2567,7 +2559,6 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2643,7 +2634,6 @@ async function deserializeAws_restJson1_1DeactivateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2730,7 +2720,6 @@ async function deserializeAws_restJson1_1DeleteCommentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2814,7 +2803,6 @@ async function deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2911,7 +2899,6 @@ async function deserializeAws_restJson1_1DeleteDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3005,7 +2992,6 @@ async function deserializeAws_restJson1_1DeleteFolderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3095,7 +3081,6 @@ async function deserializeAws_restJson1_1DeleteFolderContentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3169,7 +3154,6 @@ async function deserializeAws_restJson1_1DeleteLabelsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3238,7 +3222,6 @@ async function deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3311,7 +3294,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3400,7 +3382,6 @@ async function deserializeAws_restJson1_1DescribeActivitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3496,7 +3477,6 @@ async function deserializeAws_restJson1_1DescribeCommentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3599,7 +3579,6 @@ async function deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3702,7 +3681,6 @@ async function deserializeAws_restJson1_1DescribeFolderContentsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3784,7 +3762,6 @@ async function deserializeAws_restJson1_1DescribeGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3859,7 +3836,6 @@ async function deserializeAws_restJson1_1DescribeNotificationSubscriptionsComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3941,7 +3917,6 @@ async function deserializeAws_restJson1_1DescribeResourcePermissionsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4030,7 +4005,6 @@ async function deserializeAws_restJson1_1DescribeRootFoldersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4134,7 +4108,6 @@ async function deserializeAws_restJson1_1DescribeUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4216,7 +4189,6 @@ async function deserializeAws_restJson1_1GetCurrentUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4319,7 +4291,6 @@ async function deserializeAws_restJson1_1GetDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4401,7 +4372,6 @@ async function deserializeAws_restJson1_1GetDocumentPathCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4507,7 +4477,6 @@ async function deserializeAws_restJson1_1GetDocumentVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4610,7 +4579,6 @@ async function deserializeAws_restJson1_1GetFolderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4689,7 +4657,6 @@ async function deserializeAws_restJson1_1GetFolderPathCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4782,7 +4749,6 @@ async function deserializeAws_restJson1_1GetResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4916,7 +4882,6 @@ async function deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4985,7 +4950,6 @@ async function deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5054,7 +5018,6 @@ async function deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5165,7 +5128,6 @@ async function deserializeAws_restJson1_1UpdateDocumentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5262,7 +5224,6 @@ async function deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5370,7 +5331,6 @@ async function deserializeAws_restJson1_1UpdateFolderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5470,7 +5430,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5484,7 +5443,6 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5502,7 +5460,6 @@ const deserializeAws_restJson1_1ConflictingOperationExceptionResponse = async (
 ): Promise<ConflictingOperationException> => {
   const contents: ConflictingOperationException = {
     name: "ConflictingOperationException",
-    __type: "ConflictingOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5520,7 +5477,6 @@ const deserializeAws_restJson1_1CustomMetadataLimitExceededExceptionResponse = a
 ): Promise<CustomMetadataLimitExceededException> => {
   const contents: CustomMetadataLimitExceededException = {
     name: "CustomMetadataLimitExceededException",
-    __type: "CustomMetadataLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5538,7 +5494,6 @@ const deserializeAws_restJson1_1DeactivatingLastSystemUserExceptionResponse = as
 ): Promise<DeactivatingLastSystemUserException> => {
   const contents: DeactivatingLastSystemUserException = {
     name: "DeactivatingLastSystemUserException",
-    __type: "DeactivatingLastSystemUserException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -5560,7 +5515,6 @@ const deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse = asy
 ): Promise<DocumentLockedForCommentsException> => {
   const contents: DocumentLockedForCommentsException = {
     name: "DocumentLockedForCommentsException",
-    __type: "DocumentLockedForCommentsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5578,7 +5532,6 @@ const deserializeAws_restJson1_1DraftUploadOutOfSyncExceptionResponse = async (
 ): Promise<DraftUploadOutOfSyncException> => {
   const contents: DraftUploadOutOfSyncException = {
     name: "DraftUploadOutOfSyncException",
-    __type: "DraftUploadOutOfSyncException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5596,7 +5549,6 @@ const deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse = async (
 ): Promise<EntityAlreadyExistsException> => {
   const contents: EntityAlreadyExistsException = {
     name: "EntityAlreadyExistsException",
-    __type: "EntityAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5614,7 +5566,6 @@ const deserializeAws_restJson1_1EntityNotExistsExceptionResponse = async (
 ): Promise<EntityNotExistsException> => {
   const contents: EntityNotExistsException = {
     name: "EntityNotExistsException",
-    __type: "EntityNotExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     EntityIds: undefined,
@@ -5639,7 +5590,6 @@ const deserializeAws_restJson1_1FailedDependencyExceptionResponse = async (
 ): Promise<FailedDependencyException> => {
   const contents: FailedDependencyException = {
     name: "FailedDependencyException",
-    __type: "FailedDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5657,7 +5607,6 @@ const deserializeAws_restJson1_1IllegalUserStateExceptionResponse = async (
 ): Promise<IllegalUserStateException> => {
   const contents: IllegalUserStateException = {
     name: "IllegalUserStateException",
-    __type: "IllegalUserStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5675,7 +5624,6 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
 ): Promise<InvalidArgumentException> => {
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
-    __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5693,7 +5641,6 @@ const deserializeAws_restJson1_1InvalidCommentOperationExceptionResponse = async
 ): Promise<InvalidCommentOperationException> => {
   const contents: InvalidCommentOperationException = {
     name: "InvalidCommentOperationException",
-    __type: "InvalidCommentOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5711,7 +5658,6 @@ const deserializeAws_restJson1_1InvalidOperationExceptionResponse = async (
 ): Promise<InvalidOperationException> => {
   const contents: InvalidOperationException = {
     name: "InvalidOperationException",
-    __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5729,7 +5675,6 @@ const deserializeAws_restJson1_1InvalidPasswordExceptionResponse = async (
 ): Promise<InvalidPasswordException> => {
   const contents: InvalidPasswordException = {
     name: "InvalidPasswordException",
-    __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5747,7 +5692,6 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5765,7 +5709,6 @@ const deserializeAws_restJson1_1ProhibitedStateExceptionResponse = async (
 ): Promise<ProhibitedStateException> => {
   const contents: ProhibitedStateException = {
     name: "ProhibitedStateException",
-    __type: "ProhibitedStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5783,7 +5726,6 @@ const deserializeAws_restJson1_1RequestedEntityTooLargeExceptionResponse = async
 ): Promise<RequestedEntityTooLargeException> => {
   const contents: RequestedEntityTooLargeException = {
     name: "RequestedEntityTooLargeException",
-    __type: "RequestedEntityTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5801,7 +5743,6 @@ const deserializeAws_restJson1_1ResourceAlreadyCheckedOutExceptionResponse = asy
 ): Promise<ResourceAlreadyCheckedOutException> => {
   const contents: ResourceAlreadyCheckedOutException = {
     name: "ResourceAlreadyCheckedOutException",
-    __type: "ResourceAlreadyCheckedOutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5819,7 +5760,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5837,7 +5777,6 @@ const deserializeAws_restJson1_1StorageLimitExceededExceptionResponse = async (
 ): Promise<StorageLimitExceededException> => {
   const contents: StorageLimitExceededException = {
     name: "StorageLimitExceededException",
-    __type: "StorageLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5855,7 +5794,6 @@ const deserializeAws_restJson1_1StorageLimitWillExceedExceptionResponse = async 
 ): Promise<StorageLimitWillExceedException> => {
   const contents: StorageLimitWillExceedException = {
     name: "StorageLimitWillExceedException",
-    __type: "StorageLimitWillExceedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5873,7 +5811,6 @@ const deserializeAws_restJson1_1TooManyLabelsExceptionResponse = async (
 ): Promise<TooManyLabelsException> => {
   const contents: TooManyLabelsException = {
     name: "TooManyLabelsException",
-    __type: "TooManyLabelsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5891,7 +5828,6 @@ const deserializeAws_restJson1_1TooManySubscriptionsExceptionResponse = async (
 ): Promise<TooManySubscriptionsException> => {
   const contents: TooManySubscriptionsException = {
     name: "TooManySubscriptionsException",
-    __type: "TooManySubscriptionsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -5909,7 +5845,6 @@ const deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse = async (
 ): Promise<UnauthorizedOperationException> => {
   const contents: UnauthorizedOperationException = {
     name: "UnauthorizedOperationException",
-    __type: "UnauthorizedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -5931,7 +5866,6 @@ const deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse = as
 ): Promise<UnauthorizedResourceAccessException> => {
   const contents: UnauthorizedResourceAccessException = {
     name: "UnauthorizedResourceAccessException",
-    __type: "UnauthorizedResourceAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

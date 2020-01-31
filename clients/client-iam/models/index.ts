@@ -440,7 +440,6 @@ export namespace ChangePasswordRequest {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -1292,7 +1291,6 @@ export namespace CreateVirtualMFADeviceResponse {
 export interface CredentialReportExpiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CredentialReportExpiredException";
   name: "CredentialReportExpiredException";
   $fault: "client";
   message?: string;
@@ -1311,7 +1309,6 @@ export namespace CredentialReportExpiredException {
 export interface CredentialReportNotPresentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CredentialReportNotPresentException";
   name: "CredentialReportNotPresentException";
   $fault: "client";
   message?: string;
@@ -1330,7 +1327,6 @@ export namespace CredentialReportNotPresentException {
 export interface CredentialReportNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CredentialReportNotReadyException";
   name: "CredentialReportNotReadyException";
   $fault: "client";
   message?: string;
@@ -1414,7 +1410,6 @@ export namespace DeleteAccountAliasRequest {
 export interface DeleteConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DeleteConflictException";
   name: "DeleteConflictException";
   $fault: "client";
   message?: string;
@@ -1927,7 +1922,6 @@ export namespace DetachUserPolicyRequest {
 export interface DuplicateCertificateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateCertificateException";
   name: "DuplicateCertificateException";
   $fault: "client";
   message?: string;
@@ -1946,7 +1940,6 @@ export namespace DuplicateCertificateException {
 export interface DuplicateSSHPublicKeyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DuplicateSSHPublicKeyException";
   name: "DuplicateSSHPublicKeyException";
   $fault: "client";
   message?: string;
@@ -2016,7 +2009,6 @@ export namespace EnableMFADeviceRequest {
 export interface EntityAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EntityAlreadyExistsException";
   name: "EntityAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2107,7 +2099,6 @@ export namespace EntityInfo {
 export interface EntityTemporarilyUnmodifiableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "EntityTemporarilyUnmodifiableException";
   name: "EntityTemporarilyUnmodifiableException";
   $fault: "client";
   message?: string;
@@ -3793,7 +3784,6 @@ export namespace InstanceProfile {
 export interface InvalidAuthenticationCodeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAuthenticationCodeException";
   name: "InvalidAuthenticationCodeException";
   $fault: "client";
   message?: string;
@@ -3811,7 +3801,6 @@ export namespace InvalidAuthenticationCodeException {
 export interface InvalidCertificateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidCertificateException";
   name: "InvalidCertificateException";
   $fault: "client";
   message?: string;
@@ -3830,7 +3819,6 @@ export namespace InvalidCertificateException {
 export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputException";
   name: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -3849,7 +3837,6 @@ export namespace InvalidInputException {
 export interface InvalidPublicKeyException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidPublicKeyException";
   name: "InvalidPublicKeyException";
   $fault: "client";
   message?: string;
@@ -3868,7 +3855,6 @@ export namespace InvalidPublicKeyException {
 export interface InvalidUserTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidUserTypeException";
   name: "InvalidUserTypeException";
   $fault: "client";
   message?: string;
@@ -3887,7 +3873,6 @@ export namespace InvalidUserTypeException {
 export interface KeyPairMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KeyPairMismatchException";
   name: "KeyPairMismatchException";
   $fault: "client";
   message?: string;
@@ -3906,7 +3891,6 @@ export namespace KeyPairMismatchException {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -6001,7 +5985,6 @@ export namespace MFADevice {
 export interface MalformedCertificateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MalformedCertificateException";
   name: "MalformedCertificateException";
   $fault: "client";
   message?: string;
@@ -6020,7 +6003,6 @@ export namespace MalformedCertificateException {
 export interface MalformedPolicyDocumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "MalformedPolicyDocumentException";
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
@@ -6134,7 +6116,6 @@ export namespace ManagedPolicyDetail {
 export interface NoSuchEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NoSuchEntityException";
   name: "NoSuchEntityException";
   $fault: "client";
   message?: string;
@@ -6257,7 +6238,6 @@ export namespace PasswordPolicy {
 export interface PasswordPolicyViolationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PasswordPolicyViolationException";
   name: "PasswordPolicyViolationException";
   $fault: "client";
   message?: string;
@@ -6396,7 +6376,6 @@ export enum PolicyEvaluationDecisionType {
 export interface PolicyEvaluationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PolicyEvaluationException";
   name: "PolicyEvaluationException";
   $fault: "server";
   message?: string;
@@ -6492,7 +6471,6 @@ export namespace PolicyGroup {
 export interface PolicyNotAttachableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PolicyNotAttachableException";
   name: "PolicyNotAttachableException";
   $fault: "client";
   message?: string;
@@ -6904,7 +6882,6 @@ export type ReportFormatType = "text/csv";
 export interface ReportGenerationLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ReportGenerationLimitExceededException";
   name: "ReportGenerationLimitExceededException";
   $fault: "client";
   message?: string;
@@ -7490,7 +7467,6 @@ export namespace ServerCertificateMetadata {
 export interface ServiceFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceFailureException";
   name: "ServiceFailureException";
   $fault: "server";
   message?: string;
@@ -7562,7 +7538,6 @@ export namespace ServiceLastAccessed {
 export interface ServiceNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceNotSupportedException";
   name: "ServiceNotSupportedException";
   $fault: "client";
   message?: string;
@@ -8308,7 +8283,6 @@ export namespace TagUserRequest {
 export interface UnmodifiableEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnmodifiableEntityException";
   name: "UnmodifiableEntityException";
   $fault: "client";
   message?: string;
@@ -8327,7 +8301,6 @@ export namespace UnmodifiableEntityException {
 export interface UnrecognizedPublicKeyEncodingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnrecognizedPublicKeyEncodingException";
   name: "UnrecognizedPublicKeyEncodingException";
   $fault: "client";
   message?: string;

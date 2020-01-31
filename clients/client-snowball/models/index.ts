@@ -150,7 +150,6 @@ export namespace CancelJobResult {
 export interface ClusterLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ClusterLimitExceededException";
   name: "ClusterLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -798,7 +797,6 @@ export namespace Ec2AmiResource {
 export interface Ec2RequestFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "Ec2RequestFailedException";
   name: "Ec2RequestFailedException";
   $fault: "client";
   Message?: string;
@@ -956,7 +954,6 @@ export namespace GetSoftwareUpdatesResult {
 export interface InvalidAddressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidAddressException";
   name: "InvalidAddressException";
   $fault: "client";
   Message?: string;
@@ -975,7 +972,6 @@ export namespace InvalidAddressException {
 export interface InvalidInputCombinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidInputCombinationException";
   name: "InvalidInputCombinationException";
   $fault: "client";
   Message?: string;
@@ -994,7 +990,6 @@ export namespace InvalidInputCombinationException {
 export interface InvalidJobStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidJobStateException";
   name: "InvalidJobStateException";
   $fault: "client";
   Message?: string;
@@ -1014,7 +1009,6 @@ export namespace InvalidJobStateException {
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidNextTokenException";
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -1033,7 +1027,6 @@ export namespace InvalidNextTokenException {
 export interface InvalidResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResourceException";
   name: "InvalidResourceException";
   $fault: "client";
   Message?: string;
@@ -1324,7 +1317,6 @@ export enum JobType {
 export interface KMSRequestFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "KMSRequestFailedException";
   name: "KMSRequestFailedException";
   $fault: "client";
   Message?: string;
@@ -1741,7 +1733,6 @@ export enum SnowballType {
 export interface UnsupportedAddressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedAddressException";
   name: "UnsupportedAddressException";
   $fault: "client";
   Message?: string;

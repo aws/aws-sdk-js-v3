@@ -1931,7 +1931,6 @@ async function deserializeAws_queryAddRoleToDBClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1996,7 +1995,6 @@ async function deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2057,7 +2055,6 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2115,7 +2112,6 @@ async function deserializeAws_queryApplyPendingMaintenanceActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2187,7 +2183,6 @@ async function deserializeAws_queryCopyDBClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2280,7 +2275,6 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2352,7 +2346,6 @@ async function deserializeAws_queryCopyDBParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2505,7 +2498,6 @@ async function deserializeAws_queryCreateDBClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2570,7 +2562,6 @@ async function deserializeAws_queryCreateDBClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2656,7 +2647,6 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2830,7 +2820,6 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2895,7 +2884,6 @@ async function deserializeAws_queryCreateDBParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2978,7 +2966,6 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3078,7 +3065,6 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3161,7 +3147,6 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3218,7 +3203,6 @@ async function deserializeAws_queryDeleteDBClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3283,7 +3267,6 @@ async function deserializeAws_queryDeleteDBClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3366,7 +3349,6 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3423,7 +3405,6 @@ async function deserializeAws_queryDeleteDBParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3484,7 +3465,6 @@ async function deserializeAws_queryDeleteDBSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3549,7 +3529,6 @@ async function deserializeAws_queryDeleteEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3607,7 +3586,6 @@ async function deserializeAws_queryDescribeDBClusterParameterGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3665,7 +3643,6 @@ async function deserializeAws_queryDescribeDBClusterParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3723,7 +3700,6 @@ async function deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3781,7 +3757,6 @@ async function deserializeAws_queryDescribeDBClusterSnapshotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3836,7 +3811,6 @@ async function deserializeAws_queryDescribeDBClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3887,7 +3861,6 @@ async function deserializeAws_queryDescribeDBEngineVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3942,7 +3915,6 @@ async function deserializeAws_queryDescribeDBInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4000,7 +3972,6 @@ async function deserializeAws_queryDescribeDBParameterGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4058,7 +4029,6 @@ async function deserializeAws_queryDescribeDBParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4116,7 +4086,6 @@ async function deserializeAws_queryDescribeDBSubnetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4167,7 +4136,6 @@ async function deserializeAws_queryDescribeEngineDefaultClusterParametersCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4218,7 +4186,6 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4269,7 +4236,6 @@ async function deserializeAws_queryDescribeEventCategoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4327,7 +4293,6 @@ async function deserializeAws_queryDescribeEventSubscriptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4375,7 +4340,6 @@ async function deserializeAws_queryDescribeEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4426,7 +4390,6 @@ async function deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4484,7 +4447,6 @@ async function deserializeAws_queryDescribePendingMaintenanceActionsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4549,7 +4511,6 @@ async function deserializeAws_queryDescribeValidDBInstanceModificationsCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4618,7 +4579,6 @@ async function deserializeAws_queryFailoverDBClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4687,7 +4647,6 @@ async function deserializeAws_queryListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4812,7 +4771,6 @@ async function deserializeAws_queryModifyDBClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4877,7 +4835,6 @@ async function deserializeAws_queryModifyDBClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4949,7 +4906,6 @@ async function deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5109,7 +5065,6 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5174,7 +5129,6 @@ async function deserializeAws_queryModifyDBParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5257,7 +5211,6 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5350,7 +5303,6 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5415,7 +5367,6 @@ async function deserializeAws_queryPromoteReadReplicaDBClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5477,7 +5428,6 @@ async function deserializeAws_queryRebootDBInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5541,7 +5491,6 @@ async function deserializeAws_queryRemoveRoleFromDBClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5606,7 +5555,6 @@ async function deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5670,7 +5618,6 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5735,7 +5682,6 @@ async function deserializeAws_queryResetDBClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5800,7 +5746,6 @@ async function deserializeAws_queryResetDBParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5963,7 +5908,6 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6133,7 +6077,6 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `rds.admin.v20141031#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6152,7 +6095,6 @@ const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
   );
   const contents: AuthorizationNotFoundFault = {
     name: "AuthorizationNotFoundFault",
-    __type: "AuthorizationNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6171,7 +6113,6 @@ const deserializeAws_queryCertificateNotFoundFaultResponse = async (
   );
   const contents: CertificateNotFoundFault = {
     name: "CertificateNotFoundFault",
-    __type: "CertificateNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6190,7 +6131,6 @@ const deserializeAws_queryDBClusterAlreadyExistsFaultResponse = async (
   );
   const contents: DBClusterAlreadyExistsFault = {
     name: "DBClusterAlreadyExistsFault",
-    __type: "DBClusterAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6209,7 +6149,6 @@ const deserializeAws_queryDBClusterNotFoundFaultResponse = async (
   );
   const contents: DBClusterNotFoundFault = {
     name: "DBClusterNotFoundFault",
-    __type: "DBClusterNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6228,7 +6167,6 @@ const deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse = async (
   );
   const contents: DBClusterParameterGroupNotFoundFault = {
     name: "DBClusterParameterGroupNotFoundFault",
-    __type: "DBClusterParameterGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6247,7 +6185,6 @@ const deserializeAws_queryDBClusterQuotaExceededFaultResponse = async (
   );
   const contents: DBClusterQuotaExceededFault = {
     name: "DBClusterQuotaExceededFault",
-    __type: "DBClusterQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6266,7 +6203,6 @@ const deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse = async (
   );
   const contents: DBClusterRoleAlreadyExistsFault = {
     name: "DBClusterRoleAlreadyExistsFault",
-    __type: "DBClusterRoleAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6285,7 +6221,6 @@ const deserializeAws_queryDBClusterRoleNotFoundFaultResponse = async (
   );
   const contents: DBClusterRoleNotFoundFault = {
     name: "DBClusterRoleNotFoundFault",
-    __type: "DBClusterRoleNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6304,7 +6239,6 @@ const deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse = async (
   );
   const contents: DBClusterRoleQuotaExceededFault = {
     name: "DBClusterRoleQuotaExceededFault",
-    __type: "DBClusterRoleQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6323,7 +6257,6 @@ const deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse = async (
   );
   const contents: DBClusterSnapshotAlreadyExistsFault = {
     name: "DBClusterSnapshotAlreadyExistsFault",
-    __type: "DBClusterSnapshotAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6342,7 +6275,6 @@ const deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse = async (
   );
   const contents: DBClusterSnapshotNotFoundFault = {
     name: "DBClusterSnapshotNotFoundFault",
-    __type: "DBClusterSnapshotNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6361,7 +6293,6 @@ const deserializeAws_queryDBInstanceAlreadyExistsFaultResponse = async (
   );
   const contents: DBInstanceAlreadyExistsFault = {
     name: "DBInstanceAlreadyExistsFault",
-    __type: "DBInstanceAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6380,7 +6311,6 @@ const deserializeAws_queryDBInstanceNotFoundFaultResponse = async (
   );
   const contents: DBInstanceNotFoundFault = {
     name: "DBInstanceNotFoundFault",
-    __type: "DBInstanceNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6399,7 +6329,6 @@ const deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse = async (
   );
   const contents: DBParameterGroupAlreadyExistsFault = {
     name: "DBParameterGroupAlreadyExistsFault",
-    __type: "DBParameterGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6418,7 +6347,6 @@ const deserializeAws_queryDBParameterGroupNotFoundFaultResponse = async (
   );
   const contents: DBParameterGroupNotFoundFault = {
     name: "DBParameterGroupNotFoundFault",
-    __type: "DBParameterGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6437,7 +6365,6 @@ const deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse = async (
   );
   const contents: DBParameterGroupQuotaExceededFault = {
     name: "DBParameterGroupQuotaExceededFault",
-    __type: "DBParameterGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6456,7 +6383,6 @@ const deserializeAws_queryDBSecurityGroupNotFoundFaultResponse = async (
   );
   const contents: DBSecurityGroupNotFoundFault = {
     name: "DBSecurityGroupNotFoundFault",
-    __type: "DBSecurityGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6475,7 +6401,6 @@ const deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse = async (
   );
   const contents: DBSnapshotAlreadyExistsFault = {
     name: "DBSnapshotAlreadyExistsFault",
-    __type: "DBSnapshotAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6494,7 +6419,6 @@ const deserializeAws_queryDBSnapshotNotFoundFaultResponse = async (
   );
   const contents: DBSnapshotNotFoundFault = {
     name: "DBSnapshotNotFoundFault",
-    __type: "DBSnapshotNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6513,7 +6437,6 @@ const deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse = async (
   );
   const contents: DBSubnetGroupAlreadyExistsFault = {
     name: "DBSubnetGroupAlreadyExistsFault",
-    __type: "DBSubnetGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6532,7 +6455,6 @@ const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse = async (
   );
   const contents: DBSubnetGroupDoesNotCoverEnoughAZs = {
     name: "DBSubnetGroupDoesNotCoverEnoughAZs",
-    __type: "DBSubnetGroupDoesNotCoverEnoughAZs",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6551,7 +6473,6 @@ const deserializeAws_queryDBSubnetGroupNotFoundFaultResponse = async (
   );
   const contents: DBSubnetGroupNotFoundFault = {
     name: "DBSubnetGroupNotFoundFault",
-    __type: "DBSubnetGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6570,7 +6491,6 @@ const deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse = async (
   );
   const contents: DBSubnetGroupQuotaExceededFault = {
     name: "DBSubnetGroupQuotaExceededFault",
-    __type: "DBSubnetGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6589,7 +6509,6 @@ const deserializeAws_queryDBSubnetQuotaExceededFaultResponse = async (
   );
   const contents: DBSubnetQuotaExceededFault = {
     name: "DBSubnetQuotaExceededFault",
-    __type: "DBSubnetQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6608,7 +6527,6 @@ const deserializeAws_queryDBUpgradeDependencyFailureFaultResponse = async (
   );
   const contents: DBUpgradeDependencyFailureFault = {
     name: "DBUpgradeDependencyFailureFault",
-    __type: "DBUpgradeDependencyFailureFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6627,7 +6545,6 @@ const deserializeAws_queryDomainNotFoundFaultResponse = async (
   );
   const contents: DomainNotFoundFault = {
     name: "DomainNotFoundFault",
-    __type: "DomainNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6646,7 +6563,6 @@ const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
   );
   const contents: EventSubscriptionQuotaExceededFault = {
     name: "EventSubscriptionQuotaExceededFault",
-    __type: "EventSubscriptionQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6665,7 +6581,6 @@ const deserializeAws_queryInstanceQuotaExceededFaultResponse = async (
   );
   const contents: InstanceQuotaExceededFault = {
     name: "InstanceQuotaExceededFault",
-    __type: "InstanceQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6684,7 +6599,6 @@ const deserializeAws_queryInsufficientDBClusterCapacityFaultResponse = async (
   );
   const contents: InsufficientDBClusterCapacityFault = {
     name: "InsufficientDBClusterCapacityFault",
-    __type: "InsufficientDBClusterCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6703,7 +6617,6 @@ const deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse = async (
   );
   const contents: InsufficientDBInstanceCapacityFault = {
     name: "InsufficientDBInstanceCapacityFault",
-    __type: "InsufficientDBInstanceCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6722,7 +6635,6 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse = asyn
   );
   const contents: InsufficientStorageClusterCapacityFault = {
     name: "InsufficientStorageClusterCapacityFault",
-    __type: "InsufficientStorageClusterCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6741,7 +6653,6 @@ const deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse = async (
   );
   const contents: InvalidDBClusterSnapshotStateFault = {
     name: "InvalidDBClusterSnapshotStateFault",
-    __type: "InvalidDBClusterSnapshotStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6760,7 +6671,6 @@ const deserializeAws_queryInvalidDBClusterStateFaultResponse = async (
   );
   const contents: InvalidDBClusterStateFault = {
     name: "InvalidDBClusterStateFault",
-    __type: "InvalidDBClusterStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6779,7 +6689,6 @@ const deserializeAws_queryInvalidDBInstanceStateFaultResponse = async (
   );
   const contents: InvalidDBInstanceStateFault = {
     name: "InvalidDBInstanceStateFault",
-    __type: "InvalidDBInstanceStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6798,7 +6707,6 @@ const deserializeAws_queryInvalidDBParameterGroupStateFaultResponse = async (
   );
   const contents: InvalidDBParameterGroupStateFault = {
     name: "InvalidDBParameterGroupStateFault",
-    __type: "InvalidDBParameterGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6817,7 +6725,6 @@ const deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse = async (
   );
   const contents: InvalidDBSecurityGroupStateFault = {
     name: "InvalidDBSecurityGroupStateFault",
-    __type: "InvalidDBSecurityGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6836,7 +6743,6 @@ const deserializeAws_queryInvalidDBSnapshotStateFaultResponse = async (
   );
   const contents: InvalidDBSnapshotStateFault = {
     name: "InvalidDBSnapshotStateFault",
-    __type: "InvalidDBSnapshotStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6855,7 +6761,6 @@ const deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse = async (
   );
   const contents: InvalidDBSubnetGroupStateFault = {
     name: "InvalidDBSubnetGroupStateFault",
-    __type: "InvalidDBSubnetGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6874,7 +6779,6 @@ const deserializeAws_queryInvalidDBSubnetStateFaultResponse = async (
   );
   const contents: InvalidDBSubnetStateFault = {
     name: "InvalidDBSubnetStateFault",
-    __type: "InvalidDBSubnetStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6893,7 +6797,6 @@ const deserializeAws_queryInvalidEventSubscriptionStateFaultResponse = async (
   );
   const contents: InvalidEventSubscriptionStateFault = {
     name: "InvalidEventSubscriptionStateFault",
-    __type: "InvalidEventSubscriptionStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6912,7 +6815,6 @@ const deserializeAws_queryInvalidRestoreFaultResponse = async (
   );
   const contents: InvalidRestoreFault = {
     name: "InvalidRestoreFault",
-    __type: "InvalidRestoreFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6928,7 +6830,6 @@ const deserializeAws_queryInvalidSubnetResponse = async (
   const deserialized: any = deserializeAws_queryInvalidSubnet(body, context);
   const contents: InvalidSubnet = {
     name: "InvalidSubnet",
-    __type: "InvalidSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6947,7 +6848,6 @@ const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
   );
   const contents: InvalidVPCNetworkStateFault = {
     name: "InvalidVPCNetworkStateFault",
-    __type: "InvalidVPCNetworkStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6966,7 +6866,6 @@ const deserializeAws_queryKMSKeyNotAccessibleFaultResponse = async (
   );
   const contents: KMSKeyNotAccessibleFault = {
     name: "KMSKeyNotAccessibleFault",
-    __type: "KMSKeyNotAccessibleFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -6985,7 +6884,6 @@ const deserializeAws_queryOptionGroupNotFoundFaultResponse = async (
   );
   const contents: OptionGroupNotFoundFault = {
     name: "OptionGroupNotFoundFault",
-    __type: "OptionGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7004,7 +6902,6 @@ const deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse = async (
   );
   const contents: ProvisionedIopsNotAvailableInAZFault = {
     name: "ProvisionedIopsNotAvailableInAZFault",
-    __type: "ProvisionedIopsNotAvailableInAZFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7023,7 +6920,6 @@ const deserializeAws_queryResourceNotFoundFaultResponse = async (
   );
   const contents: ResourceNotFoundFault = {
     name: "ResourceNotFoundFault",
-    __type: "ResourceNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7042,7 +6938,6 @@ const deserializeAws_querySNSInvalidTopicFaultResponse = async (
   );
   const contents: SNSInvalidTopicFault = {
     name: "SNSInvalidTopicFault",
-    __type: "SNSInvalidTopicFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7061,7 +6956,6 @@ const deserializeAws_querySNSNoAuthorizationFaultResponse = async (
   );
   const contents: SNSNoAuthorizationFault = {
     name: "SNSNoAuthorizationFault",
-    __type: "SNSNoAuthorizationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7080,7 +6974,6 @@ const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
   );
   const contents: SNSTopicArnNotFoundFault = {
     name: "SNSTopicArnNotFoundFault",
-    __type: "SNSTopicArnNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7099,7 +6992,6 @@ const deserializeAws_querySharedSnapshotQuotaExceededFaultResponse = async (
   );
   const contents: SharedSnapshotQuotaExceededFault = {
     name: "SharedSnapshotQuotaExceededFault",
-    __type: "SharedSnapshotQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7118,7 +7010,6 @@ const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
   );
   const contents: SnapshotQuotaExceededFault = {
     name: "SnapshotQuotaExceededFault",
-    __type: "SnapshotQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7137,7 +7028,6 @@ const deserializeAws_querySourceNotFoundFaultResponse = async (
   );
   const contents: SourceNotFoundFault = {
     name: "SourceNotFoundFault",
-    __type: "SourceNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7156,7 +7046,6 @@ const deserializeAws_queryStorageQuotaExceededFaultResponse = async (
   );
   const contents: StorageQuotaExceededFault = {
     name: "StorageQuotaExceededFault",
-    __type: "StorageQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7175,7 +7064,6 @@ const deserializeAws_queryStorageTypeNotSupportedFaultResponse = async (
   );
   const contents: StorageTypeNotSupportedFault = {
     name: "StorageTypeNotSupportedFault",
-    __type: "StorageTypeNotSupportedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7194,7 +7082,6 @@ const deserializeAws_querySubnetAlreadyInUseResponse = async (
   );
   const contents: SubnetAlreadyInUse = {
     name: "SubnetAlreadyInUse",
-    __type: "SubnetAlreadyInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7213,7 +7100,6 @@ const deserializeAws_querySubscriptionAlreadyExistFaultResponse = async (
   );
   const contents: SubscriptionAlreadyExistFault = {
     name: "SubscriptionAlreadyExistFault",
-    __type: "SubscriptionAlreadyExistFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7232,7 +7118,6 @@ const deserializeAws_querySubscriptionCategoryNotFoundFaultResponse = async (
   );
   const contents: SubscriptionCategoryNotFoundFault = {
     name: "SubscriptionCategoryNotFoundFault",
-    __type: "SubscriptionCategoryNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7251,7 +7136,6 @@ const deserializeAws_querySubscriptionNotFoundFaultResponse = async (
   );
   const contents: SubscriptionNotFoundFault = {
     name: "SubscriptionNotFoundFault",
-    __type: "SubscriptionNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

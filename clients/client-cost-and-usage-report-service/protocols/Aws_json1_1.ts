@@ -190,7 +190,6 @@ async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -250,7 +249,6 @@ async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -317,7 +315,6 @@ async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -395,7 +392,6 @@ async function deserializeAws_json1_1PutReportDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -414,7 +410,6 @@ const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
   );
   const contents: DuplicateReportNameException = {
     name: "DuplicateReportNameException",
-    __type: "DuplicateReportNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -433,7 +428,6 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   );
   const contents: InternalErrorException = {
     name: "InternalErrorException",
-    __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -452,7 +446,6 @@ const deserializeAws_json1_1ReportLimitReachedExceptionResponse = async (
   );
   const contents: ReportLimitReachedException = {
     name: "ReportLimitReachedException",
-    __type: "ReportLimitReachedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -471,7 +464,6 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   );
   const contents: ValidationException = {
     name: "ValidationException",
-    __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

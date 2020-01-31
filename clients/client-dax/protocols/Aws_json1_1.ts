@@ -752,7 +752,6 @@ async function deserializeAws_json1_1CreateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -844,7 +843,6 @@ async function deserializeAws_json1_1CreateParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -926,7 +924,6 @@ async function deserializeAws_json1_1CreateSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1021,7 +1018,6 @@ async function deserializeAws_json1_1DecreaseReplicationFactorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1103,7 +1099,6 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1188,7 +1183,6 @@ async function deserializeAws_json1_1DeleteParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1256,7 +1250,6 @@ async function deserializeAws_json1_1DeleteSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1331,7 +1324,6 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1405,7 +1397,6 @@ async function deserializeAws_json1_1DescribeDefaultParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1473,7 +1464,6 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1554,7 +1544,6 @@ async function deserializeAws_json1_1DescribeParameterGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1632,7 +1621,6 @@ async function deserializeAws_json1_1DescribeParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1696,7 +1684,6 @@ async function deserializeAws_json1_1DescribeSubnetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1812,7 +1799,6 @@ async function deserializeAws_json1_1IncreaseReplicationFactorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1901,7 +1887,6 @@ async function deserializeAws_json1_1ListTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1990,7 +1975,6 @@ async function deserializeAws_json1_1RebootNodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2086,7 +2070,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2182,7 +2165,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2278,7 +2260,6 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2363,7 +2344,6 @@ async function deserializeAws_json1_1UpdateParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2445,7 +2425,6 @@ async function deserializeAws_json1_1UpdateSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `dax.admin.v20170419#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2464,7 +2443,6 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
   );
   const contents: InvalidParameterCombinationException = {
     name: "InvalidParameterCombinationException",
-    __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2483,7 +2461,6 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2502,7 +2479,6 @@ const deserializeAws_json1_1ClusterAlreadyExistsFaultResponse = async (
   );
   const contents: ClusterAlreadyExistsFault = {
     name: "ClusterAlreadyExistsFault",
-    __type: "ClusterAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2521,7 +2497,6 @@ const deserializeAws_json1_1ClusterNotFoundFaultResponse = async (
   );
   const contents: ClusterNotFoundFault = {
     name: "ClusterNotFoundFault",
-    __type: "ClusterNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2540,7 +2515,6 @@ const deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultResponse = async
   );
   const contents: ClusterQuotaForCustomerExceededFault = {
     name: "ClusterQuotaForCustomerExceededFault",
-    __type: "ClusterQuotaForCustomerExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2559,7 +2533,6 @@ const deserializeAws_json1_1InsufficientClusterCapacityFaultResponse = async (
   );
   const contents: InsufficientClusterCapacityFault = {
     name: "InsufficientClusterCapacityFault",
-    __type: "InsufficientClusterCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2578,7 +2551,6 @@ const deserializeAws_json1_1InvalidARNFaultResponse = async (
   );
   const contents: InvalidARNFault = {
     name: "InvalidARNFault",
-    __type: "InvalidARNFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2597,7 +2569,6 @@ const deserializeAws_json1_1InvalidClusterStateFaultResponse = async (
   );
   const contents: InvalidClusterStateFault = {
     name: "InvalidClusterStateFault",
-    __type: "InvalidClusterStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2616,7 +2587,6 @@ const deserializeAws_json1_1InvalidParameterGroupStateFaultResponse = async (
   );
   const contents: InvalidParameterGroupStateFault = {
     name: "InvalidParameterGroupStateFault",
-    __type: "InvalidParameterGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2632,7 +2602,6 @@ const deserializeAws_json1_1InvalidSubnetResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidSubnet(body, context);
   const contents: InvalidSubnet = {
     name: "InvalidSubnet",
-    __type: "InvalidSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2651,7 +2620,6 @@ const deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse = async (
   );
   const contents: InvalidVPCNetworkStateFault = {
     name: "InvalidVPCNetworkStateFault",
-    __type: "InvalidVPCNetworkStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2670,7 +2638,6 @@ const deserializeAws_json1_1NodeNotFoundFaultResponse = async (
   );
   const contents: NodeNotFoundFault = {
     name: "NodeNotFoundFault",
-    __type: "NodeNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2689,7 +2656,6 @@ const deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse = async (
   );
   const contents: NodeQuotaForClusterExceededFault = {
     name: "NodeQuotaForClusterExceededFault",
-    __type: "NodeQuotaForClusterExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2708,7 +2674,6 @@ const deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse = async (
   );
   const contents: NodeQuotaForCustomerExceededFault = {
     name: "NodeQuotaForCustomerExceededFault",
-    __type: "NodeQuotaForCustomerExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2727,7 +2692,6 @@ const deserializeAws_json1_1ParameterGroupAlreadyExistsFaultResponse = async (
   );
   const contents: ParameterGroupAlreadyExistsFault = {
     name: "ParameterGroupAlreadyExistsFault",
-    __type: "ParameterGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2746,7 +2710,6 @@ const deserializeAws_json1_1ParameterGroupNotFoundFaultResponse = async (
   );
   const contents: ParameterGroupNotFoundFault = {
     name: "ParameterGroupNotFoundFault",
-    __type: "ParameterGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2765,7 +2728,6 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse = async (
   );
   const contents: ParameterGroupQuotaExceededFault = {
     name: "ParameterGroupQuotaExceededFault",
-    __type: "ParameterGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2784,7 +2746,6 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse = async (
   );
   const contents: ServiceLinkedRoleNotFoundFault = {
     name: "ServiceLinkedRoleNotFoundFault",
-    __type: "ServiceLinkedRoleNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2803,7 +2764,6 @@ const deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse = async (
   );
   const contents: SubnetGroupAlreadyExistsFault = {
     name: "SubnetGroupAlreadyExistsFault",
-    __type: "SubnetGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2822,7 +2782,6 @@ const deserializeAws_json1_1SubnetGroupInUseFaultResponse = async (
   );
   const contents: SubnetGroupInUseFault = {
     name: "SubnetGroupInUseFault",
-    __type: "SubnetGroupInUseFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2841,7 +2800,6 @@ const deserializeAws_json1_1SubnetGroupNotFoundFaultResponse = async (
   );
   const contents: SubnetGroupNotFoundFault = {
     name: "SubnetGroupNotFoundFault",
-    __type: "SubnetGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2860,7 +2818,6 @@ const deserializeAws_json1_1SubnetGroupQuotaExceededFaultResponse = async (
   );
   const contents: SubnetGroupQuotaExceededFault = {
     name: "SubnetGroupQuotaExceededFault",
-    __type: "SubnetGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2876,7 +2833,6 @@ const deserializeAws_json1_1SubnetInUseResponse = async (
   const deserialized: any = deserializeAws_json1_1SubnetInUse(body, context);
   const contents: SubnetInUse = {
     name: "SubnetInUse",
-    __type: "SubnetInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2895,7 +2851,6 @@ const deserializeAws_json1_1SubnetQuotaExceededFaultResponse = async (
   );
   const contents: SubnetQuotaExceededFault = {
     name: "SubnetQuotaExceededFault",
-    __type: "SubnetQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2914,7 +2869,6 @@ const deserializeAws_json1_1TagNotFoundFaultResponse = async (
   );
   const contents: TagNotFoundFault = {
     name: "TagNotFoundFault",
-    __type: "TagNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2933,7 +2887,6 @@ const deserializeAws_json1_1TagQuotaPerResourceExceededResponse = async (
   );
   const contents: TagQuotaPerResourceExceeded = {
     name: "TagQuotaPerResourceExceeded",
-    __type: "TagQuotaPerResourceExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

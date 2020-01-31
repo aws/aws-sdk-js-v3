@@ -27,7 +27,6 @@ export namespace AutoScalingGroup {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -67,7 +66,6 @@ export namespace Certificate {
 export interface ClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ClientException";
   name: "ClientException";
   $fault: "client";
   /**
@@ -879,7 +877,6 @@ export namespace Identity {
 export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterException";
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -912,7 +909,6 @@ export namespace InvalidParameterException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -1588,7 +1584,6 @@ export type NodegroupStatus =
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -1653,7 +1648,6 @@ export namespace RemoteAccessConfig {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -1680,7 +1674,6 @@ export namespace ResourceInUseException {
 export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceLimitExceededException";
   name: "ResourceLimitExceededException";
   $fault: "client";
   /**
@@ -1710,7 +1703,6 @@ export namespace ResourceLimitExceededException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1742,7 +1734,6 @@ export namespace ResourceNotFoundException {
 export interface ServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServerException";
   name: "ServerException";
   $fault: "server";
   /**
@@ -1769,7 +1760,6 @@ export namespace ServerException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -1819,7 +1809,6 @@ export namespace TagResourceResponse {
 export interface UnsupportedAvailabilityZoneException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedAvailabilityZoneException";
   name: "UnsupportedAvailabilityZoneException";
   $fault: "client";
   /**

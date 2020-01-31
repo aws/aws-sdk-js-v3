@@ -1394,7 +1394,6 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1454,7 +1453,6 @@ async function deserializeAws_json1_1ApplyPendingMaintenanceActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1543,7 +1541,6 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1666,7 +1663,6 @@ async function deserializeAws_json1_1CreateEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1789,7 +1785,6 @@ async function deserializeAws_json1_1CreateReplicationInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1884,7 +1879,6 @@ async function deserializeAws_json1_1CreateReplicationSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1976,7 +1970,6 @@ async function deserializeAws_json1_1CreateReplicationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2037,7 +2030,6 @@ async function deserializeAws_json1_1DeleteCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2105,7 +2097,6 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2166,7 +2157,6 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2233,7 +2223,6 @@ async function deserializeAws_json1_1DeleteEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2300,7 +2289,6 @@ async function deserializeAws_json1_1DeleteReplicationInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2367,7 +2355,6 @@ async function deserializeAws_json1_1DeleteReplicationSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2431,7 +2418,6 @@ async function deserializeAws_json1_1DeleteReplicationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2484,7 +2470,6 @@ async function deserializeAws_json1_1DescribeAccountAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2541,7 +2526,6 @@ async function deserializeAws_json1_1DescribeCertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2598,7 +2582,6 @@ async function deserializeAws_json1_1DescribeConnectionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2648,7 +2631,6 @@ async function deserializeAws_json1_1DescribeEndpointTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2702,7 +2684,6 @@ async function deserializeAws_json1_1DescribeEndpointsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2755,7 +2736,6 @@ async function deserializeAws_json1_1DescribeEventCategoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2815,7 +2795,6 @@ async function deserializeAws_json1_1DescribeEventSubscriptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2862,7 +2841,6 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2915,7 +2893,6 @@ async function deserializeAws_json1_1DescribeOrderableReplicationInstancesComman
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2975,7 +2952,6 @@ async function deserializeAws_json1_1DescribePendingMaintenanceActionsCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3042,7 +3018,6 @@ async function deserializeAws_json1_1DescribeRefreshSchemasStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3109,7 +3084,6 @@ async function deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3169,7 +3143,6 @@ async function deserializeAws_json1_1DescribeReplicationInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3229,7 +3202,6 @@ async function deserializeAws_json1_1DescribeReplicationSubnetGroupsCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3289,7 +3261,6 @@ async function deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3349,7 +3320,6 @@ async function deserializeAws_json1_1DescribeReplicationTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3410,7 +3380,6 @@ async function deserializeAws_json1_1DescribeSchemasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3477,7 +3446,6 @@ async function deserializeAws_json1_1DescribeTableStatisticsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3545,7 +3513,6 @@ async function deserializeAws_json1_1ImportCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3602,7 +3569,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3684,7 +3650,6 @@ async function deserializeAws_json1_1ModifyEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3800,7 +3765,6 @@ async function deserializeAws_json1_1ModifyEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3902,7 +3866,6 @@ async function deserializeAws_json1_1ModifyReplicationInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3997,7 +3960,6 @@ async function deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4075,7 +4037,6 @@ async function deserializeAws_json1_1ModifyReplicationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4142,7 +4103,6 @@ async function deserializeAws_json1_1RebootReplicationInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4217,7 +4177,6 @@ async function deserializeAws_json1_1RefreshSchemasCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4278,7 +4237,6 @@ async function deserializeAws_json1_1ReloadTablesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4338,7 +4296,6 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4409,7 +4366,6 @@ async function deserializeAws_json1_1StartReplicationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4476,7 +4432,6 @@ async function deserializeAws_json1_1StartReplicationTaskAssessmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4540,7 +4495,6 @@ async function deserializeAws_json1_1StopReplicationTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4615,7 +4569,6 @@ async function deserializeAws_json1_1TestConnectionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.dms.v20160101#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4634,7 +4587,6 @@ const deserializeAws_json1_1AccessDeniedFaultResponse = async (
   );
   const contents: AccessDeniedFault = {
     name: "AccessDeniedFault",
-    __type: "AccessDeniedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4653,7 +4605,6 @@ const deserializeAws_json1_1InsufficientResourceCapacityFaultResponse = async (
   );
   const contents: InsufficientResourceCapacityFault = {
     name: "InsufficientResourceCapacityFault",
-    __type: "InsufficientResourceCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4672,7 +4623,6 @@ const deserializeAws_json1_1InvalidCertificateFaultResponse = async (
   );
   const contents: InvalidCertificateFault = {
     name: "InvalidCertificateFault",
-    __type: "InvalidCertificateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4691,7 +4641,6 @@ const deserializeAws_json1_1InvalidResourceStateFaultResponse = async (
   );
   const contents: InvalidResourceStateFault = {
     name: "InvalidResourceStateFault",
-    __type: "InvalidResourceStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4707,7 +4656,6 @@ const deserializeAws_json1_1InvalidSubnetResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidSubnet(body, context);
   const contents: InvalidSubnet = {
     name: "InvalidSubnet",
-    __type: "InvalidSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4726,7 +4674,6 @@ const deserializeAws_json1_1KMSAccessDeniedFaultResponse = async (
   );
   const contents: KMSAccessDeniedFault = {
     name: "KMSAccessDeniedFault",
-    __type: "KMSAccessDeniedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4745,7 +4692,6 @@ const deserializeAws_json1_1KMSDisabledFaultResponse = async (
   );
   const contents: KMSDisabledFault = {
     name: "KMSDisabledFault",
-    __type: "KMSDisabledFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4764,7 +4710,6 @@ const deserializeAws_json1_1KMSInvalidStateFaultResponse = async (
   );
   const contents: KMSInvalidStateFault = {
     name: "KMSInvalidStateFault",
-    __type: "KMSInvalidStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4783,7 +4728,6 @@ const deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse = async (
   );
   const contents: KMSKeyNotAccessibleFault = {
     name: "KMSKeyNotAccessibleFault",
-    __type: "KMSKeyNotAccessibleFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4802,7 +4746,6 @@ const deserializeAws_json1_1KMSNotFoundFaultResponse = async (
   );
   const contents: KMSNotFoundFault = {
     name: "KMSNotFoundFault",
-    __type: "KMSNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4821,7 +4764,6 @@ const deserializeAws_json1_1KMSThrottlingFaultResponse = async (
   );
   const contents: KMSThrottlingFault = {
     name: "KMSThrottlingFault",
-    __type: "KMSThrottlingFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4840,7 +4782,6 @@ const deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse 
   );
   const contents: ReplicationSubnetGroupDoesNotCoverEnoughAZs = {
     name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
-    __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4859,7 +4800,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsFaultResponse = async (
   );
   const contents: ResourceAlreadyExistsFault = {
     name: "ResourceAlreadyExistsFault",
-    __type: "ResourceAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4878,7 +4818,6 @@ const deserializeAws_json1_1ResourceNotFoundFaultResponse = async (
   );
   const contents: ResourceNotFoundFault = {
     name: "ResourceNotFoundFault",
-    __type: "ResourceNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4897,7 +4836,6 @@ const deserializeAws_json1_1ResourceQuotaExceededFaultResponse = async (
   );
   const contents: ResourceQuotaExceededFault = {
     name: "ResourceQuotaExceededFault",
-    __type: "ResourceQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4916,7 +4854,6 @@ const deserializeAws_json1_1SNSInvalidTopicFaultResponse = async (
   );
   const contents: SNSInvalidTopicFault = {
     name: "SNSInvalidTopicFault",
-    __type: "SNSInvalidTopicFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4935,7 +4872,6 @@ const deserializeAws_json1_1SNSNoAuthorizationFaultResponse = async (
   );
   const contents: SNSNoAuthorizationFault = {
     name: "SNSNoAuthorizationFault",
-    __type: "SNSNoAuthorizationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4954,7 +4890,6 @@ const deserializeAws_json1_1StorageQuotaExceededFaultResponse = async (
   );
   const contents: StorageQuotaExceededFault = {
     name: "StorageQuotaExceededFault",
-    __type: "StorageQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4973,7 +4908,6 @@ const deserializeAws_json1_1SubnetAlreadyInUseResponse = async (
   );
   const contents: SubnetAlreadyInUse = {
     name: "SubnetAlreadyInUse",
-    __type: "SubnetAlreadyInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -4992,7 +4926,6 @@ const deserializeAws_json1_1UpgradeDependencyFailureFaultResponse = async (
   );
   const contents: UpgradeDependencyFailureFault = {
     name: "UpgradeDependencyFailureFault",
-    __type: "UpgradeDependencyFailureFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

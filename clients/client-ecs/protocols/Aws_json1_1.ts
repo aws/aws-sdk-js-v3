@@ -1495,7 +1495,6 @@ async function deserializeAws_json1_1CreateCapacityProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1563,7 +1562,6 @@ async function deserializeAws_json1_1CreateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1666,7 +1664,6 @@ async function deserializeAws_json1_1CreateServiceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1783,7 +1780,6 @@ async function deserializeAws_json1_1CreateTaskSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1854,7 +1850,6 @@ async function deserializeAws_json1_1DeleteAccountSettingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1922,7 +1917,6 @@ async function deserializeAws_json1_1DeleteAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2025,7 +2019,6 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2107,7 +2100,6 @@ async function deserializeAws_json1_1DeleteServiceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2217,7 +2209,6 @@ async function deserializeAws_json1_1DeleteTaskSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2298,7 +2289,6 @@ async function deserializeAws_json1_1DeregisterContainerInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2372,7 +2362,6 @@ async function deserializeAws_json1_1DeregisterTaskDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2446,7 +2435,6 @@ async function deserializeAws_json1_1DescribeCapacityProvidersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2514,7 +2502,6 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2595,7 +2582,6 @@ async function deserializeAws_json1_1DescribeContainerInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2670,7 +2656,6 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2744,7 +2729,6 @@ async function deserializeAws_json1_1DescribeTaskDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2847,7 +2831,6 @@ async function deserializeAws_json1_1DescribeTaskSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2922,7 +2905,6 @@ async function deserializeAws_json1_1DescribeTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2986,7 +2968,6 @@ async function deserializeAws_json1_1DiscoverPollEndpointCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3057,7 +3038,6 @@ async function deserializeAws_json1_1ListAccountSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3118,7 +3098,6 @@ async function deserializeAws_json1_1ListAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3186,7 +3165,6 @@ async function deserializeAws_json1_1ListClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3267,7 +3245,6 @@ async function deserializeAws_json1_1ListContainerInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3342,7 +3319,6 @@ async function deserializeAws_json1_1ListServicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3420,7 +3396,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3494,7 +3469,6 @@ async function deserializeAws_json1_1ListTaskDefinitionFamiliesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3565,7 +3539,6 @@ async function deserializeAws_json1_1ListTaskDefinitionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3647,7 +3620,6 @@ async function deserializeAws_json1_1ListTasksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3715,7 +3687,6 @@ async function deserializeAws_json1_1PutAccountSettingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3789,7 +3760,6 @@ async function deserializeAws_json1_1PutAccountSettingDefaultCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3864,7 +3834,6 @@ async function deserializeAws_json1_1PutAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3959,7 +3928,6 @@ async function deserializeAws_json1_1PutClusterCapacityProvidersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4033,7 +4001,6 @@ async function deserializeAws_json1_1RegisterContainerInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4107,7 +4074,6 @@ async function deserializeAws_json1_1RegisterTaskDefinitionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4217,7 +4183,6 @@ async function deserializeAws_json1_1RunTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4292,7 +4257,6 @@ async function deserializeAws_json1_1StartTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4367,7 +4331,6 @@ async function deserializeAws_json1_1StopTaskCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4448,7 +4411,6 @@ async function deserializeAws_json1_1SubmitAttachmentStateChangesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4522,7 +4484,6 @@ async function deserializeAws_json1_1SubmitContainerStateChangeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4600,7 +4561,6 @@ async function deserializeAws_json1_1SubmitTaskStateChangeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4682,7 +4642,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4764,7 +4723,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4842,7 +4800,6 @@ async function deserializeAws_json1_1UpdateClusterSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4941,7 +4898,6 @@ async function deserializeAws_json1_1UpdateContainerAgentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5022,7 +4978,6 @@ async function deserializeAws_json1_1UpdateContainerInstancesStateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5132,7 +5087,6 @@ async function deserializeAws_json1_1UpdateServiceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5248,7 +5202,6 @@ async function deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5358,7 +5311,6 @@ async function deserializeAws_json1_1UpdateTaskSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.madison.frontend#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5377,7 +5329,6 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5396,7 +5347,6 @@ const deserializeAws_json1_1AttributeLimitExceededExceptionResponse = async (
   );
   const contents: AttributeLimitExceededException = {
     name: "AttributeLimitExceededException",
-    __type: "AttributeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5415,7 +5365,6 @@ const deserializeAws_json1_1BlockedExceptionResponse = async (
   );
   const contents: BlockedException = {
     name: "BlockedException",
-    __type: "BlockedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5434,7 +5383,6 @@ const deserializeAws_json1_1ClientExceptionResponse = async (
   );
   const contents: ClientException = {
     name: "ClientException",
-    __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5453,7 +5401,6 @@ const deserializeAws_json1_1ClusterContainsContainerInstancesExceptionResponse =
   );
   const contents: ClusterContainsContainerInstancesException = {
     name: "ClusterContainsContainerInstancesException",
-    __type: "ClusterContainsContainerInstancesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5472,7 +5419,6 @@ const deserializeAws_json1_1ClusterContainsServicesExceptionResponse = async (
   );
   const contents: ClusterContainsServicesException = {
     name: "ClusterContainsServicesException",
-    __type: "ClusterContainsServicesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5491,7 +5437,6 @@ const deserializeAws_json1_1ClusterContainsTasksExceptionResponse = async (
   );
   const contents: ClusterContainsTasksException = {
     name: "ClusterContainsTasksException",
-    __type: "ClusterContainsTasksException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5510,7 +5455,6 @@ const deserializeAws_json1_1ClusterNotFoundExceptionResponse = async (
   );
   const contents: ClusterNotFoundException = {
     name: "ClusterNotFoundException",
-    __type: "ClusterNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5529,7 +5473,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5548,7 +5491,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5567,7 +5509,6 @@ const deserializeAws_json1_1MissingVersionExceptionResponse = async (
   );
   const contents: MissingVersionException = {
     name: "MissingVersionException",
-    __type: "MissingVersionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5586,7 +5527,6 @@ const deserializeAws_json1_1NoUpdateAvailableExceptionResponse = async (
   );
   const contents: NoUpdateAvailableException = {
     name: "NoUpdateAvailableException",
-    __type: "NoUpdateAvailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5605,7 +5545,6 @@ const deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionRespon
   );
   const contents: PlatformTaskDefinitionIncompatibilityException = {
     name: "PlatformTaskDefinitionIncompatibilityException",
-    __type: "PlatformTaskDefinitionIncompatibilityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5624,7 +5563,6 @@ const deserializeAws_json1_1PlatformUnknownExceptionResponse = async (
   );
   const contents: PlatformUnknownException = {
     name: "PlatformUnknownException",
-    __type: "PlatformUnknownException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5643,7 +5581,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5662,7 +5599,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5681,7 +5617,6 @@ const deserializeAws_json1_1ServerExceptionResponse = async (
   );
   const contents: ServerException = {
     name: "ServerException",
-    __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5700,7 +5635,6 @@ const deserializeAws_json1_1ServiceNotActiveExceptionResponse = async (
   );
   const contents: ServiceNotActiveException = {
     name: "ServiceNotActiveException",
-    __type: "ServiceNotActiveException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5719,7 +5653,6 @@ const deserializeAws_json1_1ServiceNotFoundExceptionResponse = async (
   );
   const contents: ServiceNotFoundException = {
     name: "ServiceNotFoundException",
-    __type: "ServiceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5738,7 +5671,6 @@ const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
   );
   const contents: TargetNotFoundException = {
     name: "TargetNotFoundException",
-    __type: "TargetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5757,7 +5689,6 @@ const deserializeAws_json1_1TaskSetNotFoundExceptionResponse = async (
   );
   const contents: TaskSetNotFoundException = {
     name: "TaskSetNotFoundException",
-    __type: "TaskSetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5776,7 +5707,6 @@ const deserializeAws_json1_1UnsupportedFeatureExceptionResponse = async (
   );
   const contents: UnsupportedFeatureException = {
     name: "UnsupportedFeatureException",
-    __type: "UnsupportedFeatureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -5795,7 +5725,6 @@ const deserializeAws_json1_1UpdateInProgressExceptionResponse = async (
   );
   const contents: UpdateInProgressException = {
     name: "UpdateInProgressException",
-    __type: "UpdateInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

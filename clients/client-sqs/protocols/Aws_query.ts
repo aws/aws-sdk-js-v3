@@ -659,7 +659,6 @@ async function deserializeAws_queryAddPermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -716,7 +715,6 @@ async function deserializeAws_queryChangeMessageVisibilityCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -795,7 +793,6 @@ async function deserializeAws_queryChangeMessageVisibilityBatchCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -857,7 +854,6 @@ async function deserializeAws_queryCreateQueueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -911,7 +907,6 @@ async function deserializeAws_queryDeleteMessageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -987,7 +982,6 @@ async function deserializeAws_queryDeleteMessageBatchCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1027,7 +1021,6 @@ async function deserializeAws_queryDeleteQueueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1082,7 +1075,6 @@ async function deserializeAws_queryGetQueueAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1137,7 +1129,6 @@ async function deserializeAws_queryGetQueueUrlCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1195,7 +1186,6 @@ async function deserializeAws_queryListDeadLetterSourceQueuesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1243,7 +1233,6 @@ async function deserializeAws_queryListQueueTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1291,7 +1280,6 @@ async function deserializeAws_queryListQueuesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1345,7 +1333,6 @@ async function deserializeAws_queryPurgeQueueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1400,7 +1387,6 @@ async function deserializeAws_queryReceiveMessageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1440,7 +1426,6 @@ async function deserializeAws_queryRemovePermissionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1502,7 +1487,6 @@ async function deserializeAws_querySendMessageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1592,7 +1576,6 @@ async function deserializeAws_querySendMessageBatchCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1639,7 +1622,6 @@ async function deserializeAws_querySetQueueAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1679,7 +1661,6 @@ async function deserializeAws_queryTagQueueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1719,7 +1700,6 @@ async function deserializeAws_queryUntagQueueCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.sqs#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1738,7 +1718,6 @@ const deserializeAws_queryBatchEntryIdsNotDistinctResponse = async (
   );
   const contents: BatchEntryIdsNotDistinct = {
     name: "BatchEntryIdsNotDistinct",
-    __type: "BatchEntryIdsNotDistinct",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1757,7 +1736,6 @@ const deserializeAws_queryBatchRequestTooLongResponse = async (
   );
   const contents: BatchRequestTooLong = {
     name: "BatchRequestTooLong",
-    __type: "BatchRequestTooLong",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1776,7 +1754,6 @@ const deserializeAws_queryEmptyBatchRequestResponse = async (
   );
   const contents: EmptyBatchRequest = {
     name: "EmptyBatchRequest",
-    __type: "EmptyBatchRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1795,7 +1772,6 @@ const deserializeAws_queryInvalidAttributeNameResponse = async (
   );
   const contents: InvalidAttributeName = {
     name: "InvalidAttributeName",
-    __type: "InvalidAttributeName",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1814,7 +1790,6 @@ const deserializeAws_queryInvalidBatchEntryIdResponse = async (
   );
   const contents: InvalidBatchEntryId = {
     name: "InvalidBatchEntryId",
-    __type: "InvalidBatchEntryId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1830,7 +1805,6 @@ const deserializeAws_queryInvalidIdFormatResponse = async (
   const deserialized: any = deserializeAws_queryInvalidIdFormat(body, context);
   const contents: InvalidIdFormat = {
     name: "InvalidIdFormat",
-    __type: "InvalidIdFormat",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1849,7 +1823,6 @@ const deserializeAws_queryInvalidMessageContentsResponse = async (
   );
   const contents: InvalidMessageContents = {
     name: "InvalidMessageContents",
-    __type: "InvalidMessageContents",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1868,7 +1841,6 @@ const deserializeAws_queryMessageNotInflightResponse = async (
   );
   const contents: MessageNotInflight = {
     name: "MessageNotInflight",
-    __type: "MessageNotInflight",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1884,7 +1856,6 @@ const deserializeAws_queryOverLimitResponse = async (
   const deserialized: any = deserializeAws_queryOverLimit(body, context);
   const contents: OverLimit = {
     name: "OverLimit",
-    __type: "OverLimit",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1903,7 +1874,6 @@ const deserializeAws_queryPurgeQueueInProgressResponse = async (
   );
   const contents: PurgeQueueInProgress = {
     name: "PurgeQueueInProgress",
-    __type: "PurgeQueueInProgress",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1922,7 +1892,6 @@ const deserializeAws_queryQueueDeletedRecentlyResponse = async (
   );
   const contents: QueueDeletedRecently = {
     name: "QueueDeletedRecently",
-    __type: "QueueDeletedRecently",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1941,7 +1910,6 @@ const deserializeAws_queryQueueDoesNotExistResponse = async (
   );
   const contents: QueueDoesNotExist = {
     name: "QueueDoesNotExist",
-    __type: "QueueDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1957,7 +1925,6 @@ const deserializeAws_queryQueueNameExistsResponse = async (
   const deserialized: any = deserializeAws_queryQueueNameExists(body, context);
   const contents: QueueNameExists = {
     name: "QueueNameExists",
-    __type: "QueueNameExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1976,7 +1943,6 @@ const deserializeAws_queryReceiptHandleIsInvalidResponse = async (
   );
   const contents: ReceiptHandleIsInvalid = {
     name: "ReceiptHandleIsInvalid",
-    __type: "ReceiptHandleIsInvalid",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1995,7 +1961,6 @@ const deserializeAws_queryTooManyEntriesInBatchRequestResponse = async (
   );
   const contents: TooManyEntriesInBatchRequest = {
     name: "TooManyEntriesInBatchRequest",
-    __type: "TooManyEntriesInBatchRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -2014,7 +1979,6 @@ const deserializeAws_queryUnsupportedOperationResponse = async (
   );
   const contents: UnsupportedOperation = {
     name: "UnsupportedOperation",
-    __type: "UnsupportedOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

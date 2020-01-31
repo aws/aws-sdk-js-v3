@@ -82,7 +82,6 @@ export namespace DescribeTextTranslationJobResponse {
 export interface DetectedLanguageLowConfidenceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DetectedLanguageLowConfidenceException";
   name: "DetectedLanguageLowConfidenceException";
   $fault: "client";
   /**
@@ -246,7 +245,6 @@ export namespace InputDataConfig {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -264,7 +262,6 @@ export namespace InternalServerException {
 export interface InvalidFilterException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidFilterException";
   name: "InvalidFilterException";
   $fault: "client";
   Message?: string;
@@ -283,7 +280,6 @@ export namespace InvalidFilterException {
 export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidParameterValueException";
   name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
@@ -302,7 +298,6 @@ export namespace InvalidParameterValueException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -359,7 +354,6 @@ export enum JobStatus {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -486,7 +480,6 @@ export namespace OutputDataConfig {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -505,7 +498,6 @@ export namespace ResourceNotFoundException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -807,7 +799,6 @@ export namespace TerminologyProperties {
 export interface TextSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TextSizeLimitExceededException";
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -946,7 +937,6 @@ export namespace TextTranslationJobProperties {
 export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyRequestsException";
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1033,7 +1023,6 @@ export namespace TranslateTextResponse {
 export interface UnsupportedLanguagePairException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnsupportedLanguagePairException";
   name: "UnsupportedLanguagePairException";
   $fault: "client";
   Message?: string;

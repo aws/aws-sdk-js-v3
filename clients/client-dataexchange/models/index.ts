@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -181,7 +180,6 @@ export enum Code {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   /**
@@ -1151,7 +1149,6 @@ export namespace ImportAssetsFromS3ResponseDetails {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   /**
@@ -1550,7 +1547,6 @@ export namespace RequestDetails {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1689,7 +1685,6 @@ export namespace S3SnapshotAsset {
 export interface ServiceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceLimitExceededException";
   name: "ServiceLimitExceededException";
   $fault: "client";
   /**
@@ -1775,7 +1770,6 @@ export namespace TagResourceRequest {
 export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottlingException";
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -2080,7 +2074,6 @@ export namespace UpdateRevisionResponse {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   /**

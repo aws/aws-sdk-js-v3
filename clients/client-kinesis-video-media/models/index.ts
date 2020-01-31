@@ -211,7 +211,6 @@ export enum StartSelectorType {
 export interface ClientLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ClientLimitExceededException";
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -230,7 +229,6 @@ export namespace ClientLimitExceededException {
 export interface ConnectionLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConnectionLimitExceededException";
   name: "ConnectionLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -248,7 +246,6 @@ export namespace ConnectionLimitExceededException {
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgumentException";
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -269,7 +266,6 @@ export namespace InvalidArgumentException {
 export interface InvalidEndpointException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidEndpointException";
   name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
@@ -288,7 +284,6 @@ export namespace InvalidEndpointException {
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAuthorizedException";
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -306,7 +301,6 @@ export namespace NotAuthorizedException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;

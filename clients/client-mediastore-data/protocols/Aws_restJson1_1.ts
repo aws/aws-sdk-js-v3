@@ -234,7 +234,6 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -317,7 +316,6 @@ async function deserializeAws_restJson1_1DescribeObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -411,7 +409,6 @@ async function deserializeAws_restJson1_1GetObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -473,7 +470,6 @@ async function deserializeAws_restJson1_1ListItemsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -539,7 +535,6 @@ async function deserializeAws_restJson1_1PutObjectCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -553,7 +548,6 @@ const deserializeAws_restJson1_1ContainerNotFoundExceptionResponse = async (
 ): Promise<ContainerNotFoundException> => {
   const contents: ContainerNotFoundException = {
     name: "ContainerNotFoundException",
-    __type: "ContainerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -571,7 +565,6 @@ const deserializeAws_restJson1_1InternalServerErrorResponse = async (
 ): Promise<InternalServerError> => {
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -589,7 +582,6 @@ const deserializeAws_restJson1_1ObjectNotFoundExceptionResponse = async (
 ): Promise<ObjectNotFoundException> => {
   const contents: ObjectNotFoundException = {
     name: "ObjectNotFoundException",
-    __type: "ObjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined
@@ -607,7 +599,6 @@ const deserializeAws_restJson1_1RequestedRangeNotSatisfiableExceptionResponse = 
 ): Promise<RequestedRangeNotSatisfiableException> => {
   const contents: RequestedRangeNotSatisfiableException = {
     name: "RequestedRangeNotSatisfiableException",
-    __type: "RequestedRangeNotSatisfiableException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined

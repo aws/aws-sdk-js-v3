@@ -3809,7 +3809,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumberWithUserCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3915,7 +3914,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4021,7 +4019,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4112,7 +4109,6 @@ async function deserializeAws_restJson1_1AssociateSigninDelegateGroupsWithAccoun
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4225,7 +4221,6 @@ async function deserializeAws_restJson1_1BatchCreateAttendeeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4324,7 +4319,6 @@ async function deserializeAws_restJson1_1BatchCreateRoomMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4423,7 +4417,6 @@ async function deserializeAws_restJson1_1BatchDeletePhoneNumberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4522,7 +4515,6 @@ async function deserializeAws_restJson1_1BatchSuspendUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4621,7 +4613,6 @@ async function deserializeAws_restJson1_1BatchUnsuspendUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4720,7 +4711,6 @@ async function deserializeAws_restJson1_1BatchUpdatePhoneNumberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4819,7 +4809,6 @@ async function deserializeAws_restJson1_1BatchUpdateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4912,7 +4901,6 @@ async function deserializeAws_restJson1_1CreateAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5018,7 +5006,6 @@ async function deserializeAws_restJson1_1CreateAttendeeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5118,7 +5105,6 @@ async function deserializeAws_restJson1_1CreateBotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5211,7 +5197,6 @@ async function deserializeAws_restJson1_1CreateMeetingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5317,7 +5302,6 @@ async function deserializeAws_restJson1_1CreatePhoneNumberOrderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5417,7 +5401,6 @@ async function deserializeAws_restJson1_1CreateRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5530,7 +5513,6 @@ async function deserializeAws_restJson1_1CreateRoomMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5630,7 +5612,6 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5736,7 +5717,6 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5842,7 +5822,6 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5937,7 +5916,6 @@ async function deserializeAws_restJson1_1DeleteAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6027,7 +6005,6 @@ async function deserializeAws_restJson1_1DeleteAttendeeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6110,7 +6087,6 @@ async function deserializeAws_restJson1_1DeleteEventsConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6197,7 +6173,6 @@ async function deserializeAws_restJson1_1DeleteMeetingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6287,7 +6262,6 @@ async function deserializeAws_restJson1_1DeletePhoneNumberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6374,7 +6348,6 @@ async function deserializeAws_restJson1_1DeleteRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6464,7 +6437,6 @@ async function deserializeAws_restJson1_1DeleteRoomMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6561,7 +6533,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6658,7 +6629,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6748,7 +6718,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6838,7 +6807,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurat
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6928,7 +6896,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7018,7 +6985,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredenti
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7109,7 +7075,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7208,7 +7173,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7307,7 +7271,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7398,7 +7361,6 @@ async function deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAcc
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7491,7 +7453,6 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7590,7 +7551,6 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7686,7 +7646,6 @@ async function deserializeAws_restJson1_1GetAttendeeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7779,7 +7738,6 @@ async function deserializeAws_restJson1_1GetBotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7878,7 +7836,6 @@ async function deserializeAws_restJson1_1GetEventsConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7977,7 +7934,6 @@ async function deserializeAws_restJson1_1GetGlobalSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8070,7 +8026,6 @@ async function deserializeAws_restJson1_1GetMeetingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8169,7 +8124,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8268,7 +8222,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberOrderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8363,7 +8316,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8456,7 +8408,6 @@ async function deserializeAws_restJson1_1GetRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8549,7 +8500,6 @@ async function deserializeAws_restJson1_1GetUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8648,7 +8598,6 @@ async function deserializeAws_restJson1_1GetUserSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8747,7 +8696,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8846,7 +8794,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8945,7 +8892,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9044,7 +8990,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorOriginationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9143,7 +9088,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorStreamingConfiguration
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9242,7 +9186,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9341,7 +9284,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9437,7 +9379,6 @@ async function deserializeAws_restJson1_1InviteUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9537,7 +9478,6 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9637,7 +9577,6 @@ async function deserializeAws_restJson1_1ListAttendeesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9734,7 +9673,6 @@ async function deserializeAws_restJson1_1ListBotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9827,7 +9765,6 @@ async function deserializeAws_restJson1_1ListMeetingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9923,7 +9860,6 @@ async function deserializeAws_restJson1_1ListPhoneNumberOrdersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10019,7 +9955,6 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10122,7 +10057,6 @@ async function deserializeAws_restJson1_1ListRoomMembershipsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10219,7 +10153,6 @@ async function deserializeAws_restJson1_1ListRoomsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10316,7 +10249,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10412,7 +10344,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10511,7 +10442,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorTerminationCredential
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10607,7 +10537,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10695,7 +10624,6 @@ async function deserializeAws_restJson1_1LogoutUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10794,7 +10722,6 @@ async function deserializeAws_restJson1_1PutEventsConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10893,7 +10820,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10992,7 +10918,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorOriginationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11091,7 +11016,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorStreamingConfiguration
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11197,7 +11121,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11287,7 +11210,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCredentials
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11383,7 +11305,6 @@ async function deserializeAws_restJson1_1RegenerateSecurityTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11479,7 +11400,6 @@ async function deserializeAws_restJson1_1ResetPersonalPINCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11585,7 +11505,6 @@ async function deserializeAws_restJson1_1RestorePhoneNumberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11684,7 +11603,6 @@ async function deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11777,7 +11695,6 @@ async function deserializeAws_restJson1_1UpdateAccountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11875,7 +11792,6 @@ async function deserializeAws_restJson1_1UpdateAccountSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11968,7 +11884,6 @@ async function deserializeAws_restJson1_1UpdateBotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12051,7 +11966,6 @@ async function deserializeAws_restJson1_1UpdateGlobalSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12150,7 +12064,6 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12233,7 +12146,6 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12326,7 +12238,6 @@ async function deserializeAws_restJson1_1UpdateRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12425,7 +12336,6 @@ async function deserializeAws_restJson1_1UpdateRoomMembershipCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12518,7 +12428,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12608,7 +12517,6 @@ async function deserializeAws_restJson1_1UpdateUserSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12707,7 +12615,6 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12813,7 +12720,6 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12827,7 +12733,6 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -12849,7 +12754,6 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
-    __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -12871,7 +12775,6 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
-    __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -12893,7 +12796,6 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
-    __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -12915,7 +12817,6 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -12937,7 +12838,6 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
-    __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -12959,7 +12859,6 @@ const deserializeAws_restJson1_1ServiceFailureExceptionResponse = async (
 ): Promise<ServiceFailureException> => {
   const contents: ServiceFailureException = {
     name: "ServiceFailureException",
-    __type: "ServiceFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -12981,7 +12880,6 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -13003,7 +12901,6 @@ const deserializeAws_restJson1_1ThrottledClientExceptionResponse = async (
 ): Promise<ThrottledClientException> => {
   const contents: ThrottledClientException = {
     name: "ThrottledClientException",
-    __type: "ThrottledClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -13025,7 +12922,6 @@ const deserializeAws_restJson1_1UnauthorizedClientExceptionResponse = async (
 ): Promise<UnauthorizedClientException> => {
   const contents: UnauthorizedClientException = {
     name: "UnauthorizedClientException",
-    __type: "UnauthorizedClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
@@ -13047,7 +12943,6 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
 ): Promise<UnprocessableEntityException> => {
   const contents: UnprocessableEntityException = {
     name: "UnprocessableEntityException",
-    __type: "UnprocessableEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,

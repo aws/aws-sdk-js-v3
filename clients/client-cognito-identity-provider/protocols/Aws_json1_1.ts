@@ -2934,7 +2934,6 @@ async function deserializeAws_json1_1AddCustomAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3021,7 +3020,6 @@ async function deserializeAws_json1_1AdminAddUserToGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3148,7 +3146,6 @@ async function deserializeAws_json1_1AdminConfirmSignUpCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3307,7 +3304,6 @@ async function deserializeAws_json1_1AdminCreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3391,7 +3387,6 @@ async function deserializeAws_json1_1AdminDeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3486,7 +3481,6 @@ async function deserializeAws_json1_1AdminDeleteUserAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3588,7 +3582,6 @@ async function deserializeAws_json1_1AdminDisableProviderForUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3677,7 +3670,6 @@ async function deserializeAws_json1_1AdminDisableUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3766,7 +3758,6 @@ async function deserializeAws_json1_1AdminEnableUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3857,7 +3848,6 @@ async function deserializeAws_json1_1AdminForgetDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3946,7 +3936,6 @@ async function deserializeAws_json1_1AdminGetDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4035,7 +4024,6 @@ async function deserializeAws_json1_1AdminGetUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4187,7 +4175,6 @@ async function deserializeAws_json1_1AdminInitiateAuthCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4289,7 +4276,6 @@ async function deserializeAws_json1_1AdminLinkProviderForUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4378,7 +4364,6 @@ async function deserializeAws_json1_1AdminListDevicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4473,7 +4458,6 @@ async function deserializeAws_json1_1AdminListGroupsForUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4575,7 +4559,6 @@ async function deserializeAws_json1_1AdminListUserAuthEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4662,7 +4645,6 @@ async function deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4806,7 +4788,6 @@ async function deserializeAws_json1_1AdminResetUserPasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4999,7 +4980,6 @@ async function deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5101,7 +5081,6 @@ async function deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5200,7 +5179,6 @@ async function deserializeAws_json1_1AdminSetUserPasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5285,7 +5263,6 @@ async function deserializeAws_json1_1AdminSetUserSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5387,7 +5364,6 @@ async function deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5489,7 +5465,6 @@ async function deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5633,7 +5608,6 @@ async function deserializeAws_json1_1AdminUpdateUserAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5728,7 +5702,6 @@ async function deserializeAws_json1_1AdminUserGlobalSignOutCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5816,7 +5789,6 @@ async function deserializeAws_json1_1AssociateSoftwareTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5933,7 +5905,6 @@ async function deserializeAws_json1_1ChangePasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6064,7 +6035,6 @@ async function deserializeAws_json1_1ConfirmDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6219,7 +6189,6 @@ async function deserializeAws_json1_1ConfirmForgotPasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6364,7 +6333,6 @@ async function deserializeAws_json1_1ConfirmSignUpCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6460,7 +6428,6 @@ async function deserializeAws_json1_1CreateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6562,7 +6529,6 @@ async function deserializeAws_json1_1CreateIdentityProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6654,7 +6620,6 @@ async function deserializeAws_json1_1CreateResourceServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6753,7 +6718,6 @@ async function deserializeAws_json1_1CreateUserImportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6863,7 +6827,6 @@ async function deserializeAws_json1_1CreateUserPoolCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6969,7 +6932,6 @@ async function deserializeAws_json1_1CreateUserPoolClientCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7054,7 +7016,6 @@ async function deserializeAws_json1_1CreateUserPoolDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7131,7 +7092,6 @@ async function deserializeAws_json1_1DeleteGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7218,7 +7178,6 @@ async function deserializeAws_json1_1DeleteIdentityProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7298,7 +7257,6 @@ async function deserializeAws_json1_1DeleteResourceServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7396,7 +7354,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7502,7 +7459,6 @@ async function deserializeAws_json1_1DeleteUserAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7586,7 +7542,6 @@ async function deserializeAws_json1_1DeleteUserPoolCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7666,7 +7621,6 @@ async function deserializeAws_json1_1DeleteUserPoolClientCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7744,7 +7698,6 @@ async function deserializeAws_json1_1DeleteUserPoolDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7832,7 +7785,6 @@ async function deserializeAws_json1_1DescribeIdentityProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7920,7 +7872,6 @@ async function deserializeAws_json1_1DescribeResourceServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8015,7 +7966,6 @@ async function deserializeAws_json1_1DescribeRiskConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8100,7 +8050,6 @@ async function deserializeAws_json1_1DescribeUserImportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8189,7 +8138,6 @@ async function deserializeAws_json1_1DescribeUserPoolCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8277,7 +8225,6 @@ async function deserializeAws_json1_1DescribeUserPoolClientCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8358,7 +8305,6 @@ async function deserializeAws_json1_1DescribeUserPoolDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8463,7 +8409,6 @@ async function deserializeAws_json1_1ForgetDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8615,7 +8560,6 @@ async function deserializeAws_json1_1ForgotPasswordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8697,7 +8641,6 @@ async function deserializeAws_json1_1GetCSVHeaderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8807,7 +8750,6 @@ async function deserializeAws_json1_1GetDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8889,7 +8831,6 @@ async function deserializeAws_json1_1GetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8977,7 +8918,6 @@ async function deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9048,7 +8988,6 @@ async function deserializeAws_json1_1GetSigningCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9133,7 +9072,6 @@ async function deserializeAws_json1_1GetUICustomizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9236,7 +9174,6 @@ async function deserializeAws_json1_1GetUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9401,7 +9338,6 @@ async function deserializeAws_json1_1GetUserAttributeVerificationCodeCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9486,7 +9422,6 @@ async function deserializeAws_json1_1GetUserPoolMfaConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9582,7 +9517,6 @@ async function deserializeAws_json1_1GlobalSignOutCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9727,7 +9661,6 @@ async function deserializeAws_json1_1InitiateAuthCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9837,7 +9770,6 @@ async function deserializeAws_json1_1ListDevicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9919,7 +9851,6 @@ async function deserializeAws_json1_1ListGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10004,7 +9935,6 @@ async function deserializeAws_json1_1ListIdentityProvidersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10089,7 +10019,6 @@ async function deserializeAws_json1_1ListResourceServersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10174,7 +10103,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10259,7 +10187,6 @@ async function deserializeAws_json1_1ListUserImportJobsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10344,7 +10271,6 @@ async function deserializeAws_json1_1ListUserPoolClientsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10419,7 +10345,6 @@ async function deserializeAws_json1_1ListUserPoolsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10501,7 +10426,6 @@ async function deserializeAws_json1_1ListUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10583,7 +10507,6 @@ async function deserializeAws_json1_1ListUsersInGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10734,7 +10657,6 @@ async function deserializeAws_json1_1ResendConfirmationCodeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -10927,7 +10849,6 @@ async function deserializeAws_json1_1RespondToAuthChallengeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11033,7 +10954,6 @@ async function deserializeAws_json1_1SetRiskConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11118,7 +11038,6 @@ async function deserializeAws_json1_1SetUICustomizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11217,7 +11136,6 @@ async function deserializeAws_json1_1SetUserMFAPreferenceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11316,7 +11234,6 @@ async function deserializeAws_json1_1SetUserPoolMfaConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11412,7 +11329,6 @@ async function deserializeAws_json1_1SetUserSettingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11557,7 +11473,6 @@ async function deserializeAws_json1_1SignUpCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11649,7 +11564,6 @@ async function deserializeAws_json1_1StartUserImportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11738,7 +11652,6 @@ async function deserializeAws_json1_1StopUserImportJobCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11820,7 +11733,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -11902,7 +11814,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12004,7 +11915,6 @@ async function deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12117,7 +12027,6 @@ async function deserializeAws_json1_1UpdateDeviceStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12199,7 +12108,6 @@ async function deserializeAws_json1_1UpdateGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12294,7 +12202,6 @@ async function deserializeAws_json1_1UpdateIdentityProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12379,7 +12286,6 @@ async function deserializeAws_json1_1UpdateResourceServerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12555,7 +12461,6 @@ async function deserializeAws_json1_1UpdateUserAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12679,7 +12584,6 @@ async function deserializeAws_json1_1UpdateUserPoolCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12785,7 +12689,6 @@ async function deserializeAws_json1_1UpdateUserPoolClientCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -12870,7 +12773,6 @@ async function deserializeAws_json1_1UpdateUserPoolDomainCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13004,7 +12906,6 @@ async function deserializeAws_json1_1VerifySoftwareTokenCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13131,7 +13032,6 @@ async function deserializeAws_json1_1VerifyUserAttributeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -13150,7 +13050,6 @@ const deserializeAws_json1_1AliasExistsExceptionResponse = async (
   );
   const contents: AliasExistsException = {
     name: "AliasExistsException",
-    __type: "AliasExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13169,7 +13068,6 @@ const deserializeAws_json1_1CodeDeliveryFailureExceptionResponse = async (
   );
   const contents: CodeDeliveryFailureException = {
     name: "CodeDeliveryFailureException",
-    __type: "CodeDeliveryFailureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13188,7 +13086,6 @@ const deserializeAws_json1_1CodeMismatchExceptionResponse = async (
   );
   const contents: CodeMismatchException = {
     name: "CodeMismatchException",
-    __type: "CodeMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13207,7 +13104,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13226,7 +13122,6 @@ const deserializeAws_json1_1DuplicateProviderExceptionResponse = async (
   );
   const contents: DuplicateProviderException = {
     name: "DuplicateProviderException",
-    __type: "DuplicateProviderException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13245,7 +13140,6 @@ const deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse = async (
   );
   const contents: EnableSoftwareTokenMFAException = {
     name: "EnableSoftwareTokenMFAException",
-    __type: "EnableSoftwareTokenMFAException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13264,7 +13158,6 @@ const deserializeAws_json1_1ExpiredCodeExceptionResponse = async (
   );
   const contents: ExpiredCodeException = {
     name: "ExpiredCodeException",
-    __type: "ExpiredCodeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13283,7 +13176,6 @@ const deserializeAws_json1_1GroupExistsExceptionResponse = async (
   );
   const contents: GroupExistsException = {
     name: "GroupExistsException",
-    __type: "GroupExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13302,7 +13194,6 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   );
   const contents: InternalErrorException = {
     name: "InternalErrorException",
-    __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13321,7 +13212,6 @@ const deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse = asyn
   );
   const contents: InvalidEmailRoleAccessPolicyException = {
     name: "InvalidEmailRoleAccessPolicyException",
-    __type: "InvalidEmailRoleAccessPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13340,7 +13230,6 @@ const deserializeAws_json1_1InvalidLambdaResponseExceptionResponse = async (
   );
   const contents: InvalidLambdaResponseException = {
     name: "InvalidLambdaResponseException",
-    __type: "InvalidLambdaResponseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13359,7 +13248,6 @@ const deserializeAws_json1_1InvalidOAuthFlowExceptionResponse = async (
   );
   const contents: InvalidOAuthFlowException = {
     name: "InvalidOAuthFlowException",
-    __type: "InvalidOAuthFlowException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13378,7 +13266,6 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   );
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
-    __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13397,7 +13284,6 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
   );
   const contents: InvalidPasswordException = {
     name: "InvalidPasswordException",
-    __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13416,7 +13302,6 @@ const deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse = async 
   );
   const contents: InvalidSmsRoleAccessPolicyException = {
     name: "InvalidSmsRoleAccessPolicyException",
-    __type: "InvalidSmsRoleAccessPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13435,7 +13320,6 @@ const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse = a
   );
   const contents: InvalidSmsRoleTrustRelationshipException = {
     name: "InvalidSmsRoleTrustRelationshipException",
-    __type: "InvalidSmsRoleTrustRelationshipException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13454,7 +13338,6 @@ const deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse = asyn
   );
   const contents: InvalidUserPoolConfigurationException = {
     name: "InvalidUserPoolConfigurationException",
-    __type: "InvalidUserPoolConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13473,7 +13356,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13492,7 +13374,6 @@ const deserializeAws_json1_1MFAMethodNotFoundExceptionResponse = async (
   );
   const contents: MFAMethodNotFoundException = {
     name: "MFAMethodNotFoundException",
-    __type: "MFAMethodNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13511,7 +13392,6 @@ const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
   );
   const contents: NotAuthorizedException = {
     name: "NotAuthorizedException",
-    __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13530,7 +13410,6 @@ const deserializeAws_json1_1PasswordResetRequiredExceptionResponse = async (
   );
   const contents: PasswordResetRequiredException = {
     name: "PasswordResetRequiredException",
-    __type: "PasswordResetRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13549,7 +13428,6 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
   );
   const contents: PreconditionNotMetException = {
     name: "PreconditionNotMetException",
-    __type: "PreconditionNotMetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13568,7 +13446,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13587,7 +13464,6 @@ const deserializeAws_json1_1ScopeDoesNotExistExceptionResponse = async (
   );
   const contents: ScopeDoesNotExistException = {
     name: "ScopeDoesNotExistException",
-    __type: "ScopeDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13606,7 +13482,6 @@ const deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse = async (
   );
   const contents: SoftwareTokenMFANotFoundException = {
     name: "SoftwareTokenMFANotFoundException",
-    __type: "SoftwareTokenMFANotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13625,7 +13500,6 @@ const deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse = async (
   );
   const contents: TooManyFailedAttemptsException = {
     name: "TooManyFailedAttemptsException",
-    __type: "TooManyFailedAttemptsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13644,7 +13518,6 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   );
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
-    __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13663,7 +13536,6 @@ const deserializeAws_json1_1UnexpectedLambdaExceptionResponse = async (
   );
   const contents: UnexpectedLambdaException = {
     name: "UnexpectedLambdaException",
-    __type: "UnexpectedLambdaException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13682,7 +13554,6 @@ const deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse = async
   );
   const contents: UnsupportedIdentityProviderException = {
     name: "UnsupportedIdentityProviderException",
-    __type: "UnsupportedIdentityProviderException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13701,7 +13572,6 @@ const deserializeAws_json1_1UnsupportedUserStateExceptionResponse = async (
   );
   const contents: UnsupportedUserStateException = {
     name: "UnsupportedUserStateException",
-    __type: "UnsupportedUserStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13720,7 +13590,6 @@ const deserializeAws_json1_1UserImportInProgressExceptionResponse = async (
   );
   const contents: UserImportInProgressException = {
     name: "UserImportInProgressException",
-    __type: "UserImportInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13739,7 +13608,6 @@ const deserializeAws_json1_1UserLambdaValidationExceptionResponse = async (
   );
   const contents: UserLambdaValidationException = {
     name: "UserLambdaValidationException",
-    __type: "UserLambdaValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13758,7 +13626,6 @@ const deserializeAws_json1_1UserNotConfirmedExceptionResponse = async (
   );
   const contents: UserNotConfirmedException = {
     name: "UserNotConfirmedException",
-    __type: "UserNotConfirmedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13777,7 +13644,6 @@ const deserializeAws_json1_1UserNotFoundExceptionResponse = async (
   );
   const contents: UserNotFoundException = {
     name: "UserNotFoundException",
-    __type: "UserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13796,7 +13662,6 @@ const deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse = async (
   );
   const contents: UserPoolAddOnNotEnabledException = {
     name: "UserPoolAddOnNotEnabledException",
-    __type: "UserPoolAddOnNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13815,7 +13680,6 @@ const deserializeAws_json1_1UserPoolTaggingExceptionResponse = async (
   );
   const contents: UserPoolTaggingException = {
     name: "UserPoolTaggingException",
-    __type: "UserPoolTaggingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -13834,7 +13698,6 @@ const deserializeAws_json1_1UsernameExistsExceptionResponse = async (
   );
   const contents: UsernameExistsException = {
     name: "UsernameExistsException",
-    __type: "UsernameExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

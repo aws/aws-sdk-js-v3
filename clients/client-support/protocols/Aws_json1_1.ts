@@ -497,7 +497,6 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -578,7 +577,6 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -653,7 +651,6 @@ async function deserializeAws_json1_1CreateCaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -724,7 +721,6 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -785,7 +781,6 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -852,7 +847,6 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -906,7 +900,6 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -966,7 +959,6 @@ async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1027,7 +1019,6 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1087,7 +1078,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1147,7 +1137,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1207,7 +1196,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1267,7 +1255,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1327,7 +1314,6 @@ async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1346,7 +1332,6 @@ const deserializeAws_json1_1AttachmentIdNotFoundResponse = async (
   );
   const contents: AttachmentIdNotFound = {
     name: "AttachmentIdNotFound",
-    __type: "AttachmentIdNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1365,7 +1350,6 @@ const deserializeAws_json1_1AttachmentLimitExceededResponse = async (
   );
   const contents: AttachmentLimitExceeded = {
     name: "AttachmentLimitExceeded",
-    __type: "AttachmentLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1384,7 +1368,6 @@ const deserializeAws_json1_1AttachmentSetExpiredResponse = async (
   );
   const contents: AttachmentSetExpired = {
     name: "AttachmentSetExpired",
-    __type: "AttachmentSetExpired",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1403,7 +1386,6 @@ const deserializeAws_json1_1AttachmentSetIdNotFoundResponse = async (
   );
   const contents: AttachmentSetIdNotFound = {
     name: "AttachmentSetIdNotFound",
-    __type: "AttachmentSetIdNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1422,7 +1404,6 @@ const deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse = async (
   );
   const contents: AttachmentSetSizeLimitExceeded = {
     name: "AttachmentSetSizeLimitExceeded",
-    __type: "AttachmentSetSizeLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1441,7 +1422,6 @@ const deserializeAws_json1_1CaseCreationLimitExceededResponse = async (
   );
   const contents: CaseCreationLimitExceeded = {
     name: "CaseCreationLimitExceeded",
-    __type: "CaseCreationLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1457,7 +1437,6 @@ const deserializeAws_json1_1CaseIdNotFoundResponse = async (
   const deserialized: any = deserializeAws_json1_1CaseIdNotFound(body, context);
   const contents: CaseIdNotFound = {
     name: "CaseIdNotFound",
-    __type: "CaseIdNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1476,7 +1455,6 @@ const deserializeAws_json1_1DescribeAttachmentLimitExceededResponse = async (
   );
   const contents: DescribeAttachmentLimitExceeded = {
     name: "DescribeAttachmentLimitExceeded",
-    __type: "DescribeAttachmentLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1495,7 +1473,6 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   );
   const contents: InternalServerError = {
     name: "InternalServerError",
-    __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

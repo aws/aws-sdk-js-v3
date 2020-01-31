@@ -653,7 +653,6 @@ export namespace CheckDNSAvailabilityResultMessage {
 export interface CodeBuildNotInServiceRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CodeBuildNotInServiceRegionException";
   name: "CodeBuildNotInServiceRegionException";
   $fault: "client";
   /**
@@ -2233,7 +2232,6 @@ export namespace DescribePlatformVersionResult {
 export interface ElasticBeanstalkServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ElasticBeanstalkServiceException";
   name: "ElasticBeanstalkServiceException";
   $fault: "client";
   /**
@@ -2880,7 +2878,6 @@ export enum InstancesHealthAttribute {
 export interface InsufficientPrivilegesException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InsufficientPrivilegesException";
   name: "InsufficientPrivilegesException";
   $fault: "client";
   /**
@@ -2902,7 +2899,6 @@ export namespace InsufficientPrivilegesException {
 export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidRequestException";
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -3262,7 +3258,6 @@ export namespace ManagedActionHistoryItem {
 export interface ManagedActionInvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ManagedActionInvalidStateException";
   name: "ManagedActionInvalidStateException";
   $fault: "client";
   /**
@@ -3344,7 +3339,6 @@ export namespace MaxCountRule {
 export interface OperationInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "OperationInProgressException";
   name: "OperationInProgressException";
   $fault: "client";
   /**
@@ -3681,7 +3675,6 @@ export namespace PlatformSummary {
 export interface PlatformVersionStillReferencedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "PlatformVersionStillReferencedException";
   name: "PlatformVersionStillReferencedException";
   $fault: "client";
   /**
@@ -3790,7 +3783,6 @@ export namespace RequestEnvironmentInfoMessage {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -3887,7 +3879,6 @@ export namespace ResourceTagsDescriptionMessage {
 export interface ResourceTypeNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceTypeNotSupportedException";
   name: "ResourceTypeNotSupportedException";
   $fault: "client";
   /**
@@ -4023,7 +4014,6 @@ export namespace S3Location {
 export interface S3LocationNotInServiceRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "S3LocationNotInServiceRegionException";
   name: "S3LocationNotInServiceRegionException";
   $fault: "client";
   /**
@@ -4044,7 +4034,6 @@ export namespace S3LocationNotInServiceRegionException {
 export interface S3SubscriptionRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "S3SubscriptionRequiredException";
   name: "S3SubscriptionRequiredException";
   $fault: "client";
   /**
@@ -4221,7 +4210,6 @@ export namespace SourceBuildInformation {
 export interface SourceBundleDeletionException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "SourceBundleDeletionException";
   name: "SourceBundleDeletionException";
   $fault: "client";
   /**
@@ -4457,7 +4445,6 @@ export namespace TerminateEnvironmentMessage {
 export interface TooManyApplicationVersionsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyApplicationVersionsException";
   name: "TooManyApplicationVersionsException";
   $fault: "client";
   /**
@@ -4478,7 +4465,6 @@ export namespace TooManyApplicationVersionsException {
 export interface TooManyApplicationsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyApplicationsException";
   name: "TooManyApplicationsException";
   $fault: "client";
   /**
@@ -4499,7 +4485,6 @@ export namespace TooManyApplicationsException {
 export interface TooManyBucketsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyBucketsException";
   name: "TooManyBucketsException";
   $fault: "client";
   /**
@@ -4520,7 +4505,6 @@ export namespace TooManyBucketsException {
 export interface TooManyConfigurationTemplatesException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyConfigurationTemplatesException";
   name: "TooManyConfigurationTemplatesException";
   $fault: "client";
   /**
@@ -4541,7 +4525,6 @@ export namespace TooManyConfigurationTemplatesException {
 export interface TooManyEnvironmentsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyEnvironmentsException";
   name: "TooManyEnvironmentsException";
   $fault: "client";
   /**
@@ -4562,7 +4545,6 @@ export namespace TooManyEnvironmentsException {
 export interface TooManyPlatformsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyPlatformsException";
   name: "TooManyPlatformsException";
   $fault: "client";
   /**
@@ -4586,7 +4568,6 @@ export namespace TooManyPlatformsException {
 export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TooManyTagsException";
   name: "TooManyTagsException";
   $fault: "client";
   /**

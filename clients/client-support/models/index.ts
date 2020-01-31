@@ -335,7 +335,6 @@ export namespace Service {
 export interface AttachmentIdNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AttachmentIdNotFound";
   name: "AttachmentIdNotFound";
   $fault: "client";
   /**
@@ -357,7 +356,6 @@ export namespace AttachmentIdNotFound {
 export interface AttachmentLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AttachmentLimitExceeded";
   name: "AttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -380,7 +378,6 @@ export namespace AttachmentLimitExceeded {
 export interface AttachmentSetExpired
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AttachmentSetExpired";
   name: "AttachmentSetExpired";
   $fault: "client";
   /**
@@ -402,7 +399,6 @@ export namespace AttachmentSetExpired {
 export interface AttachmentSetIdNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AttachmentSetIdNotFound";
   name: "AttachmentSetIdNotFound";
   $fault: "client";
   /**
@@ -424,7 +420,6 @@ export namespace AttachmentSetIdNotFound {
 export interface AttachmentSetSizeLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AttachmentSetSizeLimitExceeded";
   name: "AttachmentSetSizeLimitExceeded";
   $fault: "client";
   /**
@@ -446,7 +441,6 @@ export namespace AttachmentSetSizeLimitExceeded {
 export interface CaseCreationLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CaseCreationLimitExceeded";
   name: "CaseCreationLimitExceeded";
   $fault: "client";
   /**
@@ -468,7 +462,6 @@ export namespace CaseCreationLimitExceeded {
 export interface CaseIdNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "CaseIdNotFound";
   name: "CaseIdNotFound";
   $fault: "client";
   /**
@@ -490,7 +483,6 @@ export namespace CaseIdNotFound {
 export interface DescribeAttachmentLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DescribeAttachmentLimitExceeded";
   name: "DescribeAttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -512,7 +504,6 @@ export namespace DescribeAttachmentLimitExceeded {
 export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerError";
   name: "InternalServerError";
   $fault: "server";
   /**

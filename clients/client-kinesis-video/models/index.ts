@@ -16,7 +16,6 @@ export enum APIName {
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -35,7 +34,6 @@ export namespace AccessDeniedException {
 export interface AccountChannelLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccountChannelLimitExceededException";
   name: "AccountChannelLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -53,7 +51,6 @@ export namespace AccountChannelLimitExceededException {
 export interface AccountStreamLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccountStreamLimitExceededException";
   name: "AccountStreamLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -160,7 +157,6 @@ export enum ChannelType {
 export interface ClientLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ClientLimitExceededException";
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -437,7 +433,6 @@ export namespace DescribeStreamOutput {
 export interface DeviceStreamLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "DeviceStreamLimitExceededException";
   name: "DeviceStreamLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -531,7 +526,6 @@ export namespace GetSignalingChannelEndpointOutput {
 export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidArgumentException";
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -549,7 +543,6 @@ export namespace InvalidArgumentException {
 export interface InvalidDeviceException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidDeviceException";
   name: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
@@ -567,7 +560,6 @@ export namespace InvalidDeviceException {
 export interface InvalidResourceFormatException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InvalidResourceFormatException";
   name: "InvalidResourceFormatException";
   $fault: "client";
   Message?: string;
@@ -769,7 +761,6 @@ export namespace ListTagsForStreamOutput {
 export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotAuthorizedException";
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -812,7 +803,6 @@ export namespace ResourceEndpointListItem {
 export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceInUseException";
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -830,7 +820,6 @@ export namespace ResourceInUseException {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1078,7 +1067,6 @@ export namespace TagStreamOutput {
 export interface TagsPerResourceExceededLimitException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "TagsPerResourceExceededLimitException";
   name: "TagsPerResourceExceededLimitException";
   $fault: "client";
   Message?: string;
@@ -1307,7 +1295,6 @@ export namespace UpdateStreamOutput {
 export interface VersionMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "VersionMismatchException";
   name: "VersionMismatchException";
   $fault: "client";
   Message?: string;

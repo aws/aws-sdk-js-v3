@@ -2931,7 +2931,6 @@ async function deserializeAws_queryAcceptReservedNodeExchangeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3010,7 +3009,6 @@ async function deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3103,7 +3101,6 @@ async function deserializeAws_queryAuthorizeSnapshotAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3161,7 +3158,6 @@ async function deserializeAws_queryBatchDeleteClusterSnapshotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3226,7 +3222,6 @@ async function deserializeAws_queryBatchModifyClusterSnapshotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3302,7 +3297,6 @@ async function deserializeAws_queryCancelResizeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3385,7 +3379,6 @@ async function deserializeAws_queryCopyClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3587,7 +3580,6 @@ async function deserializeAws_queryCreateClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3666,7 +3658,6 @@ async function deserializeAws_queryCreateClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3745,7 +3736,6 @@ async function deserializeAws_queryCreateClusterSecurityGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3845,7 +3835,6 @@ async function deserializeAws_queryCreateClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3952,7 +3941,6 @@ async function deserializeAws_queryCreateClusterSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4080,7 +4068,6 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4159,7 +4146,6 @@ async function deserializeAws_queryCreateHsmClientCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4238,7 +4224,6 @@ async function deserializeAws_queryCreateHsmConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4331,7 +4316,6 @@ async function deserializeAws_queryCreateScheduledActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4424,7 +4408,6 @@ async function deserializeAws_queryCreateSnapshotCopyGrantCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4510,7 +4493,6 @@ async function deserializeAws_queryCreateSnapshotScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4571,7 +4553,6 @@ async function deserializeAws_queryCreateTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4654,7 +4635,6 @@ async function deserializeAws_queryDeleteClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4711,7 +4691,6 @@ async function deserializeAws_queryDeleteClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4768,7 +4747,6 @@ async function deserializeAws_queryDeleteClusterSecurityGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4833,7 +4811,6 @@ async function deserializeAws_queryDeleteClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4897,7 +4874,6 @@ async function deserializeAws_queryDeleteClusterSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4954,7 +4930,6 @@ async function deserializeAws_queryDeleteEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5011,7 +4986,6 @@ async function deserializeAws_queryDeleteHsmClientCertificateCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5068,7 +5042,6 @@ async function deserializeAws_queryDeleteHsmConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5125,7 +5098,6 @@ async function deserializeAws_queryDeleteScheduledActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5182,7 +5154,6 @@ async function deserializeAws_queryDeleteSnapshotCopyGrantCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5239,7 +5210,6 @@ async function deserializeAws_queryDeleteSnapshotScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5293,7 +5263,6 @@ async function deserializeAws_queryDeleteTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5344,7 +5313,6 @@ async function deserializeAws_queryDescribeAccountAttributesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5409,7 +5377,6 @@ async function deserializeAws_queryDescribeClusterDbRevisionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5474,7 +5441,6 @@ async function deserializeAws_queryDescribeClusterParameterGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5532,7 +5498,6 @@ async function deserializeAws_queryDescribeClusterParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5597,7 +5562,6 @@ async function deserializeAws_queryDescribeClusterSecurityGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5669,7 +5633,6 @@ async function deserializeAws_queryDescribeClusterSnapshotsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5734,7 +5697,6 @@ async function deserializeAws_queryDescribeClusterSubnetGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5799,7 +5761,6 @@ async function deserializeAws_queryDescribeClusterTracksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5850,7 +5811,6 @@ async function deserializeAws_queryDescribeClusterVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5912,7 +5872,6 @@ async function deserializeAws_queryDescribeClustersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5963,7 +5922,6 @@ async function deserializeAws_queryDescribeDefaultClusterParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6014,7 +5972,6 @@ async function deserializeAws_queryDescribeEventCategoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6079,7 +6036,6 @@ async function deserializeAws_queryDescribeEventSubscriptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6127,7 +6083,6 @@ async function deserializeAws_queryDescribeEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6192,7 +6147,6 @@ async function deserializeAws_queryDescribeHsmClientCertificatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6257,7 +6211,6 @@ async function deserializeAws_queryDescribeHsmConfigurationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6315,7 +6268,6 @@ async function deserializeAws_queryDescribeLoggingStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6394,7 +6346,6 @@ async function deserializeAws_queryDescribeNodeConfigurationOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6445,7 +6396,6 @@ async function deserializeAws_queryDescribeOrderableClusterOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6517,7 +6467,6 @@ async function deserializeAws_queryDescribeReservedNodeOfferingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6582,7 +6531,6 @@ async function deserializeAws_queryDescribeReservedNodesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6644,7 +6592,6 @@ async function deserializeAws_queryDescribeResizeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6709,7 +6656,6 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6774,7 +6720,6 @@ async function deserializeAws_queryDescribeSnapshotCopyGrantsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6825,7 +6770,6 @@ async function deserializeAws_queryDescribeSnapshotSchedulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6873,7 +6817,6 @@ async function deserializeAws_queryDescribeStorageCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6938,7 +6881,6 @@ async function deserializeAws_queryDescribeTableRestoreStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7000,7 +6942,6 @@ async function deserializeAws_queryDescribeTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7055,7 +6996,6 @@ async function deserializeAws_queryDisableLoggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7131,7 +7071,6 @@ async function deserializeAws_queryDisableSnapshotCopyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7214,7 +7153,6 @@ async function deserializeAws_queryEnableLoggingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7339,7 +7277,6 @@ async function deserializeAws_queryEnableSnapshotCopyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7404,7 +7341,6 @@ async function deserializeAws_queryGetClusterCredentialsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7497,7 +7433,6 @@ async function deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7678,7 +7613,6 @@ async function deserializeAws_queryModifyClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7750,7 +7684,6 @@ async function deserializeAws_queryModifyClusterDbRevisionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7815,7 +7748,6 @@ async function deserializeAws_queryModifyClusterIamRolesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7873,7 +7805,6 @@ async function deserializeAws_queryModifyClusterMaintenanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7938,7 +7869,6 @@ async function deserializeAws_queryModifyClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8010,7 +7940,6 @@ async function deserializeAws_queryModifyClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8074,7 +8003,6 @@ async function deserializeAws_queryModifyClusterSnapshotScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8167,7 +8095,6 @@ async function deserializeAws_queryModifyClusterSubnetGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8281,7 +8208,6 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8367,7 +8293,6 @@ async function deserializeAws_queryModifyScheduledActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8453,7 +8378,6 @@ async function deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8525,7 +8449,6 @@ async function deserializeAws_queryModifySnapshotScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8604,7 +8527,6 @@ async function deserializeAws_queryPurchaseReservedNodeOfferingCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8666,7 +8588,6 @@ async function deserializeAws_queryRebootClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8731,7 +8652,6 @@ async function deserializeAws_queryResetClusterParameterGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8842,7 +8762,6 @@ async function deserializeAws_queryResizeClusterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9068,7 +8987,6 @@ async function deserializeAws_queryRestoreFromClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9168,7 +9086,6 @@ async function deserializeAws_queryRestoreTableFromClusterSnapshotCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9240,7 +9157,6 @@ async function deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9312,7 +9228,6 @@ async function deserializeAws_queryRevokeSnapshotAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9381,7 +9296,6 @@ async function deserializeAws_queryRotateEncryptionKeyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `redshift.admin.v20121201#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -9400,7 +9314,6 @@ const deserializeAws_queryAccessToSnapshotDeniedFaultResponse = async (
   );
   const contents: AccessToSnapshotDeniedFault = {
     name: "AccessToSnapshotDeniedFault",
-    __type: "AccessToSnapshotDeniedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9419,7 +9332,6 @@ const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
   );
   const contents: AuthorizationAlreadyExistsFault = {
     name: "AuthorizationAlreadyExistsFault",
-    __type: "AuthorizationAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9438,7 +9350,6 @@ const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
   );
   const contents: AuthorizationNotFoundFault = {
     name: "AuthorizationNotFoundFault",
-    __type: "AuthorizationNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9457,7 +9368,6 @@ const deserializeAws_queryAuthorizationQuotaExceededFaultResponse = async (
   );
   const contents: AuthorizationQuotaExceededFault = {
     name: "AuthorizationQuotaExceededFault",
-    __type: "AuthorizationQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9476,7 +9386,6 @@ const deserializeAws_queryBatchDeleteRequestSizeExceededFaultResponse = async (
   );
   const contents: BatchDeleteRequestSizeExceededFault = {
     name: "BatchDeleteRequestSizeExceededFault",
-    __type: "BatchDeleteRequestSizeExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9495,7 +9404,6 @@ const deserializeAws_queryBatchModifyClusterSnapshotsLimitExceededFaultResponse 
   );
   const contents: BatchModifyClusterSnapshotsLimitExceededFault = {
     name: "BatchModifyClusterSnapshotsLimitExceededFault",
-    __type: "BatchModifyClusterSnapshotsLimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9514,7 +9422,6 @@ const deserializeAws_queryBucketNotFoundFaultResponse = async (
   );
   const contents: BucketNotFoundFault = {
     name: "BucketNotFoundFault",
-    __type: "BucketNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9533,7 +9440,6 @@ const deserializeAws_queryClusterAlreadyExistsFaultResponse = async (
   );
   const contents: ClusterAlreadyExistsFault = {
     name: "ClusterAlreadyExistsFault",
-    __type: "ClusterAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9552,7 +9458,6 @@ const deserializeAws_queryClusterNotFoundFaultResponse = async (
   );
   const contents: ClusterNotFoundFault = {
     name: "ClusterNotFoundFault",
-    __type: "ClusterNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9571,7 +9476,6 @@ const deserializeAws_queryClusterOnLatestRevisionFaultResponse = async (
   );
   const contents: ClusterOnLatestRevisionFault = {
     name: "ClusterOnLatestRevisionFault",
-    __type: "ClusterOnLatestRevisionFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9590,7 +9494,6 @@ const deserializeAws_queryClusterParameterGroupAlreadyExistsFaultResponse = asyn
   );
   const contents: ClusterParameterGroupAlreadyExistsFault = {
     name: "ClusterParameterGroupAlreadyExistsFault",
-    __type: "ClusterParameterGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9609,7 +9512,6 @@ const deserializeAws_queryClusterParameterGroupNotFoundFaultResponse = async (
   );
   const contents: ClusterParameterGroupNotFoundFault = {
     name: "ClusterParameterGroupNotFoundFault",
-    __type: "ClusterParameterGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9628,7 +9530,6 @@ const deserializeAws_queryClusterParameterGroupQuotaExceededFaultResponse = asyn
   );
   const contents: ClusterParameterGroupQuotaExceededFault = {
     name: "ClusterParameterGroupQuotaExceededFault",
-    __type: "ClusterParameterGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9647,7 +9548,6 @@ const deserializeAws_queryClusterQuotaExceededFaultResponse = async (
   );
   const contents: ClusterQuotaExceededFault = {
     name: "ClusterQuotaExceededFault",
-    __type: "ClusterQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9666,7 +9566,6 @@ const deserializeAws_queryClusterSecurityGroupAlreadyExistsFaultResponse = async
   );
   const contents: ClusterSecurityGroupAlreadyExistsFault = {
     name: "ClusterSecurityGroupAlreadyExistsFault",
-    __type: "ClusterSecurityGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9685,7 +9584,6 @@ const deserializeAws_queryClusterSecurityGroupNotFoundFaultResponse = async (
   );
   const contents: ClusterSecurityGroupNotFoundFault = {
     name: "ClusterSecurityGroupNotFoundFault",
-    __type: "ClusterSecurityGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9704,7 +9602,6 @@ const deserializeAws_queryClusterSecurityGroupQuotaExceededFaultResponse = async
   );
   const contents: ClusterSecurityGroupQuotaExceededFault = {
     name: "ClusterSecurityGroupQuotaExceededFault",
-    __type: "ClusterSecurityGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9723,7 +9620,6 @@ const deserializeAws_queryClusterSnapshotAlreadyExistsFaultResponse = async (
   );
   const contents: ClusterSnapshotAlreadyExistsFault = {
     name: "ClusterSnapshotAlreadyExistsFault",
-    __type: "ClusterSnapshotAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9742,7 +9638,6 @@ const deserializeAws_queryClusterSnapshotNotFoundFaultResponse = async (
   );
   const contents: ClusterSnapshotNotFoundFault = {
     name: "ClusterSnapshotNotFoundFault",
-    __type: "ClusterSnapshotNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9761,7 +9656,6 @@ const deserializeAws_queryClusterSnapshotQuotaExceededFaultResponse = async (
   );
   const contents: ClusterSnapshotQuotaExceededFault = {
     name: "ClusterSnapshotQuotaExceededFault",
-    __type: "ClusterSnapshotQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9780,7 +9674,6 @@ const deserializeAws_queryClusterSubnetGroupAlreadyExistsFaultResponse = async (
   );
   const contents: ClusterSubnetGroupAlreadyExistsFault = {
     name: "ClusterSubnetGroupAlreadyExistsFault",
-    __type: "ClusterSubnetGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9799,7 +9692,6 @@ const deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse = async (
   );
   const contents: ClusterSubnetGroupNotFoundFault = {
     name: "ClusterSubnetGroupNotFoundFault",
-    __type: "ClusterSubnetGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9818,7 +9710,6 @@ const deserializeAws_queryClusterSubnetGroupQuotaExceededFaultResponse = async (
   );
   const contents: ClusterSubnetGroupQuotaExceededFault = {
     name: "ClusterSubnetGroupQuotaExceededFault",
-    __type: "ClusterSubnetGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9837,7 +9728,6 @@ const deserializeAws_queryClusterSubnetQuotaExceededFaultResponse = async (
   );
   const contents: ClusterSubnetQuotaExceededFault = {
     name: "ClusterSubnetQuotaExceededFault",
-    __type: "ClusterSubnetQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9856,7 +9746,6 @@ const deserializeAws_queryCopyToRegionDisabledFaultResponse = async (
   );
   const contents: CopyToRegionDisabledFault = {
     name: "CopyToRegionDisabledFault",
-    __type: "CopyToRegionDisabledFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9875,7 +9764,6 @@ const deserializeAws_queryDependentServiceRequestThrottlingFaultResponse = async
   );
   const contents: DependentServiceRequestThrottlingFault = {
     name: "DependentServiceRequestThrottlingFault",
-    __type: "DependentServiceRequestThrottlingFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9894,7 +9782,6 @@ const deserializeAws_queryDependentServiceUnavailableFaultResponse = async (
   );
   const contents: DependentServiceUnavailableFault = {
     name: "DependentServiceUnavailableFault",
-    __type: "DependentServiceUnavailableFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9913,7 +9800,6 @@ const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
   );
   const contents: EventSubscriptionQuotaExceededFault = {
     name: "EventSubscriptionQuotaExceededFault",
-    __type: "EventSubscriptionQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9932,7 +9818,6 @@ const deserializeAws_queryHsmClientCertificateAlreadyExistsFaultResponse = async
   );
   const contents: HsmClientCertificateAlreadyExistsFault = {
     name: "HsmClientCertificateAlreadyExistsFault",
-    __type: "HsmClientCertificateAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9951,7 +9836,6 @@ const deserializeAws_queryHsmClientCertificateNotFoundFaultResponse = async (
   );
   const contents: HsmClientCertificateNotFoundFault = {
     name: "HsmClientCertificateNotFoundFault",
-    __type: "HsmClientCertificateNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9970,7 +9854,6 @@ const deserializeAws_queryHsmClientCertificateQuotaExceededFaultResponse = async
   );
   const contents: HsmClientCertificateQuotaExceededFault = {
     name: "HsmClientCertificateQuotaExceededFault",
-    __type: "HsmClientCertificateQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -9989,7 +9872,6 @@ const deserializeAws_queryHsmConfigurationAlreadyExistsFaultResponse = async (
   );
   const contents: HsmConfigurationAlreadyExistsFault = {
     name: "HsmConfigurationAlreadyExistsFault",
-    __type: "HsmConfigurationAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10008,7 +9890,6 @@ const deserializeAws_queryHsmConfigurationNotFoundFaultResponse = async (
   );
   const contents: HsmConfigurationNotFoundFault = {
     name: "HsmConfigurationNotFoundFault",
-    __type: "HsmConfigurationNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10027,7 +9908,6 @@ const deserializeAws_queryHsmConfigurationQuotaExceededFaultResponse = async (
   );
   const contents: HsmConfigurationQuotaExceededFault = {
     name: "HsmConfigurationQuotaExceededFault",
-    __type: "HsmConfigurationQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10046,7 +9926,6 @@ const deserializeAws_queryInProgressTableRestoreQuotaExceededFaultResponse = asy
   );
   const contents: InProgressTableRestoreQuotaExceededFault = {
     name: "InProgressTableRestoreQuotaExceededFault",
-    __type: "InProgressTableRestoreQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10065,7 +9944,6 @@ const deserializeAws_queryIncompatibleOrderableOptionsResponse = async (
   );
   const contents: IncompatibleOrderableOptions = {
     name: "IncompatibleOrderableOptions",
-    __type: "IncompatibleOrderableOptions",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10084,7 +9962,6 @@ const deserializeAws_queryInsufficientClusterCapacityFaultResponse = async (
   );
   const contents: InsufficientClusterCapacityFault = {
     name: "InsufficientClusterCapacityFault",
-    __type: "InsufficientClusterCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10103,7 +9980,6 @@ const deserializeAws_queryInsufficientS3BucketPolicyFaultResponse = async (
   );
   const contents: InsufficientS3BucketPolicyFault = {
     name: "InsufficientS3BucketPolicyFault",
-    __type: "InsufficientS3BucketPolicyFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10122,7 +9998,6 @@ const deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse = async
   );
   const contents: InvalidClusterParameterGroupStateFault = {
     name: "InvalidClusterParameterGroupStateFault",
-    __type: "InvalidClusterParameterGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10141,7 +10016,6 @@ const deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse = async 
   );
   const contents: InvalidClusterSecurityGroupStateFault = {
     name: "InvalidClusterSecurityGroupStateFault",
-    __type: "InvalidClusterSecurityGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10160,7 +10034,6 @@ const deserializeAws_queryInvalidClusterSnapshotScheduleStateFaultResponse = asy
   );
   const contents: InvalidClusterSnapshotScheduleStateFault = {
     name: "InvalidClusterSnapshotScheduleStateFault",
-    __type: "InvalidClusterSnapshotScheduleStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10179,7 +10052,6 @@ const deserializeAws_queryInvalidClusterSnapshotStateFaultResponse = async (
   );
   const contents: InvalidClusterSnapshotStateFault = {
     name: "InvalidClusterSnapshotStateFault",
-    __type: "InvalidClusterSnapshotStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10198,7 +10070,6 @@ const deserializeAws_queryInvalidClusterStateFaultResponse = async (
   );
   const contents: InvalidClusterStateFault = {
     name: "InvalidClusterStateFault",
-    __type: "InvalidClusterStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10217,7 +10088,6 @@ const deserializeAws_queryInvalidClusterSubnetGroupStateFaultResponse = async (
   );
   const contents: InvalidClusterSubnetGroupStateFault = {
     name: "InvalidClusterSubnetGroupStateFault",
-    __type: "InvalidClusterSubnetGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10236,7 +10106,6 @@ const deserializeAws_queryInvalidClusterSubnetStateFaultResponse = async (
   );
   const contents: InvalidClusterSubnetStateFault = {
     name: "InvalidClusterSubnetStateFault",
-    __type: "InvalidClusterSubnetStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10255,7 +10124,6 @@ const deserializeAws_queryInvalidClusterTrackFaultResponse = async (
   );
   const contents: InvalidClusterTrackFault = {
     name: "InvalidClusterTrackFault",
-    __type: "InvalidClusterTrackFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10274,7 +10142,6 @@ const deserializeAws_queryInvalidElasticIpFaultResponse = async (
   );
   const contents: InvalidElasticIpFault = {
     name: "InvalidElasticIpFault",
-    __type: "InvalidElasticIpFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10293,7 +10160,6 @@ const deserializeAws_queryInvalidHsmClientCertificateStateFaultResponse = async 
   );
   const contents: InvalidHsmClientCertificateStateFault = {
     name: "InvalidHsmClientCertificateStateFault",
-    __type: "InvalidHsmClientCertificateStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10312,7 +10178,6 @@ const deserializeAws_queryInvalidHsmConfigurationStateFaultResponse = async (
   );
   const contents: InvalidHsmConfigurationStateFault = {
     name: "InvalidHsmConfigurationStateFault",
-    __type: "InvalidHsmConfigurationStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10331,7 +10196,6 @@ const deserializeAws_queryInvalidReservedNodeStateFaultResponse = async (
   );
   const contents: InvalidReservedNodeStateFault = {
     name: "InvalidReservedNodeStateFault",
-    __type: "InvalidReservedNodeStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10350,7 +10214,6 @@ const deserializeAws_queryInvalidRestoreFaultResponse = async (
   );
   const contents: InvalidRestoreFault = {
     name: "InvalidRestoreFault",
-    __type: "InvalidRestoreFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10369,7 +10232,6 @@ const deserializeAws_queryInvalidRetentionPeriodFaultResponse = async (
   );
   const contents: InvalidRetentionPeriodFault = {
     name: "InvalidRetentionPeriodFault",
-    __type: "InvalidRetentionPeriodFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10388,7 +10250,6 @@ const deserializeAws_queryInvalidS3BucketNameFaultResponse = async (
   );
   const contents: InvalidS3BucketNameFault = {
     name: "InvalidS3BucketNameFault",
-    __type: "InvalidS3BucketNameFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10407,7 +10268,6 @@ const deserializeAws_queryInvalidS3KeyPrefixFaultResponse = async (
   );
   const contents: InvalidS3KeyPrefixFault = {
     name: "InvalidS3KeyPrefixFault",
-    __type: "InvalidS3KeyPrefixFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10426,7 +10286,6 @@ const deserializeAws_queryInvalidScheduleFaultResponse = async (
   );
   const contents: InvalidScheduleFault = {
     name: "InvalidScheduleFault",
-    __type: "InvalidScheduleFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10445,7 +10304,6 @@ const deserializeAws_queryInvalidScheduledActionFaultResponse = async (
   );
   const contents: InvalidScheduledActionFault = {
     name: "InvalidScheduledActionFault",
-    __type: "InvalidScheduledActionFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10464,7 +10322,6 @@ const deserializeAws_queryInvalidSnapshotCopyGrantStateFaultResponse = async (
   );
   const contents: InvalidSnapshotCopyGrantStateFault = {
     name: "InvalidSnapshotCopyGrantStateFault",
-    __type: "InvalidSnapshotCopyGrantStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10480,7 +10337,6 @@ const deserializeAws_queryInvalidSubnetResponse = async (
   const deserialized: any = deserializeAws_queryInvalidSubnet(body, context);
   const contents: InvalidSubnet = {
     name: "InvalidSubnet",
-    __type: "InvalidSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10499,7 +10355,6 @@ const deserializeAws_queryInvalidSubscriptionStateFaultResponse = async (
   );
   const contents: InvalidSubscriptionStateFault = {
     name: "InvalidSubscriptionStateFault",
-    __type: "InvalidSubscriptionStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10518,7 +10373,6 @@ const deserializeAws_queryInvalidTableRestoreArgumentFaultResponse = async (
   );
   const contents: InvalidTableRestoreArgumentFault = {
     name: "InvalidTableRestoreArgumentFault",
-    __type: "InvalidTableRestoreArgumentFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10534,7 +10388,6 @@ const deserializeAws_queryInvalidTagFaultResponse = async (
   const deserialized: any = deserializeAws_queryInvalidTagFault(body, context);
   const contents: InvalidTagFault = {
     name: "InvalidTagFault",
-    __type: "InvalidTagFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10553,7 +10406,6 @@ const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
   );
   const contents: InvalidVPCNetworkStateFault = {
     name: "InvalidVPCNetworkStateFault",
-    __type: "InvalidVPCNetworkStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10572,7 +10424,6 @@ const deserializeAws_queryLimitExceededFaultResponse = async (
   );
   const contents: LimitExceededFault = {
     name: "LimitExceededFault",
-    __type: "LimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10591,7 +10442,6 @@ const deserializeAws_queryNumberOfNodesPerClusterLimitExceededFaultResponse = as
   );
   const contents: NumberOfNodesPerClusterLimitExceededFault = {
     name: "NumberOfNodesPerClusterLimitExceededFault",
-    __type: "NumberOfNodesPerClusterLimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10610,7 +10460,6 @@ const deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse = async (
   );
   const contents: NumberOfNodesQuotaExceededFault = {
     name: "NumberOfNodesQuotaExceededFault",
-    __type: "NumberOfNodesQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10629,7 +10478,6 @@ const deserializeAws_queryReservedNodeAlreadyExistsFaultResponse = async (
   );
   const contents: ReservedNodeAlreadyExistsFault = {
     name: "ReservedNodeAlreadyExistsFault",
-    __type: "ReservedNodeAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10648,7 +10496,6 @@ const deserializeAws_queryReservedNodeAlreadyMigratedFaultResponse = async (
   );
   const contents: ReservedNodeAlreadyMigratedFault = {
     name: "ReservedNodeAlreadyMigratedFault",
-    __type: "ReservedNodeAlreadyMigratedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10667,7 +10514,6 @@ const deserializeAws_queryReservedNodeNotFoundFaultResponse = async (
   );
   const contents: ReservedNodeNotFoundFault = {
     name: "ReservedNodeNotFoundFault",
-    __type: "ReservedNodeNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10686,7 +10532,6 @@ const deserializeAws_queryReservedNodeOfferingNotFoundFaultResponse = async (
   );
   const contents: ReservedNodeOfferingNotFoundFault = {
     name: "ReservedNodeOfferingNotFoundFault",
-    __type: "ReservedNodeOfferingNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10705,7 +10550,6 @@ const deserializeAws_queryReservedNodeQuotaExceededFaultResponse = async (
   );
   const contents: ReservedNodeQuotaExceededFault = {
     name: "ReservedNodeQuotaExceededFault",
-    __type: "ReservedNodeQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10724,7 +10568,6 @@ const deserializeAws_queryResizeNotFoundFaultResponse = async (
   );
   const contents: ResizeNotFoundFault = {
     name: "ResizeNotFoundFault",
-    __type: "ResizeNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10743,7 +10586,6 @@ const deserializeAws_queryResourceNotFoundFaultResponse = async (
   );
   const contents: ResourceNotFoundFault = {
     name: "ResourceNotFoundFault",
-    __type: "ResourceNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10762,7 +10604,6 @@ const deserializeAws_querySNSInvalidTopicFaultResponse = async (
   );
   const contents: SNSInvalidTopicFault = {
     name: "SNSInvalidTopicFault",
-    __type: "SNSInvalidTopicFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10781,7 +10622,6 @@ const deserializeAws_querySNSNoAuthorizationFaultResponse = async (
   );
   const contents: SNSNoAuthorizationFault = {
     name: "SNSNoAuthorizationFault",
-    __type: "SNSNoAuthorizationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10800,7 +10640,6 @@ const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
   );
   const contents: SNSTopicArnNotFoundFault = {
     name: "SNSTopicArnNotFoundFault",
-    __type: "SNSTopicArnNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10819,7 +10658,6 @@ const deserializeAws_queryScheduleDefinitionTypeUnsupportedFaultResponse = async
   );
   const contents: ScheduleDefinitionTypeUnsupportedFault = {
     name: "ScheduleDefinitionTypeUnsupportedFault",
-    __type: "ScheduleDefinitionTypeUnsupportedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10838,7 +10676,6 @@ const deserializeAws_queryScheduledActionAlreadyExistsFaultResponse = async (
   );
   const contents: ScheduledActionAlreadyExistsFault = {
     name: "ScheduledActionAlreadyExistsFault",
-    __type: "ScheduledActionAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10857,7 +10694,6 @@ const deserializeAws_queryScheduledActionNotFoundFaultResponse = async (
   );
   const contents: ScheduledActionNotFoundFault = {
     name: "ScheduledActionNotFoundFault",
-    __type: "ScheduledActionNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10876,7 +10712,6 @@ const deserializeAws_queryScheduledActionQuotaExceededFaultResponse = async (
   );
   const contents: ScheduledActionQuotaExceededFault = {
     name: "ScheduledActionQuotaExceededFault",
-    __type: "ScheduledActionQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10895,7 +10730,6 @@ const deserializeAws_queryScheduledActionTypeUnsupportedFaultResponse = async (
   );
   const contents: ScheduledActionTypeUnsupportedFault = {
     name: "ScheduledActionTypeUnsupportedFault",
-    __type: "ScheduledActionTypeUnsupportedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10914,7 +10748,6 @@ const deserializeAws_querySnapshotCopyAlreadyDisabledFaultResponse = async (
   );
   const contents: SnapshotCopyAlreadyDisabledFault = {
     name: "SnapshotCopyAlreadyDisabledFault",
-    __type: "SnapshotCopyAlreadyDisabledFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10933,7 +10766,6 @@ const deserializeAws_querySnapshotCopyAlreadyEnabledFaultResponse = async (
   );
   const contents: SnapshotCopyAlreadyEnabledFault = {
     name: "SnapshotCopyAlreadyEnabledFault",
-    __type: "SnapshotCopyAlreadyEnabledFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10952,7 +10784,6 @@ const deserializeAws_querySnapshotCopyDisabledFaultResponse = async (
   );
   const contents: SnapshotCopyDisabledFault = {
     name: "SnapshotCopyDisabledFault",
-    __type: "SnapshotCopyDisabledFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10971,7 +10802,6 @@ const deserializeAws_querySnapshotCopyGrantAlreadyExistsFaultResponse = async (
   );
   const contents: SnapshotCopyGrantAlreadyExistsFault = {
     name: "SnapshotCopyGrantAlreadyExistsFault",
-    __type: "SnapshotCopyGrantAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -10990,7 +10820,6 @@ const deserializeAws_querySnapshotCopyGrantNotFoundFaultResponse = async (
   );
   const contents: SnapshotCopyGrantNotFoundFault = {
     name: "SnapshotCopyGrantNotFoundFault",
-    __type: "SnapshotCopyGrantNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11009,7 +10838,6 @@ const deserializeAws_querySnapshotCopyGrantQuotaExceededFaultResponse = async (
   );
   const contents: SnapshotCopyGrantQuotaExceededFault = {
     name: "SnapshotCopyGrantQuotaExceededFault",
-    __type: "SnapshotCopyGrantQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11028,7 +10856,6 @@ const deserializeAws_querySnapshotScheduleAlreadyExistsFaultResponse = async (
   );
   const contents: SnapshotScheduleAlreadyExistsFault = {
     name: "SnapshotScheduleAlreadyExistsFault",
-    __type: "SnapshotScheduleAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11047,7 +10874,6 @@ const deserializeAws_querySnapshotScheduleNotFoundFaultResponse = async (
   );
   const contents: SnapshotScheduleNotFoundFault = {
     name: "SnapshotScheduleNotFoundFault",
-    __type: "SnapshotScheduleNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11066,7 +10892,6 @@ const deserializeAws_querySnapshotScheduleQuotaExceededFaultResponse = async (
   );
   const contents: SnapshotScheduleQuotaExceededFault = {
     name: "SnapshotScheduleQuotaExceededFault",
-    __type: "SnapshotScheduleQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11085,7 +10910,6 @@ const deserializeAws_querySnapshotScheduleUpdateInProgressFaultResponse = async 
   );
   const contents: SnapshotScheduleUpdateInProgressFault = {
     name: "SnapshotScheduleUpdateInProgressFault",
-    __type: "SnapshotScheduleUpdateInProgressFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11104,7 +10928,6 @@ const deserializeAws_querySourceNotFoundFaultResponse = async (
   );
   const contents: SourceNotFoundFault = {
     name: "SourceNotFoundFault",
-    __type: "SourceNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11123,7 +10946,6 @@ const deserializeAws_querySubnetAlreadyInUseResponse = async (
   );
   const contents: SubnetAlreadyInUse = {
     name: "SubnetAlreadyInUse",
-    __type: "SubnetAlreadyInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11142,7 +10964,6 @@ const deserializeAws_querySubscriptionAlreadyExistFaultResponse = async (
   );
   const contents: SubscriptionAlreadyExistFault = {
     name: "SubscriptionAlreadyExistFault",
-    __type: "SubscriptionAlreadyExistFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11161,7 +10982,6 @@ const deserializeAws_querySubscriptionCategoryNotFoundFaultResponse = async (
   );
   const contents: SubscriptionCategoryNotFoundFault = {
     name: "SubscriptionCategoryNotFoundFault",
-    __type: "SubscriptionCategoryNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11180,7 +11000,6 @@ const deserializeAws_querySubscriptionEventIdNotFoundFaultResponse = async (
   );
   const contents: SubscriptionEventIdNotFoundFault = {
     name: "SubscriptionEventIdNotFoundFault",
-    __type: "SubscriptionEventIdNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11199,7 +11018,6 @@ const deserializeAws_querySubscriptionNotFoundFaultResponse = async (
   );
   const contents: SubscriptionNotFoundFault = {
     name: "SubscriptionNotFoundFault",
-    __type: "SubscriptionNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11218,7 +11036,6 @@ const deserializeAws_querySubscriptionSeverityNotFoundFaultResponse = async (
   );
   const contents: SubscriptionSeverityNotFoundFault = {
     name: "SubscriptionSeverityNotFoundFault",
-    __type: "SubscriptionSeverityNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11237,7 +11054,6 @@ const deserializeAws_queryTableLimitExceededFaultResponse = async (
   );
   const contents: TableLimitExceededFault = {
     name: "TableLimitExceededFault",
-    __type: "TableLimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11256,7 +11072,6 @@ const deserializeAws_queryTableRestoreNotFoundFaultResponse = async (
   );
   const contents: TableRestoreNotFoundFault = {
     name: "TableRestoreNotFoundFault",
-    __type: "TableRestoreNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11275,7 +11090,6 @@ const deserializeAws_queryTagLimitExceededFaultResponse = async (
   );
   const contents: TagLimitExceededFault = {
     name: "TagLimitExceededFault",
-    __type: "TagLimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11294,7 +11108,6 @@ const deserializeAws_queryUnauthorizedOperationResponse = async (
   );
   const contents: UnauthorizedOperation = {
     name: "UnauthorizedOperation",
-    __type: "UnauthorizedOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11313,7 +11126,6 @@ const deserializeAws_queryUnknownSnapshotCopyRegionFaultResponse = async (
   );
   const contents: UnknownSnapshotCopyRegionFault = {
     name: "UnknownSnapshotCopyRegionFault",
-    __type: "UnknownSnapshotCopyRegionFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11332,7 +11144,6 @@ const deserializeAws_queryUnsupportedOperationFaultResponse = async (
   );
   const contents: UnsupportedOperationFault = {
     name: "UnsupportedOperationFault",
-    __type: "UnsupportedOperationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -11351,7 +11162,6 @@ const deserializeAws_queryUnsupportedOptionFaultResponse = async (
   );
   const contents: UnsupportedOptionFault = {
     name: "UnsupportedOptionFault",
-    __type: "UnsupportedOptionFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

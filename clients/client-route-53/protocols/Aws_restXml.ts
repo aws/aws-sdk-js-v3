@@ -2404,7 +2404,6 @@ async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2491,7 +2490,6 @@ async function deserializeAws_restXmlChangeResourceRecordSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2570,7 +2568,6 @@ async function deserializeAws_restXmlChangeTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2644,7 +2641,6 @@ async function deserializeAws_restXmlCreateHealthCheckCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2778,7 +2774,6 @@ async function deserializeAws_restXmlCreateHostedZoneCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2876,7 +2871,6 @@ async function deserializeAws_restXmlCreateQueryLoggingConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2981,7 +2975,6 @@ async function deserializeAws_restXmlCreateReusableDelegationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3065,7 +3058,6 @@ async function deserializeAws_restXmlCreateTrafficPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3156,7 +3148,6 @@ async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3247,7 +3238,6 @@ async function deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3335,7 +3325,6 @@ async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3397,7 +3386,6 @@ async function deserializeAws_restXmlDeleteHealthCheckCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3481,7 +3469,6 @@ async function deserializeAws_restXmlDeleteHostedZoneCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3546,7 +3533,6 @@ async function deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3618,7 +3604,6 @@ async function deserializeAws_restXmlDeleteReusableDelegationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3690,7 +3675,6 @@ async function deserializeAws_restXmlDeleteTrafficPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3755,7 +3739,6 @@ async function deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3834,7 +3817,6 @@ async function deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3921,7 +3903,6 @@ async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3978,7 +3959,6 @@ async function deserializeAws_restXmlGetAccountLimitCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4041,7 +4021,6 @@ async function deserializeAws_restXmlGetChangeCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4100,7 +4079,6 @@ async function deserializeAws_restXmlGetCheckerIpRangesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4163,7 +4141,6 @@ async function deserializeAws_restXmlGetGeoLocationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4233,7 +4210,6 @@ async function deserializeAws_restXmlGetHealthCheckCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4282,7 +4258,6 @@ async function deserializeAws_restXmlGetHealthCheckCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4355,7 +4330,6 @@ async function deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4428,7 +4402,6 @@ async function deserializeAws_restXmlGetHealthCheckStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4506,7 +4479,6 @@ async function deserializeAws_restXmlGetHostedZoneCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4562,7 +4534,6 @@ async function deserializeAws_restXmlGetHostedZoneCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4639,7 +4610,6 @@ async function deserializeAws_restXmlGetHostedZoneLimitCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4705,7 +4675,6 @@ async function deserializeAws_restXmlGetQueryLoggingConfigCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4778,7 +4747,6 @@ async function deserializeAws_restXmlGetReusableDelegationSetCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4848,7 +4816,6 @@ async function deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4911,7 +4878,6 @@ async function deserializeAws_restXmlGetTrafficPolicyCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4977,7 +4943,6 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5028,7 +4993,6 @@ async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5111,7 +5075,6 @@ async function deserializeAws_restXmlListGeoLocationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5197,7 +5160,6 @@ async function deserializeAws_restXmlListHealthChecksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5290,7 +5252,6 @@ async function deserializeAws_restXmlListHostedZonesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5387,7 +5348,6 @@ async function deserializeAws_restXmlListHostedZonesByNameCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5471,7 +5431,6 @@ async function deserializeAws_restXmlListQueryLoggingConfigsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5564,7 +5523,6 @@ async function deserializeAws_restXmlListResourceRecordSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5646,7 +5604,6 @@ async function deserializeAws_restXmlListReusableDelegationSetsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5733,7 +5690,6 @@ async function deserializeAws_restXmlListTagsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5827,7 +5783,6 @@ async function deserializeAws_restXmlListTagsForResourcesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5905,7 +5860,6 @@ async function deserializeAws_restXmlListTrafficPoliciesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6000,7 +5954,6 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6098,7 +6051,6 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6200,7 +6152,6 @@ async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6285,7 +6236,6 @@ async function deserializeAws_restXmlListTrafficPolicyVersionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6367,7 +6317,6 @@ async function deserializeAws_restXmlListVPCAssociationAuthorizationsCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6457,7 +6406,6 @@ async function deserializeAws_restXmlTestDNSAnswerCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6527,7 +6475,6 @@ async function deserializeAws_restXmlUpdateHealthCheckCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6593,7 +6540,6 @@ async function deserializeAws_restXmlUpdateHostedZoneCommentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6666,7 +6612,6 @@ async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6753,7 +6698,6 @@ async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazon.webservices.dns.v20130401#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6767,7 +6711,6 @@ const deserializeAws_restXmlConcurrentModificationResponse = async (
 ): Promise<ConcurrentModification> => {
   const contents: ConcurrentModification = {
     name: "ConcurrentModification",
-    __type: "ConcurrentModification",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6782,7 +6725,6 @@ const deserializeAws_restXmlConflictingDomainExistsResponse = async (
 ): Promise<ConflictingDomainExists> => {
   const contents: ConflictingDomainExists = {
     name: "ConflictingDomainExists",
-    __type: "ConflictingDomainExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6797,7 +6739,6 @@ const deserializeAws_restXmlConflictingTypesResponse = async (
 ): Promise<ConflictingTypes> => {
   const contents: ConflictingTypes = {
     name: "ConflictingTypes",
-    __type: "ConflictingTypes",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6812,7 +6753,6 @@ const deserializeAws_restXmlDelegationSetAlreadyCreatedResponse = async (
 ): Promise<DelegationSetAlreadyCreated> => {
   const contents: DelegationSetAlreadyCreated = {
     name: "DelegationSetAlreadyCreated",
-    __type: "DelegationSetAlreadyCreated",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6827,7 +6767,6 @@ const deserializeAws_restXmlDelegationSetAlreadyReusableResponse = async (
 ): Promise<DelegationSetAlreadyReusable> => {
   const contents: DelegationSetAlreadyReusable = {
     name: "DelegationSetAlreadyReusable",
-    __type: "DelegationSetAlreadyReusable",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6842,7 +6781,6 @@ const deserializeAws_restXmlDelegationSetInUseResponse = async (
 ): Promise<DelegationSetInUse> => {
   const contents: DelegationSetInUse = {
     name: "DelegationSetInUse",
-    __type: "DelegationSetInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6857,7 +6795,6 @@ const deserializeAws_restXmlDelegationSetNotAvailableResponse = async (
 ): Promise<DelegationSetNotAvailable> => {
   const contents: DelegationSetNotAvailable = {
     name: "DelegationSetNotAvailable",
-    __type: "DelegationSetNotAvailable",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6872,7 +6809,6 @@ const deserializeAws_restXmlDelegationSetNotReusableResponse = async (
 ): Promise<DelegationSetNotReusable> => {
   const contents: DelegationSetNotReusable = {
     name: "DelegationSetNotReusable",
-    __type: "DelegationSetNotReusable",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6887,7 +6823,6 @@ const deserializeAws_restXmlHealthCheckAlreadyExistsResponse = async (
 ): Promise<HealthCheckAlreadyExists> => {
   const contents: HealthCheckAlreadyExists = {
     name: "HealthCheckAlreadyExists",
-    __type: "HealthCheckAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6902,7 +6837,6 @@ const deserializeAws_restXmlHealthCheckInUseResponse = async (
 ): Promise<HealthCheckInUse> => {
   const contents: HealthCheckInUse = {
     name: "HealthCheckInUse",
-    __type: "HealthCheckInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6917,7 +6851,6 @@ const deserializeAws_restXmlHealthCheckVersionMismatchResponse = async (
 ): Promise<HealthCheckVersionMismatch> => {
   const contents: HealthCheckVersionMismatch = {
     name: "HealthCheckVersionMismatch",
-    __type: "HealthCheckVersionMismatch",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6932,7 +6865,6 @@ const deserializeAws_restXmlHostedZoneAlreadyExistsResponse = async (
 ): Promise<HostedZoneAlreadyExists> => {
   const contents: HostedZoneAlreadyExists = {
     name: "HostedZoneAlreadyExists",
-    __type: "HostedZoneAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6947,7 +6879,6 @@ const deserializeAws_restXmlHostedZoneNotEmptyResponse = async (
 ): Promise<HostedZoneNotEmpty> => {
   const contents: HostedZoneNotEmpty = {
     name: "HostedZoneNotEmpty",
-    __type: "HostedZoneNotEmpty",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6962,7 +6893,6 @@ const deserializeAws_restXmlHostedZoneNotFoundResponse = async (
 ): Promise<HostedZoneNotFound> => {
   const contents: HostedZoneNotFound = {
     name: "HostedZoneNotFound",
-    __type: "HostedZoneNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6977,7 +6907,6 @@ const deserializeAws_restXmlHostedZoneNotPrivateResponse = async (
 ): Promise<HostedZoneNotPrivate> => {
   const contents: HostedZoneNotPrivate = {
     name: "HostedZoneNotPrivate",
-    __type: "HostedZoneNotPrivate",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -6992,7 +6921,6 @@ const deserializeAws_restXmlIncompatibleVersionResponse = async (
 ): Promise<IncompatibleVersion> => {
   const contents: IncompatibleVersion = {
     name: "IncompatibleVersion",
-    __type: "IncompatibleVersion",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7007,7 +6935,6 @@ const deserializeAws_restXmlInsufficientCloudWatchLogsResourcePolicyResponse = a
 ): Promise<InsufficientCloudWatchLogsResourcePolicy> => {
   const contents: InsufficientCloudWatchLogsResourcePolicy = {
     name: "InsufficientCloudWatchLogsResourcePolicy",
-    __type: "InsufficientCloudWatchLogsResourcePolicy",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7022,7 +6949,6 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
 ): Promise<InvalidArgument> => {
   const contents: InvalidArgument = {
     name: "InvalidArgument",
-    __type: "InvalidArgument",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7037,7 +6963,6 @@ const deserializeAws_restXmlInvalidChangeBatchResponse = async (
 ): Promise<InvalidChangeBatch> => {
   const contents: InvalidChangeBatch = {
     name: "InvalidChangeBatch",
-    __type: "InvalidChangeBatch",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
@@ -7053,7 +6978,6 @@ const deserializeAws_restXmlInvalidDomainNameResponse = async (
 ): Promise<InvalidDomainName> => {
   const contents: InvalidDomainName = {
     name: "InvalidDomainName",
-    __type: "InvalidDomainName",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7068,7 +6992,6 @@ const deserializeAws_restXmlInvalidInputResponse = async (
 ): Promise<InvalidInput> => {
   const contents: InvalidInput = {
     name: "InvalidInput",
-    __type: "InvalidInput",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7083,7 +7006,6 @@ const deserializeAws_restXmlInvalidPaginationTokenResponse = async (
 ): Promise<InvalidPaginationToken> => {
   const contents: InvalidPaginationToken = {
     name: "InvalidPaginationToken",
-    __type: "InvalidPaginationToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7098,7 +7020,6 @@ const deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse = async (
 ): Promise<InvalidTrafficPolicyDocument> => {
   const contents: InvalidTrafficPolicyDocument = {
     name: "InvalidTrafficPolicyDocument",
-    __type: "InvalidTrafficPolicyDocument",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7113,7 +7034,6 @@ const deserializeAws_restXmlInvalidVPCIdResponse = async (
 ): Promise<InvalidVPCId> => {
   const contents: InvalidVPCId = {
     name: "InvalidVPCId",
-    __type: "InvalidVPCId",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7128,7 +7048,6 @@ const deserializeAws_restXmlLastVPCAssociationResponse = async (
 ): Promise<LastVPCAssociation> => {
   const contents: LastVPCAssociation = {
     name: "LastVPCAssociation",
-    __type: "LastVPCAssociation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7143,7 +7062,6 @@ const deserializeAws_restXmlLimitsExceededResponse = async (
 ): Promise<LimitsExceeded> => {
   const contents: LimitsExceeded = {
     name: "LimitsExceeded",
-    __type: "LimitsExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7158,7 +7076,6 @@ const deserializeAws_restXmlNoSuchChangeResponse = async (
 ): Promise<NoSuchChange> => {
   const contents: NoSuchChange = {
     name: "NoSuchChange",
-    __type: "NoSuchChange",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7173,7 +7090,6 @@ const deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse = async (
 ): Promise<NoSuchCloudWatchLogsLogGroup> => {
   const contents: NoSuchCloudWatchLogsLogGroup = {
     name: "NoSuchCloudWatchLogsLogGroup",
-    __type: "NoSuchCloudWatchLogsLogGroup",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7188,7 +7104,6 @@ const deserializeAws_restXmlNoSuchDelegationSetResponse = async (
 ): Promise<NoSuchDelegationSet> => {
   const contents: NoSuchDelegationSet = {
     name: "NoSuchDelegationSet",
-    __type: "NoSuchDelegationSet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7203,7 +7118,6 @@ const deserializeAws_restXmlNoSuchGeoLocationResponse = async (
 ): Promise<NoSuchGeoLocation> => {
   const contents: NoSuchGeoLocation = {
     name: "NoSuchGeoLocation",
-    __type: "NoSuchGeoLocation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7218,7 +7132,6 @@ const deserializeAws_restXmlNoSuchHealthCheckResponse = async (
 ): Promise<NoSuchHealthCheck> => {
   const contents: NoSuchHealthCheck = {
     name: "NoSuchHealthCheck",
-    __type: "NoSuchHealthCheck",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7233,7 +7146,6 @@ const deserializeAws_restXmlNoSuchHostedZoneResponse = async (
 ): Promise<NoSuchHostedZone> => {
   const contents: NoSuchHostedZone = {
     name: "NoSuchHostedZone",
-    __type: "NoSuchHostedZone",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7248,7 +7160,6 @@ const deserializeAws_restXmlNoSuchQueryLoggingConfigResponse = async (
 ): Promise<NoSuchQueryLoggingConfig> => {
   const contents: NoSuchQueryLoggingConfig = {
     name: "NoSuchQueryLoggingConfig",
-    __type: "NoSuchQueryLoggingConfig",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7263,7 +7174,6 @@ const deserializeAws_restXmlNoSuchTrafficPolicyResponse = async (
 ): Promise<NoSuchTrafficPolicy> => {
   const contents: NoSuchTrafficPolicy = {
     name: "NoSuchTrafficPolicy",
-    __type: "NoSuchTrafficPolicy",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7278,7 +7188,6 @@ const deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse = async (
 ): Promise<NoSuchTrafficPolicyInstance> => {
   const contents: NoSuchTrafficPolicyInstance = {
     name: "NoSuchTrafficPolicyInstance",
-    __type: "NoSuchTrafficPolicyInstance",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7293,7 +7202,6 @@ const deserializeAws_restXmlNotAuthorizedExceptionResponse = async (
 ): Promise<NotAuthorizedException> => {
   const contents: NotAuthorizedException = {
     name: "NotAuthorizedException",
-    __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7308,7 +7216,6 @@ const deserializeAws_restXmlPriorRequestNotCompleteResponse = async (
 ): Promise<PriorRequestNotComplete> => {
   const contents: PriorRequestNotComplete = {
     name: "PriorRequestNotComplete",
-    __type: "PriorRequestNotComplete",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7323,7 +7230,6 @@ const deserializeAws_restXmlPublicZoneVPCAssociationResponse = async (
 ): Promise<PublicZoneVPCAssociation> => {
   const contents: PublicZoneVPCAssociation = {
     name: "PublicZoneVPCAssociation",
-    __type: "PublicZoneVPCAssociation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7338,7 +7244,6 @@ const deserializeAws_restXmlQueryLoggingConfigAlreadyExistsResponse = async (
 ): Promise<QueryLoggingConfigAlreadyExists> => {
   const contents: QueryLoggingConfigAlreadyExists = {
     name: "QueryLoggingConfigAlreadyExists",
-    __type: "QueryLoggingConfigAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7353,7 +7258,6 @@ const deserializeAws_restXmlThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7368,7 +7272,6 @@ const deserializeAws_restXmlTooManyHealthChecksResponse = async (
 ): Promise<TooManyHealthChecks> => {
   const contents: TooManyHealthChecks = {
     name: "TooManyHealthChecks",
-    __type: "TooManyHealthChecks",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7383,7 +7286,6 @@ const deserializeAws_restXmlTooManyHostedZonesResponse = async (
 ): Promise<TooManyHostedZones> => {
   const contents: TooManyHostedZones = {
     name: "TooManyHostedZones",
-    __type: "TooManyHostedZones",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7398,7 +7300,6 @@ const deserializeAws_restXmlTooManyTrafficPoliciesResponse = async (
 ): Promise<TooManyTrafficPolicies> => {
   const contents: TooManyTrafficPolicies = {
     name: "TooManyTrafficPolicies",
-    __type: "TooManyTrafficPolicies",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7413,7 +7314,6 @@ const deserializeAws_restXmlTooManyTrafficPolicyInstancesResponse = async (
 ): Promise<TooManyTrafficPolicyInstances> => {
   const contents: TooManyTrafficPolicyInstances = {
     name: "TooManyTrafficPolicyInstances",
-    __type: "TooManyTrafficPolicyInstances",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7428,7 +7328,6 @@ const deserializeAws_restXmlTooManyTrafficPolicyVersionsForCurrentPolicyResponse
 ): Promise<TooManyTrafficPolicyVersionsForCurrentPolicy> => {
   const contents: TooManyTrafficPolicyVersionsForCurrentPolicy = {
     name: "TooManyTrafficPolicyVersionsForCurrentPolicy",
-    __type: "TooManyTrafficPolicyVersionsForCurrentPolicy",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7443,7 +7342,6 @@ const deserializeAws_restXmlTooManyVPCAssociationAuthorizationsResponse = async 
 ): Promise<TooManyVPCAssociationAuthorizations> => {
   const contents: TooManyVPCAssociationAuthorizations = {
     name: "TooManyVPCAssociationAuthorizations",
-    __type: "TooManyVPCAssociationAuthorizations",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7458,7 +7356,6 @@ const deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse = async (
 ): Promise<TrafficPolicyAlreadyExists> => {
   const contents: TrafficPolicyAlreadyExists = {
     name: "TrafficPolicyAlreadyExists",
-    __type: "TrafficPolicyAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7473,7 +7370,6 @@ const deserializeAws_restXmlTrafficPolicyInUseResponse = async (
 ): Promise<TrafficPolicyInUse> => {
   const contents: TrafficPolicyInUse = {
     name: "TrafficPolicyInUse",
-    __type: "TrafficPolicyInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7488,7 +7384,6 @@ const deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse = async (
 ): Promise<TrafficPolicyInstanceAlreadyExists> => {
   const contents: TrafficPolicyInstanceAlreadyExists = {
     name: "TrafficPolicyInstanceAlreadyExists",
-    __type: "TrafficPolicyInstanceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7503,7 +7398,6 @@ const deserializeAws_restXmlVPCAssociationAuthorizationNotFoundResponse = async 
 ): Promise<VPCAssociationAuthorizationNotFound> => {
   const contents: VPCAssociationAuthorizationNotFound = {
     name: "VPCAssociationAuthorizationNotFound",
-    __type: "VPCAssociationAuthorizationNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined
@@ -7518,7 +7412,6 @@ const deserializeAws_restXmlVPCAssociationNotFoundResponse = async (
 ): Promise<VPCAssociationNotFound> => {
   const contents: VPCAssociationNotFound = {
     name: "VPCAssociationNotFound",
-    __type: "VPCAssociationNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined

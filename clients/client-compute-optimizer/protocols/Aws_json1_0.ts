@@ -306,7 +306,6 @@ async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -415,7 +414,6 @@ async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -524,7 +522,6 @@ async function deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -616,7 +613,6 @@ async function deserializeAws_json1_0GetEnrollmentStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -718,7 +714,6 @@ async function deserializeAws_json1_0GetRecommendationSummariesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -813,7 +808,6 @@ async function deserializeAws_json1_0UpdateEnrollmentStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -832,7 +826,6 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   );
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
-    __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -851,7 +844,6 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   );
   const contents: InternalServerException = {
     name: "InternalServerException",
-    __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -870,7 +862,6 @@ const deserializeAws_json1_0InvalidParameterValueExceptionResponse = async (
   );
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
-    __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -889,7 +880,6 @@ const deserializeAws_json1_0MissingAuthenticationTokenResponse = async (
   );
   const contents: MissingAuthenticationToken = {
     name: "MissingAuthenticationToken",
-    __type: "MissingAuthenticationToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -908,7 +898,6 @@ const deserializeAws_json1_0OptInRequiredExceptionResponse = async (
   );
   const contents: OptInRequiredException = {
     name: "OptInRequiredException",
-    __type: "OptInRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -927,7 +916,6 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -946,7 +934,6 @@ const deserializeAws_json1_0ServiceUnavailableExceptionResponse = async (
   );
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
-    __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -965,7 +952,6 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   );
   const contents: ThrottlingException = {
     name: "ThrottlingException",
-    __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

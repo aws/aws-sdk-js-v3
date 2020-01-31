@@ -2443,7 +2443,6 @@ async function deserializeAws_json1_1AcceptPortfolioShareCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2524,7 +2523,6 @@ async function deserializeAws_json1_1AssociateBudgetWithResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2598,7 +2596,6 @@ async function deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2672,7 +2669,6 @@ async function deserializeAws_json1_1AssociateProductWithPortfolioCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2746,7 +2742,6 @@ async function deserializeAws_json1_1AssociateServiceActionWithProvisioningArtif
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2841,7 +2836,6 @@ async function deserializeAws_json1_1AssociateTagOptionWithResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2901,7 +2895,6 @@ async function deserializeAws_json1_1BatchAssociateServiceActionWithProvisioning
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2965,7 +2958,6 @@ async function deserializeAws_json1_1BatchDisassociateServiceActionFromProvision
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3026,7 +3018,6 @@ async function deserializeAws_json1_1CopyProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3101,7 +3092,6 @@ async function deserializeAws_json1_1CreateConstraintCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3169,7 +3159,6 @@ async function deserializeAws_json1_1CreatePortfolioCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3254,7 +3243,6 @@ async function deserializeAws_json1_1CreatePortfolioShareCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3322,7 +3310,6 @@ async function deserializeAws_json1_1CreateProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3396,7 +3383,6 @@ async function deserializeAws_json1_1CreateProvisionedProductPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3470,7 +3456,6 @@ async function deserializeAws_json1_1CreateProvisioningArtifactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3534,7 +3519,6 @@ async function deserializeAws_json1_1CreateServiceActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3602,7 +3586,6 @@ async function deserializeAws_json1_1CreateTagOptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3663,7 +3646,6 @@ async function deserializeAws_json1_1DeleteConstraintCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3738,7 +3720,6 @@ async function deserializeAws_json1_1DeletePortfolioCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3816,7 +3797,6 @@ async function deserializeAws_json1_1DeletePortfolioShareCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3891,7 +3871,6 @@ async function deserializeAws_json1_1DeleteProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3958,7 +3937,6 @@ async function deserializeAws_json1_1DeleteProvisionedProductPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4032,7 +4010,6 @@ async function deserializeAws_json1_1DeleteProvisioningArtifactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4096,7 +4073,6 @@ async function deserializeAws_json1_1DeleteServiceActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4164,7 +4140,6 @@ async function deserializeAws_json1_1DeleteTagOptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4221,7 +4196,6 @@ async function deserializeAws_json1_1DescribeConstraintCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4281,7 +4255,6 @@ async function deserializeAws_json1_1DescribeCopyProductStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4335,7 +4308,6 @@ async function deserializeAws_json1_1DescribePortfolioCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4409,7 +4381,6 @@ async function deserializeAws_json1_1DescribePortfolioShareStatusCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4470,7 +4441,6 @@ async function deserializeAws_json1_1DescribeProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4527,7 +4497,6 @@ async function deserializeAws_json1_1DescribeProductAsAdminCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4591,7 +4560,6 @@ async function deserializeAws_json1_1DescribeProductViewCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4651,7 +4619,6 @@ async function deserializeAws_json1_1DescribeProvisionedProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4718,7 +4685,6 @@ async function deserializeAws_json1_1DescribeProvisionedProductPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4778,7 +4744,6 @@ async function deserializeAws_json1_1DescribeProvisioningArtifactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4845,7 +4810,6 @@ async function deserializeAws_json1_1DescribeProvisioningParametersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4899,7 +4863,6 @@ async function deserializeAws_json1_1DescribeRecordCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4956,7 +4919,6 @@ async function deserializeAws_json1_1DescribeServiceActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5023,7 +4985,6 @@ async function deserializeAws_json1_1DescribeServiceActionExecutionParametersCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5084,7 +5045,6 @@ async function deserializeAws_json1_1DescribeTagOptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5158,7 +5118,6 @@ async function deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5218,7 +5177,6 @@ async function deserializeAws_json1_1DisassociateBudgetFromResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5285,7 +5243,6 @@ async function deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5359,7 +5316,6 @@ async function deserializeAws_json1_1DisassociateProductFromPortfolioCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5419,7 +5375,6 @@ async function deserializeAws_json1_1DisassociateServiceActionFromProvisioningAr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5486,7 +5441,6 @@ async function deserializeAws_json1_1DisassociateTagOptionFromResourceCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5560,7 +5514,6 @@ async function deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5634,7 +5587,6 @@ async function deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5708,7 +5660,6 @@ async function deserializeAws_json1_1ExecuteProvisionedProductServiceActionComma
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5775,7 +5726,6 @@ async function deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5842,7 +5792,6 @@ async function deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5906,7 +5855,6 @@ async function deserializeAws_json1_1ListBudgetsForResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5973,7 +5921,6 @@ async function deserializeAws_json1_1ListConstraintsForPortfolioCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6034,7 +5981,6 @@ async function deserializeAws_json1_1ListLaunchPathsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6108,7 +6054,6 @@ async function deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6165,7 +6110,6 @@ async function deserializeAws_json1_1ListPortfolioAccessCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6219,7 +6163,6 @@ async function deserializeAws_json1_1ListPortfoliosCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6286,7 +6229,6 @@ async function deserializeAws_json1_1ListPortfoliosForProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6353,7 +6295,6 @@ async function deserializeAws_json1_1ListPrincipalsForPortfolioCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6420,7 +6361,6 @@ async function deserializeAws_json1_1ListProvisionedProductPlansCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6487,7 +6427,6 @@ async function deserializeAws_json1_1ListProvisioningArtifactsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6554,7 +6493,6 @@ async function deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6608,7 +6546,6 @@ async function deserializeAws_json1_1ListRecordHistoryCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6682,7 +6619,6 @@ async function deserializeAws_json1_1ListResourcesForTagOptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6739,7 +6675,6 @@ async function deserializeAws_json1_1ListServiceActionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6806,7 +6741,6 @@ async function deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6873,7 +6807,6 @@ async function deserializeAws_json1_1ListStackInstancesForProvisionedProductComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6934,7 +6867,6 @@ async function deserializeAws_json1_1ListTagOptionsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7002,7 +6934,6 @@ async function deserializeAws_json1_1ProvisionProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7059,7 +6990,6 @@ async function deserializeAws_json1_1RejectPortfolioShareCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7116,7 +7046,6 @@ async function deserializeAws_json1_1ScanProvisionedProductsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7170,7 +7099,6 @@ async function deserializeAws_json1_1SearchProductsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7234,7 +7162,6 @@ async function deserializeAws_json1_1SearchProductsAsAdminCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7294,7 +7221,6 @@ async function deserializeAws_json1_1SearchProvisionedProductsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7354,7 +7280,6 @@ async function deserializeAws_json1_1TerminateProvisionedProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7415,7 +7340,6 @@ async function deserializeAws_json1_1UpdateConstraintCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7490,7 +7414,6 @@ async function deserializeAws_json1_1UpdatePortfolioCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7558,7 +7481,6 @@ async function deserializeAws_json1_1UpdateProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7625,7 +7547,6 @@ async function deserializeAws_json1_1UpdateProvisionedProductCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7699,7 +7620,6 @@ async function deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7766,7 +7686,6 @@ async function deserializeAws_json1_1UpdateProvisioningArtifactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7830,7 +7749,6 @@ async function deserializeAws_json1_1UpdateServiceActionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7905,7 +7823,6 @@ async function deserializeAws_json1_1UpdateTagOptionCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7924,7 +7841,6 @@ const deserializeAws_json1_1DuplicateResourceExceptionResponse = async (
   );
   const contents: DuplicateResourceException = {
     name: "DuplicateResourceException",
-    __type: "DuplicateResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7943,7 +7859,6 @@ const deserializeAws_json1_1InvalidParametersExceptionResponse = async (
   );
   const contents: InvalidParametersException = {
     name: "InvalidParametersException",
-    __type: "InvalidParametersException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7962,7 +7877,6 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
   );
   const contents: InvalidStateException = {
     name: "InvalidStateException",
-    __type: "InvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -7981,7 +7895,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8000,7 +7913,6 @@ const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
   );
   const contents: OperationNotSupportedException = {
     name: "OperationNotSupportedException",
-    __type: "OperationNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8019,7 +7931,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8038,7 +7949,6 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   );
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
-    __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8057,7 +7967,6 @@ const deserializeAws_json1_1TagOptionNotMigratedExceptionResponse = async (
   );
   const contents: TagOptionNotMigratedException = {
     name: "TagOptionNotMigratedException",
-    __type: "TagOptionNotMigratedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

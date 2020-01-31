@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -264,7 +263,6 @@ export namespace ApiKey {
 export interface ApiKeyLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ApiKeyLimitExceededException";
   name: "ApiKeyLimitExceededException";
   $fault: "client";
   message?: string;
@@ -283,7 +281,6 @@ export namespace ApiKeyLimitExceededException {
 export interface ApiKeyValidityOutOfBoundsException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ApiKeyValidityOutOfBoundsException";
   name: "ApiKeyValidityOutOfBoundsException";
   $fault: "client";
   message?: string;
@@ -301,7 +298,6 @@ export namespace ApiKeyValidityOutOfBoundsException {
 export interface ApiLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ApiLimitExceededException";
   name: "ApiLimitExceededException";
   $fault: "client";
   message?: string;
@@ -382,7 +378,6 @@ export namespace AwsIamConfig {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -453,7 +448,6 @@ export namespace CognitoUserPoolConfig {
 export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConcurrentModificationException";
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -1707,7 +1701,6 @@ export namespace GetTypeResponse {
 export interface GraphQLSchemaException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "GraphQLSchemaException";
   name: "GraphQLSchemaException";
   $fault: "client";
   message?: string;
@@ -1809,7 +1802,6 @@ export namespace HttpDataSourceConfig {
 export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalFailureException";
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -1858,7 +1850,6 @@ export namespace LambdaDataSourceConfig {
 export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "LimitExceededException";
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2288,7 +2279,6 @@ export namespace LogConfig {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -2680,7 +2670,6 @@ export enum TypeDefinitionFormat {
 export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnauthorizedException";
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;

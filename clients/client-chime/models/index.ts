@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "AccessDeniedException";
   name: "AccessDeniedException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -326,7 +325,6 @@ export namespace Attendee {
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "BadRequestException";
   name: "BadRequestException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -671,7 +669,6 @@ export enum CallingNameStatus {
 export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ConflictException";
   name: "ConflictException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -1553,7 +1550,6 @@ export namespace EventsConfiguration {
 export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ForbiddenException";
   name: "ForbiddenException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -2994,7 +2990,6 @@ export namespace MembershipItem {
 export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "NotFoundException";
   name: "NotFoundException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -3641,7 +3636,6 @@ export namespace ResetPersonalPINResponse {
 export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceLimitExceededException";
   name: "ResourceLimitExceededException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -3830,7 +3824,6 @@ export namespace SearchAvailablePhoneNumbersResponse {
 export interface ServiceFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceFailureException";
   name: "ServiceFailureException";
   $fault: "server";
   Code?: ErrorCode | string;
@@ -3849,7 +3842,6 @@ export namespace ServiceFailureException {
 export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceUnavailableException";
   name: "ServiceUnavailableException";
   $fault: "server";
   Code?: ErrorCode | string;
@@ -3997,7 +3989,6 @@ export namespace TerminationHealth {
 export interface ThrottledClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ThrottledClientException";
   name: "ThrottledClientException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -4016,7 +4007,6 @@ export namespace ThrottledClientException {
 export interface UnauthorizedClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnauthorizedClientException";
   name: "UnauthorizedClientException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -4035,7 +4025,6 @@ export namespace UnauthorizedClientException {
 export interface UnprocessableEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "UnprocessableEntityException";
   name: "UnprocessableEntityException";
   $fault: "client";
   Code?: ErrorCode | string;

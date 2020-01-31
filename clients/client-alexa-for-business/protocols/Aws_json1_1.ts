@@ -2625,7 +2625,6 @@ async function deserializeAws_json1_1SendAnnouncementCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.a4b.endpointoperationservice#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2696,7 +2695,6 @@ async function deserializeAws_json1_1DeleteDeviceUsageDataCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.a4bendpointmanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2764,7 +2762,6 @@ async function deserializeAws_json1_1ApproveSkillCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2824,7 +2821,6 @@ async function deserializeAws_json1_1AssociateContactWithAddressBookCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2898,7 +2894,6 @@ async function deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandErr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2972,7 +2967,6 @@ async function deserializeAws_json1_1AssociateDeviceWithRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3032,7 +3026,6 @@ async function deserializeAws_json1_1AssociateSkillGroupWithRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3106,7 +3099,6 @@ async function deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3173,7 +3165,6 @@ async function deserializeAws_json1_1AssociateSkillWithUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3234,7 +3225,6 @@ async function deserializeAws_json1_1CreateAddressBookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3294,7 +3284,6 @@ async function deserializeAws_json1_1CreateBusinessReportScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3354,7 +3343,6 @@ async function deserializeAws_json1_1CreateConferenceProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3415,7 +3403,6 @@ async function deserializeAws_json1_1CreateContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3479,7 +3466,6 @@ async function deserializeAws_json1_1CreateGatewayGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3564,7 +3550,6 @@ async function deserializeAws_json1_1CreateNetworkProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3632,7 +3617,6 @@ async function deserializeAws_json1_1CreateProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3693,7 +3677,6 @@ async function deserializeAws_json1_1CreateRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3761,7 +3744,6 @@ async function deserializeAws_json1_1CreateSkillGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3829,7 +3811,6 @@ async function deserializeAws_json1_1CreateUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3890,7 +3871,6 @@ async function deserializeAws_json1_1DeleteAddressBookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3957,7 +3937,6 @@ async function deserializeAws_json1_1DeleteBusinessReportScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4017,7 +3996,6 @@ async function deserializeAws_json1_1DeleteConferenceProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4078,7 +4056,6 @@ async function deserializeAws_json1_1DeleteContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4146,7 +4123,6 @@ async function deserializeAws_json1_1DeleteDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4203,7 +4179,6 @@ async function deserializeAws_json1_1DeleteGatewayGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4274,7 +4249,6 @@ async function deserializeAws_json1_1DeleteNetworkProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4335,7 +4309,6 @@ async function deserializeAws_json1_1DeleteProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4396,7 +4369,6 @@ async function deserializeAws_json1_1DeleteRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4456,7 +4428,6 @@ async function deserializeAws_json1_1DeleteRoomSkillParameterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4523,7 +4494,6 @@ async function deserializeAws_json1_1DeleteSkillAuthorizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4584,7 +4554,6 @@ async function deserializeAws_json1_1DeleteSkillGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4645,7 +4614,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4698,7 +4666,6 @@ async function deserializeAws_json1_1DisassociateContactFromAddressBookCommandEr
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4765,7 +4732,6 @@ async function deserializeAws_json1_1DisassociateDeviceFromRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4832,7 +4798,6 @@ async function deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4899,7 +4864,6 @@ async function deserializeAws_json1_1DisassociateSkillFromUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4959,7 +4923,6 @@ async function deserializeAws_json1_1DisassociateSkillGroupFromRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5019,7 +4982,6 @@ async function deserializeAws_json1_1ForgetSmartHomeAppliancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5073,7 +5035,6 @@ async function deserializeAws_json1_1GetAddressBookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5133,7 +5094,6 @@ async function deserializeAws_json1_1GetConferencePreferenceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5190,7 +5150,6 @@ async function deserializeAws_json1_1GetConferenceProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5244,7 +5203,6 @@ async function deserializeAws_json1_1GetContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5298,7 +5256,6 @@ async function deserializeAws_json1_1GetDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5352,7 +5309,6 @@ async function deserializeAws_json1_1GetGatewayCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5406,7 +5362,6 @@ async function deserializeAws_json1_1GetGatewayGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5466,7 +5421,6 @@ async function deserializeAws_json1_1GetInvitationConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5527,7 +5481,6 @@ async function deserializeAws_json1_1GetNetworkProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5581,7 +5534,6 @@ async function deserializeAws_json1_1GetProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5635,7 +5587,6 @@ async function deserializeAws_json1_1GetRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5692,7 +5643,6 @@ async function deserializeAws_json1_1GetRoomSkillParameterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5746,7 +5696,6 @@ async function deserializeAws_json1_1GetSkillGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5799,7 +5748,6 @@ async function deserializeAws_json1_1ListBusinessReportSchedulesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5852,7 +5800,6 @@ async function deserializeAws_json1_1ListConferenceProvidersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5906,7 +5853,6 @@ async function deserializeAws_json1_1ListDeviceEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -5953,7 +5899,6 @@ async function deserializeAws_json1_1ListGatewayGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6000,7 +5945,6 @@ async function deserializeAws_json1_1ListGatewaysCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6047,7 +5991,6 @@ async function deserializeAws_json1_1ListSkillsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6100,7 +6043,6 @@ async function deserializeAws_json1_1ListSkillsStoreCategoriesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6153,7 +6095,6 @@ async function deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommandError
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6213,7 +6154,6 @@ async function deserializeAws_json1_1ListSmartHomeAppliancesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6267,7 +6207,6 @@ async function deserializeAws_json1_1ListTagsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6327,7 +6266,6 @@ async function deserializeAws_json1_1PutConferencePreferenceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6394,7 +6332,6 @@ async function deserializeAws_json1_1PutInvitationConfigurationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6451,7 +6388,6 @@ async function deserializeAws_json1_1PutRoomSkillParameterCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6515,7 +6451,6 @@ async function deserializeAws_json1_1PutSkillAuthorizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6583,7 +6518,6 @@ async function deserializeAws_json1_1RegisterAVSDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6644,7 +6578,6 @@ async function deserializeAws_json1_1RejectSkillCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6698,7 +6631,6 @@ async function deserializeAws_json1_1ResolveRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6759,7 +6691,6 @@ async function deserializeAws_json1_1RevokeInvitationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6809,7 +6740,6 @@ async function deserializeAws_json1_1SearchAddressBooksCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6856,7 +6786,6 @@ async function deserializeAws_json1_1SearchContactsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6903,7 +6832,6 @@ async function deserializeAws_json1_1SearchDevicesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -6953,7 +6881,6 @@ async function deserializeAws_json1_1SearchNetworkProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7000,7 +6927,6 @@ async function deserializeAws_json1_1SearchProfilesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7047,7 +6973,6 @@ async function deserializeAws_json1_1SearchRoomsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7094,7 +7019,6 @@ async function deserializeAws_json1_1SearchSkillGroupsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7141,7 +7065,6 @@ async function deserializeAws_json1_1SearchUsersCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7209,7 +7132,6 @@ async function deserializeAws_json1_1SendInvitationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7263,7 +7185,6 @@ async function deserializeAws_json1_1StartDeviceSyncCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7323,7 +7244,6 @@ async function deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommandErro
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7377,7 +7297,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7431,7 +7350,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7499,7 +7417,6 @@ async function deserializeAws_json1_1UpdateAddressBookCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7566,7 +7483,6 @@ async function deserializeAws_json1_1UpdateBusinessReportScheduleCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7626,7 +7542,6 @@ async function deserializeAws_json1_1UpdateConferenceProviderCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7687,7 +7602,6 @@ async function deserializeAws_json1_1UpdateContactCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7755,7 +7669,6 @@ async function deserializeAws_json1_1UpdateDeviceCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7816,7 +7729,6 @@ async function deserializeAws_json1_1UpdateGatewayCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7880,7 +7792,6 @@ async function deserializeAws_json1_1UpdateGatewayGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -7965,7 +7876,6 @@ async function deserializeAws_json1_1UpdateNetworkProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8033,7 +7943,6 @@ async function deserializeAws_json1_1UpdateProfileCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8094,7 +8003,6 @@ async function deserializeAws_json1_1UpdateRoomCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8162,7 +8070,6 @@ async function deserializeAws_json1_1UpdateSkillGroupCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -8181,7 +8088,6 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   );
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
-    __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8200,7 +8106,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8219,7 +8124,6 @@ const deserializeAws_json1_1DeviceNotRegisteredExceptionResponse = async (
   );
   const contents: DeviceNotRegisteredException = {
     name: "DeviceNotRegisteredException",
-    __type: "DeviceNotRegisteredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8238,7 +8142,6 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   );
   const contents: LimitExceededException = {
     name: "LimitExceededException",
-    __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8257,7 +8160,6 @@ const deserializeAws_json1_1NameInUseExceptionResponse = async (
   );
   const contents: NameInUseException = {
     name: "NameInUseException",
-    __type: "NameInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8276,7 +8178,6 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   );
   const contents: NotFoundException = {
     name: "NotFoundException",
-    __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8295,7 +8196,6 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   );
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
-    __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8314,7 +8214,6 @@ const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
   );
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
-    __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8333,7 +8232,6 @@ const deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse = async
   );
   const contents: InvalidCertificateAuthorityException = {
     name: "InvalidCertificateAuthorityException",
-    __type: "InvalidCertificateAuthorityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8352,7 +8250,6 @@ const deserializeAws_json1_1InvalidDeviceExceptionResponse = async (
   );
   const contents: InvalidDeviceException = {
     name: "InvalidDeviceException",
-    __type: "InvalidDeviceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8371,7 +8268,6 @@ const deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse = asy
   );
   const contents: InvalidSecretsManagerResourceException = {
     name: "InvalidSecretsManagerResourceException",
-    __type: "InvalidSecretsManagerResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8390,7 +8286,6 @@ const deserializeAws_json1_1InvalidServiceLinkedRoleStateExceptionResponse = asy
   );
   const contents: InvalidServiceLinkedRoleStateException = {
     name: "InvalidServiceLinkedRoleStateException",
-    __type: "InvalidServiceLinkedRoleStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8409,7 +8304,6 @@ const deserializeAws_json1_1InvalidUserStatusExceptionResponse = async (
   );
   const contents: InvalidUserStatusException = {
     name: "InvalidUserStatusException",
-    __type: "InvalidUserStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8428,7 +8322,6 @@ const deserializeAws_json1_1ResourceAssociatedExceptionResponse = async (
   );
   const contents: ResourceAssociatedException = {
     name: "ResourceAssociatedException",
-    __type: "ResourceAssociatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -8447,7 +8340,6 @@ const deserializeAws_json1_1SkillNotLinkedExceptionResponse = async (
   );
   const contents: SkillNotLinkedException = {
     name: "SkillNotLinkedException",
-    __type: "SkillNotLinkedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

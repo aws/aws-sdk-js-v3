@@ -434,7 +434,6 @@ async function deserializeAws_json1_1DescribeAffectedAccountsForOrganizationComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -501,7 +500,6 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -568,7 +566,6 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationComm
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -621,7 +618,6 @@ async function deserializeAws_json1_1DescribeEntityAggregatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -681,7 +677,6 @@ async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -738,7 +733,6 @@ async function deserializeAws_json1_1DescribeEventDetailsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -798,7 +792,6 @@ async function deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandE
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -862,7 +855,6 @@ async function deserializeAws_json1_1DescribeEventTypesCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -923,7 +915,6 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -990,7 +981,6 @@ async function deserializeAws_json1_1DescribeEventsForOrganizationCommandError(
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1043,7 +1033,6 @@ async function deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationC
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1095,7 +1084,6 @@ async function deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCo
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1147,7 +1135,6 @@ async function deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCom
         ...parsedBody,
         name: `${errorCode}`,
         message: parsedBody.message || parsedBody.Message || errorCode,
-        __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1166,7 +1153,6 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   );
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
-    __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1185,7 +1171,6 @@ const deserializeAws_json1_1InvalidPaginationTokenResponse = async (
   );
   const contents: InvalidPaginationToken = {
     name: "InvalidPaginationToken",
-    __type: "InvalidPaginationToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
@@ -1204,7 +1189,6 @@ const deserializeAws_json1_1UnsupportedLocaleResponse = async (
   );
   const contents: UnsupportedLocale = {
     name: "UnsupportedLocale",
-    __type: "UnsupportedLocale",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized

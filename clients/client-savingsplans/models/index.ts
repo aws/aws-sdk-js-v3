@@ -673,7 +673,6 @@ export namespace DescribeSavingsPlansResponse {
 export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "InternalServerException";
   name: "InternalServerException";
   $fault: "server";
   message: string | undefined;
@@ -719,7 +718,6 @@ export namespace ListTagsForResourceResponse {
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ResourceNotFoundException";
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
@@ -965,7 +963,6 @@ export enum SavingsPlansFilterName {
 export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ServiceQuotaExceededException";
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message: string | undefined;
@@ -1041,7 +1038,6 @@ export namespace UntagResourceResponse {
 export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
-  __type: "ValidationException";
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
